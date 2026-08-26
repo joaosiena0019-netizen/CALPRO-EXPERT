@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+<meta name="theme-color" content="#0b0f14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CALPRO EXPERT">
+
+<title>CALPRO EXPERT</title>
+
+<link rel="manifest" href="./manifest.json">
+
+<style>
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    background:#080b10;
+    color:#fff;
+    font-family:Inter,Arial,Helvetica,sans-serif;
+    touch-action:manipulation;
+    overscroll-behavior:none;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+    user-select:none;
+    -webkit-user-select:none;
+}
+
+.app{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 85% 0%,rgba(255,106,0,.12),transparent 28%),
+        radial-gradient(circle at 10% 20%,rgba(255,106,0,.06),transparent 25%),
+        #080b10;
+}
+
+/* HEADER */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    padding:18px 20px 14px;
+    background:rgba(8,11,16,.94);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo-main{
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:-1.5px;
+}
+
+.logo-main span{
+    color:#ff7200;
+}
+
+.logo-sub{
+    font-size:10px;
+    letter-spacing:5px;
+    font-weight:800;
+    color:#ddd;
+    margin-top:-2px;
+}
+
+.logo-line{
+    width:45px;
+    height:4px;
+    border-radius:10px;
+    background:#ff7200;
+    margin-top:5px;
+}
+
+/* TABS */
+
+.tabs{
+    display:flex;
+    gap:8px;
+    margin-top:16px;
+}
+
+.tab{
+    flex:1;
+    border:1px solid rgba(255,255,255,.08);
+    background:#11161d;
+    color:#8e98a6;
+    padding:12px 10px;
+    border-radius:12px;
+    font-weight:800;
+    font-size:13px;
+}
+
+.tab.active{
+    background:#ff7200;
+    color:#fff;
+    border-color:#ff7200;
+    box-shadow:0 5px 20px rgba(255,114,0,.22);
+}
+
+/* CONTENT */
+
+.content{
+    padding:18px;
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+/* CARDS */
+
+.card{
+    background:linear-gradient(145deg,#121820,#0d1218);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:14px;
+    box-shadow:0 10px 30px rgba(0,0,0,.16);
+}
+
+.card-title{
+    font-size:16px;
+    font-weight:900;
+    margin-bottom:4px;
+}
+
+.card-description{
+    color:#84909e;
+    font-size:12px;
+    margin-bottom:18px;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+}
+
+@media(min-width:750px){
+    .grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+}
+
+/* INPUT */
+
+.field{
+    margin-bottom:14px;
+}
+
+label{
+    display:block;
+    color:#a7b0bc;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+input{
+    width:100%;
+    border:1px solid #252d37;
+    outline:none;
+    background:#080c11;
+    color:#fff;
+    border-radius:12px;
+    padding:14px;
+    font-size:16px;
+    font-weight:700;
+}
+
+input:focus{
+    border-color:#ff7200;
+    box-shadow:0 0 0 3px rgba(255,114,0,.10);
+}
+
+/* BUTTON */
+
+.btn{
+    width:100%;
+    border:0;
+    border-radius:12px;
+    padding:14px;
+    background:#ff7200;
+    color:#fff;
+    font-size:14px;
+    font-weight:900;
+    box-shadow:0 6px 18px rgba(255,114,0,.18);
+}
+
+.btn:active{
+    transform:scale(.98);
+}
+
+.btn-secondary{
+    background:#1a2028;
+    box-shadow:none;
+    border:1px solid #2a323d;
+}
+
+.btn-danger{
+    background:#40171a;
+    color:#ff8585;
+    box-shadow:none;
+}
+
+/* RESULT */
+
+.result{
+    margin-top:14px;
+    padding:18px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#241306,#15100b);
+    border:1px solid rgba(255,114,0,.35);
+}
+
+.result-label{
+    color:#ff9b4b;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.result-value{
+    color:#fff;
+    font-size:30px;
+    font-weight:900;
+    margin-top:4px;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:12px;
+}
+
+.result-item{
+    background:rgba(255,255,255,.045);
+    border-radius:10px;
+    padding:10px;
+}
+
+.result-item span{
+    display:block;
+    color:#8c97a5;
+    font-size:10px;
+}
+
+.result-item strong{
+    display:block;
+    margin-top:3px;
+    font-size:14px;
+}
+
+/* QUICK MENU */
+
+.quick{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.quick-card{
+    padding:17px;
+    min-height:115px;
+    border-radius:17px;
+    border:1px solid rgba(255,255,255,.07);
+    background:#11171e;
+    transition:.15s;
+}
+
+.quick-card:active{
+    transform:scale(.97);
+}
+
+.quick-icon{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:#ff7200;
+    font-size:21px;
+    margin-bottom:12px;
+}
+
+.quick-title{
+    font-weight:900;
+    font-size:14px;
+}
+
+.quick-text{
+    margin-top:4px;
+    font-size:11px;
+    color:#7f8996;
+}
+
+/* CALCULATOR */
+
+.calc{
+    max-width:500px;
+    margin:auto;
+}
+
+.calc-display{
+    background:#05080c;
+    border:1px solid #242b34;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:12px;
+    min-height:115px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    text-align:right;
+    overflow:hidden;
+}
+
+.calc-expression{
+    color:#737e8b;
+    font-size:13px;
+    min-height:20px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.calc-value{
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:-1px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.calc-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+}
+
+.calc-btn{
+    border:1px solid #242c36;
+    background:#141a21;
+    color:#fff;
+    border-radius:13px;
+    min-height:62px;
+    font-size:19px;
+    font-weight:800;
+}
+
+.calc-btn:active{
+    transform:scale(.96);
+}
+
+.calc-btn.operator{
+    background:#1c222a;
+    color:#ff8a27;
+}
+
+.calc-btn.equal{
+    background:#ff7200;
+    border-color:#ff7200;
+}
+
+.calc-btn.memory{
+    font-size:12px;
+    color:#9aa5b2;
+}
+
+/* HISTORY */
+
+.history-empty{
+    text-align:center;
+    padding:40px 15px;
+    color:#697583;
+}
+
+.history-item{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.history-item:last-child{
+    border-bottom:0;
+}
+
+.history-type{
+    font-weight:900;
+    font-size:13px;
+}
+
+.history-info{
+    color:#737f8d;
+    font-size:11px;
+    margin-top:4px;
+}
+
+.history-value{
+    text-align:right;
+    font-weight:900;
+    color:#ff8a27;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:25px 15px 35px;
+    color:#555f6b;
+    font-size:10px;
+}
+
+.footer strong{
+    color:#ff7200;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%) translateY(100px);
+    background:#171d25;
+    border:1px solid #303944;
+    padding:12px 18px;
+    border-radius:12px;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    z-index:9999;
+    transition:.25s;
+    opacity:0;
+}
+
+.toast.show{
+    transform:translateX(-50%) translateY(0);
+    opacity:1;
+}
+
+/* BADGE */
+
+.badge{
+    display:inline-block;
+    padding:5px 8px;
+    border-radius:7px;
+    background:rgba(255,114,0,.12);
+    color:#ff8a27;
+    font-size:10px;
+    font-weight:900;
+}
+
+/* CALCULATOR MODE BUTTON */
+
+.mode-buttons{
+    display:flex;
+    gap:8px;
+    margin-bottom:12px;
+}
+
+.mode-buttons button{
+    flex:1;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #252d37;
+    background:#11161d;
+    color:#87919e;
+    font-weight:800;
+    font-size:11px;
+}
+
+.mode-buttons button.active{
+    background:#ff7200;
+    color:#fff;
+    border-color:#ff7200;
+}
+
+/* SCROLL */
+
+::-webkit-scrollbar{
+    width:5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#303944;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header class="header">
+
+    <div class="logo">
+        <div>
+            <div class="logo-main">CAL<span>PRO</span></div>
+            <div class="logo-sub">EXPERT</div>
+            <div class="logo-line"></div>
+        </div>
+
+        <span class="badge">v1.0</span>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" onclick="openTab('comercial',this)">
+            COMERCIAL
+        </button>
+
+        <button class="tab" onclick="openTab('calculadora',this)">
+            CALCULADORA
+        </button>
+    </div>
+
+</header>
+
+<main class="content">
+
+<!-- ================= COMERCIAL ================= -->
+
+<section id="comercial" class="section active">
+
+    <div class="card">
+        <div class="card-title">CALPRO EXPERT</div>
+        <div class="card-description">
+            A calculadora profissional do vendedor.
+        </div>
+
+        <div class="quick">
+
+            <button class="quick-card" onclick="showTool('preco')">
+                <div class="quick-icon">R$</div>
+                <div class="quick-title">Preço de Venda</div>
+                <div class="quick-text">
+                    Calcule o preço ideal pela margem.
+                </div>
+            </button>
+
+            <button class="quick-card" onclick="showTool('margem')">
+                <div class="quick-icon">%</div>
+                <div class="quick-title">Margem</div>
+                <div class="quick-text">
+                    Descubra sua margem de lucro.
+                </div>
+            </button>
+
+            <button class="quick-card" onclick="showTool('desconto')">
+                <div class="quick-icon">🏷</div>
+                <div class="quick-title">Desconto</div>
+                <div class="quick-text">
+                    Veja o valor final da venda.
+                </div>
+            </button>
+
+            <button class="quick-card" onclick="showTool('markup')">
+                <div class="quick-icon">↗</div>
+                <div class="quick-title">Markup</div>
+                <div class="quick-text">
+                    Calcule o preço pelo markup.
+                </div>
+            </button>
+
+            <button class="quick-card" onclick="showTool('comissao')">
+                <div class="quick-icon">$</div>
+                <div class="quick-title">Comissão</div>
+                <div class="quick-text">
+                    Calcule sua comissão.
+                </div>
+            </button>
+
+            <button class="quick-card" onclick="openTabByName('calculadora')">
+                <div class="quick-icon">÷</div>
+                <div class="quick-title">Calculadora</div>
+                <div class="quick-text">
+                    Cálculos rápidos do dia a dia.
+                </div>
+            </button>
+
+        </div>
+    </div>
+
+
+    <!-- PREÇO -->
+
+    <div id="tool-preco" class="card tool" style="display:none">
+
+        <div class="card-title">Preço de Venda</div>
+
+        <div class="card-description">
+            Informe o custo e a margem desejada.
+        </div>
+
+        <div class="field">
+            <label>Preço de custo (R$)</label>
+            <input id="preco-custo" inputmode="decimal" placeholder="0,00">
+        </div>
+
+        <div class="field">
+            <label>Margem desejada (%)</label>
+            <input id="preco-margem" inputmode="decimal" placeholder="0">
+        </div>
+
+        <button class="btn" onclick="calcularPreco()">
+            CALCULAR PREÇO
+        </button>
+
+        <div id="resultado-preco"></div>
+
+    </div>
+
+
+    <!-- MARGEM -->
+
+    <div id="tool-margem" class="card tool" style="display:none">
+
+        <div class="card-title">Margem</div>
+
+        <div class="card-description">
+            Descubra a margem real da venda.
+        </div>
+
+        <div class="field">
+            <label>Preço de custo (R$)</label>
+            <input id="margem-custo" inputmode="decimal" placeholder="0,00">
+        </div>
+
+        <div class="field">
+            <label>Preço de venda (R$)</label>
+            <input id="margem-venda" inputmode="decimal" placeholder="0,00">
+        </div>
+
+        <button class="btn" onclick="calcularMargem()">
+            CALCULAR MARGEM
+        </button>
+
+        <div id="resultado-margem"></div>
+
+    </div>
+
+
+    <!-- DESCONTO -->
+
+    <div id="tool-desconto" class="card tool" style="display:none">
+
+        <div class="card-title">Desconto</div>
+
+        <div class="card-description">
+            Veja quanto o cliente pagará após o desconto.
+        </div>
+
+        <div class="field">
+            <label>Preço original (R$)</label>
+            <input id="desc-preco" inputmode="decimal" placeholder="0,00">
+        </div>
+
+        <div class="field">
+            <label>Desconto (%)</label>
+            <input id="desc-percentual" inputmode="decimal" placeholder="0">
+        </div>
+
+        <button class="btn" onclick="calcularDesconto()">
+            CALCULAR DESCONTO
+        </button>
+
+        <div id="resultado-desconto"></div>
+
+    </div>
+
+
+    <!-- MARKUP -->
+
+    <div id="tool-markup" class="card tool" style="display:none">
+
+        <div class="card-title">Markup</div>
+
+        <div class="card-description">
+            Calcule o preço de venda pelo markup.
+        </div>
+
+        <div class="field">
+            <label>Preço de custo (R$)</label>
+            <input id="markup-custo" inputmode="decimal" placeholder="0,00">
+        </div>
+
+        <div class="field">
+            <label>Markup (%)</label>
+            <input id="markup-percentual" inputmode="decimal" placeholder="0">
+        </div>
+
+        <button class="btn" onclick="calcularMarkup()">
+            CALCULAR MARKUP
+        </button>
+
+        <div id="resultado-markup"></div>
+
+    </div>
+
+
+    <!-- COMISSÃO -->
+
+    <div id="tool-comissao" class="card tool" style="display:none">
+
+        <div class="card-title">Comissão</div>
+
+        <div class="card-description">
+            Descubra quanto você receberá pela venda.
+        </div>
+
+        <div class="field">
+            <label>Valor da venda (R$)</label>
+            <input id="comissao-venda" inputmode="decimal" placeholder="0,00">
+        </div>
+
+        <div class="field">
+            <label>Comissão (%)</label>
+            <input id="comissao-percentual" inputmode="decimal" placeholder="0">
+        </div>
+
+        <button class="btn" onclick="calcularComissao()">
+            CALCULAR COMISSÃO
+        </button>
+
+        <div id="resultado-comissao"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CALCULADORA ================= -->
+
+<section id="calculadora" class="section">
+
+    <div class="calc">
+
+        <div class="card">
+
+            <div class="card-title">Calculadora</div>
+            <div class="card-description">
+                Cálculos rápidos para o dia a dia.
+            </div>
+
+            <div class="calc-display">
+                <div id="calc-expression" class="calc-expression"></div>
+                <div id="calc-value" class="calc-value">0</div>
+            </div>
+
+            <div class="mode-buttons">
+                <button onclick="memoryClear()">MC</button>
+                <button onclick="memoryRecall()">MR</button>
+                <button onclick="memoryAdd()">M+</button>
+                <button onclick="memorySubtract()">M−</button>
+                <button onclick="memoryStore()">MS</button>
+            </div>
+
+            <div class="calc-grid">
+
+                <button class="calc-btn memory" onclick="clearCalc()">AC</button>
+                <button class="calc-btn memory" onclick="backspaceCalc()">⌫</button>
+                <button class="calc-btn operator" onclick="percentCalc()">%</button>
+                <button class="calc-btn operator" onclick="inputOperator('÷')">÷</button>
+
+                <button class="calc-btn" onclick="inputNumber('7')">7</button>
+                <button class="calc-btn" onclick="inputNumber('8')">8</button>
+                <button class="calc-btn" onclick="inputNumber('9')">9</button>
+                <button class="calc-btn operator" onclick="inputOperator('×')">×</button>
+
+                <button class="calc-btn" onclick="inputNumber('4')">4</button>
+                <button class="calc-btn" onclick="inputNumber('5')">5</button>
+                <button class="calc-btn" onclick="inputNumber('6')">6</button>
+                <button class="calc-btn operator" onclick="inputOperator('−')">−</button>
+
+                <button class="calc-btn" onclick="inputNumber('1')">1</button>
+                <button class="calc-btn" onclick="inputNumber('2')">2</button>
+                <button class="calc-btn" onclick="inputNumber('3')">3</button>
+                <button class="calc-btn operator" onclick="inputOperator('+')">+</button>
+
+                <button class="calc-btn" onclick="toggleSign()">±</button>
+                <button class="calc-btn" onclick="inputNumber('0')">0</button>
+                <button class="calc-btn" onclick="inputDecimal()">,</button>
+                <button class="calc-btn equal" onclick="calculateResult()">=</button>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                Histórico
+            </div>
+
+            <div class="card-description">
+                Seus últimos cálculos.
+            </div>
+
+            <div id="history-list"></div>
+
+            <button class="btn btn-danger"
+                    onclick="clearHistory()">
+                LIMPAR HISTÓRICO
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+    <strong>CALPRO EXPERT</strong><br>
+    Calcule certo. Venda melhor.
+</footer>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+
+<script>
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+function parseBR(value){
+
+    if(value === null || value === undefined) return 0;
+
+    let text = String(value)
+        .trim()
+        .replace(/\s/g,'')
+        .replace(/R\$/g,'')
+        .replace(/\./g,'')
+        .replace(',','.');
+
+    const number = parseFloat(text);
+
+    return isNaN(number) ? 0 : number;
+}
+
+
+function money(value){
+
+    return new Intl.NumberFormat('pt-BR',{
+        style:'currency',
+        currency:'BRL'
+    }).format(Number(value) || 0);
+
+}
+
+
+function numberBR(value, decimals=2){
+
+    return new Intl.NumberFormat('pt-BR',{
+        minimumFractionDigits:decimals,
+        maximumFractionDigits:decimals
+    }).format(Number(value) || 0);
+
+}
+
+
+function percent(value){
+
+    return numberBR(value,2) + '%';
+
+}
+
+
+function showToast(message){
+
+    const toast = document.getElementById('toast');
+
+    toast.textContent = message;
+    toast.classList.add('show');
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(()=>{
+        toast.classList.remove('show');
+    },1800);
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+function openTab(id,button){
+
+    document.querySelectorAll('.section')
+        .forEach(section => section.classList.remove('active'));
+
+    document.getElementById(id).classList.add('active');
+
+    document.querySelectorAll('.tab')
+        .forEach(tab => tab.classList.remove('active'));
+
+    if(button){
+        button.classList.add('active');
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+}
+
+
+function openTabByName(id){
+
+    const tabs = document.querySelectorAll('.tab');
+
+    if(id === 'calculadora'){
+        openTab('calculadora',tabs[1]);
+    }else{
+        openTab('comercial',tabs[0]);
+    }
+
+}
+
+
+function showTool(tool){
+
+    document.querySelectorAll('.tool')
+        .forEach(el => el.style.display='none');
+
+    const target = document.getElementById('tool-' + tool);
+
+    if(target){
+        target.style.display='block';
+
+        setTimeout(()=>{
+            target.scrollIntoView({
+                behavior:'smooth',
+                block:'start'
+            });
+        },50);
+    }
+
+}
+
+
+/* =========================================================
+   PREÇO DE VENDA
+========================================================= */
+
+function calcularPreco(){
+
+    const custo = parseBR(
+        document.getElementById('preco-custo').value
+    );
+
+    const margem = parseBR(
+        document.getElementById('preco-margem').value
+    );
+
+    if(custo <= 0 || margem < 0 || margem >= 100){
+
+        showToast('Informe valores válidos.');
+
+        return;
+    }
+
+    const venda = custo / (1 - margem / 100);
+
+    const lucro = venda - custo;
+
+    const markup = ((venda / custo) - 1) * 100;
+
+    document.getElementById('resultado-preco').innerHTML = `
+
+        <div class="result">
+
+            <div class="result-label">
+                Preço de venda
+            </div>
+
+            <div class="result-value">
+                ${money(venda)}
+            </div>
+
+            <div class="result-grid">
+
+                <div class="result-item">
+                    <span>Lucro</span>
+                    <strong>${money(lucro)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Margem</span>
+                    <strong>${percent(margem)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Markup</span>
+                    <strong>${numberBR(markup)}%</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Custo</span>
+                    <strong>${money(custo)}</strong>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    addHistory(
+        'Preço de Venda',
+        `${money(custo)} → ${money(venda)}`
+    );
+
+}
+
+
+/* =========================================================
+   MARGEM
+========================================================= */
+
+function calcularMargem(){
+
+    const custo = parseBR(
+        document.getElementById('margem-custo').value
+    );
+
+    const venda = parseBR(
+        document.getElementById('margem-venda').value
+    );
+
+    if(custo <= 0 || venda <= 0){
+
+        showToast('Informe custo e venda.');
+
+        return;
+    }
+
+    const lucro = venda - custo;
+
+    const margem = (lucro / venda) * 100;
+
+    const markup = ((venda / custo) - 1) * 100;
+
+    document.getElementById('resultado-margem').innerHTML = `
+
+        <div class="result">
+
+            <div class="result-label">
+                Margem real
+            </div>
+
+            <div class="result-value">
+                ${percent(margem)}
+            </div>
+
+            <div class="result-grid">
+
+                <div class="result-item">
+                    <span>Lucro</span>
+                    <strong>${money(lucro)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Markup</span>
+                    <strong>${numberBR(markup)}%</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Custo</span>
+                    <strong>${money(custo)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Venda</span>
+                    <strong>${money(venda)}</strong>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    addHistory(
+        'Margem',
+        `${percent(margem)} — ${money(lucro)} lucro`
+    );
+
+}
+
+
+/* =========================================================
+   DESCONTO
+========================================================= */
+
+function calcularDesconto(){
+
+    const preco = parseBR(
+        document.getElementById('desc-preco').value
+    );
+
+    const desconto = parseBR(
+        document.getElementById('desc-percentual').value
+    );
+
+    if(preco <= 0 || desconto < 0 || desconto > 100){
+
+        showToast('Informe valores válidos.');
+
+        return;
+    }
+
+    const valorDesconto = preco * desconto / 100;
+
+    const final = preco - valorDesconto;
+
+    document.getElementById('resultado-desconto').innerHTML = `
+
+        <div class="result">
+
+            <div class="result-label">
+                Preço final
+            </div>
+
+            <div class="result-value">
+                ${money(final)}
+            </div>
+
+            <div class="result-grid">
+
+                <div class="result-item">
+                    <span>Desconto</span>
+                    <strong>${money(valorDesconto)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Percentual</span>
+                    <strong>${percent(desconto)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Original</span>
+                    <strong>${money(preco)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Final</span>
+                    <strong>${money(final)}</strong>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    addHistory(
+        'Desconto',
+        `${percent(desconto)} → ${money(final)}`
+    );
+
+}
+
+
+/* =========================================================
+   MARKUP
+========================================================= */
+
+function calcularMarkup(){
+
+    const custo = parseBR(
+        document.getElementById('markup-custo').value
+    );
+
+    const markup = parseBR(
+        document.getElementById('markup-percentual').value
+    );
+
+    if(custo <= 0 || markup < 0){
+
+        showToast('Informe valores válidos.');
+
+        return;
+    }
+
+    const venda = custo * (1 + markup / 100);
+
+    const lucro = venda - custo;
+
+    const margem = (lucro / venda) * 100;
+
+    document.getElementById('resultado-markup').innerHTML = `
+
+        <div class="result">
+
+            <div class="result-label">
+                Preço de venda
+            </div>
+
+            <div class="result-value">
+                ${money(venda)}
+            </div>
+
+            <div class="result-grid">
+
+                <div class="result-item">
+                    <span>Markup</span>
+                    <strong>${percent(markup)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Margem</span>
+                    <strong>${percent(margem)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Lucro</span>
+                    <strong>${money(lucro)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Custo</span>
+                    <strong>${money(custo)}</strong>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    addHistory(
+        'Markup',
+        `${percent(markup)} → ${money(venda)}`
+    );
+
+}
+
+
+/* =========================================================
+   COMISSÃO
+========================================================= */
+
+function calcularComissao(){
+
+    const venda = parseBR(
+        document.getElementById('comissao-venda').value
+    );
+
+    const taxa = parseBR(
+        document.getElementById('comissao-percentual').value
+    );
+
+    if(venda <= 0 || taxa < 0){
+
+        showToast('Informe valores válidos.');
+
+        return;
+    }
+
+    const comissao = venda * taxa / 100;
+
+    const liquido = venda - comissao;
+
+    document.getElementById('resultado-comissao').innerHTML = `
+
+        <div class="result">
+
+            <div class="result-label">
+                Comissão
+            </div>
+
+            <div class="result-value">
+                ${money(comissao)}
+            </div>
+
+            <div class="result-grid">
+
+                <div class="result-item">
+                    <span>Venda</span>
+                    <strong>${money(venda)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Taxa</span>
+                    <strong>${percent(taxa)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Comissão</span>
+                    <strong>${money(comissao)}</strong>
+                </div>
+
+                <div class="result-item">
+                    <span>Após comissão</span>
+                    <strong>${money(liquido)}</strong>
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    addHistory(
+        'Comissão',
+        `${percent(taxa)} → ${money(comissao)}`
+    );
+
+}
+
+
+/* =========================================================
+   HISTÓRICO
+========================================================= */
+
+let historyData =
+    JSON.parse(localStorage.getItem('calpro_history') || '[]');
+
+
+function addHistory(type,value){
+
+    historyData.unshift({
+        type:type,
+        value:value,
+        date:new Date().toLocaleString('pt-BR')
+    });
+
+    historyData = historyData.slice(0,30);
+
+    localStorage.setItem(
+        'calpro_history',
+        JSON.stringify(historyData)
+    );
+
+    renderHistory();
+
+}
+
+
+function renderHistory(){
+
+    const container =
+        document.getElementById('history-list');
+
+    if(!historyData.length){
+
+        container.innerHTML = `
+            <div class="history-empty">
+                Nenhum cálculo realizado ainda.
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML =
+        historyData.map(item => `
+
+            <div class="history-item">
+
+                <div>
+                    <div class="history-type">
+                        ${escapeHTML(item.type)}
+                    </div>
+
+                    <div class="history-info">
+                        ${escapeHTML(item.date)}
+                    </div>
+                </div>
+
+                <div class="history-value">
+                    ${escapeHTML(item.value)}
+                </div>
+
+            </div>
+
+        `).join('');
+
+}
+
+
+function clearHistory(){
+
+    if(!confirm('Deseja apagar todo o histórico?')) return;
+
+    historyData = [];
+
+    localStorage.removeItem('calpro_history');
+
+    renderHistory();
+
+    showToast('Histórico apagado.');
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value)
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================================
+   CALCULADORA
+========================================================= */
+
+let calcCurrent = '0';
+let calcPrevious = null;
+let calcOperator = null;
+let calcWaiting = false;
+let calcExpression = '';
+
+let memoryValue = 0;
+
+
+function updateCalc(){
+
+    document.getElementById('calc-value').textContent =
+        calcCurrent;
+
+    document.getElementById('calc-expression').textContent =
+        calcExpression;
+}
+
+
+function inputNumber(number){
+
+    if(calcWaiting){
+
+        calcCurrent = number;
+        calcWaiting = false;
+
+    }else{
+
+        if(calcCurrent === '0'){
+            calcCurrent = number;
+        }else{
+            calcCurrent += number;
+        }
+
+    }
+
+    updateCalc();
+
+}
+
+
+function inputDecimal(){
+
+    if(calcWaiting){
+
+        calcCurrent = '0,';
+        calcWaiting = false;
+
+    }else if(!calcCurrent.includes(',')){
+
+        calcCurrent += ',';
+
+    }
+
+    updateCalc();
+
+}
+
+
+function inputOperator(operator){
+
+    const value = parseBR(calcCurrent);
+
+    if(calcOperator && calcWaiting){
+
+        calcOperator = operator;
+        calcExpression =
+            `${formatCalcNumber(calcPrevious)} ${operator}`;
+
+        updateCalc();
+
+        return;
+    }
+
+    if(calcPrevious === null){
+
+        calcPrevious = value;
+
+    }else if(calcOperator){
+
+        const result = performOperation(
+            calcPrevious,
+            value,
+            calcOperator
+        );
+
+        calcCurrent = formatCalcNumber(result);
+        calcPrevious = result;
+
+    }
+
+    calcOperator = operator;
+    calcWaiting = true;
+
+    calcExpression =
+        `${formatCalcNumber(calcPrevious)} ${operator}`;
+
+    updateCalc();
+
+}
+
+
+function performOperation(a,b,operator){
+
+    switch(operator){
+
+        case '+':
+            return a+b;
+
+        case '−':
+            return a-b;
+
+        case '×':
+            return a*b;
+
+        case '÷':
+            return b === 0 ? 0 : a/b;
+
+        default:
+            return b;
+
+    }
+
+}
+
+
+function calculateResult(){
+
+    if(calcOperator === null ||
+       calcPrevious === null) return;
+
+    const current = parseBR(calcCurrent);
+
+    const result = performOperation(
+        calcPrevious,
+        current,
+        calcOperator
+    );
+
+    const expression =
+        `${formatCalcNumber(calcPrevious)} ${calcOperator} ${formatCalcNumber(current)} =`;
+
+    calcCurrent = formatCalcNumber(result);
+
+    calcExpression = expression;
+
+    calcPrevious = null;
+    calcOperator = null;
+    calcWaiting = true;
+
+    updateCalc();
+
+    addHistory(
+        'Calculadora',
+        `${expression} ${formatCalcNumber(result)}`
+    );
+
+}
+
+
+function clearCalc(){
+
+    calcCurrent = '0';
+    calcPrevious = null;
+    calcOperator = null;
+    calcWaiting = false;
+    calcExpression = '';
+
+    updateCalc();
+
+}
+
+
+function backspaceCalc(){
+
+    if(calcWaiting) return;
+
+    if(calcCurrent.length <= 1){
+
+        calcCurrent = '0';
+
+    }else{
+
+        calcCurrent =
+            calcCurrent.slice(0,-1);
+
+    }
+
+    updateCalc();
+
+}
+
+
+function toggleSign(){
+
+    if(calcCurrent === '0') return;
+
+    if(calcCurrent.startsWith('-')){
+
+        calcCurrent = calcCurrent.slice(1);
+
+    }else{
+
+        calcCurrent = '-' + calcCurrent;
+
+    }
+
+    updateCalc();
+
+}
+
+
+function percentCalc(){
+
+    const value = parseBR(calcCurrent);
+
+    calcCurrent = formatCalcNumber(
+        value / 100
+    );
+
+    updateCalc();
+
+}
+
+
+function formatCalcNumber(value){
+
+    if(!isFinite(value)) return '0';
+
+    const rounded =
+        Math.round((value + Number.EPSILON) * 100000000) / 100000000;
+
+    return String(rounded)
+        .replace('.',',');
+
+}
+
+
+/* =========================================================
+   MEMÓRIA
+========================================================= */
+
+function memoryClear(){
+
+    memoryValue = 0;
+
+    showToast('Memória apagada.');
+
+}
+
+
+function memoryRecall(){
+
+    calcCurrent =
+        formatCalcNumber(memoryValue);
+
+    calcWaiting = false;
+
+    updateCalc();
+
+}
+
+
+function memoryAdd(){
+
+    memoryValue += parseBR(calcCurrent);
+
+    showToast('Valor adicionado à memória.');
+
+}
+
+
+function memorySubtract(){
+
+    memoryValue -= parseBR(calcCurrent);
+
+    showToast('Valor retirado da memória.');
+
+}
+
+
+function memoryStore(){
+
+    memoryValue = parseBR(calcCurrent);
+
+    showToast('Valor salvo na memória.');
+
+}
+
+
+/* =========================================================
+   TECLADO FÍSICO
+========================================================= */
+
+document.addEventListener('keydown',function(event){
+
+    const key = event.key;
+
+    if(
+        /^[0-9]$/.test(key)
+    ){
+
+        inputNumber(key);
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === ',' || key === '.'){
+
+        inputDecimal();
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === '+'){
+
+        inputOperator('+');
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === '-'){
+
+        inputOperator('−');
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === '*'){
+
+        inputOperator('×');
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === '/'){
+
+        inputOperator('÷');
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === '%'){
+
+        percentCalc();
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === 'Enter' || key === '='){
+
+        calculateResult();
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === 'Backspace'){
+
+        backspaceCalc();
+        event.preventDefault();
+        return;
+
+    }
+
+    if(key === 'Escape'){
+
+        clearCalc();
+        event.preventDefault();
+
+    }
+
+});
+
+
+/* =========================================================
+   PROTEÇÃO CONTRA ZOOM NO CELULAR
+========================================================= */
+
+document.addEventListener(
+    'dblclick',
+    function(event){
+        event.preventDefault();
+    },
+    {passive:false}
+);
+
+
+document.addEventListener(
+    'gesturestart',
+    function(event){
+        event.preventDefault();
+    },
+    {passive:false}
+);
+
+
+document.addEventListener(
+    'gesturechange',
+    function(event){
+        event.preventDefault();
+    },
+    {passive:false}
+);
+
+
+document.addEventListener(
+    'gestureend',
+    function(event){
+        event.preventDefault();
+    },
+    {passive:false}
+);
+
+
+/* =========================================================
+   PWA
+========================================================= */
+
+if('serviceWorker' in navigator){
+
+    window.addEventListener('load',()=>{
+
+        navigator.serviceWorker
+            .register('./sw.js')
+            .catch(error=>{
+                console.log(
+                    'Service Worker:',
+                    error
+                );
+            });
+
+    });
+
+}
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
+
+renderHistory();
+updateCalc();
+
+</script>
+
+</body>
+</html>
