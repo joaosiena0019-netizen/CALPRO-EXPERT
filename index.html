@@ -13,20 +13,17 @@
     user-scalable=no,
     viewport-fit=cover">
 
-<meta name="theme-color" content="#080b12">
+<meta name="theme-color" content="#070b12">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-<meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent">
-
 <title>CALPRO EXPERT</title>
+
 
 <style>
 
 /* =========================================================
-   RESET / BLOQUEIO DE ZOOM
+   RESET
 ========================================================= */
 
 *{
@@ -38,13 +35,15 @@ html,
 body{
     margin:0;
     padding:0;
+
     width:100%;
     min-height:100%;
 
-    background:#080b12;
+    background:#070b12;
+
+    color:#fff;
 
     touch-action:manipulation;
-    -ms-touch-action:manipulation;
 
     overscroll-behavior:none;
 
@@ -54,8 +53,6 @@ body{
 
 body{
     overflow-x:hidden;
-
-    color:#fff;
 
     font-family:
         Arial,
@@ -71,6 +68,7 @@ input{
 button{
     border:0;
     outline:0;
+
     cursor:pointer;
 
     touch-action:manipulation;
@@ -91,16 +89,17 @@ input{
 
 .app{
     width:100%;
-    max-width:1100px;
+    max-width:1150px;
+
     min-height:100vh;
 
-    margin:0 auto;
+    margin:auto;
 
     background:
         radial-gradient(
-            circle at 50% -10%,
-            rgba(255,120,0,.12),
-            transparent 32%
+            circle at 50% -5%,
+            rgba(255,108,0,.14),
+            transparent 30%
         );
 }
 
@@ -111,14 +110,18 @@ input{
 
 .header{
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
-    padding:16px;
+    padding:15px;
 
-    background:rgba(8,11,18,.95);
+    background:
+        rgba(7,11,18,.94);
 
     backdrop-filter:blur(18px);
+
     -webkit-backdrop-filter:blur(18px);
 
     border-bottom:
@@ -128,55 +131,66 @@ input{
 
 .brand{
     display:flex;
+
     align-items:center;
     justify-content:center;
-    gap:10px;
+
+    gap:11px;
 }
 
 .brand-logo{
-    width:54px;
-    height:54px;
+    width:56px;
+    height:56px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    border-radius:50%;
+    border-radius:17px;
 
     background:
         linear-gradient(
             145deg,
-            #ffb000,
-            #ff5b00
+            #ffbe3b,
+            #ff6400
         );
 
     box-shadow:
-        0 0 25px
-        rgba(255,105,0,.25);
+        0 12px 30px
+        rgba(255,102,0,.32),
+
+        inset 0 2px 2px
+        rgba(255,255,255,.35),
+
+        inset 0 -7px 12px
+        rgba(110,30,0,.28);
 }
 
 .brand-logo svg{
-    width:34px;
-    height:34px;
-    pointer-events:none;
+    width:39px;
+    height:39px;
 }
 
 .brand-name{
     font-size:30px;
-    font-weight:900;
+
+    font-weight:1000;
+
     letter-spacing:-1.5px;
 }
 
 .brand-name span{
-    color:#ff7800;
+    color:#ff7300;
 }
 
 .brand-sub{
     margin-top:-3px;
 
-    color:#b5bec9;
+    color:#aab3bf;
 
     font-size:9px;
+
     font-weight:900;
 
     letter-spacing:5px;
@@ -185,9 +199,9 @@ input{
 }
 
 .brand-slogan{
-    margin-top:6px;
+    margin-top:5px;
 
-    color:#727e8c;
+    color:#778291;
 
     text-align:center;
 
@@ -195,18 +209,20 @@ input{
 }
 
 .brand-slogan b{
-    color:#ff7800;
+    color:#ff7b00;
 }
 
 
 /* =========================================================
-   NAVEGAÇÃO
+   NAV
 ========================================================= */
 
 .nav{
     display:flex;
+
     gap:8px;
-    margin-top:16px;
+
+    margin-top:15px;
 }
 
 .nav button{
@@ -214,31 +230,45 @@ input{
 
     padding:12px 6px;
 
-    border-radius:12px;
+    border-radius:13px;
 
-    background:#111720;
-    color:#8e99a7;
+    background:#111823;
 
-    font-size:11px;
+    color:#8994a3;
+
+    font-size:10px;
+
     font-weight:900;
+
+    border:
+        1px solid
+        rgba(255,255,255,.05);
 }
 
 .nav button.active{
-    background:#ff7200;
+    background:
+        linear-gradient(
+            135deg,
+            #ff8b00,
+            #ff5d00
+        );
+
     color:#fff;
 
+    border-color:#ff8500;
+
     box-shadow:
-        0 8px 25px
-        rgba(255,114,0,.22);
+        0 9px 25px
+        rgba(255,95,0,.25);
 }
 
 
 /* =========================================================
-   CONTEÚDO
+   CONTENT
 ========================================================= */
 
 .content{
-    padding:16px;
+    padding:17px;
 }
 
 .page{
@@ -251,33 +281,39 @@ input{
 
 
 /* =========================================================
-   TÍTULOS
+   SECTION TITLE
 ========================================================= */
 
 .section-title{
     margin:
-        6px
+        5px
         2px
-        12px;
+        13px;
 
-    font-size:20px;
-    font-weight:900;
+    font-size:27px;
+
+    font-weight:1000;
+
+    letter-spacing:-1px;
 }
 
 .section-subtitle{
     display:block;
 
-    margin-top:4px;
+    margin-top:5px;
 
-    color:#697583;
+    color:#73808e;
 
-    font-size:10px;
+    font-size:11px;
+
     font-weight:500;
+
+    letter-spacing:0;
 }
 
 
 /* =========================================================
-   FERRAMENTAS
+   TOOL GRID
 ========================================================= */
 
 .tools{
@@ -286,223 +322,481 @@ input{
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:12px;
+    gap:13px;
 }
+
+
+/* =========================================================
+   TOOL CARD
+========================================================= */
 
 .tool{
     position:relative;
+
     overflow:hidden;
 
-    min-height:190px;
+    min-height:225px;
 
     padding:16px;
 
-    border-radius:20px;
-
     text-align:left;
 
-    color:#fff;
+    border-radius:22px;
 
     background:
         linear-gradient(
             145deg,
-            #151d28,
-            #0c1118
+            #131c29,
+            #090e15
         );
 
     border:
         1px solid
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.09);
+
+    color:#fff;
+
+    box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.20);
 
     transition:
         transform .15s,
         border-color .15s;
-
-    touch-action:manipulation;
-
-    -webkit-user-select:none;
-    user-select:none;
-}
-
-.tool:active{
-    transform:scale(.97);
 }
 
 .tool:hover{
     border-color:
-        rgba(255,114,0,.35);
+        var(--accent);
 }
 
-.tool-icon{
-    width:72px;
-    height:72px;
+.tool:active{
+    transform:scale(.975);
+}
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
 
-    margin-bottom:15px;
+/* =========================================================
+   GLOW DO CARD
+========================================================= */
 
-    border-radius:20px;
+.tool::before{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    left:-55px;
+    top:-55px;
 
     background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    box-shadow:
-        inset 0 0 20px
-        rgba(255,255,255,.025);
-}
-
-.tool-icon svg{
-    width:52px;
-    height:52px;
+        radial-gradient(
+            circle,
+            var(--glow),
+            transparent 68%
+        );
 
     pointer-events:none;
 }
 
+.tool::after{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    right:-45px;
+    bottom:-45px;
+
+    background:
+        radial-gradient(
+            circle,
+            var(--glow),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   ICON AREA
+========================================================= */
+
+.tool-top{
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+}
+
+
+/* =========================================================
+   3D ICON
+========================================================= */
+
+.tool-icon{
+    position:relative;
+
+    flex:0 0 auto;
+
+    width:82px;
+    height:82px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #263345,
+            #0c121b
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+
+        0 14px 18px
+        rgba(0,0,0,.45),
+
+        inset 0 2px 3px
+        rgba(255,255,255,.16),
+
+        inset 0 -10px 15px
+        rgba(0,0,0,.38);
+}
+
+.tool-icon::before{
+    content:"";
+
+    position:absolute;
+
+    inset:5px;
+
+    border-radius:19px;
+
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            rgba(255,255,255,.15),
+            transparent 35%
+        );
+
+    pointer-events:none;
+}
+
+.tool-icon svg{
+    position:relative;
+
+    z-index:2;
+
+    width:61px;
+    height:61px;
+
+    overflow:visible;
+
+    filter:
+        drop-shadow(
+            0 8px 6px
+            rgba(0,0,0,.5)
+        );
+}
+
+
+/* =========================================================
+   ICON COLORS
+========================================================= */
+
+.price{
+    --accent:#ff8b00;
+    --glow:rgba(255,130,0,.27);
+    color:#ff9a1f;
+}
+
+.margin{
+    --accent:#168cff;
+    --glow:rgba(0,130,255,.25);
+    color:#269aff;
+}
+
+.discount{
+    --accent:#00d992;
+    --glow:rgba(0,220,145,.24);
+    color:#00df98;
+}
+
+.markup{
+    --accent:#a83cff;
+    --glow:rgba(165,50,255,.27);
+    color:#b34cff;
+}
+
+.commission{
+    --accent:#ffc21a;
+    --glow:rgba(255,190,0,.26);
+    color:#ffc21a;
+}
+
+.calculator-tool{
+    --accent:#ff3b3b;
+    --glow:rgba(255,45,45,.25);
+    color:#ff4545;
+}
+
+
+/* =========================================================
+   TOOL TEXT
+========================================================= */
+
+.tool-info{
+    position:relative;
+
+    z-index:2;
+
+    flex:1;
+}
+
 .tool-name{
-    font-size:15px;
-    font-weight:900;
+    font-size:16px;
+
+    font-weight:1000;
+
+    color:#fff;
+
+    line-height:1.1;
 }
 
 .tool-description{
-    margin-top:5px;
+    margin-top:7px;
 
-    max-width:240px;
-
-    color:#778391;
+    color:#8995a3;
 
     font-size:10px;
 
     line-height:1.45;
 }
 
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.how{
+    position:relative;
+
+    z-index:3;
+
+    margin-top:16px;
+
+    padding:11px 12px;
+
+    min-height:55px;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        inset 0 1px
+        rgba(255,255,255,.04);
+}
+
+.how-label{
+    color:var(--accent);
+
+    font-size:8px;
+
+    font-weight:1000;
+
+    letter-spacing:1.2px;
+
+    text-transform:uppercase;
+}
+
+.how-text{
+    margin-top:4px;
+
+    color:#b9c1cb;
+
+    font-size:10px;
+
+    line-height:1.4;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
 .tool-arrow{
     position:absolute;
 
-    right:14px;
-    bottom:14px;
+    z-index:5;
 
-    width:34px;
-    height:34px;
+    right:13px;
+
+    bottom:13px;
+
+    width:36px;
+    height:36px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     border-radius:50%;
 
-    background:#ff7200;
+    color:#fff;
 
-    font-size:18px;
+    background:
+        linear-gradient(
+            145deg,
+            var(--accent),
+            color-mix(
+                in srgb,
+                var(--accent) 65%,
+                #000
+            )
+        );
+
+    box-shadow:
+        0 7px 15px
+        rgba(0,0,0,.38),
+
+        inset 0 2px 2px
+        rgba(255,255,255,.28);
+
+    font-size:19px;
+
     font-weight:900;
 }
 
 
 /* =========================================================
-   CORES DOS ÍCONES
-========================================================= */
-
-.icon-price{
-    color:#ff8a00;
-}
-
-.icon-margin{
-    color:#00a8ff;
-}
-
-.icon-discount{
-    color:#00d68f;
-}
-
-.icon-markup{
-    color:#b45cff;
-}
-
-.icon-commission{
-    color:#ffb000;
-}
-
-.icon-calculator{
-    color:#ff4545;
-}
-
-
-/* =========================================================
-   PUBLICIDADE
+   AD
 ========================================================= */
 
 .ad{
-    width:100%;
-    min-height:80px;
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:95px;
 
     margin:
-        20px
+        22px
         0
-        16px;
+        17px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    border-radius:15px;
+    border-radius:18px;
 
     border:
         1px dashed
-        rgba(255,255,255,.12);
+        rgba(255,132,0,.35);
 
     background:
-        rgba(255,255,255,.015);
+        linear-gradient(
+            110deg,
+            #17120c,
+            #10151d,
+            #17120c
+        );
 
-    color:#4d5865;
+    color:#ff8c21;
 
-    font-size:9px;
+    font-size:10px;
 
-    letter-spacing:1px;
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    text-align:center;
+}
+
+.ad::before{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    left:-100px;
+    top:-130px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,112,0,.16),
+            transparent 70%
+        );
 }
 
 
 /* =========================================================
-   APRESENTAÇÃO
+   HERO / APRESENTAÇÃO
 ========================================================= */
 
 .hero{
     position:relative;
+
     overflow:hidden;
 
     padding:22px;
-
-    margin-bottom:10px;
 
     border-radius:22px;
 
     background:
         radial-gradient(
             circle at 100% 0%,
-            rgba(255,115,0,.22),
+            rgba(255,115,0,.20),
             transparent 35%
         ),
         linear-gradient(
             145deg,
-            #161d28,
-            #0b1017
+            #151e2b,
+            #0a1018
         );
 
     border:
         1px solid
-        rgba(255,120,0,.20);
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.25);
+        rgba(255,120,0,.18);
 }
 
 .hero-tag{
-    display:inline-flex;
+    display:inline-block;
 
     padding:7px 10px;
 
@@ -517,13 +811,13 @@ input{
 
     font-weight:900;
 
-    letter-spacing:1.5px;
+    letter-spacing:1.4px;
 }
 
 .hero h1{
     margin:12px 0 0;
 
-    font-size:25px;
+    font-size:27px;
 
     line-height:1.05;
 
@@ -535,11 +829,14 @@ input{
 }
 
 .hero p{
-    max-width:620px;
+    margin:
+        10px
+        0
+        0;
 
-    margin:11px 0 0;
+    max-width:700px;
 
-    color:#84909e;
+    color:#8793a0;
 
     font-size:12px;
 
@@ -554,34 +851,35 @@ input{
 .card{
     padding:18px;
 
-    border-radius:20px;
+    border-radius:21px;
 
     background:
         linear-gradient(
             145deg,
-            #141b24,
-            #0d1219
+            #141c27,
+            #0b1118
         );
 
     border:
         1px solid
-        rgba(255,255,255,.07);
+        rgba(255,255,255,.08);
 
     margin-bottom:14px;
 }
 
 .card-title{
-    font-size:18px;
-    font-weight:900;
+    font-size:19px;
+
+    font-weight:1000;
 }
 
 .card-description{
     margin:
-        5px
+        6px
         0
         18px;
 
-    color:#7f8b99;
+    color:#7d8997;
 
     font-size:11px;
 
@@ -590,21 +888,21 @@ input{
 
 
 /* =========================================================
-   VOLTAR
+   BACK
 ========================================================= */
 
 .back{
     margin-bottom:14px;
 
     padding:
-        10px
-        13px;
+        11px
+        14px;
 
-    border-radius:11px;
+    border-radius:12px;
 
-    background:#111820;
+    background:#111923;
 
-    color:#aab4c0;
+    color:#aeb8c4;
 
     font-size:11px;
 
@@ -625,7 +923,7 @@ input{
 
     margin-bottom:7px;
 
-    color:#aab4c0;
+    color:#aeb8c4;
 
     font-size:11px;
 
@@ -634,17 +932,18 @@ input{
 
 .field input{
     width:100%;
-    height:52px;
+
+    height:53px;
 
     padding:13px;
 
-    border-radius:12px;
+    border-radius:13px;
 
     border:
         1px solid
-        #27313d;
+        #293440;
 
-    background:#080c12;
+    background:#070c12;
 
     color:#fff;
 
@@ -655,9 +954,8 @@ input{
     font-weight:700;
 
     -webkit-appearance:none;
-    appearance:none;
 
-    touch-action:manipulation;
+    appearance:none;
 }
 
 .field input:focus{
@@ -670,7 +968,7 @@ input{
 
 
 /* =========================================================
-   BOTÕES
+   CALCULATE
 ========================================================= */
 
 .calculate{
@@ -678,13 +976,13 @@ input{
 
     padding:15px;
 
-    border-radius:12px;
+    border-radius:13px;
 
     background:
         linear-gradient(
             135deg,
             #ff8b00,
-            #ff6500
+            #ff6200
         );
 
     color:#fff;
@@ -694,8 +992,8 @@ input{
     font-weight:900;
 
     box-shadow:
-        0 10px 25px
-        rgba(255,100,0,.15);
+        0 9px 22px
+        rgba(255,100,0,.18);
 }
 
 .calculate:active{
@@ -704,7 +1002,7 @@ input{
 
 
 /* =========================================================
-   RESULTADOS
+   RESULT
 ========================================================= */
 
 .result{
@@ -785,11 +1083,12 @@ input{
 
 
 /* =========================================================
-   CALCULADORA
+   CALCULATOR
 ========================================================= */
 
 .calculator{
     max-width:520px;
+
     margin:auto;
 }
 
@@ -799,6 +1098,7 @@ input{
     padding:18px;
 
     display:flex;
+
     flex-direction:column;
 
     justify-content:flex-end;
@@ -918,7 +1218,7 @@ input{
 
 
 /* =========================================================
-   HISTÓRICO
+   HISTORY
 ========================================================= */
 
 .history-empty{
@@ -947,6 +1247,7 @@ input{
 
 .history-name{
     font-size:12px;
+
     font-weight:900;
 }
 
@@ -968,11 +1269,6 @@ input{
     text-align:right;
 }
 
-
-/* =========================================================
-   LIMPAR HISTÓRICO
-========================================================= */
-
 .clear-history{
     width:100%;
 
@@ -993,10 +1289,6 @@ input{
     font-size:11px;
 
     font-weight:900;
-}
-
-.clear-history:active{
-    transform:scale(.98);
 }
 
 
@@ -1071,7 +1363,106 @@ input{
 
 
 /* =========================================================
-   BLOQUEIO VISUAL DE ZOOM
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .content{
+        padding:13px;
+    }
+
+    .tools{
+        gap:10px;
+    }
+
+    .tool{
+        min-height:238px;
+
+        padding:13px;
+    }
+
+    .tool-top{
+        gap:9px;
+
+        align-items:flex-start;
+    }
+
+    .tool-icon{
+        width:66px;
+        height:66px;
+
+        border-radius:18px;
+    }
+
+    .tool-icon svg{
+        width:49px;
+        height:49px;
+    }
+
+    .tool-name{
+        font-size:13px;
+    }
+
+    .tool-description{
+        font-size:9px;
+    }
+
+    .how{
+        margin-top:13px;
+
+        padding:9px;
+
+        min-height:67px;
+    }
+
+    .how-text{
+        font-size:9px;
+    }
+
+    .tool-arrow{
+        width:31px;
+        height:31px;
+
+        right:9px;
+        bottom:9px;
+
+        font-size:16px;
+    }
+
+    .section-title{
+        font-size:24px;
+    }
+
+    .hero h1{
+        font-size:24px;
+    }
+
+}
+
+@media(max-width:370px){
+
+    .tool{
+        min-height:250px;
+    }
+
+    .tool-top{
+        display:block;
+    }
+
+    .tool-icon{
+        margin-bottom:10px;
+    }
+
+    .tool-name{
+        font-size:12px;
+    }
+
+}
+
+
+/* =========================================================
+   ZOOM / TOUCH
 ========================================================= */
 
 html,
@@ -1089,51 +1480,8 @@ body,
 .key,
 .memory button,
 .clear-history{
+
     touch-action:manipulation;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:480px){
-
-    .brand-name{
-        font-size:27px;
-    }
-
-    .brand-logo{
-        width:50px;
-        height:50px;
-    }
-
-    .hero h1{
-        font-size:24px;
-    }
-
-    .tool{
-        min-height:180px;
-    }
-
-    .tool-icon{
-        width:65px;
-        height:65px;
-    }
-
-    .tool-icon svg{
-        width:47px;
-        height:47px;
-    }
-
-    .display-number{
-        font-size:34px;
-    }
-
-    .key{
-        min-height:58px;
-    }
-
 }
 
 </style>
@@ -1191,7 +1539,6 @@ HEADER
 
             </div>
 
-
             <div class="brand-sub">
 
                 EXPERT
@@ -1213,7 +1560,6 @@ HEADER
 
     <nav class="nav">
 
-
         <button
             class="active"
             data-page="home">
@@ -1222,7 +1568,6 @@ HEADER
 
         </button>
 
-
         <button
             data-page="calculator">
 
@@ -1230,14 +1575,12 @@ HEADER
 
         </button>
 
-
         <button
             data-page="history">
 
             HISTÓRICO
 
         </button>
-
 
     </nav>
 
@@ -1257,15 +1600,13 @@ HOME
     class="page active">
 
 
-    <!-- AS FERRAMENTAS FICAM PRIMEIRO -->
-
     <div class="section-title">
 
         Ferramentas
 
         <span class="section-subtitle">
 
-            Escolha uma ferramenta para começar
+            Tudo que você precisa para calcular melhor e vender mais.
 
         </span>
 
@@ -1276,56 +1617,81 @@ HOME
 
 
         <!-- =================================================
-        PREÇO DE VENDA
+        PREÇO
         ================================================= -->
 
         <button
-            class="tool"
+            class="tool price"
             data-tool="price">
 
 
-            <div class="tool-icon icon-price">
+            <div class="tool-top">
 
 
-                <svg
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
+                <div class="tool-icon">
 
-                    <path
-                        d="M10 18V11C10 9 12 7 14 7H31L53 29C55 31 55 34 53 36L36 53C34 55 31 55 29 53L7 31V14"/>
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
 
-                    <circle
-                        cx="18"
-                        cy="18"
-                        r="3"/>
+                        <path
+                            d="M10 18V11C10 8.8 11.8 7 14 7H31L53 29C55 31 55 34 53 36L36 53C34 55 31 55 29 53L7 31V14"/>
 
-                    <path
-                        d="M29 21C27 19 23 19 21 21C19 23 20 26 24 27L29 29C33 30 34 34 31 37C28 40 23 40 20 37"/>
+                        <circle
+                            cx="18"
+                            cy="18"
+                            r="3"/>
 
-                    <path
-                        d="M25 18V40"/>
+                        <path
+                            d="M29 21C27 19 23 19 21 21C19 23 20 26 24 27L29 29C33 30 34 34 31 37C28 40 23 40 20 37"/>
 
-                </svg>
+                        <path
+                            d="M25 18V40"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="tool-info">
+
+                    <div class="tool-name">
+
+                        Preço de Venda
+
+                    </div>
+
+                    <div class="tool-description">
+
+                        Descubra quanto cobrar
+                        pelo seu produto.
+
+                    </div>
+
+                </div>
 
 
             </div>
 
 
-            <div class="tool-name">
+            <div class="how">
 
-                Preço de Venda
+                <div class="how-label">
 
-            </div>
+                    COMO FUNCIONA
 
+                </div>
 
-            <div class="tool-description">
+                <div class="how-text">
 
-                Descubra o preço ideal
-                com sua margem.
+                    Informe o custo e sua margem.
+                    O CALPRO calcula o preço ideal de venda.
+
+                </div>
 
             </div>
 
@@ -1345,49 +1711,74 @@ HOME
         ================================================= -->
 
         <button
-            class="tool"
+            class="tool margin"
             data-tool="margin">
 
 
-            <div class="tool-icon icon-margin">
+            <div class="tool-top">
 
 
-                <svg
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
+                <div class="tool-icon">
 
-                    <path d="M10 52V39"/>
-                    <path d="M24 52V31"/>
-                    <path d="M38 52V22"/>
-                    <path d="M52 52V12"/>
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
 
-                    <path
-                        d="M8 48L23 36L35 39L53 14"/>
+                        <path d="M10 52V39"/>
+                        <path d="M24 52V31"/>
+                        <path d="M38 52V22"/>
+                        <path d="M52 52V12"/>
 
-                    <path
-                        d="M45 14H53V22"/>
+                        <path
+                            d="M8 48L23 36L35 39L53 14"/>
 
-                </svg>
+                        <path
+                            d="M45 14H53V22"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="tool-info">
+
+                    <div class="tool-name">
+
+                        Margem de Lucro
+
+                    </div>
+
+                    <div class="tool-description">
+
+                        Saiba exatamente
+                        quanto você ganha.
+
+                    </div>
+
+                </div>
 
 
             </div>
 
 
-            <div class="tool-name">
+            <div class="how">
 
-                Margem de Lucro
+                <div class="how-label">
 
-            </div>
+                    COMO FUNCIONA
 
+                </div>
 
-            <div class="tool-description">
+                <div class="how-text">
 
-                Calcule sua margem
-                de lucro em %.
+                    Informe custo e venda.
+                    Veja sua margem e o lucro obtido no produto.
+
+                </div>
 
             </div>
 
@@ -1407,59 +1798,84 @@ HOME
         ================================================= -->
 
         <button
-            class="tool"
+            class="tool discount"
             data-tool="discount">
 
 
-            <div class="tool-icon icon-discount">
+            <div class="tool-top">
 
 
-                <svg
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
+                <div class="tool-icon">
 
-                    <path
-                        d="M10 18V11C10 9 12 7 14 7H31L54 30C56 32 56 35 54 37L37 54C35 56 32 56 30 54L7 31V14"/>
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
 
-                    <circle
-                        cx="18"
-                        cy="18"
-                        r="3"/>
+                        <path
+                            d="M10 18V11C10 8.8 11.8 7 14 7H31L54 30C56 32 56 35 54 37L37 54C35 56 32 56 30 54L7 31V14"/>
 
-                    <path
-                        d="M25 39L39 25"/>
+                        <circle
+                            cx="18"
+                            cy="18"
+                            r="3"/>
 
-                    <circle
-                        cx="25"
-                        cy="25"
-                        r="2"/>
+                        <path
+                            d="M25 39L39 25"/>
 
-                    <circle
-                        cx="39"
-                        cy="39"
-                        r="2"/>
+                        <circle
+                            cx="25"
+                            cy="25"
+                            r="2"/>
 
-                </svg>
+                        <circle
+                            cx="39"
+                            cy="39"
+                            r="2"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="tool-info">
+
+                    <div class="tool-name">
+
+                        Desconto
+
+                    </div>
+
+                    <div class="tool-description">
+
+                        Descubra o valor
+                        final rapidamente.
+
+                    </div>
+
+                </div>
 
 
             </div>
 
 
-            <div class="tool-name">
+            <div class="how">
 
-                Desconto
+                <div class="how-label">
 
-            </div>
+                    COMO FUNCIONA
 
+                </div>
 
-            <div class="tool-description">
+                <div class="how-text">
 
-                Descubra rapidamente
-                o preço após desconto.
+                    Digite o preço e o percentual
+                    de desconto. Veja quanto o cliente vai pagar.
+
+                </div>
 
             </div>
 
@@ -1479,65 +1895,90 @@ HOME
         ================================================= -->
 
         <button
-            class="tool"
+            class="tool markup"
             data-tool="markup">
 
 
-            <div class="tool-icon icon-markup">
+            <div class="tool-top">
 
 
-                <svg
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
+                <div class="tool-icon">
 
-                    <rect
-                        x="9"
-                        y="35"
-                        width="10"
-                        height="17"
-                        rx="2"/>
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
 
-                    <rect
-                        x="27"
-                        y="25"
-                        width="10"
-                        height="27"
-                        rx="2"/>
+                        <rect
+                            x="9"
+                            y="35"
+                            width="10"
+                            height="17"
+                            rx="2"/>
 
-                    <rect
-                        x="45"
-                        y="13"
-                        width="10"
-                        height="39"
-                        rx="2"/>
+                        <rect
+                            x="27"
+                            y="25"
+                            width="10"
+                            height="27"
+                            rx="2"/>
 
-                    <path
-                        d="M9 28L23 19L34 23L53 9"/>
+                        <rect
+                            x="45"
+                            y="13"
+                            width="10"
+                            height="39"
+                            rx="2"/>
 
-                    <path
-                        d="M46 9H53V16"/>
+                        <path
+                            d="M9 28L23 19L34 23L53 9"/>
 
-                </svg>
+                        <path
+                            d="M46 9H53V16"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="tool-info">
+
+                    <div class="tool-name">
+
+                        Markup
+
+                    </div>
+
+                    <div class="tool-description">
+
+                        Descubra o multiplicador
+                        aplicado na venda.
+
+                    </div>
+
+                </div>
 
 
             </div>
 
 
-            <div class="tool-name">
+            <div class="how">
 
-                Markup
+                <div class="how-label">
 
-            </div>
+                    COMO FUNCIONA
 
+                </div>
 
-            <div class="tool-description">
+                <div class="how-text">
 
-                Calcule o multiplicador
-                ideal de venda.
+                    Informe custo e preço de venda.
+                    Veja o multiplicador e o acréscimo aplicado.
+
+                </div>
 
             </div>
 
@@ -1557,59 +1998,84 @@ HOME
         ================================================= -->
 
         <button
-            class="tool"
+            class="tool commission"
             data-tool="commission">
 
 
-            <div class="tool-icon icon-commission">
+            <div class="tool-top">
 
 
-                <svg
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
+                <div class="tool-icon">
 
-                    <rect
-                        x="9"
-                        y="18"
-                        width="46"
-                        height="34"
-                        rx="6"/>
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
 
-                    <path
-                        d="M18 18V14C18 11 20 9 23 9H41C44 9 46 11 46 14V18"/>
+                        <rect
+                            x="9"
+                            y="18"
+                            width="46"
+                            height="34"
+                            rx="6"/>
 
-                    <circle
-                        cx="32"
-                        cy="35"
-                        r="10"/>
+                        <path
+                            d="M18 18V14C18 11 20 9 23 9H41C44 9 46 11 46 14V18"/>
 
-                    <path
-                        d="M32 29V41"/>
+                        <circle
+                            cx="32"
+                            cy="35"
+                            r="10"/>
 
-                    <path
-                        d="M28 32C29 30 34 30 36 32C38 34 36 36 32 36C28 36 27 38 29 40C31 42 35 41 37 39"/>
+                        <path
+                            d="M32 29V41"/>
 
-                </svg>
+                        <path
+                            d="M28 32C29 30 34 30 36 32C38 34 36 36 32 36C28 36 27 38 29 40C31 42 35 41 37 39"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="tool-info">
+
+                    <div class="tool-name">
+
+                        Comissão
+
+                    </div>
+
+                    <div class="tool-description">
+
+                        Saiba quanto você
+                        recebe em cada venda.
+
+                    </div>
+
+                </div>
 
 
             </div>
 
 
-            <div class="tool-name">
+            <div class="how">
 
-                Comissão
+                <div class="how-label">
 
-            </div>
+                    COMO FUNCIONA
 
+                </div>
 
-            <div class="tool-description">
+                <div class="how-text">
 
-                Calcule sua comissão
-                sobre as vendas.
+                    Informe o valor vendido e sua comissão.
+                    O CALPRO mostra quanto você recebe.
+
+                </div>
 
             </div>
 
@@ -1629,64 +2095,89 @@ HOME
         ================================================= -->
 
         <button
-            class="tool"
+            class="tool calculator-tool"
             data-tool="calculator">
 
 
-            <div class="tool-icon icon-calculator">
+            <div class="tool-top">
 
 
-                <svg
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
+                <div class="tool-icon">
 
-                    <rect
-                        x="13"
-                        y="7"
-                        width="38"
-                        height="50"
-                        rx="6"/>
+                    <svg
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
 
-                    <rect
-                        x="20"
-                        y="14"
-                        width="24"
-                        height="9"
-                        rx="2"/>
+                        <rect
+                            x="13"
+                            y="7"
+                            width="38"
+                            height="50"
+                            rx="6"/>
 
-                    <path d="M21 30H25"/>
-                    <path d="M31 30H35"/>
-                    <path d="M41 30H45"/>
+                        <rect
+                            x="20"
+                            y="14"
+                            width="24"
+                            height="9"
+                            rx="2"/>
 
-                    <path d="M21 39H25"/>
-                    <path d="M31 39H35"/>
-                    <path d="M41 39H45"/>
+                        <path d="M21 30H25"/>
+                        <path d="M31 30H35"/>
+                        <path d="M41 30H45"/>
 
-                    <path d="M21 48H25"/>
-                    <path d="M31 48H35"/>
-                    <path d="M41 48H45"/>
+                        <path d="M21 39H25"/>
+                        <path d="M31 39H35"/>
+                        <path d="M41 39H45"/>
 
-                </svg>
+                        <path d="M21 48H25"/>
+                        <path d="M31 48H35"/>
+                        <path d="M41 48H45"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="tool-info">
+
+                    <div class="tool-name">
+
+                        Calculadora
+
+                    </div>
+
+                    <div class="tool-description">
+
+                        Faça suas contas
+                        de forma rápida.
+
+                    </div>
+
+                </div>
 
 
             </div>
 
 
-            <div class="tool-name">
+            <div class="how">
 
-                Calculadora
+                <div class="how-label">
 
-            </div>
+                    COMO FUNCIONA
 
+                </div>
 
-            <div class="tool-description">
+                <div class="how-text">
 
-                Faça contas rápidas
-                do dia a dia.
+                    Use números, vírgulas, porcentagens
+                    e operações para fazer qualquer conta rápida.
+
+                </div>
 
             </div>
 
@@ -1716,7 +2207,7 @@ HOME
 
 
     <!-- =================================================
-    APRESENTAÇÃO AGORA FICA EMBAIXO
+    APRESENTAÇÃO
     ================================================= -->
 
     <div class="hero">
@@ -1742,10 +2233,10 @@ HOME
 
         <p>
 
-            Ferramentas profissionais para
-            calcular preços, margens,
-            descontos, markup, comissão
-            e muito mais.
+            Um conjunto de ferramentas criado
+            para quem trabalha com vendas,
+            preço, margem, desconto, comissão
+            e cálculos do dia a dia.
 
         </p>
 
@@ -1757,7 +2248,7 @@ HOME
 
 
 <!-- =====================================================
-PÁGINA DAS FERRAMENTAS
+FERRAMENTAS INTERNAS
 ===================================================== -->
 
 <section
@@ -1784,22 +2275,18 @@ PÁGINA DAS FERRAMENTAS
 
         <div class="card">
 
-
             <div class="card-title">
 
                 Preço de Venda
 
             </div>
 
-
             <div class="card-description">
 
-                Informe o custo e a margem
-                desejada para descobrir
-                o preço de venda.
+                Descubra o preço de venda
+                com base no seu custo e na margem desejada.
 
             </div>
-
 
             <div class="field">
 
@@ -1816,7 +2303,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <div class="field">
 
                 <label>
@@ -1832,7 +2318,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <button
                 class="calculate"
                 id="btnPrice">
@@ -1841,18 +2326,15 @@ PÁGINA DAS FERRAMENTAS
 
             </button>
 
-
             <div
                 id="resultPrice"
                 class="result">
-
 
                 <div class="result-label">
 
                     PREÇO DE VENDA
 
                 </div>
-
 
                 <div
                     id="priceValue"
@@ -1862,9 +2344,7 @@ PÁGINA DAS FERRAMENTAS
 
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -1882,21 +2362,18 @@ PÁGINA DAS FERRAMENTAS
 
         <div class="card">
 
-
             <div class="card-title">
 
                 Margem de Lucro
 
             </div>
 
-
             <div class="card-description">
 
-                Descubra a margem real
-                da sua venda.
+                Veja quanto realmente sobra
+                da sua venda depois do custo.
 
             </div>
-
 
             <div class="field">
 
@@ -1913,7 +2390,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <div class="field">
 
                 <label>
@@ -1929,7 +2405,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <button
                 class="calculate"
                 id="btnMargin">
@@ -1938,18 +2413,15 @@ PÁGINA DAS FERRAMENTAS
 
             </button>
 
-
             <div
                 id="resultMargin"
                 class="result">
-
 
                 <div class="result-label">
 
                     MARGEM DE LUCRO
 
                 </div>
-
 
                 <div
                     id="marginValue"
@@ -1959,9 +2431,7 @@ PÁGINA DAS FERRAMENTAS
 
                 </div>
 
-
                 <div class="result-grid">
-
 
                     <div class="result-box">
 
@@ -1978,7 +2448,6 @@ PÁGINA DAS FERRAMENTAS
 
                     </div>
 
-
                     <div class="result-box">
 
                         <small>
@@ -1994,12 +2463,9 @@ PÁGINA DAS FERRAMENTAS
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -2017,21 +2483,18 @@ PÁGINA DAS FERRAMENTAS
 
         <div class="card">
 
-
             <div class="card-title">
 
                 Desconto
 
             </div>
 
-
             <div class="card-description">
 
-                Calcule o preço final
-                depois do desconto.
+                Descubra o valor final
+                de um produto após o desconto.
 
             </div>
-
 
             <div class="field">
 
@@ -2048,7 +2511,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <div class="field">
 
                 <label>
@@ -2064,7 +2526,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <button
                 class="calculate"
                 id="btnDiscount">
@@ -2073,18 +2534,15 @@ PÁGINA DAS FERRAMENTAS
 
             </button>
 
-
             <div
                 id="resultDiscount"
                 class="result">
-
 
                 <div class="result-label">
 
                     PREÇO FINAL
 
                 </div>
-
 
                 <div
                     id="discountValue"
@@ -2094,9 +2552,7 @@ PÁGINA DAS FERRAMENTAS
 
                 </div>
 
-
                 <div class="result-grid">
-
 
                     <div class="result-box">
 
@@ -2113,7 +2569,6 @@ PÁGINA DAS FERRAMENTAS
 
                     </div>
 
-
                     <div class="result-box">
 
                         <small>
@@ -2129,12 +2584,9 @@ PÁGINA DAS FERRAMENTAS
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -2152,21 +2604,18 @@ PÁGINA DAS FERRAMENTAS
 
         <div class="card">
 
-
             <div class="card-title">
 
                 Markup
 
             </div>
 
-
             <div class="card-description">
 
-                Descubra o multiplicador
-                aplicado sobre o custo.
+                Descubra quantas vezes
+                o custo está sendo multiplicado na venda.
 
             </div>
-
 
             <div class="field">
 
@@ -2183,7 +2632,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <div class="field">
 
                 <label>
@@ -2199,7 +2647,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <button
                 class="calculate"
                 id="btnMarkup">
@@ -2208,18 +2655,15 @@ PÁGINA DAS FERRAMENTAS
 
             </button>
 
-
             <div
                 id="resultMarkup"
                 class="result">
-
 
                 <div class="result-label">
 
                     MARKUP
 
                 </div>
-
 
                 <div
                     id="markupValue"
@@ -2229,9 +2673,7 @@ PÁGINA DAS FERRAMENTAS
 
                 </div>
 
-
                 <div class="result-grid">
-
 
                     <div class="result-box">
 
@@ -2248,7 +2690,6 @@ PÁGINA DAS FERRAMENTAS
 
                     </div>
 
-
                     <div class="result-box">
 
                         <small>
@@ -2264,12 +2705,9 @@ PÁGINA DAS FERRAMENTAS
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -2287,21 +2725,18 @@ PÁGINA DAS FERRAMENTAS
 
         <div class="card">
 
-
             <div class="card-title">
 
                 Comissão
 
             </div>
 
-
             <div class="card-description">
 
-                Calcule quanto você recebe
-                sobre uma venda.
+                Descubra exatamente
+                quanto você recebe sobre uma venda.
 
             </div>
-
 
             <div class="field">
 
@@ -2318,7 +2753,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <div class="field">
 
                 <label>
@@ -2334,7 +2768,6 @@ PÁGINA DAS FERRAMENTAS
 
             </div>
 
-
             <button
                 class="calculate"
                 id="btnCommission">
@@ -2343,18 +2776,15 @@ PÁGINA DAS FERRAMENTAS
 
             </button>
 
-
             <div
                 id="resultCommission"
                 class="result">
-
 
                 <div class="result-label">
 
                     SUA COMISSÃO
 
                 </div>
-
 
                 <div
                     id="commissionValue"
@@ -2364,9 +2794,7 @@ PÁGINA DAS FERRAMENTAS
 
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -2401,19 +2829,18 @@ CALCULADORA
 
             <div class="card-description">
 
-                Cálculos rápidos e precisos.
+                Faça cálculos rápidos
+                usando números, vírgulas, porcentagens e operações.
 
             </div>
 
 
             <div class="display">
 
-
                 <div
                     id="expression"
                     class="expression">
                 </div>
-
 
                 <div
                     id="display"
@@ -2423,12 +2850,10 @@ CALCULADORA
 
                 </div>
 
-
             </div>
 
 
             <div class="memory">
-
 
                 <button data-memory="clear">
                     MC
@@ -2450,12 +2875,10 @@ CALCULADORA
                     MS
                 </button>
 
-
             </div>
 
 
             <div class="keypad">
-
 
                 <button
                     class="key special"
@@ -2465,7 +2888,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key special"
                     data-action="backspace">
@@ -2474,7 +2896,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key operator"
                     data-action="percent">
@@ -2482,7 +2903,6 @@ CALCULADORA
                     %
 
                 </button>
-
 
                 <button
                     class="key operator"
@@ -2501,7 +2921,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key"
                     data-number="8">
@@ -2510,7 +2929,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key"
                     data-number="9">
@@ -2518,7 +2936,6 @@ CALCULADORA
                     9
 
                 </button>
-
 
                 <button
                     class="key operator"
@@ -2537,7 +2954,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key"
                     data-number="5">
@@ -2546,7 +2962,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key"
                     data-number="6">
@@ -2554,7 +2969,6 @@ CALCULADORA
                     6
 
                 </button>
-
 
                 <button
                     class="key operator"
@@ -2573,7 +2987,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key"
                     data-number="2">
@@ -2582,7 +2995,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key"
                     data-number="3">
@@ -2590,7 +3002,6 @@ CALCULADORA
                     3
 
                 </button>
-
 
                 <button
                     class="key operator"
@@ -2609,7 +3020,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key"
                     data-number="0">
@@ -2617,7 +3027,6 @@ CALCULADORA
                     0
 
                 </button>
-
 
                 <button
                     class="key"
@@ -2627,7 +3036,6 @@ CALCULADORA
 
                 </button>
 
-
                 <button
                     class="key equal"
                     data-action="equals">
@@ -2635,7 +3043,6 @@ CALCULADORA
                     =
 
                 </button>
-
 
             </div>
 
@@ -2721,7 +3128,7 @@ HISTÓRICO
 <script>
 
 /* =========================================================
-   NÚMEROS
+   CONVERSÃO NUMÉRICA
 ========================================================= */
 
 function parseNumber(value){
@@ -2931,7 +3338,7 @@ navButtons.forEach(
 
 
 /* =========================================================
-   FERRAMENTAS
+   ABRIR FERRAMENTAS
 ========================================================= */
 
 const toolButtons =
@@ -3019,7 +3426,7 @@ document
 
 
 /* =========================================================
-   PREÇO DE VENDA
+   PREÇO
 ========================================================= */
 
 document
@@ -3504,9 +3911,7 @@ try{
         );
 
     if(
-        !Array.isArray(
-            historyData
-        )
+        !Array.isArray(historyData)
     ){
 
         historyData = [];
@@ -3598,9 +4003,7 @@ function renderHistory(){
                         <div>
 
                             <div class="history-name">
-
                                 ${safe(item.type)}
-
                             </div>
 
                             <div class="history-info">
@@ -3756,7 +4159,6 @@ function updateCalculator(){
 
     expressionElement.textContent =
         expression;
-
 }
 
 
@@ -3773,9 +4175,7 @@ function displayNumber(value){
         Number(value);
 
     if(
-        !Number.isFinite(
-            number
-        )
+        !Number.isFinite(number)
     ){
 
         return value;
@@ -3827,7 +4227,6 @@ function inputNumber(number){
     }
 
     updateCalculator();
-
 }
 
 
@@ -3863,7 +4262,6 @@ function decimal(){
     }
 
     updateCalculator();
-
 }
 
 
@@ -3879,35 +4277,21 @@ function calculate(
     b =
         Number(b);
 
-    if(
-        op === '+'
-    ){
-
+    if(op === '+'){
         return a + b;
     }
 
-    if(
-        op === '-'
-    ){
-
+    if(op === '-'){
         return a - b;
     }
 
-    if(
-        op === '*'
-    ){
-
+    if(op === '*'){
         return a * b;
     }
 
-    if(
-        op === '/'
-    ){
+    if(op === '/'){
 
-        if(
-            b === 0
-        ){
-
+        if(b === 0){
             return null;
         }
 
@@ -3991,30 +4375,20 @@ function selectOperator(op){
         operatorSymbol(op);
 
     updateCalculator();
-
 }
 
 
 function operatorSymbol(op){
 
-    if(
-        op === '*'
-    ){
-
+    if(op === '*'){
         return '×';
     }
 
-    if(
-        op === '/'
-    ){
-
+    if(op === '/'){
         return '÷';
     }
 
-    if(
-        op === '-'
-    ){
-
+    if(op === '-'){
         return '−';
     }
 
@@ -4106,7 +4480,6 @@ function equals(){
             String(result)
         )
     );
-
 }
 
 
@@ -4116,9 +4489,7 @@ function percentage(){
         Number(current);
 
     if(
-        !Number.isFinite(
-            value
-        )
+        !Number.isFinite(value)
     ){
 
         return;
@@ -4148,7 +4519,6 @@ function percentage(){
                     value /
                     100
                 );
-
         }
 
     }else{
@@ -4158,11 +4528,9 @@ function percentage(){
                 value /
                 100
             );
-
     }
 
     updateCalculator();
-
 }
 
 
@@ -4184,16 +4552,12 @@ function clearCalculator(){
         '';
 
     updateCalculator();
-
 }
 
 
 function backspace(){
 
-    if(
-        waiting
-    ){
-
+    if(waiting){
         return;
     }
 
@@ -4212,11 +4576,9 @@ function backspace(){
                 0,
                 -1
             );
-
     }
 
     updateCalculator();
-
 }
 
 
@@ -4242,16 +4604,14 @@ function toggleSign(){
         current =
             '-' +
             current;
-
     }
 
     updateCalculator();
-
 }
 
 
 /* =========================================================
-   BOTÕES CALCULADORA
+   BOTÕES DA CALCULADORA
 ========================================================= */
 
 document
@@ -4386,7 +4746,6 @@ document
                         toast(
                             'Memória apagada.'
                         );
-
                     }
 
                     if(
@@ -4394,15 +4753,12 @@ document
                     ){
 
                         current =
-                            String(
-                                memory
-                            );
+                            String(memory);
 
                         waiting =
                             false;
 
                         updateCalculator();
-
                     }
 
                     if(
@@ -4416,7 +4772,6 @@ document
                         toast(
                             'Valor adicionado.'
                         );
-
                     }
 
                     if(
@@ -4430,7 +4785,6 @@ document
                         toast(
                             'Valor retirado.'
                         );
-
                     }
 
                     if(
@@ -4444,7 +4798,6 @@ document
                         toast(
                             'Valor salvo.'
                         );
-
                     }
 
                 }
@@ -4455,7 +4808,7 @@ document
 
 
 /* =========================================================
-   INPUTS
+   CAMPOS NUMÉRICOS
 ========================================================= */
 
 document.addEventListener(
@@ -4509,12 +4862,10 @@ document.addEventListener(
             value =
                 before +
                 after;
-
         }
 
         input.value =
             value;
-
     }
 );
 
@@ -4569,9 +4920,7 @@ document.addEventListener(
             return;
         }
 
-        if(
-            key === '+'
-        ){
+        if(key === '+'){
 
             selectOperator('+');
 
@@ -4580,9 +4929,7 @@ document.addEventListener(
             return;
         }
 
-        if(
-            key === '-'
-        ){
+        if(key === '-'){
 
             selectOperator('-');
 
@@ -4603,9 +4950,7 @@ document.addEventListener(
             return;
         }
 
-        if(
-            key === '/'
-        ){
+        if(key === '/'){
 
             selectOperator('/');
 
@@ -4614,9 +4959,7 @@ document.addEventListener(
             return;
         }
 
-        if(
-            key === '%'
-        ){
+        if(key === '%'){
 
             percentage();
 
@@ -4664,10 +5007,8 @@ document.addEventListener(
 
 
 /* =========================================================
-   BLOQUEIO FORTE DE ZOOM
+   BLOQUEIO DE ZOOM
 ========================================================= */
-
-/* PINCH ZOOM - SAFARI / IOS */
 
 document.addEventListener(
     'gesturestart',
@@ -4706,10 +5047,7 @@ document.addEventListener(
 );
 
 
-/* DUPLO TOQUE */
-
-let lastTouchEnd =
-    0;
+let lastTouchEnd = 0;
 
 document.addEventListener(
     'touchend',
@@ -4736,8 +5074,6 @@ document.addEventListener(
 );
 
 
-/* DOUBLE CLICK */
-
 document.addEventListener(
     'dblclick',
     function(event){
@@ -4750,8 +5086,6 @@ document.addEventListener(
     }
 );
 
-
-/* CTRL + RODA */
 
 document.addEventListener(
     'wheel',
@@ -4771,8 +5105,6 @@ document.addEventListener(
     }
 );
 
-
-/* CTRL + / - / 0 */
 
 document.addEventListener(
     'keydown',
@@ -4805,6 +5137,7 @@ updateCalculator();
 showPage('home');
 
 </script>
+
 
 </body>
 </html>
