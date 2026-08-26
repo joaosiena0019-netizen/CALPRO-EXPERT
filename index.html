@@ -4,47 +4,44 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 
-<meta name="theme-color" content="#080b10">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#080b12">
 
 <title>CALPRO EXPERT</title>
 
 <style>
 
-/* =====================================================
-BASE
-===================================================== */
+/* =========================================================
+   BASE
+========================================================= */
 
 *{
     box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html{
     margin:0;
     padding:0;
-    width:100%;
-    min-height:100%;
-
-    background:#080b10;
-    color:#fff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    overscroll-behavior:none;
+    background:#080b12;
 }
 
 body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(255,120,0,.12),
+            transparent 32%
+        ),
+        #080b12;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
+    overscroll-behavior:none;
 }
 
 button,
@@ -54,8 +51,7 @@ input{
 
 button{
     border:0;
-    outline:none;
-    cursor:pointer;
+    outline:0;
 }
 
 input{
@@ -64,275 +60,342 @@ input{
 }
 
 
-/* =====================================================
-APP
-===================================================== */
+/* =========================================================
+   APP
+========================================================= */
 
 .app{
     width:100%;
     max-width:1100px;
-    min-height:100vh;
     margin:auto;
-
-    background:
-        radial-gradient(
-            circle at 90% 0%,
-            rgba(255,114,0,.14),
-            transparent 28%
-        ),
-        #080b10;
+    min-height:100vh;
 }
 
 
-/* =====================================================
-HEADER
-===================================================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header{
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:1000;
 
-    padding:18px;
+    padding:16px;
 
-    background:rgba(8,11,16,.97);
+    background:rgba(8,11,18,.94);
+    backdrop-filter:blur(18px);
 
-    backdrop-filter:blur(15px);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.logo-main{
+.brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.brand-logo{
+    width:55px;
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffb000,
+            #ff5b00
+        );
+
+    box-shadow:
+        0 0 25px rgba(255,105,0,.25);
+}
+
+.brand-logo svg{
+    width:34px;
+    height:34px;
+}
+
+.brand-name{
     font-size:30px;
     font-weight:900;
     letter-spacing:-1.5px;
 }
 
-.logo-main span{
-    color:#ff7200;
+.brand-name span{
+    color:#ff7800;
 }
 
-.logo-sub{
-    margin-top:3px;
-
+.brand-sub{
+    margin-top:-3px;
+    color:#b5bec9;
     font-size:9px;
-    letter-spacing:5px;
-
     font-weight:900;
-
-    color:#d4d9df;
+    letter-spacing:5px;
+    text-align:center;
 }
 
-.logo-line{
-    width:45px;
-    height:4px;
+.brand-slogan{
+    margin-top:5px;
+    color:#727e8c;
+    text-align:center;
+    font-size:10px;
+}
 
-    margin-top:6px;
-
-    border-radius:10px;
-
-    background:#ff7200;
+.brand-slogan b{
+    color:#ff7800;
 }
 
 
-/* =====================================================
-TABS
-===================================================== */
+/* =========================================================
+   NAV
+========================================================= */
 
-.tabs{
+.nav{
     display:flex;
     gap:8px;
     margin-top:16px;
 }
 
-.tab{
+.nav button{
     flex:1;
-
-    padding:12px 8px;
-
+    padding:12px 6px;
     border-radius:12px;
 
-    background:#121820;
-
-    color:#8e98a6;
+    background:#111720;
+    color:#8e99a7;
 
     font-size:11px;
     font-weight:900;
 }
 
-.tab.active{
+.nav button.active{
     background:#ff7200;
     color:#fff;
 
     box-shadow:
-        0 7px 20px
-        rgba(255,114,0,.20);
+        0 8px 25px rgba(255,114,0,.22);
 }
 
 
-/* =====================================================
-CONTENT
-===================================================== */
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .content{
     padding:16px;
 }
 
-.section{
+.page{
     display:none;
 }
 
-.section.active{
+.page.active{
     display:block;
 }
 
 
-/* =====================================================
-HERO
-===================================================== */
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero{
-    padding:22px;
+    position:relative;
+    overflow:hidden;
 
-    margin-bottom:18px;
+    padding:24px;
 
-    border-radius:22px;
+    border-radius:24px;
 
     background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255,115,0,.22),
+            transparent 35%
+        ),
         linear-gradient(
-            135deg,
-            #211409,
-            #121820
+            145deg,
+            #161d28,
+            #0b1017
         );
 
-    border:
-        1px solid
-        rgba(255,114,0,.20);
+    border:1px solid rgba(255,120,0,.20);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
 }
 
-.hero-small{
-    color:#ff8a27;
+.hero-tag{
+    display:inline-flex;
 
-    font-size:10px;
+    padding:7px 10px;
+
+    border-radius:8px;
+
+    background:rgba(255,114,0,.10);
+
+    color:#ff8c2a;
+
+    font-size:9px;
     font-weight:900;
-    letter-spacing:2px;
+    letter-spacing:1.5px;
 }
 
 .hero h1{
-    margin:8px 0 0;
+    margin:12px 0 0;
 
-    font-size:27px;
+    font-size:28px;
     line-height:1.05;
-
-    letter-spacing:-.8px;
+    letter-spacing:-1px;
 }
 
 .hero h1 span{
-    color:#ff7200;
+    color:#ff7800;
 }
 
 .hero p{
-    color:#8b96a3;
+    max-width:620px;
+
+    margin:11px 0 0;
+
+    color:#84909e;
 
     font-size:12px;
-    line-height:1.5;
-
-    margin:10px 0 0;
+    line-height:1.55;
 }
 
-.hero-badge{
-    display:inline-block;
 
-    margin-top:14px;
+/* =========================================================
+   TITLES
+========================================================= */
 
-    padding:8px 11px;
+.section-title{
+    margin:22px 2px 12px;
 
-    border-radius:9px;
-
-    background:
-        rgba(255,114,0,.10);
-
-    color:#ff922f;
-
-    font-size:10px;
+    font-size:20px;
     font-weight:900;
 }
 
-
-/* =====================================================
-TOOLS
-===================================================== */
-
-.tools-title{
-    margin:20px 2px 11px;
-
-    font-size:18px;
-    font-weight:900;
-}
-
-.tools-subtitle{
+.section-subtitle{
     display:block;
 
     margin-top:4px;
 
-    color:#697582;
+    color:#697583;
 
     font-size:10px;
     font-weight:500;
 }
 
-.quick{
+
+/* =========================================================
+   TOOL GRID
+========================================================= */
+
+.tools{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:10px;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
 }
 
-.quick-card{
-    min-height:140px;
+.tool{
+    position:relative;
+    overflow:hidden;
 
-    padding:15px;
+    min-height:190px;
 
-    border-radius:17px;
+    padding:16px;
+
+    border-radius:20px;
+
+    text-align:left;
+
+    color:#fff;
 
     background:
         linear-gradient(
             145deg,
-            #151c24,
-            #0e141a
+            #151d28,
+            #0c1118
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.08);
 
-    color:#fff;
-
-    text-align:left;
-
-    transition:.15s;
+    transition:
+        transform .15s,
+        border-color .15s;
 }
 
-.quick-card:active{
+.tool:active{
     transform:scale(.97);
 }
 
-.quick-icon{
-    width:43px;
-    height:43px;
+.tool:hover{
+    border-color:rgba(255,114,0,.35);
+}
+
+.tool-icon{
+    width:72px;
+    height:72px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    margin-bottom:14px;
+    margin-bottom:15px;
 
-    border-radius:12px;
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.025);
+}
+
+.tool-icon svg{
+    width:52px;
+    height:52px;
+}
+
+.tool-name{
+    font-size:15px;
+    font-weight:900;
+}
+
+.tool-description{
+    margin-top:5px;
+
+    max-width:240px;
+
+    color:#778391;
+
+    font-size:10px;
+    line-height:1.45;
+}
+
+.tool-arrow{
+    position:absolute;
+
+    right:14px;
+    bottom:14px;
+
+    width:34px;
+    height:34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
 
     background:#ff7200;
 
@@ -340,155 +403,152 @@ TOOLS
     font-weight:900;
 }
 
-.quick-title{
-    font-size:14px;
-    font-weight:900;
+
+/* =========================================================
+   CORES DOS ÍCONES
+========================================================= */
+
+.icon-price{
+    color:#ff8a00;
 }
 
-.quick-text{
-    margin-top:5px;
+.icon-margin{
+    color:#00a8ff;
+}
 
-    color:#737f8c;
+.icon-discount{
+    color:#00d68f;
+}
 
-    font-size:10px;
-    line-height:1.4;
+.icon-markup{
+    color:#b45cff;
+}
+
+.icon-commission{
+    color:#ffb000;
+}
+
+.icon-calculator{
+    color:#ff4545;
 }
 
 
-/* =====================================================
-PROPAGANDA
-FICA DEPOIS DAS FERRAMENTAS
-===================================================== */
+/* =========================================================
+   PROPAGANDA
+========================================================= */
 
-.ad-space{
-    width:100%;
-
+.ad{
     min-height:80px;
 
     margin:22px 0 10px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    border:
-        1px dashed
-        rgba(255,255,255,.12);
+    border-radius:15px;
 
-    border-radius:14px;
+    border:1px dashed rgba(255,255,255,.12);
 
-    color:#505b68;
+    background:rgba(255,255,255,.015);
+
+    color:#4d5865;
 
     font-size:9px;
-
     letter-spacing:1px;
-
-    background:
-        rgba(255,255,255,.015);
 }
 
 
-/* =====================================================
-CARD
-===================================================== */
+/* =========================================================
+   CARDS
+========================================================= */
 
 .card{
-    margin-bottom:14px;
-
     padding:18px;
 
-    border-radius:18px;
+    border-radius:20px;
 
     background:
         linear-gradient(
             145deg,
-            #121820,
-            #0d1218
+            #141b24,
+            #0d1219
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.07);
+
+    margin-bottom:14px;
 }
 
 .card-title{
-    font-size:17px;
+    font-size:18px;
     font-weight:900;
 }
 
 .card-description{
-    margin-top:5px;
-    margin-bottom:18px;
+    margin:5px 0 18px;
 
-    color:#84909e;
+    color:#7f8b99;
 
-    font-size:12px;
-    line-height:1.45;
+    font-size:11px;
+    line-height:1.5;
 }
 
 
-/* =====================================================
-BACK
-===================================================== */
+/* =========================================================
+   BACK
+========================================================= */
 
-.back-button{
-    margin-bottom:15px;
+.back{
+    margin-bottom:14px;
 
     padding:10px 13px;
 
-    border-radius:10px;
+    border-radius:11px;
 
-    background:#11171e;
+    background:#111820;
 
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    color:#aab3bd;
+    color:#aab4c0;
 
     font-size:11px;
     font-weight:900;
 }
 
 
-/* =====================================================
-INPUTS
-===================================================== */
+/* =========================================================
+   INPUTS
+========================================================= */
 
 .field{
     margin-bottom:15px;
 }
 
-label{
+.field label{
     display:block;
 
     margin-bottom:7px;
 
-    color:#a7b0bc;
+    color:#aab4c0;
 
-    font-size:12px;
-    font-weight:700;
+    font-size:11px;
+    font-weight:800;
 }
 
-input{
+.field input{
     width:100%;
-
     height:52px;
 
-    padding:14px;
+    padding:13px;
 
     border-radius:12px;
 
-    border:
-        1px solid
-        #252d37;
+    border:1px solid #27313d;
 
-    outline:none;
-
-    background:#080c11;
+    background:#080c12;
 
     color:#fff;
+
+    outline:none;
 
     font-size:17px;
     font-weight:700;
@@ -497,67 +557,76 @@ input{
     appearance:none;
 }
 
-input:focus{
+.field input:focus{
     border-color:#ff7200;
 
     box-shadow:
-        0 0 0 3px
-        rgba(255,114,0,.10);
+        0 0 0 3px rgba(255,114,0,.10);
 }
 
 
-/* =====================================================
-BOTÃO
-===================================================== */
+/* =========================================================
+   BUTTON
+========================================================= */
 
-.btn{
+.calculate{
     width:100%;
 
     padding:15px;
 
     border-radius:12px;
 
-    background:#ff7200;
+    background:
+        linear-gradient(
+            135deg,
+            #ff8b00,
+            #ff6500
+        );
 
     color:#fff;
 
-    font-size:13px;
+    font-size:12px;
     font-weight:900;
+
+    box-shadow:
+        0 10px 25px rgba(255,100,0,.15);
 }
 
-.btn:active{
+.calculate:active{
     transform:scale(.98);
 }
 
 
-/* =====================================================
-RESULTADO
-===================================================== */
+/* =========================================================
+   RESULT
+========================================================= */
 
 .result{
+    display:none;
+
     margin-top:15px;
 
     padding:18px;
 
-    border-radius:16px;
+    border-radius:17px;
 
     background:
-        linear-gradient(
-            135deg,
-            #241306,
-            #15100b
-        );
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255,114,0,.18),
+            transparent 40%
+        ),
+        #15110c;
 
-    border:
-        1px solid
-        rgba(255,114,0,.35);
+    border:1px solid rgba(255,114,0,.30);
 }
 
 .result-label{
-    color:#ff9b4b;
+    color:#ff9a3d;
 
-    font-size:10px;
+    font-size:9px;
     font-weight:900;
+    letter-spacing:1px;
 }
 
 .result-value{
@@ -569,57 +638,45 @@ RESULTADO
 
 .result-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:10px;
-
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
     margin-top:12px;
 }
 
-.result-item{
+.result-box{
     padding:11px;
 
     border-radius:10px;
 
-    background:
-        rgba(255,255,255,.045);
+    background:rgba(255,255,255,.045);
 }
 
-.result-item span{
+.result-box small{
     display:block;
-
-    color:#8c97a5;
-
-    font-size:10px;
+    color:#778391;
+    font-size:9px;
 }
 
-.result-item strong{
+.result-box strong{
     display:block;
-
     margin-top:4px;
-
-    font-size:14px;
+    font-size:13px;
 }
 
 
-/* =====================================================
-CALCULADORA
-===================================================== */
+/* =========================================================
+   CALCULATOR
+========================================================= */
 
-.calc{
-    width:100%;
-    max-width:500px;
+.calculator{
+    max-width:520px;
     margin:auto;
 }
 
-.calc-display{
-    min-height:125px;
+.display{
+    min-height:130px;
 
     padding:18px;
-
-    margin-bottom:10px;
 
     display:flex;
     flex-direction:column;
@@ -627,96 +684,72 @@ CALCULADORA
 
     text-align:right;
 
-    overflow:hidden;
-
     border-radius:18px;
 
-    border:
-        1px solid
-        #242b34;
-
     background:#05080c;
+
+    border:1px solid #252e39;
+
+    overflow:hidden;
 }
 
-.calc-expression{
+.expression{
     min-height:20px;
 
-    color:#737e8b;
+    color:#687481;
 
-    font-size:13px;
+    font-size:12px;
 
     white-space:nowrap;
     overflow:hidden;
 }
 
-.calc-value{
-    font-size:39px;
+.display-number{
+    margin-top:5px;
 
-    line-height:1.1;
-
+    font-size:40px;
     font-weight:900;
 
     white-space:nowrap;
     overflow:hidden;
 }
 
-
-/* =====================================================
-MEMÓRIA
-===================================================== */
-
-.memory-buttons{
+.memory{
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     gap:6px;
-
-    margin-bottom:9px;
+    margin:8px 0;
 }
 
-.memory-buttons button{
-    padding:10px 3px;
+.memory button{
+    padding:10px 2px;
 
     border-radius:9px;
 
-    background:#11171e;
+    background:#111820;
 
-    border:
-        1px solid
-        #252d37;
+    border:1px solid #252e39;
 
-    color:#929daa;
+    color:#8995a3;
 
-    font-size:10px;
+    font-size:9px;
     font-weight:900;
 }
 
-
-/* =====================================================
-TECLADO
-===================================================== */
-
-.calc-grid{
+.keypad{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:8px;
 }
 
-.calc-btn{
+.key{
     min-height:62px;
 
     border-radius:13px;
 
-    border:
-        1px solid
-        #242c36;
+    background:#151c25;
 
-    background:#141a21;
+    border:1px solid #27313c;
 
     color:#fff;
 
@@ -724,172 +757,166 @@ TECLADO
     font-weight:900;
 }
 
-.calc-btn:active{
+.key:active{
     transform:scale(.95);
 }
 
-.calc-btn.operator{
-    color:#ff8a27;
-    background:#1b2129;
+.key.operator{
+    color:#ff8a20;
 }
 
-.calc-btn.equal{
+.key.equal{
     background:#ff7200;
     border-color:#ff7200;
 }
 
-.calc-btn.control{
-    color:#a2acb8;
+.key.special{
+    color:#a7b1bd;
     font-size:13px;
 }
 
 
-/* =====================================================
-HISTÓRICO
-===================================================== */
+/* =========================================================
+   HISTORY
+========================================================= */
 
 .history-empty{
     padding:35px 10px;
 
     text-align:center;
 
-    color:#697583;
+    color:#65717e;
 
-    font-size:12px;
+    font-size:11px;
 }
 
 .history-item{
     display:flex;
-
     justify-content:space-between;
-
     gap:10px;
 
     padding:13px 0;
 
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.06);
+    border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.history-type{
-    font-size:13px;
+.history-name{
+    font-size:12px;
     font-weight:900;
 }
 
 .history-info{
     margin-top:4px;
 
-    color:#737f8d;
+    color:#707c89;
 
-    font-size:10px;
+    font-size:9px;
 }
 
-.history-value{
-    text-align:right;
+.history-result{
+    color:#ff8a20;
 
-    color:#ff8a27;
-
-    font-size:12px;
+    font-size:11px;
     font-weight:900;
+
+    text-align:right;
 }
 
 
-/* =====================================================
-FOOTER
-===================================================== */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .footer{
-    padding:
-        25px
-        15px
-        35px;
+    padding:30px 10px 35px;
 
     text-align:center;
 
-    color:#555f6b;
+    color:#56616e;
 
-    font-size:10px;
+    font-size:9px;
 }
 
-.footer strong{
-    color:#ff7200;
+.footer b{
+    color:#ff7800;
 }
 
 
-/* =====================================================
-TOAST
-===================================================== */
+/* =========================================================
+   TOAST
+========================================================= */
 
 .toast{
     position:fixed;
-
-    z-index:9999;
-
     left:50%;
     bottom:25px;
+    z-index:9999;
 
-    transform:
-        translate(-50%,100px);
-
-    opacity:0;
-
-    padding:
-        12px
-        17px;
+    padding:12px 17px;
 
     border-radius:12px;
 
-    background:#171d25;
+    background:#171e27;
 
-    border:
-        1px solid
-        #303944;
+    border:1px solid #303a46;
 
     color:#fff;
 
-    font-size:12px;
+    font-size:11px;
     font-weight:700;
+
+    transform:translate(-50%,100px);
+
+    opacity:0;
 
     transition:.25s;
 }
 
 .toast.show{
-    transform:
-        translate(-50%,0);
-
+    transform:translate(-50%,0);
     opacity:1;
 }
 
 
-/* =====================================================
-MOBILE
-===================================================== */
+/* =========================================================
+   MOBILE
+========================================================= */
 
-@media(max-width:420px){
+@media(max-width:480px){
 
-    .content{
-        padding:14px;
+    .brand-name{
+        font-size:27px;
     }
 
-    .hero{
-        padding:19px;
+    .brand-logo{
+        width:50px;
+        height:50px;
     }
 
     .hero h1{
         font-size:24px;
     }
 
-    .quick-card{
-        min-height:130px;
+    .tool{
+        min-height:180px;
     }
 
-    .calc-btn{
-        min-height:58px;
+    .tool-icon{
+        width:65px;
+        height:65px;
     }
 
-    .calc-value{
+    .tool-icon svg{
+        width:47px;
+        height:47px;
+    }
+
+    .display-number{
         font-size:34px;
+    }
+
+    .key{
+        min-height:58px;
     }
 
 }
@@ -909,46 +936,73 @@ HEADER
 
 <header class="header">
 
-    <div class="logo-main">
-        CAL<span>PRO</span>
+    <div class="brand">
+
+        <div class="brand-logo">
+
+            <svg viewBox="0 0 50 50"
+                 fill="none"
+                 stroke="white"
+                 stroke-width="3">
+
+                <circle cx="25"
+                        cy="25"
+                        r="20"/>
+
+                <path d="M14 31L21 24L27 28L37 17"/>
+
+                <path d="M31 17H37V23"/>
+
+            </svg>
+
+        </div>
+
+
+        <div>
+
+            <div class="brand-name">
+                CAL<span>PRO</span>
+            </div>
+
+            <div class="brand-sub">
+                EXPERT
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="logo-sub">
-        EXPERT
+
+    <div class="brand-slogan">
+        Calcule • <b>Lucre</b> • Evolua
     </div>
 
-    <div class="logo-line"></div>
 
-
-    <div class="tabs">
+    <nav class="nav">
 
         <button
-            class="tab active"
-            data-section="tools">
+            class="active"
+            data-page="home">
 
             FERRAMENTAS
 
         </button>
 
-
         <button
-            class="tab"
-            data-section="calculator">
+            data-page="calculator">
 
             CALCULADORA
 
         </button>
 
-
         <button
-            class="tab"
-            data-section="history">
+            data-page="history">
 
             HISTÓRICO
 
         </button>
 
-    </div>
+    </nav>
 
 </header>
 
@@ -957,17 +1011,17 @@ HEADER
 
 
 <!-- =====================================================
-FERRAMENTAS
+HOME
 ===================================================== -->
 
 <section
-    id="tools"
-    class="section active">
+    id="home"
+    class="page active">
 
 
     <div class="hero">
 
-        <div class="hero-small">
+        <div class="hero-tag">
             CALPRO EXPERT
         </div>
 
@@ -978,146 +1032,346 @@ FERRAMENTAS
 
         <p>
             Ferramentas profissionais para
-            preço, margem, desconto, markup,
-            comissão e cálculos do dia a dia.
+            calcular preços, margens, descontos,
+            markup, comissão e muito mais.
         </p>
-
-        <div class="hero-badge">
-            FEITO PARA VENDAS
-        </div>
 
     </div>
 
 
-    <div class="tools-title">
+    <div class="section-title">
 
         Ferramentas
 
-        <span class="tools-subtitle">
-            Escolha uma ferramenta
+        <span class="section-subtitle">
+            Escolha uma ferramenta para começar
         </span>
 
     </div>
 
 
-    <div class="quick">
+    <div class="tools">
 
+
+        <!-- =================================================
+        PREÇO
+        ================================================= -->
 
         <button
-            class="quick-card"
+            class="tool"
             data-tool="price">
 
-            <div class="quick-icon">
-                $
+            <div class="tool-icon icon-price">
+
+                <svg viewBox="0 0 64 64"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+
+                    <path d="M10 18V11C10 9 12 7 14 7H31L53 29C55 31 55 34 53 36L36 53C34 55 31 55 29 53L7 31V14"/>
+
+                    <circle cx="18"
+                            cy="18"
+                            r="3"/>
+
+                    <path d="M29 21C27 19 23 19 21 21C19 23 20 26 24 27L29 29C33 30 34 34 31 37C28 40 23 40 20 37"/>
+
+                    <path d="M25 18V40"/>
+
+                </svg>
+
             </div>
 
-            <div class="quick-title">
+
+            <div class="tool-name">
                 Preço de Venda
             </div>
 
-            <div class="quick-text">
+            <div class="tool-description">
                 Descubra o preço ideal
-                de venda pela margem.
+                com sua margem.
+            </div>
+
+            <div class="tool-arrow">
+                →
             </div>
 
         </button>
 
 
+        <!-- =================================================
+        MARGEM
+        ================================================= -->
+
         <button
-            class="quick-card"
+            class="tool"
             data-tool="margin">
 
-            <div class="quick-icon">
-                %
+            <div class="tool-icon icon-margin">
+
+                <svg viewBox="0 0 64 64"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+
+                    <path d="M10 52V39"/>
+                    <path d="M24 52V31"/>
+                    <path d="M38 52V22"/>
+                    <path d="M52 52V12"/>
+
+                    <path d="M8 48L23 36L35 39L53 14"/>
+
+                    <path d="M45 14H53V22"/>
+
+                </svg>
+
             </div>
 
-            <div class="quick-title">
-                Margem
+
+            <div class="tool-name">
+                Margem de Lucro
             </div>
 
-            <div class="quick-text">
-                Descubra a margem
-                real da venda.
+            <div class="tool-description">
+                Calcule sua margem
+                de lucro em %.
+            </div>
+
+            <div class="tool-arrow">
+                →
             </div>
 
         </button>
 
 
+        <!-- =================================================
+        DESCONTO
+        ================================================= -->
+
         <button
-            class="quick-card"
+            class="tool"
             data-tool="discount">
 
-            <div class="quick-icon">
-                ↓
+            <div class="tool-icon icon-discount">
+
+                <svg viewBox="0 0 64 64"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+
+                    <path d="M10 18V11C10 9 12 7 14 7H31L54 30C56 32 56 35 54 37L37 54C35 56 32 56 30 54L7 31V14"/>
+
+                    <circle cx="18"
+                            cy="18"
+                            r="3"/>
+
+                    <path d="M25 39L39 25"/>
+
+                    <circle cx="25"
+                            cy="25"
+                            r="2"/>
+
+                    <circle cx="39"
+                            cy="39"
+                            r="2"/>
+
+                </svg>
+
             </div>
 
-            <div class="quick-title">
+
+            <div class="tool-name">
                 Desconto
             </div>
 
-            <div class="quick-text">
-                Calcule o preço final
-                após o desconto.
+            <div class="tool-description">
+                Descubra rapidamente
+                o preço após desconto.
+            </div>
+
+            <div class="tool-arrow">
+                →
             </div>
 
         </button>
 
 
+        <!-- =================================================
+        MARKUP
+        ================================================= -->
+
         <button
-            class="quick-card"
+            class="tool"
             data-tool="markup">
 
-            <div class="quick-icon">
-                ×
+            <div class="tool-icon icon-markup">
+
+                <svg viewBox="0 0 64 64"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+
+                    <rect x="9"
+                          y="35"
+                          width="10"
+                          height="17"
+                          rx="2"/>
+
+                    <rect x="27"
+                          y="25"
+                          width="10"
+                          height="27"
+                          rx="2"/>
+
+                    <rect x="45"
+                          y="13"
+                          width="10"
+                          height="39"
+                          rx="2"/>
+
+                    <path d="M9 28L23 19L34 23L53 9"/>
+
+                    <path d="M46 9H53V16"/>
+
+                </svg>
+
             </div>
 
-            <div class="quick-title">
+
+            <div class="tool-name">
                 Markup
             </div>
 
-            <div class="quick-text">
-                Calcule o markup
-                da sua venda.
+            <div class="tool-description">
+                Calcule o multiplicador
+                ideal de venda.
+            </div>
+
+            <div class="tool-arrow">
+                →
             </div>
 
         </button>
 
 
+        <!-- =================================================
+        COMISSÃO
+        ================================================= -->
+
         <button
-            class="quick-card"
+            class="tool"
             data-tool="commission">
 
-            <div class="quick-icon">
-                C
+            <div class="tool-icon icon-commission">
+
+                <svg viewBox="0 0 64 64"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+
+                    <rect x="9"
+                          y="18"
+                          width="46"
+                          height="34"
+                          rx="6"/>
+
+                    <path d="M18 18V14C18 11 20 9 23 9H41C44 9 46 11 46 14V18"/>
+
+                    <circle cx="32"
+                            cy="35"
+                            r="10"/>
+
+                    <path d="M32 29V41"/>
+                    <path d="M28 32C29 30 34 30 36 32C38 34 36 36 32 36C28 36 27 38 29 40C31 42 35 41 37 39"/>
+
+                </svg>
+
             </div>
 
-            <div class="quick-title">
+
+            <div class="tool-name">
                 Comissão
             </div>
 
-            <div class="quick-text">
+            <div class="tool-description">
                 Calcule sua comissão
-                rapidamente.
+                sobre as vendas.
+            </div>
+
+            <div class="tool-arrow">
+                →
             </div>
 
         </button>
 
 
+        <!-- =================================================
+        CALCULADORA
+        ================================================= -->
+
         <button
-            class="quick-card"
+            class="tool"
             data-tool="calculator">
 
-            <div class="quick-icon">
-                +
+            <div class="tool-icon icon-calculator">
+
+                <svg viewBox="0 0 64 64"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="3"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+
+                    <rect x="13"
+                          y="7"
+                          width="38"
+                          height="50"
+                          rx="6"/>
+
+                    <rect x="20"
+                          y="14"
+                          width="24"
+                          height="9"
+                          rx="2"/>
+
+                    <path d="M21 30H25"/>
+                    <path d="M31 30H35"/>
+                    <path d="M41 30H45"/>
+
+                    <path d="M21 39H25"/>
+                    <path d="M31 39H35"/>
+                    <path d="M41 39H45"/>
+
+                    <path d="M21 48H25"/>
+                    <path d="M31 48H35"/>
+                    <path d="M41 48H45"/>
+
+                </svg>
+
             </div>
 
-            <div class="quick-title">
+
+            <div class="tool-name">
                 Calculadora
             </div>
 
-            <div class="quick-text">
+            <div class="tool-description">
                 Faça contas rápidas
                 do dia a dia.
+            </div>
+
+            <div class="tool-arrow">
+                →
             </div>
 
         </button>
@@ -1126,12 +1380,12 @@ FERRAMENTAS
     </div>
 
 
-    <!-- PROPAGANDA FICA AQUI -->
+    <!-- =================================================
+    PUBLICIDADE
+    ================================================= -->
 
-    <div class="ad-space">
-
-        ESPAÇO PARA PUBLICIDADE
-
+    <div class="ad">
+        ESPAÇO RESERVADO PARA PUBLICIDADE
     </div>
 
 
@@ -1139,17 +1393,17 @@ FERRAMENTAS
 
 
 <!-- =====================================================
-TELA DAS FERRAMENTAS
+FERRAMENTAS INTERNAS
 ===================================================== -->
 
 <section
-    id="toolScreen"
-    class="section">
+    id="toolPage"
+    class="page">
 
 
     <button
-        class="back-button"
-        id="backButton">
+        class="back"
+        id="backHome">
 
         ← Voltar para ferramentas
 
@@ -1157,11 +1411,11 @@ TELA DAS FERRAMENTAS
 
 
     <!-- =================================================
-    PREÇO DE VENDA
+    PREÇO
     ================================================= -->
 
     <div
-        id="priceTool"
+        id="tool-price"
         class="tool-panel"
         style="display:none">
 
@@ -1172,8 +1426,9 @@ TELA DAS FERRAMENTAS
             </div>
 
             <div class="card-description">
-                Calcule o preço necessário
-                para atingir a margem desejada.
+                Informe o custo e a margem
+                desejada para descobrir
+                o preço de venda.
             </div>
 
 
@@ -1204,71 +1459,32 @@ TELA DAS FERRAMENTAS
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0">
+                    placeholder="30">
 
             </div>
 
 
             <button
-                class="btn"
-                id="priceButton">
+                class="calculate"
+                id="btnPrice">
 
-                CALCULAR
+                CALCULAR PREÇO
 
             </button>
 
 
             <div
-                id="priceResult"
-                class="result"
-                style="display:none">
+                id="resultPrice"
+                class="result">
 
                 <div class="result-label">
                     PREÇO DE VENDA
                 </div>
 
                 <div
-                    id="priceResultValue"
+                    id="priceValue"
                     class="result-value">
-
                     R$ 0,00
-
-                </div>
-
-
-                <div class="result-grid">
-
-                    <div class="result-item">
-
-                        <span>
-                            Custo
-                        </span>
-
-                        <strong
-                            id="priceCostResult">
-
-                            R$ 0,00
-
-                        </strong>
-
-                    </div>
-
-
-                    <div class="result-item">
-
-                        <span>
-                            Margem
-                        </span>
-
-                        <strong
-                            id="priceMarginResult">
-
-                            0%
-
-                        </strong>
-
-                    </div>
-
                 </div>
 
             </div>
@@ -1283,19 +1499,19 @@ TELA DAS FERRAMENTAS
     ================================================= -->
 
     <div
-        id="marginTool"
+        id="tool-margin"
         class="tool-panel"
         style="display:none">
 
         <div class="card">
 
             <div class="card-title">
-                Margem
+                Margem de Lucro
             </div>
 
             <div class="card-description">
-                Descubra quanto sobra da
-                venda depois do custo.
+                Descubra a margem real
+                da sua venda.
             </div>
 
 
@@ -1332,61 +1548,53 @@ TELA DAS FERRAMENTAS
 
 
             <button
-                class="btn"
-                id="marginButton">
+                class="calculate"
+                id="btnMargin">
 
-                CALCULAR
+                CALCULAR MARGEM
 
             </button>
 
 
             <div
-                id="marginResult"
-                class="result"
-                style="display:none">
+                id="resultMargin"
+                class="result">
 
                 <div class="result-label">
-                    MARGEM
+                    MARGEM DE LUCRO
                 </div>
 
                 <div
-                    id="marginResultValue"
+                    id="marginValue"
                     class="result-value">
-
-                    0%
-
+                    0,00%
                 </div>
 
 
                 <div class="result-grid">
 
-                    <div class="result-item">
+                    <div class="result-box">
 
-                        <span>
+                        <small>
                             Lucro
-                        </span>
+                        </small>
 
                         <strong
                             id="marginProfit">
-
                             R$ 0,00
-
                         </strong>
 
                     </div>
 
+                    <div class="result-box">
 
-                    <div class="result-item">
-
-                        <span>
+                        <small>
                             Markup
-                        </span>
+                        </small>
 
                         <strong
                             id="marginMarkup">
-
-                            0x
-
+                            0,00x
                         </strong>
 
                     </div>
@@ -1405,7 +1613,7 @@ TELA DAS FERRAMENTAS
     ================================================= -->
 
     <div
-        id="discountTool"
+        id="tool-discount"
         class="tool-panel"
         style="display:none">
 
@@ -1416,7 +1624,7 @@ TELA DAS FERRAMENTAS
             </div>
 
             <div class="card-description">
-                Calcule o valor final
+                Calcule o preço final
                 depois do desconto.
             </div>
 
@@ -1448,67 +1656,59 @@ TELA DAS FERRAMENTAS
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0">
+                    placeholder="10">
 
             </div>
 
 
             <button
-                class="btn"
-                id="discountButton">
+                class="calculate"
+                id="btnDiscount">
 
-                CALCULAR
+                CALCULAR DESCONTO
 
             </button>
 
 
             <div
-                id="discountResult"
-                class="result"
-                style="display:none">
+                id="resultDiscount"
+                class="result">
 
                 <div class="result-label">
                     PREÇO FINAL
                 </div>
 
                 <div
-                    id="discountResultValue"
+                    id="discountValue"
                     class="result-value">
-
                     R$ 0,00
-
                 </div>
 
 
                 <div class="result-grid">
 
-                    <div class="result-item">
+                    <div class="result-box">
 
-                        <span>
-                            Valor descontado
-                        </span>
+                        <small>
+                            Desconto
+                        </small>
 
                         <strong
                             id="discountAmount">
-
                             R$ 0,00
-
                         </strong>
 
                     </div>
 
+                    <div class="result-box">
 
-                    <div class="result-item">
-
-                        <span>
-                            Desconto
-                        </span>
+                        <small>
+                            Percentual
+                        </small>
 
                         <strong
-                            id="discountPercentResult">
-
+                            id="discountPercentValue">
                             0%
-
                         </strong>
 
                     </div>
@@ -1527,7 +1727,7 @@ TELA DAS FERRAMENTAS
     ================================================= -->
 
     <div
-        id="markupTool"
+        id="tool-markup"
         class="tool-panel"
         style="display:none">
 
@@ -1539,7 +1739,7 @@ TELA DAS FERRAMENTAS
 
             <div class="card-description">
                 Descubra o multiplicador
-                aplicado ao custo.
+                aplicado sobre o custo.
             </div>
 
 
@@ -1576,61 +1776,53 @@ TELA DAS FERRAMENTAS
 
 
             <button
-                class="btn"
-                id="markupButton">
+                class="calculate"
+                id="btnMarkup">
 
-                CALCULAR
+                CALCULAR MARKUP
 
             </button>
 
 
             <div
-                id="markupResult"
-                class="result"
-                style="display:none">
+                id="resultMarkup"
+                class="result">
 
                 <div class="result-label">
                     MARKUP
                 </div>
 
                 <div
-                    id="markupResultValue"
+                    id="markupValue"
                     class="result-value">
-
-                    0x
-
+                    0,00x
                 </div>
 
 
                 <div class="result-grid">
 
-                    <div class="result-item">
+                    <div class="result-box">
 
-                        <span>
+                        <small>
                             Acréscimo
-                        </span>
+                        </small>
 
                         <strong
-                            id="markupPercent">
-
-                            0%
-
+                            id="markupIncrease">
+                            0,00%
                         </strong>
 
                     </div>
 
+                    <div class="result-box">
 
-                    <div class="result-item">
-
-                        <span>
+                        <small>
                             Margem
-                        </span>
+                        </small>
 
                         <strong
                             id="markupMargin">
-
-                            0%
-
+                            0,00%
                         </strong>
 
                     </div>
@@ -1649,7 +1841,7 @@ TELA DAS FERRAMENTAS
     ================================================= -->
 
     <div
-        id="commissionTool"
+        id="tool-commission"
         class="tool-panel"
         style="display:none">
 
@@ -1660,8 +1852,8 @@ TELA DAS FERRAMENTAS
             </div>
 
             <div class="card-description">
-                Calcule a comissão
-                sobre o valor vendido.
+                Calcule quanto você recebe
+                sobre uma venda.
             </div>
 
 
@@ -1692,35 +1884,32 @@ TELA DAS FERRAMENTAS
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0">
+                    placeholder="5">
 
             </div>
 
 
             <button
-                class="btn"
-                id="commissionButton">
+                class="calculate"
+                id="btnCommission">
 
-                CALCULAR
+                CALCULAR COMISSÃO
 
             </button>
 
 
             <div
-                id="commissionResult"
-                class="result"
-                style="display:none">
+                id="resultCommission"
+                class="result">
 
                 <div class="result-label">
-                    COMISSÃO
+                    SUA COMISSÃO
                 </div>
 
                 <div
-                    id="commissionResultValue"
+                    id="commissionValue"
                     class="result-value">
-
                     R$ 0,00
-
                 </div>
 
             </div>
@@ -1739,10 +1928,10 @@ CALCULADORA
 
 <section
     id="calculator"
-    class="section">
+    class="page">
 
 
-    <div class="calc">
+    <div class="calculator">
 
         <div class="card">
 
@@ -1755,231 +1944,172 @@ CALCULADORA
             </div>
 
 
-            <div class="calc-display">
+            <div class="display">
 
                 <div
-                    id="calcExpression"
-                    class="calc-expression">
+                    id="expression"
+                    class="expression">
                 </div>
 
                 <div
-                    id="calcValue"
-                    class="calc-value">
-
+                    id="display"
+                    class="display-number">
                     0
-
                 </div>
 
             </div>
 
 
-            <div class="memory-buttons">
+            <div class="memory">
 
-                <button data-memory="mc">
+                <button data-memory="clear">
                     MC
                 </button>
 
-                <button data-memory="mr">
+                <button data-memory="recall">
                     MR
                 </button>
 
-                <button data-memory="mplus">
+                <button data-memory="add">
                     M+
                 </button>
 
-                <button data-memory="mminus">
+                <button data-memory="subtract">
                     M−
                 </button>
 
-                <button data-memory="ms">
+                <button data-memory="store">
                     MS
                 </button>
 
             </div>
 
 
-            <div class="calc-grid">
-
+            <div class="keypad">
 
                 <button
-                    class="calc-btn control"
+                    class="key special"
                     data-action="clear">
-
                     AC
-
                 </button>
 
-
                 <button
-                    class="calc-btn control"
+                    class="key special"
                     data-action="backspace">
-
                     ⌫
-
                 </button>
 
-
                 <button
-                    class="calc-btn operator"
+                    class="key operator"
                     data-action="percent">
-
                     %
-
                 </button>
 
-
                 <button
-                    class="calc-btn operator"
+                    class="key operator"
                     data-operator="/">
-
                     ÷
-
                 </button>
 
 
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="7">
-
                     7
-
                 </button>
 
-
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="8">
-
                     8
-
                 </button>
 
-
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="9">
-
                     9
-
                 </button>
 
-
                 <button
-                    class="calc-btn operator"
+                    class="key operator"
                     data-operator="*">
-
                     ×
-
                 </button>
 
 
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="4">
-
                     4
-
                 </button>
 
-
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="5">
-
                     5
-
                 </button>
 
-
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="6">
-
                     6
-
                 </button>
 
-
                 <button
-                    class="calc-btn operator"
+                    class="key operator"
                     data-operator="-">
-
                     −
-
                 </button>
 
 
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="1">
-
                     1
-
                 </button>
 
-
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="2">
-
                     2
-
                 </button>
 
-
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="3">
-
                     3
-
                 </button>
 
-
                 <button
-                    class="calc-btn operator"
+                    class="key operator"
                     data-operator="+">
-
                     +
-
                 </button>
 
 
                 <button
-                    class="calc-btn control"
+                    class="key special"
                     data-action="sign">
-
                     ±
-
                 </button>
 
-
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-number="0">
-
                     0
-
                 </button>
 
-
                 <button
-                    class="calc-btn"
+                    class="key"
                     data-action="decimal">
-
                     ,
-
                 </button>
-
 
                 <button
-                    class="calc-btn equal"
+                    class="key equal"
                     data-action="equals">
-
                     =
-
                 </button>
-
 
             </div>
 
@@ -1997,7 +2127,7 @@ HISTÓRICO
 
 <section
     id="history"
-    class="section">
+    class="page">
 
 
     <div class="card">
@@ -2007,7 +2137,7 @@ HISTÓRICO
         </div>
 
         <div class="card-description">
-            Últimos cálculos realizados.
+            Seus últimos cálculos realizados.
         </div>
 
         <div id="historyList">
@@ -2021,11 +2151,9 @@ HISTÓRICO
 
 <footer class="footer">
 
-    <strong>
-        CALPRO EXPERT
-    </strong>
+    <b>CALPRO EXPERT</b>
 
-    <br>
+    <br><br>
 
     Calcule certo. Venda melhor.
 
@@ -2045,393 +2173,280 @@ HISTÓRICO
 
 <script>
 
-/* =====================================================
-CONVERSÃO BRASILEIRA
-===================================================== */
+/* =========================================================
+   UTILIDADES
+========================================================= */
 
-function parseBR(value){
+function parseNumber(value){
 
-    if(
-        value === null ||
-        value === undefined
-    ){
-
+    if(value === null || value === undefined){
         return 0;
-
     }
 
-
-    let text =
-        String(value)
+    let text = String(value)
         .trim()
         .replace(/\s/g,'');
 
-
-    if(text === ''){
-
+    if(!text){
         return 0;
-
     }
 
-
     /*
-    1.250,50
-    ->
-    1250.50
+       1.250,50
+       1,250.50
+       1250,50
+       1250.50
     */
 
-    if(
-        text.includes(',') &&
-        text.includes('.')
-    ){
+    if(text.includes(',') && text.includes('.')){
 
         if(
             text.lastIndexOf(',') >
             text.lastIndexOf('.')
         ){
 
-            text =
-                text
+            text = text
                 .replace(/\./g,'')
                 .replace(',','.');
 
         }else{
 
-            text =
-                text.replace(/,/g,'');
+            text = text
+                .replace(/,/g,'');
 
         }
 
-    }
+    }else if(text.includes(',')){
 
-    /*
-    10,50
-    ->
-    10.50
-    */
-
-    else if(
-        text.includes(',')
-    ){
-
-        text =
-            text.replace(',','.');
+        text = text.replace(',','.');
 
     }
 
+    text = text.replace(
+        /[^0-9.-]/g,
+        ''
+    );
 
-    /*
-    Remove caracteres inválidos.
-    */
+    const n = Number(text);
 
-    text =
-        text.replace(
-            /[^0-9.\-]/g,
-            ''
-        );
-
-
-    const number =
-        Number(text);
-
-
-    return Number.isFinite(number)
-        ? number
-        : 0;
-
+    return Number.isFinite(n) ? n : 0;
 }
 
 
-/* =====================================================
-FORMATAÇÃO
-===================================================== */
+function formatNumber(value){
 
-function formatBR(
-    value,
-    decimals=2
-){
-
-    if(
-        !Number.isFinite(
-            Number(value)
-        )
-    ){
-
+    if(!Number.isFinite(Number(value))){
         return '0,00';
-
     }
 
-
-    return Number(value)
-        .toLocaleString(
-            'pt-BR',
-            {
-                minimumFractionDigits:
-                    decimals,
-
-                maximumFractionDigits:
-                    decimals
-            }
-        );
-
+    return Number(value).toLocaleString(
+        'pt-BR',
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:10
+        }
+    );
 }
 
 
 function money(value){
 
     return 'R$ ' +
-        formatBR(value,2);
-
+        Number(value).toLocaleString(
+            'pt-BR',
+            {
+                minimumFractionDigits:2,
+                maximumFractionDigits:2
+            }
+        );
 }
 
 
-/* =====================================================
-TOAST
-===================================================== */
+/* =========================================================
+   TOAST
+========================================================= */
 
 let toastTimer;
 
-function showToast(message){
+function toast(message){
 
-    const toast =
-        document.getElementById(
-            'toast'
+    const element =
+        document.getElementById('toast');
+
+    element.textContent = message;
+
+    element.classList.add('show');
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(
+        function(){
+            element.classList.remove('show');
+        },
+        1800
+    );
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+const pages =
+    document.querySelectorAll('.page');
+
+const navButtons =
+    document.querySelectorAll('.nav button');
+
+
+function showPage(id){
+
+    pages.forEach(function(page){
+
+        page.classList.toggle(
+            'active',
+            page.id === id
         );
 
-
-    toast.textContent =
-        message;
+    });
 
 
-    toast.classList.add(
-        'show'
-    );
+    navButtons.forEach(function(button){
 
-
-    clearTimeout(
-        toastTimer
-    );
-
-
-    toastTimer =
-        setTimeout(
-            function(){
-
-                toast.classList.remove(
-                    'show'
-                );
-
-            },
-            1800
+        button.classList.toggle(
+            'active',
+            button.dataset.page === id
         );
+
+    });
+
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
 
 }
 
 
-/* =====================================================
-NAVEGAÇÃO
-===================================================== */
+navButtons.forEach(function(button){
 
-const allSections =
-    document.querySelectorAll(
-        '.section'
-    );
+    button.addEventListener(
+        'click',
+        function(){
 
-
-const allTabs =
-    document.querySelectorAll(
-        '.tab'
-    );
-
-
-function showSection(id){
-
-    allSections.forEach(
-        function(section){
-
-            section.classList.toggle(
-                'active',
-                section.id === id
+            showPage(
+                button.dataset.page
             );
 
         }
     );
 
-
-    allTabs.forEach(
-        function(tab){
-
-            tab.classList.toggle(
-                'active',
-                tab.dataset.section === id
-            );
-
-        }
-    );
+});
 
 
-    window.scrollTo(
-        {
-            top:0,
-            behavior:'smooth'
-        }
-    );
+/* =========================================================
+   ABRIR FERRAMENTAS
+========================================================= */
 
-}
-
-
-/* =====================================================
-TABS
-===================================================== */
-
-allTabs.forEach(
-    function(tab){
-
-        tab.addEventListener(
-            'click',
-            function(){
-
-                showSection(
-                    tab.dataset.section
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =====================================================
-FERRAMENTAS
-===================================================== */
-
-const toolCards =
-    document.querySelectorAll(
-        '.quick-card'
-    );
-
+const toolButtons =
+    document.querySelectorAll('.tool');
 
 const toolPanels =
-    document.querySelectorAll(
-        '.tool-panel'
-    );
+    document.querySelectorAll('.tool-panel');
 
 
-toolCards.forEach(
-    function(card){
+toolButtons.forEach(function(button){
 
-        card.addEventListener(
-            'click',
-            function(){
+    button.addEventListener(
+        'click',
+        function(){
 
-                const tool =
-                    card.dataset.tool;
-
-
-                if(
-                    tool === 'calculator'
-                ){
-
-                    showSection(
-                        'calculator'
-                    );
-
-                    return;
-
-                }
+            const tool =
+                button.dataset.tool;
 
 
-                showSection(
-                    'toolScreen'
-                );
+            if(tool === 'calculator'){
 
+                showPage('calculator');
 
-                toolPanels.forEach(
-                    function(panel){
-
-                        panel.style.display =
-                            'none';
-
-                    }
-                );
-
-
-                const selected =
-                    document.getElementById(
-                        tool + 'Tool'
-                    );
-
-
-                if(selected){
-
-                    selected.style.display =
-                        'block';
-
-                }
+                return;
 
             }
-        );
-
-    }
-);
 
 
-/* =====================================================
-VOLTAR
-===================================================== */
+            showPage('toolPage');
+
+
+            toolPanels.forEach(function(panel){
+
+                panel.style.display = 'none';
+
+            });
+
+
+            const selected =
+                document.getElementById(
+                    'tool-' + tool
+                );
+
+
+            if(selected){
+
+                selected.style.display =
+                    'block';
+
+            }
+
+        }
+    );
+
+});
+
 
 document
-    .getElementById(
-        'backButton'
-    )
+    .getElementById('backHome')
     .addEventListener(
         'click',
         function(){
 
-            showSection(
-                'tools'
-            );
+            showPage('home');
 
         }
     );
 
 
-/* =====================================================
-PREÇO DE VENDA
-===================================================== */
+/* =========================================================
+   PREÇO DE VENDA
+
+   Preço = Custo / (1 - Margem)
+========================================================= */
 
 document
-    .getElementById(
-        'priceButton'
-    )
+    .getElementById('btnPrice')
     .addEventListener(
         'click',
         function(){
 
             const cost =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'priceCost'
-                    )
+                    .getElementById('priceCost')
                     .value
                 );
 
 
             const margin =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'priceMargin'
-                    )
+                    .getElementById('priceMargin')
                     .value
                 );
 
 
             if(cost <= 0){
 
-                showToast(
+                toast(
                     'Digite o preço de custo.'
                 );
 
@@ -2445,8 +2460,8 @@ document
                 margin >= 100
             ){
 
-                showToast(
-                    'Margem deve estar entre 0% e 99,99%.'
+                toast(
+                    'A margem deve estar entre 0% e 99,99%.'
                 );
 
                 return;
@@ -2454,7 +2469,7 @@ document
             }
 
 
-            const sale =
+            const price =
                 cost /
                 (
                     1 -
@@ -2463,80 +2478,55 @@ document
 
 
             document
-                .getElementById(
-                    'priceResultValue'
-                )
+                .getElementById('priceValue')
                 .textContent =
-                money(sale);
+                money(price);
 
 
             document
-                .getElementById(
-                    'priceCostResult'
-                )
-                .textContent =
-                money(cost);
-
-
-            document
-                .getElementById(
-                    'priceMarginResult'
-                )
-                .textContent =
-                formatBR(margin) +
-                '%';
-
-
-            document
-                .getElementById(
-                    'priceResult'
-                )
+                .getElementById('resultPrice')
                 .style.display =
                 'block';
 
 
             addHistory(
-                'Preço de venda',
+                'Preço de Venda',
                 'Custo ' +
                 money(cost) +
                 ' • Margem ' +
-                formatBR(margin) +
+                formatNumber(margin) +
                 '%',
-                money(sale)
+                money(price)
             );
 
         }
     );
 
 
-/* =====================================================
-MARGEM
-===================================================== */
+/* =========================================================
+   MARGEM
+
+   Margem = (Venda - Custo) / Venda × 100
+========================================================= */
 
 document
-    .getElementById(
-        'marginButton'
-    )
+    .getElementById('btnMargin')
     .addEventListener(
         'click',
         function(){
 
             const cost =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'marginCost'
-                    )
+                    .getElementById('marginCost')
                     .value
                 );
 
 
             const sale =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'marginSale'
-                    )
+                    .getElementById('marginSale')
                     .value
                 );
 
@@ -2546,8 +2536,8 @@ document
                 sale <= 0
             ){
 
-                showToast(
-                    'Digite custo e venda.'
+                toast(
+                    'Digite custo e preço de venda.'
                 );
 
                 return;
@@ -2567,51 +2557,41 @@ document
 
 
             const markup =
-                sale /
-                cost;
+                sale / cost;
 
 
             document
-                .getElementById(
-                    'marginResultValue'
-                )
+                .getElementById('marginValue')
                 .textContent =
-                formatBR(margin) +
+                formatNumber(margin) +
                 '%';
 
 
             document
-                .getElementById(
-                    'marginProfit'
-                )
+                .getElementById('marginProfit')
                 .textContent =
                 money(profit);
 
 
             document
-                .getElementById(
-                    'marginMarkup'
-                )
+                .getElementById('marginMarkup')
                 .textContent =
-                formatBR(markup) +
+                formatNumber(markup) +
                 'x';
 
 
             document
-                .getElementById(
-                    'marginResult'
-                )
+                .getElementById('resultMargin')
                 .style.display =
                 'block';
 
 
             addHistory(
                 'Margem',
-                'Custo ' +
                 money(cost) +
-                ' • Venda ' +
+                ' → ' +
                 money(sale),
-                formatBR(margin) +
+                formatNumber(margin) +
                 '%'
             );
 
@@ -2619,41 +2599,35 @@ document
     );
 
 
-/* =====================================================
-DESCONTO
-===================================================== */
+/* =========================================================
+   DESCONTO
+========================================================= */
 
 document
-    .getElementById(
-        'discountButton'
-    )
+    .getElementById('btnDiscount')
     .addEventListener(
         'click',
         function(){
 
             const price =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'discountPrice'
-                    )
+                    .getElementById('discountPrice')
                     .value
                 );
 
 
             const percent =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'discountPercent'
-                    )
+                    .getElementById('discountPercent')
                     .value
                 );
 
 
             if(price <= 0){
 
-                showToast(
+                toast(
                     'Digite o preço original.'
                 );
 
@@ -2667,8 +2641,8 @@ document
                 percent > 100
             ){
 
-                showToast(
-                    'Desconto deve estar entre 0% e 100%.'
+                toast(
+                    'O desconto deve estar entre 0% e 100%.'
                 );
 
                 return;
@@ -2688,43 +2662,36 @@ document
 
 
             document
-                .getElementById(
-                    'discountResultValue'
-                )
+                .getElementById('discountValue')
                 .textContent =
                 money(finalPrice);
 
 
             document
-                .getElementById(
-                    'discountAmount'
-                )
+                .getElementById('discountAmount')
                 .textContent =
                 money(amount);
 
 
             document
-                .getElementById(
-                    'discountPercentResult'
-                )
+                .getElementById('discountPercentValue')
                 .textContent =
-                formatBR(percent) +
+                formatNumber(percent) +
                 '%';
 
 
             document
-                .getElementById(
-                    'discountResult'
-                )
+                .getElementById('resultDiscount')
                 .style.display =
                 'block';
 
 
             addHistory(
                 'Desconto',
-                formatBR(percent) +
-                '% sobre ' +
-                money(price),
+                money(price) +
+                ' • ' +
+                formatNumber(percent) +
+                '%',
                 money(finalPrice)
             );
 
@@ -2732,34 +2699,29 @@ document
     );
 
 
-/* =====================================================
-MARKUP
-===================================================== */
+/* =========================================================
+   MARKUP
+========================================================= */
 
 document
-    .getElementById(
-        'markupButton'
-    )
+    .getElementById('btnMarkup')
     .addEventListener(
         'click',
         function(){
 
             const cost =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'markupCost'
-                    )
+                    .getElementById('markupCost')
                     .value
                 );
 
 
             const sale =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'markupSale'
-                    ).value
+                    .getElementById('markupSale')
+                    .value
                 );
 
 
@@ -2768,7 +2730,7 @@ document
                 sale <= 0
             ){
 
-                showToast(
+                toast(
                     'Digite custo e preço de venda.'
                 );
 
@@ -2777,14 +2739,13 @@ document
             }
 
 
-            const factor =
-                sale /
-                cost;
+            const markup =
+                sale / cost;
 
 
             const increase =
                 (
-                    factor - 1
+                    markup - 1
                 ) * 100;
 
 
@@ -2798,36 +2759,28 @@ document
 
 
             document
-                .getElementById(
-                    'markupResultValue'
-                )
+                .getElementById('markupValue')
                 .textContent =
-                formatBR(factor) +
+                formatNumber(markup) +
                 'x';
 
 
             document
-                .getElementById(
-                    'markupPercent'
-                )
+                .getElementById('markupIncrease')
                 .textContent =
-                formatBR(increase) +
+                formatNumber(increase) +
                 '%';
 
 
             document
-                .getElementById(
-                    'markupMargin'
-                )
+                .getElementById('markupMargin')
                 .textContent =
-                formatBR(margin) +
+                formatNumber(margin) +
                 '%';
 
 
             document
-                .getElementById(
-                    'markupResult'
-                )
+                .getElementById('resultMarkup')
                 .style.display =
                 'block';
 
@@ -2837,7 +2790,7 @@ document
                 money(cost) +
                 ' → ' +
                 money(sale),
-                formatBR(factor) +
+                formatNumber(markup) +
                 'x'
             );
 
@@ -2845,41 +2798,35 @@ document
     );
 
 
-/* =====================================================
-COMISSÃO
-===================================================== */
+/* =========================================================
+   COMISSÃO
+========================================================= */
 
 document
-    .getElementById(
-        'commissionButton'
-    )
+    .getElementById('btnCommission')
     .addEventListener(
         'click',
         function(){
 
             const sale =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'commissionSale'
-                    )
+                    .getElementById('commissionSale')
                     .value
                 );
 
 
             const percent =
-                parseBR(
+                parseNumber(
                     document
-                    .getElementById(
-                        'commissionPercent'
-                    )
+                    .getElementById('commissionPercent')
                     .value
                 );
 
 
             if(sale <= 0){
 
-                showToast(
+                toast(
                     'Digite o valor da venda.'
                 );
 
@@ -2890,8 +2837,8 @@ document
 
             if(percent < 0){
 
-                showToast(
-                    'Comissão inválida.'
+                toast(
+                    'Digite uma comissão válida.'
                 );
 
                 return;
@@ -2906,17 +2853,13 @@ document
 
 
             document
-                .getElementById(
-                    'commissionResultValue'
-                )
+                .getElementById('commissionValue')
                 .textContent =
                 money(commission);
 
 
             document
-                .getElementById(
-                    'commissionResult'
-                )
+                .getElementById('resultCommission')
                 .style.display =
                 'block';
 
@@ -2925,7 +2868,7 @@ document
                 'Comissão',
                 money(sale) +
                 ' • ' +
-                formatBR(percent) +
+                formatNumber(percent) +
                 '%',
                 money(commission)
             );
@@ -2934,9 +2877,9 @@ document
     );
 
 
-/* =====================================================
-HISTÓRICO
-===================================================== */
+/* =========================================================
+   HISTÓRICO
+========================================================= */
 
 let historyData = [];
 
@@ -2950,12 +2893,8 @@ try{
             ) || '[]'
         );
 
-    if(
-        !Array.isArray(historyData)
-    ){
-
+    if(!Array.isArray(historyData)){
         historyData = [];
-
     }
 
 }catch(error){
@@ -2968,40 +2907,31 @@ try{
 function addHistory(
     type,
     info,
-    value
+    result
 ){
 
     historyData.unshift({
 
         type:type,
-
         info:info,
-
-        value:value,
+        result:result,
 
         date:
             new Date()
-            .toLocaleString(
-                'pt-BR'
-            )
+            .toLocaleString('pt-BR')
 
     });
 
 
     historyData =
-        historyData.slice(
-            0,
-            50
-        );
+        historyData.slice(0,50);
 
 
     try{
 
         localStorage.setItem(
             'calpro_history',
-            JSON.stringify(
-                historyData
-            )
+            JSON.stringify(historyData)
         );
 
     }catch(error){}
@@ -3020,15 +2950,13 @@ function renderHistory(){
         );
 
 
-    if(
-        historyData.length === 0
-    ){
+    if(!historyData.length){
 
         list.className =
             'history-empty';
 
-        list.innerHTML =
-            'Nenhum cálculo realizado.';
+        list.textContent =
+            'Nenhuma conta realizada ainda.';
 
         return;
 
@@ -3040,87 +2968,48 @@ function renderHistory(){
 
     list.innerHTML =
         historyData
-        .map(
-            function(item){
+        .map(function(item){
 
-                return `
+            return `
 
-                    <div class="history-item">
+                <div class="history-item">
 
-                        <div>
+                    <div>
 
-                            <div class="history-type">
-
-                                ${escapeHTML(
-                                    item.type
-                                )}
-
-                            </div>
-
-                            <div class="history-info">
-
-                                ${escapeHTML(
-                                    item.info
-                                )}
-
-                                <br>
-
-                                ${escapeHTML(
-                                    item.date
-                                )}
-
-                            </div>
-
+                        <div class="history-name">
+                            ${safe(item.type)}
                         </div>
 
-
-                        <div class="history-value">
-
-                            ${escapeHTML(
-                                item.value
-                            )}
-
+                        <div class="history-info">
+                            ${safe(item.info)}
+                            <br>
+                            ${safe(item.date)}
                         </div>
 
                     </div>
 
-                `;
+                    <div class="history-result">
+                        ${safe(item.result)}
+                    </div>
 
-            }
-        )
+                </div>
+
+            `;
+
+        })
         .join('');
 
 }
 
 
-function escapeHTML(value){
+function safe(value){
 
     return String(value)
-
-        .replace(
-            /&/g,
-            '&amp;'
-        )
-
-        .replace(
-            /</g,
-            '&lt;'
-        )
-
-        .replace(
-            />/g,
-            '&gt;'
-        )
-
-        .replace(
-            /"/g,
-            '&quot;'
-        )
-
-        .replace(
-            /'/g,
-            '&#039;'
-        );
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;')
+        .replace(/'/g,'&#039;');
 
 }
 
@@ -3128,78 +3017,45 @@ function escapeHTML(value){
 renderHistory();
 
 
-/* =====================================================
-CALCULADORA
-===================================================== */
+/* =========================================================
+   CALCULADORA
+========================================================= */
 
-let calcCurrent =
-    '0';
+let current = '0';
 
-let calcPrevious =
-    null;
+let previous = null;
 
-let calcOperator =
-    null;
+let operator = null;
 
-let calcWaiting =
-    false;
+let waiting = false;
 
-let calcExpression =
-    '';
+let expression = '';
 
-let calcMemory =
-    0;
-
-let lastOperand =
-    null;
-
-let lastOperator =
-    null;
+let memory = 0;
 
 
-const calcValue =
-    document.getElementById(
-        'calcValue'
-    );
+const display =
+    document.getElementById('display');
 
-
-const calcExpressionEl =
-    document.getElementById(
-        'calcExpression'
-    );
+const expressionElement =
+    document.getElementById('expression');
 
 
 function updateCalculator(){
 
-    calcValue.textContent =
-        displayNumber(
-            calcCurrent
-        );
+    display.textContent =
+        displayNumber(current);
 
-
-    calcExpressionEl.textContent =
-        calcExpression;
+    expressionElement.textContent =
+        expression;
 
 }
 
 
 function displayNumber(value){
 
-    if(
-        value === 'Erro'
-    ){
-
+    if(value === 'Erro'){
         return 'Erro';
-
-    }
-
-
-    if(
-        value === ''
-    ){
-
-        return '0';
-
     }
 
 
@@ -3207,66 +3063,43 @@ function displayNumber(value){
         Number(value);
 
 
-    if(
-        !Number.isFinite(number)
-    ){
-
+    if(!Number.isFinite(number)){
         return value;
-
     }
 
 
     return number.toLocaleString(
         'pt-BR',
         {
-            maximumFractionDigits:
-                10
+            maximumFractionDigits:10
         }
     );
 
 }
 
 
-/* =====================================================
-NÚMEROS
-===================================================== */
+function inputNumber(number){
 
-function inputNumber(
-    digit
-){
-
-    if(
-        calcCurrent === 'Erro'
-    ){
-
+    if(current === 'Erro'){
         clearCalculator();
-
     }
 
 
-    if(
-        calcWaiting
-    ){
+    if(waiting){
 
-        calcCurrent =
-            digit;
+        current = number;
 
-        calcWaiting =
-            false;
+        waiting = false;
 
     }else{
 
-        if(
-            calcCurrent === '0'
-        ){
+        if(current === '0'){
 
-            calcCurrent =
-                digit;
+            current = number;
 
         }else{
 
-            calcCurrent +=
-                digit;
+            current += number;
 
         }
 
@@ -3278,30 +3111,18 @@ function inputNumber(
 }
 
 
-/* =====================================================
-VÍRGULA
-===================================================== */
+function decimal(){
 
-function inputDecimal(){
-
-    if(
-        calcCurrent === 'Erro'
-    ){
-
+    if(current === 'Erro'){
         clearCalculator();
-
     }
 
 
-    if(
-        calcWaiting
-    ){
+    if(waiting){
 
-        calcCurrent =
-            '0.';
+        current = '0.';
 
-        calcWaiting =
-            false;
+        waiting = false;
 
         updateCalculator();
 
@@ -3310,12 +3131,9 @@ function inputDecimal(){
     }
 
 
-    if(
-        !calcCurrent.includes('.')
-    ){
+    if(!current.includes('.')){
 
-        calcCurrent +=
-            '.';
+        current += '.';
 
     }
 
@@ -3325,60 +3143,35 @@ function inputDecimal(){
 }
 
 
-/* =====================================================
-OPERAÇÃO
-===================================================== */
-
 function calculate(
     a,
     b,
-    operator
+    op
 ){
 
-    a =
-        Number(a);
-
-    b =
-        Number(b);
+    a = Number(a);
+    b = Number(b);
 
 
-    if(
-        operator === '+'
-    ){
-
+    if(op === '+'){
         return a + b;
-
     }
 
 
-    if(
-        operator === '-'
-    ){
-
+    if(op === '-'){
         return a - b;
-
     }
 
 
-    if(
-        operator === '*'
-    ){
-
+    if(op === '*'){
         return a * b;
-
     }
 
 
-    if(
-        operator === '/'
-    ){
+    if(op === '/'){
 
-        if(
-            b === 0
-        ){
-
+        if(b === 0){
             return null;
-
         }
 
         return a / b;
@@ -3391,60 +3184,43 @@ function calculate(
 }
 
 
-/* =====================================================
-OPERADOR
-===================================================== */
+function selectOperator(op){
 
-function chooseOperator(
-    operator
-){
-
-    if(
-        calcCurrent === 'Erro'
-    ){
-
+    if(current === 'Erro'){
         return;
-
     }
 
 
     const value =
-        Number(
-            calcCurrent
-        );
+        Number(current);
 
 
     if(
-        calcPrevious !== null &&
-        calcOperator !== null &&
-        !calcWaiting
+        previous !== null &&
+        operator !== null &&
+        !waiting
     ){
 
         const result =
             calculate(
-                calcPrevious,
+                previous,
                 value,
-                calcOperator
+                operator
             );
 
 
-        if(
-            result === null
-        ){
+        if(result === null){
 
-            calcCurrent =
-                'Erro';
+            current = 'Erro';
 
-            calcPrevious =
-                null;
+            previous = null;
 
-            calcOperator =
-                null;
+            operator = null;
 
             updateCalculator();
 
-            showToast(
-                'Divisão por zero.'
+            toast(
+                'Não é possível dividir por zero.'
             );
 
             return;
@@ -3452,38 +3228,28 @@ function chooseOperator(
         }
 
 
-        calcPrevious =
-            result;
+        previous = result;
 
-        calcCurrent =
-            String(result);
+        current = String(result);
 
     }else{
 
-        calcPrevious =
-            value;
+        previous = value;
 
     }
 
 
-    calcOperator =
-        operator;
+    operator = op;
+
+    waiting = true;
 
 
-    calcWaiting =
-        true;
-
-
-    calcExpression =
+    expression =
         displayNumber(
-            String(
-                calcPrevious
-            )
+            String(previous)
         ) +
         ' ' +
-        operatorSymbol(
-            operator
-        );
+        operatorSymbol(op);
 
 
     updateCalculator();
@@ -3491,55 +3257,30 @@ function chooseOperator(
 }
 
 
-/* =====================================================
-SÍMBOLOS
-===================================================== */
+function operatorSymbol(op){
 
-function operatorSymbol(
-    operator
-){
-
-    if(
-        operator === '*'
-    ){
-
+    if(op === '*'){
         return '×';
-
     }
 
-
-    if(
-        operator === '/'
-    ){
-
+    if(op === '/'){
         return '÷';
-
     }
 
-
-    if(
-        operator === '-'
-    ){
-
+    if(op === '-'){
         return '−';
-
     }
 
-
-    return operator;
+    return op;
 
 }
 
 
-/* =====================================================
-IGUAL
-===================================================== */
-
 function equals(){
 
     if(
-        calcPrevious === null ||
-        calcOperator === null
+        previous === null ||
+        operator === null
     ){
 
         return;
@@ -3548,46 +3289,36 @@ function equals(){
 
 
     const first =
-        calcPrevious;
-
+        previous;
 
     const second =
-        Number(
-            calcCurrent
-        );
+        Number(current);
 
-
-    const operator =
-        calcOperator;
+    const op =
+        operator;
 
 
     const result =
         calculate(
             first,
             second,
-            operator
+            op
         );
 
 
-    if(
-        result === null
-    ){
+    if(result === null){
 
-        calcCurrent =
-            'Erro';
+        current = 'Erro';
 
-        calcPrevious =
-            null;
+        previous = null;
 
-        calcOperator =
-            null;
+        operator = null;
 
-        calcExpression =
-            '';
+        expression = '';
 
         updateCalculator();
 
-        showToast(
+        toast(
             'Não é possível dividir por zero.'
         );
 
@@ -3596,14 +3327,12 @@ function equals(){
     }
 
 
-    calcExpression =
+    expression =
         displayNumber(
             String(first)
         ) +
         ' ' +
-        operatorSymbol(
-            operator
-        ) +
+        operatorSymbol(op) +
         ' ' +
         displayNumber(
             String(second)
@@ -3611,28 +3340,14 @@ function equals(){
         ' =';
 
 
-    calcCurrent =
+    current =
         String(result);
 
+    previous = null;
 
-    calcPrevious =
-        null;
+    operator = null;
 
-
-    calcOperator =
-        null;
-
-
-    calcWaiting =
-        true;
-
-
-    lastOperand =
-        second;
-
-
-    lastOperator =
-        operator;
+    waiting = true;
 
 
     updateCalculator();
@@ -3640,7 +3355,7 @@ function equals(){
 
     addHistory(
         'Calculadora',
-        calcExpression,
+        expression,
         displayNumber(
             String(result)
         )
@@ -3649,163 +3364,41 @@ function equals(){
 }
 
 
-/* =====================================================
-PORCENTAGEM
-===================================================== */
+function clearCalculator(){
 
-function percent(){
+    current = '0';
 
-    const value =
-        Number(
-            calcCurrent
-        );
+    previous = null;
 
+    operator = null;
 
-    if(
-        !Number.isFinite(value)
-    ){
+    waiting = false;
 
-        return;
-
-    }
-
-
-    if(
-        calcPrevious !== null &&
-        calcOperator !== null
-    ){
-
-        /*
-        Exemplo:
-
-        200 + 10%
-
-        10% de 200 = 20
-
-        */
-
-        if(
-            calcOperator === '+' ||
-            calcOperator === '-'
-        ){
-
-            calcCurrent =
-                String(
-                    calcPrevious *
-                    value /
-                    100
-                );
-
-        }else{
-
-            calcCurrent =
-                String(
-                    value /
-                    100
-                );
-
-        }
-
-    }else{
-
-        calcCurrent =
-            String(
-                value /
-                100
-            );
-
-    }
-
-
-    calcWaiting =
-        false;
-
+    expression = '';
 
     updateCalculator();
 
 }
 
 
-/* =====================================================
-SINAL
-===================================================== */
+function backspace(){
 
-function toggleSign(){
-
-    if(
-        calcCurrent === '0' ||
-        calcCurrent === 'Erro'
-    ){
-
+    if(waiting){
         return;
-
     }
 
 
     if(
-        calcCurrent.startsWith('-')
+        current === 'Erro' ||
+        current.length <= 1
     ){
 
-        calcCurrent =
-            calcCurrent.substring(
-                1
-            );
+        current = '0';
 
     }else{
 
-        calcCurrent =
-            '-' +
-            calcCurrent;
-
-    }
-
-
-    updateCalculator();
-
-}
-
-
-/* =====================================================
-APAGAR
-===================================================== */
-
-function backspaceCalculator(){
-
-    if(
-        calcWaiting
-    ){
-
-        return;
-
-    }
-
-
-    if(
-        calcCurrent === 'Erro'
-    ){
-
-        clearCalculator();
-
-        return;
-
-    }
-
-
-    if(
-        calcCurrent.length <= 1 ||
-        (
-            calcCurrent.length === 2 &&
-            calcCurrent.startsWith('-')
-        )
-    ){
-
-        calcCurrent =
-            '0';
-
-    }else{
-
-        calcCurrent =
-            calcCurrent.slice(
+        current =
+            current.slice(
                 0,
                 -1
             );
@@ -3818,157 +3411,128 @@ function backspaceCalculator(){
 }
 
 
-/* =====================================================
-AC
-===================================================== */
+function toggleSign(){
 
-function clearCalculator(){
+    if(
+        current === '0' ||
+        current === 'Erro'
+    ){
 
-    calcCurrent =
-        '0';
+        return;
 
-    calcPrevious =
-        null;
+    }
 
-    calcOperator =
-        null;
 
-    calcWaiting =
-        false;
+    if(current.startsWith('-')){
 
-    calcExpression =
-        '';
+        current =
+            current.substring(1);
 
-    lastOperand =
-        null;
+    }else{
 
-    lastOperator =
-        null;
+        current =
+            '-' + current;
+
+    }
+
 
     updateCalculator();
 
 }
 
 
-/* =====================================================
-MEMÓRIA
-===================================================== */
+function percentage(){
 
-function memoryClear(){
+    const value =
+        Number(current);
 
-    calcMemory =
-        0;
 
-    showToast(
-        'Memória apagada.'
-    );
+    if(!Number.isFinite(value)){
+        return;
+    }
+
+
+    if(
+        previous !== null &&
+        operator !== null
+    ){
+
+        if(
+            operator === '+' ||
+            operator === '-'
+        ){
+
+            current =
+                String(
+                    previous *
+                    value /
+                    100
+                );
+
+        }else{
+
+            current =
+                String(
+                    value /
+                    100
+                );
+
+        }
+
+    }else{
+
+        current =
+            String(
+                value /
+                100
+            );
+
+    }
+
+
+    updateCalculator();
 
 }
 
 
-function memoryRecall(){
+/* =========================================================
+   BOTÕES DA CALCULADORA
+========================================================= */
 
-    calcCurrent =
-        String(
-            calcMemory
+document
+    .querySelectorAll('[data-number]')
+    .forEach(function(button){
+
+        button.addEventListener(
+            'click',
+            function(){
+
+                inputNumber(
+                    button.dataset.number
+                );
+
+            }
         );
 
-    calcWaiting =
-        false;
-
-    updateCalculator();
-
-}
-
-
-function memoryAdd(){
-
-    calcMemory +=
-        Number(
-            calcCurrent
-        ) || 0;
-
-    showToast(
-        'Valor adicionado.'
-    );
-
-}
-
-
-function memorySubtract(){
-
-    calcMemory -=
-        Number(
-            calcCurrent
-        ) || 0;
-
-    showToast(
-        'Valor retirado.'
-    );
-
-}
-
-
-function memoryStore(){
-
-    calcMemory =
-        Number(
-            calcCurrent
-        ) || 0;
-
-    showToast(
-        'Valor salvo.'
-    );
-
-}
-
-
-/* =====================================================
-BOTÕES CALCULADORA
-===================================================== */
-
-document
-    .querySelectorAll(
-        '[data-number]'
-    )
-    .forEach(
-        function(button){
-
-            button.addEventListener(
-                'click',
-                function(){
-
-                    inputNumber(
-                        button.dataset.number
-                    );
-
-                }
-            );
-
-        }
-    );
+    });
 
 
 document
-    .querySelectorAll(
-        '[data-operator]'
-    )
-    .forEach(
-        function(button){
+    .querySelectorAll('[data-operator]')
+    .forEach(function(button){
 
-            button.addEventListener(
-                'click',
-                function(){
+        button.addEventListener(
+            'click',
+            function(){
 
-                    chooseOperator(
-                        button.dataset.operator
-                    );
+                selectOperator(
+                    button.dataset.operator
+                );
 
-                }
-            );
+            }
+        );
 
-        }
-    );
+    });
 
 
 document
@@ -3977,7 +3541,7 @@ document
     )
     .addEventListener(
         'click',
-        inputDecimal
+        decimal
     );
 
 
@@ -3997,17 +3561,7 @@ document
     )
     .addEventListener(
         'click',
-        backspaceCalculator
-    );
-
-
-document
-    .querySelector(
-        '[data-action="percent"]'
-    )
-    .addEventListener(
-        'click',
-        percent
+        backspace
     );
 
 
@@ -4023,6 +3577,16 @@ document
 
 document
     .querySelector(
+        '[data-action="percent"]'
+    )
+    .addEventListener(
+        'click',
+        percentage
+    );
+
+
+document
+    .querySelector(
         '[data-action="equals"]'
     )
     .addEventListener(
@@ -4031,89 +3595,93 @@ document
     );
 
 
-/* =====================================================
-MEMÓRIA BOTÕES
-===================================================== */
+/* =========================================================
+   MEMÓRIA
+========================================================= */
 
 document
-    .querySelectorAll(
-        '[data-memory]'
-    )
-    .forEach(
-        function(button){
+    .querySelectorAll('[data-memory]')
+    .forEach(function(button){
 
-            button.addEventListener(
-                'click',
-                function(){
+        button.addEventListener(
+            'click',
+            function(){
 
-                    const action =
-                        button.dataset.memory;
+                const action =
+                    button.dataset.memory;
 
 
-                    if(
-                        action === 'mc'
-                    ){
+                if(action === 'clear'){
 
-                        memoryClear();
+                    memory = 0;
 
-                    }
-
-
-                    if(
-                        action === 'mr'
-                    ){
-
-                        memoryRecall();
-
-                    }
-
-
-                    if(
-                        action === 'mplus'
-                    ){
-
-                        memoryAdd();
-
-                    }
-
-
-                    if(
-                        action === 'mminus'
-                    ){
-
-                        memorySubtract();
-
-                    }
-
-
-                    if(
-                        action === 'ms'
-                    ){
-
-                        memoryStore();
-
-                    }
+                    toast(
+                        'Memória apagada.'
+                    );
 
                 }
-            );
-
-        }
-    );
 
 
-/* =====================================================
-TECLADO FÍSICO
-=====================================================
+                if(action === 'recall'){
 
-IMPORTANTE:
+                    current =
+                        String(memory);
 
-A calculadora só recebe o teclado
-quando NÃO estamos digitando em
-um campo INPUT.
+                    waiting = false;
 
-Isso corrige o problema que
-bloqueava os números das ferramentas.
-===================================================== */
+                    updateCalculator();
+
+                }
+
+
+                if(action === 'add'){
+
+                    memory +=
+                        Number(current) || 0;
+
+                    toast(
+                        'Valor adicionado.'
+                    );
+
+                }
+
+
+                if(action === 'subtract'){
+
+                    memory -=
+                        Number(current) || 0;
+
+                    toast(
+                        'Valor retirado.'
+                    );
+
+                }
+
+
+                if(action === 'store'){
+
+                    memory =
+                        Number(current) || 0;
+
+                    toast(
+                        'Valor salvo.'
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   TECLADO FÍSICO
+
+   MUITO IMPORTANTE:
+   Se estiver em INPUT, a calculadora
+   NÃO captura o teclado.
+========================================================= */
 
 document.addEventListener(
     'keydown',
@@ -4122,11 +3690,6 @@ document.addEventListener(
         const target =
             event.target;
 
-
-        /*
-        SE ESTIVER DIGITANDO EM INPUT,
-        NÃO INTERFERIR.
-        */
 
         if(
             target &&
@@ -4165,7 +3728,7 @@ document.addEventListener(
             key === '.'
         ){
 
-            inputDecimal();
+            decimal();
 
             event.preventDefault();
 
@@ -4174,11 +3737,9 @@ document.addEventListener(
         }
 
 
-        if(
-            key === '+'
-        ){
+        if(key === '+'){
 
-            chooseOperator('+');
+            selectOperator('+');
 
             event.preventDefault();
 
@@ -4187,11 +3748,9 @@ document.addEventListener(
         }
 
 
-        if(
-            key === '-'
-        ){
+        if(key === '-'){
 
-            chooseOperator('-');
+            selectOperator('-');
 
             event.preventDefault();
 
@@ -4205,7 +3764,7 @@ document.addEventListener(
             key.toLowerCase() === 'x'
         ){
 
-            chooseOperator('*');
+            selectOperator('*');
 
             event.preventDefault();
 
@@ -4214,11 +3773,9 @@ document.addEventListener(
         }
 
 
-        if(
-            key === '/'
-        ){
+        if(key === '/'){
 
-            chooseOperator('/');
+            selectOperator('/');
 
             event.preventDefault();
 
@@ -4227,11 +3784,9 @@ document.addEventListener(
         }
 
 
-        if(
-            key === '%'
-        ){
+        if(key === '%'){
 
-            percent();
+            percentage();
 
             event.preventDefault();
 
@@ -4254,11 +3809,9 @@ document.addEventListener(
         }
 
 
-        if(
-            key === 'Backspace'
-        ){
+        if(key === 'Backspace'){
 
-            backspaceCalculator();
+            backspace();
 
             event.preventDefault();
 
@@ -4267,15 +3820,11 @@ document.addEventListener(
         }
 
 
-        if(
-            key === 'Escape'
-        ){
+        if(key === 'Escape'){
 
             clearCalculator();
 
             event.preventDefault();
-
-            return;
 
         }
 
@@ -4283,20 +3832,11 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-CORREÇÃO DE INPUTS
-=====================================================
+/* =========================================================
+   INPUTS
 
-Permite:
-
-5
-5,9
-5,95
-1.250
-1.250,50
-
-Sem impedir a digitação.
-===================================================== */
+   NÃO BLOQUEIA DIGITAÇÃO.
+========================================================= */
 
 document.addEventListener(
     'input',
@@ -4317,53 +3857,19 @@ document.addEventListener(
         }
 
 
-        let value =
-            input.value;
-
-
-        /*
-        Só números, ponto e vírgula.
-        */
-
-        value =
-            value.replace(
+        input.value =
+            input.value.replace(
                 /[^0-9.,]/g,
                 ''
             );
-
-
-        /*
-        Não permitir duas vírgulas.
-        */
-
-        const commaParts =
-            value.split(',');
-
-
-        if(
-            commaParts.length > 2
-        ){
-
-            value =
-                commaParts[0] +
-                ',' +
-                commaParts
-                .slice(1)
-                .join('');
-
-        }
-
-
-        input.value =
-            value;
 
     }
 );
 
 
-/* =====================================================
-BLOQUEIO DE ZOOM
-===================================================== */
+/* =========================================================
+   BLOQUEAR ZOOM
+========================================================= */
 
 document.addEventListener(
     'gesturestart',
@@ -4377,7 +3883,6 @@ document.addEventListener(
     }
 );
 
-
 document.addEventListener(
     'gesturechange',
     function(event){
@@ -4389,7 +3894,6 @@ document.addEventListener(
         passive:false
     }
 );
-
 
 document.addEventListener(
     'gestureend',
@@ -4404,15 +3908,13 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-INICIALIZAÇÃO
-===================================================== */
+/* =========================================================
+   INICIAR
+========================================================= */
 
 updateCalculator();
 
-showSection(
-    'tools'
-);
+showPage('home');
 
 </script>
 
