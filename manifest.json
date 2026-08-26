@@ -1,0 +1,10 @@
+{
+  "name": "CALPRO EXPERT",
+  "short_name": "CALPRO",
+  "description": "A calculadora profissional do vendedor.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080b10",
+  "theme_color": "#ff7200",
+  "orientation": "portrait"
+}
