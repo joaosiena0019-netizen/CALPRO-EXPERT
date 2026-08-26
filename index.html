@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1,
-maximum-scale=1, user-scalable=no,
+content="width=device-width,
+initial-scale=1,
+maximum-scale=1,
+user-scalable=no,
 viewport-fit=cover">
 
 <meta name="theme-color" content="#070a0f">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+content="black-translucent">
 
 <title>CALPRO EXPERT</title>
 
@@ -41,14 +49,14 @@ body{
     background:
         radial-gradient(
             circle at 50% -15%,
-            rgba(255,105,0,.17),
-            transparent 35%
+            rgba(255,105,0,.18),
+            transparent 36%
         ),
         linear-gradient(
             180deg,
-            #070a0f,
-            #090d13 60%,
-            #05070b
+            #070a0f 0%,
+            #090d13 55%,
+            #05070b 100%
         );
 
     color:#fff;
@@ -88,7 +96,7 @@ button{
 
 
 /* =====================================================
-   HEADER COMPACTO
+   HEADER
 ===================================================== */
 
 .header{
@@ -96,18 +104,17 @@ button{
     top:0;
     z-index:1000;
 
-    padding:
-        7px 10px 8px;
+    padding:7px 10px 8px;
 
     background:
-        rgba(7,10,15,.96);
+        rgba(7,10,15,.97);
 
     border-bottom:
         1px solid
         rgba(255,255,255,.055);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
 }
 
 
@@ -123,9 +130,8 @@ button{
 }
 
 .logo{
-
-    width:38px;
-    height:38px;
+    width:39px;
+    height:39px;
 
     display:flex;
     align-items:center;
@@ -142,22 +148,23 @@ button{
 
     box-shadow:
         0 7px 18px
-        rgba(255,90,0,.25),
+        rgba(255,90,0,.28),
 
-        inset 0 2px 2px
-        rgba(255,255,255,.3);
+        inset 0 2px 3px
+        rgba(255,255,255,.30),
+
+        inset 0 -6px 10px
+        rgba(100,20,0,.18);
 }
 
 .logo svg{
-    width:25px;
-    height:25px;
+    width:26px;
+    height:26px;
 }
 
 .logo-name{
-
     font-size:21px;
     font-weight:1000;
-
     letter-spacing:-1.3px;
 }
 
@@ -166,13 +173,11 @@ button{
 }
 
 .logo-expert{
-
     margin-top:-2px;
 
     text-align:center;
 
     font-size:6px;
-
     font-weight:900;
 
     letter-spacing:3px;
@@ -181,7 +186,6 @@ button{
 }
 
 .slogan{
-
     margin-top:3px;
 
     text-align:center;
@@ -201,7 +205,6 @@ button{
 ===================================================== */
 
 .nav{
-
     display:grid;
 
     grid-template-columns:
@@ -213,7 +216,6 @@ button{
 }
 
 .nav button{
-
     height:31px;
 
     border-radius:9px;
@@ -228,12 +230,10 @@ button{
     color:#737f8d;
 
     font-size:7px;
-
     font-weight:900;
 }
 
 .nav button.active{
-
     background:
         linear-gradient(
             135deg,
@@ -256,7 +256,6 @@ button{
 ===================================================== */
 
 .content{
-
     width:100%;
 
     padding:
@@ -279,7 +278,6 @@ button{
 ===================================================== */
 
 .section-title{
-
     margin:
         0 1px 8px;
 
@@ -291,14 +289,13 @@ button{
 }
 
 .section-subtitle{
-
     display:block;
 
     margin-top:2px;
 
-    color:#687482;
+    color:#6f7b88;
 
-    font-size:7px;
+    font-size:8px;
 
     font-weight:500;
 
@@ -307,11 +304,10 @@ button{
 
 
 /* =====================================================
-   GRADE COMPACTA
+   FERRAMENTAS
 ===================================================== */
 
 .tools{
-
     display:grid;
 
     grid-template-columns:
@@ -324,7 +320,7 @@ button{
 
 
 /* =====================================================
-   CARD COMPACTO
+   CARD
 ===================================================== */
 
 .tool-card{
@@ -333,11 +329,11 @@ button{
 
     width:100%;
 
-    height:112px;
+    height:118px;
 
     min-width:0;
 
-    padding:7px;
+    padding:7px 7px 8px;
 
     display:flex;
 
@@ -347,38 +343,45 @@ button{
 
     justify-content:center;
 
-    border-radius:15px;
+    border-radius:16px;
 
     background:
 
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(255,112,0,.09),
+            transparent 40%
+        ),
+
         linear-gradient(
             145deg,
-            #171f29,
-            #0d131b 60%,
-            #090e14
+            #19222d 0%,
+            #101720 58%,
+            #090e15 100%
         );
 
     border:
         1px solid
-        rgba(255,255,255,.065);
+        rgba(255,255,255,.075);
 
     box-shadow:
 
-        0 7px 16px
-        rgba(0,0,0,.27),
+        0 8px 17px
+        rgba(0,0,0,.28),
 
         inset 0 1px 1px
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.075);
 
     overflow:hidden;
 
     transition:
         transform .14s ease,
-        border-color .14s ease;
+        border-color .14s ease,
+        box-shadow .14s ease;
 }
 
 
-/* brilho */
+/* brilho superior */
 
 .tool-card::before{
 
@@ -387,11 +390,10 @@ button{
     position:absolute;
 
     top:-25px;
-
     left:50%;
 
-    width:70px;
-    height:55px;
+    width:90px;
+    height:60px;
 
     transform:
         translateX(-50%);
@@ -399,7 +401,7 @@ button{
     background:
         radial-gradient(
             circle,
-            rgba(255,115,0,.14),
+            rgba(255,120,0,.17),
             transparent 70%
         );
 
@@ -407,7 +409,7 @@ button{
 }
 
 
-/* linha */
+/* linha inferior */
 
 .tool-card::after{
 
@@ -415,8 +417,8 @@ button{
 
     position:absolute;
 
-    left:25%;
-    right:25%;
+    left:22%;
+    right:22%;
 
     bottom:5px;
 
@@ -428,14 +430,16 @@ button{
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,115,0,.45),
+            rgba(255,120,0,.55),
             transparent
         );
+
+    opacity:.7;
 }
 
 
 /* =====================================================
-   ÍCONE PEQUENO
+   ÍCONE
 ===================================================== */
 
 .tool-card img{
@@ -446,20 +450,20 @@ button{
 
     display:block;
 
-    width:48px;
-    height:48px;
+    width:54px;
+    height:54px;
 
-    max-width:48px;
-    max-height:48px;
+    max-width:54px;
+    max-height:54px;
 
     object-fit:contain;
 
     object-position:center;
 
     margin:
-        0 auto 5px;
+        0 auto 4px;
 
-    border-radius:9px;
+    border-radius:10px;
 
     user-select:none;
 
@@ -469,9 +473,12 @@ button{
 
     filter:
         drop-shadow(
-            0 5px 7px
-            rgba(0,0,0,.35)
+            0 6px 8px
+            rgba(0,0,0,.40)
         );
+
+    transition:
+        transform .15s ease;
 }
 
 
@@ -489,9 +496,9 @@ button{
 
     text-align:center;
 
-    color:#fff;
+    color:#ffffff;
 
-    font-size:8px;
+    font-size:9px;
 
     font-weight:1000;
 
@@ -502,7 +509,7 @@ button{
 
 
 /* =====================================================
-   DESCRIÇÃO
+   EXPLICAÇÃO
 ===================================================== */
 
 .tool-description{
@@ -513,17 +520,17 @@ button{
 
     width:94%;
 
-    margin-top:3px;
+    margin-top:4px;
 
     text-align:center;
 
-    color:#778390;
+    color:#8b97a4;
 
-    font-size:6.5px;
+    font-size:7px;
 
-    font-weight:500;
+    font-weight:600;
 
-    line-height:1.2;
+    line-height:1.25;
 }
 
 
@@ -534,17 +541,23 @@ button{
 .tool-card:active{
 
     transform:
-        scale(.965);
+        scale(.96);
 
     border-color:
-        rgba(255,115,0,.50);
+        rgba(255,120,0,.60);
 
     box-shadow:
+
         0 5px 12px
         rgba(0,0,0,.35),
 
-        0 0 12px
-        rgba(255,100,0,.08);
+        0 0 14px
+        rgba(255,100,0,.10);
+}
+
+.tool-card:active img{
+    transform:
+        scale(.94);
 }
 
 
@@ -589,7 +602,7 @@ button{
 
 
 /* =====================================================
-   HERO
+   APRESENTAÇÃO
 ===================================================== */
 
 .hero{
@@ -606,8 +619,8 @@ button{
 
         radial-gradient(
             circle at 100% 0%,
-            rgba(255,110,0,.15),
-            transparent 38%
+            rgba(255,110,0,.16),
+            transparent 40%
         ),
 
         linear-gradient(
@@ -713,7 +726,7 @@ button{
 
 
 /* =====================================================
-   VOLTAR
+   BOTÃO VOLTAR
 ===================================================== */
 
 .back{
@@ -785,7 +798,6 @@ button{
     font-weight:700;
 
     -webkit-appearance:none;
-
     appearance:none;
 }
 
@@ -823,6 +835,10 @@ button{
     font-size:8px;
 
     font-weight:1000;
+
+    box-shadow:
+        0 6px 14px
+        rgba(255,90,0,.15);
 }
 
 
@@ -1221,7 +1237,7 @@ button{
 
 
 /* =====================================================
-   CELULAR MUITO PEQUENO
+   CELULARES PEQUENOS
 ===================================================== */
 
 @media(max-width:350px){
@@ -1230,34 +1246,45 @@ button{
         padding-top:5px;
     }
 
-    .tool-card{
-        height:100px;
-        border-radius:13px;
-    }
-
-    .tool-card img{
-        width:40px;
-        height:40px;
-        margin-bottom:3px;
-    }
-
-    .tool-name{
-        font-size:7px;
-    }
-
-    .tool-description{
-        font-size:5.8px;
+    .content{
+        padding-left:8px;
+        padding-right:8px;
     }
 
     .tools{
         gap:6px;
     }
 
+    .tool-card{
+
+        height:104px;
+
+        border-radius:14px;
+
+        padding:5px;
+    }
+
+    .tool-card img{
+
+        width:47px;
+        height:47px;
+
+        margin-bottom:3px;
+    }
+
+    .tool-name{
+        font-size:8px;
+    }
+
+    .tool-description{
+        font-size:6px;
+    }
+
 }
 
 
 /* =====================================================
-   TABLET / DESKTOP
+   TABLET
 ===================================================== */
 
 @media(min-width:600px){
@@ -1279,8 +1306,8 @@ button{
 
     .tool-card img{
 
-        width:65px;
-        height:65px;
+        width:68px;
+        height:68px;
     }
 
     .tool-name{
@@ -1295,7 +1322,7 @@ button{
 
 
 /* =====================================================
-   DESKTOP GRANDE
+   DESKTOP
 ===================================================== */
 
 @media(min-width:1000px){
@@ -1436,7 +1463,7 @@ body{
         Ferramentas
 
         <span class="section-subtitle">
-            Tudo que você precisa para calcular melhor e vender mais.
+            Escolha uma ferramenta para começar.
         </span>
 
     </div>
@@ -1445,7 +1472,9 @@ body{
     <div class="tools">
 
 
-        <!-- PREÇO DE VENDA -->
+        <!-- =================================================
+             PREÇO DE VENDA
+        ================================================== -->
 
         <button
             class="tool-card"
@@ -1453,7 +1482,7 @@ body{
         >
 
             <img
-                src="./assets/PRECO-DE-VENDA.png?v=4"
+                src="./assets/PRECO-DE-VENDA.png?v=5"
                 alt="Preço de Venda"
                 draggable="false"
             >
@@ -1463,13 +1492,15 @@ body{
             </span>
 
             <span class="tool-description">
-                Descubra o preço ideal do produto.
+                Descubra o preço ideal para vender.
             </span>
 
         </button>
 
 
-        <!-- MARGEM -->
+        <!-- =================================================
+             MARGEM
+        ================================================== -->
 
         <button
             class="tool-card"
@@ -1477,8 +1508,8 @@ body{
         >
 
             <img
-                src="./assets/MARGEM-DE-LUCRO.png?v=4"
-                alt="Margem de Lucro"
+                src="./assets/MARGEM-DE-LUCRO.png?v=5"
+                alt="Margem"
                 draggable="false"
             >
 
@@ -1493,7 +1524,9 @@ body{
         </button>
 
 
-        <!-- DESCONTO -->
+        <!-- =================================================
+             DESCONTO
+        ================================================== -->
 
         <button
             class="tool-card"
@@ -1501,7 +1534,7 @@ body{
         >
 
             <img
-                src="./assets/DESCONTO.png?v=4"
+                src="./assets/DESCONTO.png?v=5"
                 alt="Desconto"
                 draggable="false"
             >
@@ -1517,7 +1550,9 @@ body{
         </button>
 
 
-        <!-- MARKUP -->
+        <!-- =================================================
+             MARKUP
+        ================================================== -->
 
         <button
             class="tool-card"
@@ -1525,7 +1560,7 @@ body{
         >
 
             <img
-                src="./assets/MARKUP.png?v=4"
+                src="./assets/MARKUP.png?v=5"
                 alt="Markup"
                 draggable="false"
             >
@@ -1541,7 +1576,9 @@ body{
         </button>
 
 
-        <!-- COMISSÃO -->
+        <!-- =================================================
+             COMISSÃO
+        ================================================== -->
 
         <button
             class="tool-card"
@@ -1549,7 +1586,7 @@ body{
         >
 
             <img
-                src="./assets/COMISSAO.png?v=4"
+                src="./assets/COMISSAO.png?v=5"
                 alt="Comissão"
                 draggable="false"
             >
@@ -1565,7 +1602,9 @@ body{
         </button>
 
 
-        <!-- CALCULADORA -->
+        <!-- =================================================
+             CALCULADORA
+        ================================================== -->
 
         <button
             class="tool-card"
@@ -1573,7 +1612,7 @@ body{
         >
 
             <img
-                src="./assets/CALCULADORA.png?v=4"
+                src="./assets/CALCULADORA.png?v=5"
                 alt="Calculadora"
                 draggable="false"
             >
@@ -1583,7 +1622,7 @@ body{
             </span>
 
             <span class="tool-description">
-                Faça qualquer cálculo rapidamente.
+                Faça cálculos de forma rápida.
             </span>
 
         </button>
@@ -1591,7 +1630,9 @@ body{
     </div>
 
 
-    <!-- PUBLICIDADE -->
+    <!-- =====================================================
+         PUBLICIDADE
+    ====================================================== -->
 
     <div class="ad">
 
@@ -1600,7 +1641,9 @@ body{
     </div>
 
 
-    <!-- APRESENTAÇÃO -->
+    <!-- =====================================================
+         APRESENTAÇÃO
+    ====================================================== -->
 
     <div class="hero">
 
@@ -1624,7 +1667,7 @@ body{
 
 
 <!-- =====================================================
-     FERRAMENTAS INTERNAS
+     PÁGINA DE FERRAMENTAS
 ===================================================== -->
 
 <section
@@ -1641,7 +1684,9 @@ body{
     </button>
 
 
-    <!-- PREÇO -->
+    <!-- =================================================
+         PREÇO DE VENDA
+    ================================================== -->
 
     <div
         id="tool-price"
@@ -1727,7 +1772,9 @@ body{
     </div>
 
 
-    <!-- MARGEM -->
+    <!-- =================================================
+         MARGEM
+    ================================================== -->
 
     <div
         id="tool-margin"
@@ -1843,7 +1890,9 @@ body{
     </div>
 
 
-    <!-- DESCONTO -->
+    <!-- =================================================
+         DESCONTO
+    ================================================== -->
 
     <div
         id="tool-discount"
@@ -1959,7 +2008,9 @@ body{
     </div>
 
 
-    <!-- MARKUP -->
+    <!-- =================================================
+         MARKUP
+    ================================================== -->
 
     <div
         id="tool-markup"
@@ -2075,7 +2126,9 @@ body{
     </div>
 
 
-    <!-- COMISSÃO -->
+    <!-- =================================================
+         COMISSÃO
+    ================================================== -->
 
     <div
         id="tool-commission"
@@ -2422,7 +2475,7 @@ body{
 <script>
 
 /* =====================================================
-   NÚMEROS
+   CONVERSÃO
 ===================================================== */
 
 function parseNumber(value){
@@ -2637,7 +2690,7 @@ navButtons.forEach(
 
 
 /* =====================================================
-   FERRAMENTAS
+   ABRIR FERRAMENTAS
 ===================================================== */
 
 document
@@ -4336,7 +4389,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   CAMPOS
+   CAMPOS DECIMAIS
 ===================================================== */
 
 document.addEventListener(
