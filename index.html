@@ -23,32 +23,27 @@
 
 <title>CALPRO EXPERT</title>
 
-
 <style>
 
 /* =========================================================
-   RESET
+   RESET / BLOQUEIO DE ZOOM
 ========================================================= */
 
 *{
     box-sizing:border-box;
-
     -webkit-tap-highlight-color:transparent;
 }
 
 html,
 body{
-
     margin:0;
     padding:0;
-
     width:100%;
     min-height:100%;
 
     background:#080b12;
 
     touch-action:manipulation;
-
     -ms-touch-action:manipulation;
 
     overscroll-behavior:none;
@@ -58,10 +53,9 @@ body{
 }
 
 body{
-
     overflow-x:hidden;
 
-    color:#ffffff;
+    color:#fff;
 
     font-family:
         Arial,
@@ -71,15 +65,12 @@ body{
 
 button,
 input{
-
     font-family:inherit;
 }
 
 button{
-
     border:0;
     outline:0;
-
     cursor:pointer;
 
     touch-action:manipulation;
@@ -89,7 +80,6 @@ button{
 }
 
 input{
-
     -webkit-user-select:text;
     user-select:text;
 }
@@ -100,11 +90,8 @@ input{
 ========================================================= */
 
 .app{
-
     width:100%;
-
     max-width:1100px;
-
     min-height:100vh;
 
     margin:0 auto;
@@ -123,20 +110,15 @@ input{
 ========================================================= */
 
 .header{
-
     position:sticky;
-
     top:0;
-
     z-index:1000;
 
     padding:16px;
 
-    background:
-        rgba(8,11,18,.95);
+    background:rgba(8,11,18,.95);
 
     backdrop-filter:blur(18px);
-
     -webkit-backdrop-filter:blur(18px);
 
     border-bottom:
@@ -144,26 +126,18 @@ input{
         rgba(255,255,255,.07);
 }
 
-
 .brand{
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:10px;
 }
 
-
 .brand-logo{
-
     width:54px;
     height:54px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -181,40 +155,28 @@ input{
         rgba(255,105,0,.25);
 }
 
-
 .brand-logo svg{
-
     width:34px;
     height:34px;
-
     pointer-events:none;
 }
 
-
 .brand-name{
-
     font-size:30px;
-
     font-weight:900;
-
     letter-spacing:-1.5px;
 }
 
-
 .brand-name span{
-
     color:#ff7800;
 }
 
-
 .brand-sub{
-
     margin-top:-3px;
 
     color:#b5bec9;
 
     font-size:9px;
-
     font-weight:900;
 
     letter-spacing:5px;
@@ -222,9 +184,7 @@ input{
     text-align:center;
 }
 
-
 .brand-slogan{
-
     margin-top:6px;
 
     color:#727e8c;
@@ -234,9 +194,7 @@ input{
     font-size:10px;
 }
 
-
 .brand-slogan b{
-
     color:#ff7800;
 }
 
@@ -246,17 +204,12 @@ input{
 ========================================================= */
 
 .nav{
-
     display:flex;
-
     gap:8px;
-
     margin-top:16px;
 }
 
-
 .nav button{
-
     flex:1;
 
     padding:12px 6px;
@@ -264,19 +217,14 @@ input{
     border-radius:12px;
 
     background:#111720;
-
     color:#8e99a7;
 
     font-size:11px;
-
     font-weight:900;
 }
 
-
 .nav button.active{
-
     background:#ff7200;
-
     color:#fff;
 
     box-shadow:
@@ -290,109 +238,15 @@ input{
 ========================================================= */
 
 .content{
-
     padding:16px;
 }
 
-
 .page{
-
     display:none;
 }
 
-
 .page.active{
-
     display:block;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:24px;
-
-    border-radius:24px;
-
-    background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(255,115,0,.22),
-            transparent 35%
-        ),
-        linear-gradient(
-            145deg,
-            #161d28,
-            #0b1017
-        );
-
-    border:
-        1px solid
-        rgba(255,120,0,.20);
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.25);
-}
-
-
-.hero-tag{
-
-    display:inline-flex;
-
-    padding:7px 10px;
-
-    border-radius:8px;
-
-    background:
-        rgba(255,114,0,.10);
-
-    color:#ff8c2a;
-
-    font-size:9px;
-
-    font-weight:900;
-
-    letter-spacing:1.5px;
-}
-
-
-.hero h1{
-
-    margin:12px 0 0;
-
-    font-size:28px;
-
-    line-height:1.05;
-
-    letter-spacing:-1px;
-}
-
-
-.hero h1 span{
-
-    color:#ff7800;
-}
-
-
-.hero p{
-
-    max-width:620px;
-
-    margin:11px 0 0;
-
-    color:#84909e;
-
-    font-size:12px;
-
-    line-height:1.55;
 }
 
 
@@ -401,20 +255,16 @@ input{
 ========================================================= */
 
 .section-title{
-
     margin:
-        22px
+        6px
         2px
         12px;
 
     font-size:20px;
-
     font-weight:900;
 }
 
-
 .section-subtitle{
-
     display:block;
 
     margin-top:4px;
@@ -422,7 +272,6 @@ input{
     color:#697583;
 
     font-size:10px;
-
     font-weight:500;
 }
 
@@ -432,7 +281,6 @@ input{
 ========================================================= */
 
 .tools{
-
     display:grid;
 
     grid-template-columns:
@@ -441,11 +289,8 @@ input{
     gap:12px;
 }
 
-
 .tool{
-
     position:relative;
-
     overflow:hidden;
 
     min-height:190px;
@@ -479,27 +324,20 @@ input{
     user-select:none;
 }
 
-
 .tool:active{
-
     transform:scale(.97);
 }
 
-
 .tool:hover{
-
     border-color:
         rgba(255,114,0,.35);
 }
 
-
 .tool-icon{
-
     width:72px;
     height:72px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -519,26 +357,19 @@ input{
         rgba(255,255,255,.025);
 }
 
-
 .tool-icon svg{
-
     width:52px;
     height:52px;
 
     pointer-events:none;
 }
 
-
 .tool-name{
-
     font-size:15px;
-
     font-weight:900;
 }
 
-
 .tool-description{
-
     margin-top:5px;
 
     max-width:240px;
@@ -550,20 +381,16 @@ input{
     line-height:1.45;
 }
 
-
 .tool-arrow{
-
     position:absolute;
 
     right:14px;
-
     bottom:14px;
 
     width:34px;
     height:34px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -572,47 +399,35 @@ input{
     background:#ff7200;
 
     font-size:18px;
-
     font-weight:900;
 }
 
 
 /* =========================================================
-   CORES
+   CORES DOS ÍCONES
 ========================================================= */
 
 .icon-price{
-
     color:#ff8a00;
 }
 
-
 .icon-margin{
-
     color:#00a8ff;
 }
 
-
 .icon-discount{
-
     color:#00d68f;
 }
 
-
 .icon-markup{
-
     color:#b45cff;
 }
 
-
 .icon-commission{
-
     color:#ffb000;
 }
 
-
 .icon-calculator{
-
     color:#ff4545;
 }
 
@@ -622,18 +437,15 @@ input{
 ========================================================= */
 
 .ad{
-
     width:100%;
-
     min-height:80px;
 
     margin:
-        22px
+        20px
         0
-        10px;
+        16px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -655,11 +467,91 @@ input{
 
 
 /* =========================================================
+   APRESENTAÇÃO
+========================================================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    padding:22px;
+
+    margin-bottom:10px;
+
+    border-radius:22px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255,115,0,.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #161d28,
+            #0b1017
+        );
+
+    border:
+        1px solid
+        rgba(255,120,0,.20);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.25);
+}
+
+.hero-tag{
+    display:inline-flex;
+
+    padding:7px 10px;
+
+    border-radius:8px;
+
+    background:
+        rgba(255,114,0,.10);
+
+    color:#ff8c2a;
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+}
+
+.hero h1{
+    margin:12px 0 0;
+
+    font-size:25px;
+
+    line-height:1.05;
+
+    letter-spacing:-1px;
+}
+
+.hero h1 span{
+    color:#ff7800;
+}
+
+.hero p{
+    max-width:620px;
+
+    margin:11px 0 0;
+
+    color:#84909e;
+
+    font-size:12px;
+
+    line-height:1.55;
+}
+
+
+/* =========================================================
    CARD
 ========================================================= */
 
 .card{
-
     padding:18px;
 
     border-radius:20px;
@@ -678,17 +570,12 @@ input{
     margin-bottom:14px;
 }
 
-
 .card-title{
-
     font-size:18px;
-
     font-weight:900;
 }
 
-
 .card-description{
-
     margin:
         5px
         0
@@ -707,7 +594,6 @@ input{
 ========================================================= */
 
 .back{
-
     margin-bottom:14px;
 
     padding:
@@ -723,8 +609,6 @@ input{
     font-size:11px;
 
     font-weight:900;
-
-    touch-action:manipulation;
 }
 
 
@@ -733,13 +617,10 @@ input{
 ========================================================= */
 
 .field{
-
     margin-bottom:15px;
 }
 
-
 .field label{
-
     display:block;
 
     margin-bottom:7px;
@@ -751,11 +632,8 @@ input{
     font-weight:800;
 }
 
-
 .field input{
-
     width:100%;
-
     height:52px;
 
     padding:13px;
@@ -777,15 +655,12 @@ input{
     font-weight:700;
 
     -webkit-appearance:none;
-
     appearance:none;
 
     touch-action:manipulation;
 }
 
-
 .field input:focus{
-
     border-color:#ff7200;
 
     box-shadow:
@@ -795,11 +670,10 @@ input{
 
 
 /* =========================================================
-   BOTÃO
+   BOTÕES
 ========================================================= */
 
 .calculate{
-
     width:100%;
 
     padding:15px;
@@ -822,23 +696,18 @@ input{
     box-shadow:
         0 10px 25px
         rgba(255,100,0,.15);
-
-    touch-action:manipulation;
 }
 
-
 .calculate:active{
-
     transform:scale(.98);
 }
 
 
 /* =========================================================
-   RESULTADO
+   RESULTADOS
 ========================================================= */
 
 .result{
-
     display:none;
 
     margin-top:15px;
@@ -860,9 +729,7 @@ input{
         rgba(255,114,0,.30);
 }
 
-
 .result-label{
-
     color:#ff9a3d;
 
     font-size:9px;
@@ -872,9 +739,7 @@ input{
     letter-spacing:1px;
 }
 
-
 .result-value{
-
     margin-top:4px;
 
     font-size:30px;
@@ -882,9 +747,7 @@ input{
     font-weight:900;
 }
 
-
 .result-grid{
-
     display:grid;
 
     grid-template-columns:
@@ -895,9 +758,7 @@ input{
     margin-top:12px;
 }
 
-
 .result-box{
-
     padding:11px;
 
     border-radius:10px;
@@ -906,9 +767,7 @@ input{
         rgba(255,255,255,.045);
 }
 
-
 .result-box small{
-
     display:block;
 
     color:#778391;
@@ -916,9 +775,7 @@ input{
     font-size:9px;
 }
 
-
 .result-box strong{
-
     display:block;
 
     margin-top:4px;
@@ -932,21 +789,16 @@ input{
 ========================================================= */
 
 .calculator{
-
     max-width:520px;
-
     margin:auto;
 }
 
-
 .display{
-
     min-height:130px;
 
     padding:18px;
 
     display:flex;
-
     flex-direction:column;
 
     justify-content:flex-end;
@@ -964,9 +816,7 @@ input{
     overflow:hidden;
 }
 
-
 .expression{
-
     min-height:20px;
 
     color:#687481;
@@ -978,9 +828,7 @@ input{
     overflow:hidden;
 }
 
-
 .display-number{
-
     margin-top:5px;
 
     font-size:40px;
@@ -992,9 +840,7 @@ input{
     overflow:hidden;
 }
 
-
 .memory{
-
     display:grid;
 
     grid-template-columns:
@@ -1005,9 +851,7 @@ input{
     margin:8px 0;
 }
 
-
 .memory button{
-
     padding:10px 2px;
 
     border-radius:9px;
@@ -1023,13 +867,9 @@ input{
     font-size:9px;
 
     font-weight:900;
-
-    touch-action:manipulation;
 }
 
-
 .keypad{
-
     display:grid;
 
     grid-template-columns:
@@ -1038,9 +878,7 @@ input{
     gap:8px;
 }
 
-
 .key{
-
     min-height:62px;
 
     border-radius:13px;
@@ -1056,33 +894,23 @@ input{
     font-size:19px;
 
     font-weight:900;
-
-    touch-action:manipulation;
 }
 
-
 .key:active{
-
     transform:scale(.95);
 }
 
-
 .key.operator{
-
     color:#ff8a20;
 }
 
-
 .key.equal{
-
     background:#ff7200;
 
     border-color:#ff7200;
 }
 
-
 .key.special{
-
     color:#a7b1bd;
 
     font-size:13px;
@@ -1094,7 +922,6 @@ input{
 ========================================================= */
 
 .history-empty{
-
     padding:35px 10px;
 
     text-align:center;
@@ -1104,9 +931,7 @@ input{
     font-size:11px;
 }
 
-
 .history-item{
-
     display:flex;
 
     justify-content:space-between;
@@ -1120,17 +945,12 @@ input{
         rgba(255,255,255,.06);
 }
 
-
 .history-name{
-
     font-size:12px;
-
     font-weight:900;
 }
 
-
 .history-info{
-
     margin-top:4px;
 
     color:#707c89;
@@ -1138,9 +958,7 @@ input{
     font-size:9px;
 }
 
-
 .history-result{
-
     color:#ff8a20;
 
     font-size:11px;
@@ -1152,11 +970,41 @@ input{
 
 
 /* =========================================================
+   LIMPAR HISTÓRICO
+========================================================= */
+
+.clear-history{
+    width:100%;
+
+    margin-bottom:16px;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    background:#171d25;
+
+    border:
+        1px solid
+        rgba(255,70,70,.25);
+
+    color:#ff6464;
+
+    font-size:11px;
+
+    font-weight:900;
+}
+
+.clear-history:active{
+    transform:scale(.98);
+}
+
+
+/* =========================================================
    FOOTER
 ========================================================= */
 
 .footer{
-
     padding:
         30px
         10px
@@ -1169,9 +1017,7 @@ input{
     font-size:9px;
 }
 
-
 .footer b{
-
     color:#ff7800;
 }
 
@@ -1181,11 +1027,9 @@ input{
 ========================================================= */
 
 .toast{
-
     position:fixed;
 
     left:50%;
-
     bottom:25px;
 
     z-index:9999;
@@ -1218,9 +1062,7 @@ input{
     pointer-events:none;
 }
 
-
 .toast.show{
-
     transform:
         translate(-50%,0);
 
@@ -1245,8 +1087,8 @@ body,
 .calculate,
 .back,
 .key,
-.memory button{
-
+.memory button,
+.clear-history{
     touch-action:manipulation;
 }
 
@@ -1258,52 +1100,37 @@ body,
 @media(max-width:480px){
 
     .brand-name{
-
         font-size:27px;
     }
 
-
     .brand-logo{
-
         width:50px;
         height:50px;
     }
 
-
     .hero h1{
-
         font-size:24px;
     }
 
-
     .tool{
-
         min-height:180px;
     }
 
-
     .tool-icon{
-
         width:65px;
         height:65px;
     }
 
-
     .tool-icon svg{
-
         width:47px;
         height:47px;
     }
 
-
     .display-number{
-
         font-size:34px;
     }
 
-
     .key{
-
         min-height:58px;
     }
 
@@ -1332,7 +1159,6 @@ HEADER
 
         <div class="brand-logo">
 
-
             <svg
                 viewBox="0 0 50 50"
                 fill="none"
@@ -1354,12 +1180,10 @@ HEADER
 
             </svg>
 
-
         </div>
 
 
         <div>
-
 
             <div class="brand-name">
 
@@ -1373,7 +1197,6 @@ HEADER
                 EXPERT
 
             </div>
-
 
         </div>
 
@@ -1434,45 +1257,11 @@ HOME
     class="page active">
 
 
-    <div class="hero">
-
-
-        <div class="hero-tag">
-
-            CALPRO EXPERT
-
-        </div>
-
-
-        <h1>
-
-            Suas contas de vendas
-
-            <span>
-                mais rápidas.
-            </span>
-
-        </h1>
-
-
-        <p>
-
-            Ferramentas profissionais para
-            calcular preços, margens,
-            descontos, markup, comissão
-            e muito mais.
-
-        </p>
-
-
-    </div>
-
+    <!-- AS FERRAMENTAS FICAM PRIMEIRO -->
 
     <div class="section-title">
 
-
         Ferramentas
-
 
         <span class="section-subtitle">
 
@@ -1480,14 +1269,15 @@ HOME
 
         </span>
 
-
     </div>
 
 
     <div class="tools">
 
 
-        <!-- PREÇO -->
+        <!-- =================================================
+        PREÇO DE VENDA
+        ================================================= -->
 
         <button
             class="tool"
@@ -1550,7 +1340,9 @@ HOME
         </button>
 
 
-        <!-- MARGEM -->
+        <!-- =================================================
+        MARGEM
+        ================================================= -->
 
         <button
             class="tool"
@@ -1610,7 +1402,9 @@ HOME
         </button>
 
 
-        <!-- DESCONTO -->
+        <!-- =================================================
+        DESCONTO
+        ================================================= -->
 
         <button
             class="tool"
@@ -1680,7 +1474,9 @@ HOME
         </button>
 
 
-        <!-- MARKUP -->
+        <!-- =================================================
+        MARKUP
+        ================================================= -->
 
         <button
             class="tool"
@@ -1756,7 +1552,9 @@ HOME
         </button>
 
 
-        <!-- COMISSÃO -->
+        <!-- =================================================
+        COMISSÃO
+        ================================================= -->
 
         <button
             class="tool"
@@ -1826,7 +1624,9 @@ HOME
         </button>
 
 
-        <!-- CALCULADORA -->
+        <!-- =================================================
+        CALCULADORA
+        ================================================= -->
 
         <button
             class="tool"
@@ -1904,11 +1704,51 @@ HOME
     </div>
 
 
-    <!-- PUBLICIDADE -->
+    <!-- =================================================
+    PUBLICIDADE
+    ================================================= -->
 
     <div class="ad">
 
         ESPAÇO RESERVADO PARA PUBLICIDADE
+
+    </div>
+
+
+    <!-- =================================================
+    APRESENTAÇÃO AGORA FICA EMBAIXO
+    ================================================= -->
+
+    <div class="hero">
+
+
+        <div class="hero-tag">
+
+            CALPRO EXPERT
+
+        </div>
+
+
+        <h1>
+
+            Suas contas de vendas
+
+            <span>
+                mais rápidas.
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Ferramentas profissionais para
+            calcular preços, margens,
+            descontos, markup, comissão
+            e muito mais.
+
+        </p>
+
 
     </div>
 
@@ -2594,21 +2434,17 @@ CALCULADORA
                     MC
                 </button>
 
-
                 <button data-memory="recall">
                     MR
                 </button>
-
 
                 <button data-memory="add">
                     M+
                 </button>
 
-
                 <button data-memory="subtract">
                     M−
                 </button>
-
 
                 <button data-memory="store">
                     MS
@@ -2839,6 +2675,15 @@ HISTÓRICO
         </div>
 
 
+        <button
+            id="clearHistory"
+            class="clear-history">
+
+            🗑 LIMPAR HISTÓRICO
+
+        </button>
+
+
         <div id="historyList">
 
         </div>
@@ -2876,7 +2721,7 @@ HISTÓRICO
 <script>
 
 /* =========================================================
-   CONVERSÃO DE NÚMEROS BRASILEIROS
+   NÚMEROS
 ========================================================= */
 
 function parseNumber(value){
@@ -2885,29 +2730,17 @@ function parseNumber(value){
         value === null ||
         value === undefined
     ){
-
         return 0;
-
     }
-
 
     let text =
         String(value)
         .trim()
         .replace(/\s/g,'');
 
-
     if(!text){
-
         return 0;
-
     }
-
-
-    /*
-       1.250,50
-       vira 1250.50
-    */
 
     if(
         text.includes(',') &&
@@ -2941,22 +2774,18 @@ function parseNumber(value){
 
     }
 
-
     text =
         text.replace(
             /[^0-9.-]/g,
             ''
         );
 
-
     const number =
         Number(text);
-
 
     return Number.isFinite(number)
         ? number
         : 0;
-
 }
 
 
@@ -2971,11 +2800,8 @@ function formatNumber(value){
             Number(value)
         )
     ){
-
         return '0,00';
-
     }
-
 
     return Number(value)
         .toLocaleString(
@@ -2985,7 +2811,6 @@ function formatNumber(value){
                 maximumFractionDigits:10
             }
         );
-
 }
 
 
@@ -3000,7 +2825,6 @@ function money(value){
                 maximumFractionDigits:2
             }
         );
-
 }
 
 
@@ -3017,20 +2841,16 @@ function toast(message){
             'toast'
         );
 
-
     element.textContent =
         message;
-
 
     element.classList.add(
         'show'
     );
 
-
     clearTimeout(
         toastTimer
     );
-
 
     toastTimer =
         setTimeout(
@@ -3043,7 +2863,6 @@ function toast(message){
             },
             1800
         );
-
 }
 
 
@@ -3055,7 +2874,6 @@ const pages =
     document.querySelectorAll(
         '.page'
     );
-
 
 const navButtons =
     document.querySelectorAll(
@@ -3076,7 +2894,6 @@ function showPage(id){
         }
     );
 
-
     navButtons.forEach(
         function(button){
 
@@ -3088,12 +2905,10 @@ function showPage(id){
         }
     );
 
-
     window.scrollTo({
         top:0,
         behavior:'smooth'
     });
-
 }
 
 
@@ -3116,14 +2931,13 @@ navButtons.forEach(
 
 
 /* =========================================================
-   ABRIR FERRAMENTAS
+   FERRAMENTAS
 ========================================================= */
 
 const toolButtons =
     document.querySelectorAll(
         '.tool'
     );
-
 
 const toolPanels =
     document.querySelectorAll(
@@ -3141,7 +2955,6 @@ toolButtons.forEach(
                 const tool =
                     button.dataset.tool;
 
-
                 if(
                     tool === 'calculator'
                 ){
@@ -3151,14 +2964,11 @@ toolButtons.forEach(
                     );
 
                     return;
-
                 }
-
 
                 showPage(
                     'toolPage'
                 );
-
 
                 toolPanels.forEach(
                     function(panel){
@@ -3169,12 +2979,10 @@ toolButtons.forEach(
                     }
                 );
 
-
                 const selected =
                     document.getElementById(
                         'tool-' + tool
                     );
-
 
                 if(selected){
 
@@ -3231,7 +3039,6 @@ document
                     .value
                 );
 
-
             const margin =
                 parseNumber(
                     document
@@ -3241,7 +3048,6 @@ document
                     .value
                 );
 
-
             if(cost <= 0){
 
                 toast(
@@ -3249,9 +3055,7 @@ document
                 );
 
                 return;
-
             }
-
 
             if(
                 margin < 0 ||
@@ -3263,9 +3067,7 @@ document
                 );
 
                 return;
-
             }
-
 
             const price =
                 cost /
@@ -3274,7 +3076,6 @@ document
                     margin / 100
                 );
 
-
             document
                 .getElementById(
                     'priceValue'
@@ -3282,14 +3083,12 @@ document
                 .textContent =
                 money(price);
 
-
             document
                 .getElementById(
                     'resultPrice'
                 )
                 .style.display =
                 'block';
-
 
             addHistory(
                 'Preço de Venda',
@@ -3326,7 +3125,6 @@ document
                     .value
                 );
 
-
             const sale =
                 parseNumber(
                     document
@@ -3335,7 +3133,6 @@ document
                     )
                     .value
                 );
-
 
             if(
                 cost <= 0 ||
@@ -3347,13 +3144,10 @@ document
                 );
 
                 return;
-
             }
-
 
             const profit =
                 sale - cost;
-
 
             const margin =
                 (
@@ -3361,11 +3155,9 @@ document
                     sale
                 ) * 100;
 
-
             const markup =
                 sale /
                 cost;
-
 
             document
                 .getElementById(
@@ -3375,14 +3167,12 @@ document
                 formatNumber(margin) +
                 '%';
 
-
             document
                 .getElementById(
                     'marginProfit'
                 )
                 .textContent =
                 money(profit);
-
 
             document
                 .getElementById(
@@ -3392,14 +3182,12 @@ document
                 formatNumber(markup) +
                 'x';
 
-
             document
                 .getElementById(
                     'resultMargin'
                 )
                 .style.display =
                 'block';
-
 
             addHistory(
                 'Margem',
@@ -3435,7 +3223,6 @@ document
                     .value
                 );
 
-
             const percent =
                 parseNumber(
                     document
@@ -3445,7 +3232,6 @@ document
                     .value
                 );
 
-
             if(price <= 0){
 
                 toast(
@@ -3453,9 +3239,7 @@ document
                 );
 
                 return;
-
             }
-
 
             if(
                 percent < 0 ||
@@ -3467,20 +3251,16 @@ document
                 );
 
                 return;
-
             }
-
 
             const amount =
                 price *
                 percent /
                 100;
 
-
             const finalPrice =
                 price -
                 amount;
-
 
             document
                 .getElementById(
@@ -3489,14 +3269,12 @@ document
                 .textContent =
                 money(finalPrice);
 
-
             document
                 .getElementById(
                     'discountAmount'
                 )
                 .textContent =
                 money(amount);
-
 
             document
                 .getElementById(
@@ -3506,14 +3284,12 @@ document
                 formatNumber(percent) +
                 '%';
 
-
             document
                 .getElementById(
                     'resultDiscount'
                 )
                 .style.display =
                 'block';
-
 
             addHistory(
                 'Desconto',
@@ -3549,7 +3325,6 @@ document
                     .value
                 );
 
-
             const sale =
                 parseNumber(
                     document
@@ -3558,7 +3333,6 @@ document
                     )
                     .value
                 );
-
 
             if(
                 cost <= 0 ||
@@ -3570,20 +3344,16 @@ document
                 );
 
                 return;
-
             }
-
 
             const markup =
                 sale /
                 cost;
 
-
             const increase =
                 (
                     markup - 1
                 ) * 100;
-
 
             const margin =
                 (
@@ -3593,7 +3363,6 @@ document
                     sale
                 ) * 100;
 
-
             document
                 .getElementById(
                     'markupValue'
@@ -3601,7 +3370,6 @@ document
                 .textContent =
                 formatNumber(markup) +
                 'x';
-
 
             document
                 .getElementById(
@@ -3611,7 +3379,6 @@ document
                 formatNumber(increase) +
                 '%';
 
-
             document
                 .getElementById(
                     'markupMargin'
@@ -3620,14 +3387,12 @@ document
                 formatNumber(margin) +
                 '%';
 
-
             document
                 .getElementById(
                     'resultMarkup'
                 )
                 .style.display =
                 'block';
-
 
             addHistory(
                 'Markup',
@@ -3663,7 +3428,6 @@ document
                     .value
                 );
 
-
             const percent =
                 parseNumber(
                     document
@@ -3673,7 +3437,6 @@ document
                     .value
                 );
 
-
             if(sale <= 0){
 
                 toast(
@@ -3681,9 +3444,7 @@ document
                 );
 
                 return;
-
             }
-
 
             if(percent < 0){
 
@@ -3692,15 +3453,12 @@ document
                 );
 
                 return;
-
             }
-
 
             const commission =
                 sale *
                 percent /
                 100;
-
 
             document
                 .getElementById(
@@ -3709,14 +3467,12 @@ document
                 .textContent =
                 money(commission);
 
-
             document
                 .getElementById(
                     'resultCommission'
                 )
                 .style.display =
                 'block';
-
 
             addHistory(
                 'Comissão',
@@ -3747,9 +3503,10 @@ try{
             ) || '[]'
         );
 
-
     if(
-        !Array.isArray(historyData)
+        !Array.isArray(
+            historyData
+        )
     ){
 
         historyData = [];
@@ -3785,13 +3542,11 @@ function addHistory(
 
     });
 
-
     historyData =
         historyData.slice(
             0,
             50
         );
-
 
     try{
 
@@ -3803,7 +3558,6 @@ function addHistory(
         );
 
     }catch(error){}
-
 
     renderHistory();
 
@@ -3817,7 +3571,6 @@ function renderHistory(){
             'historyList'
         );
 
-
     if(
         historyData.length === 0
     ){
@@ -3829,13 +3582,9 @@ function renderHistory(){
             'Nenhuma conta realizada ainda.';
 
         return;
-
     }
 
-
-    list.className =
-        '';
-
+    list.className = '';
 
     list.innerHTML =
         historyData
@@ -3911,7 +3660,6 @@ function safe(value){
             /'/g,
             '&#039;'
         );
-
 }
 
 
@@ -3919,33 +3667,79 @@ renderHistory();
 
 
 /* =========================================================
+   LIMPAR HISTÓRICO
+========================================================= */
+
+document
+    .getElementById(
+        'clearHistory'
+    )
+    .addEventListener(
+        'click',
+        function(){
+
+            if(
+                historyData.length === 0
+            ){
+
+                toast(
+                    'O histórico já está vazio.'
+                );
+
+                return;
+            }
+
+            const confirmed =
+                confirm(
+                    'Deseja realmente apagar todo o histórico?'
+                );
+
+            if(!confirmed){
+
+                return;
+            }
+
+            historyData = [];
+
+            try{
+
+                localStorage.removeItem(
+                    'calpro_history'
+                );
+
+            }catch(error){}
+
+            renderHistory();
+
+            toast(
+                'Histórico apagado.'
+            );
+
+        }
+    );
+
+
+/* =========================================================
    CALCULADORA
 ========================================================= */
 
-let current =
-    '0';
+let current = '0';
 
-let previous =
-    null;
+let previous = null;
 
-let operator =
-    null;
+let operator = null;
 
-let waiting =
-    false;
+let waiting = false;
 
-let expression =
-    '';
+let expression = '';
 
-let memory =
-    0;
+let memory = 0;
 
 
 const display =
     document.getElementById(
         'display'
     );
-
 
 const expressionElement =
     document.getElementById(
@@ -3960,7 +3754,6 @@ function updateCalculator(){
             current
         );
 
-
     expressionElement.textContent =
         expression;
 
@@ -3974,22 +3767,19 @@ function displayNumber(value){
     ){
 
         return 'Erro';
-
     }
-
 
     const number =
         Number(value);
 
-
     if(
-        !Number.isFinite(number)
+        !Number.isFinite(
+            number
+        )
     ){
 
         return value;
-
     }
-
 
     return number
         .toLocaleString(
@@ -3998,7 +3788,6 @@ function displayNumber(value){
                 maximumFractionDigits:10
             }
         );
-
 }
 
 
@@ -4009,9 +3798,7 @@ function inputNumber(number){
     ){
 
         clearCalculator();
-
     }
-
 
     if(waiting){
 
@@ -4039,7 +3826,6 @@ function inputNumber(number){
 
     }
 
-
     updateCalculator();
 
 }
@@ -4052,9 +3838,7 @@ function decimal(){
     ){
 
         clearCalculator();
-
     }
-
 
     if(waiting){
 
@@ -4067,9 +3851,7 @@ function decimal(){
         updateCalculator();
 
         return;
-
     }
-
 
     if(
         !current.includes('.')
@@ -4079,7 +3861,6 @@ function decimal(){
             '.';
 
     }
-
 
     updateCalculator();
 
@@ -4098,33 +3879,26 @@ function calculate(
     b =
         Number(b);
 
-
     if(
         op === '+'
     ){
 
         return a + b;
-
     }
-
 
     if(
         op === '-'
     ){
 
         return a - b;
-
     }
-
 
     if(
         op === '*'
     ){
 
         return a * b;
-
     }
-
 
     if(
         op === '/'
@@ -4135,16 +3909,12 @@ function calculate(
         ){
 
             return null;
-
         }
 
         return a / b;
-
     }
 
-
     return b;
-
 }
 
 
@@ -4155,13 +3925,10 @@ function selectOperator(op){
     ){
 
         return;
-
     }
-
 
     const value =
         Number(current);
-
 
     if(
         previous !== null &&
@@ -4175,7 +3942,6 @@ function selectOperator(op){
                 value,
                 operator
             );
-
 
         if(
             result === null
@@ -4197,9 +3963,7 @@ function selectOperator(op){
             );
 
             return;
-
         }
-
 
         previous =
             result;
@@ -4211,17 +3975,13 @@ function selectOperator(op){
 
         previous =
             value;
-
     }
-
 
     operator =
         op;
 
-
     waiting =
         true;
-
 
     expression =
         displayNumber(
@@ -4229,7 +3989,6 @@ function selectOperator(op){
         ) +
         ' ' +
         operatorSymbol(op);
-
 
     updateCalculator();
 
@@ -4243,30 +4002,23 @@ function operatorSymbol(op){
     ){
 
         return '×';
-
     }
-
 
     if(
         op === '/'
     ){
 
         return '÷';
-
     }
-
 
     if(
         op === '-'
     ){
 
         return '−';
-
     }
 
-
     return op;
-
 }
 
 
@@ -4278,21 +4030,16 @@ function equals(){
     ){
 
         return;
-
     }
-
 
     const first =
         previous;
 
-
     const second =
         Number(current);
 
-
     const op =
         operator;
-
 
     const result =
         calculate(
@@ -4300,7 +4047,6 @@ function equals(){
             second,
             op
         );
-
 
     if(
         result === null
@@ -4325,9 +4071,7 @@ function equals(){
         );
 
         return;
-
     }
-
 
     expression =
         displayNumber(
@@ -4341,25 +4085,19 @@ function equals(){
         ) +
         ' =';
 
-
     current =
         String(result);
-
 
     previous =
         null;
 
-
     operator =
         null;
-
 
     waiting =
         true;
 
-
     updateCalculator();
-
 
     addHistory(
         'Calculadora',
@@ -4377,15 +4115,14 @@ function percentage(){
     const value =
         Number(current);
 
-
     if(
-        !Number.isFinite(value)
+        !Number.isFinite(
+            value
+        )
     ){
 
         return;
-
     }
-
 
     if(
         previous !== null &&
@@ -4424,7 +4161,6 @@ function percentage(){
 
     }
 
-
     updateCalculator();
 
 }
@@ -4459,9 +4195,7 @@ function backspace(){
     ){
 
         return;
-
     }
-
 
     if(
         current === 'Erro' ||
@@ -4481,7 +4215,6 @@ function backspace(){
 
     }
 
-
     updateCalculator();
 
 }
@@ -4495,9 +4228,7 @@ function toggleSign(){
     ){
 
         return;
-
     }
-
 
     if(
         current.startsWith('-')
@@ -4513,7 +4244,6 @@ function toggleSign(){
             current;
 
     }
-
 
     updateCalculator();
 
@@ -4646,7 +4376,6 @@ document
                     const action =
                         button.dataset.memory;
 
-
                     if(
                         action === 'clear'
                     ){
@@ -4660,13 +4389,14 @@ document
 
                     }
 
-
                     if(
                         action === 'recall'
                     ){
 
                         current =
-                            String(memory);
+                            String(
+                                memory
+                            );
 
                         waiting =
                             false;
@@ -4674,7 +4404,6 @@ document
                         updateCalculator();
 
                     }
-
 
                     if(
                         action === 'add'
@@ -4690,7 +4419,6 @@ document
 
                     }
 
-
                     if(
                         action === 'subtract'
                     ){
@@ -4704,7 +4432,6 @@ document
                         );
 
                     }
-
 
                     if(
                         action === 'store'
@@ -4731,23 +4458,12 @@ document
    INPUTS
 ========================================================= */
 
-/*
-   NÃO bloqueia números.
-
-   Permite:
-   5
-   5,95
-   1250,50
-   1.250,50
-*/
-
 document.addEventListener(
     'input',
     function(event){
 
         const input =
             event.target;
-
 
         if(
             !input.matches(
@@ -4756,13 +4472,10 @@ document.addEventListener(
         ){
 
             return;
-
         }
-
 
         let value =
             input.value;
-
 
         value =
             value.replace(
@@ -4770,15 +4483,8 @@ document.addEventListener(
                 ''
             );
 
-
-        /*
-           Permite apenas uma vírgula
-           principal.
-        */
-
         const comma =
             value.indexOf(',');
-
 
         if(
             comma !== -1
@@ -4790,7 +4496,6 @@ document.addEventListener(
                     comma + 1
                 );
 
-
             const after =
                 value
                 .substring(
@@ -4801,13 +4506,11 @@ document.addEventListener(
                     ''
                 );
 
-
             value =
                 before +
                 after;
 
         }
-
 
         input.value =
             value;
@@ -4827,12 +4530,6 @@ document.addEventListener(
         const target =
             event.target;
 
-
-        /*
-           SE ESTIVER DIGITANDO EM UM INPUT,
-           A CALCULADORA NÃO INTERFERE.
-        */
-
         if(
             target &&
             (
@@ -4843,13 +4540,10 @@ document.addEventListener(
         ){
 
             return;
-
         }
-
 
         const key =
             event.key;
-
 
         if(
             key >= '0' &&
@@ -4861,9 +4555,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === ',' ||
@@ -4875,9 +4567,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === '+'
@@ -4888,9 +4578,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === '-'
@@ -4901,9 +4589,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === '*' ||
@@ -4915,9 +4601,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === '/'
@@ -4928,9 +4612,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === '%'
@@ -4941,9 +4623,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === 'Enter' ||
@@ -4955,9 +4635,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === 'Backspace'
@@ -4968,9 +4646,7 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
-
 
         if(
             key === 'Escape'
@@ -4981,7 +4657,6 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
 
     }
@@ -4989,12 +4664,10 @@ document.addEventListener(
 
 
 /* =========================================================
-   BLOQUEIO DE ZOOM
+   BLOQUEIO FORTE DE ZOOM
 ========================================================= */
 
-/*
-   1. Bloqueia pinch zoom no iPhone/iPad/Safari.
-*/
+/* PINCH ZOOM - SAFARI / IOS */
 
 document.addEventListener(
     'gesturestart',
@@ -5008,7 +4681,6 @@ document.addEventListener(
     }
 );
 
-
 document.addEventListener(
     'gesturechange',
     function(event){
@@ -5020,7 +4692,6 @@ document.addEventListener(
         passive:false
     }
 );
-
 
 document.addEventListener(
     'gestureend',
@@ -5035,13 +4706,10 @@ document.addEventListener(
 );
 
 
-/*
-   2. Bloqueia zoom por duplo toque.
-*/
+/* DUPLO TOQUE */
 
 let lastTouchEnd =
     0;
-
 
 document.addEventListener(
     'touchend',
@@ -5050,7 +4718,6 @@ document.addEventListener(
         const now =
             Date.now();
 
-
         if(
             now - lastTouchEnd <= 350
         ){
@@ -5058,7 +4725,6 @@ document.addEventListener(
             event.preventDefault();
 
         }
-
 
         lastTouchEnd =
             now;
@@ -5070,9 +4736,7 @@ document.addEventListener(
 );
 
 
-/*
-   3. Bloqueia double click.
-*/
+/* DOUBLE CLICK */
 
 document.addEventListener(
     'dblclick',
@@ -5087,10 +4751,7 @@ document.addEventListener(
 );
 
 
-/*
-   4. Bloqueia Ctrl + roda
-   no computador.
-*/
+/* CTRL + RODA */
 
 document.addEventListener(
     'wheel',
@@ -5111,12 +4772,7 @@ document.addEventListener(
 );
 
 
-/*
-   5. Bloqueia Ctrl + +
-      Ctrl + -
-      Ctrl + =
-      Ctrl + 0
-*/
+/* CTRL + / - / 0 */
 
 document.addEventListener(
     'keydown',
@@ -5149,7 +4805,6 @@ updateCalculator();
 showPage('home');
 
 </script>
-
 
 </body>
 </html>
