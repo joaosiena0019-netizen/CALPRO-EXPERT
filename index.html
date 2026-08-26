@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1,
-maximum-scale=1,
-user-scalable=no,
+content="width=device-width, initial-scale=1,
+maximum-scale=1, user-scalable=no,
 viewport-fit=cover">
 
 <meta name="theme-color" content="#070a0f">
-
-<meta name="apple-mobile-web-app-capable"
-content="yes">
-
-<meta name="apple-mobile-web-app-status-bar-style"
-content="black-translucent">
 
 <title>CALPRO EXPERT</title>
 
@@ -49,15 +40,15 @@ body{
 
     background:
         radial-gradient(
-            circle at 50% -10%,
-            rgba(255,105,0,.18),
+            circle at 50% -15%,
+            rgba(255,105,0,.17),
             transparent 35%
         ),
         linear-gradient(
             180deg,
-            #070a0f 0%,
-            #080c12 55%,
-            #05070b 100%
+            #070a0f,
+            #090d13 60%,
+            #05070b
         );
 
     color:#fff;
@@ -83,10 +74,6 @@ button{
     touch-action:manipulation;
 }
 
-input{
-    outline:0;
-}
-
 
 /* =====================================================
    APP
@@ -101,7 +88,7 @@ input{
 
 
 /* =====================================================
-   HEADER
+   HEADER COMPACTO
 ===================================================== */
 
 .header{
@@ -110,19 +97,17 @@ input{
     z-index:1000;
 
     padding:
-        12px
-        12px
-        10px;
+        7px 10px 8px;
 
     background:
-        rgba(7,10,15,.94);
+        rgba(7,10,15,.96);
 
     border-bottom:
         1px solid
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.055);
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 }
 
 
@@ -134,18 +119,19 @@ input{
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
+    gap:8px;
 }
 
 .logo{
-    width:48px;
-    height:48px;
+
+    width:38px;
+    height:38px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    border-radius:15px;
+    border-radius:12px;
 
     background:
         linear-gradient(
@@ -155,25 +141,24 @@ input{
         );
 
     box-shadow:
-        0 10px 25px
-        rgba(255,90,0,.28),
+        0 7px 18px
+        rgba(255,90,0,.25),
 
-        inset 0 2px 3px
-        rgba(255,255,255,.35),
-
-        inset 0 -8px 12px
-        rgba(100,20,0,.25);
+        inset 0 2px 2px
+        rgba(255,255,255,.3);
 }
 
 .logo svg{
-    width:32px;
-    height:32px;
+    width:25px;
+    height:25px;
 }
 
 .logo-name{
-    font-size:25px;
+
+    font-size:21px;
     font-weight:1000;
-    letter-spacing:-1.4px;
+
+    letter-spacing:-1.3px;
 }
 
 .logo-name span{
@@ -181,26 +166,29 @@ input{
 }
 
 .logo-expert{
+
     margin-top:-2px;
 
     text-align:center;
 
-    font-size:8px;
+    font-size:6px;
+
     font-weight:900;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
 
-    color:#9aa4b0;
+    color:#929daa;
 }
 
 .slogan{
-    margin-top:5px;
+
+    margin-top:3px;
 
     text-align:center;
 
-    font-size:9px;
+    font-size:7px;
 
-    color:#6d7885;
+    color:#66727f;
 }
 
 .slogan b{
@@ -209,24 +197,26 @@ input{
 
 
 /* =====================================================
-   NAVEGAÇÃO
+   MENU
 ===================================================== */
 
 .nav{
+
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:6px;
+    gap:5px;
 
-    margin-top:11px;
+    margin-top:7px;
 }
 
 .nav button{
-    min-height:38px;
 
-    border-radius:11px;
+    height:31px;
+
+    border-radius:9px;
 
     background:
         rgba(255,255,255,.035);
@@ -235,13 +225,15 @@ input{
         1px solid
         rgba(255,255,255,.06);
 
-    color:#788492;
+    color:#737f8d;
 
-    font-size:9px;
+    font-size:7px;
+
     font-weight:900;
 }
 
 .nav button.active{
+
     background:
         linear-gradient(
             135deg,
@@ -254,8 +246,8 @@ input{
     border-color:#ff7600;
 
     box-shadow:
-        0 7px 18px
-        rgba(255,95,0,.22);
+        0 5px 13px
+        rgba(255,95,0,.20);
 }
 
 
@@ -264,12 +256,13 @@ input{
 ===================================================== */
 
 .content{
+
     width:100%;
 
     padding:
-        13px
-        13px
-        30px;
+        9px
+        10px
+        20px;
 }
 
 .page{
@@ -282,39 +275,39 @@ input{
 
 
 /* =====================================================
-   TÍTULOS
+   TÍTULO
 ===================================================== */
 
 .section-title{
-    margin:
-        2px
-        2px
-        12px;
 
-    font-size:24px;
+    margin:
+        0 1px 8px;
+
+    font-size:18px;
+
     font-weight:1000;
 
-    letter-spacing:-1px;
+    letter-spacing:-.7px;
 }
 
 .section-subtitle{
+
     display:block;
 
-    margin-top:4px;
+    margin-top:2px;
 
-    color:#707c89;
+    color:#687482;
 
-    font-size:10px;
+    font-size:7px;
+
     font-weight:500;
 
-    line-height:1.4;
-
-    letter-spacing:0;
+    line-height:1.3;
 }
 
 
 /* =====================================================
-   GRADE DAS FERRAMENTAS
+   GRADE COMPACTA
 ===================================================== */
 
 .tools{
@@ -324,14 +317,14 @@ input{
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:10px;
+    gap:7px;
 
     width:100%;
 }
 
 
 /* =====================================================
-   CARD DA FERRAMENTA
+   CARD COMPACTO
 ===================================================== */
 
 .tool-card{
@@ -340,11 +333,11 @@ input{
 
     width:100%;
 
+    height:112px;
+
     min-width:0;
 
-    aspect-ratio:1 / 1;
-
-    padding:8px;
+    padding:7px;
 
     display:flex;
 
@@ -354,38 +347,38 @@ input{
 
     justify-content:center;
 
-    border-radius:20px;
+    border-radius:15px;
 
     background:
+
         linear-gradient(
             145deg,
-            #171f2a 0%,
-            #0d131c 55%,
-            #090e15 100%
+            #171f29,
+            #0d131b 60%,
+            #090e14
         );
 
     border:
         1px solid
-        rgba(255,255,255,.075);
+        rgba(255,255,255,.065);
 
     box-shadow:
 
-        0 12px 25px
-        rgba(0,0,0,.32),
+        0 7px 16px
+        rgba(0,0,0,.27),
 
         inset 0 1px 1px
-        rgba(255,255,255,.08);
+        rgba(255,255,255,.06);
 
     overflow:hidden;
 
     transition:
-        transform .15s ease,
-        box-shadow .15s ease,
-        border-color .15s ease;
+        transform .14s ease,
+        border-color .14s ease;
 }
 
 
-/* brilho superior */
+/* brilho */
 
 .tool-card::before{
 
@@ -393,11 +386,12 @@ input{
 
     position:absolute;
 
-    top:-35px;
+    top:-25px;
+
     left:50%;
 
-    width:100px;
-    height:70px;
+    width:70px;
+    height:55px;
 
     transform:
         translateX(-50%);
@@ -405,7 +399,7 @@ input{
     background:
         radial-gradient(
             circle,
-            rgba(255,115,0,.16),
+            rgba(255,115,0,.14),
             transparent 70%
         );
 
@@ -413,7 +407,7 @@ input{
 }
 
 
-/* linha inferior */
+/* linha */
 
 .tool-card::after{
 
@@ -421,11 +415,12 @@ input{
 
     position:absolute;
 
-    left:18%;
-    right:18%;
-    bottom:7px;
+    left:25%;
+    right:25%;
 
-    height:2px;
+    bottom:5px;
+
+    height:1px;
 
     border-radius:10px;
 
@@ -433,17 +428,14 @@ input{
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,117,0,.55),
+            rgba(255,115,0,.45),
             transparent
         );
-
-    opacity:.55;
-
 }
 
 
 /* =====================================================
-   IMAGEM DO ÍCONE
+   ÍCONE PEQUENO
 ===================================================== */
 
 .tool-card img{
@@ -454,20 +446,20 @@ input{
 
     display:block;
 
-    width:72%;
+    width:48px;
+    height:48px;
 
-    height:72%;
-
-    max-width:120px;
-    max-height:120px;
+    max-width:48px;
+    max-height:48px;
 
     object-fit:contain;
 
     object-position:center;
 
-    margin:auto;
+    margin:
+        0 auto 5px;
 
-    border-radius:14px;
+    border-radius:9px;
 
     user-select:none;
 
@@ -477,47 +469,61 @@ input{
 
     filter:
         drop-shadow(
-            0 8px 12px
+            0 5px 7px
             rgba(0,0,0,.35)
         );
-
-    transition:
-        transform .15s ease;
 }
 
 
 /* =====================================================
-   NOME DA FERRAMENTA
+   NOME
 ===================================================== */
 
 .tool-name{
 
-    position:absolute;
+    position:relative;
 
     z-index:3;
 
-    left:7px;
-    right:7px;
-    bottom:12px;
-
-    padding:6px 4px;
+    width:100%;
 
     text-align:center;
-
-    border-radius:8px;
-
-    background:
-        rgba(4,7,11,.82);
 
     color:#fff;
 
     font-size:8px;
+
     font-weight:1000;
 
-    letter-spacing:.4px;
+    letter-spacing:.25px;
 
-    backdrop-filter:blur(7px);
-    -webkit-backdrop-filter:blur(7px);
+    line-height:1.1;
+}
+
+
+/* =====================================================
+   DESCRIÇÃO
+===================================================== */
+
+.tool-description{
+
+    position:relative;
+
+    z-index:3;
+
+    width:94%;
+
+    margin-top:3px;
+
+    text-align:center;
+
+    color:#778390;
+
+    font-size:6.5px;
+
+    font-weight:500;
+
+    line-height:1.2;
 }
 
 
@@ -531,20 +537,14 @@ input{
         scale(.965);
 
     border-color:
-        rgba(255,115,0,.55);
+        rgba(255,115,0,.50);
 
     box-shadow:
-        0 6px 16px
-        rgba(0,0,0,.38),
+        0 5px 12px
+        rgba(0,0,0,.35),
 
-        0 0 18px
-        rgba(255,100,0,.10);
-}
-
-.tool-card:active img{
-
-    transform:
-        scale(.96);
+        0 0 12px
+        rgba(255,100,0,.08);
 }
 
 
@@ -556,44 +556,40 @@ input{
 
     width:100%;
 
-    min-height:72px;
+    height:52px;
 
     margin:
-        14px 0
-        12px;
+        9px 0;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
 
     border:
         1px dashed
-        rgba(255,120,0,.25);
+        rgba(255,120,0,.22);
 
-    border-radius:16px;
+    border-radius:12px;
 
     background:
-        linear-gradient(
-            110deg,
-            rgba(255,120,0,.04),
-            rgba(255,255,255,.025),
-            rgba(255,120,0,.04)
-        );
+        rgba(255,255,255,.018);
 
-    color:#7c8793;
+    color:#65717d;
 
-    font-size:8px;
+    font-size:6px;
+
     font-weight:900;
 
-    letter-spacing:1px;
+    letter-spacing:.8px;
 }
 
 
 /* =====================================================
-   APRESENTAÇÃO
+   HERO
 ===================================================== */
 
 .hero{
@@ -602,16 +598,16 @@ input{
 
     overflow:hidden;
 
-    padding:18px;
+    padding:13px;
 
-    border-radius:19px;
+    border-radius:14px;
 
     background:
 
         radial-gradient(
             circle at 100% 0%,
-            rgba(255,110,0,.18),
-            transparent 36%
+            rgba(255,110,0,.15),
+            transparent 38%
         ),
 
         linear-gradient(
@@ -622,41 +618,38 @@ input{
 
     border:
         1px solid
-        rgba(255,115,0,.13);
-
-    box-shadow:
-        0 15px 30px
-        rgba(0,0,0,.20);
+        rgba(255,115,0,.10);
 }
 
 .hero-tag{
 
     display:inline-block;
 
-    padding:6px 9px;
+    padding:4px 7px;
 
-    border-radius:7px;
+    border-radius:5px;
 
     background:
-        rgba(255,115,0,.10);
+        rgba(255,115,0,.09);
 
     color:#ff8b25;
 
-    font-size:8px;
+    font-size:6px;
+
     font-weight:900;
 
-    letter-spacing:1px;
+    letter-spacing:.7px;
 }
 
 .hero h1{
 
-    margin-top:10px;
+    margin-top:6px;
 
-    font-size:23px;
+    font-size:16px;
 
-    line-height:1.05;
+    line-height:1;
 
-    letter-spacing:-1px;
+    letter-spacing:-.5px;
 }
 
 .hero h1 span{
@@ -665,27 +658,27 @@ input{
 
 .hero p{
 
-    margin-top:8px;
+    margin-top:5px;
 
-    color:#7f8b98;
+    color:#788592;
 
-    font-size:10px;
+    font-size:7px;
 
-    line-height:1.55;
+    line-height:1.4;
 }
 
 
 /* =====================================================
-   CARDS DAS FERRAMENTAS
+   CARDS INTERNOS
 ===================================================== */
 
 .card{
 
-    margin-bottom:14px;
+    margin-bottom:10px;
 
-    padding:17px;
+    padding:14px;
 
-    border-radius:19px;
+    border-radius:15px;
 
     background:
         linear-gradient(
@@ -696,29 +689,26 @@ input{
 
     border:
         1px solid
-        rgba(255,255,255,.07);
-
-    box-shadow:
-        0 14px 30px
-        rgba(0,0,0,.20);
+        rgba(255,255,255,.065);
 }
 
 .card-title{
 
-    font-size:20px;
+    font-size:18px;
+
     font-weight:1000;
 }
 
 .card-description{
 
-    margin-top:5px;
-    margin-bottom:17px;
+    margin:
+        4px 0 13px;
 
-    color:#7e8a97;
+    color:#7d8995;
 
-    font-size:10px;
+    font-size:8px;
 
-    line-height:1.5;
+    line-height:1.45;
 }
 
 
@@ -730,11 +720,11 @@ input{
 
     width:100%;
 
-    margin-bottom:12px;
+    margin-bottom:9px;
 
-    padding:12px;
+    padding:10px;
 
-    border-radius:11px;
+    border-radius:9px;
 
     background:#111923;
 
@@ -744,7 +734,8 @@ input{
 
     color:#aeb8c3;
 
-    font-size:9px;
+    font-size:8px;
+
     font-weight:900;
 }
 
@@ -754,31 +745,32 @@ input{
 ===================================================== */
 
 .field{
-    margin-bottom:13px;
+    margin-bottom:10px;
 }
 
 .field label{
 
     display:block;
 
-    margin-bottom:6px;
+    margin-bottom:5px;
 
     color:#aeb8c3;
 
-    font-size:10px;
+    font-size:8px;
+
     font-weight:800;
 }
 
 .field input{
 
     width:100%;
-    height:51px;
+
+    height:45px;
 
     padding:
-        10px
-        13px;
+        9px 11px;
 
-    border-radius:12px;
+    border-radius:10px;
 
     border:
         1px solid
@@ -788,10 +780,12 @@ input{
 
     color:#fff;
 
-    font-size:16px;
+    font-size:15px;
+
     font-weight:700;
 
     -webkit-appearance:none;
+
     appearance:none;
 }
 
@@ -800,22 +794,22 @@ input{
     border-color:#ff7400;
 
     box-shadow:
-        0 0 0 3px
+        0 0 0 2px
         rgba(255,116,0,.09);
 }
 
 
 /* =====================================================
-   BOTÃO CALCULAR
+   CALCULAR
 ===================================================== */
 
 .calculate{
 
     width:100%;
 
-    padding:14px;
+    padding:12px;
 
-    border-radius:12px;
+    border-radius:10px;
 
     background:
         linear-gradient(
@@ -826,16 +820,9 @@ input{
 
     color:#fff;
 
-    font-size:10px;
+    font-size:8px;
+
     font-weight:1000;
-
-    box-shadow:
-        0 8px 20px
-        rgba(255,100,0,.18);
-}
-
-.calculate:active{
-    transform:scale(.985);
 }
 
 
@@ -847,41 +834,37 @@ input{
 
     display:none;
 
-    margin-top:13px;
+    margin-top:10px;
 
-    padding:15px;
+    padding:12px;
 
-    border-radius:15px;
+    border-radius:12px;
 
     background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(255,114,0,.17),
-            transparent 42%
-        ),
-
-        #15110c;
+        rgba(255,114,0,.055);
 
     border:
         1px solid
-        rgba(255,114,0,.25);
+        rgba(255,114,0,.22);
 }
 
 .result-label{
 
     color:#ff9b40;
 
-    font-size:8px;
+    font-size:7px;
+
     font-weight:900;
 
-    letter-spacing:1px;
+    letter-spacing:.7px;
 }
 
 .result-value{
 
-    margin-top:4px;
+    margin-top:3px;
 
-    font-size:28px;
+    font-size:25px;
+
     font-weight:1000;
 }
 
@@ -892,19 +875,19 @@ input{
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:7px;
+    gap:5px;
 
-    margin-top:10px;
+    margin-top:8px;
 }
 
 .result-box{
 
-    padding:10px;
+    padding:8px;
 
-    border-radius:9px;
+    border-radius:7px;
 
     background:
-        rgba(255,255,255,.045);
+        rgba(255,255,255,.04);
 }
 
 .result-box small{
@@ -913,16 +896,16 @@ input{
 
     color:#778391;
 
-    font-size:8px;
+    font-size:7px;
 }
 
 .result-box strong{
 
     display:block;
 
-    margin-top:3px;
+    margin-top:2px;
 
-    font-size:12px;
+    font-size:10px;
 }
 
 
@@ -933,6 +916,7 @@ input{
 .calculator{
 
     width:100%;
+
     max-width:520px;
 
     margin:auto;
@@ -940,9 +924,9 @@ input{
 
 .display{
 
-    min-height:130px;
+    min-height:115px;
 
-    padding:17px;
+    padding:14px;
 
     display:flex;
 
@@ -952,7 +936,7 @@ input{
 
     text-align:right;
 
-    border-radius:17px;
+    border-radius:14px;
 
     background:#05080c;
 
@@ -965,11 +949,11 @@ input{
 
 .expression{
 
-    min-height:18px;
+    min-height:15px;
 
     color:#65717e;
 
-    font-size:11px;
+    font-size:9px;
 
     white-space:nowrap;
 
@@ -978,9 +962,10 @@ input{
 
 .display-number{
 
-    margin-top:4px;
+    margin-top:3px;
 
-    font-size:37px;
+    font-size:34px;
+
     font-weight:900;
 
     white-space:nowrap;
@@ -1000,16 +985,16 @@ input{
     grid-template-columns:
         repeat(5,1fr);
 
-    gap:5px;
+    gap:4px;
 
-    margin:7px 0;
+    margin:6px 0;
 }
 
 .memory button{
 
-    min-height:38px;
+    min-height:35px;
 
-    border-radius:8px;
+    border-radius:7px;
 
     background:#111820;
 
@@ -1019,7 +1004,8 @@ input{
 
     color:#8995a3;
 
-    font-size:8px;
+    font-size:7px;
+
     font-weight:900;
 }
 
@@ -1035,14 +1021,14 @@ input{
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:7px;
+    gap:6px;
 }
 
 .key{
 
-    min-height:59px;
+    min-height:55px;
 
-    border-radius:12px;
+    border-radius:10px;
 
     background:#151c25;
 
@@ -1052,7 +1038,8 @@ input{
 
     color:#fff;
 
-    font-size:18px;
+    font-size:17px;
+
     font-weight:900;
 }
 
@@ -1075,7 +1062,7 @@ input{
 
     color:#a7b1bd;
 
-    font-size:12px;
+    font-size:11px;
 }
 
 
@@ -1087,33 +1074,34 @@ input{
 
     width:100%;
 
-    margin-bottom:13px;
+    margin-bottom:10px;
 
-    padding:12px;
+    padding:10px;
 
-    border-radius:11px;
+    border-radius:9px;
 
     background:#171d25;
 
     border:
         1px solid
-        rgba(255,70,70,.23);
+        rgba(255,70,70,.22);
 
     color:#ff6464;
 
-    font-size:9px;
+    font-size:8px;
+
     font-weight:900;
 }
 
 .history-empty{
 
-    padding:30px 10px;
+    padding:25px 10px;
 
     text-align:center;
 
     color:#65717e;
 
-    font-size:10px;
+    font-size:9px;
 }
 
 .history-item{
@@ -1122,9 +1110,9 @@ input{
 
     justify-content:space-between;
 
-    gap:10px;
+    gap:8px;
 
-    padding:12px 0;
+    padding:10px 0;
 
     border-bottom:
         1px solid
@@ -1133,26 +1121,28 @@ input{
 
 .history-name{
 
-    font-size:11px;
+    font-size:9px;
+
     font-weight:900;
 }
 
 .history-info{
 
-    margin-top:3px;
+    margin-top:2px;
 
     color:#707c89;
 
-    font-size:8px;
+    font-size:7px;
 
-    line-height:1.4;
+    line-height:1.35;
 }
 
 .history-result{
 
     color:#ff8a20;
 
-    font-size:10px;
+    font-size:9px;
+
     font-weight:900;
 
     text-align:right;
@@ -1166,13 +1156,13 @@ input{
 .footer{
 
     padding:
-        25px 10px 32px;
+        18px 10px 25px;
 
     text-align:center;
 
     color:#56616e;
 
-    font-size:8px;
+    font-size:7px;
 }
 
 .footer b{
@@ -1191,13 +1181,13 @@ input{
     z-index:9999;
 
     left:50%;
-    bottom:22px;
+
+    bottom:18px;
 
     padding:
-        11px
-        16px;
+        9px 13px;
 
-    border-radius:11px;
+    border-radius:9px;
 
     background:#171e27;
 
@@ -1207,7 +1197,8 @@ input{
 
     color:#fff;
 
-    font-size:10px;
+    font-size:8px;
+
     font-weight:700;
 
     transform:
@@ -1230,39 +1221,43 @@ input{
 
 
 /* =====================================================
-   CELULAR PEQUENO
+   CELULAR MUITO PEQUENO
 ===================================================== */
 
-@media(max-width:360px){
+@media(max-width:350px){
 
-    .content{
-        padding:10px;
-    }
-
-    .tools{
-        gap:8px;
+    .header{
+        padding-top:5px;
     }
 
     .tool-card{
-        padding:6px;
-        border-radius:17px;
+        height:100px;
+        border-radius:13px;
     }
 
     .tool-card img{
-        width:68%;
-        height:68%;
+        width:40px;
+        height:40px;
+        margin-bottom:3px;
     }
 
     .tool-name{
         font-size:7px;
-        bottom:9px;
+    }
+
+    .tool-description{
+        font-size:5.8px;
+    }
+
+    .tools{
+        gap:6px;
     }
 
 }
 
 
 /* =====================================================
-   TABLET
+   TABLET / DESKTOP
 ===================================================== */
 
 @media(min-width:600px){
@@ -1272,36 +1267,49 @@ input{
         grid-template-columns:
             repeat(3,1fr);
 
-        gap:14px;
+        gap:13px;
     }
 
     .tool-card{
-        border-radius:23px;
+
+        height:165px;
+
+        border-radius:20px;
+    }
+
+    .tool-card img{
+
+        width:65px;
+        height:65px;
+    }
+
+    .tool-name{
+        font-size:10px;
+    }
+
+    .tool-description{
+        font-size:8px;
     }
 
 }
 
 
 /* =====================================================
-   DESKTOP
+   DESKTOP GRANDE
 ===================================================== */
 
-@media(min-width:900px){
+@media(min-width:1000px){
 
     .content{
         padding:20px;
     }
 
     .tools{
-
-        grid-template-columns:
-            repeat(3,1fr);
-
-        gap:17px;
+        gap:16px;
     }
 
     .tool-card{
-        aspect-ratio:1 / .82;
+        height:190px;
     }
 
 }
@@ -1387,17 +1395,23 @@ body{
         <button
             class="active"
             data-page="home">
+
             FERRAMENTAS
+
         </button>
 
         <button
             data-page="calculator">
+
             CALCULADORA
+
         </button>
 
         <button
             data-page="history">
+
             HISTÓRICO
+
         </button>
 
     </nav>
@@ -1409,7 +1423,7 @@ body{
 
 
 <!-- =====================================================
-     FERRAMENTAS
+     HOME
 ===================================================== -->
 
 <section
@@ -1431,18 +1445,15 @@ body{
     <div class="tools">
 
 
-        <!-- =================================================
-             PREÇO DE VENDA
-        ================================================== -->
+        <!-- PREÇO DE VENDA -->
 
         <button
             class="tool-card"
             data-tool="price"
-            aria-label="Preço de Venda"
         >
 
             <img
-                src="./assets/PRECO-DE-VENDA.png?v=3"
+                src="./assets/PRECO-DE-VENDA.png?v=4"
                 alt="Preço de Venda"
                 draggable="false"
             >
@@ -1451,44 +1462,46 @@ body{
                 PREÇO DE VENDA
             </span>
 
-        </button>
-
-
-        <!-- =================================================
-             MARGEM
-        ================================================== -->
-
-        <button
-            class="tool-card"
-            data-tool="margin"
-            aria-label="Margem de Lucro"
-        >
-
-            <img
-                src="./assets/MARGEM-DE-LUCRO.png?v=3"
-                alt="Margem de Lucro"
-                draggable="false"
-            >
-
-            <span class="tool-name">
-                MARGEM DE LUCRO
+            <span class="tool-description">
+                Descubra o preço ideal do produto.
             </span>
 
         </button>
 
 
-        <!-- =================================================
-             DESCONTO
-        ================================================== -->
+        <!-- MARGEM -->
+
+        <button
+            class="tool-card"
+            data-tool="margin"
+        >
+
+            <img
+                src="./assets/MARGEM-DE-LUCRO.png?v=4"
+                alt="Margem de Lucro"
+                draggable="false"
+            >
+
+            <span class="tool-name">
+                MARGEM
+            </span>
+
+            <span class="tool-description">
+                Veja quanto você ganha no produto.
+            </span>
+
+        </button>
+
+
+        <!-- DESCONTO -->
 
         <button
             class="tool-card"
             data-tool="discount"
-            aria-label="Desconto"
         >
 
             <img
-                src="./assets/DESCONTO.png?v=3"
+                src="./assets/DESCONTO.png?v=4"
                 alt="Desconto"
                 draggable="false"
             >
@@ -1497,21 +1510,22 @@ body{
                 DESCONTO
             </span>
 
+            <span class="tool-description">
+                Calcule o preço final da venda.
+            </span>
+
         </button>
 
 
-        <!-- =================================================
-             MARKUP
-        ================================================== -->
+        <!-- MARKUP -->
 
         <button
             class="tool-card"
             data-tool="markup"
-            aria-label="Markup"
         >
 
             <img
-                src="./assets/MARKUP.png?v=3"
+                src="./assets/MARKUP.png?v=4"
                 alt="Markup"
                 draggable="false"
             >
@@ -1520,21 +1534,22 @@ body{
                 MARKUP
             </span>
 
+            <span class="tool-description">
+                Descubra o multiplicador do preço.
+            </span>
+
         </button>
 
 
-        <!-- =================================================
-             COMISSÃO
-        ================================================== -->
+        <!-- COMISSÃO -->
 
         <button
             class="tool-card"
             data-tool="commission"
-            aria-label="Comissão"
         >
 
             <img
-                src="./assets/COMISSAO.png?v=3"
+                src="./assets/COMISSAO.png?v=4"
                 alt="Comissão"
                 draggable="false"
             >
@@ -1543,21 +1558,22 @@ body{
                 COMISSÃO
             </span>
 
+            <span class="tool-description">
+                Saiba quanto você vai receber.
+            </span>
+
         </button>
 
 
-        <!-- =================================================
-             CALCULADORA
-        ================================================== -->
+        <!-- CALCULADORA -->
 
         <button
             class="tool-card"
             data-tool="calculator"
-            aria-label="Calculadora"
         >
 
             <img
-                src="./assets/CALCULADORA.png?v=3"
+                src="./assets/CALCULADORA.png?v=4"
                 alt="Calculadora"
                 draggable="false"
             >
@@ -1566,14 +1582,16 @@ body{
                 CALCULADORA
             </span>
 
+            <span class="tool-description">
+                Faça qualquer cálculo rapidamente.
+            </span>
+
         </button>
 
     </div>
 
 
-    <!-- =====================================================
-         PUBLICIDADE
-    ====================================================== -->
+    <!-- PUBLICIDADE -->
 
     <div class="ad">
 
@@ -1582,9 +1600,7 @@ body{
     </div>
 
 
-    <!-- =====================================================
-         APRESENTAÇÃO
-    ====================================================== -->
+    <!-- APRESENTAÇÃO -->
 
     <div class="hero">
 
@@ -1599,8 +1615,7 @@ body{
 
         <p>
             Ferramentas profissionais para calcular
-            preço, margem, desconto, markup, comissão
-            e muito mais.
+            preço, margem, desconto, markup e comissão.
         </p>
 
     </div>
@@ -1609,7 +1624,7 @@ body{
 
 
 <!-- =====================================================
-     PÁGINA DE FERRAMENTAS
+     FERRAMENTAS INTERNAS
 ===================================================== -->
 
 <section
@@ -1619,15 +1634,14 @@ body{
 
     <button
         class="back"
-        id="backHome"
-    >
+        id="backHome">
+
         ← VOLTAR PARA FERRAMENTAS
+
     </button>
 
 
-    <!-- =================================================
-         PREÇO DE VENDA
-    ================================================== -->
+    <!-- PREÇO -->
 
     <div
         id="tool-price"
@@ -1642,9 +1656,8 @@ body{
             </div>
 
             <div class="card-description">
-                Informe o custo e a margem desejada.
-                O CALPRO calcula o preço necessário
-                para atingir essa margem.
+                Informe o custo e a margem desejada
+                para descobrir o preço ideal de venda.
             </div>
 
 
@@ -1684,16 +1697,16 @@ body{
 
             <button
                 class="calculate"
-                id="btnPrice"
-            >
+                id="btnPrice">
+
                 CALCULAR PREÇO
+
             </button>
 
 
             <div
                 class="result"
-                id="resultPrice"
-            >
+                id="resultPrice">
 
                 <div class="result-label">
                     PREÇO DE VENDA
@@ -1701,9 +1714,10 @@ body{
 
                 <div
                     class="result-value"
-                    id="priceValue"
-                >
+                    id="priceValue">
+
                     R$ 0,00
+
                 </div>
 
             </div>
@@ -1713,9 +1727,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         MARGEM
-    ================================================== -->
+    <!-- MARGEM -->
 
     <div
         id="tool-margin"
@@ -1730,8 +1742,8 @@ body{
             </div>
 
             <div class="card-description">
-                Informe custo e preço de venda para
-                descobrir lucro, margem e markup.
+                Descubra quanto realmente sobra da venda
+                depois de considerar o custo.
             </div>
 
 
@@ -1771,16 +1783,16 @@ body{
 
             <button
                 class="calculate"
-                id="btnMargin"
-            >
+                id="btnMargin">
+
                 CALCULAR MARGEM
+
             </button>
 
 
             <div
                 class="result"
-                id="resultMargin"
-            >
+                id="resultMargin">
 
                 <div class="result-label">
                     MARGEM
@@ -1788,8 +1800,7 @@ body{
 
                 <div
                     class="result-value"
-                    id="marginValue"
-                >
+                    id="marginValue">
                     0,00%
                 </div>
 
@@ -1803,8 +1814,7 @@ body{
                         </small>
 
                         <strong
-                            id="marginProfit"
-                        >
+                            id="marginProfit">
                             R$ 0,00
                         </strong>
 
@@ -1818,8 +1828,7 @@ body{
                         </small>
 
                         <strong
-                            id="marginMarkup"
-                        >
+                            id="marginMarkup">
                             0,00x
                         </strong>
 
@@ -1834,9 +1843,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         DESCONTO
-    ================================================== -->
+    <!-- DESCONTO -->
 
     <div
         id="tool-discount"
@@ -1851,8 +1858,8 @@ body{
             </div>
 
             <div class="card-description">
-                Informe o preço original e o percentual
-                de desconto para descobrir o preço final.
+                Calcule rapidamente quanto o cliente
+                pagará depois do desconto.
             </div>
 
 
@@ -1892,16 +1899,16 @@ body{
 
             <button
                 class="calculate"
-                id="btnDiscount"
-            >
+                id="btnDiscount">
+
                 CALCULAR DESCONTO
+
             </button>
 
 
             <div
                 class="result"
-                id="resultDiscount"
-            >
+                id="resultDiscount">
 
                 <div class="result-label">
                     PREÇO FINAL
@@ -1909,8 +1916,7 @@ body{
 
                 <div
                     class="result-value"
-                    id="discountValue"
-                >
+                    id="discountValue">
                     R$ 0,00
                 </div>
 
@@ -1924,8 +1930,7 @@ body{
                         </small>
 
                         <strong
-                            id="discountAmount"
-                        >
+                            id="discountAmount">
                             R$ 0,00
                         </strong>
 
@@ -1939,8 +1944,7 @@ body{
                         </small>
 
                         <strong
-                            id="discountPercentValue"
-                        >
+                            id="discountPercentValue">
                             0,00%
                         </strong>
 
@@ -1955,9 +1959,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         MARKUP
-    ================================================== -->
+    <!-- MARKUP -->
 
     <div
         id="tool-markup"
@@ -1972,8 +1974,8 @@ body{
             </div>
 
             <div class="card-description">
-                Descubra o multiplicador aplicado ao custo
-                e veja também o acréscimo e a margem.
+                Veja quantas vezes o preço de venda
+                representa o seu custo.
             </div>
 
 
@@ -2013,16 +2015,16 @@ body{
 
             <button
                 class="calculate"
-                id="btnMarkup"
-            >
+                id="btnMarkup">
+
                 CALCULAR MARKUP
+
             </button>
 
 
             <div
                 class="result"
-                id="resultMarkup"
-            >
+                id="resultMarkup">
 
                 <div class="result-label">
                     MARKUP
@@ -2030,8 +2032,7 @@ body{
 
                 <div
                     class="result-value"
-                    id="markupValue"
-                >
+                    id="markupValue">
                     0,00x
                 </div>
 
@@ -2045,8 +2046,7 @@ body{
                         </small>
 
                         <strong
-                            id="markupIncrease"
-                        >
+                            id="markupIncrease">
                             0,00%
                         </strong>
 
@@ -2060,8 +2060,7 @@ body{
                         </small>
 
                         <strong
-                            id="markupMargin"
-                        >
+                            id="markupMargin">
                             0,00%
                         </strong>
 
@@ -2076,9 +2075,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         COMISSÃO
-    ================================================== -->
+    <!-- COMISSÃO -->
 
     <div
         id="tool-commission"
@@ -2093,8 +2090,8 @@ body{
             </div>
 
             <div class="card-description">
-                Informe o valor vendido e a porcentagem
-                de comissão para descobrir quanto recebe.
+                Informe o valor vendido e sua taxa
+                para descobrir o valor da comissão.
             </div>
 
 
@@ -2134,16 +2131,16 @@ body{
 
             <button
                 class="calculate"
-                id="btnCommission"
-            >
+                id="btnCommission">
+
                 CALCULAR COMISSÃO
+
             </button>
 
 
             <div
                 class="result"
-                id="resultCommission"
-            >
+                id="resultCommission">
 
                 <div class="result-label">
                     SUA COMISSÃO
@@ -2151,8 +2148,7 @@ body{
 
                 <div
                     class="result-value"
-                    id="commissionValue"
-                >
+                    id="commissionValue">
                     R$ 0,00
                 </div>
 
@@ -2183,9 +2179,8 @@ body{
             </div>
 
             <div class="card-description">
-                Calculadora comercial com suporte a
-                vírgula decimal, porcentagem, memória
-                e operações consecutivas.
+                Calculadora completa com vírgula,
+                porcentagem, memória e operações.
             </div>
 
 
@@ -2381,8 +2376,8 @@ body{
         </div>
 
         <div class="card-description">
-            Seus últimos cálculos realizados ficam
-            salvos neste aparelho.
+            Seus cálculos recentes ficam salvos
+            neste aparelho.
         </div>
 
 
@@ -2427,7 +2422,7 @@ body{
 <script>
 
 /* =====================================================
-   CONVERSÃO DE NÚMEROS
+   NÚMEROS
 ===================================================== */
 
 function parseNumber(value){
@@ -2466,8 +2461,7 @@ function parseNumber(value){
         }else{
 
             text =
-                text
-                .replace(/,/g,'');
+                text.replace(/,/g,'');
 
         }
 
@@ -2643,7 +2637,7 @@ navButtons.forEach(
 
 
 /* =====================================================
-   ABRIR FERRAMENTA
+   FERRAMENTAS
 ===================================================== */
 
 document
@@ -2771,7 +2765,7 @@ document
         ){
 
             toast(
-                'Margem deve ficar entre 0% e 99,99%.'
+                'Margem inválida.'
             );
 
             return;
@@ -3234,22 +3228,27 @@ try{
 function escapeHTML(value){
 
     return String(value)
+
     .replace(
         /&/g,
         '&amp;'
     )
+
     .replace(
         /</g,
         '&lt;'
     )
+
     .replace(
         />/g,
         '&gt;'
     )
+
     .replace(
         /"/g,
         '&quot;'
     )
+
     .replace(
         /'/g,
         '&#039;'
@@ -3382,12 +3381,12 @@ document
             return;
         }
 
-        const confirmed =
-            confirm(
+        if(
+            !confirm(
                 'Deseja apagar todo o histórico?'
-            );
+            )
+        ){
 
-        if(!confirmed){
             return;
         }
 
@@ -3513,6 +3512,7 @@ function inputNumber(number){
     ){
 
         clearCalculator();
+
     }
 
     if(justCalculated){
@@ -3522,6 +3522,7 @@ function inputNumber(number){
         calcExpression = '';
 
         justCalculated = false;
+
     }
 
     if(calcWaiting){
@@ -3529,7 +3530,8 @@ function inputNumber(number){
         calcCurrent =
             number;
 
-        calcWaiting = false;
+        calcWaiting =
+            false;
 
     }else{
 
@@ -3569,6 +3571,7 @@ function inputDecimal(){
         calcExpression = '';
 
         justCalculated = false;
+
     }
 
     if(calcWaiting){
@@ -3728,6 +3731,7 @@ function selectOperator(operator){
 
         calcPrevious =
             calcCurrent;
+
     }
 
     calcOperator =
@@ -4231,7 +4235,7 @@ document
 
 
 /* =====================================================
-   TECLADO DO COMPUTADOR
+   TECLADO FÍSICO
 ===================================================== */
 
 document.addEventListener(
@@ -4332,7 +4336,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   CAMPOS NUMÉRICOS
+   CAMPOS
 ===================================================== */
 
 document.addEventListener(
@@ -4351,17 +4355,11 @@ document.addEventListener(
             return;
         }
 
-        let value =
-            input.value;
-
-        value =
-            value.replace(
+        input.value =
+            input.value.replace(
                 /[^0-9.,]/g,
                 ''
             );
-
-        input.value =
-            value;
 
     }
 );
