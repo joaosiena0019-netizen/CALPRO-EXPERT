@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
-<meta name="theme-color" content="#0b0f14">
+<meta name="theme-color" content="#080b10">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="CALPRO EXPERT">
 
-<title>CALPRO EXPERT</title>
+<meta name="apple-mobile-web-app-title" content="CALPRO EXPERT">
 
 <link rel="manifest" href="./manifest.json">
 
+<title>CALPRO EXPERT</title>
+
 <style>
+
 *{
     box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
+
     margin:0;
     padding:0;
+
     width:100%;
     min-height:100%;
+
     background:#080b10;
     color:#fff;
-    font-family:Inter,Arial,Helvetica,sans-serif;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
     touch-action:manipulation;
+
     overscroll-behavior:none;
 }
 
@@ -38,8 +53,7 @@ body{
 }
 
 button,
-input,
-select{
+input{
     font-family:inherit;
 }
 
@@ -49,38 +63,78 @@ button{
     -webkit-user-select:none;
 }
 
+/* =========================================================
+APP
+========================================================= */
+
 .app{
+
     width:100%;
     max-width:1100px;
+
     margin:auto;
+
     min-height:100vh;
+
     background:
-        radial-gradient(circle at 85% 0%,rgba(255,106,0,.12),transparent 28%),
-        radial-gradient(circle at 10% 20%,rgba(255,106,0,.06),transparent 25%),
+
+        radial-gradient(
+            circle at 85% 0%,
+            rgba(255,106,0,.12),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255,106,0,.06),
+            transparent 25%
+        ),
+
         #080b10;
 }
 
-/* HEADER */
+/* =========================================================
+HEADER
+========================================================= */
 
 .header{
+
     position:sticky;
+
     top:0;
+
     z-index:100;
-    padding:18px 20px 14px;
-    background:rgba(8,11,16,.94);
+
+    padding:
+        18px
+        20px
+        14px;
+
+    background:
+        rgba(8,11,16,.95);
+
     backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.07);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
 }
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
 .logo-main{
+
     font-size:30px;
+
     font-weight:900;
+
     letter-spacing:-1.5px;
 }
 
@@ -89,48 +143,81 @@ button{
 }
 
 .logo-sub{
+
     font-size:10px;
+
     letter-spacing:5px;
+
     font-weight:800;
+
     color:#ddd;
+
     margin-top:-2px;
 }
 
 .logo-line{
+
     width:45px;
+
     height:4px;
+
     border-radius:10px;
+
     background:#ff7200;
+
     margin-top:5px;
 }
 
-/* TABS */
+/* =========================================================
+TABS
+========================================================= */
 
 .tabs{
+
     display:flex;
+
     gap:8px;
+
     margin-top:16px;
 }
 
 .tab{
+
     flex:1;
-    border:1px solid rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
     background:#11161d;
+
     color:#8e98a6;
+
     padding:12px 10px;
+
     border-radius:12px;
+
     font-weight:800;
+
     font-size:13px;
 }
 
 .tab.active{
+
     background:#ff7200;
+
     color:#fff;
+
     border-color:#ff7200;
-    box-shadow:0 5px 20px rgba(255,114,0,.22);
+
+    box-shadow:
+        0 5px 20px
+        rgba(255,114,0,.22);
 }
 
-/* CONTENT */
+/* =========================================================
+CONTENT
+========================================================= */
 
 .content{
     padding:18px;
@@ -144,86 +231,153 @@ button{
     display:block;
 }
 
-/* CARDS */
+/* =========================================================
+CARD
+========================================================= */
 
 .card{
-    background:linear-gradient(145deg,#121820,#0d1218);
-    border:1px solid rgba(255,255,255,.07);
+
+    background:
+        linear-gradient(
+            145deg,
+            #121820,
+            #0d1218
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
     border-radius:18px;
+
     padding:18px;
+
     margin-bottom:14px;
-    box-shadow:0 10px 30px rgba(0,0,0,.16);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,.16);
 }
 
 .card-title{
+
     font-size:16px;
+
     font-weight:900;
+
     margin-bottom:4px;
 }
 
 .card-description{
+
     color:#84909e;
+
     font-size:12px;
+
     margin-bottom:18px;
 }
 
-/* GRID */
+/* =========================================================
+GRID
+========================================================= */
 
 .grid{
+
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
     gap:12px;
 }
 
 @media(min-width:750px){
+
     .grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
+
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
     }
 }
 
-/* INPUT */
+/* =========================================================
+INPUT
+========================================================= */
 
 .field{
     margin-bottom:14px;
 }
 
 label{
+
     display:block;
+
     color:#a7b0bc;
+
     font-size:12px;
+
     font-weight:700;
+
     margin-bottom:7px;
 }
 
 input{
+
     width:100%;
-    border:1px solid #252d37;
+
+    border:
+        1px solid
+        #252d37;
+
     outline:none;
+
     background:#080c11;
+
     color:#fff;
+
     border-radius:12px;
+
     padding:14px;
+
     font-size:16px;
+
     font-weight:700;
 }
 
 input:focus{
+
     border-color:#ff7200;
-    box-shadow:0 0 0 3px rgba(255,114,0,.10);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,114,0,.10);
 }
 
-/* BUTTON */
+/* =========================================================
+BUTTON
+========================================================= */
 
 .btn{
+
     width:100%;
+
     border:0;
+
     border-radius:12px;
+
     padding:14px;
+
     background:#ff7200;
+
     color:#fff;
+
     font-size:14px;
+
     font-weight:900;
-    box-shadow:0 6px 18px rgba(255,114,0,.18);
+
+    box-shadow:
+        0 6px 18px
+        rgba(255,114,0,.18);
 }
 
 .btn:active{
@@ -231,81 +385,58 @@ input:focus{
 }
 
 .btn-secondary{
+
     background:#1a2028;
+
     box-shadow:none;
-    border:1px solid #2a323d;
+
+    border:
+        1px solid
+        #2a323d;
 }
 
 .btn-danger{
+
     background:#40171a;
+
     color:#ff8585;
+
     box-shadow:none;
 }
 
-/* RESULT */
-
-.result{
-    margin-top:14px;
-    padding:18px;
-    border-radius:16px;
-    background:linear-gradient(135deg,#241306,#15100b);
-    border:1px solid rgba(255,114,0,.35);
-}
-
-.result-label{
-    color:#ff9b4b;
-    font-size:11px;
-    font-weight:800;
-    text-transform:uppercase;
-}
-
-.result-value{
-    color:#fff;
-    font-size:30px;
-    font-weight:900;
-    margin-top:4px;
-}
-
-.result-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    margin-top:12px;
-}
-
-.result-item{
-    background:rgba(255,255,255,.045);
-    border-radius:10px;
-    padding:10px;
-}
-
-.result-item span{
-    display:block;
-    color:#8c97a5;
-    font-size:10px;
-}
-
-.result-item strong{
-    display:block;
-    margin-top:3px;
-    font-size:14px;
-}
-
-/* QUICK MENU */
+/* =========================================================
+QUICK MENU
+========================================================= */
 
 .quick{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:12px;
 }
 
 .quick-card{
+
     padding:17px;
+
     min-height:115px;
+
     border-radius:17px;
-    border:1px solid rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
     background:#11171e;
+
     transition:.15s;
+
+    text-align:left;
+
+    color:#fff;
 }
 
 .quick-card:active{
@@ -313,78 +444,269 @@ input:focus{
 }
 
 .quick-icon{
+
     width:42px;
+
     height:42px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     border-radius:12px;
+
     background:#ff7200;
+
     font-size:21px;
+
     margin-bottom:12px;
 }
 
 .quick-title{
+
     font-weight:900;
+
     font-size:14px;
 }
 
 .quick-text{
+
     margin-top:4px;
+
     font-size:11px;
+
     color:#7f8996;
 }
 
-/* CALCULATOR */
+/* =========================================================
+RESULT
+========================================================= */
+
+.result{
+
+    margin-top:14px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #241306,
+            #15100b
+        );
+
+    border:
+        1px solid
+        rgba(255,114,0,.35);
+}
+
+.result-label{
+
+    color:#ff9b4b;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+}
+
+.result-value{
+
+    color:#fff;
+
+    font-size:30px;
+
+    font-weight:900;
+
+    margin-top:4px;
+}
+
+.result-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:10px;
+
+    margin-top:12px;
+}
+
+.result-item{
+
+    background:
+        rgba(255,255,255,.045);
+
+    border-radius:10px;
+
+    padding:10px;
+}
+
+.result-item span{
+
+    display:block;
+
+    color:#8c97a5;
+
+    font-size:10px;
+}
+
+.result-item strong{
+
+    display:block;
+
+    margin-top:3px;
+
+    font-size:14px;
+}
+
+/* =========================================================
+AD SPACE
+========================================================= */
+
+.ad-space{
+
+    width:100%;
+
+    min-height:72px;
+
+    margin:
+        14px
+        0;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.12);
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.018);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:#505b68;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    overflow:hidden;
+}
+
+/*
+    ESPAÇO RESERVADO PARA FUTURO ANÚNCIO
+
+    Não interfere na calculadora.
+
+    Quando formos colocar o sistema de anúncios,
+    basta inserir o código dentro deste elemento.
+*/
+
+/* =========================================================
+CALCULATOR
+========================================================= */
 
 .calc{
+
     max-width:500px;
+
     margin:auto;
 }
 
 .calc-display{
+
     background:#05080c;
-    border:1px solid #242b34;
+
+    border:
+        1px solid
+        #242b34;
+
     border-radius:18px;
+
     padding:18px;
+
     margin-bottom:12px;
-    min-height:115px;
+
+    min-height:125px;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:flex-end;
+
     text-align:right;
+
     overflow:hidden;
 }
 
 .calc-expression{
+
     color:#737e8b;
+
     font-size:13px;
+
     min-height:20px;
+
     overflow:hidden;
+
     white-space:nowrap;
 }
 
 .calc-value{
+
     font-size:38px;
+
     font-weight:900;
+
     letter-spacing:-1px;
+
     overflow:hidden;
+
     white-space:nowrap;
 }
 
 .calc-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:8px;
 }
 
 .calc-btn{
-    border:1px solid #242c36;
+
+    border:
+        1px solid
+        #242c36;
+
     background:#141a21;
+
     color:#fff;
+
     border-radius:13px;
+
     min-height:62px;
+
     font-size:19px;
+
     font-weight:800;
 }
 
@@ -393,34 +715,86 @@ input:focus{
 }
 
 .calc-btn.operator{
+
     background:#1c222a;
+
     color:#ff8a27;
 }
 
 .calc-btn.equal{
+
     background:#ff7200;
+
     border-color:#ff7200;
 }
 
 .calc-btn.memory{
+
     font-size:12px;
+
     color:#9aa5b2;
 }
 
-/* HISTORY */
+/* =========================================================
+MEMORY
+========================================================= */
+
+.mode-buttons{
+
+    display:flex;
+
+    gap:7px;
+
+    margin-bottom:12px;
+}
+
+.mode-buttons button{
+
+    flex:1;
+
+    padding:10px 5px;
+
+    border-radius:10px;
+
+    border:
+        1px solid
+        #252d37;
+
+    background:#11161d;
+
+    color:#87919e;
+
+    font-weight:800;
+
+    font-size:11px;
+}
+
+/* =========================================================
+HISTORY
+========================================================= */
 
 .history-empty{
+
     text-align:center;
+
     padding:40px 15px;
+
     color:#697583;
 }
 
 .history-item{
+
     display:flex;
+
     justify-content:space-between;
+
     gap:12px;
+
     padding:14px 0;
-    border-bottom:1px solid rgba(255,255,255,.06);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
 }
 
 .history-item:last-child{
@@ -428,28 +802,67 @@ input:focus{
 }
 
 .history-type{
+
     font-weight:900;
+
     font-size:13px;
 }
 
 .history-info{
+
     color:#737f8d;
+
     font-size:11px;
+
     margin-top:4px;
 }
 
 .history-value{
+
     text-align:right;
+
     font-weight:900;
+
     color:#ff8a27;
 }
 
-/* FOOTER */
+/* =========================================================
+BADGE
+========================================================= */
+
+.badge{
+
+    display:inline-block;
+
+    padding:5px 8px;
+
+    border-radius:7px;
+
+    background:
+        rgba(255,114,0,.12);
+
+    color:#ff8a27;
+
+    font-size:10px;
+
+    font-weight:900;
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
 
 .footer{
+
     text-align:center;
-    padding:25px 15px 35px;
+
+    padding:
+        25px
+        15px
+        35px;
+
     color:#555f6b;
+
     font-size:10px;
 }
 
@@ -457,77 +870,56 @@ input:focus{
     color:#ff7200;
 }
 
-/* TOAST */
+/* =========================================================
+TOAST
+========================================================= */
 
 .toast{
+
     position:fixed;
+
     left:50%;
+
     bottom:25px;
-    transform:translateX(-50%) translateY(100px);
+
+    transform:
+        translateX(-50%)
+        translateY(100px);
+
     background:#171d25;
-    border:1px solid #303944;
-    padding:12px 18px;
+
+    border:
+        1px solid
+        #303944;
+
+    padding:
+        12px
+        18px;
+
     border-radius:12px;
+
     color:#fff;
+
     font-size:12px;
+
     font-weight:700;
+
     z-index:9999;
+
     transition:.25s;
+
     opacity:0;
 }
 
 .toast.show{
-    transform:translateX(-50%) translateY(0);
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+
     opacity:1;
 }
 
-/* BADGE */
-
-.badge{
-    display:inline-block;
-    padding:5px 8px;
-    border-radius:7px;
-    background:rgba(255,114,0,.12);
-    color:#ff8a27;
-    font-size:10px;
-    font-weight:900;
-}
-
-/* CALCULATOR MODE BUTTON */
-
-.mode-buttons{
-    display:flex;
-    gap:8px;
-    margin-bottom:12px;
-}
-
-.mode-buttons button{
-    flex:1;
-    padding:10px;
-    border-radius:10px;
-    border:1px solid #252d37;
-    background:#11161d;
-    color:#87919e;
-    font-weight:800;
-    font-size:11px;
-}
-
-.mode-buttons button.active{
-    background:#ff7200;
-    color:#fff;
-    border-color:#ff7200;
-}
-
-/* SCROLL */
-
-::-webkit-scrollbar{
-    width:5px;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#303944;
-    border-radius:10px;
-}
 </style>
 </head>
 
@@ -538,115 +930,241 @@ input:focus{
 <header class="header">
 
     <div class="logo">
+
         <div>
-            <div class="logo-main">CAL<span>PRO</span></div>
-            <div class="logo-sub">EXPERT</div>
+
+            <div class="logo-main">
+                CAL<span>PRO</span>
+            </div>
+
+            <div class="logo-sub">
+                EXPERT
+            </div>
+
             <div class="logo-line"></div>
+
         </div>
 
-        <span class="badge">v1.0</span>
+        <span class="badge">
+            v1.1
+        </span>
+
     </div>
 
     <div class="tabs">
-        <button class="tab active" onclick="openTab('comercial',this)">
+
+        <button
+            class="tab active"
+            onclick="openTab('comercial',this)">
             COMERCIAL
         </button>
 
-        <button class="tab" onclick="openTab('calculadora',this)">
+        <button
+            class="tab"
+            onclick="openTab('calculadora',this)">
             CALCULADORA
         </button>
+
     </div>
 
 </header>
 
+
 <main class="content">
 
-<!-- ================= COMERCIAL ================= -->
 
-<section id="comercial" class="section active">
+<!-- =====================================================
+COMERCIAL
+===================================================== -->
+
+<section
+    id="comercial"
+    class="section active">
 
     <div class="card">
-        <div class="card-title">CALPRO EXPERT</div>
+
+        <div class="card-title">
+            CALPRO EXPERT
+        </div>
+
         <div class="card-description">
             A calculadora profissional do vendedor.
         </div>
 
         <div class="quick">
 
-            <button class="quick-card" onclick="showTool('preco')">
-                <div class="quick-icon">R$</div>
-                <div class="quick-title">Preço de Venda</div>
+            <button
+                class="quick-card"
+                onclick="showTool('preco')">
+
+                <div class="quick-icon">
+                    R$
+                </div>
+
+                <div class="quick-title">
+                    Preço de Venda
+                </div>
+
                 <div class="quick-text">
                     Calcule o preço ideal pela margem.
                 </div>
+
             </button>
 
-            <button class="quick-card" onclick="showTool('margem')">
-                <div class="quick-icon">%</div>
-                <div class="quick-title">Margem</div>
+
+            <button
+                class="quick-card"
+                onclick="showTool('margem')">
+
+                <div class="quick-icon">
+                    %
+                </div>
+
+                <div class="quick-title">
+                    Margem
+                </div>
+
                 <div class="quick-text">
                     Descubra sua margem de lucro.
                 </div>
+
             </button>
 
-            <button class="quick-card" onclick="showTool('desconto')">
-                <div class="quick-icon">🏷</div>
-                <div class="quick-title">Desconto</div>
+
+            <button
+                class="quick-card"
+                onclick="showTool('desconto')">
+
+                <div class="quick-icon">
+                    🏷
+                </div>
+
+                <div class="quick-title">
+                    Desconto
+                </div>
+
                 <div class="quick-text">
                     Veja o valor final da venda.
                 </div>
+
             </button>
 
-            <button class="quick-card" onclick="showTool('markup')">
-                <div class="quick-icon">↗</div>
-                <div class="quick-title">Markup</div>
+
+            <button
+                class="quick-card"
+                onclick="showTool('markup')">
+
+                <div class="quick-icon">
+                    ↗
+                </div>
+
+                <div class="quick-title">
+                    Markup
+                </div>
+
                 <div class="quick-text">
                     Calcule o preço pelo markup.
                 </div>
+
             </button>
 
-            <button class="quick-card" onclick="showTool('comissao')">
-                <div class="quick-icon">$</div>
-                <div class="quick-title">Comissão</div>
+
+            <button
+                class="quick-card"
+                onclick="showTool('comissao')">
+
+                <div class="quick-icon">
+                    $
+                </div>
+
+                <div class="quick-title">
+                    Comissão
+                </div>
+
                 <div class="quick-text">
                     Calcule sua comissão.
                 </div>
+
             </button>
 
-            <button class="quick-card" onclick="openTabByName('calculadora')">
-                <div class="quick-icon">÷</div>
-                <div class="quick-title">Calculadora</div>
+
+            <button
+                class="quick-card"
+                onclick="openTabByName('calculadora')">
+
+                <div class="quick-icon">
+                    ÷
+                </div>
+
+                <div class="quick-title">
+                    Calculadora
+                </div>
+
                 <div class="quick-text">
                     Cálculos rápidos do dia a dia.
                 </div>
+
             </button>
 
         </div>
+
     </div>
 
 
-    <!-- PREÇO -->
+    <!-- ESPAÇO DE PROPAGANDA -->
 
-    <div id="tool-preco" class="card tool" style="display:none">
+    <div class="ad-space">
+        ESPAÇO PARA PUBLICIDADE
+    </div>
 
-        <div class="card-title">Preço de Venda</div>
+
+    <!-- PREÇO DE VENDA -->
+
+    <div
+        id="tool-preco"
+        class="card tool"
+        style="display:none">
+
+        <div class="card-title">
+            Preço de Venda
+        </div>
 
         <div class="card-description">
             Informe o custo e a margem desejada.
         </div>
 
         <div class="field">
-            <label>Preço de custo (R$)</label>
-            <input id="preco-custo" inputmode="decimal" placeholder="0,00">
+
+            <label>
+                Preço de custo (R$)
+            </label>
+
+            <input
+                id="preco-custo"
+                inputmode="decimal"
+                placeholder="0,00">
+
         </div>
 
         <div class="field">
-            <label>Margem desejada (%)</label>
-            <input id="preco-margem" inputmode="decimal" placeholder="0">
+
+            <label>
+                Margem desejada (%)
+            </label>
+
+            <input
+                id="preco-margem"
+                inputmode="decimal"
+                placeholder="0">
+
         </div>
 
-        <button class="btn" onclick="calcularPreco()">
+        <button
+            class="btn"
+            onclick="calcularPreco()">
+
             CALCULAR PREÇO
+
         </button>
 
         <div id="resultado-preco"></div>
@@ -656,26 +1174,51 @@ input:focus{
 
     <!-- MARGEM -->
 
-    <div id="tool-margem" class="card tool" style="display:none">
+    <div
+        id="tool-margem"
+        class="card tool"
+        style="display:none">
 
-        <div class="card-title">Margem</div>
+        <div class="card-title">
+            Margem
+        </div>
 
         <div class="card-description">
             Descubra a margem real da venda.
         </div>
 
         <div class="field">
-            <label>Preço de custo (R$)</label>
-            <input id="margem-custo" inputmode="decimal" placeholder="0,00">
+
+            <label>
+                Preço de custo (R$)
+            </label>
+
+            <input
+                id="margem-custo"
+                inputmode="decimal"
+                placeholder="0,00">
+
         </div>
 
         <div class="field">
-            <label>Preço de venda (R$)</label>
-            <input id="margem-venda" inputmode="decimal" placeholder="0,00">
+
+            <label>
+                Preço de venda (R$)
+            </label>
+
+            <input
+                id="margem-venda"
+                inputmode="decimal"
+                placeholder="0,00">
+
         </div>
 
-        <button class="btn" onclick="calcularMargem()">
+        <button
+            class="btn"
+            onclick="calcularMargem()">
+
             CALCULAR MARGEM
+
         </button>
 
         <div id="resultado-margem"></div>
@@ -685,26 +1228,51 @@ input:focus{
 
     <!-- DESCONTO -->
 
-    <div id="tool-desconto" class="card tool" style="display:none">
+    <div
+        id="tool-desconto"
+        class="card tool"
+        style="display:none">
 
-        <div class="card-title">Desconto</div>
+        <div class="card-title">
+            Desconto
+        </div>
 
         <div class="card-description">
-            Veja quanto o cliente pagará após o desconto.
+            Veja o valor final após o desconto.
         </div>
 
         <div class="field">
-            <label>Preço original (R$)</label>
-            <input id="desc-preco" inputmode="decimal" placeholder="0,00">
+
+            <label>
+                Preço original (R$)
+            </label>
+
+            <input
+                id="desc-preco"
+                inputmode="decimal"
+                placeholder="0,00">
+
         </div>
 
         <div class="field">
-            <label>Desconto (%)</label>
-            <input id="desc-percentual" inputmode="decimal" placeholder="0">
+
+            <label>
+                Desconto (%)
+            </label>
+
+            <input
+                id="desc-percentual"
+                inputmode="decimal"
+                placeholder="0">
+
         </div>
 
-        <button class="btn" onclick="calcularDesconto()">
+        <button
+            class="btn"
+            onclick="calcularDesconto()">
+
             CALCULAR DESCONTO
+
         </button>
 
         <div id="resultado-desconto"></div>
@@ -714,26 +1282,51 @@ input:focus{
 
     <!-- MARKUP -->
 
-    <div id="tool-markup" class="card tool" style="display:none">
+    <div
+        id="tool-markup"
+        class="card tool"
+        style="display:none">
 
-        <div class="card-title">Markup</div>
+        <div class="card-title">
+            Markup
+        </div>
 
         <div class="card-description">
-            Calcule o preço de venda pelo markup.
+            Calcule o preço pelo markup.
         </div>
 
         <div class="field">
-            <label>Preço de custo (R$)</label>
-            <input id="markup-custo" inputmode="decimal" placeholder="0,00">
+
+            <label>
+                Preço de custo (R$)
+            </label>
+
+            <input
+                id="markup-custo"
+                inputmode="decimal"
+                placeholder="0,00">
+
         </div>
 
         <div class="field">
-            <label>Markup (%)</label>
-            <input id="markup-percentual" inputmode="decimal" placeholder="0">
+
+            <label>
+                Markup (%)
+            </label>
+
+            <input
+                id="markup-percentual"
+                inputmode="decimal"
+                placeholder="0">
+
         </div>
 
-        <button class="btn" onclick="calcularMarkup()">
+        <button
+            class="btn"
+            onclick="calcularMarkup()">
+
             CALCULAR MARKUP
+
         </button>
 
         <div id="resultado-markup"></div>
@@ -743,26 +1336,51 @@ input:focus{
 
     <!-- COMISSÃO -->
 
-    <div id="tool-comissao" class="card tool" style="display:none">
+    <div
+        id="tool-comissao"
+        class="card tool"
+        style="display:none">
 
-        <div class="card-title">Comissão</div>
+        <div class="card-title">
+            Comissão
+        </div>
 
         <div class="card-description">
-            Descubra quanto você receberá pela venda.
+            Descubra quanto receberá pela venda.
         </div>
 
         <div class="field">
-            <label>Valor da venda (R$)</label>
-            <input id="comissao-venda" inputmode="decimal" placeholder="0,00">
+
+            <label>
+                Valor da venda (R$)
+            </label>
+
+            <input
+                id="comissao-venda"
+                inputmode="decimal"
+                placeholder="0,00">
+
         </div>
 
         <div class="field">
-            <label>Comissão (%)</label>
-            <input id="comissao-percentual" inputmode="decimal" placeholder="0">
+
+            <label>
+                Comissão (%)
+            </label>
+
+            <input
+                id="comissao-percentual"
+                inputmode="decimal"
+                placeholder="0">
+
         </div>
 
-        <button class="btn" onclick="calcularComissao()">
+        <button
+            class="btn"
+            onclick="calcularComissao()">
+
             CALCULAR COMISSÃO
+
         </button>
 
         <div id="resultado-comissao"></div>
@@ -772,63 +1390,213 @@ input:focus{
 </section>
 
 
-<!-- ================= CALCULADORA ================= -->
+<!-- =====================================================
+CALCULADORA
+===================================================== -->
 
-<section id="calculadora" class="section">
+<section
+    id="calculadora"
+    class="section">
 
     <div class="calc">
 
+        <!-- PUBLICIDADE -->
+
+        <div class="ad-space">
+            ESPAÇO PARA PUBLICIDADE
+        </div>
+
+
         <div class="card">
 
-            <div class="card-title">Calculadora</div>
-            <div class="card-description">
-                Cálculos rápidos para o dia a dia.
+            <div class="card-title">
+                Calculadora Expert
             </div>
+
+            <div class="card-description">
+                Cálculos precisos para o dia a dia.
+            </div>
+
+
+            <!-- DISPLAY -->
 
             <div class="calc-display">
-                <div id="calc-expression" class="calc-expression"></div>
-                <div id="calc-value" class="calc-value">0</div>
+
+                <div
+                    id="calc-expression"
+                    class="calc-expression">
+                </div>
+
+                <div
+                    id="calc-value"
+                    class="calc-value">
+                    0
+                </div>
+
             </div>
 
+
+            <!-- MEMÓRIA -->
+
             <div class="mode-buttons">
-                <button onclick="memoryClear()">MC</button>
-                <button onclick="memoryRecall()">MR</button>
-                <button onclick="memoryAdd()">M+</button>
-                <button onclick="memorySubtract()">M−</button>
-                <button onclick="memoryStore()">MS</button>
+
+                <button onclick="memoryClear()">
+                    MC
+                </button>
+
+                <button onclick="memoryRecall()">
+                    MR
+                </button>
+
+                <button onclick="memoryAdd()">
+                    M+
+                </button>
+
+                <button onclick="memorySubtract()">
+                    M−
+                </button>
+
+                <button onclick="memoryStore()">
+                    MS
+                </button>
+
             </div>
+
+
+            <!-- TECLADO -->
 
             <div class="calc-grid">
 
-                <button class="calc-btn memory" onclick="clearCalc()">AC</button>
-                <button class="calc-btn memory" onclick="backspaceCalc()">⌫</button>
-                <button class="calc-btn operator" onclick="percentCalc()">%</button>
-                <button class="calc-btn operator" onclick="inputOperator('÷')">÷</button>
+                <button
+                    class="calc-btn memory"
+                    onclick="clearCalc()">
+                    AC
+                </button>
 
-                <button class="calc-btn" onclick="inputNumber('7')">7</button>
-                <button class="calc-btn" onclick="inputNumber('8')">8</button>
-                <button class="calc-btn" onclick="inputNumber('9')">9</button>
-                <button class="calc-btn operator" onclick="inputOperator('×')">×</button>
+                <button
+                    class="calc-btn memory"
+                    onclick="backspaceCalc()">
+                    ⌫
+                </button>
 
-                <button class="calc-btn" onclick="inputNumber('4')">4</button>
-                <button class="calc-btn" onclick="inputNumber('5')">5</button>
-                <button class="calc-btn" onclick="inputNumber('6')">6</button>
-                <button class="calc-btn operator" onclick="inputOperator('−')">−</button>
+                <button
+                    class="calc-btn operator"
+                    onclick="percentCalc()">
+                    %
+                </button>
 
-                <button class="calc-btn" onclick="inputNumber('1')">1</button>
-                <button class="calc-btn" onclick="inputNumber('2')">2</button>
-                <button class="calc-btn" onclick="inputNumber('3')">3</button>
-                <button class="calc-btn operator" onclick="inputOperator('+')">+</button>
+                <button
+                    class="calc-btn operator"
+                    onclick="inputOperator('÷')">
+                    ÷
+                </button>
 
-                <button class="calc-btn" onclick="toggleSign()">±</button>
-                <button class="calc-btn" onclick="inputNumber('0')">0</button>
-                <button class="calc-btn" onclick="inputDecimal()">,</button>
-                <button class="calc-btn equal" onclick="calculateResult()">=</button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('7')">
+                    7
+                </button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('8')">
+                    8
+                </button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('9')">
+                    9
+                </button>
+
+                <button
+                    class="calc-btn operator"
+                    onclick="inputOperator('×')">
+                    ×
+                </button>
+
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('4')">
+                    4
+                </button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('5')">
+                    5
+                </button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('6')">
+                    6
+                </button>
+
+                <button
+                    class="calc-btn operator"
+                    onclick="inputOperator('−')">
+                    −
+                </button>
+
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('1')">
+                    1
+                </button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('2')">
+                    2
+                </button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('3')">
+                    3
+                </button>
+
+                <button
+                    class="calc-btn operator"
+                    onclick="inputOperator('+')">
+                    +
+                </button>
+
+
+                <button
+                    class="calc-btn"
+                    onclick="toggleSign()">
+                    ±
+                </button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputNumber('0')">
+                    0
+                </button>
+
+                <button
+                    class="calc-btn"
+                    onclick="inputDecimal()">
+                    ,
+                </button>
+
+                <button
+                    class="calc-btn equal"
+                    onclick="calculateResult()">
+                    =
+                </button>
 
             </div>
 
         </div>
 
+
+        <!-- HISTÓRICO -->
 
         <div class="card">
 
@@ -837,14 +1605,17 @@ input:focus{
             </div>
 
             <div class="card-description">
-                Seus últimos cálculos.
+                Seus últimos cálculos realizados.
             </div>
 
             <div id="history-list"></div>
 
-            <button class="btn btn-danger"
-                    onclick="clearHistory()">
+            <button
+                class="btn btn-danger"
+                onclick="clearHistory()">
+
                 LIMPAR HISTÓRICO
+
             </button>
 
         </div>
@@ -857,54 +1628,115 @@ input:focus{
 
 
 <footer class="footer">
-    <strong>CALPRO EXPERT</strong><br>
+
+    <strong>
+        CALPRO EXPERT
+    </strong>
+
+    <br>
+
     Calcule certo. Venda melhor.
+
 </footer>
 
 </div>
 
-<div id="toast" class="toast"></div>
+
+<div
+    id="toast"
+    class="toast">
+</div>
 
 
 <script>
 
 /* =========================================================
-   UTILIDADES
+UTILIDADES
 ========================================================= */
 
 function parseBR(value){
 
-    if(value === null || value === undefined) return 0;
+    if(
+        value === null ||
+        value === undefined ||
+        value === ''
+    ){
+        return 0;
+    }
 
-    let text = String(value)
-        .trim()
-        .replace(/\s/g,'')
-        .replace(/R\$/g,'')
-        .replace(/\./g,'')
-        .replace(',','.');
+    let text =
+        String(value)
+            .trim()
+            .replace(/\s/g,'')
+            .replace(/R\$/gi,'');
 
-    const number = parseFloat(text);
+    /*
+        Se houver vírgula:
 
-    return isNaN(number) ? 0 : number;
+        1.250,50
+        vira
+        1250.50
+    */
+
+    if(text.includes(',')){
+
+        text =
+            text
+                .replace(/\./g,'')
+                .replace(',','.');
+
+    }else{
+
+        /*
+            Se não houver vírgula,
+            o ponto é decimal.
+        */
+
+        text =
+            text.replace(/[^0-9+\-eE.]/g,'');
+
+    }
+
+    const result =
+        Number(text);
+
+    return Number.isFinite(result)
+        ? result
+        : 0;
 }
 
 
 function money(value){
 
-    return new Intl.NumberFormat('pt-BR',{
-        style:'currency',
-        currency:'BRL'
-    }).format(Number(value) || 0);
+    return new Intl.NumberFormat(
+        'pt-BR',
+        {
+            style:'currency',
+            currency:'BRL',
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    ).format(
+        Number(value) || 0
+    );
 
 }
 
 
-function numberBR(value, decimals=2){
+function numberBR(
+    value,
+    decimals=2
+){
 
-    return new Intl.NumberFormat('pt-BR',{
-        minimumFractionDigits:decimals,
-        maximumFractionDigits:decimals
-    }).format(Number(value) || 0);
+    return new Intl.NumberFormat(
+        'pt-BR',
+        {
+            minimumFractionDigits:decimals,
+            maximumFractionDigits:decimals
+        }
+    ).format(
+        Number(value) || 0
+    );
 
 }
 
@@ -918,54 +1750,89 @@ function percent(value){
 
 function showToast(message){
 
-    const toast = document.getElementById('toast');
+    const toast =
+        document.getElementById('toast');
 
-    toast.textContent = message;
+    toast.textContent =
+        message;
+
     toast.classList.add('show');
 
-    clearTimeout(window.toastTimer);
+    clearTimeout(
+        window.toastTimer
+    );
 
-    window.toastTimer = setTimeout(()=>{
-        toast.classList.remove('show');
-    },1800);
+    window.toastTimer =
+        setTimeout(
+            ()=>{
+                toast.classList.remove('show');
+            },
+            1800
+        );
 
 }
 
 
 /* =========================================================
-   NAVEGAÇÃO
+NAVEGAÇÃO
 ========================================================= */
 
-function openTab(id,button){
+function openTab(
+    id,
+    button
+){
 
-    document.querySelectorAll('.section')
-        .forEach(section => section.classList.remove('active'));
+    document
+        .querySelectorAll('.section')
+        .forEach(
+            section =>
+                section.classList.remove('active')
+        );
 
-    document.getElementById(id).classList.add('active');
+    document
+        .getElementById(id)
+        .classList.add('active');
 
-    document.querySelectorAll('.tab')
-        .forEach(tab => tab.classList.remove('active'));
+    document
+        .querySelectorAll('.tab')
+        .forEach(
+            tab =>
+                tab.classList.remove('active')
+        );
 
     if(button){
         button.classList.add('active');
     }
 
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
+    window.scrollTo(
+        {
+            top:0,
+            behavior:'smooth'
+        }
+    );
 
 }
 
 
 function openTabByName(id){
 
-    const tabs = document.querySelectorAll('.tab');
+    const tabs =
+        document.querySelectorAll('.tab');
 
     if(id === 'calculadora'){
-        openTab('calculadora',tabs[1]);
+
+        openTab(
+            'calculadora',
+            tabs[1]
+        );
+
     }else{
-        openTab('comercial',tabs[0]);
+
+        openTab(
+            'comercial',
+            tabs[0]
+        );
+
     }
 
 }
@@ -973,53 +1840,87 @@ function openTabByName(id){
 
 function showTool(tool){
 
-    document.querySelectorAll('.tool')
-        .forEach(el => el.style.display='none');
+    document
+        .querySelectorAll('.tool')
+        .forEach(
+            el =>
+                el.style.display='none'
+        );
 
-    const target = document.getElementById('tool-' + tool);
+    const target =
+        document.getElementById(
+            'tool-' + tool
+        );
 
     if(target){
+
         target.style.display='block';
 
-        setTimeout(()=>{
-            target.scrollIntoView({
-                behavior:'smooth',
-                block:'start'
-            });
-        },50);
+        setTimeout(
+            ()=>{
+                target.scrollIntoView(
+                    {
+                        behavior:'smooth',
+                        block:'start'
+                    }
+                );
+            },
+            50
+        );
+
     }
 
 }
 
 
 /* =========================================================
-   PREÇO DE VENDA
+PREÇO
 ========================================================= */
 
 function calcularPreco(){
 
-    const custo = parseBR(
-        document.getElementById('preco-custo').value
-    );
+    const custo =
+        parseBR(
+            document.getElementById(
+                'preco-custo'
+            ).value
+        );
 
-    const margem = parseBR(
-        document.getElementById('preco-margem').value
-    );
+    const margem =
+        parseBR(
+            document.getElementById(
+                'preco-margem'
+            ).value
+        );
 
-    if(custo <= 0 || margem < 0 || margem >= 100){
+    if(
+        custo <= 0 ||
+        margem < 0 ||
+        margem >= 100
+    ){
 
-        showToast('Informe valores válidos.');
+        showToast(
+            'Informe valores válidos.'
+        );
 
         return;
     }
 
-    const venda = custo / (1 - margem / 100);
+    const venda =
+        custo /
+        (1 - margem / 100);
 
-    const lucro = venda - custo;
+    const lucro =
+        venda - custo;
 
-    const markup = ((venda / custo) - 1) * 100;
+    const markup =
+        ((venda / custo) - 1) * 100;
 
-    document.getElementById('resultado-preco').innerHTML = `
+    document
+        .getElementById(
+            'resultado-preco'
+        )
+        .innerHTML = `
 
         <div class="result">
 
@@ -1045,7 +1946,7 @@ function calcularPreco(){
 
                 <div class="result-item">
                     <span>Markup</span>
-                    <strong>${numberBR(markup)}%</strong>
+                    <strong>${percent(markup)}</strong>
                 </div>
 
                 <div class="result-item">
@@ -1067,33 +1968,51 @@ function calcularPreco(){
 
 
 /* =========================================================
-   MARGEM
+MARGEM
 ========================================================= */
 
 function calcularMargem(){
 
-    const custo = parseBR(
-        document.getElementById('margem-custo').value
-    );
+    const custo =
+        parseBR(
+            document.getElementById(
+                'margem-custo'
+            ).value
+        );
 
-    const venda = parseBR(
-        document.getElementById('margem-venda').value
-    );
+    const venda =
+        parseBR(
+            document.getElementById(
+                'margem-venda'
+            ).value
+        );
 
-    if(custo <= 0 || venda <= 0){
+    if(
+        custo <= 0 ||
+        venda <= 0
+    ){
 
-        showToast('Informe custo e venda.');
+        showToast(
+            'Informe custo e venda.'
+        );
 
         return;
     }
 
-    const lucro = venda - custo;
+    const lucro =
+        venda - custo;
 
-    const margem = (lucro / venda) * 100;
+    const margem =
+        (lucro / venda) * 100;
 
-    const markup = ((venda / custo) - 1) * 100;
+    const markup =
+        ((venda / custo) - 1) * 100;
 
-    document.getElementById('resultado-margem').innerHTML = `
+    document
+        .getElementById(
+            'resultado-margem'
+        )
+        .innerHTML = `
 
         <div class="result">
 
@@ -1114,7 +2033,7 @@ function calcularMargem(){
 
                 <div class="result-item">
                     <span>Markup</span>
-                    <strong>${numberBR(markup)}%</strong>
+                    <strong>${percent(markup)}</strong>
                 </div>
 
                 <div class="result-item">
@@ -1141,31 +2060,49 @@ function calcularMargem(){
 
 
 /* =========================================================
-   DESCONTO
+DESCONTO
 ========================================================= */
 
 function calcularDesconto(){
 
-    const preco = parseBR(
-        document.getElementById('desc-preco').value
-    );
+    const preco =
+        parseBR(
+            document.getElementById(
+                'desc-preco'
+            ).value
+        );
 
-    const desconto = parseBR(
-        document.getElementById('desc-percentual').value
-    );
+    const desconto =
+        parseBR(
+            document.getElementById(
+                'desc-percentual'
+            ).value
+        );
 
-    if(preco <= 0 || desconto < 0 || desconto > 100){
+    if(
+        preco <= 0 ||
+        desconto < 0 ||
+        desconto > 100
+    ){
 
-        showToast('Informe valores válidos.');
+        showToast(
+            'Informe valores válidos.'
+        );
 
         return;
     }
 
-    const valorDesconto = preco * desconto / 100;
+    const valorDesconto =
+        preco * desconto / 100;
 
-    const final = preco - valorDesconto;
+    const final =
+        preco - valorDesconto;
 
-    document.getElementById('resultado-desconto').innerHTML = `
+    document
+        .getElementById(
+            'resultado-desconto'
+        )
+        .innerHTML = `
 
         <div class="result">
 
@@ -1213,33 +2150,52 @@ function calcularDesconto(){
 
 
 /* =========================================================
-   MARKUP
+MARKUP
 ========================================================= */
 
 function calcularMarkup(){
 
-    const custo = parseBR(
-        document.getElementById('markup-custo').value
-    );
+    const custo =
+        parseBR(
+            document.getElementById(
+                'markup-custo'
+            ).value
+        );
 
-    const markup = parseBR(
-        document.getElementById('markup-percentual').value
-    );
+    const markup =
+        parseBR(
+            document.getElementById(
+                'markup-percentual'
+            ).value
+        );
 
-    if(custo <= 0 || markup < 0){
+    if(
+        custo <= 0 ||
+        markup < 0
+    ){
 
-        showToast('Informe valores válidos.');
+        showToast(
+            'Informe valores válidos.'
+        );
 
         return;
     }
 
-    const venda = custo * (1 + markup / 100);
+    const venda =
+        custo *
+        (1 + markup / 100);
 
-    const lucro = venda - custo;
+    const lucro =
+        venda - custo;
 
-    const margem = (lucro / venda) * 100;
+    const margem =
+        (lucro / venda) * 100;
 
-    document.getElementById('resultado-markup').innerHTML = `
+    document
+        .getElementById(
+            'resultado-markup'
+        )
+        .innerHTML = `
 
         <div class="result">
 
@@ -1287,31 +2243,48 @@ function calcularMarkup(){
 
 
 /* =========================================================
-   COMISSÃO
+COMISSÃO
 ========================================================= */
 
 function calcularComissao(){
 
-    const venda = parseBR(
-        document.getElementById('comissao-venda').value
-    );
+    const venda =
+        parseBR(
+            document.getElementById(
+                'comissao-venda'
+            ).value
+        );
 
-    const taxa = parseBR(
-        document.getElementById('comissao-percentual').value
-    );
+    const taxa =
+        parseBR(
+            document.getElementById(
+                'comissao-percentual'
+            ).value
+        );
 
-    if(venda <= 0 || taxa < 0){
+    if(
+        venda <= 0 ||
+        taxa < 0
+    ){
 
-        showToast('Informe valores válidos.');
+        showToast(
+            'Informe valores válidos.'
+        );
 
         return;
     }
 
-    const comissao = venda * taxa / 100;
+    const comissao =
+        venda * taxa / 100;
 
-    const liquido = venda - comissao;
+    const liquido =
+        venda - comissao;
 
-    document.getElementById('resultado-comissao').innerHTML = `
+    document
+        .getElementById(
+            'resultado-comissao'
+        )
+        .innerHTML = `
 
         <div class="result">
 
@@ -1359,26 +2332,47 @@ function calcularComissao(){
 
 
 /* =========================================================
-   HISTÓRICO
+HISTÓRICO
 ========================================================= */
 
 let historyData =
-    JSON.parse(localStorage.getItem('calpro_history') || '[]');
+    JSON.parse(
+        localStorage.getItem(
+            'calpro_history'
+        ) || '[]'
+    );
 
 
-function addHistory(type,value){
+function addHistory(
+    type,
+    value
+){
 
     historyData.unshift({
+
         type:type,
+
         value:value,
-        date:new Date().toLocaleString('pt-BR')
+
+        date:
+            new Date()
+                .toLocaleString(
+                    'pt-BR'
+                )
+
     });
 
-    historyData = historyData.slice(0,30);
+    historyData =
+        historyData.slice(
+            0,
+            50
+        );
 
     localStorage.setItem(
         'calpro_history',
-        JSON.stringify(historyData)
+        JSON.stringify(
+            historyData
+        )
     );
 
     renderHistory();
@@ -1389,56 +2383,78 @@ function addHistory(type,value){
 function renderHistory(){
 
     const container =
-        document.getElementById('history-list');
+        document.getElementById(
+            'history-list'
+        );
 
-    if(!historyData.length){
+    if(
+        !historyData.length
+    ){
 
         container.innerHTML = `
+
             <div class="history-empty">
                 Nenhum cálculo realizado ainda.
             </div>
+
         `;
 
         return;
     }
 
     container.innerHTML =
-        historyData.map(item => `
+        historyData
+            .map(
+                item => `
 
-            <div class="history-item">
+                <div class="history-item">
 
-                <div>
-                    <div class="history-type">
-                        ${escapeHTML(item.type)}
+                    <div>
+
+                        <div class="history-type">
+                            ${escapeHTML(item.type)}
+                        </div>
+
+                        <div class="history-info">
+                            ${escapeHTML(item.date)}
+                        </div>
+
                     </div>
 
-                    <div class="history-info">
-                        ${escapeHTML(item.date)}
+                    <div class="history-value">
+                        ${escapeHTML(item.value)}
                     </div>
+
                 </div>
 
-                <div class="history-value">
-                    ${escapeHTML(item.value)}
-                </div>
-
-            </div>
-
-        `).join('');
+            `
+            )
+            .join('');
 
 }
 
 
 function clearHistory(){
 
-    if(!confirm('Deseja apagar todo o histórico?')) return;
+    if(
+        !confirm(
+            'Deseja apagar todo o histórico?'
+        )
+    ){
+        return;
+    }
 
     historyData = [];
 
-    localStorage.removeItem('calpro_history');
+    localStorage.removeItem(
+        'calpro_history'
+    );
 
     renderHistory();
 
-    showToast('Histórico apagado.');
+    showToast(
+        'Histórico apagado.'
+    );
 
 }
 
@@ -1446,52 +2462,208 @@ function clearHistory(){
 function escapeHTML(value){
 
     return String(value)
-        .replaceAll('&','&amp;')
-        .replaceAll('<','&lt;')
-        .replaceAll('>','&gt;')
-        .replaceAll('"','&quot;')
-        .replaceAll("'","&#039;");
+
+        .replaceAll(
+            '&',
+            '&amp;'
+        )
+
+        .replaceAll(
+            '<',
+            '&lt;'
+        )
+
+        .replaceAll(
+            '>',
+            '&gt;'
+        )
+
+        .replaceAll(
+            '"',
+            '&quot;'
+        )
+
+        .replaceAll(
+            "'",
+            '&#039;'
+        );
 
 }
 
 
 /* =========================================================
-   CALCULADORA
+CALCULADORA EXPERT
 ========================================================= */
 
+/*
+    IMPORTANTE:
+
+    A calculadora trabalha internamente
+    com NÚMEROS.
+
+    A vírgula é apenas a representação
+    visual brasileira.
+
+    Isso evita erros como:
+
+    "10,50" + "2,50"
+
+    virar concatenação de texto.
+
+    Internamente:
+
+    10.50 + 2.50 = 13.00
+*/
+
+
 let calcCurrent = '0';
+
 let calcPrevious = null;
+
 let calcOperator = null;
+
 let calcWaiting = false;
+
 let calcExpression = '';
 
-let memoryValue = 0;
+let calcMemory = 0;
+
+let lastOperand = null;
+
+let lastOperator = null;
+
+
+/* =========================================================
+FORMATAÇÃO DA CALCULADORA
+========================================================= */
+
+function formatCalcNumber(
+    value
+){
+
+    if(
+        !Number.isFinite(value)
+    ){
+        return 'Erro';
+    }
+
+    /*
+        Remove pequenos erros de ponto
+        flutuante do JavaScript.
+    */
+
+    const rounded =
+        Math.round(
+            (
+                value +
+                Number.EPSILON
+            ) *
+            100000000
+        ) /
+        100000000;
+
+    /*
+        Formatação brasileira.
+
+        Exemplo:
+
+        1250.5
+
+        vira:
+
+        1.250,5
+    */
+
+    return new Intl.NumberFormat(
+        'pt-BR',
+        {
+            maximumFractionDigits:8
+        }
+    ).format(
+        rounded
+    );
+
+}
+
+
+function calcDisplayToNumber(){
+
+    return parseBR(
+        calcCurrent
+    );
+
+}
 
 
 function updateCalc(){
 
-    document.getElementById('calc-value').textContent =
-        calcCurrent;
+    document
+        .getElementById(
+            'calc-value'
+        )
+        .textContent =
+            calcCurrent;
 
-    document.getElementById('calc-expression').textContent =
-        calcExpression;
+    document
+        .getElementById(
+            'calc-expression'
+        )
+        .textContent =
+            calcExpression;
+
 }
 
 
-function inputNumber(number){
+/* =========================================================
+NÚMEROS
+========================================================= */
+
+function inputNumber(
+    number
+){
+
+    /*
+        Se acabamos de calcular,
+        começar outro número.
+    */
 
     if(calcWaiting){
 
         calcCurrent = number;
+
         calcWaiting = false;
+
+        calcExpression = '';
+
+        lastOperand = null;
+
+        lastOperator = null;
+
+        updateCalc();
+
+        return;
+    }
+
+
+    /*
+        Evita:
+
+        000123
+
+        mantendo apenas:
+
+        123
+    */
+
+    if(
+        calcCurrent === '0'
+    ){
+
+        calcCurrent = number;
 
     }else{
 
-        if(calcCurrent === '0'){
-            calcCurrent = number;
-        }else{
-            calcCurrent += number;
-        }
+        calcCurrent += number;
 
     }
 
@@ -1500,31 +2672,127 @@ function inputNumber(number){
 }
 
 
+/* =========================================================
+VÍRGULA
+========================================================= */
+
 function inputDecimal(){
+
+    /*
+        Se acabou de fazer uma operação,
+        iniciar novo número decimal.
+    */
 
     if(calcWaiting){
 
         calcCurrent = '0,';
+
         calcWaiting = false;
 
-    }else if(!calcCurrent.includes(',')){
+        calcExpression = '';
 
-        calcCurrent += ',';
+        updateCalc();
 
+        return;
     }
+
+
+    /*
+        Não deixa:
+
+        10,50,20
+    */
+
+    if(
+        calcCurrent.includes(',')
+    ){
+        return;
+    }
+
+
+    calcCurrent += ',';
 
     updateCalc();
 
 }
 
 
-function inputOperator(operator){
+/* =========================================================
+OPERAÇÃO
+========================================================= */
 
-    const value = parseBR(calcCurrent);
+function performOperation(
+    a,
+    b,
+    operator
+){
 
-    if(calcOperator && calcWaiting){
+    switch(operator){
 
-        calcOperator = operator;
+        case '+':
+
+            return a + b;
+
+        case '−':
+
+            return a - b;
+
+        case '×':
+
+            return a * b;
+
+        case '÷':
+
+            if(b === 0){
+
+                return null;
+
+            }
+
+            return a / b;
+
+        default:
+
+            return b;
+
+    }
+
+}
+
+
+/* =========================================================
+OPERADOR
+========================================================= */
+
+function inputOperator(
+    operator
+){
+
+    const current =
+        calcDisplayToNumber();
+
+
+    /*
+        Se o usuário clicar em operador
+        duas vezes:
+
+        100 +
+
+        depois
+
+        100 ×
+
+        apenas troca o operador.
+    */
+
+    if(
+        calcOperator !== null &&
+        calcWaiting
+    ){
+
+        calcOperator =
+            operator;
+
         calcExpression =
             `${formatCalcNumber(calcPrevious)} ${operator}`;
 
@@ -1533,25 +2801,67 @@ function inputOperator(operator){
         return;
     }
 
-    if(calcPrevious === null){
 
-        calcPrevious = value;
+    /*
+        Primeira operação.
+    */
 
-    }else if(calcOperator){
+    if(
+        calcPrevious === null
+    ){
 
-        const result = performOperation(
-            calcPrevious,
-            value,
-            calcOperator
-        );
-
-        calcCurrent = formatCalcNumber(result);
-        calcPrevious = result;
+        calcPrevious =
+            current;
 
     }
 
-    calcOperator = operator;
-    calcWaiting = true;
+
+    /*
+        Operação encadeada.
+
+        Exemplo:
+
+        10 + 5 + 3
+    */
+
+    else if(
+        calcOperator !== null
+    ){
+
+        const result =
+            performOperation(
+                calcPrevious,
+                current,
+                calcOperator
+            );
+
+        if(result === null){
+
+            showToast(
+                'Não é possível dividir por zero.'
+            );
+
+            clearCalc();
+
+            return;
+        }
+
+        calcPrevious =
+            result;
+
+        calcCurrent =
+            formatCalcNumber(
+                result
+            );
+
+    }
+
+
+    calcOperator =
+        operator;
+
+    calcWaiting =
+        true;
 
     calcExpression =
         `${formatCalcNumber(calcPrevious)} ${operator}`;
@@ -1561,55 +2871,128 @@ function inputOperator(operator){
 }
 
 
-function performOperation(a,b,operator){
-
-    switch(operator){
-
-        case '+':
-            return a+b;
-
-        case '−':
-            return a-b;
-
-        case '×':
-            return a*b;
-
-        case '÷':
-            return b === 0 ? 0 : a/b;
-
-        default:
-            return b;
-
-    }
-
-}
-
+/* =========================================================
+RESULTADO
+========================================================= */
 
 function calculateResult(){
 
-    if(calcOperator === null ||
-       calcPrevious === null) return;
+    /*
+        Se não existe uma operação,
+        não há nada para calcular.
+    */
 
-    const current = parseBR(calcCurrent);
+    if(
+        calcOperator === null ||
+        calcPrevious === null
+    ){
 
-    const result = performOperation(
-        calcPrevious,
-        current,
-        calcOperator
-    );
+        /*
+            Repetição do último cálculo.
+
+            Exemplo:
+
+            10 + 5 = 15
+            = 20
+            = 25
+        */
+
+        if(
+            lastOperator !== null &&
+            lastOperand !== null
+        ){
+
+            const current =
+                calcDisplayToNumber();
+
+            const result =
+                performOperation(
+                    current,
+                    lastOperand,
+                    lastOperator
+                );
+
+            if(result !== null){
+
+                calcExpression =
+                    `${formatCalcNumber(current)} ${lastOperator} ${formatCalcNumber(lastOperand)} =`;
+
+                calcCurrent =
+                    formatCalcNumber(
+                        result
+                    );
+
+                calcWaiting = true;
+
+                updateCalc();
+
+            }
+
+        }
+
+        return;
+    }
+
+
+    const current =
+        calcDisplayToNumber();
+
+
+    const result =
+        performOperation(
+            calcPrevious,
+            current,
+            calcOperator
+        );
+
+
+    if(result === null){
+
+        showToast(
+            'Não é possível dividir por zero.'
+        );
+
+        clearCalc();
+
+        return;
+    }
+
+
+    /*
+        Guardamos para o próximo "=".
+    */
+
+    lastOperand =
+        current;
+
+    lastOperator =
+        calcOperator;
+
 
     const expression =
         `${formatCalcNumber(calcPrevious)} ${calcOperator} ${formatCalcNumber(current)} =`;
 
-    calcCurrent = formatCalcNumber(result);
 
-    calcExpression = expression;
+    calcCurrent =
+        formatCalcNumber(
+            result
+        );
 
-    calcPrevious = null;
-    calcOperator = null;
-    calcWaiting = true;
+    calcExpression =
+        expression;
+
+    calcPrevious =
+        null;
+
+    calcOperator =
+        null;
+
+    calcWaiting =
+        true;
+
 
     updateCalc();
+
 
     addHistory(
         'Calculadora',
@@ -1619,93 +3002,221 @@ function calculateResult(){
 }
 
 
-function clearCalc(){
+/* =========================================================
+PORCENTAGEM
+========================================================= */
 
-    calcCurrent = '0';
-    calcPrevious = null;
-    calcOperator = null;
-    calcWaiting = false;
-    calcExpression = '';
+/*
+    Comportamento comercial:
 
-    updateCalc();
+    100 + 10% = 110
 
-}
+    100 - 10% = 90
 
+    100 × 10% = 10
 
-function backspaceCalc(){
+    100 ÷ 10% = 1.000
 
-    if(calcWaiting) return;
-
-    if(calcCurrent.length <= 1){
-
-        calcCurrent = '0';
-
-    }else{
-
-        calcCurrent =
-            calcCurrent.slice(0,-1);
-
-    }
-
-    updateCalc();
-
-}
-
-
-function toggleSign(){
-
-    if(calcCurrent === '0') return;
-
-    if(calcCurrent.startsWith('-')){
-
-        calcCurrent = calcCurrent.slice(1);
-
-    }else{
-
-        calcCurrent = '-' + calcCurrent;
-
-    }
-
-    updateCalc();
-
-}
-
+    Isso é muito mais útil para vendedor.
+*/
 
 function percentCalc(){
 
-    const value = parseBR(calcCurrent);
+    const current =
+        calcDisplayToNumber();
 
-    calcCurrent = formatCalcNumber(
-        value / 100
-    );
+
+    /*
+        Se existe operação pendente,
+        porcentagem é calculada em relação
+        ao primeiro número para + e -.
+
+        Exemplo:
+
+        200 + 10%
+
+        10% de 200 = 20
+
+        200 + 20 = 220
+    */
+
+    if(
+        calcPrevious !== null &&
+        calcOperator !== null &&
+        !calcWaiting
+    ){
+
+        if(
+            calcOperator === '+' ||
+            calcOperator === '−'
+        ){
+
+            const percentValue =
+                calcPrevious *
+                current /
+                100;
+
+            calcCurrent =
+                formatCalcNumber(
+                    percentValue
+                );
+
+            updateCalc();
+
+            return;
+        }
+
+    }
+
+
+    /*
+        Sem operação:
+
+        500 %
+
+        = 5
+    */
+
+    calcCurrent =
+        formatCalcNumber(
+            current / 100
+        );
 
     updateCalc();
-
-}
-
-
-function formatCalcNumber(value){
-
-    if(!isFinite(value)) return '0';
-
-    const rounded =
-        Math.round((value + Number.EPSILON) * 100000000) / 100000000;
-
-    return String(rounded)
-        .replace('.',',');
 
 }
 
 
 /* =========================================================
-   MEMÓRIA
+SINAL
+========================================================= */
+
+function toggleSign(){
+
+    const value =
+        calcDisplayToNumber();
+
+    if(value === 0){
+        return;
+    }
+
+    calcCurrent =
+        formatCalcNumber(
+            value * -1
+        );
+
+    calcWaiting = false;
+
+    updateCalc();
+
+}
+
+
+/* =========================================================
+APAGAR
+========================================================= */
+
+function backspaceCalc(){
+
+    if(calcWaiting){
+        return;
+    }
+
+
+    /*
+        Se tiver apenas:
+
+        0
+
+        não faz nada.
+    */
+
+    if(
+        calcCurrent === '0' ||
+        calcCurrent === 'Erro'
+    ){
+
+        calcCurrent = '0';
+
+        updateCalc();
+
+        return;
+    }
+
+
+    /*
+        Remove o último caractere.
+
+        125,50
+
+        vira
+
+        125,5
+    */
+
+    calcCurrent =
+        calcCurrent.slice(
+            0,
+            -1
+        );
+
+
+    /*
+        Se apagar tudo,
+        volta para zero.
+    */
+
+    if(
+        calcCurrent === '' ||
+        calcCurrent === '-'
+    ){
+
+        calcCurrent = '0';
+
+    }
+
+
+    updateCalc();
+
+}
+
+
+/* =========================================================
+LIMPAR
+========================================================= */
+
+function clearCalc(){
+
+    calcCurrent = '0';
+
+    calcPrevious = null;
+
+    calcOperator = null;
+
+    calcWaiting = false;
+
+    calcExpression = '';
+
+    lastOperand = null;
+
+    lastOperator = null;
+
+    updateCalc();
+
+}
+
+
+/* =========================================================
+MEMÓRIA
 ========================================================= */
 
 function memoryClear(){
 
-    memoryValue = 0;
+    calcMemory = 0;
 
-    showToast('Memória apagada.');
+    showToast(
+        'Memória apagada.'
+    );
 
 }
 
@@ -1713,7 +3224,9 @@ function memoryClear(){
 function memoryRecall(){
 
     calcCurrent =
-        formatCalcNumber(memoryValue);
+        formatCalcNumber(
+            calcMemory
+        );
 
     calcWaiting = false;
 
@@ -1724,190 +3237,264 @@ function memoryRecall(){
 
 function memoryAdd(){
 
-    memoryValue += parseBR(calcCurrent);
+    calcMemory +=
+        calcDisplayToNumber();
 
-    showToast('Valor adicionado à memória.');
+    showToast(
+        'Valor adicionado à memória.'
+    );
 
 }
 
 
 function memorySubtract(){
 
-    memoryValue -= parseBR(calcCurrent);
+    calcMemory -=
+        calcDisplayToNumber();
 
-    showToast('Valor retirado da memória.');
+    showToast(
+        'Valor retirado da memória.'
+    );
 
 }
 
 
 function memoryStore(){
 
-    memoryValue = parseBR(calcCurrent);
+    calcMemory =
+        calcDisplayToNumber();
 
-    showToast('Valor salvo na memória.');
+    showToast(
+        'Valor salvo na memória.'
+    );
 
 }
 
 
 /* =========================================================
-   TECLADO FÍSICO
+TECLADO DO COMPUTADOR
 ========================================================= */
 
-document.addEventListener('keydown',function(event){
+document.addEventListener(
+    'keydown',
+    function(event){
 
-    const key = event.key;
+        const key =
+            event.key;
 
-    if(
-        /^[0-9]$/.test(key)
-    ){
 
-        inputNumber(key);
-        event.preventDefault();
-        return;
+        if(
+            /^[0-9]$/.test(key)
+        ){
+
+            inputNumber(key);
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(
+            key === ',' ||
+            key === '.'
+        ){
+
+            inputDecimal();
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(key === '+'){
+
+            inputOperator('+');
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(key === '-'){
+
+            inputOperator('−');
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(key === '*' || key === 'x'){
+
+            inputOperator('×');
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(key === '/'){
+
+            inputOperator('÷');
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(key === '%'){
+
+            percentCalc();
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(
+            key === 'Enter' ||
+            key === '='
+        ){
+
+            calculateResult();
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(key === 'Backspace'){
+
+            backspaceCalc();
+
+            event.preventDefault();
+
+            return;
+
+        }
+
+
+        if(key === 'Escape'){
+
+            clearCalc();
+
+            event.preventDefault();
+
+        }
 
     }
-
-    if(key === ',' || key === '.'){
-
-        inputDecimal();
-        event.preventDefault();
-        return;
-
-    }
-
-    if(key === '+'){
-
-        inputOperator('+');
-        event.preventDefault();
-        return;
-
-    }
-
-    if(key === '-'){
-
-        inputOperator('−');
-        event.preventDefault();
-        return;
-
-    }
-
-    if(key === '*'){
-
-        inputOperator('×');
-        event.preventDefault();
-        return;
-
-    }
-
-    if(key === '/'){
-
-        inputOperator('÷');
-        event.preventDefault();
-        return;
-
-    }
-
-    if(key === '%'){
-
-        percentCalc();
-        event.preventDefault();
-        return;
-
-    }
-
-    if(key === 'Enter' || key === '='){
-
-        calculateResult();
-        event.preventDefault();
-        return;
-
-    }
-
-    if(key === 'Backspace'){
-
-        backspaceCalc();
-        event.preventDefault();
-        return;
-
-    }
-
-    if(key === 'Escape'){
-
-        clearCalc();
-        event.preventDefault();
-
-    }
-
-});
+);
 
 
 /* =========================================================
-   PROTEÇÃO CONTRA ZOOM NO CELULAR
+ZOOM
 ========================================================= */
 
 document.addEventListener(
     'dblclick',
     function(event){
+
         event.preventDefault();
+
     },
-    {passive:false}
+    {
+        passive:false
+    }
 );
 
 
 document.addEventListener(
     'gesturestart',
     function(event){
+
         event.preventDefault();
+
     },
-    {passive:false}
+    {
+        passive:false
+    }
 );
 
 
 document.addEventListener(
     'gesturechange',
     function(event){
+
         event.preventDefault();
+
     },
-    {passive:false}
+    {
+        passive:false
+    }
 );
 
 
 document.addEventListener(
     'gestureend',
     function(event){
+
         event.preventDefault();
+
     },
-    {passive:false}
+    {
+        passive:false
+    }
 );
 
 
 /* =========================================================
-   PWA
+PWA
 ========================================================= */
 
-if('serviceWorker' in navigator){
+if(
+    'serviceWorker' in navigator
+){
 
-    window.addEventListener('load',()=>{
+    window.addEventListener(
+        'load',
+        ()=>{
 
-        navigator.serviceWorker
-            .register('./sw.js')
-            .catch(error=>{
-                console.log(
-                    'Service Worker:',
-                    error
+            navigator.serviceWorker
+                .register('./sw.js')
+                .catch(
+                    error => {
+
+                        console.log(
+                            'Service Worker:',
+                            error
+                        );
+
+                    }
                 );
-            });
 
-    });
+        }
+    );
 
 }
 
 
 /* =========================================================
-   INICIALIZAÇÃO
+INICIALIZAÇÃO
 ========================================================= */
 
 renderHistory();
+
 updateCalc();
 
 </script>
