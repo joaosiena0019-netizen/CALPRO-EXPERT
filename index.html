@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,11 +10,14 @@ content="width=device-width,
 initial-scale=1,
 maximum-scale=1,
 minimum-scale=1,
-user-scalable=no,
-viewport-fit=cover">
+user-scalable=no">
 
 <meta name="theme-color" content="#070b12">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+content="black-translucent">
 
 <title>CALPRO EXPERT</title>
 
@@ -25,31 +29,46 @@ RESET
 
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
     -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
-    margin:0;
-    padding:0;
+html{
     width:100%;
     min-height:100%;
-    background:#070b12;
-    color:#fff;
 
     touch-action:manipulation;
+
     overscroll-behavior:none;
 
     -webkit-text-size-adjust:100%;
 }
 
 body{
-    overflow-x:hidden;
+    width:100%;
+    min-height:100vh;
+
+    background:
+    radial-gradient(
+        circle at 50% -10%,
+        rgba(255,112,0,.16),
+        transparent 35%
+    ),
+    #070b12;
+
+    color:#fff;
 
     font-family:
     Arial,
     Helvetica,
     sans-serif;
+
+    overflow-x:hidden;
+
+    touch-action:manipulation;
+
+    overscroll-behavior:none;
 }
 
 button,
@@ -59,15 +78,14 @@ input{
 
 button{
     border:0;
-    outline:0;
+    outline:none;
     cursor:pointer;
 
     touch-action:manipulation;
-    user-select:none;
 }
 
 input{
-    user-select:text;
+    outline:none;
 }
 
 
@@ -78,16 +96,10 @@ APP
 .app{
     width:100%;
     max-width:1150px;
+
     min-height:100vh;
 
-    margin:auto;
-
-    background:
-    radial-gradient(
-        circle at 50% -5%,
-        rgba(255,108,0,.14),
-        transparent 30%
-    );
+    margin:0 auto;
 }
 
 
@@ -96,259 +108,420 @@ HEADER
 ===================================================== */
 
 .header{
+
     position:sticky;
+
     top:0;
-    z-index:1000;
+
+    z-index:999;
 
     padding:15px;
 
-    background:rgba(7,11,18,.96);
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    background:
+    rgba(7,11,18,.94);
 
     border-bottom:
-    1px solid rgba(255,255,255,.07);
+    1px solid
+    rgba(255,255,255,.07);
+
+    backdrop-filter:
+    blur(18px);
+
+    -webkit-backdrop-filter:
+    blur(18px);
+
 }
 
-.brand{
+
+/* =====================================================
+LOGO
+===================================================== */
+
+.logo-area{
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    gap:11px;
+
+    gap:12px;
+
 }
 
-.brand-logo{
-    width:56px;
-    height:56px;
+
+.logo{
+
+    width:58px;
+
+    height:58px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    border-radius:17px;
+    border-radius:18px;
 
     background:
     linear-gradient(
         145deg,
-        #ffbe3b,
-        #ff6400
+        #ffb52e,
+        #ff6200
     );
 
     box-shadow:
-    0 12px 30px rgba(255,102,0,.32),
-    inset 0 2px 2px rgba(255,255,255,.35),
-    inset 0 -7px 12px rgba(110,30,0,.28);
+
+    0 12px 30px
+    rgba(255,100,0,.35),
+
+    inset
+    0 2px 3px
+    rgba(255,255,255,.35),
+
+    inset
+    0 -10px 15px
+    rgba(120,30,0,.25);
+
 }
 
-.brand-logo svg{
-    width:39px;
-    height:39px;
+
+.logo svg{
+
+    width:40px;
+    height:40px;
+
 }
 
-.brand-name{
+
+.logo-name{
+
     font-size:30px;
+
     font-weight:1000;
+
     letter-spacing:-1.5px;
+
 }
 
-.brand-name span{
-    color:#ff7300;
+
+.logo-name span{
+
+    color:#ff7500;
+
 }
 
-.brand-sub{
+
+.logo-expert{
+
     margin-top:-3px;
 
-    color:#aab3bf;
+    text-align:center;
 
     font-size:9px;
-    font-weight:900;
 
     letter-spacing:5px;
-    text-align:center;
+
+    font-weight:900;
+
+    color:#9da7b3;
+
 }
 
-.brand-slogan{
-    margin-top:5px;
 
-    color:#778291;
+.slogan{
+
+    margin-top:6px;
 
     text-align:center;
+
+    color:#737f8d;
 
     font-size:10px;
+
 }
 
-.brand-slogan b{
-    color:#ff7b00;
+
+.slogan b{
+
+    color:#ff7800;
+
 }
 
 
 /* =====================================================
-NAVEGAÇÃO
+NAV
 ===================================================== */
 
 .nav{
-    display:flex;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:8px;
+
     margin-top:15px;
+
 }
 
+
 .nav button{
-    flex:1;
 
-    padding:12px 6px;
+    min-height:42px;
 
-    border-radius:13px;
+    border-radius:12px;
 
     background:#111823;
-    color:#8994a3;
+
+    color:#7d8997;
 
     font-size:10px;
+
     font-weight:900;
 
     border:
-    1px solid rgba(255,255,255,.05);
+    1px solid
+    rgba(255,255,255,.06);
+
 }
 
+
 .nav button.active{
+
     background:
     linear-gradient(
         135deg,
-        #ff8b00,
-        #ff5d00
+        #ff8a00,
+        #ff5f00
     );
 
     color:#fff;
 
-    border-color:#ff8500;
+    border-color:#ff7800;
 
     box-shadow:
-    0 9px 25px rgba(255,95,0,.25);
+    0 8px 22px
+    rgba(255,100,0,.25);
+
 }
 
 
 /* =====================================================
-CONTEÚDO
+CONTENT
 ===================================================== */
 
 .content{
-    padding:17px;
+
+    padding:16px;
+
 }
+
 
 .page{
+
     display:none;
+
 }
+
 
 .page.active{
+
     display:block;
+
 }
 
+
 .section-title{
-    margin:5px 2px 13px;
+
+    margin:
+    3px 2px 14px;
 
     font-size:27px;
+
     font-weight:1000;
 
     letter-spacing:-1px;
+
 }
 
+
 .section-subtitle{
+
     display:block;
 
     margin-top:5px;
 
-    color:#73808e;
+    color:#75818f;
 
     font-size:11px;
+
     font-weight:500;
 
     letter-spacing:0;
+
 }
 
 
 /* =====================================================
-FERRAMENTAS
+TOOLS GRID
 ===================================================== */
 
 .tools{
+
     display:grid;
 
     grid-template-columns:
     repeat(2,1fr);
 
     gap:13px;
+
 }
 
+
+/* =====================================================
+TOOL CARD
+===================================================== */
+
 .tool{
+
     position:relative;
 
     overflow:hidden;
 
-    min-height:225px;
+    min-height:228px;
 
-    padding:16px;
-
-    text-align:left;
+    padding:15px;
 
     border-radius:22px;
 
     background:
     linear-gradient(
         145deg,
-        #131c29,
+        #151e2b,
         #090e15
     );
 
     border:
-    1px solid rgba(255,255,255,.09);
+    1px solid
+    rgba(255,255,255,.08);
 
     color:#fff;
 
+    text-align:left;
+
     box-shadow:
-    0 15px 30px rgba(0,0,0,.20);
+    0 15px 35px
+    rgba(0,0,0,.22);
 
     transition:
-    transform .15s,
-    border-color .15s;
+    transform .15s ease,
+    border-color .15s ease;
+
 }
+
 
 .tool:hover{
-    border-color:var(--accent);
+
+    border-color:
+    var(--accent);
+
 }
+
 
 .tool:active{
-    transform:scale(.975);
+
+    transform:
+    scale(.975);
+
 }
+
+
+/* =====================================================
+TOOL COLORS
+===================================================== */
+
+.price{
+
+    --accent:#ff8a00;
+
+    --glow:
+    rgba(255,138,0,.25);
+
+}
+
+
+.margin{
+
+    --accent:#198cff;
+
+    --glow:
+    rgba(25,140,255,.25);
+
+}
+
+
+.discount{
+
+    --accent:#00d895;
+
+    --glow:
+    rgba(0,216,149,.24);
+
+}
+
+
+.markup{
+
+    --accent:#a53cff;
+
+    --glow:
+    rgba(165,60,255,.25);
+
+}
+
+
+.commission{
+
+    --accent:#ffc21c;
+
+    --glow:
+    rgba(255,194,28,.24);
+
+}
+
+
+.calculator-tool{
+
+    --accent:#ff4242;
+
+    --glow:
+    rgba(255,66,66,.25);
+
+}
+
+
+/* =====================================================
+CARD LIGHT
+===================================================== */
 
 .tool::before{
+
     content:"";
 
     position:absolute;
 
-    width:150px;
-    height:150px;
+    width:170px;
 
-    left:-55px;
-    top:-55px;
+    height:170px;
 
-    background:
-    radial-gradient(
-        circle,
-        var(--glow),
-        transparent 68%
-    );
-}
+    top:-70px;
 
-.tool::after{
-    content:"";
+    left:-60px;
 
-    position:absolute;
-
-    width:100px;
-    height:100px;
-
-    right:-45px;
-    bottom:-45px;
+    border-radius:50%;
 
     background:
     radial-gradient(
@@ -356,294 +529,363 @@ FERRAMENTAS
         var(--glow),
         transparent 70%
     );
+
+}
+
+
+.tool::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    right:-55px;
+
+    bottom:-55px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        var(--glow),
+        transparent 70%
+    );
+
 }
 
 
 /* =====================================================
-CORES DAS FERRAMENTAS
-===================================================== */
-
-.price{
-    --accent:#ff8b00;
-    --glow:rgba(255,130,0,.27);
-}
-
-.margin{
-    --accent:#168cff;
-    --glow:rgba(0,130,255,.25);
-}
-
-.discount{
-    --accent:#00d992;
-    --glow:rgba(0,220,145,.24);
-}
-
-.markup{
-    --accent:#a83cff;
-    --glow:rgba(165,50,255,.27);
-}
-
-.commission{
-    --accent:#ffc21a;
-    --glow:rgba(255,190,0,.26);
-}
-
-.calculator-tool{
-    --accent:#ff3b3b;
-    --glow:rgba(255,45,45,.25);
-}
-
-
-/* =====================================================
-TOPO DO CARD
+TOOL TOP
 ===================================================== */
 
 .tool-top{
+
     position:relative;
-    z-index:2;
+
+    z-index:3;
 
     display:flex;
-    align-items:center;
 
-    gap:14px;
+    align-items:flex-start;
+
+    gap:12px;
+
 }
 
 
 /* =====================================================
-ÍCONES 3D
+3D ICON CONTAINER
 ===================================================== */
 
 .tool-icon{
+
     position:relative;
 
     flex:0 0 auto;
 
     width:82px;
+
     height:82px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     overflow:hidden;
 
-    border-radius:23px;
+    border-radius:22px;
 
     background:
     linear-gradient(
         145deg,
-        #263345,
-        #0c121b
+        #273447,
+        #0b1119
     );
 
     border:
-    1px solid rgba(255,255,255,.12);
+    1px solid
+    rgba(255,255,255,.13);
 
     box-shadow:
-    0 14px 18px rgba(0,0,0,.45),
-    inset 0 2px 3px rgba(255,255,255,.16),
-    inset 0 -10px 15px rgba(0,0,0,.38);
+
+    0 14px 22px
+    rgba(0,0,0,.48),
+
+    inset
+    0 2px 3px
+    rgba(255,255,255,.18),
+
+    inset
+    0 -10px 15px
+    rgba(0,0,0,.38);
+
 }
 
+
+/* brilho */
+
 .tool-icon::after{
+
     content:"";
 
     position:absolute;
 
     inset:0;
 
+    z-index:3;
+
     pointer-events:none;
 
     background:
     linear-gradient(
         135deg,
-        rgba(255,255,255,.12),
+        rgba(255,255,255,.13),
         transparent 35%,
         transparent 70%,
-        rgba(0,0,0,.12)
+        rgba(0,0,0,.15)
     );
+
 }
 
+
+/* =====================================================
+IMAGENS DOS ÍCONES
+===================================================== */
+
 .tool-icon img{
+
     position:relative;
+
     z-index:2;
 
+    display:block;
+
     width:100%;
+
     height:100%;
 
     object-fit:contain;
 
-    display:block;
+    object-position:center;
+
+    padding:3px;
 
     filter:
     drop-shadow(
         0 7px 7px
-        rgba(0,0,0,.50)
+        rgba(0,0,0,.55)
     );
 
-    transform:scale(1.04);
-
     transition:
-    transform .18s ease,
-    filter .18s ease;
+    transform .18s ease;
+
 }
 
-.tool:active .tool-icon img{
-    transform:scale(.94);
+
+/* animação */
+
+.tool:active
+.tool-icon img{
+
+    transform:
+    scale(.92);
+
 }
 
 
 /* =====================================================
-TEXTO DAS FERRAMENTAS
+TOOL TEXT
 ===================================================== */
 
 .tool-info{
+
     position:relative;
-    z-index:2;
+
+    z-index:3;
 
     flex:1;
+
 }
+
 
 .tool-name{
+
     font-size:16px;
+
     font-weight:1000;
 
-    line-height:1.1;
+    line-height:1.15;
+
 }
 
+
 .tool-description{
+
     margin-top:7px;
 
-    color:#8995a3;
+    color:#8a96a4;
 
     font-size:10px;
 
     line-height:1.45;
+
 }
 
 
 /* =====================================================
-COMO FUNCIONA
+HOW
 ===================================================== */
 
 .how{
+
     position:relative;
+
     z-index:3;
 
-    margin-top:16px;
+    margin-top:15px;
 
     padding:11px 12px;
 
-    min-height:55px;
+    min-height:61px;
 
     border-radius:13px;
 
     background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.065),
-        rgba(255,255,255,.025)
-    );
+    rgba(255,255,255,.035);
 
     border:
-    1px solid rgba(255,255,255,.08);
+    1px solid
+    rgba(255,255,255,.07);
+
 }
 
+
 .how-label{
-    color:var(--accent);
+
+    color:
+    var(--accent);
 
     font-size:8px;
+
     font-weight:1000;
 
     letter-spacing:1.2px;
 
-    text-transform:uppercase;
 }
 
+
 .how-text{
+
     margin-top:4px;
 
-    color:#b9c1cb;
+    color:#b5bec9;
 
     font-size:10px;
 
     line-height:1.4;
+
 }
 
 
 /* =====================================================
-SETA
+ARROW
 ===================================================== */
 
 .tool-arrow{
+
     position:absolute;
 
-    z-index:5;
+    z-index:4;
 
-    right:13px;
-    bottom:13px;
+    right:12px;
 
-    width:36px;
-    height:36px;
+    bottom:12px;
+
+    width:35px;
+
+    height:35px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     border-radius:50%;
-
-    color:#fff;
 
     background:
     linear-gradient(
         145deg,
         var(--accent),
-        #171717
+        #181818
     );
 
-    box-shadow:
-    0 7px 15px rgba(0,0,0,.38),
-    inset 0 2px 2px rgba(255,255,255,.28);
+    color:#fff;
 
-    font-size:19px;
+    font-size:18px;
+
     font-weight:900;
+
+    box-shadow:
+
+    0 7px 16px
+    rgba(0,0,0,.4),
+
+    inset
+    0 2px 2px
+    rgba(255,255,255,.25);
+
 }
 
 
 /* =====================================================
-PUBLICIDADE
+AD
 ===================================================== */
 
 .ad{
+
     min-height:95px;
 
-    margin:22px 0 17px;
+    margin:
+    22px 0 18px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
+    text-align:center;
 
     border-radius:18px;
 
     border:
-    1px dashed rgba(255,132,0,.35);
+    1px dashed
+    rgba(255,125,0,.35);
 
     background:
     linear-gradient(
         110deg,
         #17120c,
-        #10151d,
+        #111720,
         #17120c
     );
 
-    color:#ff8c21;
+    color:#ff8b20;
 
-    font-size:10px;
+    font-size:9px;
+
     font-weight:900;
 
     letter-spacing:1.5px;
 
-    text-align:center;
 }
 
 
@@ -652,6 +894,7 @@ HERO
 ===================================================== */
 
 .hero{
+
     position:relative;
 
     overflow:hidden;
@@ -661,11 +904,13 @@ HERO
     border-radius:22px;
 
     background:
+
     radial-gradient(
         circle at 100% 0%,
-        rgba(255,115,0,.20),
+        rgba(255,110,0,.2),
         transparent 35%
     ),
+
     linear-gradient(
         145deg,
         #151e2b,
@@ -673,10 +918,14 @@ HERO
     );
 
     border:
-    1px solid rgba(255,120,0,.18);
+    1px solid
+    rgba(255,115,0,.17);
+
 }
 
+
 .hero-tag{
+
     display:inline-block;
 
     padding:7px 10px;
@@ -684,48 +933,60 @@ HERO
     border-radius:8px;
 
     background:
-    rgba(255,114,0,.10);
+    rgba(255,115,0,.1);
 
-    color:#ff8c2a;
+    color:#ff8b25;
 
     font-size:9px;
+
     font-weight:900;
 
-    letter-spacing:1.4px;
+    letter-spacing:1.2px;
+
 }
 
+
 .hero h1{
-    margin:12px 0 0;
+
+    margin-top:12px;
 
     font-size:27px;
 
     line-height:1.05;
 
     letter-spacing:-1px;
+
 }
+
 
 .hero h1 span{
-    color:#ff7800;
+
+    color:#ff7600;
+
 }
 
+
 .hero p{
-    margin:10px 0 0;
 
-    max-width:700px;
+    margin-top:10px;
 
-    color:#8793a0;
+    color:#85919e;
 
     font-size:12px;
 
     line-height:1.55;
+
 }
 
 
 /* =====================================================
-CARDS
+ADICIONAL
 ===================================================== */
 
 .card{
+
+    margin-bottom:15px;
+
     padding:18px;
 
     border-radius:21px;
@@ -738,51 +999,70 @@ CARDS
     );
 
     border:
-    1px solid rgba(255,255,255,.08);
+    1px solid
+    rgba(255,255,255,.08);
 
-    margin-bottom:14px;
 }
+
 
 .card-title{
-    font-size:19px;
+
+    font-size:20px;
+
     font-weight:1000;
+
 }
 
-.card-description{
-    margin:6px 0 18px;
 
-    color:#7d8997;
+.card-description{
+
+    margin-top:6px;
+
+    margin-bottom:18px;
+
+    color:#7d8996;
 
     font-size:11px;
 
     line-height:1.5;
+
 }
 
+
 .back{
+
+    width:100%;
+
     margin-bottom:14px;
 
-    padding:11px 14px;
+    padding:12px;
 
     border-radius:12px;
 
     background:#111923;
 
-    color:#aeb8c4;
+    color:#b3bdc8;
 
     font-size:11px;
+
     font-weight:900;
+
 }
 
 
 /* =====================================================
-CAMPOS
+FIELDS
 ===================================================== */
 
 .field{
-    margin-bottom:15px;
+
+    margin-bottom:14px;
+
 }
 
+
 .field label{
+
     display:block;
 
     margin-bottom:7px;
@@ -790,46 +1070,57 @@ CAMPOS
     color:#aeb8c4;
 
     font-size:11px;
+
     font-weight:800;
+
 }
 
-.field input{
-    width:100%;
-    height:53px;
 
-    padding:13px;
+.field input{
+
+    width:100%;
+
+    height:54px;
+
+    padding:
+    12px 14px;
 
     border-radius:13px;
 
     border:
-    1px solid #293440;
+    1px solid
+    #293440;
 
     background:#070c12;
 
     color:#fff;
 
-    outline:none;
-
     font-size:17px;
+
     font-weight:700;
 
     -webkit-appearance:none;
+
 }
 
+
 .field input:focus{
-    border-color:#ff7200;
+
+    border-color:#ff7400;
 
     box-shadow:
     0 0 0 3px
-    rgba(255,114,0,.10);
+    rgba(255,116,0,.1);
+
 }
 
 
 /* =====================================================
-BOTÃO CALCULAR
+CALCULATE
 ===================================================== */
 
 .calculate{
+
     width:100%;
 
     padding:15px;
@@ -839,67 +1130,88 @@ BOTÃO CALCULAR
     background:
     linear-gradient(
         135deg,
-        #ff8b00,
-        #ff6200
+        #ff8a00,
+        #ff6100
     );
 
     color:#fff;
 
-    font-size:12px;
-    font-weight:900;
+    font-size:11px;
+
+    font-weight:1000;
 
     box-shadow:
     0 9px 22px
     rgba(255,100,0,.18);
+
 }
 
+
 .calculate:active{
-    transform:scale(.98);
+
+    transform:
+    scale(.98);
+
 }
 
 
 /* =====================================================
-RESULTADOS
+RESULT
 ===================================================== */
 
 .result{
+
     display:none;
 
     margin-top:15px;
 
-    padding:18px;
+    padding:17px;
 
     border-radius:17px;
 
     background:
+
     radial-gradient(
         circle at 100% 0%,
         rgba(255,114,0,.18),
-        transparent 40%
+        transparent 42%
     ),
+
     #15110c;
 
     border:
-    1px solid rgba(255,114,0,.30);
+    1px solid
+    rgba(255,114,0,.28);
+
 }
 
+
 .result-label{
-    color:#ff9a3d;
+
+    color:#ff9b40;
 
     font-size:9px;
+
     font-weight:900;
 
     letter-spacing:1px;
+
 }
 
+
 .result-value{
+
     margin-top:4px;
 
     font-size:30px;
-    font-weight:900;
+
+    font-weight:1000;
+
 }
 
+
 .result-grid{
+
     display:grid;
 
     grid-template-columns:
@@ -908,51 +1220,67 @@ RESULTADOS
     gap:8px;
 
     margin-top:12px;
+
 }
 
+
 .result-box{
+
     padding:11px;
 
     border-radius:10px;
 
     background:
     rgba(255,255,255,.045);
+
 }
 
+
 .result-box small{
+
     display:block;
 
     color:#778391;
 
     font-size:9px;
+
 }
 
+
 .result-box strong{
+
     display:block;
 
     margin-top:4px;
 
     font-size:13px;
+
 }
 
 
 /* =====================================================
-CALCULADORA
+CALCULATOR
 ===================================================== */
 
 .calculator{
+
     max-width:520px;
 
     margin:auto;
+
 }
 
+
 .display{
+
     min-height:140px;
 
     padding:18px;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:flex-end;
 
     text-align:right;
@@ -962,35 +1290,50 @@ CALCULADORA
     background:#05080c;
 
     border:
-    1px solid #252e39;
+    1px solid
+    #252e39;
 
     overflow:hidden;
+
 }
 
+
 .expression{
+
     min-height:20px;
 
-    color:#687481;
+    color:#65717e;
 
     font-size:12px;
 
     white-space:nowrap;
 
     overflow:hidden;
+
 }
 
+
 .display-number{
+
     margin-top:5px;
 
     font-size:40px;
+
     font-weight:900;
 
     white-space:nowrap;
 
     overflow:hidden;
+
 }
 
+
+/* =====================================================
+MEMORY
+===================================================== */
+
 .memory{
+
     display:grid;
 
     grid-template-columns:
@@ -999,34 +1342,49 @@ CALCULADORA
     gap:6px;
 
     margin:8px 0;
+
 }
 
+
 .memory button{
-    padding:10px 2px;
+
+    min-height:40px;
 
     border-radius:9px;
 
     background:#111820;
 
     border:
-    1px solid #252e39;
+    1px solid
+    #252e39;
 
     color:#8995a3;
 
     font-size:9px;
+
     font-weight:900;
+
 }
 
+
+/* =====================================================
+KEYPAD
+===================================================== */
+
 .keypad{
+
     display:grid;
 
     grid-template-columns:
     repeat(4,1fr);
 
     gap:8px;
+
 }
 
+
 .key{
+
     min-height:62px;
 
     border-radius:13px;
@@ -1034,40 +1392,82 @@ CALCULADORA
     background:#151c25;
 
     border:
-    1px solid #27313c;
+    1px solid
+    #27313c;
 
     color:#fff;
 
     font-size:19px;
+
     font-weight:900;
+
 }
+
 
 .key:active{
-    transform:scale(.95);
+
+    transform:
+    scale(.95);
+
 }
+
 
 .key.operator{
+
     color:#ff8a20;
+
 }
 
+
 .key.equal{
+
     background:#ff7200;
 
     border-color:#ff7200;
+
 }
 
+
 .key.special{
+
     color:#a7b1bd;
 
     font-size:13px;
+
 }
 
 
 /* =====================================================
-HISTÓRICO
+HISTORY
 ===================================================== */
 
+.clear-history{
+
+    width:100%;
+
+    margin-bottom:15px;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    background:#171d25;
+
+    border:
+    1px solid
+    rgba(255,70,70,.25);
+
+    color:#ff6464;
+
+    font-size:11px;
+
+    font-weight:900;
+
+}
+
+
 .history-empty{
+
     padding:35px 10px;
 
     text-align:center;
@@ -1075,9 +1475,12 @@ HISTÓRICO
     color:#65717e;
 
     font-size:11px;
+
 }
 
+
 .history-item{
+
     display:flex;
 
     justify-content:space-between;
@@ -1087,49 +1490,44 @@ HISTÓRICO
     padding:13px 0;
 
     border-bottom:
-    1px solid rgba(255,255,255,.06);
+    1px solid
+    rgba(255,255,255,.06);
+
 }
+
 
 .history-name{
+
     font-size:12px;
+
     font-weight:900;
+
 }
 
+
 .history-info{
+
     margin-top:4px;
 
     color:#707c89;
 
     font-size:9px;
+
+    line-height:1.4;
+
 }
 
+
 .history-result{
+
     color:#ff8a20;
 
     font-size:11px;
+
     font-weight:900;
 
     text-align:right;
-}
 
-.clear-history{
-    width:100%;
-
-    margin-bottom:16px;
-
-    padding:13px;
-
-    border-radius:12px;
-
-    background:#171d25;
-
-    border:
-    1px solid rgba(255,70,70,.25);
-
-    color:#ff6464;
-
-    font-size:11px;
-    font-weight:900;
 }
 
 
@@ -1138,17 +1536,23 @@ FOOTER
 ===================================================== */
 
 .footer{
-    padding:30px 10px 35px;
+
+    padding:
+    30px 10px 35px;
 
     text-align:center;
 
     color:#56616e;
 
     font-size:9px;
+
 }
 
+
 .footer b{
+
     color:#ff7800;
+
 }
 
 
@@ -1157,25 +1561,30 @@ TOAST
 ===================================================== */
 
 .toast{
-    position:fixed;
 
-    left:50%;
-    bottom:25px;
+    position:fixed;
 
     z-index:9999;
 
-    padding:12px 17px;
+    left:50%;
+
+    bottom:25px;
+
+    padding:
+    12px 17px;
 
     border-radius:12px;
 
     background:#171e27;
 
     border:
-    1px solid #303a46;
+    1px solid
+    #303a46;
 
     color:#fff;
 
     font-size:11px;
+
     font-weight:700;
 
     transform:
@@ -1186,13 +1595,17 @@ TOAST
     transition:.25s;
 
     pointer-events:none;
+
 }
 
+
 .toast.show{
+
     transform:
     translate(-50%,0);
 
     opacity:1;
+
 }
 
 
@@ -1203,101 +1616,162 @@ MOBILE
 @media(max-width:600px){
 
     .content{
+
         padding:13px;
+
     }
+
 
     .tools{
+
         gap:10px;
+
     }
+
 
     .tool{
-        min-height:238px;
+
+        min-height:235px;
 
         padding:13px;
+
     }
 
-    .tool-top{
-        gap:9px;
-
-        align-items:flex-start;
-    }
 
     .tool-icon{
-        width:66px;
-        height:66px;
+
+        width:67px;
+
+        height:67px;
 
         border-radius:18px;
+
     }
 
-    .tool-icon img{
-        transform:scale(1.03);
-    }
 
     .tool-name{
+
         font-size:13px;
+
     }
+
 
     .tool-description{
+
         font-size:9px;
+
     }
 
+
     .how{
+
+        min-height:68px;
+
         margin-top:13px;
 
         padding:9px;
 
-        min-height:67px;
     }
+
 
     .how-text{
+
         font-size:9px;
+
     }
 
+
     .tool-arrow{
+
         width:31px;
+
         height:31px;
 
         right:9px;
+
         bottom:9px;
 
         font-size:16px;
+
     }
+
 
     .section-title{
+
         font-size:24px;
+
     }
 
+
     .hero h1{
+
         font-size:24px;
+
     }
 
 }
+
 
 @media(max-width:370px){
 
     .tool{
+
         min-height:250px;
+
     }
+
 
     .tool-top{
+
         display:block;
+
     }
+
 
     .tool-icon{
-        margin-bottom:10px;
-    }
 
-    .tool-name{
-        font-size:12px;
+        margin-bottom:9px;
+
     }
 
 }
 
+
+/* =====================================================
+DESKTOP
+===================================================== */
+
+@media(min-width:800px){
+
+    .tools{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+    }
+
+}
+
+
+/* =====================================================
+ZOOM BLOCK
+===================================================== */
+
+body{
+
+    touch-action:
+    pan-y;
+
+}
+
+
 </style>
+
 </head>
 
 
 <body>
+
 
 <div class="app">
 
@@ -1308,78 +1782,94 @@ HEADER
 
 <header class="header">
 
-    <div class="brand">
 
-        <div class="brand-logo">
-
-            <svg
-            viewBox="0 0 50 50"
-            fill="none"
-            stroke="white"
-            stroke-width="3"
-            stroke-linecap="round"
-            stroke-linejoin="round">
-
-                <circle cx="25" cy="25" r="20"/>
-
-                <path
-                d="M14 31L21 24L27 28L37 17"/>
-
-                <path
-                d="M31 17H37V23"/>
-
-            </svg>
-
-        </div>
+<div class="logo-area">
 
 
-        <div>
+<div class="logo">
 
-            <div class="brand-name">
-                CAL<span>PRO</span>
-            </div>
+<svg
+viewBox="0 0 50 50"
+fill="none"
+stroke="white"
+stroke-width="3"
+stroke-linecap="round"
+stroke-linejoin="round">
 
-            <div class="brand-sub">
-                EXPERT
-            </div>
+<circle
+cx="25"
+cy="25"
+r="20"/>
 
-        </div>
+<path
+d="M14 31L21 24L27 28L37 17"/>
 
-    </div>
+<path
+d="M31 17H37V23"/>
 
+</svg>
 
-    <div class="brand-slogan">
-        Calcule • <b>Lucre</b> • Evolua
-    </div>
-
-
-    <nav class="nav">
-
-        <button
-        class="active"
-        data-page="home">
-
-            FERRAMENTAS
-
-        </button>
+</div>
 
 
-        <button
-        data-page="calculator">
+<div>
 
-            CALCULADORA
+<div class="logo-name">
 
-        </button>
+CAL<span>PRO</span>
+
+</div>
 
 
-        <button
-        data-page="history">
+<div class="logo-expert">
 
-            HISTÓRICO
+EXPERT
 
-        </button>
+</div>
 
-    </nav>
+</div>
+
+
+</div>
+
+
+<div class="slogan">
+
+Calcule • <b>Lucre</b> • Evolua
+
+</div>
+
+
+<nav class="nav">
+
+
+<button
+class="active"
+data-page="home">
+
+FERRAMENTAS
+
+</button>
+
+
+<button
+data-page="calculator">
+
+CALCULADORA
+
+</button>
+
+
+<button
+data-page="history">
+
+HISTÓRICO
+
+</button>
+
+
+</nav>
+
 
 </header>
 
@@ -1397,459 +1887,503 @@ id="home"
 class="page active">
 
 
-    <div class="section-title">
+<div class="section-title">
 
-        Ferramentas
+Ferramentas
 
-        <span class="section-subtitle">
+<span class="section-subtitle">
 
-            Tudo que você precisa para
-            calcular melhor e vender mais.
+Tudo que você precisa para calcular melhor
+e vender mais.
 
-        </span>
+</span>
 
-    </div>
+</div>
 
 
 
-    <div class="tools">
+<div class="tools">
 
 
-        <!-- =================================================
-        PREÇO DE VENDA
-        ================================================= -->
+<!-- PREÇO -->
 
-        <button
-        class="tool price"
-        data-tool="price">
+<button
+class="tool price"
+data-tool="price">
 
 
-            <div class="tool-top">
+<div class="tool-top">
 
 
-                <div class="tool-icon">
+<div class="tool-icon">
 
-                    <img
-                    src="assets/icons/preco-venda.png"
-                    alt="Preço de Venda">
+<img
+src="./assets/icons/preco-venda.png"
+alt="Preço de Venda"
+loading="eager">
 
-                </div>
+</div>
 
 
-                <div class="tool-info">
+<div class="tool-info">
 
-                    <div class="tool-name">
-                        Preço de Venda
-                    </div>
+<div class="tool-name">
 
-                    <div class="tool-description">
+Preço de Venda
 
-                        Descubra quanto cobrar
-                        pelo seu produto.
+</div>
 
-                    </div>
 
-                </div>
+<div class="tool-description">
 
+Descubra quanto cobrar
+pelo seu produto.
 
-            </div>
+</div>
 
+</div>
 
-            <div class="how">
 
-                <div class="how-label">
-                    COMO FUNCIONA
-                </div>
+</div>
 
-                <div class="how-text">
 
-                    Informe o custo e a margem
-                    desejada. O CALPRO calcula
-                    o preço ideal.
+<div class="how">
 
-                </div>
+<div class="how-label">
 
-            </div>
+COMO FUNCIONA
 
+</div>
 
-            <div class="tool-arrow">
-                →
-            </div>
 
+<div class="how-text">
 
-        </button>
+Informe o custo e a margem
+desejada. O CALPRO calcula
+o preço ideal.
 
+</div>
 
+</div>
 
-        <!-- =================================================
-        MARGEM
-        ================================================= -->
 
-        <button
-        class="tool margin"
-        data-tool="margin">
+<div class="tool-arrow">
 
+→
 
-            <div class="tool-top">
+</div>
 
 
-                <div class="tool-icon">
+</button>
 
-                    <img
-                    src="assets/icons/margem.png"
-                    alt="Margem de Lucro">
 
-                </div>
 
+<!-- MARGEM -->
 
-                <div class="tool-info">
+<button
+class="tool margin"
+data-tool="margin">
 
-                    <div class="tool-name">
-                        Margem de Lucro
-                    </div>
 
-                    <div class="tool-description">
+<div class="tool-top">
 
-                        Saiba exatamente
-                        quanto você ganha.
 
-                    </div>
+<div class="tool-icon">
 
-                </div>
+<img
+src="./assets/icons/margem.png"
+alt="Margem"
+loading="eager">
 
+</div>
 
-            </div>
 
+<div class="tool-info">
 
-            <div class="how">
+<div class="tool-name">
 
-                <div class="how-label">
-                    COMO FUNCIONA
-                </div>
+Margem de Lucro
 
-                <div class="how-text">
+</div>
 
-                    Informe custo e venda.
-                    Veja margem, lucro e markup.
 
-                </div>
+<div class="tool-description">
 
-            </div>
+Saiba exatamente quanto
+você ganha na venda.
 
+</div>
 
-            <div class="tool-arrow">
-                →
-            </div>
+</div>
 
 
-        </button>
+</div>
 
 
+<div class="how">
 
-        <!-- =================================================
-        DESCONTO
-        ================================================= -->
+<div class="how-label">
 
-        <button
-        class="tool discount"
-        data-tool="discount">
+COMO FUNCIONA
 
+</div>
 
-            <div class="tool-top">
 
+<div class="how-text">
 
-                <div class="tool-icon">
+Informe custo e venda.
+Veja lucro, margem e markup.
 
-                    <img
-                    src="assets/icons/desconto.png"
-                    alt="Desconto">
+</div>
 
-                </div>
+</div>
 
 
-                <div class="tool-info">
+<div class="tool-arrow">
 
-                    <div class="tool-name">
-                        Desconto
-                    </div>
+→
 
-                    <div class="tool-description">
+</div>
 
-                        Descubra o valor
-                        final rapidamente.
 
-                    </div>
+</button>
 
-                </div>
 
 
-            </div>
+<!-- DESCONTO -->
 
+<button
+class="tool discount"
+data-tool="discount">
 
-            <div class="how">
 
-                <div class="how-label">
-                    COMO FUNCIONA
-                </div>
+<div class="tool-top">
 
-                <div class="how-text">
 
-                    Digite o preço e o desconto.
-                    Veja o valor economizado
-                    e o preço final.
+<div class="tool-icon">
 
-                </div>
+<img
+src="./assets/icons/desconto.png"
+alt="Desconto"
+loading="eager">
 
-            </div>
+</div>
 
 
-            <div class="tool-arrow">
-                →
-            </div>
+<div class="tool-info">
 
+<div class="tool-name">
 
-        </button>
+Desconto
 
+</div>
 
 
-        <!-- =================================================
-        MARKUP
-        ================================================= -->
+<div class="tool-description">
 
-        <button
-        class="tool markup"
-        data-tool="markup">
+Descubra rapidamente
+o preço final.
 
+</div>
 
-            <div class="tool-top">
+</div>
 
 
-                <div class="tool-icon">
+</div>
 
-                    <img
-                    src="assets/icons/markup.png"
-                    alt="Markup">
 
-                </div>
+<div class="how">
 
+<div class="how-label">
 
-                <div class="tool-info">
+COMO FUNCIONA
 
-                    <div class="tool-name">
-                        Markup
-                    </div>
+</div>
 
-                    <div class="tool-description">
 
-                        Descubra o multiplicador
-                        aplicado.
+<div class="how-text">
 
-                    </div>
+Digite o preço e o desconto.
+Veja o valor economizado
+e o preço final.
 
-                </div>
+</div>
 
+</div>
 
-            </div>
 
+<div class="tool-arrow">
 
-            <div class="how">
+→
 
-                <div class="how-label">
-                    COMO FUNCIONA
-                </div>
+</div>
 
-                <div class="how-text">
 
-                    Informe custo e venda.
-                    Veja markup, acréscimo
-                    e margem.
+</button>
 
-                </div>
 
-            </div>
 
+<!-- MARKUP -->
 
-            <div class="tool-arrow">
-                →
-            </div>
+<button
+class="tool markup"
+data-tool="markup">
 
 
-        </button>
+<div class="tool-top">
 
 
+<div class="tool-icon">
 
-        <!-- =================================================
-        COMISSÃO
-        ================================================= -->
+<img
+src="./assets/icons/markup.png"
+alt="Markup"
+loading="eager">
 
-        <button
-        class="tool commission"
-        data-tool="commission">
+</div>
 
 
-            <div class="tool-top">
+<div class="tool-info">
 
+<div class="tool-name">
 
-                <div class="tool-icon">
+Markup
 
-                    <img
-                    src="assets/icons/comissao.png"
-                    alt="Comissão">
+</div>
 
-                </div>
 
+<div class="tool-description">
 
-                <div class="tool-info">
+Descubra o multiplicador
+aplicado ao custo.
 
-                    <div class="tool-name">
-                        Comissão
-                    </div>
+</div>
 
-                    <div class="tool-description">
+</div>
 
-                        Saiba quanto você recebe
-                        em cada venda.
 
-                    </div>
+</div>
 
-                </div>
 
+<div class="how">
 
-            </div>
+<div class="how-label">
 
+COMO FUNCIONA
 
-            <div class="how">
+</div>
 
-                <div class="how-label">
-                    COMO FUNCIONA
-                </div>
 
-                <div class="how-text">
+<div class="how-text">
 
-                    Informe o valor vendido
-                    e a comissão. Veja
-                    quanto você recebe.
+Informe custo e venda.
+Veja markup, acréscimo
+e margem.
 
-                </div>
+</div>
 
-            </div>
+</div>
 
 
-            <div class="tool-arrow">
-                →
-            </div>
+<div class="tool-arrow">
 
+→
 
-        </button>
+</div>
 
 
+</button>
 
-        <!-- =================================================
-        CALCULADORA
-        ================================================= -->
 
-        <button
-        class="tool calculator-tool"
-        data-tool="calculator">
 
+<!-- COMISSÃO -->
 
-            <div class="tool-top">
+<button
+class="tool commission"
+data-tool="commission">
 
 
-                <div class="tool-icon">
+<div class="tool-top">
 
-                    <img
-                    src="assets/icons/calculadora.png"
-                    alt="Calculadora">
 
-                </div>
+<div class="tool-icon">
 
+<img
+src="./assets/icons/comissao.png"
+alt="Comissão"
+loading="eager">
 
-                <div class="tool-info">
+</div>
 
-                    <div class="tool-name">
-                        Calculadora
-                    </div>
 
-                    <div class="tool-description">
+<div class="tool-info">
 
-                        Faça contas rápidas
-                        e precisas.
+<div class="tool-name">
 
-                    </div>
+Comissão
 
-                </div>
+</div>
 
 
-            </div>
+<div class="tool-description">
 
+Saiba quanto você recebe
+em cada venda.
 
-            <div class="how">
+</div>
 
-                <div class="how-label">
-                    COMO FUNCIONA
-                </div>
+</div>
 
-                <div class="how-text">
 
-                    Use números, vírgulas,
-                    porcentagens, memória
-                    e operações matemáticas.
+</div>
 
-                </div>
 
-            </div>
+<div class="how">
 
+<div class="how-label">
 
-            <div class="tool-arrow">
-                →
-            </div>
+COMO FUNCIONA
 
+</div>
 
-        </button>
 
+<div class="how-text">
 
-    </div>
+Informe o valor vendido
+e a porcentagem da comissão.
 
+</div>
 
+</div>
 
-    <!-- PUBLICIDADE -->
 
-    <div class="ad">
+<div class="tool-arrow">
 
-        ESPAÇO RESERVADO PARA PUBLICIDADE
+→
 
-    </div>
+</div>
 
 
+</button>
 
-    <!-- APRESENTAÇÃO -->
 
-    <div class="hero">
 
-        <div class="hero-tag">
-            CALPRO EXPERT
-        </div>
+<!-- CALCULADORA -->
 
+<button
+class="tool calculator-tool"
+data-tool="calculator">
 
-        <h1>
 
-            Suas contas de vendas
-            <span>mais rápidas.</span>
+<div class="tool-top">
 
-        </h1>
 
+<div class="tool-icon">
 
-        <p>
+<img
+src="./assets/icons/calculadora.png"
+alt="Calculadora"
+loading="eager">
 
-            Ferramentas criadas para quem
-            trabalha com vendas, preço,
-            margem, desconto, comissão
-            e cálculos do dia a dia.
+</div>
 
-        </p>
 
-    </div>
+<div class="tool-info">
+
+<div class="tool-name">
+
+Calculadora
+
+</div>
+
+
+<div class="tool-description">
+
+Faça contas rápidas
+e precisas.
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="how">
+
+<div class="how-label">
+
+COMO FUNCIONA
+
+</div>
+
+
+<div class="how-text">
+
+Use números, vírgula,
+porcentagem e operações
+matemáticas.
+
+</div>
+
+</div>
+
+
+<div class="tool-arrow">
+
+→
+
+</div>
+
+
+</button>
+
+
+</div>
+
+
+
+<!-- PUBLICIDADE -->
+
+<div class="ad">
+
+ESPAÇO RESERVADO PARA PUBLICIDADE
+
+</div>
+
+
+
+<!-- APRESENTAÇÃO -->
+
+<div class="hero">
+
+
+<div class="hero-tag">
+
+CALPRO EXPERT
+
+</div>
+
+
+<h1>
+
+Venda com mais
+<span>precisão.</span>
+
+</h1>
+
+
+<p>
+
+Ferramentas profissionais para
+calcular preço, margem, desconto,
+markup, comissão e muito mais.
+
+</p>
+
+
+</div>
 
 
 </section>
@@ -1857,7 +2391,7 @@ class="page active">
 
 
 <!-- =====================================================
-FERRAMENTAS INTERNAS
+TOOL PAGE
 ===================================================== -->
 
 <section
@@ -1865,589 +2399,672 @@ id="toolPage"
 class="page">
 
 
-    <button
-    class="back"
-    id="backHome">
+<button
+class="back"
+id="backHome">
 
-        ← Voltar para ferramentas
+← VOLTAR PARA FERRAMENTAS
 
-    </button>
+</button>
 
 
 
-    <!-- =================================================
-    PREÇO
-    ================================================= -->
+<!-- =====================================================
+PRICE
+===================================================== -->
 
-    <div
-    id="tool-price"
-    class="tool-panel"
-    style="display:none">
+<div
+id="tool-price"
+class="tool-panel"
+style="display:none">
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="card-title">
-                Preço de Venda
-            </div>
 
+<div class="card-title">
 
-            <div class="card-description">
+Preço de Venda
 
-                Calcula o preço necessário
-                para atingir a margem desejada
-                sobre a venda.
+</div>
 
-            </div>
 
+<div class="card-description">
 
-            <div class="field">
+Informe o custo e a margem desejada.
+O CALPRO encontra o preço necessário
+para atingir essa margem.
 
-                <label>
-                    Preço de custo
-                </label>
+</div>
 
 
-                <input
-                id="priceCost"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="0,00">
+<div class="field">
 
-            </div>
+<label>
 
+Preço de custo
 
-            <div class="field">
+</label>
 
-                <label>
-                    Margem desejada (%)
-                </label>
 
+<input
+id="priceCost"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="0,00">
 
-                <input
-                id="priceMargin"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="30">
+</div>
 
-            </div>
 
+<div class="field">
 
-            <button
-            class="calculate"
-            id="btnPrice">
+<label>
 
-                CALCULAR PREÇO
+Margem desejada (%)
 
-            </button>
+</label>
 
 
-            <div
-            id="resultPrice"
-            class="result">
+<input
+id="priceMargin"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="30">
 
+</div>
 
-                <div class="result-label">
-                    PREÇO DE VENDA
-                </div>
 
+<button
+class="calculate"
+id="btnPrice">
 
-                <div
-                id="priceValue"
-                class="result-value">
+CALCULAR PREÇO
 
-                    R$ 0,00
+</button>
 
-                </div>
 
+<div
+class="result"
+id="resultPrice">
 
-            </div>
 
-        </div>
+<div class="result-label">
 
-    </div>
+PREÇO DE VENDA
 
+</div>
 
 
-    <!-- =================================================
-    MARGEM
-    ================================================= -->
+<div
+class="result-value"
+id="priceValue">
 
-    <div
-    id="tool-margin"
-    class="tool-panel"
-    style="display:none">
+R$ 0,00
 
+</div>
 
-        <div class="card">
 
-            <div class="card-title">
-                Margem de Lucro
-            </div>
+</div>
 
 
-            <div class="card-description">
+</div>
 
-                Mostra lucro, margem percentual
-                e markup a partir do custo
-                e preço de venda.
 
-            </div>
+</div>
 
 
-            <div class="field">
 
-                <label>
-                    Preço de custo
-                </label>
+<!-- =====================================================
+MARGIN
+===================================================== -->
 
+<div
+id="tool-margin"
+class="tool-panel"
+style="display:none">
 
-                <input
-                id="marginCost"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="0,00">
 
-            </div>
+<div class="card">
 
 
-            <div class="field">
+<div class="card-title">
 
-                <label>
-                    Preço de venda
-                </label>
+Margem de Lucro
 
+</div>
 
-                <input
-                id="marginSale"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="0,00">
 
-            </div>
+<div class="card-description">
 
+Veja quanto realmente sobra
+da sua venda depois de considerar
+o custo do produto.
 
-            <button
-            class="calculate"
-            id="btnMargin">
+</div>
 
-                CALCULAR MARGEM
 
-            </button>
+<div class="field">
 
+<label>
 
-            <div
-            id="resultMargin"
-            class="result">
+Preço de custo
 
+</label>
 
-                <div class="result-label">
-                    MARGEM DE LUCRO
-                </div>
 
+<input
+id="marginCost"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="0,00">
 
-                <div
-                id="marginValue"
-                class="result-value">
+</div>
 
-                    0,00%
 
-                </div>
+<div class="field">
 
+<label>
 
-                <div class="result-grid">
+Preço de venda
 
+</label>
 
-                    <div class="result-box">
 
-                        <small>
-                            Lucro
-                        </small>
+<input
+id="marginSale"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="0,00">
 
-                        <strong id="marginProfit">
-                            R$ 0,00
-                        </strong>
+</div>
 
-                    </div>
 
+<button
+class="calculate"
+id="btnMargin">
 
-                    <div class="result-box">
+CALCULAR MARGEM
 
-                        <small>
-                            Markup
-                        </small>
+</button>
 
-                        <strong id="marginMarkup">
-                            0,00x
-                        </strong>
 
-                    </div>
+<div
+class="result"
+id="resultMargin">
 
 
-                </div>
+<div class="result-label">
 
+MARGEM
 
-            </div>
+</div>
 
-        </div>
 
-    </div>
+<div
+class="result-value"
+id="marginValue">
 
+0,00%
 
+</div>
 
-    <!-- =================================================
-    DESCONTO
-    ================================================= -->
 
-    <div
-    id="tool-discount"
-    class="tool-panel"
-    style="display:none">
+<div class="result-grid">
 
 
-        <div class="card">
+<div class="result-box">
 
-            <div class="card-title">
-                Desconto
-            </div>
+<small>
 
+Lucro
 
-            <div class="card-description">
+</small>
 
-                Calcula exatamente o desconto
-                concedido e o preço final.
+<strong
+id="marginProfit">
 
-            </div>
+R$ 0,00
 
+</strong>
 
-            <div class="field">
+</div>
 
-                <label>
-                    Preço original
-                </label>
 
+<div class="result-box">
 
-                <input
-                id="discountPrice"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="0,00">
+<small>
 
-            </div>
+Markup
 
+</small>
 
-            <div class="field">
+<strong
+id="marginMarkup">
 
-                <label>
-                    Desconto (%)
-                </label>
+0,00x
 
+</strong>
 
-                <input
-                id="discountPercent"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="10">
+</div>
 
-            </div>
 
+</div>
 
-            <button
-            class="calculate"
-            id="btnDiscount">
 
-                CALCULAR DESCONTO
+</div>
 
-            </button>
 
+</div>
 
-            <div
-            id="resultDiscount"
-            class="result">
 
+</div>
 
-                <div class="result-label">
-                    PREÇO FINAL
-                </div>
 
 
-                <div
-                id="discountValue"
-                class="result-value">
+<!-- =====================================================
+DISCOUNT
+===================================================== -->
 
-                    R$ 0,00
+<div
+id="tool-discount"
+class="tool-panel"
+style="display:none">
 
-                </div>
 
+<div class="card">
 
-                <div class="result-grid">
 
+<div class="card-title">
 
-                    <div class="result-box">
+Desconto
 
-                        <small>
-                            Valor do desconto
-                        </small>
+</div>
 
-                        <strong id="discountAmount">
-                            R$ 0,00
-                        </strong>
 
-                    </div>
+<div class="card-description">
 
+Veja quanto será descontado
+e qual será o preço final.
 
-                    <div class="result-box">
+</div>
 
-                        <small>
-                            Percentual
-                        </small>
 
-                        <strong
-                        id="discountPercentValue">
+<div class="field">
 
-                            0,00%
+<label>
 
-                        </strong>
+Preço original
 
-                    </div>
+</label>
 
 
-                </div>
+<input
+id="discountPrice"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="0,00">
 
+</div>
 
-            </div>
 
-        </div>
+<div class="field">
 
-    </div>
+<label>
 
+Desconto (%)
 
+</label>
 
-    <!-- =================================================
-    MARKUP
-    ================================================= -->
 
-    <div
-    id="tool-markup"
-    class="tool-panel"
-    style="display:none">
+<input
+id="discountPercent"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="10">
 
+</div>
 
-        <div class="card">
 
-            <div class="card-title">
-                Markup
-            </div>
+<button
+class="calculate"
+id="btnDiscount">
 
+CALCULAR DESCONTO
 
-            <div class="card-description">
+</button>
 
-                Mostra o multiplicador do custo,
-                o acréscimo e a margem correspondente.
 
-            </div>
+<div
+class="result"
+id="resultDiscount">
 
 
-            <div class="field">
+<div class="result-label">
 
-                <label>
-                    Preço de custo
-                </label>
+PREÇO FINAL
 
+</div>
 
-                <input
-                id="markupCost"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="0,00">
 
-            </div>
+<div
+class="result-value"
+id="discountValue">
 
+R$ 0,00
 
-            <div class="field">
+</div>
 
-                <label>
-                    Preço de venda
-                </label>
 
+<div class="result-grid">
 
-                <input
-                id="markupSale"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="0,00">
 
-            </div>
+<div class="result-box">
 
+<small>
 
-            <button
-            class="calculate"
-            id="btnMarkup">
+Desconto
 
-                CALCULAR MARKUP
+</small>
 
-            </button>
+<strong
+id="discountAmount">
 
+R$ 0,00
 
-            <div
-            id="resultMarkup"
-            class="result">
+</strong>
 
+</div>
 
-                <div class="result-label">
-                    MARKUP
-                </div>
 
+<div class="result-box">
 
-                <div
-                id="markupValue"
-                class="result-value">
+<small>
 
-                    0,00x
+Percentual
 
-                </div>
+</small>
 
+<strong
+id="discountPercentValue">
 
-                <div class="result-grid">
+0,00%
 
+</strong>
 
-                    <div class="result-box">
+</div>
 
-                        <small>
-                            Acréscimo
-                        </small>
 
-                        <strong id="markupIncrease">
-                            0,00%
-                        </strong>
+</div>
 
-                    </div>
 
+</div>
 
-                    <div class="result-box">
 
-                        <small>
-                            Margem
-                        </small>
+</div>
 
-                        <strong id="markupMargin">
-                            0,00%
-                        </strong>
 
-                    </div>
+</div>
 
 
-                </div>
 
+<!-- =====================================================
+MARKUP
+===================================================== -->
 
-            </div>
+<div
+id="tool-markup"
+class="tool-panel"
+style="display:none">
 
-        </div>
 
-    </div>
+<div class="card">
 
 
+<div class="card-title">
 
-    <!-- =================================================
-    COMISSÃO
-    ================================================= -->
+Markup
 
-    <div
-    id="tool-commission"
-    class="tool-panel"
-    style="display:none">
+</div>
 
 
-        <div class="card">
+<div class="card-description">
 
-            <div class="card-title">
-                Comissão
-            </div>
+Descubra quantas vezes o preço
+de venda representa o custo
+do produto.
 
+</div>
 
-            <div class="card-description">
 
-                Calcula o valor exato da comissão
-                sobre uma venda.
+<div class="field">
 
-            </div>
+<label>
 
+Preço de custo
 
-            <div class="field">
+</label>
 
-                <label>
-                    Valor da venda
-                </label>
 
+<input
+id="markupCost"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="0,00">
 
-                <input
-                id="commissionSale"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="0,00">
+</div>
 
-            </div>
 
+<div class="field">
 
-            <div class="field">
+<label>
 
-                <label>
-                    Comissão (%)
-                </label>
+Preço de venda
 
+</label>
 
-                <input
-                id="commissionPercent"
-                type="text"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="5">
 
-            </div>
+<input
+id="markupSale"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="0,00">
 
+</div>
 
-            <button
-            class="calculate"
-            id="btnCommission">
 
-                CALCULAR COMISSÃO
+<button
+class="calculate"
+id="btnMarkup">
 
-            </button>
+CALCULAR MARKUP
 
+</button>
 
-            <div
-            id="resultCommission"
-            class="result">
 
+<div
+class="result"
+id="resultMarkup">
 
-                <div class="result-label">
-                    SUA COMISSÃO
-                </div>
 
+<div class="result-label">
 
-                <div
-                id="commissionValue"
-                class="result-value">
+MARKUP
 
-                    R$ 0,00
+</div>
 
-                </div>
 
+<div
+class="result-value"
+id="markupValue">
 
-            </div>
+0,00x
 
-        </div>
+</div>
 
-    </div>
+
+<div class="result-grid">
+
+
+<div class="result-box">
+
+<small>
+
+Acréscimo
+
+</small>
+
+<strong
+id="markupIncrease">
+
+0,00%
+
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+<small>
+
+Margem
+
+</small>
+
+<strong
+id="markupMargin">
+
+0,00%
+
+</strong>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+COMMISSION
+===================================================== -->
+
+<div
+id="tool-commission"
+class="tool-panel"
+style="display:none">
+
+
+<div class="card">
+
+
+<div class="card-title">
+
+Comissão
+
+</div>
+
+
+<div class="card-description">
+
+Descubra exatamente quanto
+você recebe sobre uma venda.
+
+</div>
+
+
+<div class="field">
+
+<label>
+
+Valor da venda
+
+</label>
+
+
+<input
+id="commissionSale"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="0,00">
+
+</div>
+
+
+<div class="field">
+
+<label>
+
+Comissão (%)
+
+</label>
+
+
+<input
+id="commissionPercent"
+type="text"
+inputmode="decimal"
+autocomplete="off"
+placeholder="5">
+
+</div>
+
+
+<button
+class="calculate"
+id="btnCommission">
+
+CALCULAR COMISSÃO
+
+</button>
+
+
+<div
+class="result"
+id="resultCommission">
+
+
+<div class="result-label">
+
+SUA COMISSÃO
+
+</div>
+
+
+<div
+class="result-value"
+id="commissionValue">
+
+R$ 0,00
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
 
 
 </section>
@@ -2455,7 +3072,7 @@ class="page">
 
 
 <!-- =====================================================
-CALCULADORA
+CALCULATOR
 ===================================================== -->
 
 <section
@@ -2463,268 +3080,289 @@ id="calculator"
 class="page">
 
 
-    <div class="calculator">
+<div class="calculator">
 
 
-        <div class="card">
+<div class="card">
 
-            <div class="card-title">
-                Calculadora Expert
-            </div>
 
+<div class="card-title">
 
-            <div class="card-description">
+Calculadora Expert
 
-                Calculadora comercial com precisão
-                decimal, porcentagem, memória,
-                operações consecutivas e histórico.
+</div>
 
-            </div>
 
+<div class="card-description">
 
-            <div class="display">
+Calculadora comercial com
+vírgula decimal, porcentagem,
+memória e operações consecutivas.
 
-                <div
-                id="expression"
-                class="expression">
-                </div>
+</div>
 
 
-                <div
-                id="display"
-                class="display-number">
+<div class="display">
 
-                    0
 
-                </div>
+<div
+class="expression"
+id="expression">
 
-            </div>
+</div>
 
 
-            <div class="memory">
+<div
+class="display-number"
+id="display">
 
-                <button data-memory="clear">
-                    MC
-                </button>
+0
 
-                <button data-memory="recall">
-                    MR
-                </button>
+</div>
 
-                <button data-memory="add">
-                    M+
-                </button>
 
-                <button data-memory="subtract">
-                    M−
-                </button>
+</div>
 
-                <button data-memory="store">
-                    MS
-                </button>
 
-            </div>
+<div class="memory">
 
 
-            <div class="keypad">
+<button data-memory="clear">
 
+MC
 
-                <button
-                class="key special"
-                data-action="clear">
+</button>
 
-                    AC
 
-                </button>
+<button data-memory="recall">
 
+MR
 
-                <button
-                class="key special"
-                data-action="backspace">
+</button>
 
-                    ⌫
 
-                </button>
+<button data-memory="add">
 
+M+
 
-                <button
-                class="key operator"
-                data-action="percent">
+</button>
 
-                    %
 
-                </button>
+<button data-memory="subtract">
 
+M−
 
-                <button
-                class="key operator"
-                data-operator="/">
+</button>
 
-                    ÷
 
-                </button>
+<button data-memory="store">
 
+MS
 
+</button>
 
-                <button
-                class="key"
-                data-number="7">
 
-                    7
+</div>
 
-                </button>
 
+<div class="keypad">
 
-                <button
-                class="key"
-                data-number="8">
 
-                    8
+<button
+class="key special"
+data-action="clear">
 
-                </button>
+AC
 
+</button>
 
-                <button
-                class="key"
-                data-number="9">
 
-                    9
+<button
+class="key special"
+data-action="backspace">
 
-                </button>
+⌫
 
+</button>
 
-                <button
-                class="key operator"
-                data-operator="*">
 
-                    ×
+<button
+class="key operator"
+data-action="percent">
 
-                </button>
+%
 
+</button>
 
 
-                <button
-                class="key"
-                data-number="4">
+<button
+class="key operator"
+data-operator="/">
 
-                    4
+÷
 
-                </button>
+</button>
 
 
-                <button
-                class="key"
-                data-number="5">
+<button
+class="key"
+data-number="7">
 
-                    5
+7
 
-                </button>
+</button>
 
 
-                <button
-                class="key"
-                data-number="6">
+<button
+class="key"
+data-number="8">
 
-                    6
+8
 
-                </button>
+</button>
 
 
-                <button
-                class="key operator"
-                data-operator="-">
+<button
+class="key"
+data-number="9">
 
-                    −
+9
 
-                </button>
+</button>
 
 
+<button
+class="key operator"
+data-operator="*">
 
-                <button
-                class="key"
-                data-number="1">
+×
 
-                    1
+</button>
 
-                </button>
 
+<button
+class="key"
+data-number="4">
 
-                <button
-                class="key"
-                data-number="2">
+4
 
-                    2
+</button>
 
-                </button>
 
+<button
+class="key"
+data-number="5">
 
-                <button
-                class="key"
-                data-number="3">
+5
 
-                    3
+</button>
 
-                </button>
 
+<button
+class="key"
+data-number="6">
 
-                <button
-                class="key operator"
-                data-operator="+">
+6
 
-                    +
+</button>
 
-                </button>
 
+<button
+class="key operator"
+data-operator="-">
 
+−
 
-                <button
-                class="key special"
-                data-action="sign">
+</button>
 
-                    ±
 
-                </button>
+<button
+class="key"
+data-number="1">
 
+1
 
-                <button
-                class="key"
-                data-number="0">
+</button>
 
-                    0
 
-                </button>
+<button
+class="key"
+data-number="2">
 
+2
 
-                <button
-                class="key"
-                data-action="decimal">
+</button>
 
-                    ,
 
-                </button>
+<button
+class="key"
+data-number="3">
 
+3
 
-                <button
-                class="key equal"
-                data-action="equals">
+</button>
 
-                    =
 
-                </button>
+<button
+class="key operator"
+data-operator="+">
 
++
 
-            </div>
+</button>
 
-        </div>
 
-    </div>
+<button
+class="key special"
+data-action="sign">
+
+±
+
+</button>
+
+
+<button
+class="key"
+data-number="0">
+
+0
+
+</button>
+
+
+<button
+class="key"
+data-action="decimal">
+
+,
+
+</button>
+
+
+<button
+class="key equal"
+data-action="equals">
+
+=
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
 
 </section>
 
 
 
 <!-- =====================================================
-HISTÓRICO
+HISTORY
 ===================================================== -->
 
 <section
@@ -2732,33 +3370,39 @@ id="history"
 class="page">
 
 
-    <div class="card">
-
-        <div class="card-title">
-            Histórico
-        </div>
+<div class="card">
 
 
-        <div class="card-description">
+<div class="card-title">
 
-            Últimos cálculos realizados
-            no CALPRO.
+Histórico
 
-        </div>
-
-
-        <button
-        id="clearHistory"
-        class="clear-history">
-
-            🗑 LIMPAR HISTÓRICO
-
-        </button>
+</div>
 
 
-        <div id="historyList"></div>
+<div class="card-description">
 
-    </div>
+Seus últimos cálculos realizados
+ficam salvos neste aparelho.
+
+</div>
+
+
+<button
+class="clear-history"
+id="clearHistory">
+
+🗑 LIMPAR HISTÓRICO
+
+</button>
+
+
+<div id="historyList">
+
+</div>
+
+
+</div>
 
 
 </section>
@@ -2767,17 +3411,18 @@ class="page">
 
 <footer class="footer">
 
-    <b>CALPRO EXPERT</b>
+<b>CALPRO EXPERT</b>
 
-    <br>
-    <br>
+<br>
+<br>
 
-    Calcule certo. Venda melhor.
+Calcule certo. Venda melhor.
 
 </footer>
 
 
 </main>
+
 
 </div>
 
@@ -2785,6 +3430,7 @@ class="page">
 <div
 id="toast"
 class="toast">
+
 </div>
 
 
@@ -2798,19 +3444,35 @@ UTILIDADES
 function parseNumber(value){
 
     if(
-        value===null ||
-        value===undefined
+        value === null ||
+        value === undefined
     ){
+
         return 0;
+
     }
 
-    let text=String(value)
-        .trim()
-        .replace(/\s/g,'');
+
+    let text =
+    String(value)
+    .trim()
+    .replace(/\s/g,'');
+
 
     if(!text){
+
         return 0;
+
     }
+
+
+    /*
+    Aceita:
+
+    1.234,56
+    1234,56
+    1234.56
+    */
 
     if(
         text.includes(',') &&
@@ -2822,94 +3484,141 @@ function parseNumber(value){
             text.lastIndexOf('.')
         ){
 
-            text=text
-                .replace(/\./g,'')
-                .replace(',','.');
+            text =
+            text
+            .replace(/\./g,'')
+            .replace(',','.');
 
         }else{
 
-            text=text.replace(/,/g,'');
+            text =
+            text.replace(/,/g,'');
 
         }
 
-    }else if(
-        text.includes(',')
-    ){
+    }else{
 
-        text=text.replace(',','.');
+        text =
+        text.replace(',','.');
 
     }
 
-    text=text.replace(
+
+    text =
+    text.replace(
         /[^0-9.-]/g,
         ''
     );
 
-    const n=Number(text);
 
-    return Number.isFinite(n)
-        ? n
-        : 0;
+    const number =
+    Number(text);
+
+
+    return Number.isFinite(number)
+    ? number
+    : 0;
+
+}
+
+
+function round(value){
+
+    return Math.round(
+        (value + Number.EPSILON) *
+        100000000
+    ) / 100000000;
+
 }
 
 
 function formatNumber(value){
 
-    const n=Number(value);
+    const number =
+    Number(value);
 
-    if(!Number.isFinite(n)){
+
+    if(
+        !Number.isFinite(number)
+    ){
+
         return '0,00';
+
     }
 
-    return n.toLocaleString(
+
+    return number.toLocaleString(
         'pt-BR',
         {
             minimumFractionDigits:2,
-            maximumFractionDigits:2
+            maximumFractionDigits:4
         }
     );
+
 }
 
 
 function money(value){
 
-    const n=Number(value);
+    const number =
+    Number(value);
 
-    if(!Number.isFinite(n)){
+
+    if(
+        !Number.isFinite(number)
+    ){
+
         return 'R$ 0,00';
+
     }
 
+
     return 'R$ '+
-    n.toLocaleString(
+    number.toLocaleString(
         'pt-BR',
         {
             minimumFractionDigits:2,
             maximumFractionDigits:2
         }
     );
+
 }
 
 
 function toast(message){
 
-    const el=
-    document.getElementById('toast');
-
-    el.textContent=message;
-
-    el.classList.add('show');
-
-    clearTimeout(
-        window.__toastTimer
+    const element =
+    document.getElementById(
+        'toast'
     );
 
-    window.__toastTimer=
+
+    element.textContent =
+    message;
+
+
+    element.classList.add(
+        'show'
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
     setTimeout(
-        ()=>{
-            el.classList.remove('show');
+        function(){
+
+            element.classList.remove(
+                'show'
+            );
+
         },
         1800
     );
+
 }
 
 
@@ -2917,119 +3626,152 @@ function toast(message){
 NAVEGAÇÃO
 ===================================================== */
 
-const pages=
-document.querySelectorAll('.page');
+const pages =
+document.querySelectorAll(
+    '.page'
+);
 
-const navButtons=
-document.querySelectorAll('.nav button');
+
+const navButtons =
+document.querySelectorAll(
+    '.nav button'
+);
 
 
 function showPage(id){
 
-    pages.forEach(page=>{
+    pages.forEach(
+        function(page){
 
-        page.classList.toggle(
-            'active',
-            page.id===id
-        );
+            page.classList.toggle(
+                'active',
+                page.id === id
+            );
 
-    });
+        }
+    );
 
 
-    navButtons.forEach(button=>{
+    navButtons.forEach(
+        function(button){
 
-        button.classList.toggle(
-            'active',
-            button.dataset.page===id
-        );
+            button.classList.toggle(
+                'active',
+                button.dataset.page === id
+            );
 
-    });
+        }
+    );
 
 
     window.scrollTo({
         top:0,
         behavior:'smooth'
     });
+
 }
 
 
-navButtons.forEach(button=>{
+navButtons.forEach(
+    function(button){
 
-    button.addEventListener(
-        'click',
-        ()=>{
-            showPage(
-                button.dataset.page
-            );
-        }
-    );
+        button.addEventListener(
+            'click',
+            function(){
 
-});
+                showPage(
+                    button.dataset.page
+                );
+
+            }
+        );
+
+    }
+);
 
 
 /* =====================================================
 ABRIR FERRAMENTAS
 ===================================================== */
 
-document.querySelectorAll('.tool')
-.forEach(button=>{
+document
+.querySelectorAll('.tool')
+.forEach(
+    function(button){
 
-    button.addEventListener(
-        'click',
-        ()=>{
+        button.addEventListener(
+            'click',
+            function(){
 
-            const tool=
-            button.dataset.tool;
+                const tool =
+                button.dataset.tool;
 
 
-            if(tool==='calculator'){
+                if(
+                    tool ===
+                    'calculator'
+                ){
+
+                    showPage(
+                        'calculator'
+                    );
+
+                    return;
+
+                }
+
 
                 showPage(
-                    'calculator'
+                    'toolPage'
                 );
 
-                return;
+
+                document
+                .querySelectorAll(
+                    '.tool-panel'
+                )
+                .forEach(
+                    function(panel){
+
+                        panel.style.display =
+                        'none';
+
+                    }
+                );
+
+
+                const panel =
+                document.getElementById(
+                    'tool-' + tool
+                );
+
+
+                if(panel){
+
+                    panel.style.display =
+                    'block';
+
+                }
+
             }
+        );
 
-
-            showPage(
-                'toolPage'
-            );
-
-
-            document
-            .querySelectorAll('.tool-panel')
-            .forEach(panel=>{
-
-                panel.style.display='none';
-
-            });
-
-
-            const panel=
-            document.getElementById(
-                'tool-'+tool
-            );
-
-
-            if(panel){
-
-                panel.style.display='block';
-
-            }
-
-        }
-    );
-
-});
+    }
+);
 
 
 document
-.getElementById('backHome')
+.getElementById(
+    'backHome'
+)
 .addEventListener(
     'click',
-    ()=>{
-        showPage('home');
+    function(){
+
+        showPage(
+            'home'
+        );
+
     }
 );
 
@@ -3039,62 +3781,68 @@ PREÇO DE VENDA
 ===================================================== */
 
 document
-.getElementById('btnPrice')
+.getElementById(
+    'btnPrice'
+)
 .addEventListener(
     'click',
-    ()=>{
+    function(){
 
-        const cost=
+        const cost =
         parseNumber(
             document
             .getElementById(
                 'priceCost'
-            ).value
+            )
+            .value
         );
 
 
-        const margin=
+        const margin =
         parseNumber(
             document
             .getElementById(
                 'priceMargin'
-            ).value
+            )
+            .value
         );
 
 
-        if(cost<=0){
+        if(cost <= 0){
 
             toast(
                 'Digite um custo válido.'
             );
 
             return;
+
         }
 
 
         if(
-            margin<0 ||
-            margin>=100
+            margin < 0 ||
+            margin >= 100
         ){
 
             toast(
-                'A margem deve estar entre 0% e 99,99%.'
+                'A margem deve ficar entre 0% e 99,99%.'
             );
 
             return;
+
         }
 
 
-        const price=
+        const price =
         cost /
-        (1-margin/100);
+        (1 - margin / 100);
 
 
         document
         .getElementById(
             'priceValue'
         )
-        .textContent=
+        .textContent =
         money(price);
 
 
@@ -3102,15 +3850,16 @@ document
         .getElementById(
             'resultPrice'
         )
-        .style.display='block';
+        .style.display =
+        'block';
 
 
         addHistory(
             'Preço de Venda',
-            'Custo '+
-            money(cost)+
-            ' • Margem '+
-            formatNumber(margin)+
+            'Custo: ' +
+            money(cost) +
+            ' | Margem: ' +
+            formatNumber(margin) +
             '%',
             money(price)
         );
@@ -3124,60 +3873,65 @@ MARGEM
 ===================================================== */
 
 document
-.getElementById('btnMargin')
+.getElementById(
+    'btnMargin'
+)
 .addEventListener(
     'click',
-    ()=>{
+    function(){
 
-        const cost=
+        const cost =
         parseNumber(
             document
             .getElementById(
                 'marginCost'
-            ).value
+            )
+            .value
         );
 
 
-        const sale=
+        const sale =
         parseNumber(
             document
             .getElementById(
                 'marginSale'
-            ).value
+            )
+            .value
         );
 
 
         if(
-            cost<=0 ||
-            sale<=0
+            cost <= 0 ||
+            sale <= 0
         ){
 
             toast(
-                'Digite custo e preço de venda.'
+                'Digite custo e venda.'
             );
 
             return;
+
         }
 
 
-        const profit=
-        sale-cost;
+        const profit =
+        sale - cost;
 
 
-        const margin=
-        (profit/sale)*100;
+        const margin =
+        (profit / sale) * 100;
 
 
-        const markup=
-        sale/cost;
+        const markup =
+        sale / cost;
 
 
         document
         .getElementById(
             'marginValue'
         )
-        .textContent=
-        formatNumber(margin)+
+        .textContent =
+        formatNumber(margin) +
         '%';
 
 
@@ -3185,7 +3939,7 @@ document
         .getElementById(
             'marginProfit'
         )
-        .textContent=
+        .textContent =
         money(profit);
 
 
@@ -3193,8 +3947,8 @@ document
         .getElementById(
             'marginMarkup'
         )
-        .textContent=
-        formatNumber(markup)+
+        .textContent =
+        formatNumber(markup) +
         'x';
 
 
@@ -3202,15 +3956,16 @@ document
         .getElementById(
             'resultMargin'
         )
-        .style.display='block';
+        .style.display =
+        'block';
 
 
         addHistory(
             'Margem',
-            money(cost)+
-            ' → '+
+            money(cost) +
+            ' → ' +
             money(sale),
-            formatNumber(margin)+
+            formatNumber(margin) +
             '%'
         );
 
@@ -3223,42 +3978,47 @@ DESCONTO
 ===================================================== */
 
 document
-.getElementById('btnDiscount')
+.getElementById(
+    'btnDiscount'
+)
 .addEventListener(
     'click',
-    ()=>{
+    function(){
 
-        const price=
+        const price =
         parseNumber(
             document
             .getElementById(
                 'discountPrice'
-            ).value
+            )
+            .value
         );
 
 
-        const percent=
+        const percent =
         parseNumber(
             document
             .getElementById(
                 'discountPercent'
-            ).value
+            )
+            .value
         );
 
 
-        if(price<=0){
+        if(price <= 0){
 
             toast(
                 'Digite o preço original.'
             );
 
             return;
+
         }
 
 
         if(
-            percent<0 ||
-            percent>100
+            percent < 0 ||
+            percent > 100
         ){
 
             toast(
@@ -3266,22 +4026,25 @@ document
             );
 
             return;
+
         }
 
 
-        const amount=
-        price*percent/100;
+        const amount =
+        price *
+        percent /
+        100;
 
 
-        const finalPrice=
-        price-amount;
+        const finalPrice =
+        price - amount;
 
 
         document
         .getElementById(
             'discountValue'
         )
-        .textContent=
+        .textContent =
         money(finalPrice);
 
 
@@ -3289,7 +4052,7 @@ document
         .getElementById(
             'discountAmount'
         )
-        .textContent=
+        .textContent =
         money(amount);
 
 
@@ -3297,8 +4060,8 @@ document
         .getElementById(
             'discountPercentValue'
         )
-        .textContent=
-        formatNumber(percent)+
+        .textContent =
+        formatNumber(percent) +
         '%';
 
 
@@ -3306,14 +4069,15 @@ document
         .getElementById(
             'resultDiscount'
         )
-        .style.display='block';
+        .style.display =
+        'block';
 
 
         addHistory(
             'Desconto',
-            money(price)+
-            ' • '+
-            formatNumber(percent)+
+            money(price) +
+            ' | ' +
+            formatNumber(percent) +
             '%',
             money(finalPrice)
         );
@@ -3327,60 +4091,67 @@ MARKUP
 ===================================================== */
 
 document
-.getElementById('btnMarkup')
+.getElementById(
+    'btnMarkup'
+)
 .addEventListener(
     'click',
-    ()=>{
+    function(){
 
-        const cost=
+        const cost =
         parseNumber(
             document
             .getElementById(
                 'markupCost'
-            ).value
+            )
+            .value
         );
 
 
-        const sale=
+        const sale =
         parseNumber(
             document
             .getElementById(
                 'markupSale'
-            ).value
+            )
+            .value
         );
 
 
         if(
-            cost<=0 ||
-            sale<=0
+            cost <= 0 ||
+            sale <= 0
         ){
 
             toast(
-                'Digite custo e preço de venda.'
+                'Digite custo e venda.'
             );
 
             return;
+
         }
 
 
-        const markup=
-        sale/cost;
+        const markup =
+        sale / cost;
 
 
-        const increase=
-        ((sale-cost)/cost)*100;
+        const increase =
+        ((sale - cost) / cost) *
+        100;
 
 
-        const margin=
-        ((sale-cost)/sale)*100;
+        const margin =
+        ((sale - cost) / sale) *
+        100;
 
 
         document
         .getElementById(
             'markupValue'
         )
-        .textContent=
-        formatNumber(markup)+
+        .textContent =
+        formatNumber(markup) +
         'x';
 
 
@@ -3388,8 +4159,8 @@ document
         .getElementById(
             'markupIncrease'
         )
-        .textContent=
-        formatNumber(increase)+
+        .textContent =
+        formatNumber(increase) +
         '%';
 
 
@@ -3397,8 +4168,8 @@ document
         .getElementById(
             'markupMargin'
         )
-        .textContent=
-        formatNumber(margin)+
+        .textContent =
+        formatNumber(margin) +
         '%';
 
 
@@ -3406,15 +4177,16 @@ document
         .getElementById(
             'resultMarkup'
         )
-        .style.display='block';
+        .style.display =
+        'block';
 
 
         addHistory(
             'Markup',
-            money(cost)+
-            ' → '+
+            money(cost) +
+            ' → ' +
             money(sale),
-            formatNumber(markup)+
+            formatNumber(markup) +
             'x'
         );
 
@@ -3427,58 +4199,66 @@ COMISSÃO
 ===================================================== */
 
 document
-.getElementById('btnCommission')
+.getElementById(
+    'btnCommission'
+)
 .addEventListener(
     'click',
-    ()=>{
+    function(){
 
-        const sale=
+        const sale =
         parseNumber(
             document
             .getElementById(
                 'commissionSale'
-            ).value
+            )
+            .value
         );
 
 
-        const percent=
+        const percent =
         parseNumber(
             document
             .getElementById(
                 'commissionPercent'
-            ).value
+            )
+            .value
         );
 
 
-        if(sale<=0){
+        if(sale <= 0){
 
             toast(
                 'Digite o valor da venda.'
             );
 
             return;
+
         }
 
 
-        if(percent<0){
+        if(percent < 0){
 
             toast(
                 'Comissão inválida.'
             );
 
             return;
+
         }
 
 
-        const commission=
-        sale*percent/100;
+        const commission =
+        sale *
+        percent /
+        100;
 
 
         document
         .getElementById(
             'commissionValue'
         )
-        .textContent=
+        .textContent =
         money(commission);
 
 
@@ -3486,14 +4266,15 @@ document
         .getElementById(
             'resultCommission'
         )
-        .style.display='block';
+        .style.display =
+        'block';
 
 
         addHistory(
             'Comissão',
-            money(sale)+
-            ' • '+
-            formatNumber(percent)+
+            money(sale) +
+            ' | ' +
+            formatNumber(percent) +
             '%',
             money(commission)
         );
@@ -3506,12 +4287,12 @@ document
 HISTÓRICO
 ===================================================== */
 
-let historyData=[];
+let historyData = [];
 
 
 try{
 
-    historyData=
+    historyData =
     JSON.parse(
         localStorage.getItem(
             'calpro_history'
@@ -3523,13 +4304,45 @@ try{
         !Array.isArray(historyData)
     ){
 
-        historyData=[];
+        historyData = [];
 
     }
 
-}catch(e){
+}catch(error){
 
-    historyData=[];
+    historyData = [];
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value)
+
+    .replace(
+        /&/g,
+        '&amp;'
+    )
+
+    .replace(
+        /</g,
+        '&lt;'
+    )
+
+    .replace(
+        />/g,
+        '&gt;'
+    )
+
+    .replace(
+        /"/g,
+        '&quot;'
+    )
+
+    .replace(
+        /'/g,
+        '&#039;'
+    );
 
 }
 
@@ -3557,7 +4370,7 @@ function addHistory(
     });
 
 
-    historyData=
+    historyData =
     historyData.slice(
         0,
         50
@@ -3573,98 +4386,88 @@ function addHistory(
             )
         );
 
-    }catch(e){}
+    }catch(error){}
 
 
     renderHistory();
-}
-
-
-function escapeHTML(value){
-
-    return String(value)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/'/g,'&#039;');
 
 }
 
 
 function renderHistory(){
 
-    const list=
-    document
-    .getElementById(
+    const list =
+    document.getElementById(
         'historyList'
     );
 
 
     if(
-        historyData.length===0
+        historyData.length === 0
     ){
 
-        list.className=
+        list.className =
         'history-empty';
 
-        list.textContent=
-        'Nenhuma conta realizada ainda.';
+        list.textContent =
+        'Nenhum cálculo realizado ainda.';
 
         return;
 
     }
 
 
-    list.className='';
+    list.className = '';
 
 
-    list.innerHTML=
+    list.innerHTML =
     historyData
     .map(
-        item=>`
+        function(item){
 
-        <div class="history-item">
+            return `
 
-            <div>
+            <div class="history-item">
 
-                <div class="history-name">
+                <div>
 
-                    ${escapeHTML(
-                        item.type
-                    )}
+                    <div class="history-name">
+
+                        ${escapeHTML(
+                            item.type
+                        )}
+
+                    </div>
+
+                    <div class="history-info">
+
+                        ${escapeHTML(
+                            item.info
+                        )}
+
+                        <br>
+
+                        ${escapeHTML(
+                            item.date
+                        )}
+
+                    </div>
 
                 </div>
 
-
-                <div class="history-info">
-
-                    ${escapeHTML(
-                        item.info
-                    )}
-
-                    <br>
+                <div class="history-result">
 
                     ${escapeHTML(
-                        item.date
+                        item.result
                     )}
 
                 </div>
 
             </div>
 
+            `;
 
-            <div class="history-result">
-
-                ${escapeHTML(
-                    item.result
-                )}
-
-            </div>
-
-        </div>
-
-        `
+        }
     )
     .join('');
 
@@ -3680,32 +4483,35 @@ document
 )
 .addEventListener(
     'click',
-    ()=>{
+    function(){
 
         if(
-            historyData.length===0
+            historyData.length === 0
         ){
 
             toast(
-                'O histórico já está vazio.'
+                'Histórico já está vazio.'
             );
 
             return;
+
         }
 
 
-        if(
-            !confirm(
-                'Deseja apagar todo o histórico?'
-            )
-        ){
+        const confirmed =
+        confirm(
+            'Deseja apagar todo o histórico?'
+        );
+
+
+        if(!confirmed){
 
             return;
 
         }
 
 
-        historyData=[];
+        historyData = [];
 
 
         localStorage.removeItem(
@@ -3725,941 +4531,118 @@ document
 
 
 /* =====================================================
-MOTOR DECIMAL
-===================================================== */
-
-function normalizeDecimalString(
-    value
-){
-
-    let s=String(value);
-
-    s=s.replace(
-        ',',
-        '.'
-    );
-
-
-    if(
-        !s.includes('.')
-    ){
-
-        return s;
-
-    }
-
-
-    let negative='';
-
-
-    if(
-        s.startsWith('-')
-    ){
-
-        negative='-';
-
-        s=s.substring(1);
-
-    }
-
-
-    let parts=
-    s.split('.');
-
-
-    let integer=
-    parts[0] || '0';
-
-
-    let decimal=
-    parts[1] || '';
-
-
-    decimal=
-    decimal.replace(
-        /0+$/,
-        ''
-    );
-
-
-    integer=
-    integer.replace(
-        /^0+(?=\d)/,
-        ''
-    );
-
-
-    if(
-        decimal.length===0
-    ){
-
-        return negative+
-        integer;
-
-    }
-
-
-    return negative+
-    integer+
-    '.'+
-    decimal;
-}
-
-
-function splitDecimal(value){
-
-    let s=
-    normalizeDecimalString(
-        value
-    );
-
-
-    let negative=false;
-
-
-    if(
-        s.startsWith('-')
-    ){
-
-        negative=true;
-
-        s=s.substring(1);
-
-    }
-
-
-    const parts=
-    s.split('.');
-
-
-    return {
-
-        negative:negative,
-
-        integer:
-        parts[0] || '0',
-
-        fraction:
-        parts[1] || ''
-
-    };
-
-}
-
-
-function decimalToScaled(value){
-
-    const p=
-    splitDecimal(value);
-
-
-    const digits=
-    (
-        p.integer+
-        p.fraction
-    )
-    .replace(
-        /^0+(?=\d)/,
-        ''
-    );
-
-
-    return {
-
-        sign:
-        p.negative
-        ? -1
-        : 1,
-
-        digits:
-        digits || '0',
-
-        scale:
-        p.fraction.length
-
-    };
-
-}
-
-
-function comparePositiveIntegers(
-    a,
-    b
-){
-
-    a=
-    a.replace(
-        /^0+(?=\d)/,
-        ''
-    );
-
-
-    b=
-    b.replace(
-        /^0+(?=\d)/,
-        ''
-    );
-
-
-    if(
-        a.length>b.length
-    ){
-        return 1;
-    }
-
-
-    if(
-        a.length<b.length
-    ){
-        return -1;
-    }
-
-
-    if(a===b){
-        return 0;
-    }
-
-
-    return a>b
-        ? 1
-        : -1;
-}
-
-
-function addIntegerStrings(
-    a,
-    b
-){
-
-    let i=a.length-1;
-
-    let j=b.length-1;
-
-    let carry=0;
-
-    let out='';
-
-
-    while(
-        i>=0 ||
-        j>=0 ||
-        carry
-    ){
-
-        const x=
-        i>=0
-        ? Number(a[i])
-        : 0;
-
-
-        const y=
-        j>=0
-        ? Number(b[j])
-        : 0;
-
-
-        const sum=
-        x+y+carry;
-
-
-        out=
-        String(sum%10)+
-        out;
-
-
-        carry=
-        Math.floor(
-            sum/10
-        );
-
-
-        i--;
-        j--;
-
-    }
-
-
-    return out.replace(
-        /^0+(?=\d)/,
-        ''
-    );
-
-}
-
-
-function subtractIntegerStrings(
-    a,
-    b
-){
-
-    let i=a.length-1;
-
-    let j=b.length-1;
-
-    let borrow=0;
-
-    let out='';
-
-
-    while(i>=0){
-
-        let x=
-        Number(a[i])-
-        borrow;
-
-
-        const y=
-        j>=0
-        ? Number(b[j])
-        : 0;
-
-
-        if(x<y){
-
-            x+=10;
-
-            borrow=1;
-
-        }else{
-
-            borrow=0;
-
-        }
-
-
-        out=
-        String(x-y)+
-        out;
-
-
-        i--;
-        j--;
-
-    }
-
-
-    return out.replace(
-        /^0+(?=\d)/,
-        ''
-    ) || '0';
-
-}
-
-
-function multiplyIntegerStrings(
-    a,
-    b
-){
-
-    if(
-        a==='0' ||
-        b==='0'
-    ){
-
-        return '0';
-
-    }
-
-
-    const result=
-    new Array(
-        a.length+
-        b.length
-    )
-    .fill(0);
-
-
-    for(
-        let i=a.length-1;
-        i>=0;
-        i--
-    ){
-
-        for(
-            let j=b.length-1;
-            j>=0;
-            j--
-        ){
-
-            const pos=
-            i+j+1;
-
-
-            result[pos]+=
-            Number(a[i])*
-            Number(b[j]);
-
-        }
-
-    }
-
-
-    for(
-        let i=result.length-1;
-        i>0;
-        i--
-    ){
-
-        if(
-            result[i]>=10
-        ){
-
-            result[i-1]+=
-            Math.floor(
-                result[i]/10
-            );
-
-
-            result[i]%=10;
-
-        }
-
-    }
-
-
-    return result
-    .join('')
-    .replace(
-        /^0+(?=\d)/,
-        ''
-    );
-
-}
-
-
-function formatScaledInteger(
-    digits,
-    scale,
-    sign=1
-){
-
-    digits=
-    digits.replace(
-        /^0+(?=\d)/,
-        ''
-    );
-
-
-    if(!digits){
-        digits='0';
-    }
-
-
-    if(scale===0){
-
-        return (
-            sign<0 &&
-            digits!=='0'
-            ? '-'
-            : ''
-        )+
-        digits;
-
-    }
-
-
-    if(
-        digits.length<=scale
-    ){
-
-        digits=
-        digits.padStart(
-            scale+1,
-            '0'
-        );
-
-    }
-
-
-    const point=
-    digits.length-scale;
-
-
-    let integer=
-    digits.substring(
-        0,
-        point
-    );
-
-
-    let fraction=
-    digits.substring(
-        point
-    );
-
-
-    fraction=
-    fraction.replace(
-        /0+$/,
-        ''
-    );
-
-
-    if(!fraction){
-
-        return (
-            sign<0 &&
-            integer!=='0'
-            ? '-'
-            : ''
-        )+
-        integer;
-
-    }
-
-
-    return (
-        sign<0
-        ? '-'
-        : ''
-    )+
-    integer+
-    '.'+
-    fraction;
-
-}
-
-
-function decimalAdd(a,b){
-
-    const A=
-    decimalToScaled(a);
-
-
-    const B=
-    decimalToScaled(b);
-
-
-    const scale=
-    Math.max(
-        A.scale,
-        B.scale
-    );
-
-
-    let ad=
-    A.digits+
-    '0'.repeat(
-        scale-A.scale
-    );
-
-
-    let bd=
-    B.digits+
-    '0'.repeat(
-        scale-B.scale
-    );
-
-
-    let sign=1;
-
-    let digits;
-
-
-    if(
-        A.sign===B.sign
-    ){
-
-        digits=
-        addIntegerStrings(
-            ad,
-            bd
-        );
-
-
-        sign=A.sign;
-
-    }else{
-
-        const cmp=
-        comparePositiveIntegers(
-            ad,
-            bd
-        );
-
-
-        if(cmp===0){
-
-            return '0';
-
-        }
-
-
-        if(cmp>0){
-
-            digits=
-            subtractIntegerStrings(
-                ad,
-                bd
-            );
-
-            sign=A.sign;
-
-        }else{
-
-            digits=
-            subtractIntegerStrings(
-                bd,
-                ad
-            );
-
-            sign=B.sign;
-
-        }
-
-    }
-
-
-    return formatScaledInteger(
-        digits,
-        scale,
-        sign
-    );
-
-}
-
-
-function decimalSubtract(a,b){
-
-    const B=
-    normalizeDecimalString(b);
-
-
-    const inverted=
-    B.startsWith('-')
-    ? B.substring(1)
-    : '-'+B;
-
-
-    return decimalAdd(
-        a,
-        inverted
-    );
-
-}
-
-
-function decimalMultiply(a,b){
-
-    const A=
-    decimalToScaled(a);
-
-
-    const B=
-    decimalToScaled(b);
-
-
-    const digits=
-    multiplyIntegerStrings(
-        A.digits,
-        B.digits
-    );
-
-
-    const scale=
-    A.scale+
-    B.scale;
-
-
-    const sign=
-    A.sign*
-    B.sign;
-
-
-    return formatScaledInteger(
-        digits,
-        scale,
-        sign
-    );
-
-}
-
-
-function decimalDivide(a,b){
-
-    const A=
-    decimalToScaled(a);
-
-
-    const B=
-    decimalToScaled(b);
-
-
-    if(
-        B.digits==='0'
-    ){
-
-        return null;
-
-    }
-
-
-    if(
-        A.digits==='0'
-    ){
-
-        return '0';
-
-    }
-
-
-    const precision=12;
-
-
-    let numerator=
-    A.digits+
-    '0'.repeat(
-        precision+
-        B.scale
-    );
-
-
-    let denominator=
-    B.digits+
-    '0'.repeat(
-        A.scale
-    );
-
-
-    let quotient='';
-
-    let remainder='0';
-
-
-    for(
-        let i=0;
-        i<numerator.length;
-        i++
-    ){
-
-        remainder=
-        remainder==='0'
-        ? numerator[i]
-        : remainder+
-        numerator[i];
-
-
-        remainder=
-        remainder.replace(
-            /^0+(?=\d)/,
-            ''
-        );
-
-
-        let digit=0;
-
-
-        for(
-            let d=9;
-            d>=0;
-            d--
-        ){
-
-            const product=
-            multiplyIntegerStrings(
-                denominator,
-                String(d)
-            );
-
-
-            if(
-                comparePositiveIntegers(
-                    product,
-                    remainder
-                )<=0
-            ){
-
-                digit=d;
-
-
-                remainder=
-                subtractIntegerStrings(
-                    remainder,
-                    product
-                );
-
-
-                break;
-
-            }
-
-        }
-
-
-        quotient+=
-        String(digit);
-
-    }
-
-
-    const decimalPlaces=
-    precision;
-
-
-    quotient=
-    quotient.padStart(
-        decimalPlaces+1,
-        '0'
-    );
-
-
-    const sign=
-    A.sign*
-    B.sign;
-
-
-    return formatScaledInteger(
-        quotient,
-        decimalPlaces,
-        sign
-    );
-
-}
-
-
-function decimalPercent(value){
-
-    return decimalDivide(
-        value,
-        '100'
-    );
-
-}
-
-
-/* =====================================================
 CALCULADORA
 ===================================================== */
 
-let calcCurrent='0';
+let calcCurrent = '0';
 
-let calcPrevious=null;
+let calcPrevious = null;
 
-let calcOperator=null;
+let calcOperator = null;
 
-let calcWaiting=false;
+let calcWaiting = false;
 
-let calcExpression='';
+let calcExpression = '';
 
-let calcMemory='0';
+let calcMemory = '0';
 
-let lastOperator=null;
+let lastOperator = null;
 
-let lastOperand=null;
+let lastOperand = null;
 
-let justCalculated=false;
+let justCalculated = false;
 
 
-const display=
+const display =
 document.getElementById(
     'display'
 );
 
 
-const expressionEl=
+const expression =
 document.getElementById(
     'expression'
 );
 
 
-function updateCalculator(){
+function formatCalc(value){
 
-    display.textContent=
-    displayDecimal(
-        calcCurrent
+    let number =
+    Number(value);
+
+
+    if(
+        !Number.isFinite(number)
+    ){
+
+        return 'Erro';
+
+    }
+
+
+    if(
+        Object.is(
+            number,
+            -0
+        )
+    ){
+
+        number = 0;
+
+    }
+
+
+    return number.toLocaleString(
+        'pt-BR',
+        {
+            maximumFractionDigits:10
+        }
     );
-
-
-    expressionEl.textContent=
-    calcExpression;
 
 }
 
 
-function displayDecimal(value){
+function updateCalculator(){
 
-    let s=
-    normalizeDecimalString(
-        value
+    display.textContent =
+    formatCalc(
+        calcCurrent
     );
 
 
-    if(s==='-0'){
-        s='0';
-    }
-
-
-    let negative='';
-
-
-    if(
-        s.startsWith('-')
-    ){
-
-        negative='-';
-
-        s=s.substring(1);
-
-    }
-
-
-    const parts=
-    s.split('.');
-
-
-    let integer=
-    parts[0] || '0';
-
-
-    let fraction=
-    parts[1] || '';
-
-
-    integer=
-    Number(integer)
-    .toLocaleString(
-        'pt-BR'
-    );
-
-
-    return negative+
-    integer+
-    (
-        fraction
-        ? ','+fraction
-        : ''
-    );
+    expression.textContent =
+    calcExpression;
 
 }
 
 
 function clearCalculator(){
 
-    calcCurrent='0';
+    calcCurrent = '0';
 
-    calcPrevious=null;
+    calcPrevious = null;
 
-    calcOperator=null;
+    calcOperator = null;
 
-    calcWaiting=false;
+    calcWaiting = false;
 
-    calcExpression='';
+    calcExpression = '';
 
-    lastOperator=null;
+    lastOperator = null;
 
-    lastOperand=null;
+    lastOperand = null;
 
-    justCalculated=false;
+    justCalculated = false;
 
     updateCalculator();
 
 }
 
 
-function inputNumber(digit){
+function inputNumber(number){
 
     if(
-        calcCurrent==='Erro'
+        calcCurrent === 'Erro'
     ){
 
         clearCalculator();
@@ -4669,32 +4652,32 @@ function inputNumber(digit){
 
     if(justCalculated){
 
-        calcCurrent='0';
+        calcCurrent = '0';
 
-        calcExpression='';
+        calcExpression = '';
 
-        justCalculated=false;
+        justCalculated = false;
 
     }
 
 
     if(calcWaiting){
 
-        calcCurrent=digit;
+        calcCurrent = number;
 
-        calcWaiting=false;
+        calcWaiting = false;
 
     }else{
 
         if(
-            calcCurrent==='0'
+            calcCurrent === '0'
         ){
 
-            calcCurrent=digit;
+            calcCurrent = number;
 
         }else{
 
-            calcCurrent+=digit;
+            calcCurrent += number;
 
         }
 
@@ -4709,7 +4692,7 @@ function inputNumber(digit){
 function inputDecimal(){
 
     if(
-        calcCurrent==='Erro'
+        calcCurrent === 'Erro'
     ){
 
         clearCalculator();
@@ -4719,20 +4702,20 @@ function inputDecimal(){
 
     if(justCalculated){
 
-        calcCurrent='0';
+        calcCurrent = '0';
 
-        calcExpression='';
+        calcExpression = '';
 
-        justCalculated=false;
+        justCalculated = false;
 
     }
 
 
     if(calcWaiting){
 
-        calcCurrent='0.';
+        calcCurrent = '0.';
 
-        calcWaiting=false;
+        calcWaiting = false;
 
         updateCalculator();
 
@@ -4745,82 +4728,7 @@ function inputDecimal(){
         !calcCurrent.includes('.')
     ){
 
-        calcCurrent+='.';
-    }
-
-
-    updateCalculator();
-
-}
-
-
-function operatorSymbol(op){
-
-    if(op==='+') return '+';
-
-    if(op==='-') return '−';
-
-    if(op==='*') return '×';
-
-    if(op==='/') return '÷';
-
-    return op;
-
-}
-
-
-/* =====================================================
-PORCENTAGEM
-===================================================== */
-
-function calculatePercent(){
-
-    if(
-        calcCurrent==='Erro'
-    ){
-
-        return;
-
-    }
-
-
-    if(
-        calcPrevious===null ||
-        calcOperator===null
-    ){
-
-        calcCurrent=
-        decimalPercent(
-            calcCurrent
-        );
-
-
-        updateCalculator();
-
-        return;
-
-    }
-
-
-    if(
-        calcOperator==='+' ||
-        calcOperator==='-'
-    ){
-
-        calcCurrent=
-        decimalMultiply(
-            calcPrevious,
-            decimalPercent(
-                calcCurrent
-            )
-        );
-
-    }else{
-
-        calcCurrent=
-        decimalPercent(
-            calcCurrent
-        );
+        calcCurrent += '.';
 
     }
 
@@ -4830,52 +4738,57 @@ function calculatePercent(){
 }
 
 
-/* =====================================================
-OPERAÇÕES
-===================================================== */
+function operatorSymbol(operator){
 
-function performOperation(
-    a,
-    b,
-    op
+    if(operator === '+')
+        return '+';
+
+    if(operator === '-')
+        return '−';
+
+    if(operator === '*')
+        return '×';
+
+    if(operator === '/')
+        return '÷';
+
+    return operator;
+
+}
+
+
+function calculateOperation(
+    first,
+    second,
+    operator
 ){
 
-    if(op==='+'){
-
-        return decimalAdd(
-            a,
-            b
-        );
-
-    }
+    const a =
+    Number(first);
 
 
-    if(op==='-'){
-
-        return decimalSubtract(
-            a,
-            b
-        );
-
-    }
+    const b =
+    Number(second);
 
 
-    if(op==='*'){
-
-        return decimalMultiply(
-            a,
-            b
-        );
-
-    }
+    if(operator === '+')
+        return a + b;
 
 
-    if(op==='/'){
+    if(operator === '-')
+        return a - b;
 
-        return decimalDivide(
-            a,
-            b
-        );
+
+    if(operator === '*')
+        return a * b;
+
+
+    if(operator === '/'){
+
+        if(b === 0)
+            return null;
+
+        return a / b;
 
     }
 
@@ -4885,14 +4798,10 @@ function performOperation(
 }
 
 
-/* =====================================================
-OPERADOR
-===================================================== */
-
-function selectOperator(op){
+function selectOperator(operator){
 
     if(
-        calcCurrent==='Erro'
+        calcCurrent === 'Erro'
     ){
 
         return;
@@ -4900,32 +4809,28 @@ function selectOperator(op){
     }
 
 
-    if(justCalculated){
+    if(
+        justCalculated
+    ){
 
-        calcPrevious=
+        calcPrevious =
         calcCurrent;
 
+        calcOperator =
+        operator;
 
-        calcOperator=op;
+        calcWaiting = true;
 
-        calcWaiting=true;
+        justCalculated = false;
 
-        justCalculated=false;
-
-        lastOperator=null;
-
-        lastOperand=null;
-
-
-        calcExpression=
-        displayDecimal(
+        calcExpression =
+        formatCalc(
             calcPrevious
-        )+
-        ' '+
+        ) +
+        ' ' +
         operatorSymbol(
-            op
+            operator
         );
-
 
         updateCalculator();
 
@@ -4935,30 +4840,29 @@ function selectOperator(op){
 
 
     if(
-        calcPrevious!==null &&
-        calcOperator!==null &&
+        calcPrevious !== null &&
+        calcOperator !== null &&
         !calcWaiting
     ){
 
-        const result=
-        performOperation(
+        const result =
+        calculateOperation(
             calcPrevious,
             calcCurrent,
             calcOperator
         );
 
 
-        if(result===null){
+        if(result === null){
 
-            calcCurrent='Erro';
+            calcCurrent =
+            'Erro';
 
-            calcPrevious=null;
+            calcPrevious =
+            null;
 
-            calcOperator=null;
-
-            calcWaiting=false;
-
-            calcExpression='';
+            calcOperator =
+            null;
 
             updateCalculator();
 
@@ -4971,30 +4875,33 @@ function selectOperator(op){
         }
 
 
-        calcPrevious=result;
+        calcPrevious =
+        String(result);
 
-        calcCurrent=result;
+        calcCurrent =
+        String(result);
 
     }else{
 
-        calcPrevious=
+        calcPrevious =
         calcCurrent;
 
     }
 
 
-    calcOperator=op;
+    calcOperator =
+    operator;
 
-    calcWaiting=true;
+    calcWaiting = true;
 
 
-    calcExpression=
-    displayDecimal(
+    calcExpression =
+    formatCalc(
         calcPrevious
-    )+
-    ' '+
+    ) +
+    ' ' +
     operatorSymbol(
-        op
+        operator
     );
 
 
@@ -5003,59 +4910,50 @@ function selectOperator(op){
 }
 
 
-/* =====================================================
-IGUAL
-===================================================== */
-
 function calculateEquals(){
 
     if(
         justCalculated &&
-        lastOperator!==null &&
-        lastOperand!==null
+        lastOperator !== null
     ){
 
-        const before=
-        calcCurrent;
-
-
-        const result=
-        performOperation(
-            before,
+        const result =
+        calculateOperation(
+            calcCurrent,
             lastOperand,
             lastOperator
         );
 
 
-        if(result===null){
+        if(result === null){
 
-            calcCurrent='Erro';
+            calcCurrent =
+            'Erro';
 
             updateCalculator();
-
-            toast(
-                'Não é possível dividir por zero.'
-            );
 
             return;
 
         }
 
 
-        calcExpression=
-        displayDecimal(before)+
-        ' '+
+        calcExpression =
+        formatCalc(
+            calcCurrent
+        ) +
+        ' ' +
         operatorSymbol(
             lastOperator
-        )+
-        ' '+
-        displayDecimal(
+        ) +
+        ' ' +
+        formatCalc(
             lastOperand
-        )+
+        ) +
         ' =';
 
 
-        calcCurrent=result;
+        calcCurrent =
+        String(result);
 
 
         updateCalculator();
@@ -5064,9 +4962,7 @@ function calculateEquals(){
         addHistory(
             'Calculadora',
             calcExpression,
-            displayDecimal(
-                result
-            )
+            formatCalc(result)
         );
 
 
@@ -5076,8 +4972,8 @@ function calculateEquals(){
 
 
     if(
-        calcPrevious===null ||
-        calcOperator===null
+        calcPrevious === null ||
+        calcOperator === null
     ){
 
         return;
@@ -5085,35 +4981,39 @@ function calculateEquals(){
     }
 
 
-    let operand=
-    calcCurrent;
-
-
-    const first=
+    const first =
     calcPrevious;
 
 
-    const op=
+    const second =
+    calcCurrent;
+
+
+    const operator =
     calcOperator;
 
 
-    const result=
-    performOperation(
+    const result =
+    calculateOperation(
         first,
-        operand,
-        op
+        second,
+        operator
     );
 
 
-    if(result===null){
+    if(result === null){
 
-        calcCurrent='Erro';
+        calcCurrent =
+        'Erro';
 
-        calcPrevious=null;
+        calcPrevious =
+        null;
 
-        calcOperator=null;
+        calcOperator =
+        null;
 
-        calcExpression='';
+        calcExpression =
+        '';
 
         updateCalculator();
 
@@ -5126,28 +5026,35 @@ function calculateEquals(){
     }
 
 
-    calcExpression=
-    displayDecimal(first)+
-    ' '+
-    operatorSymbol(op)+
-    ' '+
-    displayDecimal(operand)+
+    calcExpression =
+    formatCalc(first) +
+    ' ' +
+    operatorSymbol(operator) +
+    ' ' +
+    formatCalc(second) +
     ' =';
 
 
-    calcCurrent=result;
+    calcCurrent =
+    String(result);
 
-    calcPrevious=null;
+    calcPrevious =
+    null;
 
-    calcOperator=null;
+    calcOperator =
+    null;
 
-    calcWaiting=false;
+    calcWaiting =
+    false;
 
-    justCalculated=true;
+    justCalculated =
+    true;
 
-    lastOperator=op;
+    lastOperator =
+    operator;
 
-    lastOperand=operand;
+    lastOperand =
+    second;
 
 
     updateCalculator();
@@ -5156,10 +5063,57 @@ function calculateEquals(){
     addHistory(
         'Calculadora',
         calcExpression,
-        displayDecimal(
-            result
-        )
+        formatCalc(result)
     );
+
+}
+
+
+/* =====================================================
+PORCENTAGEM
+===================================================== */
+
+function percentage(){
+
+    const current =
+    Number(calcCurrent);
+
+
+    if(
+        !Number.isFinite(current)
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        calcPrevious !== null &&
+        (
+            calcOperator === '+' ||
+            calcOperator === '-'
+        )
+    ){
+
+        calcCurrent =
+        String(
+            Number(calcPrevious) *
+            current /
+            100
+        );
+
+    }else{
+
+        calcCurrent =
+        String(
+            current / 100
+        );
+
+    }
+
+
+    updateCalculator();
 
 }
 
@@ -5168,11 +5122,11 @@ function calculateEquals(){
 SINAL
 ===================================================== */
 
-function toggleSign(){
+function changeSign(){
 
     if(
-        calcCurrent==='0' ||
-        calcCurrent==='Erro'
+        calcCurrent === '0' ||
+        calcCurrent === 'Erro'
     ){
 
         return;
@@ -5184,13 +5138,14 @@ function toggleSign(){
         calcCurrent.startsWith('-')
     ){
 
-        calcCurrent=
+        calcCurrent =
         calcCurrent.substring(1);
 
     }else{
 
-        calcCurrent=
-        '-'+calcCurrent;
+        calcCurrent =
+        '-' +
+        calcCurrent;
 
     }
 
@@ -5201,7 +5156,7 @@ function toggleSign(){
 
 
 /* =====================================================
-APAGAR
+BACKSPACE
 ===================================================== */
 
 function backspace(){
@@ -5217,7 +5172,7 @@ function backspace(){
 
 
     if(
-        calcCurrent==='Erro'
+        calcCurrent === 'Erro'
     ){
 
         clearCalculator();
@@ -5228,18 +5183,19 @@ function backspace(){
 
 
     if(
-        calcCurrent.length<=1 ||
+        calcCurrent.length <= 1 ||
         (
-            calcCurrent.length===2 &&
+            calcCurrent.length === 2 &&
             calcCurrent.startsWith('-')
         )
     ){
 
-        calcCurrent='0';
+        calcCurrent =
+        '0';
 
     }else{
 
-        calcCurrent=
+        calcCurrent =
         calcCurrent.slice(
             0,
             -1
@@ -5254,7 +5210,7 @@ function backspace(){
 
 
 /* =====================================================
-MEMÓRIA
+MEMORY
 ===================================================== */
 
 document
@@ -5262,21 +5218,22 @@ document
     '[data-memory]'
 )
 .forEach(
-    button=>{
+    function(button){
 
         button.addEventListener(
             'click',
-            ()=>{
+            function(){
 
-                const action=
+                const action =
                 button.dataset.memory;
 
 
                 if(
-                    action==='clear'
+                    action === 'clear'
                 ){
 
-                    calcMemory='0';
+                    calcMemory =
+                    '0';
 
                     toast(
                         'Memória apagada.'
@@ -5286,10 +5243,10 @@ document
 
 
                 if(
-                    action==='store'
+                    action === 'store'
                 ){
 
-                    calcMemory=
+                    calcMemory =
                     calcCurrent;
 
                     toast(
@@ -5300,15 +5257,17 @@ document
 
 
                 if(
-                    action==='recall'
+                    action === 'recall'
                 ){
 
-                    calcCurrent=
+                    calcCurrent =
                     calcMemory;
 
-                    calcWaiting=false;
+                    calcWaiting =
+                    false;
 
-                    justCalculated=false;
+                    justCalculated =
+                    false;
 
                     updateCalculator();
 
@@ -5316,34 +5275,34 @@ document
 
 
                 if(
-                    action==='add'
+                    action === 'add'
                 ){
 
-                    calcMemory=
-                    decimalAdd(
-                        calcMemory,
-                        calcCurrent
+                    calcMemory =
+                    String(
+                        Number(calcMemory) +
+                        Number(calcCurrent)
                     );
 
                     toast(
-                        'Valor adicionado à memória.'
+                        'Valor adicionado.'
                     );
 
                 }
 
 
                 if(
-                    action==='subtract'
+                    action === 'subtract'
                 ){
 
-                    calcMemory=
-                    decimalSubtract(
-                        calcMemory,
-                        calcCurrent
+                    calcMemory =
+                    String(
+                        Number(calcMemory) -
+                        Number(calcCurrent)
                     );
 
                     toast(
-                        'Valor retirado da memória.'
+                        'Valor retirado.'
                     );
 
                 }
@@ -5356,7 +5315,7 @@ document
 
 
 /* =====================================================
-BOTÕES DA CALCULADORA
+NUMEROS
 ===================================================== */
 
 document
@@ -5364,11 +5323,11 @@ document
     '[data-number]'
 )
 .forEach(
-    button=>{
+    function(button){
 
         button.addEventListener(
             'click',
-            ()=>{
+            function(){
 
                 inputNumber(
                     button.dataset.number
@@ -5381,16 +5340,20 @@ document
 );
 
 
+/* =====================================================
+OPERADORES
+===================================================== */
+
 document
 .querySelectorAll(
     '[data-operator]'
 )
 .forEach(
-    button=>{
+    function(button){
 
         button.addEventListener(
             'click',
-            ()=>{
+            function(){
 
                 selectOperator(
                     button.dataset.operator
@@ -5402,6 +5365,10 @@ document
     }
 );
 
+
+/* =====================================================
+AÇÕES
+===================================================== */
 
 document
 .querySelector(
@@ -5439,7 +5406,7 @@ document
 )
 .addEventListener(
     'click',
-    toggleSign
+    changeSign
 );
 
 
@@ -5449,7 +5416,7 @@ document
 )
 .addEventListener(
     'click',
-    calculatePercent
+    percentage
 );
 
 
@@ -5464,33 +5431,28 @@ document
 
 
 /* =====================================================
-TECLADO FÍSICO
+TECLADO COMPUTADOR
 ===================================================== */
 
 document.addEventListener(
     'keydown',
-    event=>{
+    function(event){
 
-        const target=
-        event.target;
+        const key =
+        event.key;
 
 
         if(
-            target &&
+            event.target &&
             (
-                target.tagName==='INPUT' ||
-                target.tagName==='TEXTAREA' ||
-                target.isContentEditable
+                event.target.tagName ===
+                'INPUT'
             )
         ){
 
             return;
 
         }
-
-
-        const key=
-        event.key;
 
 
         if(
@@ -5507,8 +5469,8 @@ document.addEventListener(
 
 
         if(
-            key===',' ||
-            key==='.'
+            key === ',' ||
+            key === '.'
         ){
 
             inputDecimal();
@@ -5521,10 +5483,8 @@ document.addEventListener(
 
 
         if(
-            key==='+' ||
-            key==='-' ||
-            key==='*' ||
-            key==='/'
+            ['+','-','*','/']
+            .includes(key)
         ){
 
             selectOperator(key);
@@ -5536,11 +5496,9 @@ document.addEventListener(
         }
 
 
-        if(
-            key==='%'
-        ){
+        if(key === '%'){
 
-            calculatePercent();
+            percentage();
 
             event.preventDefault();
 
@@ -5550,8 +5508,8 @@ document.addEventListener(
 
 
         if(
-            key==='Enter' ||
-            key==='='
+            key === 'Enter' ||
+            key === '='
         ){
 
             calculateEquals();
@@ -5564,7 +5522,7 @@ document.addEventListener(
 
 
         if(
-            key==='Backspace'
+            key === 'Backspace'
         ){
 
             backspace();
@@ -5577,7 +5535,7 @@ document.addEventListener(
 
 
         if(
-            key==='Escape'
+            key === 'Escape'
         ){
 
             clearCalculator();
@@ -5591,14 +5549,14 @@ document.addEventListener(
 
 
 /* =====================================================
-CAMPOS NUMÉRICOS
+CAMPOS DECIMAIS
 ===================================================== */
 
 document.addEventListener(
     'input',
-    event=>{
+    function(event){
 
-        const input=
+        const input =
         event.target;
 
 
@@ -5613,97 +5571,107 @@ document.addEventListener(
         }
 
 
-        let value=
+        let value =
         input.value;
 
 
-        value=
+        value =
         value.replace(
             /[^0-9.,]/g,
             ''
         );
 
 
-        const comma=
+        /*
+        Mantém somente uma vírgula
+        ou ponto decimal.
+        */
+
+        const comma =
         value.indexOf(',');
 
 
-        const dot=
+        const dot =
         value.indexOf('.');
 
 
         if(
-            comma!==-1 &&
-            dot!==-1
+            comma !== -1 &&
+            dot !== -1
         ){
 
-            if(
-                comma>dot
-            ){
+            if(comma > dot){
 
-                value=
+                value =
                 value
                 .replace(/\./g,'')
                 .replace(',','.');
 
             }else{
 
-                value=
-                value.replace(
-                    /,/g,
-                    ''
-                );
+                value =
+                value
+                .replace(/,/g,'');
 
             }
 
         }else if(
-            comma!==-1
+            comma !== -1
         ){
 
-            const first=
-            comma;
-
-
-            value=
+            const before =
             value.substring(
                 0,
-                first+1
-            )+
+                comma + 1
+            );
+
+
+            const after =
             value
             .substring(
-                first+1
+                comma + 1
             )
             .replace(
                 /,/g,
                 ''
             );
 
+
+            value =
+            before +
+            after;
+
         }else if(
-            dot!==-1
+            dot !== -1
         ){
 
-            const first=
-            dot;
-
-
-            value=
+            const before =
             value.substring(
                 0,
-                first+1
-            )+
+                dot + 1
+            );
+
+
+            const after =
             value
             .substring(
-                first+1
+                dot + 1
             )
             .replace(
                 /\./g,
                 ''
             );
 
+
+            value =
+            before +
+            after;
+
         }
 
 
-        input.value=value;
+        input.value =
+        value;
 
     }
 );
@@ -5715,7 +5683,7 @@ BLOQUEIO DE ZOOM
 
 document.addEventListener(
     'gesturestart',
-    event=>{
+    function(event){
 
         event.preventDefault();
 
@@ -5728,7 +5696,7 @@ document.addEventListener(
 
 document.addEventListener(
     'gesturechange',
-    event=>{
+    function(event){
 
         event.preventDefault();
 
@@ -5741,38 +5709,9 @@ document.addEventListener(
 
 document.addEventListener(
     'gestureend',
-    event=>{
+    function(event){
 
         event.preventDefault();
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-let lastTouchEnd=0;
-
-
-document.addEventListener(
-    'touchend',
-    event=>{
-
-        const now=
-        Date.now();
-
-
-        if(
-            now-lastTouchEnd<=350
-        ){
-
-            event.preventDefault();
-
-        }
-
-
-        lastTouchEnd=now;
 
     },
     {
@@ -5783,7 +5722,7 @@ document.addEventListener(
 
 document.addEventListener(
     'dblclick',
-    event=>{
+    function(event){
 
         event.preventDefault();
 
@@ -5794,9 +5733,42 @@ document.addEventListener(
 );
 
 
+let lastTouchEnd =
+0;
+
+
+document.addEventListener(
+    'touchend',
+    function(event){
+
+        const now =
+        Date.now();
+
+
+        if(
+            now -
+            lastTouchEnd <=
+            300
+        ){
+
+            event.preventDefault();
+
+        }
+
+
+        lastTouchEnd =
+        now;
+
+    },
+    {
+        passive:false
+    }
+);
+
+
 document.addEventListener(
     'wheel',
-    event=>{
+    function(event){
 
         if(event.ctrlKey){
 
@@ -5811,193 +5783,44 @@ document.addEventListener(
 );
 
 
-document.addEventListener(
-    'keydown',
-    event=>{
-
-        if(
-            event.ctrlKey &&
-            (
-                event.key==='+' ||
-                event.key==='-' ||
-                event.key==='=' ||
-                event.key==='0'
-            )
-        ){
-
-            event.preventDefault();
-
-        }
-
-    }
-);
-
-
 /* =====================================================
-TESTES DO MOTOR
-===================================================== */
-
-function runCalculatorTests(){
-
-    const tests=[
-
-        [
-            '0,1 + 0,2',
-            decimalAdd(
-                '0.1',
-                '0.2'
-            ),
-            '0.3'
-        ],
-
-        [
-            '1,5 + 2,5',
-            decimalAdd(
-                '1.5',
-                '2.5'
-            ),
-            '4'
-        ],
-
-        [
-            '10 - 3,5',
-            decimalSubtract(
-                '10',
-                '3.5'
-            ),
-            '6.5'
-        ],
-
-        [
-            '2,5 × 4',
-            decimalMultiply(
-                '2.5',
-                '4'
-            ),
-            '10'
-        ],
-
-        [
-            '10 ÷ 4',
-            decimalDivide(
-                '10',
-                '4'
-            ),
-            '2.5'
-        ],
-
-        [
-            '100 ÷ 8',
-            decimalDivide(
-                '100',
-                '8'
-            ),
-            '12.5'
-        ],
-
-        [
-            '20%',
-            decimalPercent(
-                '20'
-            ),
-            '0.2'
-        ],
-
-        [
-            '0,01 × 100',
-            decimalMultiply(
-                '0.01',
-                '100'
-            ),
-            '1'
-        ],
-
-        [
-            '999,99 + 0,01',
-            decimalAdd(
-                '999.99',
-                '0.01'
-            ),
-            '1000'
-        ],
-
-        [
-            '10 - 20',
-            decimalSubtract(
-                '10',
-                '20'
-            ),
-            '-10'
-        ]
-
-    ];
-
-
-    let failed=0;
-
-
-    tests.forEach(
-        test=>{
-
-            if(
-                normalizeDecimalString(
-                    test[1]
-                ) !==
-                normalizeDecimalString(
-                    test[2]
-                )
-            ){
-
-                failed++;
-
-
-                console.error(
-                    'CALPRO TEST FAILED:',
-                    test[0],
-                    test[1],
-                    'esperado:',
-                    test[2]
-                );
-
-            }
-
-        }
-    );
-
-
-    if(
-        failed===0
-    ){
-
-        console.log(
-            'CALPRO: todos os testes matemáticos passaram.'
-        );
-
-    }else{
-
-        console.error(
-            'CALPRO:',
-            failed,
-            'teste(s) falharam.'
-        );
-
-    }
-
-}
-
-
-runCalculatorTests();
-
-
-/* =====================================================
-INICIALIZAÇÃO
+INIT
 ===================================================== */
 
 updateCalculator();
 
 showPage('home');
 
+
+/* =====================================================
+VERIFICAÇÃO DOS ÍCONES
+===================================================== */
+
+document
+.querySelectorAll(
+    '.tool-icon img'
+)
+.forEach(
+    function(image){
+
+        image.addEventListener(
+            'error',
+            function(){
+
+                console.warn(
+                    'CALPRO: ícone não encontrado:',
+                    image.src
+                );
+
+            }
+        );
+
+    }
+);
+
 </script>
 
+
 </body>
+
 </html>
