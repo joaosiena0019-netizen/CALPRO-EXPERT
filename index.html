@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+content="width=device-width,
+initial-scale=1,
+maximum-scale=1,
+minimum-scale=1,
+user-scalable=no,
+viewport-fit=cover">
 
 <meta name="theme-color" content="#080b10">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+content="black-translucent">
 
 <title>CALPRO EXPERT</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
     box-sizing:border-box;
@@ -23,47 +36,85 @@ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable
 
 html,
 body{
+
     width:100%;
     height:100%;
-    overflow:hidden;
+
+    min-width:0;
+    min-height:0;
+
+    overflow:hidden !important;
+
+    overscroll-behavior:none;
+
+    touch-action:manipulation;
+
+    -webkit-text-size-adjust:100%;
 }
 
 body{
+
     background:#080b10;
+
     color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
-    touch-action:manipulation;
-    overscroll-behavior:none;
-    -webkit-text-size-adjust:100%;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow:hidden !important;
 }
 
 button,
 input{
+
     font-family:inherit;
 }
 
 button{
+
     border:0;
     outline:0;
+
     cursor:pointer;
+
+    touch-action:manipulation;
+
+    -webkit-user-select:none;
+    user-select:none;
+}
+
+input{
+
     touch-action:manipulation;
 }
 
+
+/* =========================================================
+   APP
+========================================================= */
+
 .app{
+
     width:100%;
     height:100dvh;
-    min-height:100dvh;
-    overflow:hidden;
+
+    min-height:0;
+
+    overflow:hidden !important;
 
     display:flex;
     flex-direction:column;
 
     background:
+
         radial-gradient(
             circle at 50% -20%,
             rgba(255,110,0,.16),
             transparent 35%
         ),
+
         linear-gradient(
             180deg,
             #090c12,
@@ -72,39 +123,49 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 .header{
 
     flex:0 0 auto;
 
     padding:
-        max(6px,env(safe-area-inset-top))
-        12px
-        7px;
 
-    background:rgba(7,10,14,.96);
+        max(5px,env(safe-area-inset-top))
+
+        12px
+
+        6px;
+
+    background:
+        rgba(7,10,14,.97);
 
     border-bottom:
-        1px solid rgba(255,255,255,.06);
+        1px solid
+        rgba(255,255,255,.06);
 
-    backdrop-filter:blur(20px);
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
 }
 
 .top-line{
 
-    height:38px;
+    height:37px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
 .brand{
 
     display:flex;
+
     align-items:center;
 
     gap:8px;
@@ -112,16 +173,20 @@ button{
 
 .logo{
 
-    width:36px;
-    height:36px;
+    width:35px;
+    height:35px;
+
+    flex:0 0 35px;
 
     border-radius:11px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     background:
+
         linear-gradient(
             145deg,
             #ffad26,
@@ -129,24 +194,32 @@ button{
         );
 
     box-shadow:
-        0 7px 18px rgba(255,91,0,.28),
-        inset 0 2px 3px rgba(255,255,255,.25);
+
+        0 7px 18px
+        rgba(255,91,0,.28),
+
+        inset
+        0 2px 3px
+        rgba(255,255,255,.25);
 }
 
 .logo svg{
-    width:24px;
-    height:24px;
+
+    width:23px;
+    height:23px;
 }
 
 .brand-name{
 
     font-size:19px;
+
     font-weight:1000;
 
     letter-spacing:-1px;
 }
 
 .brand-name span{
+
     color:#ff7000;
 }
 
@@ -166,6 +239,7 @@ button{
 .status{
 
     display:flex;
+
     align-items:center;
 
     gap:5px;
@@ -174,10 +248,12 @@ button{
 
     border-radius:9px;
 
-    background:rgba(255,255,255,.035);
+    background:
+        rgba(255,255,255,.035);
 
     border:
-        1px solid rgba(255,255,255,.06);
+        1px solid
+        rgba(255,255,255,.06);
 
     color:#7f8995;
 
@@ -196,7 +272,8 @@ button{
     background:#36df86;
 
     box-shadow:
-        0 0 8px rgba(54,223,134,.7);
+        0 0 8px
+        rgba(54,223,134,.7);
 }
 
 .header-subtitle{
@@ -207,13 +284,14 @@ button{
 }
 
 .header-subtitle b{
+
     color:#ff7900;
 }
 
 
-/* =====================================================
+/* =========================================================
    HOME
-===================================================== */
+========================================================= */
 
 .main{
 
@@ -221,21 +299,25 @@ button{
 
     min-height:0;
 
-    overflow:hidden;
+    overflow:hidden !important;
 
     display:flex;
+
     flex-direction:column;
 
     padding:
-        8px
+
+        7px
+
         11px
+
         0;
 }
 
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
 
@@ -243,9 +325,9 @@ button{
 
     flex:0 0 auto;
 
-    height:76px;
+    height:74px;
 
-    padding:11px 13px;
+    padding:10px 13px;
 
     overflow:hidden;
 
@@ -266,11 +348,17 @@ button{
         );
 
     border:
-        1px solid rgba(255,119,0,.15);
+        1px solid
+        rgba(255,119,0,.15);
 
     box-shadow:
-        0 10px 24px rgba(0,0,0,.25),
-        inset 0 1px 1px rgba(255,255,255,.06);
+
+        0 10px 24px
+        rgba(0,0,0,.25),
+
+        inset
+        0 1px 1px
+        rgba(255,255,255,.06);
 }
 
 .hero::after{
@@ -280,7 +368,7 @@ button{
     position:absolute;
 
     width:4px;
-    height:50px;
+    height:48px;
 
     left:0;
     top:13px;
@@ -289,6 +377,7 @@ button{
         0 5px 5px 0;
 
     background:
+
         linear-gradient(
             180deg,
             #ffb12a,
@@ -328,6 +417,7 @@ button{
 }
 
 .hero h1 span{
+
     color:#ff7100;
 }
 
@@ -345,20 +435,22 @@ button{
 }
 
 
-/* =====================================================
-   TOOLS
-===================================================== */
+/* =========================================================
+   TOOLS HEADER
+========================================================= */
 
 .tools-heading{
 
     flex:0 0 auto;
 
-    height:35px;
+    height:34px;
 
-    padding:4px 2px;
+    padding:3px 2px;
 
     display:flex;
+
     align-items:end;
+
     justify-content:space-between;
 }
 
@@ -388,14 +480,22 @@ button{
 }
 
 .tools-count span{
+
     color:#ff7900;
 }
+
+
+/* =========================================================
+   FERRAMENTAS
+========================================================= */
 
 .tools{
 
     flex:1;
 
     min-height:0;
+
+    overflow:hidden;
 
     display:grid;
 
@@ -407,11 +507,6 @@ button{
 
     gap:6px;
 }
-
-
-/* =====================================================
-   TOOL CARD
-===================================================== */
 
 .tool-card{
 
@@ -448,32 +543,31 @@ button{
         );
 
     border:
-        1px solid rgba(255,255,255,.075);
+        1px solid
+        rgba(255,255,255,.075);
 
     box-shadow:
 
-        0 7px 16px rgba(0,0,0,.26),
+        0 7px 16px
+        rgba(0,0,0,.26),
 
         inset
         0 1px 1px
         rgba(255,255,255,.065);
-
-    -webkit-user-select:none;
-    user-select:none;
 }
 
 .tool-card:active{
 
+    transform:scale(.985);
+
     border-color:
         rgba(255,123,0,.65);
-
-    transform:scale(.985);
 }
 
 .tool-card img{
 
-    width:48px;
-    height:48px;
+    width:46px;
+    height:46px;
 
     object-fit:contain;
 
@@ -527,17 +621,17 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    PUBLICIDADE HOME
-===================================================== */
+========================================================= */
 
 .ad{
 
     flex:0 0 auto;
 
-    height:29px;
+    height:27px;
 
-    margin:6px 0 5px;
+    margin:5px 0 4px;
 
     display:flex;
 
@@ -564,9 +658,9 @@ button{
 }
 
 
-/* =====================================================
-   BOTTOM NAV
-===================================================== */
+/* =========================================================
+   NAVEGAÇÃO INFERIOR
+========================================================= */
 
 .bottom-nav{
 
@@ -574,13 +668,16 @@ button{
 
     height:
         calc(
-            54px +
+            53px +
             env(safe-area-inset-bottom)
         );
 
     padding:
+
         5px
+
         8px
+
         env(safe-area-inset-bottom);
 
     display:grid;
@@ -594,9 +691,12 @@ button{
         rgba(7,10,14,.98);
 
     border-top:
-        1px solid rgba(255,255,255,.055);
+        1px solid
+        rgba(255,255,255,.055);
 
     backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
 }
 
 .bottom-nav button{
@@ -667,9 +767,9 @@ button{
 }
 
 
-/* =====================================================
-   PÁGINAS INTERNAS
-===================================================== */
+/* =========================================================
+   TELAS INTERNAS
+========================================================= */
 
 .internal-page{
 
@@ -681,9 +781,14 @@ button{
 
     z-index:100;
 
-    overflow-y:auto;
+    width:100%;
+    height:100dvh;
 
-    -webkit-overflow-scrolling:touch;
+    min-height:0;
+
+    overflow:hidden !important;
+
+    overscroll-behavior:none;
 
     background:
 
@@ -697,21 +802,36 @@ button{
 
     padding:
 
-        max(12px,env(safe-area-inset-top))
+        max(
+            10px,
+            env(safe-area-inset-top)
+        )
 
         12px
 
-        calc(
-            25px +
+        max(
+            8px,
             env(safe-area-inset-bottom)
         );
 }
 
 .internal-page.show{
-    display:block;
+
+    display:flex;
+
+    flex-direction:column;
 }
 
+
+/* =========================================================
+   CABEÇALHO INTERNO
+========================================================= */
+
 .internal-header{
+
+    flex:0 0 auto;
+
+    height:67px;
 
     display:flex;
 
@@ -719,24 +839,27 @@ button{
 
     gap:8px;
 
-    margin-bottom:10px;
+    margin-bottom:7px;
 }
 
 .back-button{
 
-    width:72px;
-    height:72px;
+    width:70px;
+    height:58px;
+
+    flex:0 0 70px;
 
     border-radius:15px;
 
     background:#141b24;
 
     border:
-        1px solid rgba(255,255,255,.07);
+        1px solid
+        rgba(255,255,255,.07);
 
     color:#fff;
 
-    font-size:35px;
+    font-size:34px;
 
     line-height:1;
 
@@ -744,6 +867,13 @@ button{
 
     align-items:center;
     justify-content:center;
+
+    touch-action:manipulation;
+}
+
+.back-button:active{
+
+    transform:scale(.96);
 }
 
 .internal-title{
@@ -763,15 +893,15 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    CARD
-===================================================== */
+========================================================= */
 
 .card{
 
-    padding:14px;
+    flex:0 0 auto;
 
-    margin-bottom:10px;
+    padding:13px;
 
     border-radius:15px;
 
@@ -784,7 +914,8 @@ button{
         );
 
     border:
-        1px solid rgba(255,255,255,.065);
+        1px solid
+        rgba(255,255,255,.065);
 
     box-shadow:
         0 10px 22px
@@ -801,7 +932,7 @@ button{
 .card p{
 
     margin:
-        4px 0 12px;
+        4px 0 10px;
 
     color:#788592;
 
@@ -811,19 +942,20 @@ button{
 }
 
 
-/* =====================================================
-   INPUTS
-===================================================== */
+/* =========================================================
+   INPUT
+========================================================= */
 
 .field{
-    margin-bottom:10px;
+
+    margin-bottom:8px;
 }
 
 .field label{
 
     display:block;
 
-    margin-bottom:5px;
+    margin-bottom:4px;
 
     color:#aeb8c3;
 
@@ -836,14 +968,15 @@ button{
 
     width:100%;
 
-    height:44px;
+    height:42px;
 
     padding:8px 11px;
 
     border-radius:10px;
 
     border:
-        1px solid #28333f;
+        1px solid
+        #28333f;
 
     outline:none;
 
@@ -858,8 +991,6 @@ button{
     -webkit-appearance:none;
 
     appearance:none;
-
-    touch-action:manipulation;
 }
 
 .field input:focus{
@@ -872,19 +1003,20 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    CALCULAR
-===================================================== */
+========================================================= */
 
 .calculate{
 
     width:100%;
 
-    min-height:43px;
+    height:42px;
 
     border-radius:10px;
 
     background:
+
         linear-gradient(
             135deg,
             #ff9000,
@@ -896,22 +1028,20 @@ button{
     font-size:8px;
 
     font-weight:1000;
-
-    touch-action:manipulation;
 }
 
 
-/* =====================================================
+/* =========================================================
    RESULTADO
-===================================================== */
+========================================================= */
 
 .result{
 
     display:none;
 
-    margin-top:10px;
+    margin-top:9px;
 
-    padding:12px;
+    padding:11px;
 
     border-radius:11px;
 
@@ -938,7 +1068,7 @@ button{
 
     margin-top:3px;
 
-    font-size:25px;
+    font-size:24px;
 
     font-weight:1000;
 }
@@ -952,12 +1082,12 @@ button{
 
     gap:5px;
 
-    margin-top:8px;
+    margin-top:7px;
 }
 
 .result-box{
 
-    padding:8px;
+    padding:7px;
 
     border-radius:7px;
 
@@ -984,15 +1114,51 @@ button{
 }
 
 
-/* =====================================================
-   CALCULADORA
-===================================================== */
+/* =========================================================
+   CALCULADORA - ÁREA COMPLETA
+========================================================= */
+
+#calculatorPage{
+
+    padding-bottom:
+        max(
+            8px,
+            env(safe-area-inset-bottom)
+        );
+}
+
+
+/* =========================================================
+   CARD DA CALCULADORA
+========================================================= */
+
+#calculatorPage > .card{
+
+    flex:1 1 auto;
+
+    min-height:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:11px;
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   DISPLAY
+========================================================= */
 
 .calculator-display{
 
-    min-height:105px;
+    flex:0 0 auto;
 
-    padding:13px;
+    height:91px;
+
+    padding:11px;
 
     display:flex;
 
@@ -1007,18 +1173,19 @@ button{
     background:#05080c;
 
     border:
-        1px solid #252f3a;
+        1px solid
+        #252f3a;
 
     overflow:hidden;
 
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
 .calc-expression{
 
     width:100%;
 
-    min-height:15px;
+    min-height:14px;
 
     color:#65717e;
 
@@ -1035,7 +1202,7 @@ button{
 
     max-width:100%;
 
-    margin-top:3px;
+    margin-top:2px;
 
     color:#fff;
 
@@ -1049,11 +1216,13 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    MEMÓRIA
-===================================================== */
+========================================================= */
 
 .memory{
+
+    flex:0 0 auto;
 
     display:grid;
 
@@ -1062,54 +1231,62 @@ button{
 
     gap:4px;
 
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
 .memory button{
 
-    height:32px;
+    height:29px;
 
     border-radius:7px;
 
     background:#111820;
 
     border:
-        1px solid #252e39;
+        1px solid
+        #252e39;
 
     color:#8995a3;
 
     font-size:7px;
 
     font-weight:900;
-
-    touch-action:manipulation;
 }
 
 
-/* =====================================================
+/* =========================================================
    TECLADO
-===================================================== */
+========================================================= */
 
 .keypad{
+
+    flex:1;
+
+    min-height:0;
 
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4,minmax(0,1fr));
 
-    gap:6px;
+    grid-template-rows:
+        repeat(5,minmax(0,1fr));
+
+    gap:5px;
 }
 
 .key{
 
-    min-height:52px;
+    min-width:0;
+    min-height:0;
 
     border-radius:10px;
 
     background:#151c25;
 
     border:
-        1px solid #27313c;
+        1px solid
+        #27313c;
 
     color:#fff;
 
@@ -1119,14 +1296,11 @@ button{
 
     touch-action:manipulation;
 
-    -webkit-user-select:none;
-
-    user-select:none;
-
     transition:none !important;
 }
 
 .key.operator{
+
     color:#ff8a20;
 }
 
@@ -1145,26 +1319,29 @@ button{
 }
 
 .key.pressed{
+
     filter:brightness(1.35);
 }
 
 
-/* =====================================================
-   PUBLICIDADE DA CALCULADORA
-===================================================== */
+/* =========================================================
+   PUBLICIDADE CALCULADORA
+========================================================= */
 
 .calculator-ad{
 
+    flex:0 0 auto;
+
     width:100%;
 
-    height:78px;
+    height:54px;
 
     margin:
-        14px
+        6px
         0
-        10px;
+        5px;
 
-    border-radius:14px;
+    border-radius:12px;
 
     border:
         1px dashed
@@ -1190,45 +1367,44 @@ button{
 
     color:#687480;
 
-    font-size:7px;
+    font-size:6.5px;
 
     font-weight:900;
 
-    letter-spacing:1px;
+    letter-spacing:.9px;
 }
 
 .calculator-ad span{
 
     display:block;
 
-    margin-top:5px;
+    margin-top:4px;
 
     color:#414c58;
 
-    font-size:5.5px;
+    font-size:5px;
 
-    letter-spacing:.5px;
+    letter-spacing:.4px;
 
     font-weight:600;
 }
 
 
-/* =====================================================
-   BOTÃO VOLTAR AO MENU
-===================================================== */
+/* =========================================================
+   VOLTAR AO MENU
+========================================================= */
 
 .return-menu{
 
+    flex:0 0 auto;
+
     width:100%;
 
-    height:50px;
+    height:43px;
 
-    margin:
-        0
-        0
-        12px;
+    margin:0;
 
-    border-radius:13px;
+    border-radius:12px;
 
     background:
 
@@ -1246,9 +1422,9 @@ button{
 
     justify-content:center;
 
-    gap:8px;
+    gap:7px;
 
-    font-size:10px;
+    font-size:9px;
 
     font-weight:1000;
 
@@ -1258,8 +1434,6 @@ button{
 
         0 8px 20px
         rgba(255,92,0,.18);
-
-    touch-action:manipulation;
 }
 
 .return-menu:active{
@@ -1271,23 +1445,38 @@ button{
 
 .return-menu-icon{
 
-    font-size:17px;
+    font-size:16px;
 
     line-height:1;
 }
 
 
-/* =====================================================
+/* =========================================================
    HISTÓRICO
-===================================================== */
+========================================================= */
+
+#historyPage .card{
+
+    flex:1;
+
+    min-height:0;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+}
 
 .clear-history{
 
+    flex:0 0 auto;
+
     width:100%;
 
-    min-height:40px;
+    height:40px;
 
-    margin-bottom:9px;
+    margin-bottom:8px;
 
     border-radius:9px;
 
@@ -1302,6 +1491,15 @@ button{
     font-size:8px;
 
     font-weight:900;
+}
+
+#historyList{
+
+    flex:1;
+
+    min-height:0;
+
+    overflow:hidden;
 }
 
 .history-empty{
@@ -1325,7 +1523,7 @@ button{
 
     gap:10px;
 
-    padding:10px 0;
+    padding:9px 0;
 
     border-bottom:
         1px solid
@@ -1362,9 +1560,9 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    TOAST
-===================================================== */
+========================================================= */
 
 .toast{
 
@@ -1383,7 +1581,8 @@ button{
     background:#171e27;
 
     border:
-        1px solid #303a46;
+        1px solid
+        #303a46;
 
     color:#fff;
 
@@ -1414,20 +1613,56 @@ button{
 }
 
 
-/* =====================================================
-   CELULARES PEQUENOS
-===================================================== */
+/* =========================================================
+   TELAS PEQUENAS
+========================================================= */
 
-@media(max-height:680px){
+@media(max-height:700px){
+
+    .header{
+
+        padding-bottom:4px;
+    }
+
+    .top-line{
+
+        height:34px;
+    }
+
+    .logo{
+
+        width:32px;
+        height:32px;
+
+        flex-basis:32px;
+    }
+
+    .logo svg{
+
+        width:21px;
+        height:21px;
+    }
+
+    .brand-name{
+
+        font-size:17px;
+    }
 
     .hero{
 
-        height:65px;
+        height:63px;
 
         padding:8px 12px;
     }
 
+    .hero-tag{
+
+        display:none;
+    }
+
     .hero h1{
+
+        margin-top:0;
 
         font-size:15px;
 
@@ -1442,144 +1677,262 @@ button{
     }
 
     .tools-heading{
+
         height:29px;
     }
 
     .tool-card img{
 
-        width:42px;
-        height:42px;
+        width:40px;
+        height:40px;
     }
 
     .tool-name{
-        font-size:8px;
+
+        font-size:7.8px;
+
+        line-height:9px;
     }
 
     .tool-description{
-        font-size:5.8px;
+
+        margin-top:2px;
+
+        font-size:5.6px;
+
+        line-height:6.7px;
     }
 
     .ad{
 
-        height:25px;
+        height:23px;
 
         margin:4px 0;
     }
 
+    .calculator-display{
+
+        height:76px;
+    }
+
+    .calc-number{
+
+        font-size:29px;
+    }
+
+    .memory button{
+
+        height:26px;
+    }
+
     .calculator-ad{
 
-        height:65px;
+        height:45px;
 
         margin:
-            10px
+            5px
             0
-            8px;
+            4px;
     }
 
     .return-menu{
-        height:45px;
+
+        height:39px;
     }
 
 }
 
 
+/* =========================================================
+   TELAS MUITO PEQUENAS
+========================================================= */
+
 @media(max-height:620px){
 
-    .top-line{
-        height:33px;
+    .internal-header{
+
+        height:55px;
+
+        margin-bottom:5px;
     }
 
-    .logo{
+    .back-button{
 
-        width:31px;
-        height:31px;
+        width:58px;
+        height:48px;
+
+        flex-basis:58px;
+
+        font-size:28px;
     }
 
-    .logo svg{
+    .internal-title{
 
-        width:21px;
-        height:21px;
-    }
-
-    .brand-name{
         font-size:16px;
     }
 
-    .hero{
-        height:58px;
+    .internal-subtitle{
+
+        font-size:6px;
     }
 
-    .hero-tag{
-        display:none;
+    #calculatorPage > .card{
+
+        padding:8px;
     }
 
-    .hero h1{
+    .calculator-display{
 
-        margin-top:0;
+        height:66px;
+
+        padding:8px;
+    }
+
+    .calc-number{
+
+        font-size:25px;
+    }
+
+    .memory{
+
+        margin-bottom:4px;
+    }
+
+    .memory button{
+
+        height:23px;
+
+        font-size:6px;
+    }
+
+    .keypad{
+
+        gap:4px;
+    }
+
+    .key{
+
+        border-radius:8px;
+
+        font-size:15px;
+    }
+
+    .key.special{
+
+        font-size:9px;
+    }
+
+    .calculator-ad{
+
+        height:38px;
+
+        margin:
+            4px
+            0
+            3px;
+    }
+
+    .return-menu{
+
+        height:36px;
+
+        font-size:8px;
+    }
+
+}
+
+
+/* =========================================================
+   IPHONE / ANDROID COM ALTURA MUITO PEQUENA
+========================================================= */
+
+@media(max-height:560px){
+
+    .internal-header{
+
+        height:46px;
+    }
+
+    .back-button{
+
+        width:50px;
+        height:40px;
+
+        flex-basis:50px;
+
+        font-size:24px;
+    }
+
+    .internal-title{
 
         font-size:14px;
     }
 
-    .tools-heading{
-        height:27px;
+    .calculator-display{
+
+        height:55px;
     }
 
-    .tool-card img{
+    .calc-number{
 
-        width:38px;
-        height:38px;
+        font-size:22px;
     }
 
-    .tool-name{
-        font-size:7.5px;
+    .memory button{
+
+        height:20px;
     }
 
-    .tool-description{
-        font-size:5.4px;
+    .calculator-ad{
+
+        height:31px;
     }
 
-    .ad{
-        height:22px;
+    .return-menu{
+
+        height:32px;
     }
 
 }
 
 
-/* =====================================================
-   DESKTOP
-===================================================== */
+/* =========================================================
+   NOTEBOOK / DESKTOP
+========================================================= */
 
 @media(min-width:700px){
 
     .main{
 
-        max-width:900px;
-
         width:100%;
 
-        margin:auto;
+        max-width:950px;
+
+        margin:0 auto;
 
         padding:
-            14px
+            12px
             18px
             0;
     }
 
     .header{
 
-        padding-left:20px;
-        padding-right:20px;
+        padding-left:25px;
+
+        padding-right:25px;
     }
 
     .hero{
-        height:95px;
+
+        height:92px;
     }
 
     .hero h1{
 
-        font-size:23px;
+        font-size:22px;
 
-        line-height:25px;
+        line-height:24px;
     }
 
     .hero p{
@@ -1591,33 +1944,130 @@ button{
 
     .tool-card img{
 
-        width:62px;
-        height:62px;
+        width:58px;
+        height:58px;
     }
 
     .tool-name{
+
         font-size:10px;
     }
 
     .tool-description{
+
         font-size:7px;
+
+        line-height:9px;
+    }
+
+    .internal-page{
+
+        align-items:center;
+
+        padding-left:20px;
+
+        padding-right:20px;
+    }
+
+    #calculatorPage > .card{
+
+        width:100%;
+
+        max-width:760px;
     }
 
     .calculator-ad{
 
-        max-width:700px;
+        width:100%;
 
-        margin-left:auto;
-        margin-right:auto;
+        max-width:760px;
     }
 
     .return-menu{
 
-        max-width:700px;
+        width:100%;
 
-        margin-left:auto;
-        margin-right:auto;
+        max-width:760px;
     }
+
+}
+
+
+/* =========================================================
+   NOTEBOOK PEQUENO
+========================================================= */
+
+@media(
+    min-width:700px
+) and (
+    max-height:750px
+){
+
+    .main{
+
+        padding-top:7px;
+    }
+
+    .hero{
+
+        height:70px;
+    }
+
+    .tools-heading{
+
+        height:28px;
+    }
+
+    .tool-card img{
+
+        width:45px;
+        height:45px;
+    }
+
+    .tool-name{
+
+        font-size:8px;
+    }
+
+    .tool-description{
+
+        font-size:6px;
+
+        line-height:7px;
+    }
+
+    .calculator-display{
+
+        height:75px;
+    }
+
+}
+
+
+/* =========================================================
+   BLOQUEIO DE SELEÇÃO / DRAG
+========================================================= */
+
+img{
+
+    -webkit-user-drag:none;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+}
+
+
+/* =========================================================
+   BLOQUEIO DE ZOOM
+========================================================= */
+
+html,
+body{
+
+    touch-action:pan-x pan-y;
+
+    overscroll-behavior:none;
 }
 
 </style>
@@ -1625,6 +2075,7 @@ button{
 
 
 <body>
+
 
 <div class="app">
 
@@ -1663,6 +2114,7 @@ button{
                 </svg>
 
             </div>
+
 
             <div>
 
@@ -1765,7 +2217,7 @@ button{
             data-tool="price">
 
             <img
-                src="./assets/PRECO-DE-VENDA.png?v=31"
+                src="./assets/PRECO-DE-VENDA.png"
                 alt="Preço de Venda"
                 draggable="false">
 
@@ -1785,7 +2237,7 @@ button{
             data-tool="margin">
 
             <img
-                src="./assets/MARGEM-DE-LUCRO.png?v=31"
+                src="./assets/MARGEM-DE-LUCRO.png"
                 alt="Margem"
                 draggable="false">
 
@@ -1805,7 +2257,7 @@ button{
             data-tool="discount">
 
             <img
-                src="./assets/DESCONTO.png?v=31"
+                src="./assets/DESCONTO.png"
                 alt="Desconto"
                 draggable="false">
 
@@ -1825,7 +2277,7 @@ button{
             data-tool="markup">
 
             <img
-                src="./assets/MARKUP.png?v=31"
+                src="./assets/MARKUP.png"
                 alt="Markup"
                 draggable="false">
 
@@ -1845,7 +2297,7 @@ button{
             data-tool="commission">
 
             <img
-                src="./assets/COMISSAO.png?v=31"
+                src="./assets/COMISSAO.png"
                 alt="Comissão"
                 draggable="false">
 
@@ -1865,7 +2317,7 @@ button{
             data-tool="calculator">
 
             <img
-                src="./assets/CALCULADORA.png?v=31"
+                src="./assets/CALCULADORA.png"
                 alt="Calculadora"
                 draggable="false">
 
@@ -1894,7 +2346,7 @@ button{
 
 
 <!-- =====================================================
-     MENU INFERIOR
+     MENU
 ===================================================== -->
 
 <nav class="bottom-nav">
@@ -1941,7 +2393,7 @@ button{
 
 
 <!-- =====================================================
-     FERRAMENTAS
+     FERRAMENTAS INTERNAS
 ===================================================== -->
 
 <section
@@ -2543,8 +2995,6 @@ button{
     <div class="card">
 
 
-        <!-- DISPLAY -->
-
         <div class="calculator-display">
 
             <div
@@ -2562,8 +3012,6 @@ button{
 
         </div>
 
-
-        <!-- MEMÓRIA -->
 
         <div class="memory">
 
@@ -2590,188 +3038,146 @@ button{
         </div>
 
 
-        <!-- TECLADO -->
-
         <div class="keypad">
 
 
             <button
                 class="key special"
                 data-action="clear">
-
                 AC
-
             </button>
 
 
             <button
                 class="key special"
                 data-action="backspace">
-
                 ⌫
-
             </button>
 
 
             <button
                 class="key operator"
                 data-action="percent">
-
                 %
-
             </button>
 
 
             <button
                 class="key operator"
                 data-operator="/">
-
                 ÷
-
             </button>
 
 
             <button
                 class="key"
                 data-number="7">
-
                 7
-
             </button>
 
 
             <button
                 class="key"
                 data-number="8">
-
                 8
-
             </button>
 
 
             <button
                 class="key"
                 data-number="9">
-
                 9
-
             </button>
 
 
             <button
                 class="key operator"
                 data-operator="*">
-
                 ×
-
             </button>
 
 
             <button
                 class="key"
                 data-number="4">
-
                 4
-
             </button>
 
 
             <button
                 class="key"
                 data-number="5">
-
                 5
-
             </button>
 
 
             <button
                 class="key"
                 data-number="6">
-
                 6
-
             </button>
 
 
             <button
                 class="key operator"
                 data-operator="-">
-
                 −
-
             </button>
 
 
             <button
                 class="key"
                 data-number="1">
-
                 1
-
             </button>
 
 
             <button
                 class="key"
                 data-number="2">
-
                 2
-
             </button>
 
 
             <button
                 class="key"
                 data-number="3">
-
                 3
-
             </button>
 
 
             <button
                 class="key operator"
                 data-operator="+">
-
                 +
-
             </button>
 
 
             <button
                 class="key special"
                 data-action="sign">
-
                 ±
-
             </button>
 
 
             <button
                 class="key"
                 data-number="0">
-
                 0
-
             </button>
 
 
             <button
                 class="key"
                 data-action="decimal">
-
                 ,
-
             </button>
 
 
             <button
                 class="key equal"
                 data-action="equals">
-
                 =
-
             </button>
 
 
@@ -2780,9 +3186,7 @@ button{
     </div>
 
 
-    <!-- =================================================
-         NOVO ESPAÇO DE PUBLICIDADE
-    ================================================= -->
+    <!-- PUBLICIDADE -->
 
     <div class="calculator-ad">
 
@@ -2795,9 +3199,7 @@ button{
     </div>
 
 
-    <!-- =================================================
-         NOVO BOTÃO VOLTAR AO MENU
-    ================================================= -->
+    <!-- VOLTAR -->
 
     <button
         class="return-menu"
@@ -2852,7 +3254,6 @@ button{
 
     <div class="card">
 
-
         <button
             class="clear-history"
             id="clearHistory">
@@ -2863,7 +3264,6 @@ button{
 
 
         <div id="historyList"></div>
-
 
     </div>
 
@@ -2881,9 +3281,9 @@ button{
 
 <script>
 
-/* =====================================================
-   FUNÇÕES GERAIS
-===================================================== */
+/* =========================================================
+   FUNÇÕES DE NÚMEROS
+========================================================= */
 
 function parseNumber(value){
 
@@ -2990,16 +3390,18 @@ function money(value){
 }
 
 
-/* =====================================================
+/* =========================================================
    TOAST
-===================================================== */
+========================================================= */
 
 let toastTimer;
 
 function toast(message){
 
     const element =
-        document.getElementById('toast');
+        document.getElementById(
+            'toast'
+        );
 
     element.textContent =
         message;
@@ -3010,7 +3412,7 @@ function toast(message){
 
     toastTimer =
         setTimeout(
-            () => {
+            function(){
 
                 element.classList.remove(
                     'show'
@@ -3022,9 +3424,9 @@ function toast(message){
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVEGAÇÃO
-===================================================== */
+========================================================= */
 
 const homePage =
     document.getElementById(
@@ -3055,7 +3457,7 @@ const bottomButtons =
 function setActiveNav(page){
 
     bottomButtons.forEach(
-        button => {
+        function(button){
 
             button.classList.toggle(
                 'active',
@@ -3076,15 +3478,18 @@ function openHome(){
 
     historyPage.classList.remove('show');
 
-    homePage.style.display = 'flex';
+    homePage.style.display =
+        'flex';
 
     setActiveNav('home');
+
 }
 
 
 function openCalculator(){
 
-    homePage.style.display = 'none';
+    homePage.style.display =
+        'none';
 
     toolPage.classList.remove('show');
 
@@ -3095,12 +3500,14 @@ function openCalculator(){
     setActiveNav('calculator');
 
     updateCalculator();
+
 }
 
 
 function openHistory(){
 
-    homePage.style.display = 'none';
+    homePage.style.display =
+        'none';
 
     toolPage.classList.remove('show');
 
@@ -3111,17 +3518,16 @@ function openHistory(){
     setActiveNav('history');
 
     renderHistory();
+
 }
 
 
-/* MENU */
-
 bottomButtons.forEach(
-    button => {
+    function(button){
 
         button.addEventListener(
             'pointerdown',
-            event => {
+            function(event){
 
                 event.preventDefault();
 
@@ -3150,9 +3556,9 @@ bottomButtons.forEach(
 );
 
 
-/* =====================================================
+/* =========================================================
    FERRAMENTAS
-===================================================== */
+========================================================= */
 
 const toolNames = {
 
@@ -3187,11 +3593,11 @@ const toolNames = {
 document
 .querySelectorAll('.tool-card')
 .forEach(
-    button => {
+    function(button){
 
         button.addEventListener(
             'pointerdown',
-            event => {
+            function(event){
 
                 event.preventDefault();
 
@@ -3205,8 +3611,8 @@ document
                     openCalculator();
 
                     return;
-
                 }
+
 
                 homePage.style.display =
                     'none';
@@ -3229,7 +3635,7 @@ document
                     '.tool-panel'
                 )
                 .forEach(
-                    panel => {
+                    function(panel){
 
                         panel.style.display =
                             'none';
@@ -3277,9 +3683,9 @@ document
 );
 
 
-/* =====================================================
-   BOTÕES DE VOLTAR
-===================================================== */
+/* =========================================================
+   VOLTAR
+========================================================= */
 
 function setupBackButton(id){
 
@@ -3287,7 +3693,7 @@ function setupBackButton(id){
     .getElementById(id)
     .addEventListener(
         'pointerdown',
-        event => {
+        function(event){
 
             event.preventDefault();
 
@@ -3301,6 +3707,7 @@ function setupBackButton(id){
 
 }
 
+
 setupBackButton('backHome');
 
 setupBackButton('backFromCalculator');
@@ -3308,18 +3715,13 @@ setupBackButton('backFromCalculator');
 setupBackButton('backFromHistory');
 
 
-/* =====================================================
-   BOTÃO NOVO:
-   VOLTAR AO MENU PRINCIPAL
-===================================================== */
-
 document
 .getElementById(
     'returnMenuCalculator'
 )
 .addEventListener(
     'pointerdown',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -3332,15 +3734,15 @@ document
 );
 
 
-/* =====================================================
-   PREÇO DE VENDA
-===================================================== */
+/* =========================================================
+   PREÇO
+========================================================= */
 
 document
 .getElementById('btnPrice')
 .addEventListener(
     'pointerdown',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -3366,7 +3768,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3380,7 +3781,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3423,15 +3823,15 @@ document
 );
 
 
-/* =====================================================
+/* =========================================================
    MARGEM
-===================================================== */
+========================================================= */
 
 document
 .getElementById('btnMargin')
 .addEventListener(
     'pointerdown',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -3460,7 +3860,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3521,15 +3920,15 @@ document
 );
 
 
-/* =====================================================
+/* =========================================================
    DESCONTO
-===================================================== */
+========================================================= */
 
 document
 .getElementById('btnDiscount')
 .addEventListener(
     'pointerdown',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -3555,7 +3954,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3569,7 +3967,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3626,15 +4023,15 @@ document
 );
 
 
-/* =====================================================
+/* =========================================================
    MARKUP
-===================================================== */
+========================================================= */
 
 document
 .getElementById('btnMarkup')
 .addEventListener(
     'pointerdown',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -3663,7 +4060,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3733,15 +4129,15 @@ document
 );
 
 
-/* =====================================================
+/* =========================================================
    COMISSÃO
-===================================================== */
+========================================================= */
 
 document
 .getElementById('btnCommission')
 .addEventListener(
     'pointerdown',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -3767,7 +4163,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3778,7 +4173,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3818,9 +4212,9 @@ document
 );
 
 
-/* =====================================================
+/* =========================================================
    HISTÓRICO
-===================================================== */
+========================================================= */
 
 let historyData = [];
 
@@ -3838,13 +4232,11 @@ try{
     ){
 
         historyData = [];
-
     }
 
 }catch(error){
 
     historyData = [];
-
 }
 
 
@@ -3861,7 +4253,6 @@ function escapeHTML(value){
         .replace(/"/g,'&quot;')
 
         .replace(/'/g,'&#039;');
-
 }
 
 
@@ -3901,7 +4292,6 @@ function addHistory(
 
 
     renderHistory();
-
 }
 
 
@@ -3924,7 +4314,6 @@ function renderHistory(){
             'Nenhum cálculo realizado ainda.';
 
         return;
-
     }
 
 
@@ -3933,31 +4322,35 @@ function renderHistory(){
     list.innerHTML =
         historyData
         .map(
-            item => `
+            function(item){
 
-                <div class="history-item">
+                return `
 
-                    <div>
+                    <div class="history-item">
 
-                        <div class="history-name">
-                            ${escapeHTML(item.type)}
+                        <div>
+
+                            <div class="history-name">
+                                ${escapeHTML(item.type)}
+                            </div>
+
+                            <div class="history-info">
+                                ${escapeHTML(item.info)}
+                                <br>
+                                ${escapeHTML(item.date)}
+                            </div>
+
                         </div>
 
-                        <div class="history-info">
-                            ${escapeHTML(item.info)}
-                            <br>
-                            ${escapeHTML(item.date)}
+                        <div class="history-result">
+                            ${escapeHTML(item.result)}
                         </div>
 
                     </div>
 
-                    <div class="history-result">
-                        ${escapeHTML(item.result)}
-                    </div>
+                `;
 
-                </div>
-
-            `
+            }
         )
         .join('');
 
@@ -3968,7 +4361,7 @@ document
 .getElementById('clearHistory')
 .addEventListener(
     'pointerdown',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -3981,7 +4374,6 @@ document
             );
 
             return;
-
         }
 
 
@@ -3992,7 +4384,6 @@ document
         ){
 
             return;
-
         }
 
 
@@ -4015,9 +4406,9 @@ document
 );
 
 
-/* =====================================================
+/* =========================================================
    CALCULADORA
-===================================================== */
+========================================================= */
 
 let calcCurrent = '0';
 
@@ -4037,10 +4428,6 @@ let lastOperand = null;
 
 let justCalculated = false;
 
-
-/* =====================================================
-   DISPLAY
-===================================================== */
 
 const display =
     document.getElementById(
@@ -4064,7 +4451,6 @@ function formatCalc(value){
     ){
 
         return 'Erro';
-
     }
 
 
@@ -4073,7 +4459,6 @@ function formatCalc(value){
     ){
 
         return '0';
-
     }
 
 
@@ -4083,7 +4468,6 @@ function formatCalc(value){
             maximumFractionDigits:10
         }
     );
-
 }
 
 
@@ -4096,13 +4480,12 @@ function updateCalculator(){
 
     expression.textContent =
         calcExpression;
-
 }
 
 
-/* =====================================================
+/* =========================================================
    LIMPAR
-===================================================== */
+========================================================= */
 
 function clearCalculator(){
 
@@ -4123,13 +4506,12 @@ function clearCalculator(){
     justCalculated = false;
 
     updateCalculator();
-
 }
 
 
-/* =====================================================
-   NÚMEROS
-===================================================== */
+/* =========================================================
+   NÚMERO
+========================================================= */
 
 function inputNumber(number){
 
@@ -4138,7 +4520,6 @@ function inputNumber(number){
     ){
 
         clearCalculator();
-
     }
 
 
@@ -4153,7 +4534,6 @@ function inputNumber(number){
         lastOperator = null;
 
         lastOperand = null;
-
     }
 
 
@@ -4186,25 +4566,21 @@ function inputNumber(number){
             ){
 
                 return;
-
             }
 
             calcCurrent +=
                 number;
-
         }
-
     }
 
 
     updateCalculator();
-
 }
 
 
-/* =====================================================
+/* =========================================================
    DECIMAL
-===================================================== */
+========================================================= */
 
 function inputDecimal(){
 
@@ -4213,7 +4589,6 @@ function inputDecimal(){
     ){
 
         clearCalculator();
-
     }
 
 
@@ -4228,7 +4603,6 @@ function inputDecimal(){
         lastOperator = null;
 
         lastOperand = null;
-
     }
 
 
@@ -4241,7 +4615,6 @@ function inputDecimal(){
         updateCalculator();
 
         return;
-
     }
 
 
@@ -4250,18 +4623,16 @@ function inputDecimal(){
     ){
 
         calcCurrent += '.';
-
     }
 
 
     updateCalculator();
-
 }
 
 
-/* =====================================================
-   OPERADORES
-===================================================== */
+/* =========================================================
+   OPERADOR
+========================================================= */
 
 function operatorSymbol(operator){
 
@@ -4278,7 +4649,6 @@ function operatorSymbol(operator){
         return '÷';
 
     return operator;
-
 }
 
 
@@ -4298,39 +4668,27 @@ function calculateOperation(
     switch(operator){
 
         case '+':
-
             return a + b;
 
         case '-':
-
             return a - b;
 
         case '*':
-
             return a * b;
 
         case '/':
 
             if(b === 0){
-
                 return null;
-
             }
 
             return a / b;
 
         default:
-
             return b;
-
     }
-
 }
 
-
-/* =====================================================
-   OPERADOR
-===================================================== */
 
 function selectOperator(operator){
 
@@ -4339,7 +4697,6 @@ function selectOperator(operator){
     ){
 
         return;
-
     }
 
 
@@ -4365,7 +4722,6 @@ function selectOperator(operator){
         updateCalculator();
 
         return;
-
     }
 
 
@@ -4401,7 +4757,6 @@ function selectOperator(operator){
             );
 
             return;
-
         }
 
 
@@ -4415,7 +4770,6 @@ function selectOperator(operator){
 
         calcPrevious =
             calcCurrent;
-
     }
 
 
@@ -4433,13 +4787,12 @@ function selectOperator(operator){
 
 
     updateCalculator();
-
 }
 
 
-/* =====================================================
+/* =========================================================
    IGUAL
-===================================================== */
+========================================================= */
 
 function calculateEquals(){
 
@@ -4448,7 +4801,6 @@ function calculateEquals(){
     ){
 
         return;
-
     }
 
 
@@ -4473,7 +4825,6 @@ function calculateEquals(){
             updateCalculator();
 
             return;
-
         }
 
 
@@ -4500,7 +4851,6 @@ function calculateEquals(){
         );
 
         return;
-
     }
 
 
@@ -4510,7 +4860,6 @@ function calculateEquals(){
     ){
 
         return;
-
     }
 
 
@@ -4553,7 +4902,6 @@ function calculateEquals(){
         );
 
         return;
-
     }
 
 
@@ -4596,13 +4944,12 @@ function calculateEquals(){
         calcExpression,
         formatCalc(result)
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    PORCENTAGEM
-===================================================== */
+========================================================= */
 
 function percentage(){
 
@@ -4615,7 +4962,6 @@ function percentage(){
     ){
 
         return;
-
     }
 
 
@@ -4641,18 +4987,16 @@ function percentage(){
                 current /
                 100
             );
-
     }
 
 
     updateCalculator();
-
 }
 
 
-/* =====================================================
+/* =========================================================
    SINAL
-===================================================== */
+========================================================= */
 
 function changeSign(){
 
@@ -4662,7 +5006,6 @@ function changeSign(){
     ){
 
         return;
-
     }
 
 
@@ -4678,18 +5021,16 @@ function changeSign(){
         calcCurrent =
             '-' +
             calcCurrent;
-
     }
 
 
     updateCalculator();
-
 }
 
 
-/* =====================================================
-   APAGAR
-===================================================== */
+/* =========================================================
+   BACKSPACE
+========================================================= */
 
 function backspace(){
 
@@ -4699,7 +5040,6 @@ function backspace(){
     ){
 
         return;
-
     }
 
 
@@ -4710,7 +5050,6 @@ function backspace(){
         clearCalculator();
 
         return;
-
     }
 
 
@@ -4732,18 +5071,16 @@ function backspace(){
                 0,
                 -1
             );
-
     }
 
 
     updateCalculator();
-
 }
 
 
-/* =====================================================
+/* =========================================================
    BOTÕES INSTANTÂNEOS
-===================================================== */
+========================================================= */
 
 function instantButton(
     button,
@@ -4755,44 +5092,27 @@ function instantButton(
     }
 
 
-    let locked =
-        false;
-
-
     button.addEventListener(
         'pointerdown',
-        event => {
+        function(event){
 
             event.preventDefault();
 
-            if(locked){
-                return;
-            }
-
-            locked = true;
-
-
-            /* EXECUTA IMEDIATAMENTE */
-
             action();
-
 
             button.classList.add(
                 'pressed'
             );
 
-
             setTimeout(
-                () => {
+                function(){
 
                     button.classList.remove(
                         'pressed'
                     );
 
-                    locked = false;
-
                 },
-                45
+                35
             );
 
         },
@@ -4800,22 +5120,21 @@ function instantButton(
             passive:false
         }
     );
-
 }
 
 
-/* =====================================================
+/* =========================================================
    NÚMEROS
-===================================================== */
+========================================================= */
 
 document
 .querySelectorAll('[data-number]')
 .forEach(
-    button => {
+    function(button){
 
         instantButton(
             button,
-            () => {
+            function(){
 
                 inputNumber(
                     button.dataset.number
@@ -4828,16 +5147,18 @@ document
 );
 
 
-/* OPERADORES */
+/* =========================================================
+   OPERADORES
+========================================================= */
 
 document
 .querySelectorAll('[data-operator]')
 .forEach(
-    button => {
+    function(button){
 
         instantButton(
             button,
-            () => {
+            function(){
 
                 selectOperator(
                     button.dataset.operator
@@ -4850,7 +5171,9 @@ document
 );
 
 
-/* DECIMAL */
+/* =========================================================
+   BOTÕES
+========================================================= */
 
 instantButton(
     document.querySelector(
@@ -4860,8 +5183,6 @@ instantButton(
 );
 
 
-/* AC */
-
 instantButton(
     document.querySelector(
         '[data-action="clear"]'
@@ -4869,8 +5190,6 @@ instantButton(
     clearCalculator
 );
 
-
-/* BACKSPACE */
 
 instantButton(
     document.querySelector(
@@ -4880,8 +5199,6 @@ instantButton(
 );
 
 
-/* SINAL */
-
 instantButton(
     document.querySelector(
         '[data-action="sign"]'
@@ -4889,8 +5206,6 @@ instantButton(
     changeSign
 );
 
-
-/* PORCENTAGEM */
 
 instantButton(
     document.querySelector(
@@ -4900,8 +5215,6 @@ instantButton(
 );
 
 
-/* IGUAL */
-
 instantButton(
     document.querySelector(
         '[data-action="equals"]'
@@ -4910,18 +5223,18 @@ instantButton(
 );
 
 
-/* =====================================================
+/* =========================================================
    MEMÓRIA
-===================================================== */
+========================================================= */
 
 document
 .querySelectorAll('[data-memory]')
 .forEach(
-    button => {
+    function(button){
 
         instantButton(
             button,
-            () => {
+            function(){
 
                 const action =
                     button.dataset.memory;
@@ -4937,7 +5250,6 @@ document
                     toast(
                         'Memória apagada.'
                     );
-
                 }
 
 
@@ -4951,7 +5263,6 @@ document
                     toast(
                         'Valor salvo na memória.'
                     );
-
                 }
 
 
@@ -4969,7 +5280,6 @@ document
                         false;
 
                     updateCalculator();
-
                 }
 
 
@@ -4986,7 +5296,6 @@ document
                     toast(
                         'Valor adicionado.'
                     );
-
                 }
 
 
@@ -5003,7 +5312,6 @@ document
                     toast(
                         'Valor retirado.'
                     );
-
                 }
 
             }
@@ -5013,13 +5321,13 @@ document
 );
 
 
-/* =====================================================
-   TECLADO DO COMPUTADOR
-===================================================== */
+/* =========================================================
+   TECLADO FÍSICO
+========================================================= */
 
 document.addEventListener(
     'keydown',
-    event => {
+    function(event){
 
         const key =
             event.key;
@@ -5031,7 +5339,6 @@ document.addEventListener(
         ){
 
             return;
-
         }
 
 
@@ -5044,7 +5351,6 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
 
 
@@ -5058,7 +5364,6 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
 
 
@@ -5071,7 +5376,6 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
 
 
@@ -5082,7 +5386,6 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
 
 
@@ -5096,7 +5399,6 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
 
 
@@ -5109,7 +5411,6 @@ document.addEventListener(
             event.preventDefault();
 
             return;
-
         }
 
 
@@ -5127,13 +5428,13 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   CAMPOS NUMÉRICOS
-===================================================== */
+/* =========================================================
+   INPUTS NUMÉRICOS
+========================================================= */
 
 document.addEventListener(
     'input',
-    event => {
+    function(event){
 
         const input =
             event.target;
@@ -5146,7 +5447,6 @@ document.addEventListener(
         ){
 
             return;
-
         }
 
 
@@ -5160,13 +5460,13 @@ document.addEventListener(
 );
 
 
-/* =====================================================
-   BLOQUEIO DE ZOOM
-===================================================== */
+/* =========================================================
+   BLOQUEIO DE ZOOM IOS
+========================================================= */
 
 document.addEventListener(
     'gesturestart',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -5179,7 +5479,7 @@ document.addEventListener(
 
 document.addEventListener(
     'gesturechange',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -5192,7 +5492,7 @@ document.addEventListener(
 
 document.addEventListener(
     'gestureend',
-    event => {
+    function(event){
 
         event.preventDefault();
 
@@ -5203,13 +5503,15 @@ document.addEventListener(
 );
 
 
-let lastTouchEnd =
-    0;
+/* =========================================================
+   BLOQUEIO DE DUPLO TOQUE
+========================================================= */
 
+let lastTouchEnd = 0;
 
 document.addEventListener(
     'touchend',
-    event => {
+    function(event){
 
         const now =
             Date.now();
@@ -5236,13 +5538,13 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    BLOQUEIO CTRL + ZOOM
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     'wheel',
-    event => {
+    function(event){
 
         if(
             event.ctrlKey
@@ -5259,9 +5561,9 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    INICIALIZAÇÃO
-===================================================== */
+========================================================= */
 
 updateCalculator();
 
