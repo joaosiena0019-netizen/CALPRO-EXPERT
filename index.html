@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 
 <meta charset="UTF-8">
@@ -21,6 +22,7 @@ content="black-translucent">
 
 <title>CALPRO EXPERT</title>
 
+
 <style>
 
 /* =========================================================
@@ -31,6 +33,7 @@ content="black-translucent">
     box-sizing:border-box;
     margin:0;
     padding:0;
+
     -webkit-tap-highlight-color:transparent;
 }
 
@@ -47,8 +50,6 @@ body{
 
     overscroll-behavior:none;
 
-    touch-action:manipulation;
-
     -webkit-text-size-adjust:100%;
 }
 
@@ -64,6 +65,8 @@ body{
         sans-serif;
 
     overflow:hidden !important;
+
+    touch-action:manipulation;
 }
 
 button,
@@ -554,15 +557,30 @@ input{
         inset
         0 1px 1px
         rgba(255,255,255,.065);
+
+    transition:
+
+        transform .08s ease,
+        border-color .08s ease,
+        filter .08s ease;
 }
 
-.tool-card:active{
+
+/*
+   Feedback visual apenas enquanto o usuário
+   realmente está tocando no card.
+*/
+
+.tool-card.pressed{
 
     transform:scale(.985);
 
     border-color:
-        rgba(255,123,0,.65);
+        rgba(255,123,0,.45);
+
+    filter:brightness(1.05);
 }
+
 
 .tool-card img{
 
@@ -1115,7 +1133,7 @@ input{
 
 
 /* =========================================================
-   CALCULADORA - ÁREA COMPLETA
+   CALCULADORA
 ========================================================= */
 
 #calculatorPage{
@@ -1126,11 +1144,6 @@ input{
             env(safe-area-inset-bottom)
         );
 }
-
-
-/* =========================================================
-   CARD DA CALCULADORA
-========================================================= */
 
 #calculatorPage > .card{
 
@@ -1843,7 +1856,7 @@ input{
 
 
 /* =========================================================
-   IPHONE / ANDROID COM ALTURA MUITO PEQUENA
+   TELAS EXTREMAMENTE BAIXAS
 ========================================================= */
 
 @media(max-height:560px){
@@ -2045,7 +2058,7 @@ input{
 
 
 /* =========================================================
-   BLOQUEIO DE SELEÇÃO / DRAG
+   IMAGENS
 ========================================================= */
 
 img{
@@ -2059,18 +2072,19 @@ img{
 
 
 /* =========================================================
-   BLOQUEIO DE ZOOM
+   BLOQUEIO DE ZOOM / ROLAGEM
 ========================================================= */
 
 html,
 body{
 
-    touch-action:pan-x pan-y;
+    touch-action:manipulation;
 
     overscroll-behavior:none;
 }
 
 </style>
+
 </head>
 
 
@@ -2346,7 +2360,7 @@ body{
 
 
 <!-- =====================================================
-     MENU
+     MENU INFERIOR
 ===================================================== -->
 
 <nav class="bottom-nav">
@@ -2393,7 +2407,7 @@ body{
 
 
 <!-- =====================================================
-     FERRAMENTAS INTERNAS
+     FERRAMENTAS
 ===================================================== -->
 
 <section
@@ -2436,7 +2450,7 @@ body{
     </div>
 
 
-    <!-- PREÇO -->
+    <!-- PREÇO DE VENDA -->
 
     <div
         id="tool-price"
@@ -2453,6 +2467,7 @@ body{
                 Informe o custo e a margem desejada
                 para descobrir o preço ideal de venda.
             </p>
+
 
             <div class="field">
 
@@ -2535,6 +2550,7 @@ body{
                 Descubra quanto realmente sobra da venda
                 depois de considerar o custo.
             </p>
+
 
             <div class="field">
 
@@ -2654,6 +2670,7 @@ body{
                 depois de aplicar o desconto.
             </p>
 
+
             <div class="field">
 
                 <label>
@@ -2772,6 +2789,7 @@ body{
                 representa o seu custo.
             </p>
 
+
             <div class="field">
 
                 <label>
@@ -2889,6 +2907,7 @@ body{
                 Informe o valor vendido e sua taxa
                 para descobrir sua comissão.
             </p>
+
 
             <div class="field">
 
@@ -3186,8 +3205,6 @@ body{
     </div>
 
 
-    <!-- PUBLICIDADE -->
-
     <div class="calculator-ad">
 
         ESPAÇO RESERVADO PARA PUBLICIDADE
@@ -3198,8 +3215,6 @@ body{
 
     </div>
 
-
-    <!-- VOLTAR -->
 
     <button
         class="return-menu"
@@ -3282,7 +3297,7 @@ body{
 <script>
 
 /* =========================================================
-   FUNÇÕES DE NÚMEROS
+   NÚMEROS
 ========================================================= */
 
 function parseNumber(value){
@@ -3302,6 +3317,7 @@ function parseNumber(value){
     if(!text){
         return 0;
     }
+
 
     if(
         text.includes(',') &&
@@ -3332,14 +3348,17 @@ function parseNumber(value){
 
     }
 
+
     text =
         text.replace(
             /[^0-9.-]/g,
             ''
         );
 
+
     const result =
         Number(text);
+
 
     return Number.isFinite(result)
         ? result
@@ -3352,11 +3371,14 @@ function formatNumber(value){
     const number =
         Number(value);
 
+
     if(
         !Number.isFinite(number)
     ){
+
         return '0,00';
     }
+
 
     return number.toLocaleString(
         'pt-BR',
@@ -3373,11 +3395,14 @@ function money(value){
     const number =
         Number(value);
 
+
     if(
         !Number.isFinite(number)
     ){
+
         return 'R$ 0,00';
     }
+
 
     return 'R$ ' +
         number.toLocaleString(
@@ -3403,12 +3428,20 @@ function toast(message){
             'toast'
         );
 
+
     element.textContent =
         message;
 
-    element.classList.add('show');
 
-    clearTimeout(toastTimer);
+    element.classList.add(
+        'show'
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
 
     toastTimer =
         setTimeout(
@@ -3425,7 +3458,7 @@ function toast(message){
 
 
 /* =========================================================
-   NAVEGAÇÃO
+   ELEMENTOS
 ========================================================= */
 
 const homePage =
@@ -3448,11 +3481,16 @@ const historyPage =
         'historyPage'
     );
 
+
 const bottomButtons =
     document.querySelectorAll(
         '.bottom-nav button'
     );
 
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
 
 function setActiveNav(page){
 
@@ -3472,17 +3510,26 @@ function setActiveNav(page){
 
 function openHome(){
 
-    toolPage.classList.remove('show');
+    toolPage.classList.remove(
+        'show'
+    );
 
-    calculatorPage.classList.remove('show');
+    calculatorPage.classList.remove(
+        'show'
+    );
 
-    historyPage.classList.remove('show');
+    historyPage.classList.remove(
+        'show'
+    );
+
 
     homePage.style.display =
         'flex';
 
-    setActiveNav('home');
 
+    setActiveNav(
+        'home'
+    );
 }
 
 
@@ -3491,16 +3538,27 @@ function openCalculator(){
     homePage.style.display =
         'none';
 
-    toolPage.classList.remove('show');
 
-    historyPage.classList.remove('show');
+    toolPage.classList.remove(
+        'show'
+    );
 
-    calculatorPage.classList.add('show');
+    historyPage.classList.remove(
+        'show'
+    );
 
-    setActiveNav('calculator');
+
+    calculatorPage.classList.add(
+        'show'
+    );
+
+
+    setActiveNav(
+        'calculator'
+    );
+
 
     updateCalculator();
-
 }
 
 
@@ -3509,46 +3567,59 @@ function openHistory(){
     homePage.style.display =
         'none';
 
-    toolPage.classList.remove('show');
 
-    calculatorPage.classList.remove('show');
+    toolPage.classList.remove(
+        'show'
+    );
 
-    historyPage.classList.add('show');
+    calculatorPage.classList.remove(
+        'show'
+    );
 
-    setActiveNav('history');
+
+    historyPage.classList.add(
+        'show'
+    );
+
+
+    setActiveNav(
+        'history'
+    );
+
 
     renderHistory();
-
 }
 
+
+/* =========================================================
+   MENU INFERIOR
+========================================================= */
 
 bottomButtons.forEach(
     function(button){
 
         button.addEventListener(
-            'pointerdown',
-            function(event){
-
-                event.preventDefault();
+            'click',
+            function(){
 
                 const page =
                     button.dataset.page;
+
 
                 if(page === 'home'){
                     openHome();
                 }
 
+
                 if(page === 'calculator'){
                     openCalculator();
                 }
+
 
                 if(page === 'history'){
                     openHistory();
                 }
 
-            },
-            {
-                passive:false
             }
         );
 
@@ -3557,7 +3628,7 @@ bottomButtons.forEach(
 
 
 /* =========================================================
-   FERRAMENTAS
+   NOMES DAS FERRAMENTAS
 ========================================================= */
 
 const toolNames = {
@@ -3590,92 +3661,284 @@ const toolNames = {
 };
 
 
+/* =========================================================
+   ABRIR FERRAMENTA
+========================================================= */
+
+function openTool(tool){
+
+    if(
+        tool === 'calculator'
+    ){
+
+        openCalculator();
+
+        return;
+    }
+
+
+    homePage.style.display =
+        'none';
+
+
+    calculatorPage
+        .classList
+        .remove('show');
+
+
+    historyPage
+        .classList
+        .remove('show');
+
+
+    toolPage
+        .classList
+        .add('show');
+
+
+    document
+    .querySelectorAll(
+        '.tool-panel'
+    )
+    .forEach(
+        function(panel){
+
+            panel.style.display =
+                'none';
+
+        }
+    );
+
+
+    const panel =
+        document.getElementById(
+            'tool-' + tool
+        );
+
+
+    if(panel){
+
+        panel.style.display =
+            'block';
+
+    }
+
+
+    if(
+        toolNames[tool]
+    ){
+
+        document
+        .getElementById(
+            'toolTitle'
+        )
+        .textContent =
+            toolNames[tool].title;
+
+
+        document
+        .getElementById(
+            'toolSubtitle'
+        )
+        .textContent =
+            toolNames[tool].subtitle;
+
+    }
+
+}
+
+
+/* =========================================================
+   CLIQUE DOS CARDS DAS FERRAMENTAS
+   MAIS CONTROLADO E FLUIDO
+========================================================= */
+
 document
-.querySelectorAll('.tool-card')
+.querySelectorAll(
+    '.tool-card'
+)
 .forEach(
     function(button){
+
+        let startX = 0;
+
+        let startY = 0;
+
+        let startTime = 0;
+
+        let moved = false;
+
+        let cancelled = false;
+
 
         button.addEventListener(
             'pointerdown',
             function(event){
 
-                event.preventDefault();
-
-                const tool =
-                    button.dataset.tool;
-
                 if(
-                    tool === 'calculator'
+                    event.pointerType === 'mouse' &&
+                    event.button !== 0
                 ){
-
-                    openCalculator();
 
                     return;
                 }
 
 
-                homePage.style.display =
-                    'none';
+                startX =
+                    event.clientX;
 
-                calculatorPage
-                    .classList
-                    .remove('show');
+                startY =
+                    event.clientY;
 
-                historyPage
-                    .classList
-                    .remove('show');
+                startTime =
+                    performance.now();
 
-                toolPage
-                    .classList
-                    .add('show');
+                moved =
+                    false;
+
+                cancelled =
+                    false;
 
 
-                document
-                .querySelectorAll(
-                    '.tool-panel'
-                )
-                .forEach(
-                    function(panel){
-
-                        panel.style.display =
-                            'none';
-
-                    }
+                button.classList.add(
+                    'pressed'
                 );
-
-
-                const panel =
-                    document.getElementById(
-                        'tool-' + tool
-                    );
-
-
-                if(panel){
-
-                    panel.style.display =
-                        'block';
-
-                }
-
-
-                document
-                .getElementById(
-                    'toolTitle'
-                )
-                .textContent =
-                    toolNames[tool].title;
-
-
-                document
-                .getElementById(
-                    'toolSubtitle'
-                )
-                .textContent =
-                    toolNames[tool].subtitle;
 
             },
             {
-                passive:false
+                passive:true
+            }
+        );
+
+
+        button.addEventListener(
+            'pointermove',
+            function(event){
+
+                const deltaX =
+                    Math.abs(
+                        event.clientX -
+                        startX
+                    );
+
+
+                const deltaY =
+                    Math.abs(
+                        event.clientY -
+                        startY
+                    );
+
+
+                /*
+                 * Se a pessoa movimentou o dedo,
+                 * entendemos como gesto e não clique.
+                 */
+
+                if(
+                    deltaX > 12 ||
+                    deltaY > 12
+                ){
+
+                    moved =
+                        true;
+
+                    button.classList.remove(
+                        'pressed'
+                    );
+
+                }
+
+            },
+            {
+                passive:true
+            }
+        );
+
+
+        button.addEventListener(
+            'pointerup',
+            function(){
+
+                button.classList.remove(
+                    'pressed'
+                );
+
+
+                if(
+                    moved ||
+                    cancelled
+                ){
+
+                    return;
+                }
+
+
+                const elapsed =
+                    performance.now() -
+                    startTime;
+
+
+                /*
+                 * Pequena tolerância.
+                 *
+                 * Toque normal:
+                 * abre praticamente instantâneo.
+                 *
+                 * Toque extremamente rápido/acidental:
+                 * recebe uma pequena proteção.
+                 */
+
+                const delay =
+                    elapsed < 55
+                        ? 35
+                        : 0;
+
+
+                if(delay > 0){
+
+                    setTimeout(
+                        function(){
+
+                            openTool(
+                                button.dataset.tool
+                            );
+
+                        },
+                        delay
+                    );
+
+                }else{
+
+                    openTool(
+                        button.dataset.tool
+                    );
+
+                }
+
+            },
+            {
+                passive:true
+            }
+        );
+
+
+        button.addEventListener(
+            'pointercancel',
+            function(){
+
+                cancelled =
+                    true;
+
+                moved =
+                    true;
+
+                button.classList.remove(
+                    'pressed'
+                );
+
+            },
+            {
+                passive:true
             }
         );
 
@@ -3689,30 +3952,38 @@ document
 
 function setupBackButton(id){
 
-    document
-    .getElementById(id)
-    .addEventListener(
-        'pointerdown',
-        function(event){
+    const button =
+        document.getElementById(id);
 
-            event.preventDefault();
+
+    if(!button){
+        return;
+    }
+
+
+    button.addEventListener(
+        'click',
+        function(){
 
             openHome();
 
-        },
-        {
-            passive:false
         }
     );
 
 }
 
 
-setupBackButton('backHome');
+setupBackButton(
+    'backHome'
+);
 
-setupBackButton('backFromCalculator');
+setupBackButton(
+    'backFromCalculator'
+);
 
-setupBackButton('backFromHistory');
+setupBackButton(
+    'backFromHistory'
+);
 
 
 document
@@ -3720,31 +3991,26 @@ document
     'returnMenuCalculator'
 )
 .addEventListener(
-    'pointerdown',
-    function(event){
-
-        event.preventDefault();
+    'click',
+    function(){
 
         openHome();
 
-    },
-    {
-        passive:false
     }
 );
 
 
 /* =========================================================
-   PREÇO
+   PREÇO DE VENDA
 ========================================================= */
 
 document
-.getElementById('btnPrice')
+.getElementById(
+    'btnPrice'
+)
 .addEventListener(
-    'pointerdown',
-    function(event){
-
-        event.preventDefault();
+    'click',
+    function(){
 
         const cost =
             parseNumber(
@@ -3752,6 +4018,7 @@ document
                     'priceCost'
                 ).value
             );
+
 
         const margin =
             parseNumber(
@@ -3816,9 +4083,6 @@ document
             money(price)
         );
 
-    },
-    {
-        passive:false
     }
 );
 
@@ -3828,12 +4092,12 @@ document
 ========================================================= */
 
 document
-.getElementById('btnMargin')
+.getElementById(
+    'btnMargin'
+)
 .addEventListener(
-    'pointerdown',
-    function(event){
-
-        event.preventDefault();
+    'click',
+    function(){
 
         const cost =
             parseNumber(
@@ -3841,6 +4105,7 @@ document
                     'marginCost'
                 ).value
             );
+
 
         const sale =
             parseNumber(
@@ -3866,10 +4131,12 @@ document
         const profit =
             sale - cost;
 
+
         const margin =
             profit /
             sale *
             100;
+
 
         const markup =
             sale /
@@ -3913,9 +4180,6 @@ document
             '%'
         );
 
-    },
-    {
-        passive:false
     }
 );
 
@@ -3925,12 +4189,12 @@ document
 ========================================================= */
 
 document
-.getElementById('btnDiscount')
+.getElementById(
+    'btnDiscount'
+)
 .addEventListener(
-    'pointerdown',
-    function(event){
-
-        event.preventDefault();
+    'click',
+    function(){
 
         const price =
             parseNumber(
@@ -3938,6 +4202,7 @@ document
                     'discountPrice'
                 ).value
             );
+
 
         const percent =
             parseNumber(
@@ -3974,6 +4239,7 @@ document
             price *
             percent /
             100;
+
 
         const finalPrice =
             price -
@@ -4016,9 +4282,6 @@ document
             money(finalPrice)
         );
 
-    },
-    {
-        passive:false
     }
 );
 
@@ -4028,12 +4291,12 @@ document
 ========================================================= */
 
 document
-.getElementById('btnMarkup')
+.getElementById(
+    'btnMarkup'
+)
 .addEventListener(
-    'pointerdown',
-    function(event){
-
-        event.preventDefault();
+    'click',
+    function(){
 
         const cost =
             parseNumber(
@@ -4041,6 +4304,7 @@ document
                     'markupCost'
                 ).value
             );
+
 
         const sale =
             parseNumber(
@@ -4067,6 +4331,7 @@ document
             sale /
             cost;
 
+
         const increase =
             (
                 sale -
@@ -4074,6 +4339,7 @@ document
             ) /
             cost *
             100;
+
 
         const margin =
             (
@@ -4122,9 +4388,6 @@ document
             'x'
         );
 
-    },
-    {
-        passive:false
     }
 );
 
@@ -4134,12 +4397,12 @@ document
 ========================================================= */
 
 document
-.getElementById('btnCommission')
+.getElementById(
+    'btnCommission'
+)
 .addEventListener(
-    'pointerdown',
-    function(event){
-
-        event.preventDefault();
+    'click',
+    function(){
 
         const sale =
             parseNumber(
@@ -4147,6 +4410,7 @@ document
                     'commissionSale'
                 ).value
             );
+
 
         const percent =
             parseNumber(
@@ -4205,9 +4469,6 @@ document
             money(commission)
         );
 
-    },
-    {
-        passive:false
     }
 );
 
@@ -4218,6 +4479,7 @@ document
 
 let historyData = [];
 
+
 try{
 
     historyData =
@@ -4226,6 +4488,7 @@ try{
                 'calpro_history'
             ) || '[]'
         );
+
 
     if(
         !Array.isArray(historyData)
@@ -4244,15 +4507,30 @@ function escapeHTML(value){
 
     return String(value)
 
-        .replace(/&/g,'&amp;')
+        .replace(
+            /&/g,
+            '&amp;'
+        )
 
-        .replace(/</g,'&lt;')
+        .replace(
+            /</g,
+            '&lt;'
+        )
 
-        .replace(/>/g,'&gt;')
+        .replace(
+            />/g,
+            '&gt;'
+        )
 
-        .replace(/"/g,'&quot;')
+        .replace(
+            /"/g,
+            '&quot;'
+        )
 
-        .replace(/'/g,'&#039;');
+        .replace(
+            /'/g,
+            '&#039;'
+        );
 }
 
 
@@ -4278,14 +4556,19 @@ function addHistory(
 
 
     historyData =
-        historyData.slice(0,50);
+        historyData.slice(
+            0,
+            50
+        );
 
 
     try{
 
         localStorage.setItem(
             'calpro_history',
-            JSON.stringify(historyData)
+            JSON.stringify(
+                historyData
+            )
         );
 
     }catch(error){}
@@ -4317,7 +4600,9 @@ function renderHistory(){
     }
 
 
-    list.className = '';
+    list.className =
+        '';
+
 
     list.innerHTML =
         historyData
@@ -4353,17 +4638,16 @@ function renderHistory(){
             }
         )
         .join('');
-
 }
 
 
 document
-.getElementById('clearHistory')
+.getElementById(
+    'clearHistory'
+)
 .addEventListener(
-    'pointerdown',
-    function(event){
-
-        event.preventDefault();
+    'click',
+    function(){
 
         if(
             historyData.length === 0
@@ -4389,19 +4673,19 @@ document
 
         historyData = [];
 
+
         localStorage.removeItem(
             'calpro_history'
         );
 
+
         renderHistory();
+
 
         toast(
             'Histórico apagado.'
         );
 
-    },
-    {
-        passive:false
     }
 );
 
@@ -4410,29 +4694,39 @@ document
    CALCULADORA
 ========================================================= */
 
-let calcCurrent = '0';
+let calcCurrent =
+    '0';
 
-let calcPrevious = null;
+let calcPrevious =
+    null;
 
-let calcOperator = null;
+let calcOperator =
+    null;
 
-let calcWaiting = false;
+let calcWaiting =
+    false;
 
-let calcExpression = '';
+let calcExpression =
+    '';
 
-let calcMemory = '0';
+let calcMemory =
+    '0';
 
-let lastOperator = null;
+let lastOperator =
+    null;
 
-let lastOperand = null;
+let lastOperand =
+    null;
 
-let justCalculated = false;
+let justCalculated =
+    false;
 
 
 const display =
     document.getElementById(
         'display'
     );
+
 
 const expression =
     document.getElementById(
@@ -4455,7 +4749,10 @@ function formatCalc(value){
 
 
     if(
-        Object.is(number,-0)
+        Object.is(
+            number,
+            -0
+        )
     ){
 
         return '0';
@@ -4478,39 +4775,49 @@ function updateCalculator(){
             calcCurrent
         );
 
+
     expression.textContent =
         calcExpression;
 }
 
 
 /* =========================================================
-   LIMPAR
+   LIMPAR CALCULADORA
 ========================================================= */
 
 function clearCalculator(){
 
-    calcCurrent = '0';
+    calcCurrent =
+        '0';
 
-    calcPrevious = null;
+    calcPrevious =
+        null;
 
-    calcOperator = null;
+    calcOperator =
+        null;
 
-    calcWaiting = false;
+    calcWaiting =
+        false;
 
-    calcExpression = '';
+    calcExpression =
+        '';
 
-    lastOperator = null;
+    lastOperator =
+        null;
 
-    lastOperand = null;
+    lastOperand =
+        null;
 
-    justCalculated = false;
+    justCalculated =
+        false;
+
 
     updateCalculator();
 }
 
 
 /* =========================================================
-   NÚMERO
+   NÚMEROS
 ========================================================= */
 
 function inputNumber(number){
@@ -4525,15 +4832,20 @@ function inputNumber(number){
 
     if(justCalculated){
 
-        calcCurrent = '0';
+        calcCurrent =
+            '0';
 
-        calcExpression = '';
+        calcExpression =
+            '';
 
-        justCalculated = false;
+        justCalculated =
+            false;
 
-        lastOperator = null;
+        lastOperator =
+            null;
 
-        lastOperand = null;
+        lastOperand =
+            null;
     }
 
 
@@ -4558,8 +4870,15 @@ function inputNumber(number){
 
             const digits =
                 calcCurrent
-                .replace('-','')
-                .replace('.','');
+                .replace(
+                    '-',
+                    ''
+                )
+                .replace(
+                    '.',
+                    ''
+                );
+
 
             if(
                 digits.length >= 15
@@ -4568,9 +4887,11 @@ function inputNumber(number){
                 return;
             }
 
+
             calcCurrent +=
                 number;
         }
+
     }
 
 
@@ -4594,23 +4915,30 @@ function inputDecimal(){
 
     if(justCalculated){
 
-        calcCurrent = '0';
+        calcCurrent =
+            '0';
 
-        calcExpression = '';
+        calcExpression =
+            '';
 
-        justCalculated = false;
+        justCalculated =
+            false;
 
-        lastOperator = null;
+        lastOperator =
+            null;
 
-        lastOperand = null;
+        lastOperand =
+            null;
     }
 
 
     if(calcWaiting){
 
-        calcCurrent = '0.';
+        calcCurrent =
+            '0.';
 
-        calcWaiting = false;
+        calcWaiting =
+            false;
 
         updateCalculator();
 
@@ -4622,7 +4950,8 @@ function inputDecimal(){
         !calcCurrent.includes('.')
     ){
 
-        calcCurrent += '.';
+        calcCurrent +=
+            '.';
     }
 
 
@@ -4631,7 +4960,7 @@ function inputDecimal(){
 
 
 /* =========================================================
-   OPERADOR
+   OPERADORES
 ========================================================= */
 
 function operatorSymbol(operator){
@@ -4668,23 +4997,32 @@ function calculateOperation(
     switch(operator){
 
         case '+':
+
             return a + b;
 
+
         case '-':
+
             return a - b;
 
+
         case '*':
+
             return a * b;
+
 
         case '/':
 
             if(b === 0){
+
                 return null;
             }
 
             return a / b;
 
+
         default:
+
             return b;
     }
 }
@@ -4714,10 +5052,16 @@ function selectOperator(operator){
         justCalculated =
             false;
 
+
         calcExpression =
-            formatCalc(calcPrevious) +
+            formatCalc(
+                calcPrevious
+            ) +
             ' ' +
-            operatorSymbol(operator);
+            operatorSymbol(
+                operator
+            );
+
 
         updateCalculator();
 
@@ -4752,6 +5096,7 @@ function selectOperator(operator){
 
             updateCalculator();
 
+
             toast(
                 'Não é possível dividir por zero.'
             );
@@ -4776,14 +5121,19 @@ function selectOperator(operator){
     calcOperator =
         operator;
 
+
     calcWaiting =
         true;
 
 
     calcExpression =
-        formatCalc(calcPrevious) +
+        formatCalc(
+            calcPrevious
+        ) +
         ' ' +
-        operatorSymbol(operator);
+        operatorSymbol(
+            operator
+        );
 
 
     updateCalculator();
@@ -4829,11 +5179,17 @@ function calculateEquals(){
 
 
         calcExpression =
-            formatCalc(calcCurrent) +
+            formatCalc(
+                calcCurrent
+            ) +
             ' ' +
-            operatorSymbol(lastOperator) +
+            operatorSymbol(
+                lastOperator
+            ) +
             ' ' +
-            formatCalc(lastOperand) +
+            formatCalc(
+                lastOperand
+            ) +
             ' =';
 
 
@@ -4849,6 +5205,7 @@ function calculateEquals(){
             calcExpression,
             formatCalc(result)
         );
+
 
         return;
     }
@@ -4897,9 +5254,11 @@ function calculateEquals(){
 
         updateCalculator();
 
+
         toast(
             'Não é possível dividir por zero.'
         );
+
 
         return;
     }
@@ -4916,6 +5275,7 @@ function calculateEquals(){
 
     calcCurrent =
         String(result);
+
 
     calcPrevious =
         null;
@@ -5029,7 +5389,7 @@ function changeSign(){
 
 
 /* =========================================================
-   BACKSPACE
+   APAGAR
 ========================================================= */
 
 function backspace(){
@@ -5079,7 +5439,7 @@ function backspace(){
 
 
 /* =========================================================
-   BOTÕES INSTANTÂNEOS
+   BOTÃO INSTANTÂNEO
 ========================================================= */
 
 function instantButton(
@@ -5098,11 +5458,14 @@ function instantButton(
 
             event.preventDefault();
 
+
             action();
+
 
             button.classList.add(
                 'pressed'
             );
+
 
             setTimeout(
                 function(){
@@ -5120,15 +5483,18 @@ function instantButton(
             passive:false
         }
     );
+
 }
 
 
 /* =========================================================
-   NÚMEROS
+   NÚMEROS CALCULADORA
 ========================================================= */
 
 document
-.querySelectorAll('[data-number]')
+.querySelectorAll(
+    '[data-number]'
+)
 .forEach(
     function(button){
 
@@ -5148,11 +5514,13 @@ document
 
 
 /* =========================================================
-   OPERADORES
+   OPERADORES CALCULADORA
 ========================================================= */
 
 document
-.querySelectorAll('[data-operator]')
+.querySelectorAll(
+    '[data-operator]'
+)
 .forEach(
     function(button){
 
@@ -5172,7 +5540,7 @@ document
 
 
 /* =========================================================
-   BOTÕES
+   BOTÕES CALCULADORA
 ========================================================= */
 
 instantButton(
@@ -5228,7 +5596,9 @@ instantButton(
 ========================================================= */
 
 document
-.querySelectorAll('[data-memory]')
+.querySelectorAll(
+    '[data-memory]'
+)
 .forEach(
     function(button){
 
@@ -5247,6 +5617,7 @@ document
                     calcMemory =
                         '0';
 
+
                     toast(
                         'Memória apagada.'
                     );
@@ -5259,6 +5630,7 @@ document
 
                     calcMemory =
                         calcCurrent;
+
 
                     toast(
                         'Valor salvo na memória.'
@@ -5293,6 +5665,7 @@ document
                             Number(calcCurrent)
                         );
 
+
                     toast(
                         'Valor adicionado.'
                     );
@@ -5308,6 +5681,7 @@ document
                             Number(calcMemory) -
                             Number(calcCurrent)
                         );
+
 
                     toast(
                         'Valor retirado.'
@@ -5429,7 +5803,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   INPUTS NUMÉRICOS
+   INPUTS
 ========================================================= */
 
 document.addEventListener(
@@ -5507,7 +5881,9 @@ document.addEventListener(
    BLOQUEIO DE DUPLO TOQUE
 ========================================================= */
 
-let lastTouchEnd = 0;
+let lastTouchEnd =
+    0;
+
 
 document.addEventListener(
     'touchend',
@@ -5572,6 +5948,7 @@ renderHistory();
 openHome();
 
 </script>
+
 
 </body>
 </html>
