@@ -5,30 +5,38 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-minimum-scale=1.0,
-maximum-scale=1.0,
-user-scalable=no,
-viewport-fit=cover">
+<meta
+    name="viewport"
+    content="width=device-width,
+    initial-scale=1.0,
+    minimum-scale=1.0,
+    maximum-scale=1.0,
+    user-scalable=no,
+    viewport-fit=cover">
 
-<meta name="theme-color" content="#060906">
+<meta
+    name="theme-color"
+    content="#050805">
 
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes">
 
-<meta name="apple-mobile-web-app-status-bar-style"
-content="black-translucent">
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent">
 
-<meta name="mobile-web-app-capable"
-content="yes">
+<meta
+    name="mobile-web-app-capable"
+    content="yes">
 
 <title>CALPRO EXPERT 2.0</title>
+
 
 <style>
 
 /* =========================================================
-   RESET
+   RESET / BLOQUEIO DE ZOOM
 ========================================================= */
 
 * {
@@ -67,6 +75,7 @@ body {
 
 body {
     position: fixed;
+
     inset: 0;
 
     width: 100%;
@@ -84,6 +93,8 @@ select {
 button {
     -webkit-appearance: none;
     appearance: none;
+
+    touch-action: manipulation;
 }
 
 
@@ -97,6 +108,7 @@ button {
     height: 100%;
 
     display: flex;
+
     flex-direction: column;
 
     overflow: hidden;
@@ -105,7 +117,7 @@ button {
         radial-gradient(
             circle at 100% 0%,
             rgba(124,255,0,.07),
-            transparent 30%
+            transparent 32%
         ),
         linear-gradient(
             180deg,
@@ -125,12 +137,12 @@ button {
 
     width: 100%;
 
-    height: 62px;
+    height: 64px;
 
     padding:
-        9px
-        max(14px, env(safe-area-inset-right))
         8px
+        max(14px, env(safe-area-inset-right))
+        7px
         max(14px, env(safe-area-inset-left));
 
     display: flex;
@@ -139,7 +151,8 @@ button {
 
     justify-content: space-between;
 
-    border-bottom: 1px solid #172119;
+    border-bottom:
+        1px solid #172119;
 }
 
 .brand {
@@ -148,37 +161,41 @@ button {
 
     align-items: center;
 
-    gap: 9px;
+    gap: 10px;
 
     min-width: 0;
 }
 
 .logo {
 
-    width: 39px;
-    height: 39px;
+    width: 42px;
+    height: 42px;
 
-    flex: 0 0 39px;
+    flex: 0 0 42px;
 
-    border-radius: 11px;
+    border-radius: 12px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    border: 1px solid rgba(124,255,0,.45);
+    border:
+        1px solid
+        rgba(124,255,0,.55);
 
     color: #7cff00;
 
-    background: #0c150e;
+    background: #0b150d;
+
+    font-size: 22px;
 
     font-weight: 900;
-
-    font-size: 20px;
 }
 
 .brand-text {
+
     min-width: 0;
 }
 
@@ -186,45 +203,48 @@ button {
 
     display: block;
 
-    font-size: 16px;
+    font-size: 17px;
 
-    line-height: 16px;
+    line-height: 17px;
 
-    letter-spacing: .6px;
+    letter-spacing: .7px;
 }
 
 .brand-text span {
 
     display: block;
 
+    margin-top: 2px;
+
     color: #7cff00;
 
     font-size: 9px;
 
-    font-weight: 800;
+    line-height: 10px;
 
-    letter-spacing: 1.6px;
+    font-weight: 900;
 
-    margin-top: 2px;
+    letter-spacing: 2px;
 }
 
 .header-actions {
 
     display: flex;
 
-    gap: 6px;
+    gap: 7px;
 }
 
 .icon-btn {
 
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
-    border: 1px solid #263329;
+    border:
+        1px solid #263329;
 
-    background: #101810;
+    background: #0d160f;
 
     color: #dce5dd;
 
@@ -234,12 +254,19 @@ button {
 
     justify-content: center;
 
-    font-size: 17px;
+    font-size: 19px;
+
+    cursor: pointer;
+}
+
+.icon-btn:active {
+
+    transform: scale(.94);
 }
 
 
 /* =========================================================
-   ÁREA PRINCIPAL
+   CONTAINER
 ========================================================= */
 
 .container {
@@ -255,9 +282,9 @@ button {
     margin: auto;
 
     padding:
-        8px
+        7px
         max(14px, env(safe-area-inset-right))
-        6px
+        5px
         max(14px, env(safe-area-inset-left));
 
     overflow: hidden;
@@ -274,6 +301,8 @@ button {
 
     width: 100%;
     height: 100%;
+
+    min-height: 0;
 
     overflow: hidden;
 }
@@ -294,25 +323,35 @@ button {
 
     flex: 0 0 auto;
 
-    margin: 2px 0 9px;
+    margin:
+        3px
+        0
+        8px;
 }
 
 .page-title h1 {
 
     margin: 0;
 
-    font-size: clamp(22px, 5vw, 34px);
+    font-size:
+        clamp(
+            25px,
+            6vw,
+            38px
+        );
 
     line-height: 1.05;
+
+    letter-spacing: -.7px;
 }
 
 .page-title p {
 
     margin: 4px 0 0;
 
-    color: #78847c;
+    color: #77827a;
 
-    font-size: 12px;
+    font-size: 13px;
 }
 
 
@@ -322,30 +361,32 @@ button {
 
 .home-content {
 
-    flex: 1;
+    width: 100%;
+    height: 100%;
 
     min-height: 0;
-
-    overflow: hidden;
 
     display: flex;
 
     flex-direction: column;
+
+    overflow: hidden;
 }
 
 .welcome {
 
     flex: 0 0 auto;
 
-    border: 1px solid #1e2b21;
+    padding: 14px;
+
+    margin-bottom: 8px;
+
+    border:
+        1px solid #1e2b21;
 
     border-radius: 17px;
 
-    padding: 14px;
-
     background: #0b120d;
-
-    margin-bottom: 9px;
 }
 
 .welcome small {
@@ -354,14 +395,17 @@ button {
 
     font-size: 9px;
 
-    font-weight: 800;
+    font-weight: 900;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .welcome h2 {
 
-    margin: 4px 0;
+    margin:
+        4px
+        0
+        4px;
 
     font-size: 20px;
 }
@@ -372,9 +416,9 @@ button {
 
     color: #89958c;
 
-    font-size: 12px;
+    font-size: 11px;
 
-    line-height: 1.35;
+    line-height: 1.4;
 }
 
 .stats {
@@ -388,16 +432,17 @@ button {
 
     gap: 7px;
 
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 }
 
 .stat {
 
     min-width: 0;
 
-    padding: 11px;
+    padding: 10px;
 
-    border: 1px solid #1e2b21;
+    border:
+        1px solid #1e2b21;
 
     border-radius: 13px;
 
@@ -408,11 +453,11 @@ button {
 
     display: block;
 
+    margin-bottom: 4px;
+
     color: #707c73;
 
     font-size: 9px;
-
-    margin-bottom: 4px;
 }
 
 .stat strong {
@@ -432,11 +477,14 @@ button {
 
     flex: 0 0 auto;
 
+    margin:
+        2px
+        0
+        6px;
+
     font-size: 13px;
 
-    font-weight: 700;
-
-    margin: 4px 0 7px;
+    font-weight: 800;
 }
 
 .quick-grid {
@@ -460,17 +508,20 @@ button {
 
     min-height: 0;
 
-    border: 1px solid #1f2d22;
+    padding: 12px;
+
+    border:
+        1px solid #1f2d22;
+
+    border-radius: 14px;
 
     background: #0c140e;
 
     color: white;
 
-    border-radius: 14px;
-
-    padding: 12px;
-
     text-align: left;
+
+    cursor: pointer;
 }
 
 .quick:active {
@@ -480,13 +531,13 @@ button {
     background: #121d14;
 }
 
-.quick .q-icon {
+.q-icon {
+
+    margin-bottom: 7px;
 
     color: #7cff00;
 
-    font-size: 21px;
-
-    margin-bottom: 7px;
+    font-size: 22px;
 }
 
 .quick strong {
@@ -521,42 +572,49 @@ button {
     display: grid;
 
     grid-template-columns:
-        minmax(280px, 460px)
-        1fr;
+        minmax(290px, 470px)
+        minmax(220px, 1fr);
 
     gap: 10px;
+
+    overflow: hidden;
 }
 
 .calculator {
 
+    width: 100%;
+    height: 100%;
+
     min-height: 0;
-
-    border: 1px solid #1f2d22;
-
-    background: #09100b;
-
-    border-radius: 19px;
 
     padding: 9px;
 
     display: flex;
 
     flex-direction: column;
+
+    border:
+        1px solid #1f2d22;
+
+    border-radius: 21px;
+
+    background: #09100b;
 }
+
+
+/* =========================================================
+   DISPLAY
+========================================================= */
 
 .display {
 
     flex: 0 0 auto;
 
-    min-height: 100px;
+    width: 100%;
+
+    min-height: 104px;
 
     padding: 13px;
-
-    border-radius: 13px;
-
-    border: 1px solid #1c281e;
-
-    background: #050905;
 
     margin-bottom: 8px;
 
@@ -567,17 +625,26 @@ button {
     justify-content: flex-end;
 
     overflow: hidden;
+
+    border:
+        1px solid #1c281e;
+
+    border-radius: 15px;
+
+    background: #040704;
 }
 
 .operation {
 
+    width: 100%;
+
     min-height: 18px;
 
-    color: #68746c;
+    color: #657169;
 
     text-align: right;
 
-    font-size: 11px;
+    font-size: 13px;
 
     white-space: nowrap;
 
@@ -588,19 +655,26 @@ button {
 
 .result {
 
-    margin-top: 3px;
+    width: 100%;
+
+    margin-top: 4px;
+
+    color: #f6f8f6;
 
     text-align: right;
 
-    font-size: clamp(
-        30px,
-        8vw,
-        48px
-    );
+    font-size:
+        clamp(
+            35px,
+            9vw,
+            55px
+        );
 
     line-height: 1;
 
     font-weight: 500;
+
+    letter-spacing: -1px;
 
     white-space: nowrap;
 
@@ -608,6 +682,11 @@ button {
 
     text-overflow: ellipsis;
 }
+
+
+/* =========================================================
+   TECLADO
+========================================================= */
 
 .keys {
 
@@ -621,50 +700,74 @@ button {
         repeat(4, 1fr);
 
     grid-template-rows:
-        repeat(5, 1fr);
+        repeat(5, minmax(0, 1fr));
 
     gap: 6px;
 }
 
+
+/*
+   IMPORTANTE:
+   O "=" ocupa a linha inteira.
+*/
+
 .key {
 
+    min-width: 0;
     min-height: 0;
 
-    border: 1px solid #263329;
+    border:
+        1px solid #263329;
 
-    border-radius: 11px;
+    border-radius: 12px;
 
-    background: #131c16;
+    background: #111a14;
 
-    color: #eef3ef;
+    color: #f1f5f2;
 
-    font-size: clamp(
-        17px,
-        4.5vw,
-        22px
-    );
+    font-size:
+        clamp(
+            19px,
+            5vw,
+            25px
+        );
 
     font-weight: 500;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    transition:
+        transform .06s ease,
+        background .06s ease;
 }
 
 .key:active {
 
-    transform: scale(.96);
+    transform: scale(.94);
 
-    background: #202c23;
+    background: #26352a;
 }
 
 .key.operator {
 
     color: #7cff00;
+
+    font-weight: 600;
 }
 
 .key.action {
 
-    color: #ff7777;
+    color: #ff7070;
+
+    font-weight: 600;
 }
 
 .key.equals {
+
+    grid-column:
+        1 / -1;
 
     background: #7cff00;
 
@@ -672,32 +775,51 @@ button {
 
     color: #071006;
 
+    font-size: 28px;
+
     font-weight: 900;
+}
+
+.key.equals:active {
+
+    background: #67df00;
 }
 
 .key.zero {
 
-    grid-column: span 2;
+    grid-column:
+        span 2;
 }
+
+
+/* =========================================================
+   INFORMAÇÕES LATERAIS
+========================================================= */
 
 .calc-info {
 
     min-width: 0;
 
-    border: 1px solid #1f2d22;
-
-    border-radius: 17px;
-
-    background: #0b120d;
+    height: 100%;
 
     padding: 14px;
+
+    border:
+        1px solid #1f2d22;
+
+    border-radius: 18px;
+
+    background: #0b120d;
 
     overflow: hidden;
 }
 
 .calc-info h3 {
 
-    margin: 0 0 10px;
+    margin:
+        0
+        0
+        10px;
 
     font-size: 16px;
 }
@@ -706,11 +828,12 @@ button {
 
     padding: 11px;
 
-    border: 1px solid #1c281e;
+    margin-bottom: 7px;
+
+    border:
+        1px solid #1c281e;
 
     border-radius: 11px;
-
-    margin-bottom: 7px;
 
     background: #0d160f;
 }
@@ -719,11 +842,11 @@ button {
 
     display: block;
 
+    margin-bottom: 3px;
+
     color: #7cff00;
 
     font-size: 12px;
-
-    margin-bottom: 3px;
 }
 
 .info-card span {
@@ -732,7 +855,7 @@ button {
 
     font-size: 10px;
 
-    line-height: 1.3;
+    line-height: 1.35;
 }
 
 
@@ -747,30 +870,36 @@ button {
     min-height: 0;
 
     overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
 }
 
 .tabs {
 
     flex: 0 0 auto;
 
-    display: flex;
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
 
     gap: 5px;
 
-    margin-bottom: 8px;
-
-    overflow: hidden;
+    margin-bottom: 7px;
 }
 
 .tab {
 
-    min-height: 38px;
+    height: 38px;
 
-    flex: 1;
+    min-width: 0;
+
+    border:
+        1px solid #263329;
 
     border-radius: 9px;
-
-    border: 1px solid #263329;
 
     background: #101810;
 
@@ -778,9 +907,9 @@ button {
 
     font-size: 10px;
 
-    font-weight: 700;
+    font-weight: 800;
 
-    padding: 0 7px;
+    cursor: pointer;
 }
 
 .tab.active {
@@ -794,24 +923,20 @@ button {
 
 .commercial-card {
 
-    height: calc(100% - 46px);
+    flex: 1;
 
-    border: 1px solid #1f2d22;
-
-    background: #0a110c;
-
-    border-radius: 17px;
+    min-height: 0;
 
     padding: 14px;
 
+    border:
+        1px solid #1f2d22;
+
+    border-radius: 17px;
+
+    background: #0a110c;
+
     overflow: hidden;
-}
-
-.commercial-card h2 {
-
-    margin: 0 0 10px;
-
-    font-size: 17px;
 }
 
 .commercial-panel {
@@ -819,9 +944,19 @@ button {
     display: none;
 }
 
-.commercial-panel.visible {
+.commercial-panel.active {
 
     display: block;
+}
+
+.commercial-card h2 {
+
+    margin:
+        0
+        0
+        10px;
+
+    font-size: 17px;
 }
 
 .form-grid {
@@ -832,6 +967,11 @@ button {
         repeat(2, 1fr);
 
     gap: 8px;
+}
+
+.field {
+
+    min-width: 0;
 }
 
 .field label {
@@ -852,15 +992,18 @@ button {
 
     height: 43px;
 
-    border-radius: 10px;
+    padding:
+        0
+        10px;
 
-    border: 1px solid #28352b;
+    border:
+        1px solid #28352b;
+
+    border-radius: 10px;
 
     background: #111a13;
 
-    color: #fff;
-
-    padding: 0 10px;
+    color: white;
 
     outline: none;
 
@@ -893,27 +1036,30 @@ button {
 
     min-width: 0;
 
-    border: 1px solid #203021;
+    padding: 10px;
 
-    background: #0d160f;
+    border:
+        1px solid #203021;
 
     border-radius: 11px;
 
-    padding: 10px;
+    background: #0d160f;
 }
 
 .result-card span {
 
     display: block;
 
+    margin-bottom: 4px;
+
     color: #7e8981;
 
     font-size: 9px;
-
-    margin-bottom: 4px;
 }
 
 .result-card strong {
+
+    display: block;
 
     color: #7cff00;
 
@@ -928,7 +1074,8 @@ button {
 
 .main-result {
 
-    grid-column: 1 / -1;
+    grid-column:
+        1 / -1;
 }
 
 .main-result strong {
@@ -944,13 +1091,14 @@ button {
 
     margin-top: 8px;
 
-    border: 1px solid #7cff00;
+    border:
+        1px solid #7cff00;
+
+    border-radius: 10px;
 
     background: #7cff00;
 
     color: #071006;
-
-    border-radius: 10px;
 
     font-size: 11px;
 
@@ -968,11 +1116,11 @@ button {
 
     min-height: 0;
 
-    overflow: hidden;
-
     display: flex;
 
     flex-direction: column;
+
+    overflow: hidden;
 }
 
 .history-toolbar {
@@ -983,7 +1131,7 @@ button {
 
     justify-content: flex-end;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .history-list {
@@ -992,24 +1140,20 @@ button {
 
     min-height: 0;
 
-    overflow: hidden;
-
     display: flex;
 
     flex-direction: column;
 
     gap: 6px;
+
+    overflow: hidden;
 }
 
 .history-item {
 
     flex: 0 0 auto;
 
-    border: 1px solid #1e2b21;
-
-    border-radius: 11px;
-
-    background: #0c140e;
+    min-width: 0;
 
     padding: 10px;
 
@@ -1020,6 +1164,15 @@ button {
     justify-content: space-between;
 
     gap: 10px;
+
+    border:
+        1px solid #1e2b21;
+
+    border-radius: 11px;
+
+    background: #0c140e;
+
+    cursor: pointer;
 }
 
 .history-expression {
@@ -1051,15 +1204,16 @@ button {
 
 .empty {
 
-    text-align: center;
+    padding: 30px 10px;
+
+    border:
+        1px dashed #263329;
+
+    border-radius: 12px;
 
     color: #68736c;
 
-    padding: 30px 10px;
-
-    border: 1px dashed #263329;
-
-    border-radius: 12px;
+    text-align: center;
 
     font-size: 12px;
 }
@@ -1080,22 +1234,24 @@ button {
 
 .setting-group {
 
-    border: 1px solid #1e2b21;
+    margin-bottom: 8px;
+
+    overflow: hidden;
+
+    border:
+        1px solid #1e2b21;
 
     border-radius: 13px;
 
     background: #0b120d;
-
-    margin-bottom: 8px;
-
-    overflow: hidden;
 }
 
 .setting-title {
 
     padding: 9px 12px;
 
-    border-bottom: 1px solid #1c281e;
+    border-bottom:
+        1px solid #1c281e;
 
     color: #7cff00;
 
@@ -1108,7 +1264,9 @@ button {
 
     min-height: 47px;
 
-    padding: 7px 12px;
+    padding:
+        7px
+        12px;
 
     display: flex;
 
@@ -1118,7 +1276,8 @@ button {
 
     gap: 10px;
 
-    border-bottom: 1px solid #172119;
+    border-bottom:
+        1px solid #172119;
 }
 
 .setting-row:last-child {
@@ -1135,26 +1294,29 @@ button {
 
     display: block;
 
+    margin-top: 2px;
+
     color: #737e76;
 
     font-size: 8px;
-
-    margin-top: 2px;
 }
 
 .setting-row select {
 
     height: 35px;
 
+    padding:
+        0
+        8px;
+
+    border:
+        1px solid #29372c;
+
     border-radius: 8px;
 
     background: #111a13;
 
-    border: 1px solid #29372c;
-
     color: white;
-
-    padding: 0 8px;
 
     font-size: 11px;
 }
@@ -1164,7 +1326,6 @@ button {
     position: relative;
 
     width: 42px;
-
     height: 24px;
 
     flex: 0 0 auto;
@@ -1193,12 +1354,10 @@ button {
     position: absolute;
 
     width: 18px;
-
     height: 18px;
 
-    left: 3px;
-
     top: 3px;
+    left: 3px;
 
     border-radius: 50%;
 
@@ -1214,12 +1373,13 @@ button {
 
 .switch input:checked + .slider:before {
 
-    transform: translateX(18px);
+    transform:
+        translateX(18px);
 }
 
 
 /* =========================================================
-   PROPAGANDA
+   PUBLICIDADE
 ========================================================= */
 
 .ad-banner {
@@ -1228,13 +1388,7 @@ button {
 
     width: 100%;
 
-    height: 34px;
-
-    padding:
-        0
-        max(14px, env(safe-area-inset-right))
-        0
-        max(14px, env(safe-area-inset-left));
+    height: 32px;
 
     display: flex;
 
@@ -1242,22 +1396,19 @@ button {
 
     justify-content: center;
 
+    border-top:
+        1px solid #172119;
+
+    border-bottom:
+        1px solid #172119;
+
     background: #080d09;
 
-    border-top: 1px solid #172119;
-
-    border-bottom: 1px solid #172119;
-
-    color: #58645b;
+    color: #4f5a52;
 
     font-size: 9px;
 
-    letter-spacing: .5px;
-}
-
-.ad-banner span {
-
-    opacity: .75;
+    letter-spacing: 1px;
 }
 
 
@@ -1288,18 +1439,21 @@ button {
 
     background: #080d09;
 
-    border-top: 1px solid #1b281e;
+    border-top:
+        1px solid #1b281e;
 }
 
 .nav-btn {
 
+    min-width: 0;
+
     border: 0;
+
+    border-radius: 11px;
 
     background: transparent;
 
     color: #718078;
-
-    border-radius: 10px;
 
     display: flex;
 
@@ -1311,7 +1465,7 @@ button {
 
     gap: 2px;
 
-    min-width: 0;
+    cursor: pointer;
 }
 
 .nav-btn:active {
@@ -1328,7 +1482,7 @@ button {
 
 .nav-icon {
 
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .nav-label {
@@ -1357,15 +1511,18 @@ button {
         translateX(-50%)
         translateY(10px);
 
-    background: #152017;
+    padding:
+        8px
+        12px;
 
-    border: 1px solid #365039;
-
-    color: white;
+    border:
+        1px solid #365039;
 
     border-radius: 9px;
 
-    padding: 8px 12px;
+    background: #152017;
+
+    color: white;
 
     font-size: 10px;
 
@@ -1375,7 +1532,7 @@ button {
 
     transition: .2s;
 
-    z-index: 999;
+    z-index: 9999;
 }
 
 .toast.show {
@@ -1389,155 +1546,201 @@ button {
 
 
 /* =========================================================
-   TELAS PEQUENAS
+   CELULAR
 ========================================================= */
 
-@media (max-height: 680px) {
+@media (max-width: 850px) {
+
+    .calc-layout {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .calc-info {
+
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+========================================================= */
+
+@media (max-width: 500px) {
 
     .header {
-        height: 54px;
-    }
 
-    .logo {
-        width: 34px;
-        height: 34px;
-        flex-basis: 34px;
-    }
-
-    .brand-text strong {
-        font-size: 14px;
-    }
-
-    .brand-text span {
-        font-size: 8px;
+        height: 62px;
     }
 
     .container {
-        padding-top: 5px;
+
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-    .welcome {
-        padding: 10px;
-        margin-bottom: 6px;
+    .page-title h1 {
+
+        font-size: 27px;
     }
 
-    .welcome h2 {
-        font-size: 17px;
+    .page-title p {
+
+        font-size: 12px;
     }
 
-    .welcome p {
-        font-size: 10px;
-    }
+    .calculator {
 
-    .stat {
         padding: 8px;
-    }
 
-    .quick .q-icon {
-        font-size: 18px;
-        margin-bottom: 4px;
-    }
-
-    .quick strong {
-        font-size: 10px;
-    }
-
-    .quick span {
-        font-size: 8px;
-    }
-
-    .bottom-nav {
-        height: 56px;
-    }
-
-    .ad-banner {
-        height: 29px;
+        border-radius: 18px;
     }
 
     .display {
-        min-height: 80px;
+
+        min-height: 104px;
+
+        padding: 12px;
+    }
+
+    .keys {
+
+        gap: 5px;
     }
 
     .key {
-        border-radius: 9px;
+
+        border-radius: 11px;
+
+        font-size: 21px;
+    }
+
+    .key.equals {
+
+        font-size: 28px;
+    }
+
+    .commercial-card {
+
+        padding: 11px;
     }
 
 }
 
 
 /* =========================================================
-   COMPUTADOR
+   CELULAR BAIXO
 ========================================================= */
 
-@media (min-width: 851px) {
+@media (max-height: 720px) {
 
-    .bottom-nav {
+    .header {
 
-        width: min(
-            680px,
-            100%
-        );
+        height: 56px;
+    }
 
-        margin: 0 auto;
+    .logo {
 
-        border-left: 1px solid #1b281e;
+        width: 36px;
+        height: 36px;
 
-        border-right: 1px solid #1b281e;
+        flex-basis: 36px;
+    }
+
+    .brand-text strong {
+
+        font-size: 15px;
+    }
+
+    .brand-text span {
+
+        font-size: 8px;
+    }
+
+    .icon-btn {
+
+        width: 36px;
+        height: 36px;
+    }
+
+    .container {
+
+        padding-top: 5px;
+    }
+
+    .page-title {
+
+        margin-bottom: 5px;
+    }
+
+    .page-title h1 {
+
+        font-size: 23px;
+    }
+
+    .page-title p {
+
+        font-size: 10px;
+    }
+
+    .display {
+
+        min-height: 82px;
+    }
+
+    .key {
+
+        font-size: 19px;
     }
 
     .ad-banner {
 
-        width: min(
-            680px,
-            100%
-        );
+        height: 27px;
+    }
 
-        margin: 0 auto;
+    .bottom-nav {
 
-        border-left: 1px solid #172119;
-
-        border-right: 1px solid #172119;
+        height: 55px;
     }
 
 }
 
 
 /* =========================================================
-   DISPOSITIVOS MUITO PEQUENOS
+   CELULAR MUITO PEQUENO
 ========================================================= */
 
 @media (max-width: 360px) {
 
     .container {
 
-        padding-left: 9px;
-        padding-right: 9px;
+        padding-left: 7px;
+        padding-right: 7px;
     }
 
-    .header {
+    .calculator {
 
-        padding-left: 9px;
-        padding-right: 9px;
+        padding: 6px;
+    }
+
+    .keys {
+
+        gap: 4px;
     }
 
     .key {
 
-        font-size: 17px;
+        border-radius: 9px;
+
+        font-size: 18px;
     }
 
-    .display {
+    .key.equals {
 
-        min-height: 85px;
-    }
-
-    .result {
-
-        font-size: 30px;
-    }
-
-    .commercial-card {
-
-        padding: 10px;
+        font-size: 25px;
     }
 
 }
@@ -1556,7 +1759,12 @@ body.light {
 
 body.light .app {
 
-    background: #f2f5f3;
+    background:
+        linear-gradient(
+            180deg,
+            #f4f7f4,
+            #eef2ee
+        );
 }
 
 body.light .header {
@@ -1617,7 +1825,7 @@ body.light .setting-row select {
 body.light .ad-banner,
 body.light .bottom-nav {
 
-    background: #ffffff;
+    background: white;
 
     border-color: #dce4dd;
 }
@@ -1641,11 +1849,12 @@ body.light .nav-btn.active {
 
 <body>
 
+
 <div class="app">
 
 
 <!-- =======================================================
-     HEADER
+     CABEÇALHO
 ======================================================= -->
 
 <header class="header">
@@ -1700,7 +1909,7 @@ body.light .nav-btn.active {
 
 
 <!-- =======================================================
-     CONTAINER
+     CONTEÚDO
 ======================================================= -->
 
 <main class="container">
@@ -1714,7 +1923,9 @@ body.light .nav-btn.active {
     id="home"
     class="screen active">
 
+
     <div class="home-content">
+
 
         <div class="welcome">
 
@@ -1735,6 +1946,7 @@ body.light .nav-btn.active {
 
 
         <div class="stats">
+
 
             <div class="stat">
 
@@ -1774,6 +1986,7 @@ body.light .nav-btn.active {
 
             </div>
 
+
         </div>
 
 
@@ -1783,6 +1996,7 @@ body.light .nav-btn.active {
 
 
         <div class="quick-grid">
+
 
             <button
                 class="quick"
@@ -1863,6 +2077,7 @@ body.light .nav-btn.active {
 
             </button>
 
+
         </div>
 
     </div>
@@ -1877,6 +2092,7 @@ body.light .nav-btn.active {
 <section
     id="calculator"
     class="screen">
+
 
     <div class="page-title">
 
@@ -1907,7 +2123,9 @@ body.light .nav-btn.active {
                 <div
                     id="calcDisplay"
                     class="result">
+
                     0
+
                 </div>
 
             </div>
@@ -1915,6 +2133,8 @@ body.light .nav-btn.active {
 
             <div class="keys">
 
+
+                <!-- LINHA 1 -->
 
                 <button
                     class="key action"
@@ -1948,6 +2168,8 @@ body.light .nav-btn.active {
                 </button>
 
 
+                <!-- LINHA 2 -->
+
                 <button
                     class="key"
                     data-number="7"
@@ -1979,6 +2201,8 @@ body.light .nav-btn.active {
                     ×
                 </button>
 
+
+                <!-- LINHA 3 -->
 
                 <button
                     class="key"
@@ -2012,6 +2236,8 @@ body.light .nav-btn.active {
                 </button>
 
 
+                <!-- LINHA 4 -->
+
                 <button
                     class="key"
                     data-number="1"
@@ -2044,6 +2270,8 @@ body.light .nav-btn.active {
                 </button>
 
 
+                <!-- LINHA 5 -->
+
                 <button
                     class="key zero"
                     data-number="0"
@@ -2068,11 +2296,15 @@ body.light .nav-btn.active {
                 </button>
 
 
+                <!-- "=" SOZINHO E LARGO -->
+
                 <button
                     class="key equals"
                     data-key="equals"
                     type="button">
+
                     =
+
                 </button>
 
 
@@ -2109,7 +2341,8 @@ body.light .nav-btn.active {
                 </strong>
 
                 <span>
-                    Aceita vírgula ou ponto.
+                    Aceita vírgula ou ponto
+                    nos valores.
                 </span>
 
             </div>
@@ -2123,12 +2356,13 @@ body.light .nav-btn.active {
 
                 <span>
                     Seus cálculos ficam
-                    registrados.
+                    registrados automaticamente.
                 </span>
 
             </div>
 
         </div>
+
 
     </div>
 
@@ -2142,6 +2376,7 @@ body.light .nav-btn.active {
 <section
     id="commercial"
     class="screen">
+
 
     <div class="page-title">
 
@@ -2161,11 +2396,14 @@ body.light .nav-btn.active {
 
         <div class="tabs">
 
+
             <button
                 class="tab active"
                 data-commercial="price"
                 type="button">
+
                 PREÇO
+
             </button>
 
 
@@ -2173,7 +2411,9 @@ body.light .nav-btn.active {
                 class="tab"
                 data-commercial="discount"
                 type="button">
+
                 DESCONTO
+
             </button>
 
 
@@ -2181,7 +2421,9 @@ body.light .nav-btn.active {
                 class="tab"
                 data-commercial="margin"
                 type="button">
+
                 MARGEM
+
             </button>
 
 
@@ -2189,18 +2431,23 @@ body.light .nav-btn.active {
                 class="tab"
                 data-commercial="markup"
                 type="button">
+
                 MARKUP
+
             </button>
+
 
         </div>
 
 
-        <!-- PREÇO -->
+        <!-- =================================================
+             PREÇO
+        ================================================== -->
 
         <div
             id="panel-price"
-            class="commercial-card commercial-panel"
-            style="display:block">
+            class="commercial-card commercial-panel active">
+
 
             <h2>
                 Cálculo de Preço
@@ -2234,22 +2481,6 @@ body.light .nav-btn.active {
 
                     <input
                         id="priceDiscount"
-                        type="text"
-                        inputmode="decimal"
-                        autocomplete="off"
-                        placeholder="0">
-
-                </div>
-
-
-                <div class="field">
-
-                    <label>
-                        Acréscimo (%)
-                    </label>
-
-                    <input
-                        id="priceIncrease"
                         type="text"
                         inputmode="decimal"
                         autocomplete="off"
@@ -2344,14 +2575,18 @@ body.light .nav-btn.active {
 
             </button>
 
+
         </div>
 
 
-        <!-- DESCONTO -->
+        <!-- =================================================
+             DESCONTO
+        ================================================== -->
 
         <div
             id="panel-discount"
             class="commercial-card commercial-panel">
+
 
             <h2>
                 Cálculo de Desconto
@@ -2450,14 +2685,18 @@ body.light .nav-btn.active {
 
             </button>
 
+
         </div>
 
 
-        <!-- MARGEM -->
+        <!-- =================================================
+             MARGEM
+        ================================================== -->
 
         <div
             id="panel-margin"
             class="commercial-card commercial-panel">
+
 
             <h2>
                 Cálculo de Margem
@@ -2556,14 +2795,18 @@ body.light .nav-btn.active {
 
             </button>
 
+
         </div>
 
 
-        <!-- MARKUP -->
+        <!-- =================================================
+             MARKUP
+        ================================================== -->
 
         <div
             id="panel-markup"
             class="commercial-card commercial-panel">
+
 
             <h2>
                 Cálculo de Markup
@@ -2662,7 +2905,9 @@ body.light .nav-btn.active {
 
             </button>
 
+
         </div>
+
 
     </div>
 
@@ -2676,6 +2921,7 @@ body.light .nav-btn.active {
 <section
     id="history"
     class="screen">
+
 
     <div class="page-title">
 
@@ -2726,6 +2972,7 @@ body.light .nav-btn.active {
     id="settings"
     class="screen">
 
+
     <div class="page-title">
 
         <h1>
@@ -2744,12 +2991,14 @@ body.light .nav-btn.active {
 
         <div class="setting-group">
 
+
             <div class="setting-title">
                 APARÊNCIA
             </div>
 
 
             <div class="setting-row">
+
 
                 <div>
 
@@ -2776,12 +3025,15 @@ body.light .nav-btn.active {
 
                 </select>
 
+
             </div>
+
 
         </div>
 
 
         <div class="setting-group">
+
 
             <div class="setting-title">
                 CALCULADORA
@@ -2790,34 +3042,6 @@ body.light .nav-btn.active {
 
             <div class="setting-row">
 
-                <div>
-
-                    <strong>
-                        Som ao clicar
-                    </strong>
-
-                    <span>
-                        Feedback sonoro
-                    </span>
-
-                </div>
-
-
-                <label class="switch">
-
-                    <input
-                        type="checkbox"
-                        id="soundToggle"
-                        checked>
-
-                    <span class="slider"></span>
-
-                </label>
-
-            </div>
-
-
-            <div class="setting-row">
 
                 <div>
 
@@ -2843,12 +3067,15 @@ body.light .nav-btn.active {
 
                 </label>
 
+
             </div>
+
 
         </div>
 
 
         <div class="setting-group">
+
 
             <div class="setting-title">
                 SOBRE O APP
@@ -2856,6 +3083,7 @@ body.light .nav-btn.active {
 
 
             <div class="setting-row">
+
 
                 <div>
 
@@ -2869,14 +3097,17 @@ body.light .nav-btn.active {
 
                 </div>
 
+
                 <strong>
                     v2.0.0
                 </strong>
+
 
             </div>
 
 
             <div class="setting-row">
+
 
                 <div>
 
@@ -2890,11 +3121,17 @@ body.light .nav-btn.active {
 
                 </div>
 
-                <strong style="color:#7cff00">
+
+                <strong
+                    style="color:#7cff00">
+
                     OFFLINE
+
                 </strong>
 
+
             </div>
+
 
         </div>
 
@@ -2908,20 +3145,18 @@ body.light .nav-btn.active {
 
 
 <!-- =======================================================
-     PROPAGANDA
+     PUBLICIDADE
 ======================================================= -->
 
 <div class="ad-banner">
 
-    <span>
-        ESPAÇO PUBLICITÁRIO
-    </span>
+    ESPAÇO PUBLICITÁRIO
 
 </div>
 
 
 <!-- =======================================================
-     MENU INFERIOR
+     MENU
 ======================================================= -->
 
 <nav class="bottom-nav">
@@ -3005,19 +3240,15 @@ body.light .nav-btn.active {
 
 <script>
 
-/* =========================================================
-   CALPRO EXPERT 2.0
-   MOTOR PRINCIPAL
-========================================================= */
-
 "use strict";
 
 
 /* =========================================================
-   FUNÇÕES AUXILIARES
+   AUXILIARES
 ========================================================= */
 
-const $ = id => document.getElementById(id);
+const $ = id =>
+    document.getElementById(id);
 
 
 function parseNumber(value) {
@@ -3064,11 +3295,14 @@ function parseNumber(value) {
         } else {
 
             text =
-                text.replace(/,/g, "");
+                text
+                .replace(/,/g, "");
 
         }
 
-    } else if (comma !== -1) {
+    } else if (
+        comma !== -1
+    ) {
 
         text =
             text.replace(",", ".");
@@ -3076,12 +3310,12 @@ function parseNumber(value) {
     }
 
 
-    const number =
+    const result =
         Number(text);
 
 
-    return Number.isFinite(number)
-        ? number
+    return Number.isFinite(result)
+        ? result
         : 0;
 }
 
@@ -3091,8 +3325,12 @@ function formatNumber(
     decimals = 2
 ) {
 
-    if (!Number.isFinite(value)) {
+    if (
+        !Number.isFinite(value)
+    ) {
+
         value = 0;
+
     }
 
 
@@ -3112,23 +3350,35 @@ function formatNumber(
 function money(value) {
 
     return "R$ " +
-        formatNumber(value, 2);
+        formatNumber(
+            value,
+            2
+        );
 }
 
 
 function percent(value) {
 
-    return formatNumber(value, 2) +
-        "%";
+    return formatNumber(
+        value,
+        2
+    ) + "%";
 }
 
 
 function cleanZero(value) {
 
-    return Math.abs(value) <
+    if (
+        Math.abs(value) <
         0.0000000001
-        ? 0
-        : value;
+    ) {
+
+        return 0;
+
+    }
+
+
+    return value;
 }
 
 
@@ -3160,13 +3410,16 @@ function toast(message) {
 
 
     toastTimer =
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            element.classList.remove(
-                "show"
-            );
+                element.classList.remove(
+                    "show"
+                );
 
-        }, 1600);
+            },
+            1500
+        );
 }
 
 
@@ -3188,7 +3441,9 @@ function openScreen(name) {
     if (
         !screens.includes(name)
     ) {
+
         name = "home";
+
     }
 
 
@@ -3197,6 +3452,7 @@ function openScreen(name) {
 
             const screen =
                 $(screenName);
+
 
             if (screen) {
 
@@ -3212,7 +3468,9 @@ function openScreen(name) {
 
 
     document
-        .querySelectorAll("[data-nav]")
+        .querySelectorAll(
+            "[data-nav]"
+        )
         .forEach(button => {
 
             button.classList.toggle(
@@ -3226,7 +3484,9 @@ function openScreen(name) {
 
 
 document
-    .querySelectorAll("[data-nav]")
+    .querySelectorAll(
+        "[data-nav]"
+    )
     .forEach(button => {
 
         button.addEventListener(
@@ -3244,7 +3504,9 @@ document
 
 
 document
-    .querySelectorAll("[data-open]")
+    .querySelectorAll(
+        "[data-open]"
+    )
     .forEach(button => {
 
         button.addEventListener(
@@ -3264,14 +3526,26 @@ document
 $("historyHeader")
     .addEventListener(
         "click",
-        () => openScreen("history")
+        () => {
+
+            openScreen(
+                "history"
+            );
+
+        }
     );
 
 
 $("settingsHeader")
     .addEventListener(
         "click",
-        () => openScreen("settings")
+        () => {
+
+            openScreen(
+                "settings"
+            );
+
+        }
     );
 
 
@@ -3292,26 +3566,37 @@ let calcExpression = "";
 
 function updateCalcDisplay() {
 
-    $("calcDisplay").textContent =
+    $("calcDisplay")
+        .textContent =
         formatCalcDisplay(
             calcCurrent
         );
 
 
-    $("calcOperation").textContent =
+    $("calcOperation")
+        .textContent =
         calcExpression;
+
 }
 
 
 function formatCalcDisplay(value) {
 
-    if (value === "Erro") {
+    if (
+        value === "Erro"
+    ) {
+
         return "Erro";
+
     }
 
 
-    if (value === "-") {
+    if (
+        value === "-"
+    ) {
+
         return "-";
+
     }
 
 
@@ -3319,12 +3604,15 @@ function formatCalcDisplay(value) {
         value === "" ||
         value === null
     ) {
+
         return "0";
+
     }
 
 
     const parts =
-        String(value).split(".");
+        String(value)
+        .split(".");
 
 
     let integer =
@@ -3350,7 +3638,7 @@ function formatCalcDisplay(value) {
     }
 
 
-    let formattedInteger =
+    const formattedInteger =
         Number(
             integer || "0"
         ).toLocaleString(
@@ -3366,27 +3654,37 @@ function formatCalcDisplay(value) {
         decimal !== undefined
     ) {
 
-        return sign +
+        return (
+            sign +
             formattedInteger +
             "," +
-            decimal;
+            decimal
+        );
 
     }
 
 
-    return sign +
-        formattedInteger;
+    return (
+        sign +
+        formattedInteger
+    );
 }
 
 
 function inputNumber(number) {
 
-    if (calcCurrent === "Erro") {
+    if (
+        calcCurrent === "Erro"
+    ) {
+
         clearCalculator();
+
     }
 
 
-    if (calcWaiting) {
+    if (
+        calcWaiting
+    ) {
 
         calcCurrent =
             String(number);
@@ -3419,12 +3717,18 @@ function inputNumber(number) {
 
 function inputDecimal() {
 
-    if (calcCurrent === "Erro") {
+    if (
+        calcCurrent === "Erro"
+    ) {
+
         clearCalculator();
+
     }
 
 
-    if (calcWaiting) {
+    if (
+        calcWaiting
+    ) {
 
         calcCurrent =
             "0.";
@@ -3436,7 +3740,8 @@ function inputDecimal() {
         !calcCurrent.includes(".")
     ) {
 
-        calcCurrent += ".";
+        calcCurrent +=
+            ".";
 
     }
 
@@ -3447,15 +3752,20 @@ function inputDecimal() {
 
 function clearCalculator() {
 
-    calcCurrent = "0";
+    calcCurrent =
+        "0";
 
-    calcPrevious = null;
+    calcPrevious =
+        null;
 
-    calcOperator = null;
+    calcOperator =
+        null;
 
-    calcWaiting = false;
+    calcWaiting =
+        false;
 
-    calcExpression = "";
+    calcExpression =
+        "";
 
     updateCalcDisplay();
 }
@@ -3467,7 +3777,9 @@ function toggleSign() {
         calcCurrent === "0" ||
         calcCurrent === "Erro"
     ) {
+
         return;
+
     }
 
 
@@ -3484,11 +3796,17 @@ function toggleSign() {
 function calculatePercent() {
 
     const current =
-        Number(calcCurrent);
+        Number(
+            calcCurrent
+        );
 
 
-    if (!Number.isFinite(current)) {
+    if (
+        !Number.isFinite(current)
+    ) {
+
         return;
+
     }
 
 
@@ -3524,11 +3842,17 @@ function calculatePercent() {
 function chooseOperator(operator) {
 
     const value =
-        Number(calcCurrent);
+        Number(
+            calcCurrent
+        );
 
 
-    if (!Number.isFinite(value)) {
+    if (
+        !Number.isFinite(value)
+    ) {
+
         return;
+
     }
 
 
@@ -3546,7 +3870,9 @@ function chooseOperator(operator) {
             );
 
 
-        if (!Number.isFinite(result)) {
+        if (
+            !Number.isFinite(result)
+        ) {
 
             calcCurrent =
                 "Erro";
@@ -3580,7 +3906,9 @@ function chooseOperator(operator) {
 
 
     calcPrevious =
-        Number(calcCurrent);
+        Number(
+            calcCurrent
+        );
 
 
     calcOperator =
@@ -3593,10 +3921,14 @@ function chooseOperator(operator) {
 
     calcExpression =
         formatCalcDisplay(
-            String(calcPrevious)
+            String(
+                calcPrevious
+            )
         ) +
         " " +
-        operatorSymbol(operator);
+        operatorSymbol(
+            operator
+        );
 
 
     updateCalcDisplay();
@@ -3635,46 +3967,55 @@ function performCalculation(
 
         case "add":
 
-            result = a + b;
+            result =
+                a + b;
 
             break;
 
 
         case "subtract":
 
-            result = a - b;
+            result =
+                a - b;
 
             break;
 
 
         case "multiply":
 
-            result = a * b;
+            result =
+                a * b;
 
             break;
 
 
         case "divide":
 
-            if (b === 0) {
+            if (
+                b === 0
+            ) {
 
                 return NaN;
 
             }
 
-            result = a / b;
+            result =
+                a / b;
 
             break;
 
 
         default:
 
-            result = b;
+            result =
+                b;
 
     }
 
 
-    return cleanZero(result);
+    return cleanZero(
+        result
+    );
 }
 
 
@@ -3684,12 +4025,16 @@ function calculateEquals() {
         calcPrevious === null ||
         calcOperator === null
     ) {
+
         return;
+
     }
 
 
     const current =
-        Number(calcCurrent);
+        Number(
+            calcCurrent
+        );
 
 
     const result =
@@ -3731,7 +4076,9 @@ function calculateEquals() {
 
     const expression =
         formatCalcDisplay(
-            String(calcPrevious)
+            String(
+                calcPrevious
+            )
         ) +
         " " +
         operatorSymbol(
@@ -3739,12 +4086,16 @@ function calculateEquals() {
         ) +
         " " +
         formatCalcDisplay(
-            String(current)
+            String(
+                current
+            )
         );
 
 
     calcCurrent =
-        String(result);
+        String(
+            result
+        );
 
 
     calcPrevious =
@@ -3758,7 +4109,8 @@ function calculateEquals() {
 
 
     calcExpression =
-        expression + " =";
+        expression +
+        " =";
 
 
     saveCalculation(
@@ -3777,7 +4129,9 @@ function backspace() {
         calcWaiting ||
         calcCurrent === "Erro"
     ) {
+
         return;
+
     }
 
 
@@ -3795,7 +4149,10 @@ function backspace() {
     } else {
 
         calcCurrent =
-            calcCurrent.slice(0, -1);
+            calcCurrent.slice(
+                0,
+                -1
+            );
 
     }
 
@@ -3805,100 +4162,125 @@ function backspace() {
 
 
 /* =========================================================
-   BOTÕES CALCULADORA
+   RESPOSTA RÁPIDA DO TECLADO
 ========================================================= */
 
+function calculatorFeedback() {
+
+    const vibration =
+        $("vibrationToggle");
+
+
+    if (
+        vibration &&
+        vibration.checked &&
+        navigator.vibrate
+    ) {
+
+        navigator.vibrate(6);
+
+    }
+
+}
+
+
+/*
+   pointerdown = resposta mais rápida
+   em celular do que esperar o click.
+*/
+
 document
-    .querySelectorAll("[data-number]")
+    .querySelectorAll(
+        ".key"
+    )
     .forEach(button => {
 
         button.addEventListener(
-            "click",
-            () => {
+            "pointerdown",
+            event => {
 
-                inputNumber(
-                    button.dataset.number
-                );
-
-                feedback();
-
-            }
-        );
-
-    });
+                event.preventDefault();
 
 
-document
-    .querySelectorAll("[data-key]")
-    .forEach(button => {
+                const number =
+                    button.dataset.number;
 
-        button.addEventListener(
-            "click",
-            () => {
 
                 const key =
                     button.dataset.key;
 
 
-                switch (key) {
+                if (
+                    number !== undefined
+                ) {
 
-                    case "clear":
+                    inputNumber(
+                        number
+                    );
 
-                        clearCalculator();
+                } else {
 
-                        break;
+                    switch (key) {
 
+                        case "clear":
 
-                    case "sign":
+                            clearCalculator();
 
-                        toggleSign();
-
-                        break;
-
-
-                    case "percent":
-
-                        calculatePercent();
-
-                        break;
+                            break;
 
 
-                    case "decimal":
+                        case "sign":
 
-                        inputDecimal();
+                            toggleSign();
 
-                        break;
-
-
-                    case "backspace":
-
-                        backspace();
-
-                        break;
+                            break;
 
 
-                    case "equals":
+                        case "percent":
 
-                        calculateEquals();
+                            calculatePercent();
 
-                        break;
+                            break;
 
 
-                    case "add":
-                    case "subtract":
-                    case "multiply":
-                    case "divide":
+                        case "decimal":
 
-                        chooseOperator(
-                            key
-                        );
+                            inputDecimal();
 
-                        break;
+                            break;
+
+
+                        case "backspace":
+
+                            backspace();
+
+                            break;
+
+
+                        case "equals":
+
+                            calculateEquals();
+
+                            break;
+
+
+                        case "add":
+                        case "subtract":
+                        case "multiply":
+                        case "divide":
+
+                            chooseOperator(
+                                key
+                            );
+
+                            break;
+
+                    }
 
                 }
 
 
-                feedback();
+                calculatorFeedback();
 
             }
         );
@@ -3907,7 +4289,7 @@ document
 
 
 /* =========================================================
-   TECLADO PC
+   TECLADO DO COMPUTADOR
 ========================================================= */
 
 document.addEventListener(
@@ -3929,7 +4311,9 @@ document.addEventListener(
                     "TEXTAREA"
             )
         ) {
+
             return;
+
         }
 
 
@@ -3941,9 +4325,12 @@ document.addEventListener(
             /^[0-9]$/.test(key)
         ) {
 
-            inputNumber(key);
+            inputNumber(
+                key
+            );
 
             return;
+
         }
 
 
@@ -3955,48 +4342,72 @@ document.addEventListener(
             inputDecimal();
 
             return;
+
         }
 
 
-        if (key === "+") {
+        if (
+            key === "+"
+        ) {
 
-            chooseOperator("add");
+            chooseOperator(
+                "add"
+            );
 
             return;
+
         }
 
 
-        if (key === "-") {
+        if (
+            key === "-"
+        ) {
 
-            chooseOperator("subtract");
+            chooseOperator(
+                "subtract"
+            );
 
             return;
+
         }
 
 
-        if (key === "*") {
+        if (
+            key === "*"
+        ) {
 
-            chooseOperator("multiply");
+            chooseOperator(
+                "multiply"
+            );
 
             return;
+
         }
 
 
-        if (key === "/") {
+        if (
+            key === "/"
+        ) {
 
             event.preventDefault();
 
-            chooseOperator("divide");
+            chooseOperator(
+                "divide"
+            );
 
             return;
+
         }
 
 
-        if (key === "%") {
+        if (
+            key === "%"
+        ) {
 
             calculatePercent();
 
             return;
+
         }
 
 
@@ -4008,6 +4419,7 @@ document.addEventListener(
             calculateEquals();
 
             return;
+
         }
 
 
@@ -4018,6 +4430,7 @@ document.addEventListener(
             backspace();
 
             return;
+
         }
 
 
@@ -4050,10 +4463,14 @@ function loadHistory() {
             );
 
 
-        if (saved) {
+        if (
+            saved
+        ) {
 
             const parsed =
-                JSON.parse(saved);
+                JSON.parse(
+                    saved
+                );
 
 
             if (
@@ -4061,13 +4478,18 @@ function loadHistory() {
             ) {
 
                 history =
-                    parsed.slice(0, 30);
+                    parsed.slice(
+                        0,
+                        30
+                    );
 
             }
 
         }
 
-    } catch (error) {
+    } catch (
+        error
+    ) {
 
         history = [];
 
@@ -4091,7 +4513,9 @@ function saveCalculation(
             Number(value)
         )
     ) {
+
         return;
+
     }
 
 
@@ -4105,16 +4529,16 @@ function saveCalculation(
 
         time:
             new Date()
-                .toLocaleTimeString(
-                    "pt-BR",
-                    {
-                        hour:
-                            "2-digit",
+            .toLocaleTimeString(
+                "pt-BR",
+                {
+                    hour:
+                        "2-digit",
 
-                        minute:
-                            "2-digit"
-                    }
-                )
+                    minute:
+                        "2-digit"
+                }
+            )
 
     });
 
@@ -4124,7 +4548,10 @@ function saveCalculation(
     ) {
 
         history =
-            history.slice(0, 30);
+            history.slice(
+                0,
+                30
+            );
 
     }
 
@@ -4133,10 +4560,14 @@ function saveCalculation(
 
         localStorage.setItem(
             "calpro_history",
-            JSON.stringify(history)
+            JSON.stringify(
+                history
+            )
         );
 
-    } catch (error) {}
+    } catch (
+        error
+    ) {}
 
 
     renderHistory();
@@ -4151,10 +4582,13 @@ function renderHistory() {
         $("historyList");
 
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "";
 
 
-    if (!history.length) {
+    if (
+        history.length === 0
+    ) {
 
         container.innerHTML =
             `
@@ -4167,70 +4601,82 @@ function renderHistory() {
     }
 
 
-    history.forEach(item => {
+    history.forEach(
+        item => {
 
-        const row =
-            document.createElement(
-                "div"
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "history-item";
+
+
+            row.innerHTML =
+                `
+                <div>
+
+                    <div class="history-expression">
+                        ${escapeHTML(
+                            item.expression
+                        )}
+                    </div>
+
+                    <small>
+                        ${escapeHTML(
+                            item.time
+                        )}
+                    </small>
+
+                </div>
+
+                <div class="history-value">
+                    ${formatCalcDisplay(
+                        String(
+                            item.value
+                        )
+                    )}
+                </div>
+                `;
+
+
+            row.addEventListener(
+                "click",
+                () => {
+
+                    calcCurrent =
+                        String(
+                            item.value
+                        );
+
+                    calcWaiting =
+                        true;
+
+                    calcExpression =
+                        "";
+
+                    updateCalcDisplay();
+
+                    openScreen(
+                        "calculator"
+                    );
+
+                    toast(
+                        "Resultado carregado"
+                    );
+
+                }
             );
 
 
-        row.className =
-            "history-item";
+            container.appendChild(
+                row
+            );
 
-
-        row.innerHTML =
-            `
-            <div>
-                <div class="history-expression">
-                    ${escapeHTML(
-                        item.expression
-                    )}
-                </div>
-
-                <small>
-                    ${escapeHTML(
-                        item.time
-                    )}
-                </small>
-            </div>
-
-            <div class="history-value">
-                ${formatCalcDisplay(
-                    String(item.value)
-                )}
-            </div>
-            `;
-
-
-        row.addEventListener(
-            "click",
-            () => {
-
-                calcCurrent =
-                    String(item.value);
-
-                calcWaiting =
-                    true;
-
-                updateCalcDisplay();
-
-                openScreen(
-                    "calculator"
-                );
-
-                toast(
-                    "Resultado carregado"
-                );
-
-            }
-        );
-
-
-        container.appendChild(row);
-
-    });
-
+        }
+    );
 }
 
 
@@ -4279,7 +4725,9 @@ $("clearHistory")
                     "calpro_history"
                 );
 
-            } catch (error) {}
+            } catch (
+                error
+            ) {}
 
 
             renderHistory();
@@ -4295,7 +4743,8 @@ $("clearHistory")
 
 
 /* =========================================================
-   CÁLCULO DE PREÇO
+   PREÇO
+   SEM ACRÉSCIMO
 ========================================================= */
 
 function updatePriceCalculation() {
@@ -4312,30 +4761,35 @@ function updatePriceCalculation() {
         );
 
 
-    const increase =
-        parseNumber(
-            $("priceIncrease").value
-        );
-
-
     const desiredMargin =
         parseNumber(
             $("priceMargin").value
         );
 
 
-    let sale =
-        cost;
+    let sale = 0;
 
 
     /*
-       Margem desejada:
-
-       Venda =
-       Custo / (1 - Margem/100)
+       Se não houver nenhum dado,
+       permanece zerado.
     */
 
     if (
+        cost === 0
+    ) {
+
+        sale = 0;
+
+    }
+
+    /*
+       Se houver margem desejada,
+       calcula o preço necessário
+       para atingir essa margem.
+    */
+
+    else if (
         desiredMargin > 0 &&
         desiredMargin < 100
     ) {
@@ -4347,28 +4801,21 @@ function updatePriceCalculation() {
                 desiredMargin / 100
             );
 
-    } else {
+    }
 
-        if (
-            increase !== 0
-        ) {
+    /*
+       Caso contrário,
+       aplica somente desconto.
+    */
 
-            sale *=
-                1 +
-                increase / 100;
+    else {
 
-        }
-
-
-        if (
-            discount !== 0
-        ) {
-
-            sale *=
+        sale =
+            cost *
+            (
                 1 -
-                discount / 100;
-
-        }
+                discount / 100
+            );
 
     }
 
@@ -4379,17 +4826,21 @@ function updatePriceCalculation() {
 
     const margin =
         sale !== 0
-            ? profit /
+            ? (
+                profit /
                 sale *
                 100
+            )
             : 0;
 
 
     const markup =
         cost !== 0
-            ? profit /
+            ? (
+                profit /
                 cost *
                 100
+            )
             : 0;
 
 
@@ -4469,13 +4920,15 @@ function updateMarginCalculation() {
 
     const cost =
         parseNumber(
-            $("marginCost").value
+            $("marginCost")
+                .value
         );
 
 
     const sale =
         parseNumber(
-            $("marginSale").value
+            $("marginSale")
+                .value
         );
 
 
@@ -4485,17 +4938,21 @@ function updateMarginCalculation() {
 
     const margin =
         sale !== 0
-            ? profit /
+            ? (
+                profit /
                 sale *
                 100
+            )
             : 0;
 
 
     const markup =
         cost !== 0
-            ? profit /
+            ? (
+                profit /
                 cost *
                 100
+            )
             : 0;
 
 
@@ -4523,13 +4980,15 @@ function updateMarkupCalculation() {
 
     const cost =
         parseNumber(
-            $("markupCost").value
+            $("markupCost")
+                .value
         );
 
 
     const markup =
         parseNumber(
-            $("markupPercent").value
+            $("markupPercent")
+                .value
         );
 
 
@@ -4546,9 +5005,11 @@ function updateMarkupCalculation() {
 
     const margin =
         sale !== 0
-            ? profit /
+            ? (
+                profit /
                 sale *
                 100
+            )
             : 0;
 
 
@@ -4569,63 +5030,71 @@ function updateMarkupCalculation() {
 
 
 /* =========================================================
-   INPUTS COMERCIAIS
+   INPUTS
 ========================================================= */
 
 document
     .querySelectorAll(
         "#panel-price input"
     )
-    .forEach(input => {
+    .forEach(
+        input => {
 
-        input.addEventListener(
-            "input",
-            updatePriceCalculation
-        );
+            input.addEventListener(
+                "input",
+                updatePriceCalculation
+            );
 
-    });
+        }
+    );
 
 
 document
     .querySelectorAll(
         "#panel-discount input"
     )
-    .forEach(input => {
+    .forEach(
+        input => {
 
-        input.addEventListener(
-            "input",
-            updateDiscountCalculation
-        );
+            input.addEventListener(
+                "input",
+                updateDiscountCalculation
+            );
 
-    });
+        }
+    );
 
 
 document
     .querySelectorAll(
         "#panel-margin input"
     )
-    .forEach(input => {
+    .forEach(
+        input => {
 
-        input.addEventListener(
-            "input",
-            updateMarginCalculation
-        );
+            input.addEventListener(
+                "input",
+                updateMarginCalculation
+            );
 
-    });
+        }
+    );
 
 
 document
     .querySelectorAll(
         "#panel-markup input"
     )
-    .forEach(input => {
+    .forEach(
+        input => {
 
-        input.addEventListener(
-            "input",
-            updateMarkupCalculation
-        );
+            input.addEventListener(
+                "input",
+                updateMarkupCalculation
+            );
 
-    });
+        }
+    );
 
 
 /* =========================================================
@@ -4636,50 +5105,56 @@ document
     .querySelectorAll(
         "[data-commercial]"
     )
-    .forEach(tab => {
+    .forEach(
+        tab => {
 
-        tab.addEventListener(
-            "click",
-            () => {
+            tab.addEventListener(
+                "click",
+                () => {
 
-                const selected =
-                    tab.dataset
+                    const selected =
+                        tab.dataset
                         .commercial;
 
 
-                document
-                    .querySelectorAll(
-                        "[data-commercial]"
-                    )
-                    .forEach(button => {
+                    document
+                        .querySelectorAll(
+                            "[data-commercial]"
+                        )
+                        .forEach(
+                            button => {
 
-                        button.classList.toggle(
-                            "active",
-                            button === tab
+                                button.classList.toggle(
+                                    "active",
+                                    button === tab
+                                );
+
+                            }
                         );
 
-                    });
 
+                    document
+                        .querySelectorAll(
+                            ".commercial-panel"
+                        )
+                        .forEach(
+                            panel => {
 
-                document
-                    .querySelectorAll(
-                        ".commercial-panel"
-                    )
-                    .forEach(panel => {
+                                panel.classList.toggle(
+                                    "active",
+                                    panel.id ===
+                                    "panel-" +
+                                    selected
+                                );
 
-                        panel.style.display =
-                            panel.id ===
-                            "panel-" +
-                            selected
-                                ? "block"
-                                : "none";
+                            }
+                        );
 
-                    });
+                }
+            );
 
-            }
-        );
-
-    });
+        }
+    );
 
 
 /* =========================================================
@@ -4691,7 +5166,6 @@ const clearMap = {
     price: [
         "priceCost",
         "priceDiscount",
-        "priceIncrease",
         "priceMargin"
     ],
 
@@ -4717,65 +5191,71 @@ document
     .querySelectorAll(
         "[data-clear-commercial]"
     )
-    .forEach(button => {
+    .forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                const type =
-                    button.dataset
+                    const type =
+                        button.dataset
                         .clearCommercial;
 
 
-                (
-                    clearMap[type] || []
-                ).forEach(id => {
+                    (
+                        clearMap[type] ||
+                        []
+                    ).forEach(
+                        id => {
 
-                    $(id).value = "";
+                            $(id).value =
+                                "";
 
-                });
+                        }
+                    );
 
 
-                if (
-                    type === "price"
-                ) {
+                    if (
+                        type === "price"
+                    ) {
 
-                    updatePriceCalculation();
+                        updatePriceCalculation();
+
+                    }
+
+
+                    if (
+                        type === "discount"
+                    ) {
+
+                        updateDiscountCalculation();
+
+                    }
+
+
+                    if (
+                        type === "margin"
+                    ) {
+
+                        updateMarginCalculation();
+
+                    }
+
+
+                    if (
+                        type === "markup"
+                    ) {
+
+                        updateMarkupCalculation();
+
+                    }
 
                 }
+            );
 
-
-                if (
-                    type === "discount"
-                ) {
-
-                    updateDiscountCalculation();
-
-                }
-
-
-                if (
-                    type === "margin"
-                ) {
-
-                    updateMarginCalculation();
-
-                }
-
-
-                if (
-                    type === "markup"
-                ) {
-
-                    updateMarkupCalculation();
-
-                }
-
-            }
-        );
-
-    });
+        }
+    );
 
 
 /* =========================================================
@@ -4794,7 +5274,9 @@ function updateStats() {
         history.length;
 
 
-    if (history.length) {
+    if (
+        history.length
+    ) {
 
         $("statLast")
             .textContent =
@@ -4809,29 +5291,6 @@ function updateStats() {
         $("statLast")
             .textContent =
             "—";
-
-    }
-
-}
-
-
-/* =========================================================
-   VIBRAÇÃO
-========================================================= */
-
-function feedback() {
-
-    const toggle =
-        $("vibrationToggle");
-
-
-    if (
-        toggle &&
-        toggle.checked &&
-        navigator.vibrate
-    ) {
-
-        navigator.vibrate(7);
 
     }
 
@@ -4883,7 +5342,9 @@ $("themeSelect")
                     theme
                 );
 
-            } catch (error) {}
+            } catch (
+                error
+            ) {}
 
         }
     );
@@ -4899,11 +5360,14 @@ function loadTheme() {
             );
 
 
-        if (theme === "light") {
+        if (
+            theme === "light"
+        ) {
 
             $("themeSelect")
                 .value =
                 "light";
+
 
             document.body
                 .classList
@@ -4911,42 +5375,43 @@ function loadTheme() {
 
         }
 
-    } catch (error) {}
+    } catch (
+        error
+    ) {}
 
 }
 
 
 /* =========================================================
-   BLOQUEIO EXTRA DE ZOOM
+   BLOQUEIO EXTRA DE ZOOM — iPHONE / SAFARI
 ========================================================= */
-
-/*
-   Bloqueia gesture zoom no Safari/iPhone.
-*/
 
 [
     "gesturestart",
     "gesturechange",
     "gestureend"
-].forEach(eventName => {
+]
+.forEach(
+    eventName => {
 
-    document.addEventListener(
-        eventName,
-        event => {
+        document.addEventListener(
+            eventName,
+            event => {
 
-            event.preventDefault();
+                event.preventDefault();
 
-        },
-        {
-            passive: false
-        }
-    );
+            },
+            {
+                passive: false
+            }
+        );
 
-});
+    }
+);
 
 
 /*
-   Bloqueia duplo toque para zoom.
+   Bloqueia duplo toque.
 */
 
 let lastTouchEnd = 0;
@@ -4961,7 +5426,9 @@ document.addEventListener(
 
 
         if (
-            now - lastTouchEnd <= 300
+            now -
+            lastTouchEnd <=
+            300
         ) {
 
             event.preventDefault();
@@ -4980,7 +5447,7 @@ document.addEventListener(
 
 
 /*
-   Impede pinch zoom adicional.
+   Bloqueia pinch zoom.
 */
 
 document.addEventListener(
@@ -5007,11 +5474,16 @@ document.addEventListener(
    INICIALIZAÇÃO
 ========================================================= */
 
+/*
+   IMPORTANTE:
+   Não existe nenhum cálculo pré-carregado.
+*/
+
+clearCalculator();
+
 loadHistory();
 
 loadTheme();
-
-updateCalcDisplay();
 
 updatePriceCalculation();
 
@@ -5022,6 +5494,7 @@ updateMarginCalculation();
 updateMarkupCalculation();
 
 </script>
+
 
 </body>
 
