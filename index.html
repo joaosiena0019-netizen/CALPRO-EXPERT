@@ -1,1941 +1,1054 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width,
-    initial-scale=1.0,
-    minimum-scale=1.0,
-    maximum-scale=1.0,
-    user-scalable=no,
-    viewport-fit=cover">
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1,
+minimum-scale=1,
+maximum-scale=1,
+user-scalable=no,
+viewport-fit=cover">
 
-<meta
-    name="theme-color"
-    content="#050805">
-
-<meta
-    name="apple-mobile-web-app-capable"
-    content="yes">
-
-<meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent">
-
-<meta
-    name="mobile-web-app-capable"
-    content="yes">
+<meta name="theme-color" content="#050805">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 <title>CALPRO EXPERT 2.0</title>
 
-
 <style>
-
-/* =========================================================
-   RESET / BLOQUEIO DE ZOOM
-========================================================= */
-
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-
-    overflow: hidden;
-
-    touch-action: manipulation;
-
-    overscroll-behavior: none;
-
-    -webkit-user-select: none;
-    user-select: none;
-
-    background: #050805;
-
-    color: #f4f7f4;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
+html,body{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    overscroll-behavior:none;
+    touch-action:manipulation;
 }
 
-body {
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
+body{
+    position:fixed;
+    inset:0;
+    background:#050805;
+    color:#f4f7f4;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    user-select:none;
+    -webkit-user-select:none;
 }
 
-button,
-input,
-select {
-    font-family: inherit;
+button,input,select{
+    font-family:inherit;
 }
 
-button {
-    -webkit-appearance: none;
-    appearance: none;
-
-    touch-action: manipulation;
+button{
+    touch-action:manipulation;
 }
 
-
-/* =========================================================
-   APP
-========================================================= */
-
-.app {
-
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    overflow: hidden;
-
+.app{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
     background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(124,255,0,.07),
-            transparent 32%
-        ),
-        linear-gradient(
-            180deg,
-            #07100b 0%,
-            #050805 100%
-        );
+        radial-gradient(circle at 100% 0%,rgba(124,255,0,.07),transparent 32%),
+        linear-gradient(180deg,#07100b,#050805);
 }
 
+/* HEADER */
 
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header {
-
-    flex: 0 0 auto;
-
-    width: 100%;
-
-    height: 64px;
-
-    padding:
-        8px
-        max(14px, env(safe-area-inset-right))
-        7px
-        max(14px, env(safe-area-inset-left));
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    border-bottom:
-        1px solid #172119;
+.header{
+    flex:0 0 62px;
+    width:100%;
+    padding:7px max(12px,env(safe-area-inset-right)) 7px max(12px,env(safe-area-inset-left));
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #172119;
 }
 
-.brand {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    min-width: 0;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:9px;
 }
 
-.logo {
-
-    width: 42px;
-    height: 42px;
-
-    flex: 0 0 42px;
-
-    border-radius: 12px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border:
-        1px solid
-        rgba(124,255,0,.55);
-
-    color: #7cff00;
-
-    background: #0b150d;
-
-    font-size: 22px;
-
-    font-weight: 900;
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(124,255,0,.55);
+    background:#0b150d;
+    color:#7cff00;
+    font-size:22px;
+    font-weight:900;
 }
 
-.brand-text {
-
-    min-width: 0;
+.brand strong{
+    display:block;
+    font-size:17px;
+    line-height:17px;
 }
 
-.brand-text strong {
-
-    display: block;
-
-    font-size: 17px;
-
-    line-height: 17px;
-
-    letter-spacing: .7px;
+.brand span{
+    display:block;
+    margin-top:2px;
+    color:#7cff00;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-.brand-text span {
-
-    display: block;
-
-    margin-top: 2px;
-
-    color: #7cff00;
-
-    font-size: 9px;
-
-    line-height: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
+.header-actions{
+    display:flex;
+    gap:6px;
 }
 
-.header-actions {
-
-    display: flex;
-
-    gap: 7px;
+.icon-btn{
+    width:40px;
+    height:40px;
+    border-radius:11px;
+    border:1px solid #263329;
+    background:#0d160f;
+    color:#dce5dd;
+    font-size:18px;
 }
 
-.icon-btn {
+/* CONTAINER */
 
-    width: 42px;
-    height: 42px;
-
-    border-radius: 12px;
-
-    border:
-        1px solid #263329;
-
-    background: #0d160f;
-
-    color: #dce5dd;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 19px;
-
-    cursor: pointer;
+.container{
+    flex:1;
+    min-height:0;
+    width:100%;
+    max-width:1180px;
+    margin:auto;
+    padding:6px max(10px,env(safe-area-inset-right)) 5px max(10px,env(safe-area-inset-left));
+    overflow:hidden;
 }
 
-.icon-btn:active {
-
-    transform: scale(.94);
+.screen{
+    display:none;
+    width:100%;
+    height:100%;
+    min-height:0;
+    overflow:hidden;
 }
 
-
-/* =========================================================
-   CONTAINER
-========================================================= */
-
-.container {
-
-    flex: 1 1 auto;
-
-    min-height: 0;
-
-    width: 100%;
-
-    max-width: 1180px;
-
-    margin: auto;
-
-    padding:
-        7px
-        max(14px, env(safe-area-inset-right))
-        5px
-        max(14px, env(safe-area-inset-left));
-
-    overflow: hidden;
+.screen.active{
+    display:flex;
+    flex-direction:column;
 }
 
-
-/* =========================================================
-   TELAS
-========================================================= */
-
-.screen {
-
-    display: none;
-
-    width: 100%;
-    height: 100%;
-
-    min-height: 0;
-
-    overflow: hidden;
+.page-title{
+    flex:0 0 auto;
+    margin:2px 0 7px;
 }
 
-.screen.active {
-
-    display: flex;
-
-    flex-direction: column;
+.page-title h1{
+    margin:0;
+    font-size:clamp(24px,6vw,36px);
+    line-height:1;
 }
 
-
-/* =========================================================
-   TÍTULOS
-========================================================= */
-
-.page-title {
-
-    flex: 0 0 auto;
-
-    margin:
-        3px
-        0
-        8px;
+.page-title p{
+    margin:4px 0 0;
+    color:#77827a;
+    font-size:12px;
 }
 
-.page-title h1 {
+/* HOME */
 
-    margin: 0;
-
-    font-size:
-        clamp(
-            25px,
-            6vw,
-            38px
-        );
-
-    line-height: 1.05;
-
-    letter-spacing: -.7px;
+.home-content{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
 }
 
-.page-title p {
-
-    margin: 4px 0 0;
-
-    color: #77827a;
-
-    font-size: 13px;
+.welcome{
+    flex:0 0 auto;
+    padding:13px;
+    margin-bottom:7px;
+    border:1px solid #1e2b21;
+    border-radius:16px;
+    background:#0b120d;
 }
 
-
-/* =========================================================
-   HOME
-========================================================= */
-
-.home-content {
-
-    width: 100%;
-    height: 100%;
-
-    min-height: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    overflow: hidden;
+.welcome small{
+    color:#7cff00;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.5px;
 }
 
-.welcome {
-
-    flex: 0 0 auto;
-
-    padding: 14px;
-
-    margin-bottom: 8px;
-
-    border:
-        1px solid #1e2b21;
-
-    border-radius: 17px;
-
-    background: #0b120d;
+.welcome h2{
+    margin:4px 0;
+    font-size:19px;
 }
 
-.welcome small {
-
-    color: #7cff00;
-
-    font-size: 9px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
+.welcome p{
+    margin:0;
+    color:#89958c;
+    font-size:10px;
 }
 
-.welcome h2 {
-
-    margin:
-        4px
-        0
-        4px;
-
-    font-size: 20px;
+.stats{
+    flex:0 0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:6px;
+    margin-bottom:7px;
 }
 
-.welcome p {
-
-    margin: 0;
-
-    color: #89958c;
-
-    font-size: 11px;
-
-    line-height: 1.4;
+.stat{
+    padding:9px;
+    border:1px solid #1e2b21;
+    border-radius:12px;
+    background:#0b120d;
+    overflow:hidden;
 }
 
-.stats {
-
-    flex: 0 0 auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 7px;
-
-    margin-bottom: 8px;
+.stat span{
+    display:block;
+    color:#707c73;
+    font-size:8px;
+    margin-bottom:3px;
 }
 
-.stat {
-
-    min-width: 0;
-
-    padding: 10px;
-
-    border:
-        1px solid #1e2b21;
-
-    border-radius: 13px;
-
-    background: #0b120d;
+.stat strong{
+    display:block;
+    font-size:14px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-.stat span {
-
-    display: block;
-
-    margin-bottom: 4px;
-
-    color: #707c73;
-
-    font-size: 9px;
+.quick-title{
+    flex:0 0 auto;
+    margin:2px 0 5px;
+    font-size:12px;
+    font-weight:800;
 }
 
-.stat strong {
-
-    display: block;
-
-    font-size: 15px;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+.quick-grid{
+    flex:1;
+    min-height:0;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(2,1fr);
+    gap:6px;
 }
 
-.quick-title {
-
-    flex: 0 0 auto;
-
-    margin:
-        2px
-        0
-        6px;
-
-    font-size: 13px;
-
-    font-weight: 800;
+.quick{
+    min-height:0;
+    padding:11px;
+    border:1px solid #1f2d22;
+    border-radius:14px;
+    background:#0c140e;
+    color:white;
+    text-align:left;
 }
 
-.quick-grid {
-
-    flex: 1;
-
-    min-height: 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    grid-template-rows:
-        repeat(2, 1fr);
-
-    gap: 7px;
+.quick:active{
+    transform:scale(.98);
 }
 
-.quick {
-
-    min-height: 0;
-
-    padding: 12px;
-
-    border:
-        1px solid #1f2d22;
-
-    border-radius: 14px;
-
-    background: #0c140e;
-
-    color: white;
-
-    text-align: left;
-
-    cursor: pointer;
+.q-icon{
+    color:#7cff00;
+    font-size:21px;
+    margin-bottom:6px;
 }
 
-.quick:active {
-
-    transform: scale(.98);
-
-    background: #121d14;
+.quick strong{
+    display:block;
+    font-size:11px;
 }
 
-.q-icon {
-
-    margin-bottom: 7px;
-
-    color: #7cff00;
-
-    font-size: 22px;
+.quick span{
+    display:block;
+    margin-top:3px;
+    color:#707c73;
+    font-size:8px;
 }
 
-.quick strong {
+/* CALCULADORA */
 
-    display: block;
-
-    font-size: 12px;
+.calc-layout{
+    flex:1;
+    min-height:0;
+    display:grid;
+    grid-template-columns:minmax(290px,470px) minmax(220px,1fr);
+    gap:9px;
+    overflow:hidden;
 }
 
-.quick span {
-
-    display: block;
-
-    margin-top: 3px;
-
-    color: #707c73;
-
-    font-size: 9px;
+.calculator{
+    width:100%;
+    height:100%;
+    min-height:0;
+    padding:8px;
+    display:flex;
+    flex-direction:column;
+    border:1px solid #1f2d22;
+    border-radius:19px;
+    background:#09100b;
 }
 
-
-/* =========================================================
-   CALCULADORA
-========================================================= */
-
-.calc-layout {
-
-    flex: 1;
-
-    min-height: 0;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(290px, 470px)
-        minmax(220px, 1fr);
-
-    gap: 10px;
-
-    overflow: hidden;
+.display{
+    flex:0 0 auto;
+    min-height:96px;
+    padding:12px;
+    margin-bottom:7px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    border:1px solid #1c281e;
+    border-radius:14px;
+    background:#040704;
+    overflow:hidden;
 }
 
-.calculator {
-
-    width: 100%;
-    height: 100%;
-
-    min-height: 0;
-
-    padding: 9px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    border:
-        1px solid #1f2d22;
-
-    border-radius: 21px;
-
-    background: #09100b;
+.operation{
+    min-height:17px;
+    color:#657169;
+    text-align:right;
+    font-size:12px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-
-/* =========================================================
-   DISPLAY
-========================================================= */
-
-.display {
-
-    flex: 0 0 auto;
-
-    width: 100%;
-
-    min-height: 104px;
-
-    padding: 13px;
-
-    margin-bottom: 8px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: flex-end;
-
-    overflow: hidden;
-
-    border:
-        1px solid #1c281e;
-
-    border-radius: 15px;
-
-    background: #040704;
+.result{
+    margin-top:3px;
+    color:#f6f8f6;
+    text-align:right;
+    font-size:clamp(34px,9vw,53px);
+    line-height:1;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-.operation {
-
-    width: 100%;
-
-    min-height: 18px;
-
-    color: #657169;
-
-    text-align: right;
-
-    font-size: 13px;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+.keys{
+    flex:1;
+    min-height:0;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows:repeat(5,minmax(0,1fr)) minmax(0,1fr);
+    gap:5px;
 }
 
-.result {
-
-    width: 100%;
-
-    margin-top: 4px;
-
-    color: #f6f8f6;
-
-    text-align: right;
-
-    font-size:
-        clamp(
-            35px,
-            9vw,
-            55px
-        );
-
-    line-height: 1;
-
-    font-weight: 500;
-
-    letter-spacing: -1px;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+.key{
+    min-width:0;
+    min-height:0;
+    border:1px solid #263329;
+    border-radius:11px;
+    background:#111a14;
+    color:#f1f5f2;
+    font-size:clamp(18px,5vw,24px);
+    font-weight:500;
 }
 
-
-/* =========================================================
-   TECLADO
-========================================================= */
-
-.keys {
-
-    flex: 1;
-
-    min-height: 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    grid-template-rows:
-        repeat(5, minmax(0, 1fr));
-
-    gap: 6px;
+.key:active{
+    transform:scale(.94);
+    background:#26352a;
 }
 
-
-/*
-   IMPORTANTE:
-   O "=" ocupa a linha inteira.
-*/
-
-.key {
-
-    min-width: 0;
-    min-height: 0;
-
-    border:
-        1px solid #263329;
-
-    border-radius: 12px;
-
-    background: #111a14;
-
-    color: #f1f5f2;
-
-    font-size:
-        clamp(
-            19px,
-            5vw,
-            25px
-        );
-
-    font-weight: 500;
-
-    cursor: pointer;
-
-    touch-action: manipulation;
-
-    transition:
-        transform .06s ease,
-        background .06s ease;
+.key.operator{
+    color:#7cff00;
 }
 
-.key:active {
-
-    transform: scale(.94);
-
-    background: #26352a;
+.key.action{
+    color:#ff7070;
 }
 
-.key.operator {
-
-    color: #7cff00;
-
-    font-weight: 600;
+.key.equals{
+    grid-column:1/-1;
+    background:#7cff00;
+    border-color:#7cff00;
+    color:#071006;
+    font-size:27px;
+    font-weight:900;
 }
 
-.key.action {
-
-    color: #ff7070;
-
-    font-weight: 600;
+.key.zero{
+    grid-column:span 2;
 }
 
-.key.equals {
+/* INFO */
 
-    grid-column:
-        1 / -1;
-
-    background: #7cff00;
-
-    border-color: #7cff00;
-
-    color: #071006;
-
-    font-size: 28px;
-
-    font-weight: 900;
+.calc-info{
+    height:100%;
+    padding:13px;
+    border:1px solid #1f2d22;
+    border-radius:17px;
+    background:#0b120d;
+    overflow:hidden;
 }
 
-.key.equals:active {
-
-    background: #67df00;
+.calc-info h3{
+    margin:0 0 9px;
+    font-size:15px;
 }
 
-.key.zero {
-
-    grid-column:
-        span 2;
+.info-card{
+    padding:10px;
+    margin-bottom:6px;
+    border:1px solid #1c281e;
+    border-radius:10px;
+    background:#0d160f;
 }
 
-
-/* =========================================================
-   INFORMAÇÕES LATERAIS
-========================================================= */
-
-.calc-info {
-
-    min-width: 0;
-
-    height: 100%;
-
-    padding: 14px;
-
-    border:
-        1px solid #1f2d22;
-
-    border-radius: 18px;
-
-    background: #0b120d;
-
-    overflow: hidden;
+.info-card strong{
+    display:block;
+    color:#7cff00;
+    font-size:11px;
+    margin-bottom:3px;
 }
 
-.calc-info h3 {
-
-    margin:
-        0
-        0
-        10px;
-
-    font-size: 16px;
+.info-card span{
+    color:#89958c;
+    font-size:9px;
 }
 
-.info-card {
+/* COMERCIAL */
 
-    padding: 11px;
-
-    margin-bottom: 7px;
-
-    border:
-        1px solid #1c281e;
-
-    border-radius: 11px;
-
-    background: #0d160f;
+.commercial-wrapper{
+    flex:1;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
 }
 
-.info-card strong {
-
-    display: block;
-
-    margin-bottom: 3px;
-
-    color: #7cff00;
-
-    font-size: 12px;
+.tabs{
+    flex:0 0 auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:4px;
+    margin-bottom:6px;
 }
 
-.info-card span {
-
-    color: #89958c;
-
-    font-size: 10px;
-
-    line-height: 1.35;
+.tab{
+    height:36px;
+    border:1px solid #263329;
+    border-radius:9px;
+    background:#101810;
+    color:#9aa49d;
+    font-size:9px;
+    font-weight:800;
 }
 
-
-/* =========================================================
-   COMERCIAL
-========================================================= */
-
-.commercial-wrapper {
-
-    flex: 1;
-
-    min-height: 0;
-
-    overflow: hidden;
-
-    display: flex;
-
-    flex-direction: column;
+.tab.active{
+    background:#7cff00;
+    border-color:#7cff00;
+    color:#071006;
 }
 
-.tabs {
-
-    flex: 0 0 auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 5px;
-
-    margin-bottom: 7px;
+.commercial-card{
+    flex:1;
+    min-height:0;
+    padding:12px;
+    border:1px solid #1f2d22;
+    border-radius:16px;
+    background:#0a110c;
+    overflow:hidden;
 }
 
-.tab {
-
-    height: 38px;
-
-    min-width: 0;
-
-    border:
-        1px solid #263329;
-
-    border-radius: 9px;
-
-    background: #101810;
-
-    color: #9aa49d;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    cursor: pointer;
+.commercial-panel{
+    display:none;
 }
 
-.tab.active {
-
-    background: #7cff00;
-
-    border-color: #7cff00;
-
-    color: #071006;
+.commercial-panel.active{
+    display:block;
 }
 
-.commercial-card {
-
-    flex: 1;
-
-    min-height: 0;
-
-    padding: 14px;
-
-    border:
-        1px solid #1f2d22;
-
-    border-radius: 17px;
-
-    background: #0a110c;
-
-    overflow: hidden;
+.commercial-card h2{
+    margin:0 0 9px;
+    font-size:16px;
 }
 
-.commercial-panel {
-
-    display: none;
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:7px;
 }
 
-.commercial-panel.active {
-
-    display: block;
-}
-
-.commercial-card h2 {
-
-    margin:
-        0
-        0
-        10px;
-
-    font-size: 17px;
-}
-
-.form-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 8px;
-}
-
-.field {
-
-    min-width: 0;
-}
-
-.field label {
-
-    display: block;
-
-    margin-bottom: 4px;
-
-    color: #929d95;
-
-    font-size: 10px;
+.field label{
+    display:block;
+    margin-bottom:3px;
+    color:#929d95;
+    font-size:9px;
 }
 
 .field input,
-.field select {
-
-    width: 100%;
-
-    height: 43px;
-
-    padding:
-        0
-        10px;
-
-    border:
-        1px solid #28352b;
-
-    border-radius: 10px;
-
-    background: #111a13;
-
-    color: white;
-
-    outline: none;
-
-    font-size: 16px;
-
-    -webkit-user-select: text;
-
-    user-select: text;
+.field select{
+    width:100%;
+    height:42px;
+    padding:0 9px;
+    border:1px solid #28352b;
+    border-radius:9px;
+    background:#111a13;
+    color:white;
+    outline:none;
+    font-size:16px;
+    user-select:text;
+    -webkit-user-select:text;
 }
 
-.field input:focus,
-.field select:focus {
-
-    border-color: #7cff00;
+.field input:focus{
+    border-color:#7cff00;
 }
 
-.result-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 7px;
-
-    margin-top: 9px;
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:6px;
+    margin-top:8px;
 }
 
-.result-card {
-
-    min-width: 0;
-
-    padding: 10px;
-
-    border:
-        1px solid #203021;
-
-    border-radius: 11px;
-
-    background: #0d160f;
+.result-card{
+    padding:9px;
+    border:1px solid #203021;
+    border-radius:10px;
+    background:#0d160f;
 }
 
-.result-card span {
-
-    display: block;
-
-    margin-bottom: 4px;
-
-    color: #7e8981;
-
-    font-size: 9px;
+.result-card span{
+    display:block;
+    color:#7e8981;
+    font-size:8px;
+    margin-bottom:3px;
 }
 
-.result-card strong {
-
-    display: block;
-
-    color: #7cff00;
-
-    font-size: 17px;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+.result-card strong{
+    display:block;
+    color:#7cff00;
+    font-size:15px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
-.main-result {
-
-    grid-column:
-        1 / -1;
+.main-result{
+    grid-column:1/-1;
 }
 
-.main-result strong {
-
-    font-size: 24px;
+.main-result strong{
+    font-size:22px;
 }
 
-.clear-btn {
-
-    width: 100%;
-
-    height: 42px;
-
-    margin-top: 8px;
-
-    border:
-        1px solid #7cff00;
-
-    border-radius: 10px;
-
-    background: #7cff00;
-
-    color: #071006;
-
-    font-size: 11px;
-
-    font-weight: 900;
+.clear-btn{
+    width:100%;
+    height:40px;
+    margin-top:7px;
+    border:1px solid #7cff00;
+    border-radius:9px;
+    background:#7cff00;
+    color:#071006;
+    font-size:10px;
+    font-weight:900;
 }
 
+/* HISTÓRICO */
 
-/* =========================================================
-   HISTÓRICO
-========================================================= */
-
-.history-wrapper {
-
-    flex: 1;
-
-    min-height: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    overflow: hidden;
+.history-wrapper{
+    flex:1;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
 }
 
-.history-toolbar {
-
-    flex: 0 0 auto;
-
-    display: flex;
-
-    justify-content: flex-end;
-
-    margin-bottom: 7px;
+.history-toolbar{
+    flex:0 0 auto;
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:6px;
 }
 
-.history-list {
-
-    flex: 1;
-
-    min-height: 0;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
-
-    overflow: hidden;
+.history-list{
+    flex:1;
+    min-height:0;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    overflow:hidden;
 }
 
-.history-item {
-
-    flex: 0 0 auto;
-
-    min-width: 0;
-
-    padding: 10px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 10px;
-
-    border:
-        1px solid #1e2b21;
-
-    border-radius: 11px;
-
-    background: #0c140e;
-
-    cursor: pointer;
+.history-item{
+    flex:0 0 auto;
+    padding:9px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    border:1px solid #1e2b21;
+    border-radius:10px;
+    background:#0c140e;
 }
 
-.history-expression {
-
-    color: #a0aaa3;
-
-    font-size: 10px;
-
-    overflow-wrap: anywhere;
+.history-expression{
+    color:#a0aaa3;
+    font-size:9px;
 }
 
-.history-item small {
-
-    color: #59655d;
-
-    font-size: 8px;
+.history-item small{
+    color:#59655d;
+    font-size:7px;
 }
 
-.history-value {
-
-    color: #7cff00;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    white-space: nowrap;
+.history-value{
+    color:#7cff00;
+    font-size:14px;
+    font-weight:700;
 }
 
-.empty {
-
-    padding: 30px 10px;
-
-    border:
-        1px dashed #263329;
-
-    border-radius: 12px;
-
-    color: #68736c;
-
-    text-align: center;
-
-    font-size: 12px;
+.empty{
+    padding:25px 10px;
+    border:1px dashed #263329;
+    border-radius:11px;
+    color:#68736c;
+    text-align:center;
+    font-size:11px;
 }
 
+/* CONFIG */
 
-/* =========================================================
-   CONFIGURAÇÕES
-========================================================= */
-
-.settings-wrapper {
-
-    flex: 1;
-
-    min-height: 0;
-
-    overflow: hidden;
+.settings-wrapper{
+    flex:1;
+    min-height:0;
+    overflow:hidden;
 }
 
-.setting-group {
-
-    margin-bottom: 8px;
-
-    overflow: hidden;
-
-    border:
-        1px solid #1e2b21;
-
-    border-radius: 13px;
-
-    background: #0b120d;
+.setting-group{
+    margin-bottom:7px;
+    border:1px solid #1e2b21;
+    border-radius:12px;
+    background:#0b120d;
+    overflow:hidden;
 }
 
-.setting-title {
-
-    padding: 9px 12px;
-
-    border-bottom:
-        1px solid #1c281e;
-
-    color: #7cff00;
-
-    font-size: 9px;
-
-    font-weight: 900;
+.setting-title{
+    padding:8px 11px;
+    border-bottom:1px solid #1c281e;
+    color:#7cff00;
+    font-size:8px;
+    font-weight:900;
 }
 
-.setting-row {
-
-    min-height: 47px;
-
-    padding:
-        7px
-        12px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 10px;
-
-    border-bottom:
-        1px solid #172119;
+.setting-row{
+    min-height:44px;
+    padding:6px 11px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    border-bottom:1px solid #172119;
 }
 
-.setting-row:last-child {
-
-    border-bottom: 0;
+.setting-row:last-child{
+    border-bottom:0;
 }
 
-.setting-row strong {
-
-    font-size: 11px;
+.setting-row strong{
+    font-size:10px;
 }
 
-.setting-row span {
-
-    display: block;
-
-    margin-top: 2px;
-
-    color: #737e76;
-
-    font-size: 8px;
+.setting-row span{
+    display:block;
+    margin-top:2px;
+    color:#737e76;
+    font-size:8px;
 }
 
-.setting-row select {
-
-    height: 35px;
-
-    padding:
-        0
-        8px;
-
-    border:
-        1px solid #29372c;
-
-    border-radius: 8px;
-
-    background: #111a13;
-
-    color: white;
-
-    font-size: 11px;
+.setting-row select{
+    height:33px;
+    padding:0 7px;
+    border:1px solid #29372c;
+    border-radius:8px;
+    background:#111a13;
+    color:white;
 }
 
-.switch {
-
-    position: relative;
-
-    width: 42px;
-    height: 24px;
-
-    flex: 0 0 auto;
+.switch{
+    position:relative;
+    width:42px;
+    height:23px;
 }
 
-.switch input {
-
-    display: none;
+.switch input{
+    display:none;
 }
 
-.slider {
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: 30px;
-
-    background: #29352d;
+.slider{
+    position:absolute;
+    inset:0;
+    border-radius:30px;
+    background:#29352d;
 }
 
-.slider:before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 18px;
-    height: 18px;
-
-    top: 3px;
-    left: 3px;
-
-    border-radius: 50%;
-
-    background: white;
-
-    transition: .2s;
+.slider:before{
+    content:"";
+    position:absolute;
+    width:17px;
+    height:17px;
+    top:3px;
+    left:3px;
+    border-radius:50%;
+    background:white;
+    transition:.2s;
 }
 
-.switch input:checked + .slider {
-
-    background: #7cff00;
+.switch input:checked+.slider{
+    background:#7cff00;
 }
 
-.switch input:checked + .slider:before {
-
-    transform:
-        translateX(18px);
+.switch input:checked+.slider:before{
+    transform:translateX(19px);
 }
 
+/* ANÚNCIO */
 
-/* =========================================================
-   PUBLICIDADE
-========================================================= */
-
-.ad-banner {
-
-    flex: 0 0 auto;
-
-    width: 100%;
-
-    height: 32px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-top:
-        1px solid #172119;
-
-    border-bottom:
-        1px solid #172119;
-
-    background: #080d09;
-
-    color: #4f5a52;
-
-    font-size: 9px;
-
-    letter-spacing: 1px;
+.ad-banner{
+    flex:0 0 32px;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-top:1px solid #172119;
+    border-bottom:1px solid #172119;
+    background:#080d09;
+    color:#4f5a52;
+    font-size:8px;
+    letter-spacing:1px;
+    overflow:hidden;
 }
 
+/* MENU */
 
-/* =========================================================
-   MENU INFERIOR
-========================================================= */
-
-.bottom-nav {
-
-    flex: 0 0 auto;
-
-    width: 100%;
-
-    height: 62px;
-
-    padding:
-        4px
-        max(10px, env(safe-area-inset-right))
-        max(5px, env(safe-area-inset-bottom))
-        max(10px, env(safe-area-inset-left));
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 4px;
-
-    background: #080d09;
-
-    border-top:
-        1px solid #1b281e;
+.bottom-nav{
+    flex:0 0 61px;
+    width:100%;
+    padding:4px max(8px,env(safe-area-inset-right)) max(4px,env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:4px;
+    background:#080d09;
+    border-top:1px solid #1b281e;
 }
 
-.nav-btn {
-
-    min-width: 0;
-
-    border: 0;
-
-    border-radius: 11px;
-
-    background: transparent;
-
-    color: #718078;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 2px;
-
-    cursor: pointer;
+.nav-btn{
+    min-width:0;
+    border:0;
+    border-radius:10px;
+    background:transparent;
+    color:#718078;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2px;
 }
 
-.nav-btn:active {
-
-    transform: scale(.95);
+.nav-btn.active{
+    color:#7cff00;
+    background:#101a12;
 }
 
-.nav-btn.active {
-
-    color: #7cff00;
-
-    background: #101a12;
+.nav-icon{
+    font-size:16px;
 }
 
-.nav-icon {
-
-    font-size: 17px;
+.nav-label{
+    font-size:8px;
 }
 
-.nav-label {
+/* SPLASH */
 
-    font-size: 9px;
+.splash{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    background:#050805;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity .5s ease,visibility .5s ease;
 }
 
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-.toast {
-
-    position: fixed;
-
-    left: 50%;
-
-    bottom:
-        calc(
-            105px +
-            env(safe-area-inset-bottom)
-        );
-
-    transform:
-        translateX(-50%)
-        translateY(10px);
-
-    padding:
-        8px
-        12px;
-
-    border:
-        1px solid #365039;
-
-    border-radius: 9px;
-
-    background: #152017;
-
-    color: white;
-
-    font-size: 10px;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition: .2s;
-
-    z-index: 9999;
+.splash.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
 }
 
-.toast.show {
-
-    opacity: 1;
-
-    transform:
-        translateX(-50%)
-        translateY(0);
+.splash-content{
+    text-align:center;
 }
 
-
-/* =========================================================
-   CELULAR
-========================================================= */
-
-@media (max-width: 850px) {
-
-    .calc-layout {
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .calc-info {
-
-        display: none;
-    }
-
+.splash-logo{
+    font-size:42px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-
-/* =========================================================
-   CELULARES PEQUENOS
-========================================================= */
-
-@media (max-width: 500px) {
-
-    .header {
-
-        height: 62px;
-    }
-
-    .container {
-
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .page-title h1 {
-
-        font-size: 27px;
-    }
-
-    .page-title p {
-
-        font-size: 12px;
-    }
-
-    .calculator {
-
-        padding: 8px;
-
-        border-radius: 18px;
-    }
-
-    .display {
-
-        min-height: 104px;
-
-        padding: 12px;
-    }
-
-    .keys {
-
-        gap: 5px;
-    }
-
-    .key {
-
-        border-radius: 11px;
-
-        font-size: 21px;
-    }
-
-    .key.equals {
-
-        font-size: 28px;
-    }
-
-    .commercial-card {
-
-        padding: 11px;
-    }
-
+.splash-logo span{
+    color:#7cff00;
 }
 
-
-/* =========================================================
-   CELULAR BAIXO
-========================================================= */
-
-@media (max-height: 720px) {
-
-    .header {
-
-        height: 56px;
-    }
-
-    .logo {
-
-        width: 36px;
-        height: 36px;
-
-        flex-basis: 36px;
-    }
-
-    .brand-text strong {
-
-        font-size: 15px;
-    }
-
-    .brand-text span {
-
-        font-size: 8px;
-    }
-
-    .icon-btn {
-
-        width: 36px;
-        height: 36px;
-    }
-
-    .container {
-
-        padding-top: 5px;
-    }
-
-    .page-title {
-
-        margin-bottom: 5px;
-    }
-
-    .page-title h1 {
-
-        font-size: 23px;
-    }
-
-    .page-title p {
-
-        font-size: 10px;
-    }
-
-    .display {
-
-        min-height: 82px;
-    }
-
-    .key {
-
-        font-size: 19px;
-    }
-
-    .ad-banner {
-
-        height: 27px;
-    }
-
-    .bottom-nav {
-
-        height: 55px;
-    }
-
+.splash-expert{
+    color:#7cff00;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:5px;
+    margin-top:2px;
 }
 
-
-/* =========================================================
-   CELULAR MUITO PEQUENO
-========================================================= */
-
-@media (max-width: 360px) {
-
-    .container {
-
-        padding-left: 7px;
-        padding-right: 7px;
-    }
-
-    .calculator {
-
-        padding: 6px;
-    }
-
-    .keys {
-
-        gap: 4px;
-    }
-
-    .key {
-
-        border-radius: 9px;
-
-        font-size: 18px;
-    }
-
-    .key.equals {
-
-        font-size: 25px;
-    }
-
+.splash-line{
+    width:90px;
+    height:2px;
+    margin:18px auto;
+    background:#7cff00;
 }
 
-
-/* =========================================================
-   MODO CLARO
-========================================================= */
-
-body.light {
-
-    background: #f2f5f3;
-
-    color: #111711;
+.splash-credit{
+    color:#68736c;
+    font-size:9px;
+    line-height:1.5;
 }
 
-body.light .app {
-
-    background:
-        linear-gradient(
-            180deg,
-            #f4f7f4,
-            #eef2ee
-        );
+.splash-credit strong{
+    display:block;
+    color:#e9eee9;
+    font-size:11px;
 }
 
-body.light .header {
+/* TEMA CLARO */
 
-    border-color: #dce4dd;
+body.light{
+    background:#eef2ee;
+    color:#101510;
 }
 
-body.light .logo {
-
-    background: white;
+body.light .app{
+    background:linear-gradient(180deg,#f5f8f5,#e9eee9);
 }
 
+body.light .header,
+body.light .bottom-nav,
+body.light .ad-banner{
+    border-color:#d7dfd8;
+}
+
+body.light .logo,
 body.light .icon-btn,
-body.light .quick,
+body.light .welcome,
 body.light .stat,
+body.light .quick,
 body.light .calculator,
 body.light .calc-info,
 body.light .commercial-card,
 body.light .history-item,
-body.light .setting-group {
-
-    background: white;
-
-    border-color: #d9e1da;
-
-    color: #111711;
+body.light .setting-group{
+    background:#fff;
+    border-color:#d5ded6;
+    color:#111711;
 }
 
-body.light .display {
-
-    background: #f5f7f5;
-
-    border-color: #d9e1da;
-
-    color: #111711;
+body.light .display{
+    background:#f5f7f5;
+    border-color:#d3ddd4;
 }
 
-body.light .key {
+body.light .key{
+    background:#e9eee9;
+    color:#111711;
+    border-color:#d2dbd3;
+}
 
-    background: #e9eee9;
-
-    color: #111711;
-
-    border-color: #d4ddd5;
+body.light .key:active{
+    background:#dce5dc;
 }
 
 body.light .field input,
 body.light .field select,
-body.light .setting-row select {
-
-    background: #f7f9f7;
-
-    color: #111711;
-
-    border-color: #d4ddd5;
+body.light .setting-row select{
+    background:#f7f9f7;
+    color:#111711;
+    border-color:#d2dbd3;
 }
 
-body.light .ad-banner,
-body.light .bottom-nav {
-
-    background: white;
-
-    border-color: #dce4dd;
+body.light .info-card,
+body.light .result-card{
+    background:#f5f8f5;
+    border-color:#d7dfd8;
 }
 
-body.light .nav-btn {
-
-    color: #657168;
+body.light .tab{
+    background:#e7ece7;
+    border-color:#d1dad2;
+    color:#5c675f;
 }
 
-body.light .nav-btn.active {
-
-    color: #3e8f00;
-
-    background: #eff8ea;
+body.light .nav-btn{
+    color:#68736b;
 }
 
+body.light .nav-btn.active{
+    color:#408c00;
+    background:#edf7e9;
+}
+
+body.light .ad-banner{
+    background:#fff;
+    color:#7a847d;
+}
+
+body.light .splash{
+    background:#f4f7f4;
+}
+
+body.light .splash-credit strong{
+    color:#111711;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:850px){
+    .calc-layout{
+        grid-template-columns:1fr;
+    }
+
+    .calc-info{
+        display:none;
+    }
+}
+
+@media(max-width:500px){
+    .container{
+        padding-left:8px;
+        padding-right:8px;
+    }
+
+    .calculator{
+        padding:7px;
+    }
+}
+
+@media(max-height:700px){
+    .header{
+        flex-basis:56px;
+    }
+
+    .logo{
+        width:36px;
+        height:36px;
+    }
+
+    .icon-btn{
+        width:36px;
+        height:36px;
+    }
+
+    .display{
+        min-height:77px;
+    }
+
+    .ad-banner{
+        flex-basis:28px;
+    }
+
+    .bottom-nav{
+        flex-basis:54px;
+    }
+}
 </style>
-
 </head>
-
 
 <body>
 
+<!-- SPLASH -->
+
+<div class="splash" id="splash">
+    <div class="splash-content">
+
+        <div class="splash-logo">
+            CAL<span>PRO</span>
+        </div>
+
+        <div class="splash-expert">
+            EXPERT
+        </div>
+
+        <div class="splash-line"></div>
+
+        <div class="splash-credit">
+            Criado e desenvolvido por
+            <strong>João Siena Filho</strong>
+        </div>
+
+    </div>
+</div>
+
 
 <div class="app">
-
-
-<!-- =======================================================
-     CABEÇALHO
-======================================================= -->
 
 <header class="header">
 
     <div class="brand">
 
-        <div class="logo">
-            C
-        </div>
+        <div class="logo">C</div>
 
-        <div class="brand-text">
-
-            <strong>
-                CALPRO
-            </strong>
-
-            <span>
-                EXPERT 2.0
-            </span>
-
+        <div>
+            <strong>CALPRO</strong>
+            <span>EXPERT 2.0</span>
         </div>
 
     </div>
-
 
     <div class="header-actions">
 
         <button
             class="icon-btn"
             id="historyHeader"
-            type="button"
-            aria-label="Histórico">
-
-            ↶
-
-        </button>
-
+            type="button">↶</button>
 
         <button
             class="icon-btn"
             id="settingsHeader"
-            type="button"
-            aria-label="Configurações">
-
-            ⚙
-
-        </button>
+            type="button">⚙</button>
 
     </div>
 
 </header>
 
 
-<!-- =======================================================
-     CONTEÚDO
-======================================================= -->
-
 <main class="container">
 
 
-<!-- =======================================================
-     INÍCIO
-======================================================= -->
+<!-- INÍCIO -->
 
-<section
-    id="home"
-    class="screen active">
-
+<section id="home" class="screen active">
 
     <div class="home-content">
 
-
         <div class="welcome">
 
-            <small>
-                CALPRO EXPERT 2.0
-            </small>
+            <small>CALPRO EXPERT 2.0</small>
 
-            <h2>
-                Olá, seja bem-vindo.
-            </h2>
+            <h2>Olá, seja bem-vindo.</h2>
 
             <p>
                 Sua calculadora comercial completa
@@ -1947,45 +1060,20 @@ body.light .nav-btn.active {
 
         <div class="stats">
 
-
             <div class="stat">
-
-                <span>
-                    Cálculos
-                </span>
-
-                <strong id="statCalculations">
-                    0
-                </strong>
-
+                <span>Cálculos</span>
+                <strong id="statCalculations">0</strong>
             </div>
 
-
             <div class="stat">
-
-                <span>
-                    Histórico
-                </span>
-
-                <strong id="statHistory">
-                    0
-                </strong>
-
+                <span>Histórico</span>
+                <strong id="statHistory">0</strong>
             </div>
 
-
             <div class="stat">
-
-                <span>
-                    Último resultado
-                </span>
-
-                <strong id="statLast">
-                    —
-                </strong>
-
+                <span>Último resultado</span>
+                <strong id="statLast">—</strong>
             </div>
-
 
         </div>
 
@@ -1997,23 +1085,16 @@ body.light .nav-btn.active {
 
         <div class="quick-grid">
 
-
             <button
                 class="quick"
                 data-open="calculator"
                 type="button">
 
-                <div class="q-icon">
-                    ▦
-                </div>
+                <div class="q-icon">▦</div>
 
-                <strong>
-                    Calculadora
-                </strong>
+                <strong>Calculadora</strong>
 
-                <span>
-                    Operações rápidas
-                </span>
+                <span>Operações rápidas</span>
 
             </button>
 
@@ -2023,17 +1104,11 @@ body.light .nav-btn.active {
                 data-open="commercial"
                 type="button">
 
-                <div class="q-icon">
-                    ▥
-                </div>
+                <div class="q-icon">▥</div>
 
-                <strong>
-                    Cálculos Comerciais
-                </strong>
+                <strong>Cálculos Comerciais</strong>
 
-                <span>
-                    Preço, desconto e margem
-                </span>
+                <span>Preço, desconto e margem</span>
 
             </button>
 
@@ -2043,17 +1118,11 @@ body.light .nav-btn.active {
                 data-open="history"
                 type="button">
 
-                <div class="q-icon">
-                    ↶
-                </div>
+                <div class="q-icon">↶</div>
 
-                <strong>
-                    Histórico
-                </strong>
+                <strong>Histórico</strong>
 
-                <span>
-                    Seus cálculos
-                </span>
+                <span>Seus cálculos</span>
 
             </button>
 
@@ -2063,20 +1132,13 @@ body.light .nav-btn.active {
                 data-open="settings"
                 type="button">
 
-                <div class="q-icon">
-                    ⚙
-                </div>
+                <div class="q-icon">⚙</div>
 
-                <strong>
-                    Configurações
-                </strong>
+                <strong>Configurações</strong>
 
-                <span>
-                    Personalizar
-                </span>
+                <span>Personalizar</span>
 
             </button>
-
 
         </div>
 
@@ -2085,228 +1147,63 @@ body.light .nav-btn.active {
 </section>
 
 
-<!-- =======================================================
-     CALCULADORA
-======================================================= -->
+<!-- CALCULADORA -->
 
-<section
-    id="calculator"
-    class="screen">
-
+<section id="calculator" class="screen">
 
     <div class="page-title">
 
-        <h1>
-            Calculadora
-        </h1>
+        <h1>Calculadora</h1>
 
-        <p>
-            Cálculos rápidos e precisos.
-        </p>
+        <p>Cálculos rápidos e precisos.</p>
 
     </div>
 
 
     <div class="calc-layout">
 
-
         <div class="calculator">
-
 
             <div class="display">
 
                 <div
                     id="calcOperation"
-                    class="operation">
-                </div>
+                    class="operation"></div>
 
                 <div
                     id="calcDisplay"
-                    class="result">
-
-                    0
-
-                </div>
+                    class="result">0</div>
 
             </div>
 
 
             <div class="keys">
 
+                <button class="key action" data-key="clear">AC</button>
+                <button class="key" data-key="sign">+/−</button>
+                <button class="key operator" data-key="percent">%</button>
+                <button class="key operator" data-key="divide">÷</button>
 
-                <!-- LINHA 1 -->
+                <button class="key" data-number="7">7</button>
+                <button class="key" data-number="8">8</button>
+                <button class="key" data-number="9">9</button>
+                <button class="key operator" data-key="multiply">×</button>
 
-                <button
-                    class="key action"
-                    data-key="clear"
-                    type="button">
-                    AC
-                </button>
+                <button class="key" data-number="4">4</button>
+                <button class="key" data-number="5">5</button>
+                <button class="key" data-number="6">6</button>
+                <button class="key operator" data-key="subtract">−</button>
 
+                <button class="key" data-number="1">1</button>
+                <button class="key" data-number="2">2</button>
+                <button class="key" data-number="3">3</button>
+                <button class="key operator" data-key="add">+</button>
 
-                <button
-                    class="key"
-                    data-key="sign"
-                    type="button">
-                    +/−
-                </button>
+                <button class="key zero" data-number="0">0</button>
+                <button class="key" data-key="decimal">,</button>
+                <button class="key action" data-key="backspace">⌫</button>
 
-
-                <button
-                    class="key operator"
-                    data-key="percent"
-                    type="button">
-                    %
-                </button>
-
-
-                <button
-                    class="key operator"
-                    data-key="divide"
-                    type="button">
-                    ÷
-                </button>
-
-
-                <!-- LINHA 2 -->
-
-                <button
-                    class="key"
-                    data-number="7"
-                    type="button">
-                    7
-                </button>
-
-
-                <button
-                    class="key"
-                    data-number="8"
-                    type="button">
-                    8
-                </button>
-
-
-                <button
-                    class="key"
-                    data-number="9"
-                    type="button">
-                    9
-                </button>
-
-
-                <button
-                    class="key operator"
-                    data-key="multiply"
-                    type="button">
-                    ×
-                </button>
-
-
-                <!-- LINHA 3 -->
-
-                <button
-                    class="key"
-                    data-number="4"
-                    type="button">
-                    4
-                </button>
-
-
-                <button
-                    class="key"
-                    data-number="5"
-                    type="button">
-                    5
-                </button>
-
-
-                <button
-                    class="key"
-                    data-number="6"
-                    type="button">
-                    6
-                </button>
-
-
-                <button
-                    class="key operator"
-                    data-key="subtract"
-                    type="button">
-                    −
-                </button>
-
-
-                <!-- LINHA 4 -->
-
-                <button
-                    class="key"
-                    data-number="1"
-                    type="button">
-                    1
-                </button>
-
-
-                <button
-                    class="key"
-                    data-number="2"
-                    type="button">
-                    2
-                </button>
-
-
-                <button
-                    class="key"
-                    data-number="3"
-                    type="button">
-                    3
-                </button>
-
-
-                <button
-                    class="key operator"
-                    data-key="add"
-                    type="button">
-                    +
-                </button>
-
-
-                <!-- LINHA 5 -->
-
-                <button
-                    class="key zero"
-                    data-number="0"
-                    type="button">
-                    0
-                </button>
-
-
-                <button
-                    class="key"
-                    data-key="decimal"
-                    type="button">
-                    ,
-                </button>
-
-
-                <button
-                    class="key action"
-                    data-key="backspace"
-                    type="button">
-                    ⌫
-                </button>
-
-
-                <!-- "=" SOZINHO E LARGO -->
-
-                <button
-                    class="key equals"
-                    data-key="equals"
-                    type="button">
-
-                    =
-
-                </button>
-
+                <button class="key equals" data-key="equals">=</button>
 
             </div>
 
@@ -2315,74 +1212,46 @@ body.light .nav-btn.active {
 
         <div class="calc-info">
 
-            <h3>
-                CALPRO EXPERT
-            </h3>
-
+            <h3>CALPRO EXPERT</h3>
 
             <div class="info-card">
-
-                <strong>
-                    Calculadora completa
-                </strong>
-
+                <strong>Calculadora completa</strong>
                 <span>
                     Operações matemáticas,
                     porcentagens e decimais.
                 </span>
-
             </div>
 
-
             <div class="info-card">
-
-                <strong>
-                    Entrada brasileira
-                </strong>
-
+                <strong>Entrada brasileira</strong>
                 <span>
                     Aceita vírgula ou ponto
                     nos valores.
                 </span>
-
             </div>
 
-
             <div class="info-card">
-
-                <strong>
-                    Histórico automático
-                </strong>
-
+                <strong>Histórico automático</strong>
                 <span>
                     Seus cálculos ficam
                     registrados automaticamente.
                 </span>
-
             </div>
 
         </div>
-
 
     </div>
 
 </section>
 
 
-<!-- =======================================================
-     COMERCIAL
-======================================================= -->
+<!-- COMERCIAL -->
 
-<section
-    id="commercial"
-    class="screen">
-
+<section id="commercial" class="screen">
 
     <div class="page-title">
 
-        <h1>
-            Comercial
-        </h1>
+        <h1>Comercial</h1>
 
         <p>
             Ferramentas para vendas e negociação.
@@ -2393,69 +1262,44 @@ body.light .nav-btn.active {
 
     <div class="commercial-wrapper">
 
-
         <div class="tabs">
-
 
             <button
                 class="tab active"
-                data-commercial="price"
-                type="button">
-
+                data-commercial="price">
                 PREÇO
-
             </button>
-
 
             <button
                 class="tab"
-                data-commercial="discount"
-                type="button">
-
+                data-commercial="discount">
                 DESCONTO
-
             </button>
-
 
             <button
                 class="tab"
-                data-commercial="margin"
-                type="button">
-
+                data-commercial="margin">
                 MARGEM
-
             </button>
-
 
             <button
                 class="tab"
-                data-commercial="markup"
-                type="button">
-
+                data-commercial="markup">
                 MARKUP
-
             </button>
-
 
         </div>
 
 
-        <!-- =================================================
-             PREÇO
-        ================================================== -->
+        <!-- PREÇO -->
 
         <div
             id="panel-price"
             class="commercial-card commercial-panel active">
 
-
-            <h2>
-                Cálculo de Preço
-            </h2>
-
+            <h2>Cálculo de Preço</h2>
 
             <div class="form-grid">
-
 
                 <div class="field">
 
@@ -2467,7 +1311,6 @@ body.light .nav-btn.active {
                         id="priceCost"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0,00">
 
                 </div>
@@ -2483,7 +1326,6 @@ body.light .nav-btn.active {
                         id="priceDiscount"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0">
 
                 </div>
@@ -2499,23 +1341,18 @@ body.light .nav-btn.active {
                         id="priceMargin"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0">
 
                 </div>
-
 
             </div>
 
 
             <div class="result-grid">
 
-
                 <div class="result-card main-result">
 
-                    <span>
-                        Preço de venda
-                    </span>
+                    <span>Preço de venda</span>
 
                     <strong id="priceSale">
                         R$ 0,00
@@ -2523,12 +1360,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card">
 
-                    <span>
-                        Lucro
-                    </span>
+                    <span>Lucro</span>
 
                     <strong id="priceProfit">
                         R$ 0,00
@@ -2536,12 +1370,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card">
 
-                    <span>
-                        Margem
-                    </span>
+                    <span>Margem</span>
 
                     <strong id="priceMarginResult">
                         0,00%
@@ -2549,12 +1380,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card">
 
-                    <span>
-                        Markup
-                    </span>
+                    <span>Markup</span>
 
                     <strong id="priceMarkupResult">
                         0,00%
@@ -2562,39 +1390,29 @@ body.light .nav-btn.active {
 
                 </div>
 
-
             </div>
 
 
             <button
                 class="clear-btn"
-                data-clear-commercial="price"
-                type="button">
+                data-clear-commercial="price">
 
                 LIMPAR TUDO
 
             </button>
 
-
         </div>
 
 
-        <!-- =================================================
-             DESCONTO
-        ================================================== -->
+        <!-- DESCONTO -->
 
         <div
             id="panel-discount"
             class="commercial-card commercial-panel">
 
-
-            <h2>
-                Cálculo de Desconto
-            </h2>
-
+            <h2>Cálculo de Desconto</h2>
 
             <div class="form-grid">
-
 
                 <div class="field">
 
@@ -2606,11 +1424,9 @@ body.light .nav-btn.active {
                         id="discountOriginal"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0,00">
 
                 </div>
-
 
                 <div class="field">
 
@@ -2622,23 +1438,18 @@ body.light .nav-btn.active {
                         id="discountPercent"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0">
 
                 </div>
-
 
             </div>
 
 
             <div class="result-grid">
 
-
                 <div class="result-card">
 
-                    <span>
-                        Valor do desconto
-                    </span>
+                    <span>Valor do desconto</span>
 
                     <strong id="discountValue">
                         R$ 0,00
@@ -2646,12 +1457,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card">
 
-                    <span>
-                        Economia
-                    </span>
+                    <span>Economia</span>
 
                     <strong id="discountEconomy">
                         R$ 0,00
@@ -2659,12 +1467,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card main-result">
 
-                    <span>
-                        Preço final
-                    </span>
+                    <span>Preço final</span>
 
                     <strong id="discountFinal">
                         R$ 0,00
@@ -2672,83 +1477,62 @@ body.light .nav-btn.active {
 
                 </div>
 
-
             </div>
 
 
             <button
                 class="clear-btn"
-                data-clear-commercial="discount"
-                type="button">
+                data-clear-commercial="discount">
 
                 LIMPAR TUDO
 
             </button>
 
-
         </div>
 
 
-        <!-- =================================================
-             MARGEM
-        ================================================== -->
+        <!-- MARGEM -->
 
         <div
             id="panel-margin"
             class="commercial-card commercial-panel">
 
-
-            <h2>
-                Cálculo de Margem
-            </h2>
-
+            <h2>Cálculo de Margem</h2>
 
             <div class="form-grid">
 
-
                 <div class="field">
 
-                    <label>
-                        Custo (R$)
-                    </label>
+                    <label>Custo (R$)</label>
 
                     <input
                         id="marginCost"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0,00">
 
                 </div>
 
-
                 <div class="field">
 
-                    <label>
-                        Venda (R$)
-                    </label>
+                    <label>Venda (R$)</label>
 
                     <input
                         id="marginSale"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0,00">
 
                 </div>
-
 
             </div>
 
 
             <div class="result-grid">
 
-
                 <div class="result-card">
 
-                    <span>
-                        Lucro
-                    </span>
+                    <span>Lucro</span>
 
                     <strong id="marginProfit">
                         R$ 0,00
@@ -2756,12 +1540,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card">
 
-                    <span>
-                        Margem
-                    </span>
+                    <span>Margem</span>
 
                     <strong id="marginPercent">
                         0,00%
@@ -2769,12 +1550,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card main-result">
 
-                    <span>
-                        Markup
-                    </span>
+                    <span>Markup</span>
 
                     <strong id="marginMarkup">
                         0,00%
@@ -2782,83 +1560,62 @@ body.light .nav-btn.active {
 
                 </div>
 
-
             </div>
 
 
             <button
                 class="clear-btn"
-                data-clear-commercial="margin"
-                type="button">
+                data-clear-commercial="margin">
 
                 LIMPAR TUDO
 
             </button>
 
-
         </div>
 
 
-        <!-- =================================================
-             MARKUP
-        ================================================== -->
+        <!-- MARKUP -->
 
         <div
             id="panel-markup"
             class="commercial-card commercial-panel">
 
-
-            <h2>
-                Cálculo de Markup
-            </h2>
-
+            <h2>Cálculo de Markup</h2>
 
             <div class="form-grid">
 
-
                 <div class="field">
 
-                    <label>
-                        Custo (R$)
-                    </label>
+                    <label>Custo (R$)</label>
 
                     <input
                         id="markupCost"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0,00">
 
                 </div>
 
-
                 <div class="field">
 
-                    <label>
-                        Markup (%)
-                    </label>
+                    <label>Markup (%)</label>
 
                     <input
                         id="markupPercent"
                         type="text"
                         inputmode="decimal"
-                        autocomplete="off"
                         placeholder="0">
 
                 </div>
-
 
             </div>
 
 
             <div class="result-grid">
 
-
                 <div class="result-card main-result">
 
-                    <span>
-                        Preço de venda
-                    </span>
+                    <span>Preço de venda</span>
 
                     <strong id="markupSale">
                         R$ 0,00
@@ -2866,12 +1623,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card">
 
-                    <span>
-                        Lucro
-                    </span>
+                    <span>Lucro</span>
 
                     <strong id="markupProfit">
                         R$ 0,00
@@ -2879,12 +1633,9 @@ body.light .nav-btn.active {
 
                 </div>
 
-
                 <div class="result-card">
 
-                    <span>
-                        Margem
-                    </span>
+                    <span>Margem</span>
 
                     <strong id="markupMargin">
                         0,00%
@@ -2892,59 +1643,44 @@ body.light .nav-btn.active {
 
                 </div>
 
-
             </div>
 
 
             <button
                 class="clear-btn"
-                data-clear-commercial="markup"
-                type="button">
+                data-clear-commercial="markup">
 
                 LIMPAR TUDO
 
             </button>
 
-
         </div>
-
 
     </div>
 
 </section>
 
 
-<!-- =======================================================
-     HISTÓRICO
-======================================================= -->
+<!-- HISTÓRICO -->
 
-<section
-    id="history"
-    class="screen">
-
+<section id="history" class="screen">
 
     <div class="page-title">
 
-        <h1>
-            Histórico
-        </h1>
+        <h1>Histórico</h1>
 
-        <p>
-            Consulte seus cálculos.
-        </p>
+        <p>Consulte seus cálculos.</p>
 
     </div>
 
 
     <div class="history-wrapper">
 
-
         <div class="history-toolbar">
 
             <button
                 class="tab"
-                id="clearHistory"
-                type="button">
+                id="clearHistory">
 
                 🗑 LIMPAR HISTÓRICO
 
@@ -2958,60 +1694,43 @@ body.light .nav-btn.active {
             class="history-list">
         </div>
 
-
     </div>
 
 </section>
 
 
-<!-- =======================================================
-     CONFIGURAÇÕES
-======================================================= -->
+<!-- CONFIGURAÇÕES -->
 
-<section
-    id="settings"
-    class="screen">
-
+<section id="settings" class="screen">
 
     <div class="page-title">
 
-        <h1>
-            Configurações
-        </h1>
+        <h1>Configurações</h1>
 
-        <p>
-            Personalize sua experiência.
-        </p>
+        <p>Personalize sua experiência.</p>
 
     </div>
 
 
     <div class="settings-wrapper">
 
-
         <div class="setting-group">
-
 
             <div class="setting-title">
                 APARÊNCIA
             </div>
 
-
             <div class="setting-row">
-
 
                 <div>
 
-                    <strong>
-                        Tema
-                    </strong>
+                    <strong>Tema</strong>
 
                     <span>
                         Aparência do aplicativo
                     </span>
 
                 </div>
-
 
                 <select id="themeSelect">
 
@@ -3025,36 +1744,28 @@ body.light .nav-btn.active {
 
                 </select>
 
-
             </div>
-
 
         </div>
 
 
         <div class="setting-group">
 
-
             <div class="setting-title">
                 CALCULADORA
             </div>
 
-
             <div class="setting-row">
-
 
                 <div>
 
-                    <strong>
-                        Vibração
-                    </strong>
+                    <strong>Vibração</strong>
 
                     <span>
                         Resposta ao toque
                     </span>
 
                 </div>
-
 
                 <label class="switch">
 
@@ -3067,29 +1778,22 @@ body.light .nav-btn.active {
 
                 </label>
 
-
             </div>
-
 
         </div>
 
 
         <div class="setting-group">
 
-
             <div class="setting-title">
                 SOBRE O APP
             </div>
 
-
             <div class="setting-row">
-
 
                 <div>
 
-                    <strong>
-                        CALPRO EXPERT 2.0
-                    </strong>
+                    <strong>CALPRO EXPERT 2.0</strong>
 
                     <span>
                         Calculadora comercial
@@ -3097,331 +1801,93 @@ body.light .nav-btn.active {
 
                 </div>
 
-
-                <strong>
-                    v2.0.0
-                </strong>
-
+                <strong>v2.0.0</strong>
 
             </div>
 
-
             <div class="setting-row">
-
 
                 <div>
 
-                    <strong>
-                        Funcionamento
-                    </strong>
+                    <strong>Desenvolvimento</strong>
 
                     <span>
-                        Aplicação local
+                        Criado e desenvolvido por
                     </span>
 
                 </div>
 
-
-                <strong
-                    style="color:#7cff00">
-
-                    OFFLINE
-
+                <strong style="color:#7cff00">
+                    João Siena Filho
                 </strong>
-
 
             </div>
 
-
         </div>
-
 
     </div>
 
 </section>
 
-
 </main>
 
 
-<!-- =======================================================
-     PUBLICIDADE
-======================================================= -->
+<!-- ÚNICO QUADRO DE ANÚNCIO -->
 
 <div class="ad-banner">
-
     ESPAÇO PUBLICITÁRIO
-
 </div>
 
 
-<!-- =======================================================
-     MENU
-======================================================= -->
+<!-- MENU -->
 
 <nav class="bottom-nav">
 
-
     <button
         class="nav-btn active"
-        data-nav="home"
-        type="button">
+        data-nav="home">
 
-        <span class="nav-icon">
-            ⌂
-        </span>
-
-        <span class="nav-label">
-            Início
-        </span>
+        <span class="nav-icon">⌂</span>
+        <span class="nav-label">Início</span>
 
     </button>
 
 
     <button
         class="nav-btn"
-        data-nav="calculator"
-        type="button">
+        data-nav="calculator">
 
-        <span class="nav-icon">
-            ▦
-        </span>
-
-        <span class="nav-label">
-            Calc
-        </span>
+        <span class="nav-icon">▦</span>
+        <span class="nav-label">Calc</span>
 
     </button>
 
 
     <button
         class="nav-btn"
-        data-nav="commercial"
-        type="button">
+        data-nav="commercial">
 
-        <span class="nav-icon">
-            ▥
-        </span>
-
-        <span class="nav-label">
-            Comercial
-        </span>
+        <span class="nav-icon">▥</span>
+        <span class="nav-label">Comercial</span>
 
     </button>
 
 
     <button
         class="nav-btn"
-        data-nav="history"
-        type="button">
+        data-nav="history">
 
-        <span class="nav-icon">
-            ↶
-        </span>
-
-        <span class="nav-label">
-            Histórico
-        </span>
+        <span class="nav-icon">↶</span>
+        <span class="nav-label">Histórico</span>
 
     </button>
-
 
 </nav>
-
-
-<div
-    id="toast"
-    class="toast">
-</div>
-
 
 </div>
 
 
 <script>
-
-"use strict";
-
-
-/* =========================================================
-   AUXILIARES
-========================================================= */
-
-const $ = id =>
-    document.getElementById(id);
-
-
-function parseNumber(value) {
-
-    if (
-        value === null ||
-        value === undefined ||
-        value === ""
-    ) {
-        return 0;
-    }
-
-
-    let text =
-        String(value)
-        .trim()
-        .replace(/\s/g, "");
-
-
-    if (!text) {
-        return 0;
-    }
-
-
-    const comma =
-        text.lastIndexOf(",");
-
-    const dot =
-        text.lastIndexOf(".");
-
-
-    if (
-        comma !== -1 &&
-        dot !== -1
-    ) {
-
-        if (comma > dot) {
-
-            text =
-                text
-                .replace(/\./g, "")
-                .replace(",", ".");
-
-        } else {
-
-            text =
-                text
-                .replace(/,/g, "");
-
-        }
-
-    } else if (
-        comma !== -1
-    ) {
-
-        text =
-            text.replace(",", ".");
-
-    }
-
-
-    const result =
-        Number(text);
-
-
-    return Number.isFinite(result)
-        ? result
-        : 0;
-}
-
-
-function formatNumber(
-    value,
-    decimals = 2
-) {
-
-    if (
-        !Number.isFinite(value)
-    ) {
-
-        value = 0;
-
-    }
-
-
-    return new Intl.NumberFormat(
-        "pt-BR",
-        {
-            minimumFractionDigits:
-                decimals,
-
-            maximumFractionDigits:
-                decimals
-        }
-    ).format(value);
-}
-
-
-function money(value) {
-
-    return "R$ " +
-        formatNumber(
-            value,
-            2
-        );
-}
-
-
-function percent(value) {
-
-    return formatNumber(
-        value,
-        2
-    ) + "%";
-}
-
-
-function cleanZero(value) {
-
-    if (
-        Math.abs(value) <
-        0.0000000001
-    ) {
-
-        return 0;
-
-    }
-
-
-    return value;
-}
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-let toastTimer;
-
-
-function toast(message) {
-
-    const element =
-        $("toast");
-
-
-    element.textContent =
-        message;
-
-
-    element.classList.add(
-        "show"
-    );
-
-
-    clearTimeout(
-        toastTimer
-    );
-
-
-    toastTimer =
-        setTimeout(
-            () => {
-
-                element.classList.remove(
-                    "show"
-                );
-
-            },
-            1500
-        );
-}
-
 
 /* =========================================================
    NAVEGAÇÃO
@@ -3435,42 +1901,29 @@ const screens = [
     "settings"
 ];
 
+const $ = id =>
+    document.getElementById(id);
 
-function openScreen(name) {
 
-    if (
-        !screens.includes(name)
-    ) {
+function openScreen(name){
 
+    if(!screens.includes(name)){
         name = "home";
-
     }
 
+    screens.forEach(screen => {
 
-    screens.forEach(
-        screenName => {
+        $(screen)
+            .classList
+            .toggle(
+                "active",
+                screen === name
+            );
 
-            const screen =
-                $(screenName);
-
-
-            if (screen) {
-
-                screen.classList.toggle(
-                    "active",
-                    screenName === name
-                );
-
-            }
-
-        }
-    );
-
+    });
 
     document
-        .querySelectorAll(
-            "[data-nav]"
-        )
+        .querySelectorAll("[data-nav]")
         .forEach(button => {
 
             button.classList.toggle(
@@ -3484,40 +1937,28 @@ function openScreen(name) {
 
 
 document
-    .querySelectorAll(
-        "[data-nav]"
-    )
+    .querySelectorAll("[data-nav]")
     .forEach(button => {
 
         button.addEventListener(
             "click",
-            () => {
-
-                openScreen(
-                    button.dataset.nav
-                );
-
-            }
+            () => openScreen(
+                button.dataset.nav
+            )
         );
 
     });
 
 
 document
-    .querySelectorAll(
-        "[data-open]"
-    )
+    .querySelectorAll("[data-open]")
     .forEach(button => {
 
         button.addEventListener(
             "click",
-            () => {
-
-                openScreen(
-                    button.dataset.open
-                );
-
-            }
+            () => openScreen(
+                button.dataset.open
+            )
         );
 
     });
@@ -3526,27 +1967,110 @@ document
 $("historyHeader")
     .addEventListener(
         "click",
-        () => {
-
-            openScreen(
-                "history"
-            );
-
-        }
+        () => openScreen("history")
     );
 
 
 $("settingsHeader")
     .addEventListener(
         "click",
-        () => {
+        () => openScreen("settings")
+    );
 
-            openScreen(
-                "settings"
-            );
+
+/* =========================================================
+   FORMATAÇÃO
+========================================================= */
+
+function parseNumber(value){
+
+    if(
+        value === null ||
+        value === undefined ||
+        value === ""
+    ){
+        return 0;
+    }
+
+    let text =
+        String(value)
+        .trim()
+        .replace(/\s/g,"");
+
+    const comma =
+        text.lastIndexOf(",");
+
+    const dot =
+        text.lastIndexOf(".");
+
+    if(
+        comma !== -1 &&
+        dot !== -1
+    ){
+
+        if(comma > dot){
+
+            text =
+                text
+                .replace(/\./g,"")
+                .replace(",", ".");
+
+        }else{
+
+            text =
+                text
+                .replace(/,/g,"");
 
         }
-    );
+
+    }else if(comma !== -1){
+
+        text =
+            text.replace(",", ".");
+
+    }
+
+    const number =
+        Number(text);
+
+    return Number.isFinite(number)
+        ? number
+        : 0;
+}
+
+
+function formatNumber(
+    value,
+    decimals = 2
+){
+
+    if(!Number.isFinite(value)){
+        value = 0;
+    }
+
+    return new Intl.NumberFormat(
+        "pt-BR",
+        {
+            minimumFractionDigits:decimals,
+            maximumFractionDigits:decimals
+        }
+    ).format(value);
+}
+
+
+function money(value){
+
+    return "R$ " +
+        formatNumber(value,2);
+
+}
+
+
+function percent(value){
+
+    return formatNumber(value,2) + "%";
+
+}
 
 
 /* =========================================================
@@ -3554,24 +2078,19 @@ $("settingsHeader")
 ========================================================= */
 
 let calcCurrent = "0";
-
 let calcPrevious = null;
-
 let calcOperator = null;
-
 let calcWaiting = false;
-
 let calcExpression = "";
 
 
-function updateCalcDisplay() {
+function updateCalcDisplay(){
 
     $("calcDisplay")
         .textContent =
         formatCalcDisplay(
             calcCurrent
         );
-
 
     $("calcOperation")
         .textContent =
@@ -3580,55 +2099,35 @@ function updateCalcDisplay() {
 }
 
 
-function formatCalcDisplay(value) {
+function formatCalcDisplay(value){
 
-    if (
-        value === "Erro"
-    ) {
-
+    if(value === "Erro"){
         return "Erro";
-
     }
 
-
-    if (
-        value === "-"
-    ) {
-
+    if(value === "-"){
         return "-";
-
     }
 
-
-    if (
+    if(
         value === "" ||
         value === null
-    ) {
-
+    ){
         return "0";
-
     }
 
-
     const parts =
-        String(value)
-        .split(".");
-
+        String(value).split(".");
 
     let integer =
         parts[0];
 
-
     const decimal =
         parts[1];
 
-
     let sign = "";
 
-
-    if (
-        integer.startsWith("-")
-    ) {
+    if(integer.startsWith("-")){
 
         sign = "-";
 
@@ -3637,54 +2136,36 @@ function formatCalcDisplay(value) {
 
     }
 
-
-    const formattedInteger =
+    const formatted =
         Number(
             integer || "0"
         ).toLocaleString(
             "pt-BR",
             {
-                maximumFractionDigits:
-                    0
+                maximumFractionDigits:0
             }
         );
 
+    if(decimal !== undefined){
 
-    if (
-        decimal !== undefined
-    ) {
-
-        return (
-            sign +
-            formattedInteger +
+        return sign +
+            formatted +
             "," +
-            decimal
-        );
+            decimal;
 
     }
 
-
-    return (
-        sign +
-        formattedInteger
-    );
+    return sign + formatted;
 }
 
 
-function inputNumber(number) {
+function inputNumber(number){
 
-    if (
-        calcCurrent === "Erro"
-    ) {
-
+    if(calcCurrent === "Erro"){
         clearCalculator();
-
     }
 
-
-    if (
-        calcWaiting
-    ) {
+    if(calcWaiting){
 
         calcCurrent =
             String(number);
@@ -3692,16 +2173,14 @@ function inputNumber(number) {
         calcWaiting =
             false;
 
-    } else {
+    }else{
 
-        if (
-            calcCurrent === "0"
-        ) {
+        if(calcCurrent === "0"){
 
             calcCurrent =
                 String(number);
 
-        } else {
+        }else{
 
             calcCurrent +=
                 String(number);
@@ -3710,113 +2189,79 @@ function inputNumber(number) {
 
     }
 
-
     updateCalcDisplay();
 }
 
 
-function inputDecimal() {
+function inputDecimal(){
 
-    if (
-        calcCurrent === "Erro"
-    ) {
-
+    if(calcCurrent === "Erro"){
         clearCalculator();
-
     }
 
+    if(calcWaiting){
 
-    if (
-        calcWaiting
-    ) {
+        calcCurrent = "0.";
+        calcWaiting = false;
 
-        calcCurrent =
-            "0.";
-
-        calcWaiting =
-            false;
-
-    } else if (
+    }else if(
         !calcCurrent.includes(".")
-    ) {
+    ){
 
-        calcCurrent +=
-            ".";
+        calcCurrent += ".";
 
     }
 
+    updateCalcDisplay();
+}
+
+
+function clearCalculator(){
+
+    calcCurrent = "0";
+    calcPrevious = null;
+    calcOperator = null;
+    calcWaiting = false;
+    calcExpression = "";
 
     updateCalcDisplay();
 }
 
 
-function clearCalculator() {
+function toggleSign(){
 
-    calcCurrent =
-        "0";
-
-    calcPrevious =
-        null;
-
-    calcOperator =
-        null;
-
-    calcWaiting =
-        false;
-
-    calcExpression =
-        "";
-
-    updateCalcDisplay();
-}
-
-
-function toggleSign() {
-
-    if (
+    if(
         calcCurrent === "0" ||
         calcCurrent === "Erro"
-    ) {
-
+    ){
         return;
-
     }
-
 
     calcCurrent =
         calcCurrent.startsWith("-")
             ? calcCurrent.slice(1)
             : "-" + calcCurrent;
 
-
     updateCalcDisplay();
 }
 
 
-function calculatePercent() {
+function calculatePercent(){
 
     const current =
-        Number(
-            calcCurrent
-        );
+        Number(calcCurrent);
 
-
-    if (
-        !Number.isFinite(current)
-    ) {
-
+    if(!Number.isFinite(current)){
         return;
-
     }
 
-
-    if (
+    if(
         calcPrevious !== null &&
         (
             calcOperator === "add" ||
             calcOperator === "subtract"
         )
-    ) {
+    ){
 
         calcCurrent =
             String(
@@ -3825,7 +2270,7 @@ function calculatePercent() {
                 100
             );
 
-    } else {
+    }else{
 
         calcCurrent =
             String(
@@ -3834,33 +2279,71 @@ function calculatePercent() {
 
     }
 
-
     updateCalcDisplay();
 }
 
 
-function chooseOperator(operator) {
+function operatorSymbol(operator){
 
-    const value =
-        Number(
-            calcCurrent
-        );
+    return {
+
+        add:"+",
+
+        subtract:"−",
+
+        multiply:"×",
+
+        divide:"÷"
+
+    }[operator] || "";
+
+}
 
 
-    if (
-        !Number.isFinite(value)
-    ) {
+function performCalculation(
+    a,
+    b,
+    operator
+){
 
-        return;
+    switch(operator){
+
+        case "add":
+            return a + b;
+
+        case "subtract":
+            return a - b;
+
+        case "multiply":
+            return a * b;
+
+        case "divide":
+            return b === 0
+                ? NaN
+                : a / b;
+
+        default:
+            return b;
 
     }
 
+}
 
-    if (
+
+function chooseOperator(operator){
+
+    const value =
+        Number(calcCurrent);
+
+    if(!Number.isFinite(value)){
+        return;
+    }
+
+    if(
         calcPrevious !== null &&
         calcOperator !== null &&
         !calcWaiting
-    ) {
+    ){
 
         const result =
             performCalculation(
@@ -3869,173 +2352,56 @@ function chooseOperator(operator) {
                 calcOperator
             );
 
+        if(!Number.isFinite(result)){
 
-        if (
-            !Number.isFinite(result)
-        ) {
-
-            calcCurrent =
-                "Erro";
-
-            calcPrevious =
-                null;
-
-            calcOperator =
-                null;
-
-            calcWaiting =
-                true;
+            calcCurrent = "Erro";
+            calcPrevious = null;
+            calcOperator = null;
+            calcWaiting = true;
 
             calcExpression =
                 "Divisão por zero";
 
             updateCalcDisplay();
 
-            toast(
-                "Operação inválida"
-            );
-
             return;
         }
-
 
         calcCurrent =
             String(result);
 
     }
 
-
     calcPrevious =
-        Number(
-            calcCurrent
-        );
-
+        Number(calcCurrent);
 
     calcOperator =
         operator;
 
-
-    calcWaiting =
-        true;
-
+    calcWaiting = true;
 
     calcExpression =
         formatCalcDisplay(
-            String(
-                calcPrevious
-            )
+            String(calcPrevious)
         ) +
         " " +
-        operatorSymbol(
-            operator
-        );
-
+        operatorSymbol(operator);
 
     updateCalcDisplay();
 }
 
 
-function operatorSymbol(operator) {
+function calculateEquals(){
 
-    const symbols = {
-
-        add: "+",
-
-        subtract: "−",
-
-        multiply: "×",
-
-        divide: "÷"
-
-    };
-
-
-    return symbols[operator] || "";
-}
-
-
-function performCalculation(
-    a,
-    b,
-    operator
-) {
-
-    let result;
-
-
-    switch (operator) {
-
-        case "add":
-
-            result =
-                a + b;
-
-            break;
-
-
-        case "subtract":
-
-            result =
-                a - b;
-
-            break;
-
-
-        case "multiply":
-
-            result =
-                a * b;
-
-            break;
-
-
-        case "divide":
-
-            if (
-                b === 0
-            ) {
-
-                return NaN;
-
-            }
-
-            result =
-                a / b;
-
-            break;
-
-
-        default:
-
-            result =
-                b;
-
-    }
-
-
-    return cleanZero(
-        result
-    );
-}
-
-
-function calculateEquals() {
-
-    if (
+    if(
         calcPrevious === null ||
         calcOperator === null
-    ) {
-
+    ){
         return;
-
     }
 
-
     const current =
-        Number(
-            calcCurrent
-        );
-
+        Number(calcCurrent);
 
     const result =
         performCalculation(
@@ -4044,155 +2410,87 @@ function calculateEquals() {
             calcOperator
         );
 
+    if(!Number.isFinite(result)){
 
-    if (
-        !Number.isFinite(result)
-    ) {
-
-        calcCurrent =
-            "Erro";
-
-        calcPrevious =
-            null;
-
-        calcOperator =
-            null;
-
-        calcWaiting =
-            true;
+        calcCurrent = "Erro";
+        calcPrevious = null;
+        calcOperator = null;
+        calcWaiting = true;
 
         calcExpression =
             "Não é possível dividir por zero";
 
         updateCalcDisplay();
 
-        toast(
-            "Operação inválida"
-        );
-
         return;
     }
 
-
     const expression =
         formatCalcDisplay(
-            String(
-                calcPrevious
-            )
+            String(calcPrevious)
         ) +
         " " +
-        operatorSymbol(
-            calcOperator
-        ) +
+        operatorSymbol(calcOperator) +
         " " +
         formatCalcDisplay(
-            String(
-                current
-            )
+            String(current)
         );
-
 
     calcCurrent =
-        String(
-            result
-        );
+        String(result);
 
-
-    calcPrevious =
-        null;
-
-    calcOperator =
-        null;
-
-    calcWaiting =
-        true;
-
+    calcPrevious = null;
+    calcOperator = null;
+    calcWaiting = true;
 
     calcExpression =
-        expression +
-        " =";
-
+        expression + " =";
 
     saveCalculation(
         expression,
         result
     );
 
-
     updateCalcDisplay();
 }
 
 
-function backspace() {
+function backspace(){
 
-    if (
+    if(
         calcWaiting ||
         calcCurrent === "Erro"
-    ) {
-
+    ){
         return;
-
     }
 
-
-    if (
+    if(
         calcCurrent.length <= 1 ||
         (
             calcCurrent.length === 2 &&
             calcCurrent.startsWith("-")
         )
-    ) {
+    ){
+
+        calcCurrent = "0";
+
+    }else{
 
         calcCurrent =
-            "0";
-
-    } else {
-
-        calcCurrent =
-            calcCurrent.slice(
-                0,
-                -1
-            );
+            calcCurrent.slice(0,-1);
 
     }
-
 
     updateCalcDisplay();
 }
 
 
 /* =========================================================
-   RESPOSTA RÁPIDA DO TECLADO
+   TECLADO RÁPIDO
 ========================================================= */
 
-function calculatorFeedback() {
-
-    const vibration =
-        $("vibrationToggle");
-
-
-    if (
-        vibration &&
-        vibration.checked &&
-        navigator.vibrate
-    ) {
-
-        navigator.vibrate(6);
-
-    }
-
-}
-
-
-/*
-   pointerdown = resposta mais rápida
-   em celular do que esperar o click.
-*/
-
 document
-    .querySelectorAll(
-        ".key"
-    )
+    .querySelectorAll(".key")
     .forEach(button => {
 
         button.addEventListener(
@@ -4201,86 +2499,65 @@ document
 
                 event.preventDefault();
 
-
                 const number =
                     button.dataset.number;
-
 
                 const key =
                     button.dataset.key;
 
+                if(number !== undefined){
 
-                if (
-                    number !== undefined
-                ) {
+                    inputNumber(number);
 
-                    inputNumber(
-                        number
-                    );
+                }else{
 
-                } else {
-
-                    switch (key) {
+                    switch(key){
 
                         case "clear":
-
                             clearCalculator();
-
                             break;
-
 
                         case "sign":
-
                             toggleSign();
-
                             break;
-
 
                         case "percent":
-
                             calculatePercent();
-
                             break;
-
 
                         case "decimal":
-
                             inputDecimal();
-
                             break;
-
 
                         case "backspace":
-
                             backspace();
-
                             break;
-
 
                         case "equals":
-
                             calculateEquals();
-
                             break;
-
 
                         case "add":
                         case "subtract":
                         case "multiply":
                         case "divide":
-
-                            chooseOperator(
-                                key
-                            );
-
+                            chooseOperator(key);
                             break;
 
                     }
 
                 }
 
+                const vibration =
+                    $("vibrationToggle");
 
-                calculatorFeedback();
+                if(
+                    vibration &&
+                    vibration.checked &&
+                    navigator.vibrate
+                ){
+                    navigator.vibrate(5);
+                }
 
             }
         );
@@ -4289,7 +2566,7 @@ document
 
 
 /* =========================================================
-   TECLADO DO COMPUTADOR
+   TECLADO FÍSICO
 ========================================================= */
 
 document.addEventListener(
@@ -4299,144 +2576,91 @@ document.addEventListener(
         const target =
             event.target;
 
-
-        if (
+        if(
             target &&
             (
-                target.tagName ===
-                    "INPUT" ||
-                target.tagName ===
-                    "SELECT" ||
-                target.tagName ===
-                    "TEXTAREA"
+                target.tagName === "INPUT" ||
+                target.tagName === "SELECT"
             )
-        ) {
-
+        ){
             return;
-
         }
-
 
         const key =
             event.key;
 
+        if(/^[0-9]$/.test(key)){
 
-        if (
-            /^[0-9]$/.test(key)
-        ) {
-
-            inputNumber(
-                key
-            );
-
+            inputNumber(key);
             return;
 
         }
 
-
-        if (
+        if(
             key === "." ||
             key === ","
-        ) {
+        ){
 
             inputDecimal();
-
             return;
 
         }
 
+        if(key === "+"){
 
-        if (
-            key === "+"
-        ) {
-
-            chooseOperator(
-                "add"
-            );
-
+            chooseOperator("add");
             return;
 
         }
 
+        if(key === "-"){
 
-        if (
-            key === "-"
-        ) {
-
-            chooseOperator(
-                "subtract"
-            );
-
+            chooseOperator("subtract");
             return;
 
         }
 
+        if(key === "*"){
 
-        if (
-            key === "*"
-        ) {
-
-            chooseOperator(
-                "multiply"
-            );
-
+            chooseOperator("multiply");
             return;
 
         }
 
-
-        if (
-            key === "/"
-        ) {
+        if(key === "/"){
 
             event.preventDefault();
 
-            chooseOperator(
-                "divide"
-            );
-
+            chooseOperator("divide");
             return;
 
         }
 
-
-        if (
-            key === "%"
-        ) {
+        if(key === "%"){
 
             calculatePercent();
-
             return;
 
         }
 
-
-        if (
+        if(
             key === "Enter" ||
             key === "="
-        ) {
+        ){
 
             calculateEquals();
-
             return;
 
         }
 
-
-        if (
-            key === "Backspace"
-        ) {
+        if(key === "Backspace"){
 
             backspace();
-
             return;
 
         }
 
-
-        if (
-            key === "Escape"
-        ) {
+        if(key === "Escape"){
 
             clearCalculator();
 
@@ -4453,51 +2677,36 @@ document.addEventListener(
 let history = [];
 
 
-function loadHistory() {
+function loadHistory(){
 
-    try {
+    try{
 
         const saved =
             localStorage.getItem(
                 "calpro_history"
             );
 
-
-        if (
-            saved
-        ) {
+        if(saved){
 
             const parsed =
-                JSON.parse(
-                    saved
-                );
+                JSON.parse(saved);
 
-
-            if (
-                Array.isArray(parsed)
-            ) {
+            if(Array.isArray(parsed)){
 
                 history =
-                    parsed.slice(
-                        0,
-                        30
-                    );
+                    parsed.slice(0,30);
 
             }
 
         }
 
-    } catch (
-        error
-    ) {
+    }catch(error){
 
         history = [];
 
     }
 
-
     renderHistory();
-
     updateStats();
 }
 
@@ -4505,92 +2714,62 @@ function loadHistory() {
 function saveCalculation(
     expression,
     value
-) {
+){
 
-    if (
+    if(
         !expression ||
         !Number.isFinite(
             Number(value)
         )
-    ) {
-
+    ){
         return;
-
     }
-
 
     history.unshift({
 
-        expression:
-            expression,
+        expression:expression,
 
-        value:
-            Number(value),
+        value:Number(value),
 
         time:
             new Date()
             .toLocaleTimeString(
                 "pt-BR",
                 {
-                    hour:
-                        "2-digit",
-
-                    minute:
-                        "2-digit"
+                    hour:"2-digit",
+                    minute:"2-digit"
                 }
             )
 
     });
 
+    history =
+        history.slice(0,30);
 
-    if (
-        history.length > 30
-    ) {
-
-        history =
-            history.slice(
-                0,
-                30
-            );
-
-    }
-
-
-    try {
+    try{
 
         localStorage.setItem(
             "calpro_history",
-            JSON.stringify(
-                history
-            )
+            JSON.stringify(history)
         );
 
-    } catch (
-        error
-    ) {}
-
+    }catch(error){}
 
     renderHistory();
-
     updateStats();
 }
 
 
-function renderHistory() {
+function renderHistory(){
 
-    const container =
+    const list =
         $("historyList");
 
+    list.innerHTML = "";
 
-    container.innerHTML =
-        "";
+    if(history.length === 0){
 
-
-    if (
-        history.length === 0
-    ) {
-
-        container.innerHTML =
+        list.innerHTML =
             `
             <div class="empty">
                 Nenhum cálculo realizado ainda.
@@ -4600,114 +2779,71 @@ function renderHistory() {
         return;
     }
 
+    history.forEach(item => {
 
-    history.forEach(
-        item => {
+        const row =
+            document.createElement("div");
 
-            const row =
-                document.createElement(
-                    "div"
+        row.className =
+            "history-item";
+
+        row.innerHTML =
+            `
+            <div>
+
+                <div class="history-expression">
+                    ${escapeHTML(item.expression)}
+                </div>
+
+                <small>
+                    ${escapeHTML(item.time)}
+                </small>
+
+            </div>
+
+            <div class="history-value">
+                ${formatCalcDisplay(
+                    String(item.value)
+                )}
+            </div>
+            `;
+
+        row.addEventListener(
+            "click",
+            () => {
+
+                calcCurrent =
+                    String(item.value);
+
+                calcWaiting = true;
+                calcExpression = "";
+
+                updateCalcDisplay();
+
+                openScreen(
+                    "calculator"
                 );
 
+            }
+        );
 
-            row.className =
-                "history-item";
+        list.appendChild(row);
 
+    });
 
-            row.innerHTML =
-                `
-                <div>
-
-                    <div class="history-expression">
-                        ${escapeHTML(
-                            item.expression
-                        )}
-                    </div>
-
-                    <small>
-                        ${escapeHTML(
-                            item.time
-                        )}
-                    </small>
-
-                </div>
-
-                <div class="history-value">
-                    ${formatCalcDisplay(
-                        String(
-                            item.value
-                        )
-                    )}
-                </div>
-                `;
-
-
-            row.addEventListener(
-                "click",
-                () => {
-
-                    calcCurrent =
-                        String(
-                            item.value
-                        );
-
-                    calcWaiting =
-                        true;
-
-                    calcExpression =
-                        "";
-
-                    updateCalcDisplay();
-
-                    openScreen(
-                        "calculator"
-                    );
-
-                    toast(
-                        "Resultado carregado"
-                    );
-
-                }
-            );
-
-
-            container.appendChild(
-                row
-            );
-
-        }
-    );
 }
 
 
-function escapeHTML(text) {
+function escapeHTML(text){
 
     return String(text)
 
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
 }
 
 
@@ -4718,81 +2854,53 @@ $("clearHistory")
 
             history = [];
 
-
-            try {
+            try{
 
                 localStorage.removeItem(
                     "calpro_history"
                 );
 
-            } catch (
-                error
-            ) {}
-
+            }catch(error){}
 
             renderHistory();
-
             updateStats();
-
-            toast(
-                "Histórico apagado"
-            );
 
         }
     );
 
 
 /* =========================================================
-   PREÇO
+   CÁLCULO DE PREÇO
    SEM ACRÉSCIMO
 ========================================================= */
 
-function updatePriceCalculation() {
+function updatePriceCalculation(){
 
     const cost =
         parseNumber(
             $("priceCost").value
         );
 
-
     const discount =
         parseNumber(
             $("priceDiscount").value
         );
-
 
     const desiredMargin =
         parseNumber(
             $("priceMargin").value
         );
 
-
     let sale = 0;
 
-
-    /*
-       Se não houver nenhum dado,
-       permanece zerado.
-    */
-
-    if (
-        cost === 0
-    ) {
+    if(cost === 0){
 
         sale = 0;
 
-    }
-
-    /*
-       Se houver margem desejada,
-       calcula o preço necessário
-       para atingir essa margem.
-    */
-
-    else if (
+    }else if(
         desiredMargin > 0 &&
         desiredMargin < 100
-    ) {
+    ){
 
         sale =
             cost /
@@ -4801,14 +2909,7 @@ function updatePriceCalculation() {
                 desiredMargin / 100
             );
 
-    }
-
-    /*
-       Caso contrário,
-       aplica somente desconto.
-    */
-
-    else {
+    }else{
 
         sale =
             cost *
@@ -4819,45 +2920,30 @@ function updatePriceCalculation() {
 
     }
 
-
     const profit =
         sale - cost;
 
-
     const margin =
         sale !== 0
-            ? (
-                profit /
-                sale *
-                100
-            )
+            ? profit / sale * 100
             : 0;
-
 
     const markup =
         cost !== 0
-            ? (
-                profit /
-                cost *
-                100
-            )
+            ? profit / cost * 100
             : 0;
-
 
     $("priceSale")
         .textContent =
         money(sale);
 
-
     $("priceProfit")
         .textContent =
         money(profit);
 
-
     $("priceMarginResult")
         .textContent =
         percent(margin);
-
 
     $("priceMarkupResult")
         .textContent =
@@ -4869,42 +2955,33 @@ function updatePriceCalculation() {
    DESCONTO
 ========================================================= */
 
-function updateDiscountCalculation() {
+function updateDiscountCalculation(){
 
     const original =
         parseNumber(
-            $("discountOriginal")
-                .value
+            $("discountOriginal").value
         );
-
 
     const discount =
         parseNumber(
-            $("discountPercent")
-                .value
+            $("discountPercent").value
         );
-
 
     const value =
         original *
         discount /
         100;
 
-
     const finalPrice =
-        original -
-        value;
-
+        original - value;
 
     $("discountValue")
         .textContent =
         money(value);
 
-
     $("discountEconomy")
         .textContent =
         money(value);
-
 
     $("discountFinal")
         .textContent =
@@ -4916,55 +2993,38 @@ function updateDiscountCalculation() {
    MARGEM
 ========================================================= */
 
-function updateMarginCalculation() {
+function updateMarginCalculation(){
 
     const cost =
         parseNumber(
-            $("marginCost")
-                .value
+            $("marginCost").value
         );
-
 
     const sale =
         parseNumber(
-            $("marginSale")
-                .value
+            $("marginSale").value
         );
-
 
     const profit =
         sale - cost;
 
-
     const margin =
         sale !== 0
-            ? (
-                profit /
-                sale *
-                100
-            )
+            ? profit / sale * 100
             : 0;
-
 
     const markup =
         cost !== 0
-            ? (
-                profit /
-                cost *
-                100
-            )
+            ? profit / cost * 100
             : 0;
-
 
     $("marginProfit")
         .textContent =
         money(profit);
 
-
     $("marginPercent")
         .textContent =
         percent(margin);
-
 
     $("marginMarkup")
         .textContent =
@@ -4976,52 +3036,38 @@ function updateMarginCalculation() {
    MARKUP
 ========================================================= */
 
-function updateMarkupCalculation() {
+function updateMarkupCalculation(){
 
     const cost =
         parseNumber(
-            $("markupCost")
-                .value
+            $("markupCost").value
         );
-
 
     const markup =
         parseNumber(
-            $("markupPercent")
-                .value
+            $("markupPercent").value
         );
-
 
     const profit =
         cost *
         markup /
         100;
 
-
     const sale =
-        cost +
-        profit;
-
+        cost + profit;
 
     const margin =
         sale !== 0
-            ? (
-                profit /
-                sale *
-                100
-            )
+            ? profit / sale * 100
             : 0;
-
 
     $("markupSale")
         .textContent =
         money(sale);
 
-
     $("markupProfit")
         .textContent =
         money(profit);
-
 
     $("markupMargin")
         .textContent =
@@ -5037,64 +3083,56 @@ document
     .querySelectorAll(
         "#panel-price input"
     )
-    .forEach(
-        input => {
+    .forEach(input => {
 
-            input.addEventListener(
-                "input",
-                updatePriceCalculation
-            );
+        input.addEventListener(
+            "input",
+            updatePriceCalculation
+        );
 
-        }
-    );
+    });
 
 
 document
     .querySelectorAll(
         "#panel-discount input"
     )
-    .forEach(
-        input => {
+    .forEach(input => {
 
-            input.addEventListener(
-                "input",
-                updateDiscountCalculation
-            );
+        input.addEventListener(
+            "input",
+            updateDiscountCalculation
+        );
 
-        }
-    );
+    });
 
 
 document
     .querySelectorAll(
         "#panel-margin input"
     )
-    .forEach(
-        input => {
+    .forEach(input => {
 
-            input.addEventListener(
-                "input",
-                updateMarginCalculation
-            );
+        input.addEventListener(
+            "input",
+            updateMarginCalculation
+        );
 
-        }
-    );
+    });
 
 
 document
     .querySelectorAll(
         "#panel-markup input"
     )
-    .forEach(
-        input => {
+    .forEach(input => {
 
-            input.addEventListener(
-                "input",
-                updateMarkupCalculation
-            );
+        input.addEventListener(
+            "input",
+            updateMarkupCalculation
+        );
 
-        }
-    );
+    });
 
 
 /* =========================================================
@@ -5105,81 +3143,72 @@ document
     .querySelectorAll(
         "[data-commercial]"
     )
-    .forEach(
-        tab => {
+    .forEach(tab => {
 
-            tab.addEventListener(
-                "click",
-                () => {
+        tab.addEventListener(
+            "click",
+            () => {
 
-                    const selected =
-                        tab.dataset
-                        .commercial;
+                const selected =
+                    tab.dataset.commercial;
 
+                document
+                    .querySelectorAll(
+                        "[data-commercial]"
+                    )
+                    .forEach(button => {
 
-                    document
-                        .querySelectorAll(
-                            "[data-commercial]"
-                        )
-                        .forEach(
-                            button => {
-
-                                button.classList.toggle(
-                                    "active",
-                                    button === tab
-                                );
-
-                            }
+                        button.classList.toggle(
+                            "active",
+                            button === tab
                         );
 
+                    });
 
-                    document
-                        .querySelectorAll(
-                            ".commercial-panel"
-                        )
-                        .forEach(
-                            panel => {
+                document
+                    .querySelectorAll(
+                        ".commercial-panel"
+                    )
+                    .forEach(panel => {
 
-                                panel.classList.toggle(
-                                    "active",
-                                    panel.id ===
-                                    "panel-" +
-                                    selected
-                                );
-
-                            }
+                        panel.classList.toggle(
+                            "active",
+                            panel.id ===
+                            "panel-" +
+                            selected
                         );
 
-                }
-            );
+                    });
 
-        }
-    );
+            }
+        );
+
+    });
 
 
 /* =========================================================
-   LIMPAR COMERCIAL
+   LIMPAR CAMPOS
 ========================================================= */
 
 const clearMap = {
 
-    price: [
+    price:[
         "priceCost",
         "priceDiscount",
         "priceMargin"
     ],
 
-    discount: [
+    discount:[
         "discountOriginal",
         "discountPercent"
     ],
 
-    margin: [
+    margin:[
         "marginCost",
         "marginSale"
     ],
 
-    markup: [
+    markup:[
         "markupCost",
         "markupPercent"
     ]
@@ -5191,92 +3220,58 @@ document
     .querySelectorAll(
         "[data-clear-commercial]"
     )
-    .forEach(
-        button => {
+    .forEach(button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-                    const type =
-                        button.dataset
-                        .clearCommercial;
+                const type =
+                    button.dataset
+                    .clearCommercial;
 
+                (
+                    clearMap[type] ||
+                    []
+                ).forEach(id => {
 
-                    (
-                        clearMap[type] ||
-                        []
-                    ).forEach(
-                        id => {
+                    $(id).value = "";
 
-                            $(id).value =
-                                "";
+                });
 
-                        }
-                    );
+                if(type === "price")
+                    updatePriceCalculation();
 
+                if(type === "discount")
+                    updateDiscountCalculation();
 
-                    if (
-                        type === "price"
-                    ) {
+                if(type === "margin")
+                    updateMarginCalculation();
 
-                        updatePriceCalculation();
+                if(type === "markup")
+                    updateMarkupCalculation();
 
-                    }
+            }
+        );
 
-
-                    if (
-                        type === "discount"
-                    ) {
-
-                        updateDiscountCalculation();
-
-                    }
-
-
-                    if (
-                        type === "margin"
-                    ) {
-
-                        updateMarginCalculation();
-
-                    }
-
-
-                    if (
-                        type === "markup"
-                    ) {
-
-                        updateMarkupCalculation();
-
-                    }
-
-                }
-            );
-
-        }
-    );
+    });
 
 
 /* =========================================================
    ESTATÍSTICAS
 ========================================================= */
 
-function updateStats() {
+function updateStats(){
 
     $("statCalculations")
         .textContent =
         history.length;
 
-
     $("statHistory")
         .textContent =
         history.length;
 
-
-    if (
-        history.length
-    ) {
+    if(history.length){
 
         $("statLast")
             .textContent =
@@ -5286,7 +3281,7 @@ function updateStats() {
                 )
             );
 
-    } else {
+    }else{
 
         $("statLast")
             .textContent =
@@ -5309,81 +3304,70 @@ $("themeSelect")
             const theme =
                 event.target.value;
 
-
-            if (
-                theme === "light"
-            ) {
-
-                document.body
-                    .classList
-                    .add("light");
-
-                toast(
-                    "Tema claro ativado"
-                );
-
-            } else {
-
-                document.body
-                    .classList
-                    .remove("light");
-
-                toast(
-                    "Tema escuro ativado"
-                );
-
-            }
-
-
-            try {
-
-                localStorage.setItem(
-                    "calpro_theme",
-                    theme
-                );
-
-            } catch (
-                error
-            ) {}
+            applyTheme(theme);
 
         }
     );
 
 
-function loadTheme() {
+function applyTheme(theme){
 
-    try {
+    const light =
+        theme === "light";
+
+    document.body
+        .classList
+        .toggle(
+            "light",
+            light
+        );
+
+    $("themeSelect")
+        .value =
+        light
+            ? "light"
+            : "dark";
+
+    try{
+
+        localStorage.setItem(
+            "calpro_theme",
+            light
+                ? "light"
+                : "dark"
+        );
+
+    }catch(error){}
+
+}
+
+
+function loadTheme(){
+
+    try{
 
         const theme =
             localStorage.getItem(
                 "calpro_theme"
             );
 
-
-        if (
+        applyTheme(
             theme === "light"
-        ) {
+                ? "light"
+                : "dark"
+        );
 
-            $("themeSelect")
-                .value =
-                "light";
+    }catch(error){
 
+        applyTheme("dark");
 
-            document.body
-                .classList
-                .add("light");
-
-        }
-
-    } catch (
-        error
-    ) {}
+    }
 
 }
 
 
 /* =========================================================
-   BLOQUEIO EXTRA DE ZOOM — iPHONE / SAFARI
+   BLOQUEIO DE ZOOM
 ========================================================= */
 
 [
@@ -5391,28 +3375,22 @@ function loadTheme() {
     "gesturechange",
     "gestureend"
 ]
-.forEach(
-    eventName => {
+.forEach(eventName => {
 
-        document.addEventListener(
-            eventName,
-            event => {
+    document.addEventListener(
+        eventName,
+        event => {
 
-                event.preventDefault();
+            event.preventDefault();
 
-            },
-            {
-                passive: false
-            }
-        );
+        },
+        {
+            passive:false
+        }
+    );
 
-    }
-);
+});
 
-
-/*
-   Bloqueia duplo toque.
-*/
 
 let lastTouchEnd = 0;
 
@@ -5424,40 +3402,33 @@ document.addEventListener(
         const now =
             Date.now();
 
-
-        if (
+        if(
             now -
             lastTouchEnd <=
             300
-        ) {
+        ){
 
             event.preventDefault();
 
         }
 
-
-        lastTouchEnd =
-            now;
+        lastTouchEnd = now;
 
     },
     {
-        passive: false
+        passive:false
     }
 );
 
-
-/*
-   Bloqueia pinch zoom.
-*/
 
 document.addEventListener(
     "touchmove",
     event => {
 
-        if (
+        if(
             event.touches &&
             event.touches.length > 1
-        ) {
+        ){
 
             event.preventDefault();
 
@@ -5465,7 +3436,30 @@ document.addEventListener(
 
     },
     {
-        passive: false
+        passive:false
+    }
+);
+
+
+/* =========================================================
+   SPLASH
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            () => {
+
+                $("splash")
+                    .classList
+                    .add("hide");
+
+            },
+            1800
+        );
+
     }
 );
 
@@ -5473,11 +3467,6 @@ document.addEventListener(
 /* =========================================================
    INICIALIZAÇÃO
 ========================================================= */
-
-/*
-   IMPORTANTE:
-   Não existe nenhum cálculo pré-carregado.
-*/
 
 clearCalculator();
 
@@ -5495,7 +3484,5 @@ updateMarkupCalculation();
 
 </script>
 
-
 </body>
-
 </html>
