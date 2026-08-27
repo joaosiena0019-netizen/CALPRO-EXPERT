@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -11,12 +10,9 @@ maximum-scale=1,
 user-scalable=no,
 viewport-fit=cover">
 
-<meta name="theme-color" content="#070a0f">
+<meta name="theme-color" content="#07090d">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
-
-<meta name="apple-mobile-web-app-status-bar-style"
-content="black-translucent">
 
 <title>CALPRO EXPERT</title>
 
@@ -27,38 +23,21 @@ content="black-translucent">
 ===================================================== */
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
 }
 
-html{
+html,
+body{
     width:100%;
-    min-height:100%;
-    touch-action:pan-y;
-    overscroll-behavior:none;
-    -webkit-text-size-adjust:100%;
+    height:100%;
+    overflow:hidden;
 }
 
 body{
-    width:100%;
-    min-height:100vh;
-    overflow-x:hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% -15%,
-            rgba(255,105,0,.18),
-            transparent 36%
-        ),
-        linear-gradient(
-            180deg,
-            #070a0f 0%,
-            #090d13 55%,
-            #05070b 100%
-        );
-
+    background:#07090d;
     color:#fff;
 
     font-family:
@@ -66,20 +45,11 @@ body{
         Helvetica,
         sans-serif;
 
-    touch-action:pan-y;
     overscroll-behavior:none;
-}
 
-button,
-input{
-    font-family:inherit;
-}
+    -webkit-text-size-adjust:100%;
 
-button{
-    border:0;
-    outline:0;
-    cursor:pointer;
-    touch-action:manipulation;
+    touch-action:pan-y;
 }
 
 
@@ -89,9 +59,34 @@ button{
 
 .app{
     width:100%;
-    max-width:1150px;
-    min-height:100vh;
-    margin:auto;
+    height:100dvh;
+    min-height:100dvh;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(255,112,0,.16),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 100% 60%,
+            rgba(255,70,0,.055),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #080a0f 0%,
+            #090c11 55%,
+            #05070a 100%
+        );
 }
 
 
@@ -100,21 +95,44 @@ button{
 ===================================================== */
 
 .header{
-    position:sticky;
-    top:0;
-    z-index:1000;
 
-    padding:7px 10px 8px;
+    flex:0 0 auto;
 
-    background:
-        rgba(7,10,15,.97);
+    padding:
+        max(7px,env(safe-area-inset-top))
+        12px
+        7px;
 
     border-bottom:
         1px solid
         rgba(255,255,255,.055);
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    background:
+        rgba(6,9,13,.90);
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+    z-index:20;
+}
+
+
+/* =====================================================
+   TOPO
+===================================================== */
+
+.top-line{
+
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
 }
 
 
@@ -122,101 +140,95 @@ button{
    LOGO
 ===================================================== */
 
-.logo-area{
+.brand{
+
     display:flex;
+
     align-items:center;
-    justify-content:center;
+
     gap:8px;
 }
 
 .logo{
-    width:39px;
-    height:39px;
+
+    width:36px;
+    height:36px;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    border-radius:12px;
+    border-radius:11px;
 
     background:
+
         linear-gradient(
             145deg,
-            #ffb52c,
+            #ffad26,
             #ff5a00
         );
 
     box-shadow:
+
         0 7px 18px
-        rgba(255,90,0,.28),
+        rgba(255,91,0,.28),
 
         inset 0 2px 3px
-        rgba(255,255,255,.30),
-
-        inset 0 -6px 10px
-        rgba(100,20,0,.18);
+        rgba(255,255,255,.28);
 }
 
 .logo svg{
-    width:26px;
-    height:26px;
+
+    width:24px;
+    height:24px;
 }
 
-.logo-name{
-    font-size:21px;
+.brand-name{
+
+    font-size:19px;
+
     font-weight:1000;
-    letter-spacing:-1.3px;
+
+    letter-spacing:-1px;
+
+    line-height:17px;
 }
 
-.logo-name span{
-    color:#ff7100;
+.brand-name span{
+    color:#ff7000;
 }
 
-.logo-expert{
-    margin-top:-2px;
+.brand-expert{
 
-    text-align:center;
+    margin-top:0;
 
-    font-size:6px;
+    font-size:5.5px;
+
     font-weight:900;
 
     letter-spacing:3px;
 
-    color:#929daa;
-}
-
-.slogan{
-    margin-top:3px;
+    color:#7f8995;
 
     text-align:center;
-
-    font-size:7px;
-
-    color:#66727f;
-}
-
-.slogan b{
-    color:#ff7800;
 }
 
 
 /* =====================================================
-   MENU
+   BOTÃO STATUS
 ===================================================== */
 
-.nav{
-    display:grid;
+.status{
 
-    grid-template-columns:
-        repeat(3,1fr);
+    display:flex;
+
+    align-items:center;
 
     gap:5px;
 
-    margin-top:7px;
-}
-
-.nav button{
-    height:31px;
+    padding:
+        6px 8px;
 
     border-radius:9px;
 
@@ -225,97 +237,302 @@ button{
 
     border:
         1px solid
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.055);
 
-    color:#737f8d;
+    color:#7f8995;
 
-    font-size:7px;
+    font-size:6px;
+
     font-weight:900;
 }
 
-.nav button.active{
-    background:
-        linear-gradient(
-            135deg,
-            #ff8c00,
-            #ff5d00
-        );
+.status-dot{
 
-    color:#fff;
+    width:5px;
+    height:5px;
 
-    border-color:#ff7600;
+    border-radius:50%;
+
+    background:#36df86;
 
     box-shadow:
-        0 5px 13px
-        rgba(255,95,0,.20);
+        0 0 8px
+        rgba(54,223,134,.7);
 }
 
 
 /* =====================================================
-   CONTEÚDO
+   MINI FRASE
 ===================================================== */
 
-.content{
-    width:100%;
-
-    padding:
-        9px
-        10px
-        20px;
-}
-
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
-
-
-/* =====================================================
-   TÍTULO
-===================================================== */
-
-.section-title{
-    margin:
-        0 1px 8px;
-
-    font-size:18px;
-
-    font-weight:1000;
-
-    letter-spacing:-.7px;
-}
-
-.section-subtitle{
-    display:block;
+.header-subtitle{
 
     margin-top:2px;
 
-    color:#6f7b88;
+    color:#697481;
 
-    font-size:8px;
+    font-size:6.5px;
 
-    font-weight:500;
+    text-align:left;
+}
 
-    line-height:1.3;
+.header-subtitle b{
+    color:#ff7900;
 }
 
 
 /* =====================================================
-   FERRAMENTAS
+   ÁREA PRINCIPAL
+===================================================== */
+
+.main{
+
+    flex:1;
+
+    min-height:0;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:
+        8px
+        11px
+        0;
+}
+
+
+/* =====================================================
+   HERO COMPACTO
+===================================================== */
+
+.hero{
+
+    position:relative;
+
+    flex:0 0 auto;
+
+    height:76px;
+
+    padding:
+        11px 13px;
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 95% 0%,
+            rgba(255,106,0,.28),
+            transparent 34%
+        ),
+
+        radial-gradient(
+            circle at 70% 100%,
+            rgba(255,80,0,.08),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #17202b,
+            #0d131b
+        );
+
+    border:
+        1px solid
+        rgba(255,119,0,.15);
+
+    box-shadow:
+
+        0 10px 24px
+        rgba(0,0,0,.25),
+
+        inset 0 1px 1px
+        rgba(255,255,255,.06);
+}
+
+
+/* brilho */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    right:-35px;
+    top:-65px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,137,45,.15);
+
+    box-shadow:
+        0 0 35px
+        rgba(255,100,0,.10);
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:4px;
+    height:50px;
+
+    left:0;
+    top:13px;
+
+    border-radius:0 5px 5px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffb12a,
+            #ff5b00
+        );
+}
+
+.hero-tag{
+
+    display:inline-flex;
+
+    padding:
+        3px 7px;
+
+    border-radius:5px;
+
+    background:
+        rgba(255,119,0,.10);
+
+    color:#ff8a25;
+
+    font-size:5.5px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+}
+
+.hero h1{
+
+    margin-top:4px;
+
+    font-size:17px;
+
+    line-height:18px;
+
+    letter-spacing:-.7px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.hero h1 span{
+    color:#ff7100;
+}
+
+.hero p{
+
+    margin-top:2px;
+
+    max-width:75%;
+
+    color:#788491;
+
+    font-size:6.5px;
+
+    line-height:9px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* =====================================================
+   CABEÇALHO FERRAMENTAS
+===================================================== */
+
+.tools-heading{
+
+    flex:0 0 auto;
+
+    display:flex;
+
+    align-items:end;
+
+    justify-content:space-between;
+
+    height:35px;
+
+    padding:
+        4px 2px 4px;
+}
+
+.tools-heading h2{
+
+    font-size:13px;
+
+    font-weight:1000;
+
+    letter-spacing:-.3px;
+}
+
+.tools-heading p{
+
+    color:#64707c;
+
+    font-size:6px;
+
+    margin-top:1px;
+}
+
+.tools-count{
+
+    color:#6d7782;
+
+    font-size:6px;
+
+    font-weight:900;
+}
+
+.tools-count span{
+    color:#ff7900;
+}
+
+
+/* =====================================================
+   GRID
 ===================================================== */
 
 .tools{
+
+    flex:1;
+
+    min-height:0;
+
     display:grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(2,minmax(0,1fr));
 
-    gap:7px;
+    grid-template-rows:
+        repeat(3,minmax(0,1fr));
 
-    width:100%;
+    gap:6px;
 }
 
 
@@ -327,13 +544,10 @@ button{
 
     position:relative;
 
-    width:100%;
-
-    height:118px;
-
     min-width:0;
+    min-height:0;
 
-    padding:7px 7px 8px;
+    overflow:hidden;
 
     display:flex;
 
@@ -348,16 +562,16 @@ button{
     background:
 
         radial-gradient(
-            circle at 50% 15%,
-            rgba(255,112,0,.09),
-            transparent 40%
+            circle at 50% 5%,
+            rgba(255,112,0,.10),
+            transparent 34%
         ),
 
         linear-gradient(
             145deg,
-            #19222d 0%,
-            #101720 58%,
-            #090e15 100%
+            #17212c,
+            #101720 55%,
+            #0b1016
         );
 
     border:
@@ -366,13 +580,11 @@ button{
 
     box-shadow:
 
-        0 8px 17px
-        rgba(0,0,0,.28),
+        0 7px 16px
+        rgba(0,0,0,.26),
 
         inset 0 1px 1px
-        rgba(255,255,255,.075);
-
-    overflow:hidden;
+        rgba(255,255,255,.065);
 
     transition:
         transform .14s ease,
@@ -381,7 +593,7 @@ button{
 }
 
 
-/* brilho superior */
+/* linha de brilho */
 
 .tool-card::before{
 
@@ -389,27 +601,24 @@ button{
 
     position:absolute;
 
-    top:-25px;
-    left:50%;
+    left:15%;
+    right:15%;
 
-    width:90px;
-    height:60px;
+    top:0;
 
-    transform:
-        translateX(-50%);
+    height:1px;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(255,120,0,.17),
-            transparent 70%
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,126,28,.45),
+            transparent
         );
-
-    pointer-events:none;
 }
 
 
-/* linha inferior */
+/* brilho inferior */
 
 .tool-card::after{
 
@@ -417,29 +626,28 @@ button{
 
     position:absolute;
 
-    left:22%;
-    right:22%;
-
     bottom:5px;
 
-    height:1px;
+    width:50px;
+    height:2px;
 
-    border-radius:10px;
+    border-radius:50%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,120,0,.55),
+            rgba(255,112,0,.55),
             transparent
         );
 
-    opacity:.7;
+    filter:
+        blur(1px);
 }
 
 
 /* =====================================================
-   ÍCONE
+   ÍCONES
 ===================================================== */
 
 .tool-card img{
@@ -448,22 +656,22 @@ button{
 
     z-index:2;
 
-    display:block;
-
-    width:54px;
-    height:54px;
-
-    max-width:54px;
-    max-height:54px;
+    width:48px;
+    height:48px;
 
     object-fit:contain;
 
     object-position:center;
 
-    margin:
-        0 auto 4px;
+    display:block;
 
-    border-radius:10px;
+    margin-bottom:4px;
+
+    filter:
+        drop-shadow(
+            0 5px 7px
+            rgba(0,0,0,.48)
+        );
 
     user-select:none;
 
@@ -471,14 +679,8 @@ button{
 
     pointer-events:none;
 
-    filter:
-        drop-shadow(
-            0 6px 8px
-            rgba(0,0,0,.40)
-        );
-
     transition:
-        transform .15s ease;
+        transform .14s ease;
 }
 
 
@@ -496,20 +698,20 @@ button{
 
     text-align:center;
 
-    color:#ffffff;
+    color:#fff;
 
-    font-size:9px;
+    font-size:8.5px;
 
     font-weight:1000;
 
-    letter-spacing:.25px;
+    line-height:10px;
 
-    line-height:1.1;
+    letter-spacing:.2px;
 }
 
 
 /* =====================================================
-   EXPLICAÇÃO
+   DESCRIÇÃO
 ===================================================== */
 
 .tool-description{
@@ -518,19 +720,19 @@ button{
 
     z-index:3;
 
-    width:94%;
+    width:88%;
 
-    margin-top:4px;
+    margin-top:3px;
 
     text-align:center;
 
-    color:#8b97a4;
+    color:#7f8b98;
 
-    font-size:7px;
+    font-size:6.2px;
 
     font-weight:600;
 
-    line-height:1.25;
+    line-height:7.5px;
 }
 
 
@@ -541,21 +743,22 @@ button{
 .tool-card:active{
 
     transform:
-        scale(.96);
+        scale(.965);
 
     border-color:
-        rgba(255,120,0,.60);
+        rgba(255,123,0,.60);
 
     box-shadow:
 
-        0 5px 12px
-        rgba(0,0,0,.35),
+        0 4px 12px
+        rgba(0,0,0,.30),
 
-        0 0 14px
-        rgba(255,100,0,.10);
+        0 0 18px
+        rgba(255,100,0,.09);
 }
 
 .tool-card:active img{
+
     transform:
         scale(.94);
 }
@@ -567,12 +770,12 @@ button{
 
 .ad{
 
-    width:100%;
+    flex:0 0 auto;
 
-    height:52px;
+    height:29px;
 
     margin:
-        9px 0;
+        6px 0 5px;
 
     display:flex;
 
@@ -580,20 +783,18 @@ button{
 
     justify-content:center;
 
-    text-align:center;
+    border-radius:9px;
 
     border:
         1px dashed
-        rgba(255,120,0,.22);
-
-    border-radius:12px;
+        rgba(255,117,0,.20);
 
     background:
         rgba(255,255,255,.018);
 
-    color:#65717d;
+    color:#5f6b77;
 
-    font-size:6px;
+    font-size:5.5px;
 
     font-weight:900;
 
@@ -602,159 +803,262 @@ button{
 
 
 /* =====================================================
-   APRESENTAÇÃO
+   NAVEGAÇÃO INFERIOR
 ===================================================== */
 
-.hero{
+.bottom-nav{
+
+    flex:0 0 auto;
+
+    height:
+        calc(
+            54px +
+            env(safe-area-inset-bottom)
+        );
+
+    padding:
+        5px
+        8px
+        env(safe-area-inset-bottom);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:5px;
+
+    background:
+        rgba(7,10,14,.97);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.055);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+}
+
+.bottom-nav button{
 
     position:relative;
 
-    overflow:hidden;
+    border-radius:10px;
 
-    padding:13px;
+    background:transparent;
 
-    border-radius:14px;
-
-    background:
-
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(255,110,0,.16),
-            transparent 40%
-        ),
-
-        linear-gradient(
-            145deg,
-            #151e29,
-            #090e15
-        );
-
-    border:
-        1px solid
-        rgba(255,115,0,.10);
-}
-
-.hero-tag{
-
-    display:inline-block;
-
-    padding:4px 7px;
-
-    border-radius:5px;
-
-    background:
-        rgba(255,115,0,.09);
-
-    color:#ff8b25;
+    color:#606b77;
 
     font-size:6px;
 
     font-weight:900;
 
-    letter-spacing:.7px;
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:3px;
 }
 
-.hero h1{
+.bottom-icon{
 
-    margin-top:6px;
+    width:17px;
+    height:17px;
 
-    font-size:16px;
+    display:flex;
 
-    line-height:1;
+    align-items:center;
+    justify-content:center;
 
-    letter-spacing:-.5px;
+    border-radius:6px;
+
+    font-size:10px;
 }
 
-.hero h1 span{
-    color:#ff7600;
+.bottom-nav button.active{
+
+    color:#ff810f;
+
+    background:
+        rgba(255,115,0,.07);
 }
 
-.hero p{
+.bottom-nav button.active::before{
 
-    margin-top:5px;
+    content:"";
 
-    color:#788592;
+    position:absolute;
 
-    font-size:7px;
+    top:0;
 
-    line-height:1.4;
+    left:28%;
+    right:28%;
+
+    height:2px;
+
+    border-radius:0 0 4px 4px;
+
+    background:
+        #ff7100;
+
+    box-shadow:
+        0 0 8px
+        rgba(255,100,0,.5);
 }
 
 
 /* =====================================================
-   CARDS INTERNOS
+   PÁGINAS INTERNAS
+===================================================== */
+
+.internal-page{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    background:
+
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(255,100,0,.13),
+            transparent 35%
+        ),
+
+        #080b10;
+
+    overflow-y:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+    padding:
+        max(12px,env(safe-area-inset-top))
+        12px
+        calc(
+            25px +
+            env(safe-area-inset-bottom)
+        );
+}
+
+.internal-page.show{
+    display:block;
+}
+
+
+/* =====================================================
+   CABEÇALHO INTERNO
+===================================================== */
+
+.internal-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:10px;
+}
+
+.back-button{
+
+    width:34px;
+    height:34px;
+
+    border-radius:10px;
+
+    background:#141b24;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    color:#fff;
+
+    font-size:16px;
+}
+
+.internal-title{
+
+    font-size:18px;
+
+    font-weight:1000;
+
+    letter-spacing:-.5px;
+}
+
+.internal-subtitle{
+
+    margin-top:2px;
+
+    color:#707b87;
+
+    font-size:7px;
+}
+
+
+/* =====================================================
+   CARD INTERNO
 ===================================================== */
 
 .card{
 
-    margin-bottom:10px;
-
     padding:14px;
+
+    margin-bottom:10px;
 
     border-radius:15px;
 
     background:
+
         linear-gradient(
             145deg,
-            #151e29,
-            #0a1017
+            #151e28,
+            #0b1118
         );
 
     border:
         1px solid
         rgba(255,255,255,.065);
+
+    box-shadow:
+        0 10px 22px
+        rgba(0,0,0,.20);
 }
 
-.card-title{
+.card h3{
 
-    font-size:18px;
+    font-size:16px;
 
     font-weight:1000;
 }
 
-.card-description{
+.card p{
 
     margin:
-        4px 0 13px;
+        4px 0 12px;
 
-    color:#7d8995;
+    color:#788592;
 
     font-size:8px;
 
-    line-height:1.45;
+    line-height:12px;
 }
 
 
 /* =====================================================
-   BOTÃO VOLTAR
-===================================================== */
-
-.back{
-
-    width:100%;
-
-    margin-bottom:9px;
-
-    padding:10px;
-
-    border-radius:9px;
-
-    background:#111923;
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    color:#aeb8c3;
-
-    font-size:8px;
-
-    font-weight:900;
-}
-
-
-/* =====================================================
-   CAMPOS
+   INPUTS
 ===================================================== */
 
 .field{
@@ -778,16 +1082,18 @@ button{
 
     width:100%;
 
-    height:45px;
+    height:44px;
 
     padding:
-        9px 11px;
+        8px 11px;
 
     border-radius:10px;
 
     border:
         1px solid
-        #293440;
+        #28333f;
+
+    outline:none;
 
     background:#070c12;
 
@@ -798,6 +1104,7 @@ button{
     font-weight:700;
 
     -webkit-appearance:none;
+
     appearance:none;
 }
 
@@ -807,27 +1114,27 @@ button{
 
     box-shadow:
         0 0 0 2px
-        rgba(255,116,0,.09);
+        rgba(255,116,0,.08);
 }
 
 
 /* =====================================================
-   CALCULAR
+   BOTÕES
 ===================================================== */
 
 .calculate{
 
     width:100%;
 
-    padding:12px;
+    min-height:43px;
 
     border-radius:10px;
 
     background:
         linear-gradient(
             135deg,
-            #ff8a00,
-            #ff5e00
+            #ff9000,
+            #ff5c00
         );
 
     color:#fff;
@@ -837,8 +1144,8 @@ button{
     font-weight:1000;
 
     box-shadow:
-        0 6px 14px
-        rgba(255,90,0,.15);
+        0 7px 15px
+        rgba(255,80,0,.15);
 }
 
 
@@ -854,19 +1161,19 @@ button{
 
     padding:12px;
 
-    border-radius:12px;
+    border-radius:11px;
 
     background:
-        rgba(255,114,0,.055);
+        rgba(255,111,0,.055);
 
     border:
         1px solid
-        rgba(255,114,0,.22);
+        rgba(255,111,0,.20);
 }
 
 .result-label{
 
-    color:#ff9b40;
+    color:#ff963d;
 
     font-size:7px;
 
@@ -910,7 +1217,7 @@ button{
 
     display:block;
 
-    color:#778391;
+    color:#75818d;
 
     font-size:7px;
 }
@@ -929,20 +1236,11 @@ button{
    CALCULADORA
 ===================================================== */
 
-.calculator{
+.calculator-display{
 
-    width:100%;
+    min-height:105px;
 
-    max-width:520px;
-
-    margin:auto;
-}
-
-.display{
-
-    min-height:115px;
-
-    padding:14px;
+    padding:13px;
 
     display:flex;
 
@@ -950,20 +1248,24 @@ button{
 
     justify-content:flex-end;
 
-    text-align:right;
+    align-items:flex-end;
 
-    border-radius:14px;
+    border-radius:13px;
 
     background:#05080c;
 
     border:
         1px solid
-        #252e39;
+        #252f3a;
 
     overflow:hidden;
+
+    margin-bottom:6px;
 }
 
-.expression{
+.calc-expression{
+
+    width:100%;
 
     min-height:15px;
 
@@ -971,14 +1273,20 @@ button{
 
     font-size:9px;
 
+    text-align:right;
+
     white-space:nowrap;
 
     overflow:hidden;
 }
 
-.display-number{
+.calc-number{
+
+    max-width:100%;
 
     margin-top:3px;
+
+    color:#fff;
 
     font-size:34px;
 
@@ -989,11 +1297,6 @@ button{
     overflow:hidden;
 }
 
-
-/* =====================================================
-   MEMÓRIA
-===================================================== */
-
 .memory{
 
     display:grid;
@@ -1003,12 +1306,12 @@ button{
 
     gap:4px;
 
-    margin:6px 0;
+    margin-bottom:6px;
 }
 
 .memory button{
 
-    min-height:35px;
+    height:32px;
 
     border-radius:7px;
 
@@ -1025,11 +1328,6 @@ button{
     font-weight:900;
 }
 
-
-/* =====================================================
-   TECLADO
-===================================================== */
-
 .keypad{
 
     display:grid;
@@ -1042,7 +1340,7 @@ button{
 
 .key{
 
-    min-height:55px;
+    min-height:52px;
 
     border-radius:10px;
 
@@ -1090,9 +1388,9 @@ button{
 
     width:100%;
 
-    margin-bottom:10px;
+    min-height:40px;
 
-    padding:10px;
+    margin-bottom:9px;
 
     border-radius:9px;
 
@@ -1100,7 +1398,7 @@ button{
 
     border:
         1px solid
-        rgba(255,70,70,.22);
+        rgba(255,80,80,.20);
 
     color:#ff6464;
 
@@ -1115,7 +1413,7 @@ button{
 
     text-align:center;
 
-    color:#65717e;
+    color:#66727f;
 
     font-size:9px;
 }
@@ -1124,15 +1422,17 @@ button{
 
     display:flex;
 
+    align-items:center;
+
     justify-content:space-between;
 
-    gap:8px;
+    gap:10px;
 
     padding:10px 0;
 
     border-bottom:
         1px solid
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.055);
 }
 
 .history-name{
@@ -1150,7 +1450,7 @@ button{
 
     font-size:7px;
 
-    line-height:1.35;
+    line-height:10px;
 }
 
 .history-result{
@@ -1166,27 +1466,6 @@ button{
 
 
 /* =====================================================
-   FOOTER
-===================================================== */
-
-.footer{
-
-    padding:
-        18px 10px 25px;
-
-    text-align:center;
-
-    color:#56616e;
-
-    font-size:7px;
-}
-
-.footer b{
-    color:#ff7800;
-}
-
-
-/* =====================================================
    TOAST
 ===================================================== */
 
@@ -1198,7 +1477,7 @@ button{
 
     left:50%;
 
-    bottom:18px;
+    bottom:72px;
 
     padding:
         9px 13px;
@@ -1237,39 +1516,37 @@ button{
 
 
 /* =====================================================
-   CELULARES PEQUENOS
+   IPHONES MENORES
 ===================================================== */
 
-@media(max-width:350px){
+@media(max-height:680px){
 
     .header{
         padding-top:5px;
     }
 
-    .content{
-        padding-left:8px;
-        padding-right:8px;
+    .hero{
+        height:65px;
+        padding:8px 12px;
     }
 
-    .tools{
-        gap:6px;
+    .hero h1{
+        font-size:15px;
+        line-height:16px;
     }
 
-    .tool-card{
+    .hero p{
+        font-size:6px;
+        line-height:8px;
+    }
 
-        height:104px;
-
-        border-radius:14px;
-
-        padding:5px;
+    .tools-heading{
+        height:29px;
     }
 
     .tool-card img{
-
-        width:47px;
-        height:47px;
-
-        margin-bottom:3px;
+        width:42px;
+        height:42px;
     }
 
     .tool-name{
@@ -1277,37 +1554,137 @@ button{
     }
 
     .tool-description{
-        font-size:6px;
+        font-size:5.8px;
     }
 
+    .ad{
+        height:25px;
+        margin:4px 0;
+    }
+
+    .bottom-nav{
+        height:
+            calc(
+                50px +
+                env(safe-area-inset-bottom)
+            );
+    }
 }
 
 
 /* =====================================================
-   TABLET
+   IPHONES MUITO PEQUENOS
 ===================================================== */
 
-@media(min-width:600px){
+@media(max-height:620px){
 
-    .tools{
+    .top-line{
+        height:33px;
+    }
 
-        grid-template-columns:
-            repeat(3,1fr);
+    .logo{
+        width:31px;
+        height:31px;
+    }
 
-        gap:13px;
+    .logo svg{
+        width:21px;
+        height:21px;
+    }
+
+    .brand-name{
+        font-size:16px;
+        line-height:14px;
+    }
+
+    .hero{
+        height:58px;
+    }
+
+    .hero-tag{
+        display:none;
+    }
+
+    .hero h1{
+        margin-top:0;
+        font-size:14px;
+    }
+
+    .hero p{
+        margin-top:1px;
+    }
+
+    .tools-heading{
+        height:27px;
     }
 
     .tool-card{
-
-        height:165px;
-
-        border-radius:20px;
+        border-radius:13px;
     }
 
     .tool-card img{
+        width:38px;
+        height:38px;
+    }
 
-        width:68px;
-        height:68px;
+    .tool-name{
+        font-size:7.5px;
+    }
+
+    .tool-description{
+        font-size:5.4px;
+    }
+
+    .ad{
+        height:22px;
+    }
+}
+
+
+/* =====================================================
+   TABLET / DESKTOP
+===================================================== */
+
+@media(min-width:700px){
+
+    .main{
+        max-width:900px;
+        width:100%;
+        margin:auto;
+        padding:
+            14px 18px 0;
+    }
+
+    .header{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .hero{
+        height:95px;
+    }
+
+    .hero h1{
+        font-size:23px;
+        line-height:25px;
+    }
+
+    .hero p{
+        font-size:8px;
+        line-height:12px;
+    }
+
+    .tools-heading{
+        height:45px;
+    }
+
+    .tools-heading h2{
+        font-size:17px;
+    }
+
+    .tool-card img{
+        width:62px;
+        height:62px;
     }
 
     .tool-name{
@@ -1315,28 +1692,7 @@ button{
     }
 
     .tool-description{
-        font-size:8px;
-    }
-
-}
-
-
-/* =====================================================
-   DESKTOP
-===================================================== */
-
-@media(min-width:1000px){
-
-    .content{
-        padding:20px;
-    }
-
-    .tools{
-        gap:16px;
-    }
-
-    .tool-card{
-        height:190px;
+        font-size:7px;
     }
 
 }
@@ -1356,6 +1712,7 @@ body{
 
 <body>
 
+
 <div class="app">
 
 
@@ -1365,287 +1722,89 @@ body{
 
 <header class="header">
 
-    <div class="logo-area">
+    <div class="top-line">
 
-        <div class="logo">
+        <div class="brand">
 
-            <svg
-                viewBox="0 0 50 50"
-                fill="none"
-                stroke="white"
-                stroke-width="3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            >
+            <div class="logo">
 
-                <circle
-                    cx="25"
-                    cy="25"
-                    r="20"
-                />
+                <svg
+                    viewBox="0 0 50 50"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
 
-                <path
-                    d="M14 31L21 24L27 28L37 17"
-                />
+                    <circle
+                        cx="25"
+                        cy="25"
+                        r="20"
+                    />
 
-                <path
-                    d="M31 17H37V23"
-                />
+                    <path
+                        d="M14 31L21 24L27 28L37 17"
+                    />
 
-            </svg>
+                    <path
+                        d="M31 17H37V23"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <div>
+
+                <div class="brand-name">
+                    CAL<span>PRO</span>
+                </div>
+
+                <div class="brand-expert">
+                    EXPERT
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div>
+        <div class="status">
 
-            <div class="logo-name">
-                CAL<span>PRO</span>
-            </div>
+            <span class="status-dot"></span>
 
-            <div class="logo-expert">
-                EXPERT
-            </div>
+            PRONTO PARA CALCULAR
 
         </div>
 
     </div>
 
 
-    <div class="slogan">
-        Calcule • <b>Lucre</b> • Evolua
+    <div class="header-subtitle">
+
+        Precisão para suas vendas.
+        <b>Resultados na hora.</b>
+
     </div>
-
-
-    <nav class="nav">
-
-        <button
-            class="active"
-            data-page="home">
-
-            FERRAMENTAS
-
-        </button>
-
-        <button
-            data-page="calculator">
-
-            CALCULADORA
-
-        </button>
-
-        <button
-            data-page="history">
-
-            HISTÓRICO
-
-        </button>
-
-    </nav>
 
 </header>
 
 
-<main class="content">
-
-
 <!-- =====================================================
-     HOME
+     CONTEÚDO HOME
 ===================================================== -->
 
-<section
-    id="home"
-    class="page active"
+<main
+    class="main"
+    id="homePage"
 >
 
-    <div class="section-title">
 
-        Ferramentas
+    <!-- HERO -->
 
-        <span class="section-subtitle">
-            Escolha uma ferramenta para começar.
-        </span>
-
-    </div>
-
-
-    <div class="tools">
-
-
-        <!-- =================================================
-             PREÇO DE VENDA
-        ================================================== -->
-
-        <button
-            class="tool-card"
-            data-tool="price"
-        >
-
-            <img
-                src="./assets/PRECO-DE-VENDA.png?v=5"
-                alt="Preço de Venda"
-                draggable="false"
-            >
-
-            <span class="tool-name">
-                PREÇO DE VENDA
-            </span>
-
-            <span class="tool-description">
-                Descubra o preço ideal para vender.
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             MARGEM
-        ================================================== -->
-
-        <button
-            class="tool-card"
-            data-tool="margin"
-        >
-
-            <img
-                src="./assets/MARGEM-DE-LUCRO.png?v=5"
-                alt="Margem"
-                draggable="false"
-            >
-
-            <span class="tool-name">
-                MARGEM
-            </span>
-
-            <span class="tool-description">
-                Veja quanto você ganha no produto.
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             DESCONTO
-        ================================================== -->
-
-        <button
-            class="tool-card"
-            data-tool="discount"
-        >
-
-            <img
-                src="./assets/DESCONTO.png?v=5"
-                alt="Desconto"
-                draggable="false"
-            >
-
-            <span class="tool-name">
-                DESCONTO
-            </span>
-
-            <span class="tool-description">
-                Calcule o preço final da venda.
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             MARKUP
-        ================================================== -->
-
-        <button
-            class="tool-card"
-            data-tool="markup"
-        >
-
-            <img
-                src="./assets/MARKUP.png?v=5"
-                alt="Markup"
-                draggable="false"
-            >
-
-            <span class="tool-name">
-                MARKUP
-            </span>
-
-            <span class="tool-description">
-                Descubra o multiplicador do preço.
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             COMISSÃO
-        ================================================== -->
-
-        <button
-            class="tool-card"
-            data-tool="commission"
-        >
-
-            <img
-                src="./assets/COMISSAO.png?v=5"
-                alt="Comissão"
-                draggable="false"
-            >
-
-            <span class="tool-name">
-                COMISSÃO
-            </span>
-
-            <span class="tool-description">
-                Saiba quanto você vai receber.
-            </span>
-
-        </button>
-
-
-        <!-- =================================================
-             CALCULADORA
-        ================================================== -->
-
-        <button
-            class="tool-card"
-            data-tool="calculator"
-        >
-
-            <img
-                src="./assets/CALCULADORA.png?v=5"
-                alt="Calculadora"
-                draggable="false"
-            >
-
-            <span class="tool-name">
-                CALCULADORA
-            </span>
-
-            <span class="tool-description">
-                Faça cálculos de forma rápida.
-            </span>
-
-        </button>
-
-    </div>
-
-
-    <!-- =====================================================
-         PUBLICIDADE
-    ====================================================== -->
-
-    <div class="ad">
-
-        ESPAÇO RESERVADO PARA PUBLICIDADE
-
-    </div>
-
-
-    <!-- =====================================================
-         APRESENTAÇÃO
-    ====================================================== -->
-
-    <div class="hero">
+    <section class="hero">
 
         <div class="hero-tag">
             CALPRO EXPERT
@@ -1657,13 +1816,248 @@ body{
         </h1>
 
         <p>
-            Ferramentas profissionais para calcular
-            preço, margem, desconto, markup e comissão.
+            Todas as ferramentas que você precisa
+            para calcular seus resultados.
         </p>
+
+    </section>
+
+
+    <!-- TÍTULO -->
+
+    <div class="tools-heading">
+
+        <div>
+
+            <h2>
+                Ferramentas
+            </h2>
+
+            <p>
+                Escolha uma opção para começar.
+            </p>
+
+        </div>
+
+        <div class="tools-count">
+            <span>06</span> ferramentas
+        </div>
 
     </div>
 
-</section>
+
+    <!-- =================================================
+         FERRAMENTAS
+    ================================================== -->
+
+    <section class="tools">
+
+
+        <!-- PREÇO -->
+
+        <button
+            class="tool-card"
+            data-tool="price"
+        >
+
+            <img
+                src="./assets/PRECO-DE-VENDA.png?v=10"
+                alt="Preço de Venda"
+                draggable="false"
+            >
+
+            <div class="tool-name">
+                PREÇO DE VENDA
+            </div>
+
+            <div class="tool-description">
+                Descubra o preço ideal para vender.
+            </div>
+
+        </button>
+
+
+        <!-- MARGEM -->
+
+        <button
+            class="tool-card"
+            data-tool="margin"
+        >
+
+            <img
+                src="./assets/MARGEM-DE-LUCRO.png?v=10"
+                alt="Margem de Lucro"
+                draggable="false"
+            >
+
+            <div class="tool-name">
+                MARGEM
+            </div>
+
+            <div class="tool-description">
+                Veja quanto você ganha no produto.
+            </div>
+
+        </button>
+
+
+        <!-- DESCONTO -->
+
+        <button
+            class="tool-card"
+            data-tool="discount"
+        >
+
+            <img
+                src="./assets/DESCONTO.png?v=10"
+                alt="Desconto"
+                draggable="false"
+            >
+
+            <div class="tool-name">
+                DESCONTO
+            </div>
+
+            <div class="tool-description">
+                Calcule o preço final da venda.
+            </div>
+
+        </button>
+
+
+        <!-- MARKUP -->
+
+        <button
+            class="tool-card"
+            data-tool="markup"
+        >
+
+            <img
+                src="./assets/MARKUP.png?v=10"
+                alt="Markup"
+                draggable="false"
+            >
+
+            <div class="tool-name">
+                MARKUP
+            </div>
+
+            <div class="tool-description">
+                Descubra o multiplicador do preço.
+            </div>
+
+        </button>
+
+
+        <!-- COMISSÃO -->
+
+        <button
+            class="tool-card"
+            data-tool="commission"
+        >
+
+            <img
+                src="./assets/COMISSAO.png?v=10"
+                alt="Comissão"
+                draggable="false"
+            >
+
+            <div class="tool-name">
+                COMISSÃO
+            </div>
+
+            <div class="tool-description">
+                Saiba quanto você vai receber.
+            </div>
+
+        </button>
+
+
+        <!-- CALCULADORA -->
+
+        <button
+            class="tool-card"
+            data-tool="calculator"
+        >
+
+            <img
+                src="./assets/CALCULADORA.png?v=10"
+                alt="Calculadora"
+                draggable="false"
+            >
+
+            <div class="tool-name">
+                CALCULADORA
+            </div>
+
+            <div class="tool-description">
+                Faça cálculos de forma rápida.
+            </div>
+
+        </button>
+
+
+    </section>
+
+
+    <!-- PUBLICIDADE -->
+
+    <div class="ad">
+
+        ESPAÇO RESERVADO PARA PUBLICIDADE
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     NAVEGAÇÃO
+===================================================== -->
+
+<nav class="bottom-nav">
+
+    <button
+        class="active"
+        data-page="home"
+    >
+
+        <span class="bottom-icon">
+            ⌂
+        </span>
+
+        INÍCIO
+
+    </button>
+
+
+    <button
+        data-page="calculator"
+    >
+
+        <span class="bottom-icon">
+            ＋
+        </span>
+
+        CALCULADORA
+
+    </button>
+
+
+    <button
+        data-page="history"
+    >
+
+        <span class="bottom-icon">
+            ◷
+        </span>
+
+        HISTÓRICO
+
+    </button>
+
+</nav>
 
 
 <!-- =====================================================
@@ -1672,21 +2066,45 @@ body{
 
 <section
     id="toolPage"
-    class="page"
+    class="internal-page"
 >
 
-    <button
-        class="back"
-        id="backHome">
 
-        ← VOLTAR PARA FERRAMENTAS
+    <div class="internal-header">
 
-    </button>
+        <button
+            class="back-button"
+            id="backHome">
+
+            ‹
+
+        </button>
 
 
-    <!-- =================================================
-         PREÇO DE VENDA
-    ================================================== -->
+        <div>
+
+            <div
+                class="internal-title"
+                id="toolTitle">
+
+                Ferramenta
+
+            </div>
+
+            <div
+                class="internal-subtitle"
+                id="toolSubtitle">
+
+                Calcule com precisão.
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PREÇO -->
 
     <div
         id="tool-price"
@@ -1696,14 +2114,14 @@ body{
 
         <div class="card">
 
-            <div class="card-title">
+            <h3>
                 Preço de Venda
-            </div>
+            </h3>
 
-            <div class="card-description">
+            <p>
                 Informe o custo e a margem desejada
                 para descobrir o preço ideal de venda.
-            </div>
+            </p>
 
 
             <div class="field">
@@ -1751,7 +2169,8 @@ body{
 
             <div
                 class="result"
-                id="resultPrice">
+                id="resultPrice"
+            >
 
                 <div class="result-label">
                     PREÇO DE VENDA
@@ -1772,9 +2191,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         MARGEM
-    ================================================== -->
+    <!-- MARGEM -->
 
     <div
         id="tool-margin"
@@ -1784,14 +2201,14 @@ body{
 
         <div class="card">
 
-            <div class="card-title">
+            <h3>
                 Margem de Lucro
-            </div>
+            </h3>
 
-            <div class="card-description">
+            <p>
                 Descubra quanto realmente sobra da venda
                 depois de considerar o custo.
-            </div>
+            </p>
 
 
             <div class="field">
@@ -1839,7 +2256,8 @@ body{
 
             <div
                 class="result"
-                id="resultMargin">
+                id="resultMargin"
+            >
 
                 <div class="result-label">
                     MARGEM
@@ -1848,7 +2266,9 @@ body{
                 <div
                     class="result-value"
                     id="marginValue">
+
                     0,00%
+
                 </div>
 
 
@@ -1862,7 +2282,9 @@ body{
 
                         <strong
                             id="marginProfit">
+
                             R$ 0,00
+
                         </strong>
 
                     </div>
@@ -1876,7 +2298,9 @@ body{
 
                         <strong
                             id="marginMarkup">
+
                             0,00x
+
                         </strong>
 
                     </div>
@@ -1890,9 +2314,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         DESCONTO
-    ================================================== -->
+    <!-- DESCONTO -->
 
     <div
         id="tool-discount"
@@ -1902,14 +2324,14 @@ body{
 
         <div class="card">
 
-            <div class="card-title">
+            <h3>
                 Desconto
-            </div>
+            </h3>
 
-            <div class="card-description">
-                Calcule rapidamente quanto o cliente
-                pagará depois do desconto.
-            </div>
+            <p>
+                Calcule rapidamente o valor final
+                depois de aplicar o desconto.
+            </p>
 
 
             <div class="field">
@@ -1957,7 +2379,8 @@ body{
 
             <div
                 class="result"
-                id="resultDiscount">
+                id="resultDiscount"
+            >
 
                 <div class="result-label">
                     PREÇO FINAL
@@ -1966,7 +2389,9 @@ body{
                 <div
                     class="result-value"
                     id="discountValue">
+
                     R$ 0,00
+
                 </div>
 
 
@@ -1980,7 +2405,9 @@ body{
 
                         <strong
                             id="discountAmount">
+
                             R$ 0,00
+
                         </strong>
 
                     </div>
@@ -1994,7 +2421,9 @@ body{
 
                         <strong
                             id="discountPercentValue">
+
                             0,00%
+
                         </strong>
 
                     </div>
@@ -2008,9 +2437,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         MARKUP
-    ================================================== -->
+    <!-- MARKUP -->
 
     <div
         id="tool-markup"
@@ -2020,14 +2447,14 @@ body{
 
         <div class="card">
 
-            <div class="card-title">
+            <h3>
                 Markup
-            </div>
+            </h3>
 
-            <div class="card-description">
+            <p>
                 Veja quantas vezes o preço de venda
                 representa o seu custo.
-            </div>
+            </p>
 
 
             <div class="field">
@@ -2075,7 +2502,8 @@ body{
 
             <div
                 class="result"
-                id="resultMarkup">
+                id="resultMarkup"
+            >
 
                 <div class="result-label">
                     MARKUP
@@ -2084,7 +2512,9 @@ body{
                 <div
                     class="result-value"
                     id="markupValue">
+
                     0,00x
+
                 </div>
 
 
@@ -2098,7 +2528,9 @@ body{
 
                         <strong
                             id="markupIncrease">
+
                             0,00%
+
                         </strong>
 
                     </div>
@@ -2112,7 +2544,9 @@ body{
 
                         <strong
                             id="markupMargin">
+
                             0,00%
+
                         </strong>
 
                     </div>
@@ -2126,9 +2560,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         COMISSÃO
-    ================================================== -->
+    <!-- COMISSÃO -->
 
     <div
         id="tool-commission"
@@ -2138,14 +2570,14 @@ body{
 
         <div class="card">
 
-            <div class="card-title">
+            <h3>
                 Comissão
-            </div>
+            </h3>
 
-            <div class="card-description">
+            <p>
                 Informe o valor vendido e sua taxa
-                para descobrir o valor da comissão.
-            </div>
+                para descobrir sua comissão.
+            </p>
 
 
             <div class="field">
@@ -2193,7 +2625,8 @@ body{
 
             <div
                 class="result"
-                id="resultCommission">
+                id="resultCommission"
+            >
 
                 <div class="result-label">
                     SUA COMISSÃO
@@ -2202,7 +2635,9 @@ body{
                 <div
                     class="result-value"
                     id="commissionValue">
+
                     R$ 0,00
+
                 </div>
 
             </div>
@@ -2219,192 +2654,207 @@ body{
 ===================================================== -->
 
 <section
-    id="calculator"
-    class="page"
+    id="calculatorPage"
+    class="internal-page"
 >
 
-    <div class="calculator">
 
-        <div class="card">
+    <div class="internal-header">
 
-            <div class="card-title">
-                Calculadora Expert
+        <button
+            class="back-button"
+            id="backFromCalculator">
+
+            ‹
+
+        </button>
+
+
+        <div>
+
+            <div class="internal-title">
+                Calculadora
             </div>
 
-            <div class="card-description">
-                Calculadora completa com vírgula,
-                porcentagem, memória e operações.
+            <div class="internal-subtitle">
+                Cálculos rápidos e precisos.
             </div>
 
+        </div>
 
-            <div class="display">
+    </div>
 
-                <div
-                    class="expression"
-                    id="expression">
-                </div>
 
-                <div
-                    class="display-number"
-                    id="display">
-                    0
-                </div>
+    <div class="card">
 
+        <div class="calculator-display">
+
+            <div
+                class="calc-expression"
+                id="expression">
             </div>
 
+            <div
+                class="calc-number"
+                id="display">
 
-            <div class="memory">
-
-                <button data-memory="clear">
-                    MC
-                </button>
-
-                <button data-memory="recall">
-                    MR
-                </button>
-
-                <button data-memory="add">
-                    M+
-                </button>
-
-                <button data-memory="subtract">
-                    M−
-                </button>
-
-                <button data-memory="store">
-                    MS
-                </button>
+                0
 
             </div>
 
-
-            <div class="keypad">
-
-                <button
-                    class="key special"
-                    data-action="clear">
-                    AC
-                </button>
-
-                <button
-                    class="key special"
-                    data-action="backspace">
-                    ⌫
-                </button>
-
-                <button
-                    class="key operator"
-                    data-action="percent">
-                    %
-                </button>
-
-                <button
-                    class="key operator"
-                    data-operator="/">
-                    ÷
-                </button>
+        </div>
 
 
-                <button
-                    class="key"
-                    data-number="7">
-                    7
-                </button>
+        <div class="memory">
 
-                <button
-                    class="key"
-                    data-number="8">
-                    8
-                </button>
+            <button data-memory="clear">
+                MC
+            </button>
 
-                <button
-                    class="key"
-                    data-number="9">
-                    9
-                </button>
+            <button data-memory="recall">
+                MR
+            </button>
 
-                <button
-                    class="key operator"
-                    data-operator="*">
-                    ×
-                </button>
+            <button data-memory="add">
+                M+
+            </button>
 
+            <button data-memory="subtract">
+                M−
+            </button>
 
-                <button
-                    class="key"
-                    data-number="4">
-                    4
-                </button>
+            <button data-memory="store">
+                MS
+            </button>
 
-                <button
-                    class="key"
-                    data-number="5">
-                    5
-                </button>
-
-                <button
-                    class="key"
-                    data-number="6">
-                    6
-                </button>
-
-                <button
-                    class="key operator"
-                    data-operator="-">
-                    −
-                </button>
+        </div>
 
 
-                <button
-                    class="key"
-                    data-number="1">
-                    1
-                </button>
+        <div class="keypad">
 
-                <button
-                    class="key"
-                    data-number="2">
-                    2
-                </button>
+            <button
+                class="key special"
+                data-action="clear">
+                AC
+            </button>
 
-                <button
-                    class="key"
-                    data-number="3">
-                    3
-                </button>
+            <button
+                class="key special"
+                data-action="backspace">
+                ⌫
+            </button>
 
-                <button
-                    class="key operator"
-                    data-operator="+">
-                    +
-                </button>
+            <button
+                class="key operator"
+                data-action="percent">
+                %
+            </button>
+
+            <button
+                class="key operator"
+                data-operator="/">
+                ÷
+            </button>
 
 
-                <button
-                    class="key special"
-                    data-action="sign">
-                    ±
-                </button>
+            <button
+                class="key"
+                data-number="7">
+                7
+            </button>
 
-                <button
-                    class="key"
-                    data-number="0">
-                    0
-                </button>
+            <button
+                class="key"
+                data-number="8">
+                8
+            </button>
 
-                <button
-                    class="key"
-                    data-action="decimal">
-                    ,
-                </button>
+            <button
+                class="key"
+                data-number="9">
+                9
+            </button>
 
-                <button
-                    class="key equal"
-                    data-action="equals">
-                    =
-                </button>
+            <button
+                class="key operator"
+                data-operator="*">
+                ×
+            </button>
 
-            </div>
+
+            <button
+                class="key"
+                data-number="4">
+                4
+            </button>
+
+            <button
+                class="key"
+                data-number="5">
+                5
+            </button>
+
+            <button
+                class="key"
+                data-number="6">
+                6
+            </button>
+
+            <button
+                class="key operator"
+                data-operator="-">
+                −
+            </button>
+
+
+            <button
+                class="key"
+                data-number="1">
+                1
+            </button>
+
+            <button
+                class="key"
+                data-number="2">
+                2
+            </button>
+
+            <button
+                class="key"
+                data-number="3">
+                3
+            </button>
+
+            <button
+                class="key operator"
+                data-operator="+">
+                +
+            </button>
+
+
+            <button
+                class="key special"
+                data-action="sign">
+                ±
+            </button>
+
+            <button
+                class="key"
+                data-number="0">
+                0
+            </button>
+
+            <button
+                class="key"
+                data-action="decimal">
+                ,
+            </button>
+
+            <button
+                class="key equal"
+                data-action="equals">
+                =
+            </button>
 
         </div>
 
@@ -2418,21 +2868,38 @@ body{
 ===================================================== -->
 
 <section
-    id="history"
-    class="page"
+    id="historyPage"
+    class="internal-page"
 >
 
+
+    <div class="internal-header">
+
+        <button
+            class="back-button"
+            id="backFromHistory">
+
+            ‹
+
+        </button>
+
+
+        <div>
+
+            <div class="internal-title">
+                Histórico
+            </div>
+
+            <div class="internal-subtitle">
+                Seus últimos cálculos.
+            </div>
+
+        </div>
+
+    </div>
+
+
     <div class="card">
-
-        <div class="card-title">
-            Histórico
-        </div>
-
-        <div class="card-description">
-            Seus cálculos recentes ficam salvos
-            neste aparelho.
-        </div>
-
 
         <button
             class="clear-history"
@@ -2450,32 +2917,19 @@ body{
 </section>
 
 
-<footer class="footer">
-
-    <b>CALPRO EXPERT</b>
-
-    <br><br>
-
-    Calcule certo. Venda melhor.
-
-</footer>
-
-
-</main>
-
-</div>
-
-
 <div
     id="toast"
     class="toast">
 </div>
 
 
+</div>
+
+
 <script>
 
 /* =====================================================
-   CONVERSÃO
+   NÚMEROS
 ===================================================== */
 
 function parseNumber(value){
@@ -2627,60 +3081,150 @@ function toast(message){
    NAVEGAÇÃO
 ===================================================== */
 
-const pages =
+const homePage =
+    document.getElementById(
+        'homePage'
+    );
+
+const toolPage =
+    document.getElementById(
+        'toolPage'
+    );
+
+const calculatorPage =
+    document.getElementById(
+        'calculatorPage'
+    );
+
+const historyPage =
+    document.getElementById(
+        'historyPage'
+    );
+
+
+const bottomButtons =
     document.querySelectorAll(
-        '.page'
-    );
-
-const navButtons =
-    document.querySelectorAll(
-        '.nav button'
+        '.bottom-nav button'
     );
 
 
-function showPage(id){
+function closeInternalPages(){
 
-    pages.forEach(
-        function(page){
-
-            page.classList.toggle(
-                'active',
-                page.id === id
-            );
-
-        }
+    toolPage.classList.remove(
+        'show'
     );
 
-
-    navButtons.forEach(
-        function(button){
-
-            button.classList.toggle(
-                'active',
-                button.dataset.page === id
-            );
-
-        }
+    calculatorPage.classList.remove(
+        'show'
     );
 
+    historyPage.classList.remove(
+        'show'
+    );
 
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
+    homePage.style.display =
+        'flex';
+
 }
 
 
-navButtons.forEach(
+function openCalculator(){
+
+    homePage.style.display =
+        'none';
+
+    toolPage.classList.remove(
+        'show'
+    );
+
+    historyPage.classList.remove(
+        'show'
+    );
+
+    calculatorPage.classList.add(
+        'show'
+    );
+
+}
+
+
+function openHistory(){
+
+    homePage.style.display =
+        'none';
+
+    toolPage.classList.remove(
+        'show'
+    );
+
+    calculatorPage.classList.remove(
+        'show'
+    );
+
+    historyPage.classList.add(
+        'show'
+    );
+
+    renderHistory();
+
+}
+
+
+function openHome(){
+
+    closeInternalPages();
+
+}
+
+
+bottomButtons.forEach(
     function(button){
 
         button.addEventListener(
             'click',
             function(){
 
-                showPage(
-                    button.dataset.page
+                bottomButtons.forEach(
+                    function(btn){
+
+                        btn.classList.remove(
+                            'active'
+                        );
+
+                    }
                 );
+
+                button.classList.add(
+                    'active'
+                );
+
+
+                const page =
+                    button.dataset.page;
+
+                if(
+                    page === 'home'
+                ){
+
+                    openHome();
+
+                }
+
+                if(
+                    page === 'calculator'
+                ){
+
+                    openCalculator();
+
+                }
+
+                if(
+                    page === 'history'
+                ){
+
+                    openHistory();
+
+                }
 
             }
         );
@@ -2690,11 +3234,43 @@ navButtons.forEach(
 
 
 /* =====================================================
-   ABRIR FERRAMENTAS
+   FERRAMENTAS
 ===================================================== */
 
+const toolNames = {
+
+    price:{
+        title:'Preço de Venda',
+        subtitle:'Descubra o preço ideal para vender.'
+    },
+
+    margin:{
+        title:'Margem de Lucro',
+        subtitle:'Veja quanto você ganha no produto.'
+    },
+
+    discount:{
+        title:'Desconto',
+        subtitle:'Calcule o preço final da venda.'
+    },
+
+    markup:{
+        title:'Markup',
+        subtitle:'Descubra o multiplicador do preço.'
+    },
+
+    commission:{
+        title:'Comissão',
+        subtitle:'Saiba quanto você vai receber.'
+    }
+
+};
+
+
 document
-.querySelectorAll('.tool-card')
+.querySelectorAll(
+    '.tool-card'
+)
 .forEach(
     function(button){
 
@@ -2705,21 +3281,46 @@ document
                 const tool =
                     button.dataset.tool;
 
+
                 if(
                     tool ===
                     'calculator'
                 ){
 
-                    showPage(
-                        'calculator'
+                    openCalculator();
+
+                    bottomButtons.forEach(
+                        function(btn){
+
+                            btn.classList.toggle(
+                                'active',
+                                btn.dataset.page ===
+                                'calculator'
+                            );
+
+                        }
                     );
 
                     return;
+
                 }
 
-                showPage(
-                    'toolPage'
+
+                homePage.style.display =
+                    'none';
+
+                calculatorPage.classList.remove(
+                    'show'
                 );
+
+                historyPage.classList.remove(
+                    'show'
+                );
+
+                toolPage.classList.add(
+                    'show'
+                );
+
 
                 document
                 .querySelectorAll(
@@ -2734,9 +3335,11 @@ document
                     }
                 );
 
+
                 const panel =
                     document.getElementById(
-                        'tool-' + tool
+                        'tool-' +
+                        tool
                     );
 
                 if(panel){
@@ -2745,6 +3348,26 @@ document
                         'block';
 
                 }
+
+
+                document
+                .getElementById(
+                    'toolTitle'
+                )
+                .textContent =
+                    toolNames[
+                        tool
+                    ].title;
+
+
+                document
+                .getElementById(
+                    'toolSubtitle'
+                )
+                .textContent =
+                    toolNames[
+                        tool
+                    ].subtitle;
 
             }
         );
@@ -2765,8 +3388,70 @@ document
     'click',
     function(){
 
-        showPage(
-            'home'
+        openHome();
+
+        bottomButtons.forEach(
+            function(btn){
+
+                btn.classList.toggle(
+                    'active',
+                    btn.dataset.page ===
+                    'home'
+                );
+
+            }
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    'backFromCalculator'
+)
+.addEventListener(
+    'click',
+    function(){
+
+        openHome();
+
+        bottomButtons.forEach(
+            function(btn){
+
+                btn.classList.toggle(
+                    'active',
+                    btn.dataset.page ===
+                    'home'
+                );
+
+            }
+        );
+
+    }
+);
+
+
+document
+.getElementById(
+    'backFromHistory'
+)
+.addEventListener(
+    'click',
+    function(){
+
+        openHome();
+
+        bottomButtons.forEach(
+            function(btn){
+
+                btn.classList.toggle(
+                    'active',
+                    btn.dataset.page ===
+                    'home'
+                );
+
+            }
         );
 
     }
@@ -2774,7 +3459,7 @@ document
 
 
 /* =====================================================
-   PREÇO DE VENDA
+   PREÇO
 ===================================================== */
 
 document
@@ -2803,6 +3488,7 @@ document
                 .value
             );
 
+
         if(cost <= 0){
 
             toast(
@@ -2811,6 +3497,7 @@ document
 
             return;
         }
+
 
         if(
             margin < 0 ||
@@ -2824,12 +3511,14 @@ document
             return;
         }
 
+
         const price =
             cost /
             (
                 1 -
                 margin / 100
             );
+
 
         document
         .getElementById(
@@ -2838,12 +3527,14 @@ document
         .textContent =
             money(price);
 
+
         document
         .getElementById(
             'resultPrice'
         )
         .style.display =
             'block';
+
 
         addHistory(
             'Preço de Venda',
@@ -2889,6 +3580,7 @@ document
                 .value
             );
 
+
         if(
             cost <= 0 ||
             sale <= 0
@@ -2901,8 +3593,10 @@ document
             return;
         }
 
+
         const profit =
             sale - cost;
+
 
         const margin =
             (
@@ -2910,8 +3604,10 @@ document
                 sale
             ) * 100;
 
+
         const markup =
             sale / cost;
+
 
         document
         .getElementById(
@@ -2920,7 +3616,9 @@ document
         .textContent =
             formatNumber(
                 margin
-            ) + '%';
+            ) +
+            '%';
+
 
         document
         .getElementById(
@@ -2929,6 +3627,7 @@ document
         .textContent =
             money(profit);
 
+
         document
         .getElementById(
             'marginMarkup'
@@ -2936,7 +3635,9 @@ document
         .textContent =
             formatNumber(
                 markup
-            ) + 'x';
+            ) +
+            'x';
+
 
         document
         .getElementById(
@@ -2944,6 +3645,7 @@ document
         )
         .style.display =
             'block';
+
 
         addHistory(
             'Margem',
@@ -2988,6 +3690,7 @@ document
                 .value
             );
 
+
         if(price <= 0){
 
             toast(
@@ -2996,6 +3699,7 @@ document
 
             return;
         }
+
 
         if(
             percent < 0 ||
@@ -3009,14 +3713,17 @@ document
             return;
         }
 
+
         const amount =
             price *
             percent /
             100;
 
+
         const finalPrice =
             price -
             amount;
+
 
         document
         .getElementById(
@@ -3025,12 +3732,14 @@ document
         .textContent =
             money(finalPrice);
 
+
         document
         .getElementById(
             'discountAmount'
         )
         .textContent =
             money(amount);
+
 
         document
         .getElementById(
@@ -3039,7 +3748,9 @@ document
         .textContent =
             formatNumber(
                 percent
-            ) + '%';
+            ) +
+            '%';
+
 
         document
         .getElementById(
@@ -3047,6 +3758,7 @@ document
         )
         .style.display =
             'block';
+
 
         addHistory(
             'Desconto',
@@ -3091,6 +3803,7 @@ document
                 .value
             );
 
+
         if(
             cost <= 0 ||
             sale <= 0
@@ -3103,8 +3816,10 @@ document
             return;
         }
 
+
         const markup =
             sale / cost;
+
 
         const increase =
             (
@@ -3112,11 +3827,13 @@ document
                 cost
             ) * 100;
 
+
         const margin =
             (
                 (sale - cost) /
                 sale
             ) * 100;
+
 
         document
         .getElementById(
@@ -3125,7 +3842,9 @@ document
         .textContent =
             formatNumber(
                 markup
-            ) + 'x';
+            ) +
+            'x';
+
 
         document
         .getElementById(
@@ -3134,7 +3853,9 @@ document
         .textContent =
             formatNumber(
                 increase
-            ) + '%';
+            ) +
+            '%';
+
 
         document
         .getElementById(
@@ -3143,7 +3864,9 @@ document
         .textContent =
             formatNumber(
                 margin
-            ) + '%';
+            ) +
+            '%';
+
 
         document
         .getElementById(
@@ -3151,6 +3874,7 @@ document
         )
         .style.display =
             'block';
+
 
         addHistory(
             'Markup',
@@ -3195,6 +3919,7 @@ document
                 .value
             );
 
+
         if(sale <= 0){
 
             toast(
@@ -3203,6 +3928,7 @@ document
 
             return;
         }
+
 
         if(percent < 0){
 
@@ -3213,10 +3939,12 @@ document
             return;
         }
 
+
         const commission =
             sale *
             percent /
             100;
+
 
         document
         .getElementById(
@@ -3225,12 +3953,14 @@ document
         .textContent =
             money(commission);
 
+
         document
         .getElementById(
             'resultCommission'
         )
         .style.display =
             'block';
+
 
         addHistory(
             'Comissão',
@@ -3258,7 +3988,8 @@ try{
         JSON.parse(
             localStorage.getItem(
                 'calpro_history'
-            ) || '[]'
+            ) ||
+            '[]'
         );
 
     if(
@@ -3282,30 +4013,30 @@ function escapeHTML(value){
 
     return String(value)
 
-    .replace(
-        /&/g,
-        '&amp;'
-    )
+        .replace(
+            /&/g,
+            '&amp;'
+        )
 
-    .replace(
-        /</g,
-        '&lt;'
-    )
+        .replace(
+            /</g,
+            '&lt;'
+        )
 
-    .replace(
-        />/g,
-        '&gt;'
-    )
+        .replace(
+            />/g,
+            '&gt;'
+        )
 
-    .replace(
-        /"/g,
-        '&quot;'
-    )
+        .replace(
+            /"/g,
+            '&quot;'
+        )
 
-    .replace(
-        /'/g,
-        '&#039;'
-    );
+        .replace(
+            /'/g,
+            '&#039;'
+        );
 
 }
 
@@ -3332,11 +4063,13 @@ function addHistory(
 
     });
 
+
     historyData =
         historyData.slice(
             0,
             50
         );
+
 
     try{
 
@@ -3349,7 +4082,9 @@ function addHistory(
 
     }catch(error){}
 
+
     renderHistory();
+
 }
 
 
@@ -3359,6 +4094,7 @@ function renderHistory(){
         document.getElementById(
             'historyList'
         );
+
 
     if(
         historyData.length === 0
@@ -3373,7 +4109,9 @@ function renderHistory(){
         return;
     }
 
+
     list.className = '';
+
 
     list.innerHTML =
         historyData
@@ -3409,10 +4147,8 @@ function renderHistory(){
             }
         )
         .join('');
+
 }
-
-
-renderHistory();
 
 
 document
@@ -3434,6 +4170,7 @@ document
             return;
         }
 
+
         if(
             !confirm(
                 'Deseja apagar todo o histórico?'
@@ -3443,13 +4180,17 @@ document
             return;
         }
 
+
         historyData = [];
+
 
         localStorage.removeItem(
             'calpro_history'
         );
 
+
         renderHistory();
+
 
         toast(
             'Histórico apagado.'
@@ -3498,12 +4239,17 @@ function formatCalc(value){
     let number =
         Number(value);
 
+
     if(
-        !Number.isFinite(number)
+        !Number.isFinite(
+            number
+        )
     ){
 
         return 'Erro';
+
     }
+
 
     if(
         Object.is(
@@ -3513,7 +4259,9 @@ function formatCalc(value){
     ){
 
         number = 0;
+
     }
+
 
     return number.toLocaleString(
         'pt-BR',
@@ -3521,6 +4269,7 @@ function formatCalc(value){
             maximumFractionDigits:10
         }
     );
+
 }
 
 
@@ -3533,6 +4282,7 @@ function updateCalculator(){
 
     expression.textContent =
         calcExpression;
+
 }
 
 
@@ -3555,6 +4305,7 @@ function clearCalculator(){
     justCalculated = false;
 
     updateCalculator();
+
 }
 
 
@@ -3568,6 +4319,7 @@ function inputNumber(number){
 
     }
 
+
     if(justCalculated){
 
         calcCurrent = '0';
@@ -3577,6 +4329,7 @@ function inputNumber(number){
         justCalculated = false;
 
     }
+
 
     if(calcWaiting){
 
@@ -3604,7 +4357,9 @@ function inputNumber(number){
 
     }
 
+
     updateCalculator();
+
 }
 
 
@@ -3615,7 +4370,9 @@ function inputDecimal(){
     ){
 
         clearCalculator();
+
     }
+
 
     if(justCalculated){
 
@@ -3626,6 +4383,7 @@ function inputDecimal(){
         justCalculated = false;
 
     }
+
 
     if(calcWaiting){
 
@@ -3638,7 +4396,9 @@ function inputDecimal(){
         updateCalculator();
 
         return;
+
     }
+
 
     if(
         !calcCurrent.includes('.')
@@ -3649,7 +4409,9 @@ function inputDecimal(){
 
     }
 
+
     updateCalculator();
+
 }
 
 
@@ -3668,6 +4430,7 @@ function operatorSymbol(operator){
         return '÷';
 
     return operator;
+
 }
 
 
@@ -3682,6 +4445,7 @@ function calculateOperation(
 
     const b =
         Number(second);
+
 
     if(operator === '+')
         return a + b;
@@ -3698,9 +4462,12 @@ function calculateOperation(
             return null;
 
         return a / b;
+
     }
 
+
     return b;
+
 }
 
 
@@ -3711,7 +4478,9 @@ function selectOperator(operator){
     ){
 
         return;
+
     }
+
 
     if(justCalculated){
 
@@ -3739,7 +4508,9 @@ function selectOperator(operator){
         updateCalculator();
 
         return;
+
     }
+
 
     if(
         calcPrevious !== null &&
@@ -3753,6 +4524,7 @@ function selectOperator(operator){
                 calcCurrent,
                 calcOperator
             );
+
 
         if(result === null){
 
@@ -3772,7 +4544,9 @@ function selectOperator(operator){
             );
 
             return;
+
         }
+
 
         calcPrevious =
             String(result);
@@ -3787,11 +4561,13 @@ function selectOperator(operator){
 
     }
 
+
     calcOperator =
         operator;
 
     calcWaiting =
         true;
+
 
     calcExpression =
         formatCalc(
@@ -3802,7 +4578,9 @@ function selectOperator(operator){
             operator
         );
 
+
     updateCalculator();
+
 }
 
 
@@ -3820,6 +4598,7 @@ function calculateEquals(){
                 lastOperator
             );
 
+
         if(result === null){
 
             calcCurrent =
@@ -3828,7 +4607,9 @@ function calculateEquals(){
             updateCalculator();
 
             return;
+
         }
+
 
         calcExpression =
             formatCalc(
@@ -3844,10 +4625,13 @@ function calculateEquals(){
             ) +
             ' =';
 
+
         calcCurrent =
             String(result);
 
+
         updateCalculator();
+
 
         addHistory(
             'Calculadora',
@@ -3855,8 +4639,11 @@ function calculateEquals(){
             formatCalc(result)
         );
 
+
         return;
+
     }
+
 
     if(
         calcPrevious === null ||
@@ -3864,7 +4651,9 @@ function calculateEquals(){
     ){
 
         return;
+
     }
+
 
     const first =
         calcPrevious;
@@ -3875,12 +4664,14 @@ function calculateEquals(){
     const operator =
         calcOperator;
 
+
     const result =
         calculateOperation(
             first,
             second,
             operator
         );
+
 
     if(result === null){
 
@@ -3903,7 +4694,9 @@ function calculateEquals(){
         );
 
         return;
+
     }
+
 
     calcExpression =
         formatCalc(first) +
@@ -3912,6 +4705,7 @@ function calculateEquals(){
         ' ' +
         formatCalc(second) +
         ' =';
+
 
     calcCurrent =
         String(result);
@@ -3934,13 +4728,16 @@ function calculateEquals(){
     lastOperand =
         second;
 
+
     updateCalculator();
+
 
     addHistory(
         'Calculadora',
         calcExpression,
         formatCalc(result)
     );
+
 }
 
 
@@ -3955,6 +4752,7 @@ function percentage(){
             calcCurrent
         );
 
+
     if(
         !Number.isFinite(
             current
@@ -3962,7 +4760,9 @@ function percentage(){
     ){
 
         return;
+
     }
+
 
     if(
         calcPrevious !== null &&
@@ -3991,7 +4791,9 @@ function percentage(){
 
     }
 
+
     updateCalculator();
+
 }
 
 
@@ -4007,7 +4809,9 @@ function changeSign(){
     ){
 
         return;
+
     }
+
 
     if(
         calcCurrent.startsWith('-')
@@ -4024,7 +4828,9 @@ function changeSign(){
 
     }
 
+
     updateCalculator();
+
 }
 
 
@@ -4040,7 +4846,9 @@ function backspace(){
     ){
 
         return;
+
     }
+
 
     if(
         calcCurrent === 'Erro'
@@ -4049,7 +4857,9 @@ function backspace(){
         clearCalculator();
 
         return;
+
     }
+
 
     if(
         calcCurrent.length <= 1 ||
@@ -4072,107 +4882,14 @@ function backspace(){
 
     }
 
+
     updateCalculator();
+
 }
 
 
 /* =====================================================
-   MEMÓRIA
-===================================================== */
-
-document
-.querySelectorAll(
-    '[data-memory]'
-)
-.forEach(
-    function(button){
-
-        button.addEventListener(
-            'click',
-            function(){
-
-                const action =
-                    button.dataset.memory;
-
-                if(
-                    action === 'clear'
-                ){
-
-                    calcMemory =
-                        '0';
-
-                    toast(
-                        'Memória apagada.'
-                    );
-                }
-
-                if(
-                    action === 'store'
-                ){
-
-                    calcMemory =
-                        calcCurrent;
-
-                    toast(
-                        'Valor salvo na memória.'
-                    );
-                }
-
-                if(
-                    action === 'recall'
-                ){
-
-                    calcCurrent =
-                        calcMemory;
-
-                    calcWaiting =
-                        false;
-
-                    justCalculated =
-                        false;
-
-                    updateCalculator();
-                }
-
-                if(
-                    action === 'add'
-                ){
-
-                    calcMemory =
-                        String(
-                            Number(calcMemory) +
-                            Number(calcCurrent)
-                        );
-
-                    toast(
-                        'Valor adicionado.'
-                    );
-                }
-
-                if(
-                    action === 'subtract'
-                ){
-
-                    calcMemory =
-                        String(
-                            Number(calcMemory) -
-                            Number(calcCurrent)
-                        );
-
-                    toast(
-                        'Valor retirado.'
-                    );
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* =====================================================
-   NÚMEROS
+   BOTÕES CALCULADORA
 ===================================================== */
 
 document
@@ -4197,10 +4914,6 @@ document
 );
 
 
-/* =====================================================
-   OPERADORES
-===================================================== */
-
 document
 .querySelectorAll(
     '[data-operator]'
@@ -4222,10 +4935,6 @@ document
     }
 );
 
-
-/* =====================================================
-   AÇÕES
-===================================================== */
 
 document
 .querySelector(
@@ -4288,6 +4997,111 @@ document
 
 
 /* =====================================================
+   MEMÓRIA
+===================================================== */
+
+document
+.querySelectorAll(
+    '[data-memory]'
+)
+.forEach(
+    function(button){
+
+        button.addEventListener(
+            'click',
+            function(){
+
+                const action =
+                    button.dataset.memory;
+
+
+                if(
+                    action === 'clear'
+                ){
+
+                    calcMemory =
+                        '0';
+
+                    toast(
+                        'Memória apagada.'
+                    );
+
+                }
+
+
+                if(
+                    action === 'store'
+                ){
+
+                    calcMemory =
+                        calcCurrent;
+
+                    toast(
+                        'Valor salvo na memória.'
+                    );
+
+                }
+
+
+                if(
+                    action === 'recall'
+                ){
+
+                    calcCurrent =
+                        calcMemory;
+
+                    calcWaiting =
+                        false;
+
+                    justCalculated =
+                        false;
+
+                    updateCalculator();
+
+                }
+
+
+                if(
+                    action === 'add'
+                ){
+
+                    calcMemory =
+                        String(
+                            Number(calcMemory) +
+                            Number(calcCurrent)
+                        );
+
+                    toast(
+                        'Valor adicionado.'
+                    );
+
+                }
+
+
+                if(
+                    action === 'subtract'
+                ){
+
+                    calcMemory =
+                        String(
+                            Number(calcMemory) -
+                            Number(calcCurrent)
+                        );
+
+                    toast(
+                        'Valor retirado.'
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
    TECLADO FÍSICO
 ===================================================== */
 
@@ -4298,6 +5112,7 @@ document.addEventListener(
         const key =
             event.key;
 
+
         if(
             event.target &&
             event.target.tagName ===
@@ -4305,7 +5120,9 @@ document.addEventListener(
         ){
 
             return;
+
         }
+
 
         if(
             /^[0-9]$/.test(key)
@@ -4316,7 +5133,9 @@ document.addEventListener(
             event.preventDefault();
 
             return;
+
         }
+
 
         if(
             key === ',' ||
@@ -4328,7 +5147,9 @@ document.addEventListener(
             event.preventDefault();
 
             return;
+
         }
+
 
         if(
             ['+','-','*','/']
@@ -4340,7 +5161,9 @@ document.addEventListener(
             event.preventDefault();
 
             return;
+
         }
+
 
         if(key === '%'){
 
@@ -4349,7 +5172,9 @@ document.addEventListener(
             event.preventDefault();
 
             return;
+
         }
+
 
         if(
             key === 'Enter' ||
@@ -4361,7 +5186,9 @@ document.addEventListener(
             event.preventDefault();
 
             return;
+
         }
+
 
         if(
             key === 'Backspace'
@@ -4372,7 +5199,9 @@ document.addEventListener(
             event.preventDefault();
 
             return;
+
         }
+
 
         if(
             key === 'Escape'
@@ -4389,7 +5218,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   CAMPOS DECIMAIS
+   CAMPOS NUMÉRICOS
 ===================================================== */
 
 document.addEventListener(
@@ -4399,6 +5228,7 @@ document.addEventListener(
         const input =
             event.target;
 
+
         if(
             !input.matches(
                 'input[inputmode="decimal"]'
@@ -4406,7 +5236,9 @@ document.addEventListener(
         ){
 
             return;
+
         }
+
 
         input.value =
             input.value.replace(
@@ -4484,6 +5316,7 @@ document.addEventListener(
         const now =
             Date.now();
 
+
         if(
             now -
             lastTouchEnd <=
@@ -4493,6 +5326,7 @@ document.addEventListener(
             event.preventDefault();
 
         }
+
 
         lastTouchEnd =
             now;
@@ -4527,7 +5361,7 @@ document.addEventListener(
 
 updateCalculator();
 
-showPage('home');
+renderHistory();
 
 </script>
 
