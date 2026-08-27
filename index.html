@@ -4,28 +4,19 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1,
-maximum-scale=1,
-user-scalable=no,
-viewport-fit=cover">
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-<meta name="theme-color" content="#07090d">
-
+<meta name="theme-color" content="#080b10">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 <title>CALPRO EXPERT</title>
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
 }
 
@@ -37,162 +28,89 @@ body{
 }
 
 body{
-    background:#07090d;
+    background:#080b10;
     color:#fff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
+    touch-action:manipulation;
     overscroll-behavior:none;
-
     -webkit-text-size-adjust:100%;
-
-    touch-action:pan-y;
 }
 
+button,
+input{
+    font-family:inherit;
+}
 
-/* =====================================================
-   APP
-===================================================== */
+button{
+    border:0;
+    outline:0;
+    cursor:pointer;
+    touch-action:manipulation;
+}
 
 .app{
     width:100%;
     height:100dvh;
     min-height:100dvh;
-
+    overflow:hidden;
     display:flex;
     flex-direction:column;
 
-    overflow:hidden;
-
     background:
-
-        radial-gradient(
-            circle at 50% -20%,
-            rgba(255,112,0,.16),
-            transparent 38%
-        ),
-
-        radial-gradient(
-            circle at 100% 60%,
-            rgba(255,70,0,.055),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            180deg,
-            #080a0f 0%,
-            #090c11 55%,
-            #05070a 100%
-        );
+        radial-gradient(circle at 50% -20%,rgba(255,110,0,.16),transparent 35%),
+        linear-gradient(180deg,#090c12,#06080c);
 }
 
-
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 .header{
-
     flex:0 0 auto;
-
     padding:
-        max(7px,env(safe-area-inset-top))
-        12px
-        7px;
+        max(6px,env(safe-area-inset-top))
+        12px 7px;
 
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.055);
-
-    background:
-        rgba(6,9,13,.90);
-
-    backdrop-filter:
-        blur(22px);
-
-    -webkit-backdrop-filter:
-        blur(22px);
-
-    z-index:20;
+    background:rgba(7,10,14,.96);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
 }
 
-
-/* =====================================================
-   TOPO
-===================================================== */
-
 .top-line{
-
     height:38px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 }
 
-
-/* =====================================================
-   LOGO
-===================================================== */
-
 .brand{
-
     display:flex;
-
     align-items:center;
-
     gap:8px;
 }
 
 .logo{
-
     width:36px;
     height:36px;
+    border-radius:11px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    border-radius:11px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #ffad26,
-            #ff5a00
-        );
-
+    background:linear-gradient(145deg,#ffad26,#ff5900);
     box-shadow:
-
-        0 7px 18px
-        rgba(255,91,0,.28),
-
-        inset 0 2px 3px
-        rgba(255,255,255,.28);
+        0 7px 18px rgba(255,91,0,.28),
+        inset 0 2px 3px rgba(255,255,255,.25);
 }
 
 .logo svg{
-
     width:24px;
     height:24px;
 }
 
 .brand-name{
-
     font-size:19px;
-
     font-weight:1000;
-
     letter-spacing:-1px;
-
-    line-height:17px;
 }
 
 .brand-name span{
@@ -200,192 +118,85 @@ body{
 }
 
 .brand-expert{
-
-    margin-top:0;
-
+    color:#7e8995;
     font-size:5.5px;
-
     font-weight:900;
-
     letter-spacing:3px;
-
-    color:#7f8995;
-
     text-align:center;
 }
 
-
-/* =====================================================
-   BOTÃO STATUS
-===================================================== */
-
 .status{
-
     display:flex;
-
     align-items:center;
-
     gap:5px;
 
-    padding:
-        6px 8px;
-
+    padding:6px 8px;
     border-radius:9px;
 
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.055);
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.06);
 
     color:#7f8995;
-
     font-size:6px;
-
     font-weight:900;
 }
 
 .status-dot{
-
     width:5px;
     height:5px;
-
     border-radius:50%;
-
     background:#36df86;
-
-    box-shadow:
-        0 0 8px
-        rgba(54,223,134,.7);
+    box-shadow:0 0 8px rgba(54,223,134,.7);
 }
 
-
-/* =====================================================
-   MINI FRASE
-===================================================== */
-
 .header-subtitle{
-
-    margin-top:2px;
-
     color:#697481;
-
     font-size:6.5px;
-
-    text-align:left;
 }
 
 .header-subtitle b{
     color:#ff7900;
 }
 
-
-/* =====================================================
-   ÁREA PRINCIPAL
-===================================================== */
+/* HOME */
 
 .main{
-
     flex:1;
-
     min-height:0;
-
     overflow:hidden;
 
     display:flex;
-
     flex-direction:column;
 
-    padding:
-        8px
-        11px
-        0;
+    padding:8px 11px 0;
 }
 
-
-/* =====================================================
-   HERO COMPACTO
-===================================================== */
+/* HERO */
 
 .hero{
-
     position:relative;
-
     flex:0 0 auto;
-
     height:76px;
 
-    padding:
-        11px 13px;
-
-    border-radius:17px;
+    padding:11px 13px;
 
     overflow:hidden;
 
+    border-radius:17px;
+
     background:
+        radial-gradient(circle at 95% 0%,rgba(255,106,0,.28),transparent 34%),
+        linear-gradient(135deg,#17202b,#0d131b);
 
-        radial-gradient(
-            circle at 95% 0%,
-            rgba(255,106,0,.28),
-            transparent 34%
-        ),
-
-        radial-gradient(
-            circle at 70% 100%,
-            rgba(255,80,0,.08),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            135deg,
-            #17202b,
-            #0d131b
-        );
-
-    border:
-        1px solid
-        rgba(255,119,0,.15);
+    border:1px solid rgba(255,119,0,.15);
 
     box-shadow:
-
-        0 10px 24px
-        rgba(0,0,0,.25),
-
-        inset 0 1px 1px
-        rgba(255,255,255,.06);
-}
-
-
-/* brilho */
-
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:120px;
-    height:120px;
-
-    right:-35px;
-    top:-65px;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,137,45,.15);
-
-    box-shadow:
-        0 0 35px
-        rgba(255,100,0,.10);
+        0 10px 24px rgba(0,0,0,.25),
+        inset 0 1px 1px rgba(255,255,255,.06);
 }
 
 .hero::after{
-
     content:"";
-
     position:absolute;
 
     width:4px;
@@ -396,48 +207,30 @@ body{
 
     border-radius:0 5px 5px 0;
 
-    background:
-        linear-gradient(
-            180deg,
-            #ffb12a,
-            #ff5b00
-        );
+    background:linear-gradient(180deg,#ffb12a,#ff5b00);
 }
 
 .hero-tag{
-
     display:inline-flex;
 
-    padding:
-        3px 7px;
-
+    padding:3px 7px;
     border-radius:5px;
 
-    background:
-        rgba(255,119,0,.10);
+    background:rgba(255,119,0,.1);
 
     color:#ff8a25;
 
     font-size:5.5px;
-
     font-weight:1000;
-
     letter-spacing:1px;
 }
 
 .hero h1{
-
     margin-top:4px;
 
     font-size:17px;
-
     line-height:18px;
-
     letter-spacing:-.7px;
-
-    position:relative;
-
-    z-index:2;
 }
 
 .hero h1 span{
@@ -445,7 +238,6 @@ body{
 }
 
 .hero p{
-
     margin-top:2px;
 
     max-width:75%;
@@ -453,59 +245,37 @@ body{
     color:#788491;
 
     font-size:6.5px;
-
     line-height:9px;
-
-    position:relative;
-
-    z-index:2;
 }
 
-
-/* =====================================================
-   CABEÇALHO FERRAMENTAS
-===================================================== */
+/* FERRAMENTAS */
 
 .tools-heading{
-
     flex:0 0 auto;
-
-    display:flex;
-
-    align-items:end;
-
-    justify-content:space-between;
 
     height:35px;
 
-    padding:
-        4px 2px 4px;
+    padding:4px 2px;
+
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
 }
 
 .tools-heading h2{
-
     font-size:13px;
-
     font-weight:1000;
-
-    letter-spacing:-.3px;
 }
 
 .tools-heading p{
-
-    color:#64707c;
-
-    font-size:6px;
-
     margin-top:1px;
+    color:#64707c;
+    font-size:6px;
 }
 
 .tools-count{
-
     color:#6d7782;
-
     font-size:6px;
-
     font-weight:900;
 }
 
@@ -513,35 +283,21 @@ body{
     color:#ff7900;
 }
 
-
-/* =====================================================
-   GRID
-===================================================== */
-
 .tools{
-
     flex:1;
-
     min-height:0;
 
     display:grid;
 
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-    grid-template-rows:
-        repeat(3,minmax(0,1fr));
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:repeat(3,minmax(0,1fr));
 
     gap:6px;
 }
 
-
-/* =====================================================
-   CARD
-===================================================== */
+/* CARDS */
 
 .tool-card{
-
     position:relative;
 
     min-width:0;
@@ -550,150 +306,48 @@ body{
     overflow:hidden;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
 
     border-radius:16px;
 
     background:
+        radial-gradient(circle at 50% 5%,rgba(255,112,0,.1),transparent 34%),
+        linear-gradient(145deg,#17212c,#101720 55%,#0b1016);
 
-        radial-gradient(
-            circle at 50% 5%,
-            rgba(255,112,0,.10),
-            transparent 34%
-        ),
-
-        linear-gradient(
-            145deg,
-            #17212c,
-            #101720 55%,
-            #0b1016
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.075);
+    border:1px solid rgba(255,255,255,.075);
 
     box-shadow:
+        0 7px 16px rgba(0,0,0,.26),
+        inset 0 1px 1px rgba(255,255,255,.065);
 
-        0 7px 16px
-        rgba(0,0,0,.26),
-
-        inset 0 1px 1px
-        rgba(255,255,255,.065);
-
-    transition:
-        transform .14s ease,
-        border-color .14s ease,
-        box-shadow .14s ease;
+    -webkit-user-select:none;
+    user-select:none;
 }
 
-
-/* linha de brilho */
-
-.tool-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:15%;
-    right:15%;
-
-    top:0;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,126,28,.45),
-            transparent
-        );
+.tool-card:active{
+    border-color:rgba(255,123,0,.65);
 }
-
-
-/* brilho inferior */
-
-.tool-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    bottom:5px;
-
-    width:50px;
-    height:2px;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,112,0,.55),
-            transparent
-        );
-
-    filter:
-        blur(1px);
-}
-
-
-/* =====================================================
-   ÍCONES
-===================================================== */
 
 .tool-card img{
-
-    position:relative;
-
-    z-index:2;
-
     width:48px;
     height:48px;
 
     object-fit:contain;
-
     object-position:center;
 
     display:block;
 
     margin-bottom:4px;
 
-    filter:
-        drop-shadow(
-            0 5px 7px
-            rgba(0,0,0,.48)
-        );
-
-    user-select:none;
-
-    -webkit-user-drag:none;
+    filter:drop-shadow(0 5px 7px rgba(0,0,0,.48));
 
     pointer-events:none;
-
-    transition:
-        transform .14s ease;
+    -webkit-user-drag:none;
 }
 
-
-/* =====================================================
-   NOME
-===================================================== */
-
 .tool-name{
-
-    position:relative;
-
-    z-index:3;
-
     width:100%;
 
     text-align:center;
@@ -701,25 +355,11 @@ body{
     color:#fff;
 
     font-size:8.5px;
-
     font-weight:1000;
-
     line-height:10px;
-
-    letter-spacing:.2px;
 }
 
-
-/* =====================================================
-   DESCRIÇÃO
-===================================================== */
-
 .tool-description{
-
-    position:relative;
-
-    z-index:3;
-
     width:88%;
 
     margin-top:3px;
@@ -729,92 +369,42 @@ body{
     color:#7f8b98;
 
     font-size:6.2px;
-
     font-weight:600;
-
     line-height:7.5px;
 }
 
-
-/* =====================================================
-   TOQUE
-===================================================== */
-
-.tool-card:active{
-
-    transform:
-        scale(.965);
-
-    border-color:
-        rgba(255,123,0,.60);
-
-    box-shadow:
-
-        0 4px 12px
-        rgba(0,0,0,.30),
-
-        0 0 18px
-        rgba(255,100,0,.09);
-}
-
-.tool-card:active img{
-
-    transform:
-        scale(.94);
-}
-
-
-/* =====================================================
-   PUBLICIDADE
-===================================================== */
+/* PUBLICIDADE */
 
 .ad{
-
     flex:0 0 auto;
 
     height:29px;
 
-    margin:
-        6px 0 5px;
+    margin:6px 0 5px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     border-radius:9px;
 
-    border:
-        1px dashed
-        rgba(255,117,0,.20);
+    border:1px dashed rgba(255,117,0,.20);
 
-    background:
-        rgba(255,255,255,.018);
+    background:rgba(255,255,255,.018);
 
     color:#5f6b77;
 
     font-size:5.5px;
-
     font-weight:900;
-
     letter-spacing:.8px;
 }
 
-
-/* =====================================================
-   NAVEGAÇÃO INFERIOR
-===================================================== */
+/* MENU */
 
 .bottom-nav{
-
     flex:0 0 auto;
 
-    height:
-        calc(
-            54px +
-            env(safe-area-inset-bottom)
-        );
+    height:calc(54px + env(safe-area-inset-bottom));
 
     padding:
         5px
@@ -822,28 +412,17 @@ body{
         env(safe-area-inset-bottom);
 
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:5px;
 
-    background:
-        rgba(7,10,14,.97);
+    background:rgba(7,10,14,.98);
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.055);
+    border-top:1px solid rgba(255,255,255,.055);
 
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
+    backdrop-filter:blur(20px);
 }
 
 .bottom-nav button{
-
     position:relative;
 
     border-radius:10px;
@@ -853,27 +432,21 @@ body{
     color:#606b77;
 
     font-size:6px;
-
     font-weight:900;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
 
     gap:3px;
 }
 
 .bottom-icon{
-
     width:17px;
     height:17px;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -883,21 +456,16 @@ body{
 }
 
 .bottom-nav button.active{
-
     color:#ff810f;
-
-    background:
-        rgba(255,115,0,.07);
+    background:rgba(255,115,0,.07);
 }
 
 .bottom-nav button.active::before{
-
     content:"";
 
     position:absolute;
 
     top:0;
-
     left:28%;
     right:28%;
 
@@ -905,21 +473,12 @@ body{
 
     border-radius:0 0 4px 4px;
 
-    background:
-        #ff7100;
-
-    box-shadow:
-        0 0 8px
-        rgba(255,100,0,.5);
+    background:#ff7100;
 }
 
-
-/* =====================================================
-   PÁGINAS INTERNAS
-===================================================== */
+/* PÁGINAS */
 
 .internal-page{
-
     display:none;
 
     position:fixed;
@@ -928,51 +487,32 @@ body{
 
     z-index:100;
 
-    background:
-
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(255,100,0,.13),
-            transparent 35%
-        ),
-
-        #080b10;
-
     overflow-y:auto;
-
     -webkit-overflow-scrolling:touch;
+
+    background:
+        radial-gradient(circle at 50% -10%,rgba(255,100,0,.13),transparent 35%),
+        #080b10;
 
     padding:
         max(12px,env(safe-area-inset-top))
         12px
-        calc(
-            25px +
-            env(safe-area-inset-bottom)
-        );
+        calc(25px + env(safe-area-inset-bottom));
 }
 
 .internal-page.show{
     display:block;
 }
 
-
-/* =====================================================
-   CABEÇALHO INTERNO
-===================================================== */
-
 .internal-header{
-
     display:flex;
-
     align-items:center;
-
     gap:8px;
 
     margin-bottom:10px;
 }
 
 .back-button{
-
     width:34px;
     height:34px;
 
@@ -980,93 +520,60 @@ body{
 
     background:#141b24;
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.07);
 
     color:#fff;
 
-    font-size:16px;
+    font-size:20px;
 }
 
 .internal-title{
-
     font-size:18px;
-
     font-weight:1000;
-
-    letter-spacing:-.5px;
 }
 
 .internal-subtitle{
-
     margin-top:2px;
-
     color:#707b87;
-
     font-size:7px;
 }
 
-
-/* =====================================================
-   CARD INTERNO
-===================================================== */
+/* CARD */
 
 .card{
-
     padding:14px;
-
     margin-bottom:10px;
 
     border-radius:15px;
 
-    background:
+    background:linear-gradient(145deg,#151e28,#0b1118);
 
-        linear-gradient(
-            145deg,
-            #151e28,
-            #0b1118
-        );
+    border:1px solid rgba(255,255,255,.065);
 
-    border:
-        1px solid
-        rgba(255,255,255,.065);
-
-    box-shadow:
-        0 10px 22px
-        rgba(0,0,0,.20);
+    box-shadow:0 10px 22px rgba(0,0,0,.2);
 }
 
 .card h3{
-
     font-size:16px;
-
     font-weight:1000;
 }
 
 .card p{
-
-    margin:
-        4px 0 12px;
+    margin:4px 0 12px;
 
     color:#788592;
 
     font-size:8px;
-
     line-height:12px;
 }
 
-
-/* =====================================================
-   INPUTS
-===================================================== */
+/* INPUT */
 
 .field{
     margin-bottom:10px;
 }
 
 .field label{
-
     display:block;
 
     margin-bottom:5px;
@@ -1074,24 +581,18 @@ body{
     color:#aeb8c3;
 
     font-size:8px;
-
     font-weight:800;
 }
 
 .field input{
-
     width:100%;
-
     height:44px;
 
-    padding:
-        8px 11px;
+    padding:8px 11px;
 
     border-radius:10px;
 
-    border:
-        1px solid
-        #28333f;
+    border:1px solid #28333f;
 
     outline:none;
 
@@ -1100,61 +601,41 @@ body{
     color:#fff;
 
     font-size:15px;
-
     font-weight:700;
 
     -webkit-appearance:none;
-
     appearance:none;
+
+    touch-action:manipulation;
 }
 
 .field input:focus{
-
     border-color:#ff7400;
 
-    box-shadow:
-        0 0 0 2px
-        rgba(255,116,0,.08);
+    box-shadow:0 0 0 2px rgba(255,116,0,.08);
 }
 
-
-/* =====================================================
-   BOTÕES
-===================================================== */
+/* CALCULAR */
 
 .calculate{
-
     width:100%;
-
     min-height:43px;
 
     border-radius:10px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #ff9000,
-            #ff5c00
-        );
+    background:linear-gradient(135deg,#ff9000,#ff5c00);
 
     color:#fff;
 
     font-size:8px;
-
     font-weight:1000;
 
-    box-shadow:
-        0 7px 15px
-        rgba(255,80,0,.15);
+    touch-action:manipulation;
 }
 
-
-/* =====================================================
-   RESULTADO
-===================================================== */
+/* RESULTADO */
 
 .result{
-
     display:none;
 
     margin-top:10px;
@@ -1163,40 +644,30 @@ body{
 
     border-radius:11px;
 
-    background:
-        rgba(255,111,0,.055);
+    background:rgba(255,111,0,.055);
 
-    border:
-        1px solid
-        rgba(255,111,0,.20);
+    border:1px solid rgba(255,111,0,.20);
 }
 
 .result-label{
-
     color:#ff963d;
 
     font-size:7px;
-
     font-weight:900;
-
     letter-spacing:.7px;
 }
 
 .result-value{
-
     margin-top:3px;
 
     font-size:25px;
-
     font-weight:1000;
 }
 
 .result-grid{
-
     display:grid;
 
-    grid-template-columns:
-        repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:5px;
 
@@ -1204,17 +675,13 @@ body{
 }
 
 .result-box{
-
     padding:8px;
-
     border-radius:7px;
 
-    background:
-        rgba(255,255,255,.04);
+    background:rgba(255,255,255,.04);
 }
 
 .result-box small{
-
     display:block;
 
     color:#75818d;
@@ -1223,7 +690,6 @@ body{
 }
 
 .result-box strong{
-
     display:block;
 
     margin-top:2px;
@@ -1231,32 +697,23 @@ body{
     font-size:10px;
 }
 
-
-/* =====================================================
-   CALCULADORA
-===================================================== */
+/* CALCULADORA */
 
 .calculator-display{
-
     min-height:105px;
 
     padding:13px;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:flex-end;
-
     align-items:flex-end;
 
     border-radius:13px;
 
     background:#05080c;
 
-    border:
-        1px solid
-        #252f3a;
+    border:1px solid #252f3a;
 
     overflow:hidden;
 
@@ -1264,9 +721,7 @@ body{
 }
 
 .calc-expression{
-
     width:100%;
-
     min-height:15px;
 
     color:#65717e;
@@ -1276,12 +731,10 @@ body{
     text-align:right;
 
     white-space:nowrap;
-
     overflow:hidden;
 }
 
 .calc-number{
-
     max-width:100%;
 
     margin-top:3px;
@@ -1289,76 +742,65 @@ body{
     color:#fff;
 
     font-size:34px;
-
     font-weight:900;
 
     white-space:nowrap;
-
     overflow:hidden;
 }
 
 .memory{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
+    grid-template-columns:repeat(5,1fr);
     gap:4px;
 
     margin-bottom:6px;
 }
 
 .memory button{
-
     height:32px;
 
     border-radius:7px;
 
     background:#111820;
 
-    border:
-        1px solid
-        #252e39;
+    border:1px solid #252e39;
 
     color:#8995a3;
 
     font-size:7px;
-
     font-weight:900;
+
+    touch-action:manipulation;
 }
 
 .keypad{
-
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:6px;
 }
 
 .key{
-
     min-height:52px;
 
     border-radius:10px;
 
     background:#151c25;
 
-    border:
-        1px solid
-        #27313c;
+    border:1px solid #27313c;
 
     color:#fff;
 
     font-size:17px;
-
     font-weight:900;
-}
 
-.key:active{
-    transform:scale(.95);
+    touch-action:manipulation;
+
+    -webkit-user-select:none;
+    user-select:none;
+
+    transition:none !important;
 }
 
 .key.operator{
@@ -1366,28 +808,23 @@ body{
 }
 
 .key.equal{
-
     background:#ff7200;
-
     border-color:#ff7200;
 }
 
 .key.special{
-
     color:#a7b1bd;
-
     font-size:11px;
 }
 
+.key.pressed{
+    filter:brightness(1.35);
+}
 
-/* =====================================================
-   HISTÓRICO
-===================================================== */
+/* HISTÓRICO */
 
 .clear-history{
-
     width:100%;
-
     min-height:40px;
 
     margin-bottom:9px;
@@ -1396,19 +833,15 @@ body{
 
     background:#171d25;
 
-    border:
-        1px solid
-        rgba(255,80,80,.20);
+    border:1px solid rgba(255,80,80,.20);
 
     color:#ff6464;
 
     font-size:8px;
-
     font-weight:900;
 }
 
 .history-empty{
-
     padding:25px 10px;
 
     text-align:center;
@@ -1419,111 +852,82 @@ body{
 }
 
 .history-item{
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     gap:10px;
 
     padding:10px 0;
 
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.055);
+    border-bottom:1px solid rgba(255,255,255,.055);
 }
 
 .history-name{
-
     font-size:9px;
-
     font-weight:900;
 }
 
 .history-info{
-
     margin-top:2px;
 
     color:#707c89;
 
     font-size:7px;
-
     line-height:10px;
 }
 
 .history-result{
-
     color:#ff8a20;
 
     font-size:9px;
-
     font-weight:900;
 
     text-align:right;
 }
 
-
-/* =====================================================
-   TOAST
-===================================================== */
+/* TOAST */
 
 .toast{
-
     position:fixed;
 
     z-index:9999;
 
     left:50%;
-
     bottom:72px;
 
-    padding:
-        9px 13px;
+    padding:9px 13px;
 
     border-radius:9px;
 
     background:#171e27;
 
-    border:
-        1px solid
-        #303a46;
+    border:1px solid #303a46;
 
     color:#fff;
 
     font-size:8px;
-
     font-weight:700;
 
-    transform:
-        translate(-50%,100px);
+    transform:translate(-50%,100px);
 
     opacity:0;
 
-    transition:.25s;
+    transition:
+        opacity .15s ease,
+        transform .15s ease;
 
     pointer-events:none;
 }
 
 .toast.show{
-
-    transform:
-        translate(-50%,0);
-
+    transform:translate(-50%,0);
     opacity:1;
 }
 
-
-/* =====================================================
-   IPHONES MENORES
-===================================================== */
+/* CELULARES PEQUENOS */
 
 @media(max-height:680px){
-
-    .header{
-        padding-top:5px;
-    }
 
     .hero{
         height:65px;
@@ -1561,20 +965,7 @@ body{
         height:25px;
         margin:4px 0;
     }
-
-    .bottom-nav{
-        height:
-            calc(
-                50px +
-                env(safe-area-inset-bottom)
-            );
-    }
 }
-
-
-/* =====================================================
-   IPHONES MUITO PEQUENOS
-===================================================== */
 
 @media(max-height:620px){
 
@@ -1594,7 +985,6 @@ body{
 
     .brand-name{
         font-size:16px;
-        line-height:14px;
     }
 
     .hero{
@@ -1610,16 +1000,8 @@ body{
         font-size:14px;
     }
 
-    .hero p{
-        margin-top:1px;
-    }
-
     .tools-heading{
         height:27px;
-    }
-
-    .tool-card{
-        border-radius:13px;
     }
 
     .tool-card img{
@@ -1640,19 +1022,13 @@ body{
     }
 }
 
-
-/* =====================================================
-   TABLET / DESKTOP
-===================================================== */
-
 @media(min-width:700px){
 
     .main{
         max-width:900px;
         width:100%;
         margin:auto;
-        padding:
-            14px 18px 0;
+        padding:14px 18px 0;
     }
 
     .header{
@@ -1674,14 +1050,6 @@ body{
         line-height:12px;
     }
 
-    .tools-heading{
-        height:45px;
-    }
-
-    .tools-heading h2{
-        font-size:17px;
-    }
-
     .tool-card img{
         width:62px;
         height:62px;
@@ -1694,31 +1062,14 @@ body{
     .tool-description{
         font-size:7px;
     }
-
-}
-
-
-/* =====================================================
-   BLOQUEIO DE ZOOM
-===================================================== */
-
-body{
-    touch-action:pan-y;
 }
 
 </style>
 </head>
 
-
 <body>
 
-
 <div class="app">
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header class="header">
 
@@ -1734,27 +1085,17 @@ body{
                     stroke="white"
                     stroke-width="3"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
+                    stroke-linejoin="round">
 
-                    <circle
-                        cx="25"
-                        cy="25"
-                        r="20"
-                    />
+                    <circle cx="25" cy="25" r="20"/>
 
-                    <path
-                        d="M14 31L21 24L27 28L37 17"
-                    />
+                    <path d="M14 31L21 24L27 28L37 17"/>
 
-                    <path
-                        d="M31 17H37V23"
-                    />
+                    <path d="M31 17H37V23"/>
 
                 </svg>
 
             </div>
-
 
             <div>
 
@@ -1770,7 +1111,6 @@ body{
 
         </div>
 
-
         <div class="status">
 
             <span class="status-dot"></span>
@@ -1780,7 +1120,6 @@ body{
         </div>
 
     </div>
-
 
     <div class="header-subtitle">
 
@@ -1792,17 +1131,9 @@ body{
 </header>
 
 
-<!-- =====================================================
-     CONTEÚDO HOME
-===================================================== -->
-
 <main
     class="main"
-    id="homePage"
->
-
-
-    <!-- HERO -->
+    id="homePage">
 
     <section class="hero">
 
@@ -1822,8 +1153,6 @@ body{
 
     </section>
 
-
-    <!-- TÍTULO -->
 
     <div class="tools-heading">
 
@@ -1846,25 +1175,16 @@ body{
     </div>
 
 
-    <!-- =================================================
-         FERRAMENTAS
-    ================================================== -->
-
     <section class="tools">
-
-
-        <!-- PREÇO -->
 
         <button
             class="tool-card"
-            data-tool="price"
-        >
+            data-tool="price">
 
             <img
-                src="./assets/PRECO-DE-VENDA.png?v=10"
+                src="./assets/PRECO-DE-VENDA.png?v=30"
                 alt="Preço de Venda"
-                draggable="false"
-            >
+                draggable="false">
 
             <div class="tool-name">
                 PREÇO DE VENDA
@@ -1877,18 +1197,14 @@ body{
         </button>
 
 
-        <!-- MARGEM -->
-
         <button
             class="tool-card"
-            data-tool="margin"
-        >
+            data-tool="margin">
 
             <img
-                src="./assets/MARGEM-DE-LUCRO.png?v=10"
-                alt="Margem de Lucro"
-                draggable="false"
-            >
+                src="./assets/MARGEM-DE-LUCRO.png?v=30"
+                alt="Margem"
+                draggable="false">
 
             <div class="tool-name">
                 MARGEM
@@ -1901,18 +1217,14 @@ body{
         </button>
 
 
-        <!-- DESCONTO -->
-
         <button
             class="tool-card"
-            data-tool="discount"
-        >
+            data-tool="discount">
 
             <img
-                src="./assets/DESCONTO.png?v=10"
+                src="./assets/DESCONTO.png?v=30"
                 alt="Desconto"
-                draggable="false"
-            >
+                draggable="false">
 
             <div class="tool-name">
                 DESCONTO
@@ -1925,18 +1237,14 @@ body{
         </button>
 
 
-        <!-- MARKUP -->
-
         <button
             class="tool-card"
-            data-tool="markup"
-        >
+            data-tool="markup">
 
             <img
-                src="./assets/MARKUP.png?v=10"
+                src="./assets/MARKUP.png?v=30"
                 alt="Markup"
-                draggable="false"
-            >
+                draggable="false">
 
             <div class="tool-name">
                 MARKUP
@@ -1949,18 +1257,14 @@ body{
         </button>
 
 
-        <!-- COMISSÃO -->
-
         <button
             class="tool-card"
-            data-tool="commission"
-        >
+            data-tool="commission">
 
             <img
-                src="./assets/COMISSAO.png?v=10"
+                src="./assets/COMISSAO.png?v=30"
                 alt="Comissão"
-                draggable="false"
-            >
+                draggable="false">
 
             <div class="tool-name">
                 COMISSÃO
@@ -1973,18 +1277,14 @@ body{
         </button>
 
 
-        <!-- CALCULADORA -->
-
         <button
             class="tool-card"
-            data-tool="calculator"
-        >
+            data-tool="calculator">
 
             <img
-                src="./assets/CALCULADORA.png?v=10"
+                src="./assets/CALCULADORA.png?v=30"
                 alt="Calculadora"
-                draggable="false"
-            >
+                draggable="false">
 
             <div class="tool-name">
                 CALCULADORA
@@ -1996,32 +1296,21 @@ body{
 
         </button>
 
-
     </section>
 
 
-    <!-- PUBLICIDADE -->
-
     <div class="ad">
-
         ESPAÇO RESERVADO PARA PUBLICIDADE
-
     </div>
-
 
 </main>
 
-
-<!-- =====================================================
-     NAVEGAÇÃO
-===================================================== -->
 
 <nav class="bottom-nav">
 
     <button
         class="active"
-        data-page="home"
-    >
+        data-page="home">
 
         <span class="bottom-icon">
             ⌂
@@ -2033,8 +1322,7 @@ body{
 
 
     <button
-        data-page="calculator"
-    >
+        data-page="calculator">
 
         <span class="bottom-icon">
             ＋
@@ -2046,8 +1334,7 @@ body{
 
 
     <button
-        data-page="history"
-    >
+        data-page="history">
 
         <span class="bottom-icon">
             ◷
@@ -2060,43 +1347,32 @@ body{
 </nav>
 
 
-<!-- =====================================================
-     PÁGINA DE FERRAMENTAS
-===================================================== -->
+<!-- FERRAMENTAS -->
 
 <section
     id="toolPage"
-    class="internal-page"
->
-
+    class="internal-page">
 
     <div class="internal-header">
 
         <button
             class="back-button"
             id="backHome">
-
             ‹
-
         </button>
-
 
         <div>
 
             <div
                 class="internal-title"
                 id="toolTitle">
-
                 Ferramenta
-
             </div>
 
             <div
                 class="internal-subtitle"
                 id="toolSubtitle">
-
                 Calcule com precisão.
-
             </div>
 
         </div>
@@ -2109,8 +1385,7 @@ body{
     <div
         id="tool-price"
         class="tool-panel"
-        style="display:none"
-    >
+        style="display:none">
 
         <div class="card">
 
@@ -2123,7 +1398,6 @@ body{
                 para descobrir o preço ideal de venda.
             </p>
 
-
             <div class="field">
 
                 <label>
@@ -2135,11 +1409,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0,00"
-                >
+                    placeholder="0,00">
 
             </div>
-
 
             <div class="field">
 
@@ -2152,11 +1424,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="30"
-                >
+                    placeholder="30">
 
             </div>
-
 
             <button
                 class="calculate"
@@ -2166,11 +1436,9 @@ body{
 
             </button>
 
-
             <div
                 class="result"
-                id="resultPrice"
-            >
+                id="resultPrice">
 
                 <div class="result-label">
                     PREÇO DE VENDA
@@ -2179,9 +1447,7 @@ body{
                 <div
                     class="result-value"
                     id="priceValue">
-
                     R$ 0,00
-
                 </div>
 
             </div>
@@ -2196,8 +1462,7 @@ body{
     <div
         id="tool-margin"
         class="tool-panel"
-        style="display:none"
-    >
+        style="display:none">
 
         <div class="card">
 
@@ -2210,7 +1475,6 @@ body{
                 depois de considerar o custo.
             </p>
 
-
             <div class="field">
 
                 <label>
@@ -2222,11 +1486,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0,00"
-                >
+                    placeholder="0,00">
 
             </div>
-
 
             <div class="field">
 
@@ -2239,11 +1501,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0,00"
-                >
+                    placeholder="0,00">
 
             </div>
-
 
             <button
                 class="calculate"
@@ -2253,11 +1513,9 @@ body{
 
             </button>
 
-
             <div
                 class="result"
-                id="resultMargin"
-            >
+                id="resultMargin">
 
                 <div class="result-label">
                     MARGEM
@@ -2266,11 +1524,8 @@ body{
                 <div
                     class="result-value"
                     id="marginValue">
-
                     0,00%
-
                 </div>
-
 
                 <div class="result-grid">
 
@@ -2282,13 +1537,10 @@ body{
 
                         <strong
                             id="marginProfit">
-
                             R$ 0,00
-
                         </strong>
 
                     </div>
-
 
                     <div class="result-box">
 
@@ -2298,9 +1550,7 @@ body{
 
                         <strong
                             id="marginMarkup">
-
                             0,00x
-
                         </strong>
 
                     </div>
@@ -2319,8 +1569,7 @@ body{
     <div
         id="tool-discount"
         class="tool-panel"
-        style="display:none"
-    >
+        style="display:none">
 
         <div class="card">
 
@@ -2333,7 +1582,6 @@ body{
                 depois de aplicar o desconto.
             </p>
 
-
             <div class="field">
 
                 <label>
@@ -2345,11 +1593,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0,00"
-                >
+                    placeholder="0,00">
 
             </div>
-
 
             <div class="field">
 
@@ -2362,11 +1608,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="10"
-                >
+                    placeholder="10">
 
             </div>
-
 
             <button
                 class="calculate"
@@ -2376,11 +1620,9 @@ body{
 
             </button>
 
-
             <div
                 class="result"
-                id="resultDiscount"
-            >
+                id="resultDiscount">
 
                 <div class="result-label">
                     PREÇO FINAL
@@ -2389,11 +1631,8 @@ body{
                 <div
                     class="result-value"
                     id="discountValue">
-
                     R$ 0,00
-
                 </div>
-
 
                 <div class="result-grid">
 
@@ -2405,13 +1644,10 @@ body{
 
                         <strong
                             id="discountAmount">
-
                             R$ 0,00
-
                         </strong>
 
                     </div>
-
 
                     <div class="result-box">
 
@@ -2421,9 +1657,7 @@ body{
 
                         <strong
                             id="discountPercentValue">
-
                             0,00%
-
                         </strong>
 
                     </div>
@@ -2442,8 +1676,7 @@ body{
     <div
         id="tool-markup"
         class="tool-panel"
-        style="display:none"
-    >
+        style="display:none">
 
         <div class="card">
 
@@ -2456,7 +1689,6 @@ body{
                 representa o seu custo.
             </p>
 
-
             <div class="field">
 
                 <label>
@@ -2468,11 +1700,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0,00"
-                >
+                    placeholder="0,00">
 
             </div>
-
 
             <div class="field">
 
@@ -2485,11 +1715,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0,00"
-                >
+                    placeholder="0,00">
 
             </div>
-
 
             <button
                 class="calculate"
@@ -2499,11 +1727,9 @@ body{
 
             </button>
 
-
             <div
                 class="result"
-                id="resultMarkup"
-            >
+                id="resultMarkup">
 
                 <div class="result-label">
                     MARKUP
@@ -2512,11 +1738,8 @@ body{
                 <div
                     class="result-value"
                     id="markupValue">
-
                     0,00x
-
                 </div>
-
 
                 <div class="result-grid">
 
@@ -2528,13 +1751,10 @@ body{
 
                         <strong
                             id="markupIncrease">
-
                             0,00%
-
                         </strong>
 
                     </div>
-
 
                     <div class="result-box">
 
@@ -2544,9 +1764,7 @@ body{
 
                         <strong
                             id="markupMargin">
-
                             0,00%
-
                         </strong>
 
                     </div>
@@ -2565,8 +1783,7 @@ body{
     <div
         id="tool-commission"
         class="tool-panel"
-        style="display:none"
-    >
+        style="display:none">
 
         <div class="card">
 
@@ -2579,7 +1796,6 @@ body{
                 para descobrir sua comissão.
             </p>
 
-
             <div class="field">
 
                 <label>
@@ -2591,11 +1807,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="0,00"
-                >
+                    placeholder="0,00">
 
             </div>
-
 
             <div class="field">
 
@@ -2608,11 +1822,9 @@ body{
                     type="text"
                     inputmode="decimal"
                     autocomplete="off"
-                    placeholder="5"
-                >
+                    placeholder="5">
 
             </div>
-
 
             <button
                 class="calculate"
@@ -2622,11 +1834,9 @@ body{
 
             </button>
 
-
             <div
                 class="result"
-                id="resultCommission"
-            >
+                id="resultCommission">
 
                 <div class="result-label">
                     SUA COMISSÃO
@@ -2635,9 +1845,7 @@ body{
                 <div
                     class="result-value"
                     id="commissionValue">
-
                     R$ 0,00
-
                 </div>
 
             </div>
@@ -2649,26 +1857,19 @@ body{
 </section>
 
 
-<!-- =====================================================
-     CALCULADORA
-===================================================== -->
+<!-- CALCULADORA -->
 
 <section
     id="calculatorPage"
-    class="internal-page"
->
-
+    class="internal-page">
 
     <div class="internal-header">
 
         <button
             class="back-button"
             id="backFromCalculator">
-
             ‹
-
         </button>
-
 
         <div>
 
@@ -2697,9 +1898,7 @@ body{
             <div
                 class="calc-number"
                 id="display">
-
                 0
-
             </div>
 
         </div>
@@ -2757,23 +1956,9 @@ body{
             </button>
 
 
-            <button
-                class="key"
-                data-number="7">
-                7
-            </button>
-
-            <button
-                class="key"
-                data-number="8">
-                8
-            </button>
-
-            <button
-                class="key"
-                data-number="9">
-                9
-            </button>
+            <button class="key" data-number="7">7</button>
+            <button class="key" data-number="8">8</button>
+            <button class="key" data-number="9">9</button>
 
             <button
                 class="key operator"
@@ -2782,23 +1967,9 @@ body{
             </button>
 
 
-            <button
-                class="key"
-                data-number="4">
-                4
-            </button>
-
-            <button
-                class="key"
-                data-number="5">
-                5
-            </button>
-
-            <button
-                class="key"
-                data-number="6">
-                6
-            </button>
+            <button class="key" data-number="4">4</button>
+            <button class="key" data-number="5">5</button>
+            <button class="key" data-number="6">6</button>
 
             <button
                 class="key operator"
@@ -2807,23 +1978,9 @@ body{
             </button>
 
 
-            <button
-                class="key"
-                data-number="1">
-                1
-            </button>
-
-            <button
-                class="key"
-                data-number="2">
-                2
-            </button>
-
-            <button
-                class="key"
-                data-number="3">
-                3
-            </button>
+            <button class="key" data-number="1">1</button>
+            <button class="key" data-number="2">2</button>
+            <button class="key" data-number="3">3</button>
 
             <button
                 class="key operator"
@@ -2863,26 +2020,19 @@ body{
 </section>
 
 
-<!-- =====================================================
-     HISTÓRICO
-===================================================== -->
+<!-- HISTÓRICO -->
 
 <section
     id="historyPage"
-    class="internal-page"
->
-
+    class="internal-page">
 
     <div class="internal-header">
 
         <button
             class="back-button"
             id="backFromHistory">
-
             ‹
-
         </button>
-
 
         <div>
 
@@ -2909,7 +2059,6 @@ body{
 
         </button>
 
-
         <div id="historyList"></div>
 
     </div>
@@ -2922,15 +2071,14 @@ body{
     class="toast">
 </div>
 
-
 </div>
 
 
 <script>
 
-/* =====================================================
-   NÚMEROS
-===================================================== */
+/* =========================================================
+   FUNÇÕES GERAIS
+========================================================= */
 
 function parseNumber(value){
 
@@ -2985,18 +2133,14 @@ function parseNumber(value){
             ''
         );
 
-    const number =
+    const result =
         Number(text);
 
-    return Number.isFinite(number)
-        ? number
+    return Number.isFinite(result)
+        ? result
         : 0;
 }
 
-
-/* =====================================================
-   FORMATAÇÃO
-===================================================== */
 
 function formatNumber(value){
 
@@ -3041,191 +2185,143 @@ function money(value){
 }
 
 
-/* =====================================================
-   TOAST
-===================================================== */
+/* TOAST */
+
+let toastTimer;
 
 function toast(message){
 
     const element =
-        document.getElementById(
-            'toast'
-        );
+        document.getElementById('toast');
 
     element.textContent =
         message;
 
-    element.classList.add(
-        'show'
-    );
+    element.classList.add('show');
 
-    clearTimeout(
-        window.toastTimer
-    );
+    clearTimeout(toastTimer);
 
-    window.toastTimer =
+    toastTimer =
         setTimeout(
-            function(){
+            () => {
 
-                element.classList.remove(
-                    'show'
-                );
+                element.classList.remove('show');
 
             },
-            1800
+            1500
         );
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVEGAÇÃO
-===================================================== */
+========================================================= */
 
 const homePage =
-    document.getElementById(
-        'homePage'
-    );
+    document.getElementById('homePage');
 
 const toolPage =
-    document.getElementById(
-        'toolPage'
-    );
+    document.getElementById('toolPage');
 
 const calculatorPage =
-    document.getElementById(
-        'calculatorPage'
-    );
+    document.getElementById('calculatorPage');
 
 const historyPage =
-    document.getElementById(
-        'historyPage'
-    );
-
+    document.getElementById('historyPage');
 
 const bottomButtons =
-    document.querySelectorAll(
-        '.bottom-nav button'
+    document.querySelectorAll('.bottom-nav button');
+
+
+function setActiveNav(page){
+
+    bottomButtons.forEach(
+        button => {
+
+            button.classList.toggle(
+                'active',
+                button.dataset.page === page
+            );
+
+        }
     );
-
-
-function closeInternalPages(){
-
-    toolPage.classList.remove(
-        'show'
-    );
-
-    calculatorPage.classList.remove(
-        'show'
-    );
-
-    historyPage.classList.remove(
-        'show'
-    );
-
-    homePage.style.display =
-        'flex';
-
-}
-
-
-function openCalculator(){
-
-    homePage.style.display =
-        'none';
-
-    toolPage.classList.remove(
-        'show'
-    );
-
-    historyPage.classList.remove(
-        'show'
-    );
-
-    calculatorPage.classList.add(
-        'show'
-    );
-
-}
-
-
-function openHistory(){
-
-    homePage.style.display =
-        'none';
-
-    toolPage.classList.remove(
-        'show'
-    );
-
-    calculatorPage.classList.remove(
-        'show'
-    );
-
-    historyPage.classList.add(
-        'show'
-    );
-
-    renderHistory();
 
 }
 
 
 function openHome(){
 
-    closeInternalPages();
+    toolPage.classList.remove('show');
 
+    calculatorPage.classList.remove('show');
+
+    historyPage.classList.remove('show');
+
+    homePage.style.display = 'flex';
+
+    setActiveNav('home');
+}
+
+
+function openCalculator(){
+
+    homePage.style.display = 'none';
+
+    toolPage.classList.remove('show');
+
+    historyPage.classList.remove('show');
+
+    calculatorPage.classList.add('show');
+
+    setActiveNav('calculator');
+
+    updateCalculator();
+}
+
+
+function openHistory(){
+
+    homePage.style.display = 'none';
+
+    toolPage.classList.remove('show');
+
+    calculatorPage.classList.remove('show');
+
+    historyPage.classList.add('show');
+
+    setActiveNav('history');
+
+    renderHistory();
 }
 
 
 bottomButtons.forEach(
-    function(button){
+    button => {
 
         button.addEventListener(
-            'click',
-            function(){
+            'pointerdown',
+            event => {
 
-                bottomButtons.forEach(
-                    function(btn){
-
-                        btn.classList.remove(
-                            'active'
-                        );
-
-                    }
-                );
-
-                button.classList.add(
-                    'active'
-                );
-
+                event.preventDefault();
 
                 const page =
                     button.dataset.page;
 
-                if(
-                    page === 'home'
-                ){
-
+                if(page === 'home'){
                     openHome();
-
                 }
 
-                if(
-                    page === 'calculator'
-                ){
-
+                if(page === 'calculator'){
                     openCalculator();
-
                 }
 
-                if(
-                    page === 'history'
-                ){
-
+                if(page === 'history'){
                     openHistory();
-
                 }
 
+            },
+            {
+                passive:false
             }
         );
 
@@ -3233,9 +2329,9 @@ bottomButtons.forEach(
 );
 
 
-/* =====================================================
+/* =========================================================
    FERRAMENTAS
-===================================================== */
+========================================================= */
 
 const toolNames = {
 
@@ -3268,69 +2364,44 @@ const toolNames = {
 
 
 document
-.querySelectorAll(
-    '.tool-card'
-)
+.querySelectorAll('.tool-card')
 .forEach(
-    function(button){
+    button => {
 
         button.addEventListener(
-            'click',
-            function(){
+            'pointerdown',
+            event => {
+
+                event.preventDefault();
 
                 const tool =
                     button.dataset.tool;
 
 
-                if(
-                    tool ===
-                    'calculator'
-                ){
+                if(tool === 'calculator'){
 
                     openCalculator();
-
-                    bottomButtons.forEach(
-                        function(btn){
-
-                            btn.classList.toggle(
-                                'active',
-                                btn.dataset.page ===
-                                'calculator'
-                            );
-
-                        }
-                    );
 
                     return;
 
                 }
 
 
-                homePage.style.display =
-                    'none';
+                homePage.style.display = 'none';
 
-                calculatorPage.classList.remove(
-                    'show'
-                );
+                calculatorPage.classList.remove('show');
 
-                historyPage.classList.remove(
-                    'show'
-                );
+                historyPage.classList.remove('show');
 
-                toolPage.classList.add(
-                    'show'
-                );
+                toolPage.classList.add('show');
 
 
                 document
-                .querySelectorAll(
-                    '.tool-panel'
-                )
+                .querySelectorAll('.tool-panel')
                 .forEach(
-                    function(panel){
+                    panel => {
 
-                        panel.style.display =
-                            'none';
+                        panel.style.display = 'none';
 
                     }
                 );
@@ -3338,37 +2409,29 @@ document
 
                 const panel =
                     document.getElementById(
-                        'tool-' +
-                        tool
+                        'tool-' + tool
                     );
 
+
                 if(panel){
-
-                    panel.style.display =
-                        'block';
-
+                    panel.style.display = 'block';
                 }
 
 
                 document
-                .getElementById(
-                    'toolTitle'
-                )
+                .getElementById('toolTitle')
                 .textContent =
-                    toolNames[
-                        tool
-                    ].title;
+                    toolNames[tool].title;
 
 
                 document
-                .getElementById(
-                    'toolSubtitle'
-                )
+                .getElementById('toolSubtitle')
                 .textContent =
-                    toolNames[
-                        tool
-                    ].subtitle;
+                    toolNames[tool].subtitle;
 
+            },
+            {
+                passive:false
             }
         );
 
@@ -3376,126 +2439,68 @@ document
 );
 
 
-/* =====================================================
-   VOLTAR
-===================================================== */
+/* VOLTAR */
+
+function setupBackButton(id){
+
+    document
+    .getElementById(id)
+    .addEventListener(
+        'pointerdown',
+        event => {
+
+            event.preventDefault();
+
+            openHome();
+
+        },
+        {
+            passive:false
+        }
+    );
+
+}
+
+setupBackButton('backHome');
+
+setupBackButton('backFromCalculator');
+
+setupBackButton('backFromHistory');
+
+
+/* =========================================================
+   PREÇO DE VENDA
+========================================================= */
 
 document
-.getElementById(
-    'backHome'
-)
+.getElementById('btnPrice')
 .addEventListener(
-    'click',
-    function(){
+    'pointerdown',
+    event => {
 
-        openHome();
-
-        bottomButtons.forEach(
-            function(btn){
-
-                btn.classList.toggle(
-                    'active',
-                    btn.dataset.page ===
-                    'home'
-                );
-
-            }
-        );
-
-    }
-);
-
-
-document
-.getElementById(
-    'backFromCalculator'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        openHome();
-
-        bottomButtons.forEach(
-            function(btn){
-
-                btn.classList.toggle(
-                    'active',
-                    btn.dataset.page ===
-                    'home'
-                );
-
-            }
-        );
-
-    }
-);
-
-
-document
-.getElementById(
-    'backFromHistory'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        openHome();
-
-        bottomButtons.forEach(
-            function(btn){
-
-                btn.classList.toggle(
-                    'active',
-                    btn.dataset.page ===
-                    'home'
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* =====================================================
-   PREÇO
-===================================================== */
-
-document
-.getElementById(
-    'btnPrice'
-)
-.addEventListener(
-    'click',
-    function(){
+        event.preventDefault();
 
         const cost =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'priceCost'
-                )
-                .value
+                ).value
             );
 
         const margin =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'priceMargin'
-                )
-                .value
+                ).value
             );
 
 
         if(cost <= 0){
 
-            toast(
-                'Digite um custo válido.'
-            );
+            toast('Digite um custo válido.');
 
             return;
+
         }
 
 
@@ -3505,10 +2510,11 @@ document
         ){
 
             toast(
-                'Margem inválida.'
+                'Margem deve ficar entre 0% e 99,99%.'
             );
 
             return;
+
         }
 
 
@@ -3520,19 +2526,15 @@ document
             );
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'priceValue'
-        )
-        .textContent =
+        ).textContent =
             money(price);
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'resultPrice'
-        )
-        .style.display =
+        ).style.display =
             'block';
 
 
@@ -3546,38 +2548,37 @@ document
             money(price)
         );
 
+    },
+    {
+        passive:false
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    MARGEM
-===================================================== */
+========================================================= */
 
 document
-.getElementById(
-    'btnMargin'
-)
+.getElementById('btnMargin')
 .addEventListener(
-    'click',
-    function(){
+    'pointerdown',
+    event => {
+
+        event.preventDefault();
 
         const cost =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'marginCost'
-                )
-                .value
+                ).value
             );
 
         const sale =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'marginSale'
-                )
-                .value
+                ).value
             );
 
 
@@ -3591,59 +2592,46 @@ document
             );
 
             return;
+
         }
 
 
         const profit =
             sale - cost;
 
-
         const margin =
-            (
-                profit /
-                sale
-            ) * 100;
-
+            profit /
+            sale *
+            100;
 
         const markup =
-            sale / cost;
+            sale /
+            cost;
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'marginValue'
-        )
-        .textContent =
-            formatNumber(
-                margin
-            ) +
+        ).textContent =
+            formatNumber(margin) +
             '%';
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'marginProfit'
-        )
-        .textContent =
+        ).textContent =
             money(profit);
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'marginMarkup'
-        )
-        .textContent =
-            formatNumber(
-                markup
-            ) +
+        ).textContent =
+            formatNumber(markup) +
             'x';
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'resultMargin'
-        )
-        .style.display =
+        ).style.display =
             'block';
 
 
@@ -3656,38 +2644,37 @@ document
             '%'
         );
 
+    },
+    {
+        passive:false
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    DESCONTO
-===================================================== */
+========================================================= */
 
 document
-.getElementById(
-    'btnDiscount'
-)
+.getElementById('btnDiscount')
 .addEventListener(
-    'click',
-    function(){
+    'pointerdown',
+    event => {
+
+        event.preventDefault();
 
         const price =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'discountPrice'
-                )
-                .value
+                ).value
             );
 
         const percent =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'discountPercent'
-                )
-                .value
+                ).value
             );
 
 
@@ -3698,6 +2685,7 @@ document
             );
 
             return;
+
         }
 
 
@@ -3711,6 +2699,7 @@ document
             );
 
             return;
+
         }
 
 
@@ -3719,44 +2708,33 @@ document
             percent /
             100;
 
-
         const finalPrice =
             price -
             amount;
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'discountValue'
-        )
-        .textContent =
+        ).textContent =
             money(finalPrice);
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'discountAmount'
-        )
-        .textContent =
+        ).textContent =
             money(amount);
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'discountPercentValue'
-        )
-        .textContent =
-            formatNumber(
-                percent
-            ) +
+        ).textContent =
+            formatNumber(percent) +
             '%';
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'resultDiscount'
-        )
-        .style.display =
+        ).style.display =
             'block';
 
 
@@ -3769,38 +2747,37 @@ document
             money(finalPrice)
         );
 
+    },
+    {
+        passive:false
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    MARKUP
-===================================================== */
+========================================================= */
 
 document
-.getElementById(
-    'btnMarkup'
-)
+.getElementById('btnMarkup')
 .addEventListener(
-    'click',
-    function(){
+    'pointerdown',
+    event => {
+
+        event.preventDefault();
 
         const cost =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'markupCost'
-                )
-                .value
+                ).value
             );
 
         const sale =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'markupSale'
-                )
-                .value
+                ).value
             );
 
 
@@ -3814,65 +2791,55 @@ document
             );
 
             return;
+
         }
 
 
         const markup =
-            sale / cost;
-
+            sale /
+            cost;
 
         const increase =
             (
-                (sale - cost) /
+                sale -
                 cost
-            ) * 100;
-
+            ) /
+            cost *
+            100;
 
         const margin =
             (
-                (sale - cost) /
-                sale
-            ) * 100;
+                sale -
+                cost
+            ) /
+            sale *
+            100;
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'markupValue'
-        )
-        .textContent =
-            formatNumber(
-                markup
-            ) +
+        ).textContent =
+            formatNumber(markup) +
             'x';
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'markupIncrease'
-        )
-        .textContent =
-            formatNumber(
-                increase
-            ) +
+        ).textContent =
+            formatNumber(increase) +
             '%';
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'markupMargin'
-        )
-        .textContent =
-            formatNumber(
-                margin
-            ) +
+        ).textContent =
+            formatNumber(margin) +
             '%';
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'resultMarkup'
-        )
-        .style.display =
+        ).style.display =
             'block';
 
 
@@ -3885,38 +2852,37 @@ document
             'x'
         );
 
+    },
+    {
+        passive:false
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    COMISSÃO
-===================================================== */
+========================================================= */
 
 document
-.getElementById(
-    'btnCommission'
-)
+.getElementById('btnCommission')
 .addEventListener(
-    'click',
-    function(){
+    'pointerdown',
+    event => {
+
+        event.preventDefault();
 
         const sale =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'commissionSale'
-                )
-                .value
+                ).value
             );
 
         const percent =
             parseNumber(
-                document
-                .getElementById(
+                document.getElementById(
                     'commissionPercent'
-                )
-                .value
+                ).value
             );
 
 
@@ -3927,6 +2893,7 @@ document
             );
 
             return;
+
         }
 
 
@@ -3937,6 +2904,7 @@ document
             );
 
             return;
+
         }
 
 
@@ -3946,19 +2914,15 @@ document
             100;
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'commissionValue'
-        )
-        .textContent =
+        ).textContent =
             money(commission);
 
 
-        document
-        .getElementById(
+        document.getElementById(
             'resultCommission'
-        )
-        .style.display =
+        ).style.display =
             'block';
 
 
@@ -3971,16 +2935,18 @@ document
             money(commission)
         );
 
+    },
+    {
+        passive:false
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    HISTÓRICO
-===================================================== */
+========================================================= */
 
 let historyData = [];
-
 
 try{
 
@@ -3988,18 +2954,13 @@ try{
         JSON.parse(
             localStorage.getItem(
                 'calpro_history'
-            ) ||
-            '[]'
+            ) || '[]'
         );
 
     if(
-        !Array.isArray(
-            historyData
-        )
+        !Array.isArray(historyData)
     ){
-
         historyData = [];
-
     }
 
 }catch(error){
@@ -4012,31 +2973,11 @@ try{
 function escapeHTML(value){
 
     return String(value)
-
-        .replace(
-            /&/g,
-            '&amp;'
-        )
-
-        .replace(
-            /</g,
-            '&lt;'
-        )
-
-        .replace(
-            />/g,
-            '&gt;'
-        )
-
-        .replace(
-            /"/g,
-            '&quot;'
-        )
-
-        .replace(
-            /'/g,
-            '&#039;'
-        );
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;')
+        .replace(/'/g,'&#039;');
 
 }
 
@@ -4050,34 +2991,25 @@ function addHistory(
     historyData.unshift({
 
         type:type,
-
         info:info,
-
         result:result,
 
         date:
             new Date()
-            .toLocaleString(
-                'pt-BR'
-            )
+            .toLocaleString('pt-BR')
 
     });
 
 
     historyData =
-        historyData.slice(
-            0,
-            50
-        );
+        historyData.slice(0,50);
 
 
     try{
 
         localStorage.setItem(
             'calpro_history',
-            JSON.stringify(
-                historyData
-            )
+            JSON.stringify(historyData)
         );
 
     }catch(error){}
@@ -4107,44 +3039,40 @@ function renderHistory(){
             'Nenhum cálculo realizado ainda.';
 
         return;
+
     }
 
 
     list.className = '';
 
-
     list.innerHTML =
         historyData
         .map(
-            function(item){
+            item => `
 
-                return `
+                <div class="history-item">
 
-                    <div class="history-item">
+                    <div>
 
-                        <div>
-
-                            <div class="history-name">
-                                ${escapeHTML(item.type)}
-                            </div>
-
-                            <div class="history-info">
-                                ${escapeHTML(item.info)}
-                                <br>
-                                ${escapeHTML(item.date)}
-                            </div>
-
+                        <div class="history-name">
+                            ${escapeHTML(item.type)}
                         </div>
 
-                        <div class="history-result">
-                            ${escapeHTML(item.result)}
+                        <div class="history-info">
+                            ${escapeHTML(item.info)}
+                            <br>
+                            ${escapeHTML(item.date)}
                         </div>
 
                     </div>
 
-                `;
+                    <div class="history-result">
+                        ${escapeHTML(item.result)}
+                    </div>
 
-            }
+                </div>
+
+            `
         )
         .join('');
 
@@ -4152,12 +3080,12 @@ function renderHistory(){
 
 
 document
-.getElementById(
-    'clearHistory'
-)
+.getElementById('clearHistory')
 .addEventListener(
-    'click',
-    function(){
+    'pointerdown',
+    event => {
+
+        event.preventDefault();
 
         if(
             historyData.length === 0
@@ -4168,6 +3096,7 @@ document
             );
 
             return;
+
         }
 
 
@@ -4178,31 +3107,32 @@ document
         ){
 
             return;
+
         }
 
 
         historyData = [];
 
-
         localStorage.removeItem(
             'calpro_history'
         );
 
-
         renderHistory();
-
 
         toast(
             'Histórico apagado.'
         );
 
+    },
+    {
+        passive:false
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    CALCULADORA
-===================================================== */
+========================================================= */
 
 let calcCurrent = '0';
 
@@ -4223,6 +3153,10 @@ let lastOperand = null;
 let justCalculated = false;
 
 
+/* =========================================================
+   DISPLAY
+========================================================= */
+
 const display =
     document.getElementById(
         'display'
@@ -4236,14 +3170,12 @@ const expression =
 
 function formatCalc(value){
 
-    let number =
+    const number =
         Number(value);
 
 
     if(
-        !Number.isFinite(
-            number
-        )
+        !Number.isFinite(number)
     ){
 
         return 'Erro';
@@ -4252,13 +3184,10 @@ function formatCalc(value){
 
 
     if(
-        Object.is(
-            number,
-            -0
-        )
+        Object.is(number,-0)
     ){
 
-        number = 0;
+        return '0';
 
     }
 
@@ -4286,6 +3215,10 @@ function updateCalculator(){
 }
 
 
+/* =========================================================
+   LIMPAR
+========================================================= */
+
 function clearCalculator(){
 
     calcCurrent = '0';
@@ -4309,6 +3242,10 @@ function clearCalculator(){
 }
 
 
+/* =========================================================
+   NÚMEROS
+========================================================= */
+
 function inputNumber(number){
 
     if(
@@ -4327,6 +3264,10 @@ function inputNumber(number){
         calcExpression = '';
 
         justCalculated = false;
+
+        lastOperator = null;
+
+        lastOperand = null;
 
     }
 
@@ -4350,6 +3291,19 @@ function inputNumber(number){
 
         }else{
 
+            const digits =
+                calcCurrent
+                .replace('-','')
+                .replace('.','');
+
+            if(
+                digits.length >= 15
+            ){
+
+                return;
+
+            }
+
             calcCurrent +=
                 number;
 
@@ -4362,6 +3316,10 @@ function inputNumber(number){
 
 }
 
+
+/* =========================================================
+   VÍRGULA
+========================================================= */
 
 function inputDecimal(){
 
@@ -4382,16 +3340,18 @@ function inputDecimal(){
 
         justCalculated = false;
 
+        lastOperator = null;
+
+        lastOperand = null;
+
     }
 
 
     if(calcWaiting){
 
-        calcCurrent =
-            '0.';
+        calcCurrent = '0.';
 
-        calcWaiting =
-            false;
+        calcWaiting = false;
 
         updateCalculator();
 
@@ -4404,8 +3364,7 @@ function inputDecimal(){
         !calcCurrent.includes('.')
     ){
 
-        calcCurrent +=
-            '.';
+        calcCurrent += '.';
 
     }
 
@@ -4414,6 +3373,10 @@ function inputDecimal(){
 
 }
 
+
+/* =========================================================
+   OPERADORES
+========================================================= */
 
 function operatorSymbol(operator){
 
@@ -4447,29 +3410,36 @@ function calculateOperation(
         Number(second);
 
 
-    if(operator === '+')
-        return a + b;
+    switch(operator){
 
-    if(operator === '-')
-        return a - b;
+        case '+':
+            return a + b;
 
-    if(operator === '*')
-        return a * b;
+        case '-':
+            return a - b;
 
-    if(operator === '/'){
+        case '*':
+            return a * b;
 
-        if(b === 0)
-            return null;
+        case '/':
 
-        return a / b;
+            if(b === 0){
+                return null;
+            }
+
+            return a / b;
+
+        default:
+            return b;
 
     }
 
-
-    return b;
-
 }
 
+
+/* =========================================================
+   OPERADOR
+========================================================= */
 
 function selectOperator(operator){
 
@@ -4497,13 +3467,9 @@ function selectOperator(operator){
             false;
 
         calcExpression =
-            formatCalc(
-                calcPrevious
-            ) +
+            formatCalc(calcPrevious) +
             ' ' +
-            operatorSymbol(
-                operator
-            );
+            operatorSymbol(operator);
 
         updateCalculator();
 
@@ -4528,14 +3494,11 @@ function selectOperator(operator){
 
         if(result === null){
 
-            calcCurrent =
-                'Erro';
+            calcCurrent = 'Erro';
 
-            calcPrevious =
-                null;
+            calcPrevious = null;
 
-            calcOperator =
-                null;
+            calcOperator = null;
 
             updateCalculator();
 
@@ -4570,13 +3533,9 @@ function selectOperator(operator){
 
 
     calcExpression =
-        formatCalc(
-            calcPrevious
-        ) +
+        formatCalc(calcPrevious) +
         ' ' +
-        operatorSymbol(
-            operator
-        );
+        operatorSymbol(operator);
 
 
     updateCalculator();
@@ -4584,7 +3543,20 @@ function selectOperator(operator){
 }
 
 
+/* =========================================================
+   IGUAL
+========================================================= */
+
 function calculateEquals(){
+
+    if(
+        calcCurrent === 'Erro'
+    ){
+
+        return;
+
+    }
+
 
     if(
         justCalculated &&
@@ -4612,17 +3584,11 @@ function calculateEquals(){
 
 
         calcExpression =
-            formatCalc(
-                calcCurrent
-            ) +
+            formatCalc(calcCurrent) +
             ' ' +
-            operatorSymbol(
-                lastOperator
-            ) +
+            operatorSymbol(lastOperator) +
             ' ' +
-            formatCalc(
-                lastOperand
-            ) +
+            formatCalc(lastOperand) +
             ' =';
 
 
@@ -4632,13 +3598,11 @@ function calculateEquals(){
 
         updateCalculator();
 
-
         addHistory(
             'Calculadora',
             calcExpression,
             formatCalc(result)
         );
-
 
         return;
 
@@ -4675,17 +3639,13 @@ function calculateEquals(){
 
     if(result === null){
 
-        calcCurrent =
-            'Erro';
+        calcCurrent = 'Erro';
 
-        calcPrevious =
-            null;
+        calcPrevious = null;
 
-        calcOperator =
-            null;
+        calcOperator = null;
 
-        calcExpression =
-            '';
+        calcExpression = '';
 
         updateCalculator();
 
@@ -4741,22 +3701,18 @@ function calculateEquals(){
 }
 
 
-/* =====================================================
+/* =========================================================
    PORCENTAGEM
-===================================================== */
+========================================================= */
 
 function percentage(){
 
     const current =
-        Number(
-            calcCurrent
-        );
+        Number(calcCurrent);
 
 
     if(
-        !Number.isFinite(
-            current
-        )
+        !Number.isFinite(current)
     ){
 
         return;
@@ -4774,9 +3730,7 @@ function percentage(){
 
         calcCurrent =
             String(
-                Number(
-                    calcPrevious
-                ) *
+                Number(calcPrevious) *
                 current /
                 100
             );
@@ -4797,9 +3751,9 @@ function percentage(){
 }
 
 
-/* =====================================================
+/* =========================================================
    SINAL
-===================================================== */
+========================================================= */
 
 function changeSign(){
 
@@ -4834,9 +3788,9 @@ function changeSign(){
 }
 
 
-/* =====================================================
-   BACKSPACE
-===================================================== */
+/* =========================================================
+   APAGAR
+========================================================= */
 
 function backspace(){
 
@@ -4888,20 +3842,95 @@ function backspace(){
 }
 
 
-/* =====================================================
-   BOTÕES CALCULADORA
-===================================================== */
+/* =========================================================
+   BOTÃO INSTANTÂNEO
+========================================================= */
+
+/*
+   IMPORTANTE:
+
+   A calculadora NÃO utiliza click.
+
+   O comando é executado no pointerdown,
+   ou seja, no primeiro contato do dedo
+   com o botão.
+
+   Isso elimina a sensação de atraso.
+*/
+
+function instantButton(
+    button,
+    action
+){
+
+    if(!button){
+        return;
+    }
+
+
+    let locked =
+        false;
+
+
+    button.addEventListener(
+        'pointerdown',
+        event => {
+
+            event.preventDefault();
+
+            if(locked){
+                return;
+            }
+
+            locked = true;
+
+
+            /* EXECUTA IMEDIATAMENTE */
+
+            action();
+
+
+            /* EFEITO VISUAL */
+
+            button.classList.add(
+                'pressed'
+            );
+
+
+            setTimeout(
+                () => {
+
+                    button.classList.remove(
+                        'pressed'
+                    );
+
+                    locked = false;
+
+                },
+                45
+            );
+
+        },
+        {
+            passive:false
+        }
+    );
+
+}
+
+
+/* =========================================================
+   BOTÕES DA CALCULADORA
+========================================================= */
 
 document
-.querySelectorAll(
-    '[data-number]'
-)
+.querySelectorAll('[data-number]')
 .forEach(
-    function(button){
+    button => {
 
-        button.addEventListener(
-            'click',
-            function(){
+        instantButton(
+            button,
+            () => {
 
                 inputNumber(
                     button.dataset.number
@@ -4915,15 +3944,13 @@ document
 
 
 document
-.querySelectorAll(
-    '[data-operator]'
-)
+.querySelectorAll('[data-operator]')
 .forEach(
-    function(button){
+    button => {
 
-        button.addEventListener(
-            'click',
-            function(){
+        instantButton(
+            button,
+            () => {
 
                 selectOperator(
                     button.dataset.operator
@@ -4936,80 +3963,66 @@ document
 );
 
 
-document
-.querySelector(
-    '[data-action="decimal"]'
-)
-.addEventListener(
-    'click',
+instantButton(
+    document.querySelector(
+        '[data-action="decimal"]'
+    ),
     inputDecimal
 );
 
 
-document
-.querySelector(
-    '[data-action="clear"]'
-)
-.addEventListener(
-    'click',
+instantButton(
+    document.querySelector(
+        '[data-action="clear"]'
+    ),
     clearCalculator
 );
 
 
-document
-.querySelector(
-    '[data-action="backspace"]'
-)
-.addEventListener(
-    'click',
+instantButton(
+    document.querySelector(
+        '[data-action="backspace"]'
+    ),
     backspace
 );
 
 
-document
-.querySelector(
-    '[data-action="sign"]'
-)
-.addEventListener(
-    'click',
+instantButton(
+    document.querySelector(
+        '[data-action="sign"]'
+    ),
     changeSign
 );
 
 
-document
-.querySelector(
-    '[data-action="percent"]'
-)
-.addEventListener(
-    'click',
+instantButton(
+    document.querySelector(
+        '[data-action="percent"]'
+    ),
     percentage
 );
 
 
-document
-.querySelector(
-    '[data-action="equals"]'
-)
-.addEventListener(
-    'click',
+instantButton(
+    document.querySelector(
+        '[data-action="equals"]'
+    ),
     calculateEquals
 );
 
 
-/* =====================================================
+/* =========================================================
    MEMÓRIA
-===================================================== */
+========================================================= */
 
 document
-.querySelectorAll(
-    '[data-memory]'
-)
+.querySelectorAll('[data-memory]')
 .forEach(
-    function(button){
+    button => {
 
-        button.addEventListener(
-            'click',
-            function(){
+        instantButton(
+            button,
+            () => {
 
                 const action =
                     button.dataset.memory;
@@ -5101,13 +4114,13 @@ document
 );
 
 
-/* =====================================================
-   TECLADO FÍSICO
-===================================================== */
+/* =========================================================
+   TECLADO DO COMPUTADOR
+========================================================= */
 
 document.addEventListener(
     'keydown',
-    function(event){
+    event => {
 
         const key =
             event.key;
@@ -5115,8 +4128,7 @@ document.addEventListener(
 
         if(
             event.target &&
-            event.target.tagName ===
-            'INPUT'
+            event.target.tagName === 'INPUT'
         ){
 
             return;
@@ -5152,8 +4164,7 @@ document.addEventListener(
 
 
         if(
-            ['+','-','*','/']
-            .includes(key)
+            ['+','-','*','/'].includes(key)
         ){
 
             selectOperator(key);
@@ -5217,13 +4228,13 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    CAMPOS NUMÉRICOS
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     'input',
-    function(event){
+    event => {
 
         const input =
             event.target;
@@ -5250,13 +4261,13 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    BLOQUEIO DE ZOOM
-===================================================== */
+========================================================= */
 
 document.addEventListener(
     'gesturestart',
-    function(event){
+    event => {
 
         event.preventDefault();
 
@@ -5265,11 +4276,10 @@ document.addEventListener(
         passive:false
     }
 );
-
 
 document.addEventListener(
     'gesturechange',
-    function(event){
+    event => {
 
         event.preventDefault();
 
@@ -5278,11 +4288,10 @@ document.addEventListener(
         passive:false
     }
 );
-
 
 document.addEventListener(
     'gestureend',
-    function(event){
+    event => {
 
         event.preventDefault();
 
@@ -5293,25 +4302,12 @@ document.addEventListener(
 );
 
 
-document.addEventListener(
-    'dblclick',
-    function(event){
-
-        event.preventDefault();
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-let lastTouchEnd = 0;
-
+let lastTouchEnd =
+    0;
 
 document.addEventListener(
     'touchend',
-    function(event){
+    event => {
 
         const now =
             Date.now();
@@ -5319,7 +4315,7 @@ document.addEventListener(
 
         if(
             now -
-            lastTouchEnd <=
+            lastTouchEnd <
             300
         ){
 
@@ -5338,11 +4334,15 @@ document.addEventListener(
 );
 
 
+/* BLOQUEIA CTRL + RODA PARA ZOOM NO PC */
+
 document.addEventListener(
     'wheel',
-    function(event){
+    event => {
 
-        if(event.ctrlKey){
+        if(
+            event.ctrlKey
+        ){
 
             event.preventDefault();
 
@@ -5355,13 +4355,15 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    INICIALIZAÇÃO
-===================================================== */
+========================================================= */
 
 updateCalculator();
 
 renderHistory();
+
+openHome();
 
 </script>
 
