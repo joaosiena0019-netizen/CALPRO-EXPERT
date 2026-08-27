@@ -1,3417 +1,1742 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1,
-maximum-scale=1,
-minimum-scale=1,
-user-scalable=no,
-viewport-fit=cover">
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
-<meta name="theme-color" content="#080b10">
-
+<meta name="theme-color" content="#07100b">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<meta name="apple-mobile-web-app-status-bar-style"
-content="black-translucent">
-
-<title>CALPRO EXPERT</title>
-
+<title>CALPRO EXPERT 2.0</title>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-
-    -webkit-tap-highlight-color:transparent;
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html,
-body{
-
-    width:100%;
-    height:100%;
-
-    min-width:0;
-    min-height:0;
-
-    overflow:hidden !important;
-
-    overscroll-behavior:none;
-
-    -webkit-text-size-adjust:100%;
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #050805;
+    color: #f4f7f4;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+    overscroll-behavior: none;
 }
 
-body{
-
-    background:#080b10;
-
-    color:#fff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    overflow:hidden !important;
-
-    touch-action:manipulation;
+body {
+    overflow-x: hidden;
 }
 
 button,
-input{
-
-    font-family:inherit;
+input,
+select {
+    font: inherit;
 }
 
-button{
-
-    border:0;
-    outline:0;
-
-    cursor:pointer;
-
-    touch-action:manipulation;
-
-    -webkit-user-select:none;
-    user-select:none;
+button {
+    cursor: pointer;
 }
 
-input{
-
-    touch-action:manipulation;
-}
-
-
-/* =========================================================
-   APP
-========================================================= */
-
-.app{
-
-    width:100%;
-    height:100dvh;
-
-    min-height:0;
-
-    overflow:hidden !important;
-
-    display:flex;
-    flex-direction:column;
-
+.app {
+    width: 100%;
+    min-height: 100vh;
     background:
-
-        radial-gradient(
-            circle at 50% -20%,
-            rgba(255,110,0,.16),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            180deg,
-            #090c12,
-            #06080c
-        );
+        radial-gradient(circle at top right, rgba(124, 255, 0, .07), transparent 30%),
+        linear-gradient(180deg, #07100b 0%, #050805 100%);
 }
 
+/* =========================
+   TOPO
+========================= */
 
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header{
-
-    flex:0 0 auto;
-
-    padding:
-
-        max(5px,env(safe-area-inset-top))
-
-        12px
-
-        6px;
-
-    background:
-        rgba(7,10,14,.97);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.06);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
+.header {
+    width: 100%;
+    max-width: 1180px;
+    margin: auto;
+    padding: 18px 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 }
 
-.top-line{
-
-    height:37px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
+.logo {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    border: 1px solid rgba(124,255,0,.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7cff00;
+    font-size: 21px;
+    font-weight: 900;
+    background: #0d160f;
 }
 
-.logo{
-
-    width:35px;
-    height:35px;
-
-    flex:0 0 35px;
-
-    border-radius:11px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #ffad26,
-            #ff5900
-        );
-
-    box-shadow:
-
-        0 7px 18px
-        rgba(255,91,0,.28),
-
-        inset
-        0 2px 3px
-        rgba(255,255,255,.25);
+.brand-text strong {
+    display: block;
+    font-size: 19px;
+    letter-spacing: .8px;
 }
 
-.logo svg{
-
-    width:23px;
-    height:23px;
+.brand-text span {
+    color: #7cff00;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
 }
 
-.brand-name{
-
-    font-size:19px;
-
-    font-weight:1000;
-
-    letter-spacing:-1px;
+.header-actions {
+    display: flex;
+    gap: 8px;
 }
 
-.brand-name span{
-
-    color:#ff7000;
+.icon-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid #263329;
+    background: #101810;
+    color: #dce5dd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
 }
 
-.brand-expert{
-
-    color:#7e8995;
-
-    font-size:5.5px;
-
-    font-weight:900;
-
-    letter-spacing:3px;
-
-    text-align:center;
+.icon-btn:active {
+    transform: scale(.96);
 }
 
-.status{
+/* =========================
+   CONTAINER
+========================= */
 
-    display:flex;
-
-    align-items:center;
-
-    gap:5px;
-
-    padding:6px 8px;
-
-    border-radius:9px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    color:#7f8995;
-
-    font-size:6px;
-
-    font-weight:900;
+.container {
+    width: 100%;
+    max-width: 1180px;
+    margin: auto;
+    padding: 10px 20px 110px;
 }
 
-.status-dot{
-
-    width:5px;
-    height:5px;
-
-    border-radius:50%;
-
-    background:#36df86;
-
-    box-shadow:
-        0 0 8px
-        rgba(54,223,134,.7);
+.screen {
+    display: none;
 }
 
-.header-subtitle{
-
-    color:#697481;
-
-    font-size:6.5px;
+.screen.active {
+    display: block;
 }
 
-.header-subtitle b{
+/* =========================
+   TÍTULOS
+========================= */
 
-    color:#ff7900;
+.page-title {
+    margin: 10px 0 18px;
 }
 
+.page-title h1 {
+    margin: 0;
+    font-size: clamp(25px, 4vw, 38px);
+    letter-spacing: -.8px;
+}
 
-/* =========================================================
+.page-title p {
+    margin: 7px 0 0;
+    color: #89958c;
+    font-size: 14px;
+}
+
+/* =========================
    HOME
-========================================================= */
+========================= */
 
-.main{
-
-    flex:1;
-
-    min-height:0;
-
-    overflow:hidden !important;
-
-    display:flex;
-
-    flex-direction:column;
-
-    padding:
-
-        7px
-
-        11px
-
-        0;
+.welcome {
+    border: 1px solid #1e2b21;
+    border-radius: 22px;
+    padding: 22px;
+    background: linear-gradient(145deg, #0d160f, #0a100c);
+    margin-bottom: 18px;
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-    position:relative;
-
-    flex:0 0 auto;
-
-    height:74px;
-
-    padding:10px 13px;
-
-    overflow:hidden;
-
-    border-radius:17px;
-
-    background:
-
-        radial-gradient(
-            circle at 95% 0%,
-            rgba(255,106,0,.28),
-            transparent 34%
-        ),
-
-        linear-gradient(
-            135deg,
-            #17202b,
-            #0d131b
-        );
-
-    border:
-        1px solid
-        rgba(255,119,0,.15);
-
-    box-shadow:
-
-        0 10px 24px
-        rgba(0,0,0,.25),
-
-        inset
-        0 1px 1px
-        rgba(255,255,255,.06);
+.welcome small {
+    color: #89958c;
 }
 
-.hero::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:4px;
-    height:48px;
-
-    left:0;
-    top:13px;
-
-    border-radius:
-        0 5px 5px 0;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #ffb12a,
-            #ff5b00
-        );
+.welcome h2 {
+    margin: 5px 0 6px;
+    font-size: 25px;
 }
 
-.hero-tag{
-
-    display:inline-flex;
-
-    padding:3px 7px;
-
-    border-radius:5px;
-
-    background:
-        rgba(255,119,0,.1);
-
-    color:#ff8a25;
-
-    font-size:5.5px;
-
-    font-weight:1000;
-
-    letter-spacing:1px;
+.welcome p {
+    color: #9ba79e;
+    margin: 0;
 }
 
-.hero h1{
-
-    margin-top:4px;
-
-    font-size:17px;
-
-    line-height:18px;
-
-    letter-spacing:-.7px;
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
 }
 
-.hero h1 span{
-
-    color:#ff7100;
+.stat {
+    padding: 18px;
+    border: 1px solid #1e2b21;
+    border-radius: 17px;
+    background: #0b120d;
 }
 
-.hero p{
-
-    margin-top:2px;
-
-    max-width:75%;
-
-    color:#788491;
-
-    font-size:6.5px;
-
-    line-height:9px;
+.stat span {
+    display: block;
+    color: #7f8b82;
+    font-size: 12px;
+    margin-bottom: 7px;
 }
 
-
-/* =========================================================
-   TOOLS HEADER
-========================================================= */
-
-.tools-heading{
-
-    flex:0 0 auto;
-
-    height:34px;
-
-    padding:3px 2px;
-
-    display:flex;
-
-    align-items:end;
-
-    justify-content:space-between;
+.stat strong {
+    font-size: 20px;
 }
 
-.tools-heading h2{
-
-    font-size:13px;
-
-    font-weight:1000;
+.quick-title {
+    margin: 22px 0 12px;
+    font-size: 17px;
 }
 
-.tools-heading p{
-
-    margin-top:1px;
-
-    color:#64707c;
-
-    font-size:6px;
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
 }
 
-.tools-count{
-
-    color:#6d7782;
-
-    font-size:6px;
-
-    font-weight:900;
+.quick {
+    min-height: 125px;
+    border: 1px solid #1f2d22;
+    background: #0c140e;
+    color: white;
+    border-radius: 17px;
+    padding: 16px;
+    text-align: left;
+    transition: .15s;
 }
 
-.tools-count span{
-
-    color:#ff7900;
+.quick:hover {
+    border-color: #456f32;
 }
 
-
-/* =========================================================
-   FERRAMENTAS
-========================================================= */
-
-.tools{
-
-    flex:1;
-
-    min-height:0;
-
-    overflow:hidden;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-    grid-template-rows:
-        repeat(3,minmax(0,1fr));
-
-    gap:6px;
+.quick:active {
+    transform: scale(.98);
 }
 
-.tool-card{
-
-    position:relative;
-
-    min-width:0;
-    min-height:0;
-
-    overflow:hidden;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:16px;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 5%,
-            rgba(255,112,0,.1),
-            transparent 34%
-        ),
-
-        linear-gradient(
-            145deg,
-            #17212c,
-            #101720 55%,
-            #0b1016
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.075);
-
-    box-shadow:
-
-        0 7px 16px
-        rgba(0,0,0,.26),
-
-        inset
-        0 1px 1px
-        rgba(255,255,255,.065);
-
-    transition:
-
-        transform .08s ease,
-        border-color .08s ease,
-        filter .08s ease;
+.quick .q-icon {
+    font-size: 25px;
+    color: #7cff00;
+    margin-bottom: 15px;
 }
 
-
-/*
-   Feedback visual apenas enquanto o usuário
-   realmente está tocando no card.
-*/
-
-.tool-card.pressed{
-
-    transform:scale(.985);
-
-    border-color:
-        rgba(255,123,0,.45);
-
-    filter:brightness(1.05);
+.quick strong {
+    display: block;
+    font-size: 14px;
 }
 
-
-.tool-card img{
-
-    width:46px;
-    height:46px;
-
-    object-fit:contain;
-
-    object-position:center;
-
-    display:block;
-
-    margin-bottom:4px;
-
-    filter:
-        drop-shadow(
-            0 5px 7px
-            rgba(0,0,0,.48)
-        );
-
-    pointer-events:none;
-
-    -webkit-user-drag:none;
+.quick span {
+    color: #7f8a82;
+    font-size: 11px;
+    display: block;
+    margin-top: 5px;
 }
 
-.tool-name{
-
-    width:100%;
-
-    text-align:center;
-
-    color:#fff;
-
-    font-size:8.5px;
-
-    font-weight:1000;
-
-    line-height:10px;
-}
-
-.tool-description{
-
-    width:88%;
-
-    margin-top:3px;
-
-    text-align:center;
-
-    color:#7f8b98;
-
-    font-size:6.2px;
-
-    font-weight:600;
-
-    line-height:7.5px;
-}
-
-
-/* =========================================================
-   PUBLICIDADE HOME
-========================================================= */
-
-.ad{
-
-    flex:0 0 auto;
-
-    height:27px;
-
-    margin:5px 0 4px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:9px;
-
-    border:
-        1px dashed
-        rgba(255,117,0,.20);
-
-    background:
-        rgba(255,255,255,.018);
-
-    color:#5f6b77;
-
-    font-size:5.5px;
-
-    font-weight:900;
-
-    letter-spacing:.8px;
-}
-
-
-/* =========================================================
-   NAVEGAÇÃO INFERIOR
-========================================================= */
-
-.bottom-nav{
-
-    flex:0 0 auto;
-
-    height:
-        calc(
-            53px +
-            env(safe-area-inset-bottom)
-        );
-
-    padding:
-
-        5px
-
-        8px
-
-        env(safe-area-inset-bottom);
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:5px;
-
-    background:
-        rgba(7,10,14,.98);
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.055);
-
-    backdrop-filter:blur(20px);
-
-    -webkit-backdrop-filter:blur(20px);
-}
-
-.bottom-nav button{
-
-    position:relative;
-
-    border-radius:10px;
-
-    background:transparent;
-
-    color:#606b77;
-
-    font-size:6px;
-
-    font-weight:900;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:3px;
-}
-
-.bottom-icon{
-
-    width:17px;
-    height:17px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:6px;
-
-    font-size:10px;
-}
-
-.bottom-nav button.active{
-
-    color:#ff810f;
-
-    background:
-        rgba(255,115,0,.07);
-}
-
-.bottom-nav button.active::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-
-    left:28%;
-    right:28%;
-
-    height:2px;
-
-    border-radius:
-        0 0 4px 4px;
-
-    background:#ff7100;
-}
-
-
-/* =========================================================
-   TELAS INTERNAS
-========================================================= */
-
-.internal-page{
-
-    display:none;
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:100;
-
-    width:100%;
-    height:100dvh;
-
-    min-height:0;
-
-    overflow:hidden !important;
-
-    overscroll-behavior:none;
-
-    background:
-
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(255,100,0,.13),
-            transparent 35%
-        ),
-
-        #080b10;
-
-    padding:
-
-        max(
-            10px,
-            env(safe-area-inset-top)
-        )
-
-        12px
-
-        max(
-            8px,
-            env(safe-area-inset-bottom)
-        );
-}
-
-.internal-page.show{
-
-    display:flex;
-
-    flex-direction:column;
-}
-
-
-/* =========================================================
-   CABEÇALHO INTERNO
-========================================================= */
-
-.internal-header{
-
-    flex:0 0 auto;
-
-    height:67px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    margin-bottom:7px;
-}
-
-.back-button{
-
-    width:70px;
-    height:58px;
-
-    flex:0 0 70px;
-
-    border-radius:15px;
-
-    background:#141b24;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    color:#fff;
-
-    font-size:34px;
-
-    line-height:1;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    touch-action:manipulation;
-}
-
-.back-button:active{
-
-    transform:scale(.96);
-}
-
-.internal-title{
-
-    font-size:18px;
-
-    font-weight:1000;
-}
-
-.internal-subtitle{
-
-    margin-top:2px;
-
-    color:#707b87;
-
-    font-size:7px;
-}
-
-
-/* =========================================================
-   CARD
-========================================================= */
-
-.card{
-
-    flex:0 0 auto;
-
-    padding:13px;
-
-    border-radius:15px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #151e28,
-            #0b1118
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.065);
-
-    box-shadow:
-        0 10px 22px
-        rgba(0,0,0,.2);
-}
-
-.card h3{
-
-    font-size:16px;
-
-    font-weight:1000;
-}
-
-.card p{
-
-    margin:
-        4px 0 10px;
-
-    color:#788592;
-
-    font-size:8px;
-
-    line-height:12px;
-}
-
-
-/* =========================================================
-   INPUT
-========================================================= */
-
-.field{
-
-    margin-bottom:8px;
-}
-
-.field label{
-
-    display:block;
-
-    margin-bottom:4px;
-
-    color:#aeb8c3;
-
-    font-size:8px;
-
-    font-weight:800;
-}
-
-.field input{
-
-    width:100%;
-
-    height:42px;
-
-    padding:8px 11px;
-
-    border-radius:10px;
-
-    border:
-        1px solid
-        #28333f;
-
-    outline:none;
-
-    background:#070c12;
-
-    color:#fff;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    -webkit-appearance:none;
-
-    appearance:none;
-}
-
-.field input:focus{
-
-    border-color:#ff7400;
-
-    box-shadow:
-        0 0 0 2px
-        rgba(255,116,0,.08);
-}
-
-
-/* =========================================================
-   CALCULAR
-========================================================= */
-
-.calculate{
-
-    width:100%;
-
-    height:42px;
-
-    border-radius:10px;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #ff9000,
-            #ff5c00
-        );
-
-    color:#fff;
-
-    font-size:8px;
-
-    font-weight:1000;
-}
-
-
-/* =========================================================
-   RESULTADO
-========================================================= */
-
-.result{
-
-    display:none;
-
-    margin-top:9px;
-
-    padding:11px;
-
-    border-radius:11px;
-
-    background:
-        rgba(255,111,0,.055);
-
-    border:
-        1px solid
-        rgba(255,111,0,.20);
-}
-
-.result-label{
-
-    color:#ff963d;
-
-    font-size:7px;
-
-    font-weight:900;
-
-    letter-spacing:.7px;
-}
-
-.result-value{
-
-    margin-top:3px;
-
-    font-size:24px;
-
-    font-weight:1000;
-}
-
-.result-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:5px;
-
-    margin-top:7px;
-}
-
-.result-box{
-
-    padding:7px;
-
-    border-radius:7px;
-
-    background:
-        rgba(255,255,255,.04);
-}
-
-.result-box small{
-
-    display:block;
-
-    color:#75818d;
-
-    font-size:7px;
-}
-
-.result-box strong{
-
-    display:block;
-
-    margin-top:2px;
-
-    font-size:10px;
-}
-
-
-/* =========================================================
+/* =========================
    CALCULADORA
-========================================================= */
+========================= */
 
-#calculatorPage{
-
-    padding-bottom:
-        max(
-            8px,
-            env(safe-area-inset-bottom)
-        );
+.calc-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, 460px) 1fr;
+    gap: 18px;
+    align-items: start;
 }
 
-#calculatorPage > .card{
-
-    flex:1 1 auto;
-
-    min-height:0;
-
-    display:flex;
-
-    flex-direction:column;
-
-    padding:11px;
-
-    overflow:hidden;
+.calculator {
+    border: 1px solid #1f2d22;
+    background: #09100b;
+    border-radius: 24px;
+    padding: 15px;
 }
 
-
-/* =========================================================
-   DISPLAY
-========================================================= */
-
-.calculator-display{
-
-    flex:0 0 auto;
-
-    height:91px;
-
-    padding:11px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:flex-end;
-
-    align-items:flex-end;
-
-    border-radius:13px;
-
-    background:#05080c;
-
-    border:
-        1px solid
-        #252f3a;
-
-    overflow:hidden;
-
-    margin-bottom:5px;
+.display {
+    min-height: 145px;
+    padding: 18px;
+    border-radius: 17px;
+    border: 1px solid #1c281e;
+    background: #050905;
+    margin-bottom: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
 }
 
-.calc-expression{
-
-    width:100%;
-
-    min-height:14px;
-
-    color:#65717e;
-
-    font-size:9px;
-
-    text-align:right;
-
-    white-space:nowrap;
-
-    overflow:hidden;
+.operation {
+    min-height: 25px;
+    color: #748078;
+    text-align: right;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.calc-number{
-
-    max-width:100%;
-
-    margin-top:2px;
-
-    color:#fff;
-
-    font-size:34px;
-
-    font-weight:900;
-
-    white-space:nowrap;
-
-    overflow:hidden;
+.result {
+    margin-top: 7px;
+    text-align: right;
+    font-size: clamp(32px, 8vw, 54px);
+    font-weight: 500;
+    letter-spacing: -1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-
-/* =========================================================
-   MEMÓRIA
-========================================================= */
-
-.memory{
-
-    flex:0 0 auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    gap:4px;
-
-    margin-bottom:5px;
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px;
 }
 
-.memory button{
-
-    height:29px;
-
-    border-radius:7px;
-
-    background:#111820;
-
-    border:
-        1px solid
-        #252e39;
-
-    color:#8995a3;
-
-    font-size:7px;
-
-    font-weight:900;
+.key {
+    height: 64px;
+    border: 1px solid #263329;
+    border-radius: 15px;
+    background: #131c16;
+    color: #eef3ef;
+    font-size: 21px;
+    font-weight: 500;
+    transition: .1s;
 }
 
-
-/* =========================================================
-   TECLADO
-========================================================= */
-
-.keypad{
-
-    flex:1;
-
-    min-height:0;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,minmax(0,1fr));
-
-    grid-template-rows:
-        repeat(5,minmax(0,1fr));
-
-    gap:5px;
+.key:active {
+    transform: scale(.95);
+    background: #1d2920;
 }
 
-.key{
-
-    min-width:0;
-    min-height:0;
-
-    border-radius:10px;
-
-    background:#151c25;
-
-    border:
-        1px solid
-        #27313c;
-
-    color:#fff;
-
-    font-size:17px;
-
-    font-weight:900;
-
-    touch-action:manipulation;
-
-    transition:none !important;
+.key.operator {
+    color: #7cff00;
 }
 
-.key.operator{
-
-    color:#ff8a20;
+.key.action {
+    color: #ff7777;
 }
 
-.key.equal{
-
-    background:#ff7200;
-
-    border-color:#ff7200;
+.key.equals {
+    background: #7cff00;
+    color: #071006;
+    border-color: #7cff00;
+    font-weight: 800;
 }
 
-.key.special{
-
-    color:#a7b1bd;
-
-    font-size:11px;
+.key.zero {
+    grid-column: span 2;
 }
 
-.key.pressed{
-
-    filter:brightness(1.35);
+.calc-info {
+    border: 1px solid #1f2d22;
+    border-radius: 22px;
+    background: #0b120d;
+    padding: 20px;
 }
 
-
-/* =========================================================
-   PUBLICIDADE CALCULADORA
-========================================================= */
-
-.calculator-ad{
-
-    flex:0 0 auto;
-
-    width:100%;
-
-    height:54px;
-
-    margin:
-        6px
-        0
-        5px;
-
-    border-radius:12px;
-
-    border:
-        1px dashed
-        rgba(255,117,0,.30);
-
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.025),
-            rgba(255,100,0,.025)
-        );
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    color:#687480;
-
-    font-size:6.5px;
-
-    font-weight:900;
-
-    letter-spacing:.9px;
+.calc-info h3 {
+    margin-top: 0;
 }
 
-.calculator-ad span{
-
-    display:block;
-
-    margin-top:4px;
-
-    color:#414c58;
-
-    font-size:5px;
-
-    letter-spacing:.4px;
-
-    font-weight:600;
+.info-card {
+    padding: 15px;
+    border: 1px solid #1c281e;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background: #0d160f;
 }
 
-
-/* =========================================================
-   VOLTAR AO MENU
-========================================================= */
-
-.return-menu{
-
-    flex:0 0 auto;
-
-    width:100%;
-
-    height:43px;
-
-    margin:0;
-
-    border-radius:12px;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #ff9200,
-            #ff5d00
-        );
-
-    color:#fff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:7px;
-
-    font-size:9px;
-
-    font-weight:1000;
-
-    letter-spacing:.3px;
-
-    box-shadow:
-
-        0 8px 20px
-        rgba(255,92,0,.18);
+.info-card strong {
+    display: block;
+    color: #7cff00;
+    margin-bottom: 4px;
 }
 
-.return-menu:active{
-
-    transform:scale(.98);
-
-    filter:brightness(1.12);
+.info-card span {
+    color: #89958c;
+    font-size: 13px;
 }
 
-.return-menu-icon{
+/* =========================
+   COMERCIAL
+========================= */
 
-    font-size:16px;
-
-    line-height:1;
+.tabs {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    scrollbar-width: none;
 }
 
+.tabs::-webkit-scrollbar {
+    display: none;
+}
 
-/* =========================================================
+.tab {
+    flex: 0 0 auto;
+    padding: 11px 15px;
+    border-radius: 11px;
+    border: 1px solid #263329;
+    background: #101810;
+    color: #a4aea7;
+    font-size: 13px;
+}
+
+.tab.active {
+    background: #7cff00;
+    border-color: #7cff00;
+    color: #071006;
+    font-weight: 800;
+}
+
+.commercial-card {
+    border: 1px solid #1f2d22;
+    background: #0a110c;
+    border-radius: 22px;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.commercial-card h2 {
+    margin-top: 0;
+    font-size: 21px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+}
+
+.field {
+    margin-bottom: 4px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 7px;
+    color: #9ca69f;
+    font-size: 12px;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 13px;
+    border-radius: 12px;
+    border: 1px solid #28352b;
+    background: #111a13;
+    color: #fff;
+    outline: none;
+    font-size: 16px;
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: #7cff00;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.result-card {
+    border: 1px solid #203021;
+    background: #0d160f;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.result-card span {
+    display: block;
+    color: #7e8981;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.result-card strong {
+    color: #7cff00;
+    font-size: 22px;
+}
+
+.main-result {
+    grid-column: 1 / -1;
+}
+
+.main-result strong {
+    font-size: 30px;
+}
+
+.clear-btn {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 14px;
+    border: 1px solid #7cff00;
+    background: #7cff00;
+    color: #071006;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+/* =========================
    HISTÓRICO
-========================================================= */
+========================= */
 
-#historyPage .card{
-
-    flex:1;
-
-    min-height:0;
-
-    overflow:hidden;
-
-    display:flex;
-
-    flex-direction:column;
+.history-toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
 }
 
-.clear-history{
-
-    flex:0 0 auto;
-
-    width:100%;
-
-    height:40px;
-
-    margin-bottom:8px;
-
-    border-radius:9px;
-
-    background:#171d25;
-
-    border:
-        1px solid
-        rgba(255,80,80,.20);
-
-    color:#ff6464;
-
-    font-size:8px;
-
-    font-weight:900;
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
 }
 
-#historyList{
-
-    flex:1;
-
-    min-height:0;
-
-    overflow:hidden;
+.history-item {
+    border: 1px solid #1e2b21;
+    border-radius: 15px;
+    background: #0c140e;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
 }
 
-.history-empty{
-
-    padding:25px 10px;
-
-    text-align:center;
-
-    color:#66727f;
-
-    font-size:9px;
+.history-expression {
+    color: #a0aaa3;
+    font-size: 13px;
+    overflow-wrap: anywhere;
 }
 
-.history-item{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:10px;
-
-    padding:9px 0;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.055);
+.history-value {
+    color: #7cff00;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
-.history-name{
-
-    font-size:9px;
-
-    font-weight:900;
+.empty {
+    text-align: center;
+    color: #68736c;
+    padding: 40px 15px;
+    border: 1px dashed #263329;
+    border-radius: 16px;
 }
 
-.history-info{
+/* =========================
+   CONFIGURAÇÕES
+========================= */
 
-    margin-top:2px;
-
-    color:#707c89;
-
-    font-size:7px;
-
-    line-height:10px;
+.settings {
+    max-width: 750px;
 }
 
-.history-result{
-
-    color:#ff8a20;
-
-    font-size:9px;
-
-    font-weight:900;
-
-    text-align:right;
+.setting-group {
+    border: 1px solid #1e2b21;
+    border-radius: 17px;
+    background: #0b120d;
+    margin-bottom: 12px;
+    overflow: hidden;
 }
 
+.setting-title {
+    padding: 15px;
+    border-bottom: 1px solid #1c281e;
+    font-size: 13px;
+    color: #7cff00;
+    font-weight: 800;
+}
 
-/* =========================================================
+.setting-row {
+    min-height: 57px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid #172119;
+}
+
+.setting-row:last-child {
+    border-bottom: 0;
+}
+
+.setting-row div:first-child strong {
+    display: block;
+    font-size: 14px;
+}
+
+.setting-row div:first-child span {
+    color: #737e76;
+    font-size: 11px;
+}
+
+.setting-row select {
+    min-height: 40px;
+    background: #111a13;
+    border: 1px solid #29372c;
+    border-radius: 9px;
+    color: white;
+    padding: 0 10px;
+}
+
+.switch {
+    position: relative;
+    width: 46px;
+    height: 26px;
+    flex: 0 0 auto;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    background: #29352d;
+    transition: .2s;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    background: #fff;
+    transition: .2s;
+}
+
+.switch input:checked + .slider {
+    background: #7cff00;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* =========================
+   MENU INFERIOR
+========================= */
+
+.bottom-nav {
+    position: fixed;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    width: min(680px, calc(100% - 20px));
+    min-height: 65px;
+    background: rgba(10,16,11,.96);
+    border: 1px solid #263329;
+    border-radius: 19px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    z-index: 100;
+    padding: 5px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.35);
+    backdrop-filter: blur(14px);
+}
+
+.nav-btn {
+    border: 0;
+    background: transparent;
+    color: #718078;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.nav-btn .nav-icon {
+    font-size: 18px;
+}
+
+.nav-btn span:last-child {
+    font-size: 10px;
+}
+
+.nav-btn.active {
+    color: #7cff00;
+    background: #101a12;
+}
+
+/* =========================
    TOAST
-========================================================= */
+========================= */
 
-.toast{
-
-    position:fixed;
-
-    z-index:9999;
-
-    left:50%;
-
-    bottom:72px;
-
-    padding:9px 13px;
-
-    border-radius:9px;
-
-    background:#171e27;
-
-    border:
-        1px solid
-        #303a46;
-
-    color:#fff;
-
-    font-size:8px;
-
-    font-weight:700;
-
-    transform:
-        translate(-50%,100px);
-
-    opacity:0;
-
-    transition:
-
-        opacity .15s ease,
-
-        transform .15s ease;
-
-    pointer-events:none;
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 90px;
+    transform: translateX(-50%) translateY(20px);
+    background: #152017;
+    border: 1px solid #365039;
+    color: white;
+    border-radius: 12px;
+    padding: 11px 16px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    z-index: 200;
 }
 
-.toast.show{
-
-    transform:
-        translate(-50%,0);
-
-    opacity:1;
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
+/* =========================
+   RESPONSIVO
+========================= */
 
-/* =========================================================
-   TELAS PEQUENAS
-========================================================= */
+@media (max-width: 850px) {
 
-@media(max-height:700px){
-
-    .header{
-
-        padding-bottom:4px;
+    .calc-layout {
+        grid-template-columns: 1fr;
     }
 
-    .top-line{
-
-        height:34px;
+    .calc-info {
+        display: none;
     }
 
-    .logo{
-
-        width:32px;
-        height:32px;
-
-        flex-basis:32px;
+    .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    .logo svg{
-
-        width:21px;
-        height:21px;
-    }
-
-    .brand-name{
-
-        font-size:17px;
-    }
-
-    .hero{
-
-        height:63px;
-
-        padding:8px 12px;
-    }
-
-    .hero-tag{
-
-        display:none;
-    }
-
-    .hero h1{
-
-        margin-top:0;
-
-        font-size:15px;
-
-        line-height:16px;
-    }
-
-    .hero p{
-
-        font-size:6px;
-
-        line-height:8px;
-    }
-
-    .tools-heading{
-
-        height:29px;
-    }
-
-    .tool-card img{
-
-        width:40px;
-        height:40px;
-    }
-
-    .tool-name{
-
-        font-size:7.8px;
-
-        line-height:9px;
-    }
-
-    .tool-description{
-
-        margin-top:2px;
-
-        font-size:5.6px;
-
-        line-height:6.7px;
-    }
-
-    .ad{
-
-        height:23px;
-
-        margin:4px 0;
-    }
-
-    .calculator-display{
-
-        height:76px;
-    }
-
-    .calc-number{
-
-        font-size:29px;
-    }
-
-    .memory button{
-
-        height:26px;
-    }
-
-    .calculator-ad{
-
-        height:45px;
-
-        margin:
-            5px
-            0
-            4px;
-    }
-
-    .return-menu{
-
-        height:39px;
-    }
-
 }
 
+@media (max-width: 600px) {
 
-/* =========================================================
-   TELAS MUITO PEQUENAS
-========================================================= */
-
-@media(max-height:620px){
-
-    .internal-header{
-
-        height:55px;
-
-        margin-bottom:5px;
+    .header {
+        padding: 14px 14px 8px;
     }
 
-    .back-button{
-
-        width:58px;
-        height:48px;
-
-        flex-basis:58px;
-
-        font-size:28px;
+    .container {
+        padding: 8px 14px 100px;
     }
 
-    .internal-title{
-
-        font-size:16px;
+    .brand-text strong {
+        font-size: 16px;
     }
 
-    .internal-subtitle{
-
-        font-size:6px;
+    .logo {
+        width: 39px;
+        height: 39px;
     }
 
-    #calculatorPage > .card{
-
-        padding:8px;
+    .stats {
+        grid-template-columns: 1fr;
     }
 
-    .calculator-display{
-
-        height:66px;
-
-        padding:8px;
+    .stat {
+        padding: 14px;
     }
 
-    .calc-number{
-
-        font-size:25px;
+    .quick {
+        min-height: 110px;
     }
 
-    .memory{
-
-        margin-bottom:4px;
+    .calculator {
+        padding: 10px;
+        border-radius: 19px;
     }
 
-    .memory button{
-
-        height:23px;
-
-        font-size:6px;
+    .display {
+        min-height: 125px;
     }
 
-    .keypad{
-
-        gap:4px;
+    .key {
+        height: 58px;
+        border-radius: 13px;
+        font-size: 20px;
     }
 
-    .key{
-
-        border-radius:8px;
-
-        font-size:15px;
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 
-    .key.special{
-
-        font-size:9px;
+    .field.full {
+        grid-column: auto;
     }
 
-    .calculator-ad{
-
-        height:38px;
-
-        margin:
-            4px
-            0
-            3px;
+    .result-grid {
+        grid-template-columns: 1fr;
     }
 
-    .return-menu{
-
-        height:36px;
-
-        font-size:8px;
+    .main-result {
+        grid-column: auto;
     }
 
+    .history-item {
+        align-items: flex-start;
+    }
 }
 
+@media (max-width: 370px) {
 
-/* =========================================================
-   TELAS EXTREMAMENTE BAIXAS
-========================================================= */
-
-@media(max-height:560px){
-
-    .internal-header{
-
-        height:46px;
+    .key {
+        height: 53px;
+        font-size: 18px;
     }
 
-    .back-button{
-
-        width:50px;
-        height:40px;
-
-        flex-basis:50px;
-
-        font-size:24px;
+    .result {
+        font-size: 34px;
     }
 
-    .internal-title{
-
-        font-size:14px;
+    .quick-grid {
+        grid-template-columns: 1fr;
     }
-
-    .calculator-display{
-
-        height:55px;
-    }
-
-    .calc-number{
-
-        font-size:22px;
-    }
-
-    .memory button{
-
-        height:20px;
-    }
-
-    .calculator-ad{
-
-        height:31px;
-    }
-
-    .return-menu{
-
-        height:32px;
-    }
-
 }
-
-
-/* =========================================================
-   NOTEBOOK / DESKTOP
-========================================================= */
-
-@media(min-width:700px){
-
-    .main{
-
-        width:100%;
-
-        max-width:950px;
-
-        margin:0 auto;
-
-        padding:
-            12px
-            18px
-            0;
-    }
-
-    .header{
-
-        padding-left:25px;
-
-        padding-right:25px;
-    }
-
-    .hero{
-
-        height:92px;
-    }
-
-    .hero h1{
-
-        font-size:22px;
-
-        line-height:24px;
-    }
-
-    .hero p{
-
-        font-size:8px;
-
-        line-height:12px;
-    }
-
-    .tool-card img{
-
-        width:58px;
-        height:58px;
-    }
-
-    .tool-name{
-
-        font-size:10px;
-    }
-
-    .tool-description{
-
-        font-size:7px;
-
-        line-height:9px;
-    }
-
-    .internal-page{
-
-        align-items:center;
-
-        padding-left:20px;
-
-        padding-right:20px;
-    }
-
-    #calculatorPage > .card{
-
-        width:100%;
-
-        max-width:760px;
-    }
-
-    .calculator-ad{
-
-        width:100%;
-
-        max-width:760px;
-    }
-
-    .return-menu{
-
-        width:100%;
-
-        max-width:760px;
-    }
-
-}
-
-
-/* =========================================================
-   NOTEBOOK PEQUENO
-========================================================= */
-
-@media(
-    min-width:700px
-) and (
-    max-height:750px
-){
-
-    .main{
-
-        padding-top:7px;
-    }
-
-    .hero{
-
-        height:70px;
-    }
-
-    .tools-heading{
-
-        height:28px;
-    }
-
-    .tool-card img{
-
-        width:45px;
-        height:45px;
-    }
-
-    .tool-name{
-
-        font-size:8px;
-    }
-
-    .tool-description{
-
-        font-size:6px;
-
-        line-height:7px;
-    }
-
-    .calculator-display{
-
-        height:75px;
-    }
-
-}
-
-
-/* =========================================================
-   IMAGENS
-========================================================= */
-
-img{
-
-    -webkit-user-drag:none;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-}
-
-
-/* =========================================================
-   BLOQUEIO DE ZOOM / ROLAGEM
-========================================================= */
-
-html,
-body{
-
-    touch-action:manipulation;
-
-    overscroll-behavior:none;
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="app">
 
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header class="header">
-
-    <div class="top-line">
+    <header class="header">
 
         <div class="brand">
 
-            <div class="logo">
+            <div class="logo">C</div>
 
-                <svg
-                    viewBox="0 0 50 50"
-                    fill="none"
-                    stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-
-                    <circle
-                        cx="25"
-                        cy="25"
-                        r="20"/>
-
-                    <path
-                        d="M14 31L21 24L27 28L37 17"/>
-
-                    <path
-                        d="M31 17H37V23"/>
-
-                </svg>
-
-            </div>
-
-
-            <div>
-
-                <div class="brand-name">
-                    CAL<span>PRO</span>
-                </div>
-
-                <div class="brand-expert">
-                    EXPERT
-                </div>
-
+            <div class="brand-text">
+                <strong>CALPRO</strong>
+                <span>EXPERT 2.0</span>
             </div>
 
         </div>
 
-
-        <div class="status">
-
-            <span class="status-dot"></span>
-
-            PRONTO PARA CALCULAR
-
-        </div>
-
-    </div>
-
-
-    <div class="header-subtitle">
-
-        Precisão para suas vendas.
-        <b>Resultados na hora.</b>
-
-    </div>
-
-</header>
-
-
-<!-- =====================================================
-     HOME
-===================================================== -->
-
-<main
-    class="main"
-    id="homePage">
-
-
-    <section class="hero">
-
-        <div class="hero-tag">
-            CALPRO EXPERT
-        </div>
-
-        <h1>
-
-            Venda com mais
-            <span>precisão.</span>
-
-        </h1>
-
-        <p>
-
-            Todas as ferramentas que você precisa
-            para calcular seus resultados.
-
-        </p>
-
-    </section>
-
-
-    <div class="tools-heading">
-
-        <div>
-
-            <h2>
-                Ferramentas
-            </h2>
-
-            <p>
-                Escolha uma opção para começar.
-            </p>
-
-        </div>
-
-
-        <div class="tools-count">
-
-            <span>06</span>
-            ferramentas
-
-        </div>
-
-    </div>
-
-
-    <section class="tools">
-
-
-        <button
-            class="tool-card"
-            data-tool="price">
-
-            <img
-                src="./assets/PRECO-DE-VENDA.png"
-                alt="Preço de Venda"
-                draggable="false">
-
-            <div class="tool-name">
-                PREÇO DE VENDA
-            </div>
-
-            <div class="tool-description">
-                Descubra o preço ideal para vender.
-            </div>
-
-        </button>
-
-
-        <button
-            class="tool-card"
-            data-tool="margin">
-
-            <img
-                src="./assets/MARGEM-DE-LUCRO.png"
-                alt="Margem"
-                draggable="false">
-
-            <div class="tool-name">
-                MARGEM
-            </div>
-
-            <div class="tool-description">
-                Veja quanto você ganha no produto.
-            </div>
-
-        </button>
-
-
-        <button
-            class="tool-card"
-            data-tool="discount">
-
-            <img
-                src="./assets/DESCONTO.png"
-                alt="Desconto"
-                draggable="false">
-
-            <div class="tool-name">
-                DESCONTO
-            </div>
-
-            <div class="tool-description">
-                Calcule o preço final da venda.
-            </div>
-
-        </button>
-
-
-        <button
-            class="tool-card"
-            data-tool="markup">
-
-            <img
-                src="./assets/MARKUP.png"
-                alt="Markup"
-                draggable="false">
-
-            <div class="tool-name">
-                MARKUP
-            </div>
-
-            <div class="tool-description">
-                Descubra o multiplicador do preço.
-            </div>
-
-        </button>
-
-
-        <button
-            class="tool-card"
-            data-tool="commission">
-
-            <img
-                src="./assets/COMISSAO.png"
-                alt="Comissão"
-                draggable="false">
-
-            <div class="tool-name">
-                COMISSÃO
-            </div>
-
-            <div class="tool-description">
-                Saiba quanto você vai receber.
-            </div>
-
-        </button>
-
-
-        <button
-            class="tool-card"
-            data-tool="calculator">
-
-            <img
-                src="./assets/CALCULADORA.png"
-                alt="Calculadora"
-                draggable="false">
-
-            <div class="tool-name">
-                CALCULADORA
-            </div>
-
-            <div class="tool-description">
-                Faça cálculos de forma rápida.
-            </div>
-
-        </button>
-
-
-    </section>
-
-
-    <div class="ad">
-
-        ESPAÇO RESERVADO PARA PUBLICIDADE
-
-    </div>
-
-
-</main>
-
-
-<!-- =====================================================
-     MENU INFERIOR
-===================================================== -->
-
-<nav class="bottom-nav">
-
-
-    <button
-        class="active"
-        data-page="home">
-
-        <span class="bottom-icon">
-            ⌂
-        </span>
-
-        INÍCIO
-
-    </button>
-
-
-    <button
-        data-page="calculator">
-
-        <span class="bottom-icon">
-            ＋
-        </span>
-
-        CALCULADORA
-
-    </button>
-
-
-    <button
-        data-page="history">
-
-        <span class="bottom-icon">
-            ◷
-        </span>
-
-        HISTÓRICO
-
-    </button>
-
-
-</nav>
-
-
-<!-- =====================================================
-     FERRAMENTAS
-===================================================== -->
-
-<section
-    id="toolPage"
-    class="internal-page">
-
-
-    <div class="internal-header">
-
-        <button
-            class="back-button"
-            id="backHome">
-
-            ‹
-
-        </button>
-
-
-        <div>
-
-            <div
-                class="internal-title"
-                id="toolTitle">
-
-                Ferramenta
-
-            </div>
-
-
-            <div
-                class="internal-subtitle"
-                id="toolSubtitle">
-
-                Calcule com precisão.
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- PREÇO DE VENDA -->
-
-    <div
-        id="tool-price"
-        class="tool-panel"
-        style="display:none">
-
-        <div class="card">
-
-            <h3>
-                Preço de Venda
-            </h3>
-
-            <p>
-                Informe o custo e a margem desejada
-                para descobrir o preço ideal de venda.
-            </p>
-
-
-            <div class="field">
-
-                <label>
-                    Preço de custo
-                </label>
-
-                <input
-                    id="priceCost"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="0,00">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Margem desejada (%)
-                </label>
-
-                <input
-                    id="priceMargin"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="30">
-
-            </div>
-
-
-            <button
-                class="calculate"
-                id="btnPrice">
-
-                CALCULAR PREÇO
-
+        <div class="header-actions">
+
+            <button class="icon-btn"
+                    type="button"
+                    id="historyHeader"
+                    aria-label="Histórico">
+                ↶
             </button>
 
-
-            <div
-                class="result"
-                id="resultPrice">
-
-                <div class="result-label">
-                    PREÇO DE VENDA
-                </div>
-
-                <div
-                    class="result-value"
-                    id="priceValue">
-
-                    R$ 0,00
-
-                </div>
-
-            </div>
+            <button class="icon-btn"
+                    type="button"
+                    id="settingsHeader"
+                    aria-label="Configurações">
+                ⚙
+            </button>
 
         </div>
 
-    </div>
+    </header>
 
 
-    <!-- MARGEM -->
+    <main class="container">
 
-    <div
-        id="tool-margin"
-        class="tool-panel"
-        style="display:none">
+        <!-- =========================
+             INÍCIO
+        ========================== -->
 
-        <div class="card">
+        <section id="home" class="screen active">
 
-            <h3>
-                Margem de Lucro
-            </h3>
+            <div class="welcome">
 
-            <p>
-                Descubra quanto realmente sobra da venda
-                depois de considerar o custo.
-            </p>
+                <small>CALPRO EXPERT 2.0</small>
 
+                <h2>Olá, seja bem-vindo.</h2>
 
-            <div class="field">
-
-                <label>
-                    Preço de custo
-                </label>
-
-                <input
-                    id="marginCost"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="0,00">
+                <p>
+                    Sua calculadora comercial completa para
+                    vender, negociar e tomar decisões.
+                </p>
 
             </div>
 
 
-            <div class="field">
+            <div class="stats">
 
-                <label>
-                    Preço de venda
-                </label>
+                <div class="stat">
+                    <span>Cálculos realizados</span>
+                    <strong id="statCalculations">0</strong>
+                </div>
 
-                <input
-                    id="marginSale"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="0,00">
+                <div class="stat">
+                    <span>Histórico</span>
+                    <strong id="statHistory">0</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Último resultado</span>
+                    <strong id="statLast">—</strong>
+                </div>
 
             </div>
 
 
-            <button
-                class="calculate"
-                id="btnMargin">
-
-                CALCULAR MARGEM
-
-            </button>
+            <div class="quick-title">
+                Ações rápidas
+            </div>
 
 
-            <div
-                class="result"
-                id="resultMargin">
+            <div class="quick-grid">
 
-                <div class="result-label">
+                <button class="quick" data-open="calculator">
+                    <div class="q-icon">▦</div>
+                    <strong>Calculadora</strong>
+                    <span>Operações rápidas</span>
+                </button>
+
+                <button class="quick" data-open="commercial">
+                    <div class="q-icon">▥</div>
+                    <strong>Cálculos Comerciais</strong>
+                    <span>Preço, desconto e margem</span>
+                </button>
+
+                <button class="quick" data-open="history">
+                    <div class="q-icon">↶</div>
+                    <strong>Histórico</strong>
+                    <span>Veja seus cálculos</span>
+                </button>
+
+                <button class="quick" data-open="settings">
+                    <div class="q-icon">⚙</div>
+                    <strong>Configurações</strong>
+                    <span>Personalize o aplicativo</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CALCULADORA
+        ========================== -->
+
+        <section id="calculator" class="screen">
+
+            <div class="page-title">
+                <h1>Calculadora</h1>
+                <p>Faça seus cálculos de forma rápida e precisa.</p>
+            </div>
+
+
+            <div class="calc-layout">
+
+                <div class="calculator">
+
+                    <div class="display">
+
+                        <div class="operation"
+                             id="calcOperation">
+                        </div>
+
+                        <div class="result"
+                             id="calcDisplay">
+                            0
+                        </div>
+
+                    </div>
+
+
+                    <div class="keys">
+
+                        <button class="key action"
+                                data-key="clear">
+                            AC
+                        </button>
+
+                        <button class="key"
+                                data-key="sign">
+                            +/−
+                        </button>
+
+                        <button class="key operator"
+                                data-key="percent">
+                            %
+                        </button>
+
+                        <button class="key operator"
+                                data-key="divide">
+                            ÷
+                        </button>
+
+
+                        <button class="key"
+                                data-number="7">
+                            7
+                        </button>
+
+                        <button class="key"
+                                data-number="8">
+                            8
+                        </button>
+
+                        <button class="key"
+                                data-number="9">
+                            9
+                        </button>
+
+                        <button class="key operator"
+                                data-key="multiply">
+                            ×
+                        </button>
+
+
+                        <button class="key"
+                                data-number="4">
+                            4
+                        </button>
+
+                        <button class="key"
+                                data-number="5">
+                            5
+                        </button>
+
+                        <button class="key"
+                                data-number="6">
+                            6
+                        </button>
+
+                        <button class="key operator"
+                                data-key="subtract">
+                            −
+                        </button>
+
+
+                        <button class="key"
+                                data-number="1">
+                            1
+                        </button>
+
+                        <button class="key"
+                                data-number="2">
+                            2
+                        </button>
+
+                        <button class="key"
+                                data-number="3">
+                            3
+                        </button>
+
+                        <button class="key operator"
+                                data-key="add">
+                            +
+                        </button>
+
+
+                        <button class="key zero"
+                                data-number="0">
+                            0
+                        </button>
+
+                        <button class="key"
+                                data-key="decimal">
+                            ,
+                        </button>
+
+                        <button class="key action"
+                                data-key="backspace">
+                            ⌫
+                        </button>
+
+                        <button class="key equals"
+                                data-key="equals">
+                            =
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="calc-info">
+
+                    <h3>CALPRO EXPERT</h3>
+
+                    <div class="info-card">
+                        <strong>Calculadora completa</strong>
+                        <span>
+                            Operações matemáticas com números
+                            decimais e porcentagens.
+                        </span>
+                    </div>
+
+                    <div class="info-card">
+                        <strong>Entrada brasileira</strong>
+                        <span>
+                            Use vírgula ou ponto nos valores.
+                        </span>
+                    </div>
+
+                    <div class="info-card">
+                        <strong>Histórico automático</strong>
+                        <span>
+                            Os resultados importantes ficam
+                            registrados automaticamente.
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COMERCIAL
+        ========================== -->
+
+        <section id="commercial" class="screen">
+
+            <div class="page-title">
+
+                <h1>Comercial</h1>
+
+                <p>
+                    Ferramentas para preço, desconto,
+                    margem e markup.
+                </p>
+
+            </div>
+
+
+            <div class="tabs">
+
+                <button class="tab active"
+                        data-commercial="price">
+                    PREÇO
+                </button>
+
+                <button class="tab"
+                        data-commercial="discount">
+                    DESCONTO
+                </button>
+
+                <button class="tab"
+                        data-commercial="margin">
                     MARGEM
-                </div>
+                </button>
 
-                <div
-                    class="result-value"
-                    id="marginValue">
-
-                    0,00%
-
-                </div>
-
-
-                <div class="result-grid">
-
-                    <div class="result-box">
-
-                        <small>
-                            Lucro
-                        </small>
-
-                        <strong
-                            id="marginProfit">
-
-                            R$ 0,00
-
-                        </strong>
-
-                    </div>
-
-
-                    <div class="result-box">
-
-                        <small>
-                            Markup
-                        </small>
-
-                        <strong
-                            id="marginMarkup">
-
-                            0,00x
-
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- DESCONTO -->
-
-    <div
-        id="tool-discount"
-        class="tool-panel"
-        style="display:none">
-
-        <div class="card">
-
-            <h3>
-                Desconto
-            </h3>
-
-            <p>
-                Calcule rapidamente o valor final
-                depois de aplicar o desconto.
-            </p>
-
-
-            <div class="field">
-
-                <label>
-                    Preço original
-                </label>
-
-                <input
-                    id="discountPrice"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="0,00">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Desconto (%)
-                </label>
-
-                <input
-                    id="discountPercent"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="10">
-
-            </div>
-
-
-            <button
-                class="calculate"
-                id="btnDiscount">
-
-                CALCULAR DESCONTO
-
-            </button>
-
-
-            <div
-                class="result"
-                id="resultDiscount">
-
-                <div class="result-label">
-                    PREÇO FINAL
-                </div>
-
-                <div
-                    class="result-value"
-                    id="discountValue">
-
-                    R$ 0,00
-
-                </div>
-
-
-                <div class="result-grid">
-
-                    <div class="result-box">
-
-                        <small>
-                            Desconto
-                        </small>
-
-                        <strong
-                            id="discountAmount">
-
-                            R$ 0,00
-
-                        </strong>
-
-                    </div>
-
-
-                    <div class="result-box">
-
-                        <small>
-                            Percentual
-                        </small>
-
-                        <strong
-                            id="discountPercentValue">
-
-                            0,00%
-
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- MARKUP -->
-
-    <div
-        id="tool-markup"
-        class="tool-panel"
-        style="display:none">
-
-        <div class="card">
-
-            <h3>
-                Markup
-            </h3>
-
-            <p>
-                Veja quantas vezes o preço de venda
-                representa o seu custo.
-            </p>
-
-
-            <div class="field">
-
-                <label>
-                    Preço de custo
-                </label>
-
-                <input
-                    id="markupCost"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="0,00">
-
-            </div>
-
-
-            <div class="field">
-
-                <label>
-                    Preço de venda
-                </label>
-
-                <input
-                    id="markupSale"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="0,00">
-
-            </div>
-
-
-            <button
-                class="calculate"
-                id="btnMarkup">
-
-                CALCULAR MARKUP
-
-            </button>
-
-
-            <div
-                class="result"
-                id="resultMarkup">
-
-                <div class="result-label">
+                <button class="tab"
+                        data-commercial="markup">
                     MARKUP
-                </div>
+                </button>
 
-                <div
-                    class="result-value"
-                    id="markupValue">
+            </div>
 
-                    0,00x
+
+            <!-- PREÇO -->
+
+            <div class="commercial-card commercial-panel"
+                 id="panel-price">
+
+                <h2>Cálculo de Preço</h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Preço de custo (R$)</label>
+                        <input id="priceCost"
+                               inputmode="decimal"
+                               placeholder="0,00">
+                    </div>
+
+                    <div class="field">
+                        <label>Desconto (%)</label>
+                        <input id="priceDiscount"
+                               inputmode="decimal"
+                               placeholder="0">
+                    </div>
+
+                    <div class="field">
+                        <label>Acréscimo (%)</label>
+                        <input id="priceIncrease"
+                               inputmode="decimal"
+                               placeholder="0">
+                    </div>
+
+                    <div class="field">
+                        <label>Margem desejada (%)</label>
+                        <input id="priceMargin"
+                               inputmode="decimal"
+                               placeholder="0">
+                    </div>
 
                 </div>
 
 
                 <div class="result-grid">
 
-                    <div class="result-box">
-
-                        <small>
-                            Acréscimo
-                        </small>
-
-                        <strong
-                            id="markupIncrease">
-
-                            0,00%
-
-                        </strong>
-
+                    <div class="result-card main-result">
+                        <span>Preço de venda</span>
+                        <strong id="priceSale">R$ 0,00</strong>
                     </div>
 
+                    <div class="result-card">
+                        <span>Lucro</span>
+                        <strong id="priceProfit">R$ 0,00</strong>
+                    </div>
 
-                    <div class="result-box">
+                    <div class="result-card">
+                        <span>Margem</span>
+                        <strong id="priceMarginResult">0,00%</strong>
+                    </div>
 
-                        <small>
-                            Margem
-                        </small>
-
-                        <strong
-                            id="markupMargin">
-
-                            0,00%
-
-                        </strong>
-
+                    <div class="result-card">
+                        <span>Markup</span>
+                        <strong id="priceMarkupResult">0,00%</strong>
                     </div>
 
                 </div>
 
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- COMISSÃO -->
-
-    <div
-        id="tool-commission"
-        class="tool-panel"
-        style="display:none">
-
-        <div class="card">
-
-            <h3>
-                Comissão
-            </h3>
-
-            <p>
-                Informe o valor vendido e sua taxa
-                para descobrir sua comissão.
-            </p>
-
-
-            <div class="field">
-
-                <label>
-                    Valor da venda
-                </label>
-
-                <input
-                    id="commissionSale"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="0,00">
+                <button class="clear-btn"
+                        data-clear-commercial="price">
+                    LIMPAR TUDO
+                </button>
 
             </div>
 
 
-            <div class="field">
+            <!-- DESCONTO -->
 
-                <label>
-                    Comissão (%)
-                </label>
+            <div class="commercial-card commercial-panel"
+                 id="panel-discount"
+                 style="display:none">
 
-                <input
-                    id="commissionPercent"
-                    type="text"
-                    inputmode="decimal"
-                    autocomplete="off"
-                    placeholder="5">
+                <h2>Cálculo de Desconto</h2>
 
-            </div>
+                <div class="form-grid">
 
+                    <div class="field">
+                        <label>Preço original (R$)</label>
+                        <input id="discountOriginal"
+                               inputmode="decimal"
+                               placeholder="0,00">
+                    </div>
 
-            <button
-                class="calculate"
-                id="btnCommission">
-
-                CALCULAR COMISSÃO
-
-            </button>
-
-
-            <div
-                class="result"
-                id="resultCommission">
-
-                <div class="result-label">
-                    SUA COMISSÃO
-                </div>
-
-                <div
-                    class="result-value"
-                    id="commissionValue">
-
-                    R$ 0,00
+                    <div class="field">
+                        <label>Desconto (%)</label>
+                        <input id="discountPercent"
+                               inputmode="decimal"
+                               placeholder="0">
+                    </div>
 
                 </div>
 
+
+                <div class="result-grid">
+
+                    <div class="result-card">
+                        <span>Valor do desconto</span>
+                        <strong id="discountValue">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                    <div class="result-card">
+                        <span>Economia</span>
+                        <strong id="discountEconomy">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                    <div class="result-card main-result">
+                        <span>Preço final</span>
+                        <strong id="discountFinal">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                </div>
+
+                <button class="clear-btn"
+                        data-clear-commercial="discount">
+                    LIMPAR TUDO
+                </button>
+
             </div>
 
-        </div>
 
-    </div>
+            <!-- MARGEM -->
+
+            <div class="commercial-card commercial-panel"
+                 id="panel-margin"
+                 style="display:none">
+
+                <h2>Cálculo de Margem</h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Custo (R$)</label>
+                        <input id="marginCost"
+                               inputmode="decimal"
+                               placeholder="0,00">
+                    </div>
+
+                    <div class="field">
+                        <label>Venda (R$)</label>
+                        <input id="marginSale"
+                               inputmode="decimal"
+                               placeholder="0,00">
+                    </div>
+
+                </div>
 
 
-</section>
+                <div class="result-grid">
+
+                    <div class="result-card">
+                        <span>Lucro</span>
+                        <strong id="marginProfit">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                    <div class="result-card">
+                        <span>Margem</span>
+                        <strong id="marginPercent">
+                            0,00%
+                        </strong>
+                    </div>
+
+                    <div class="result-card main-result">
+                        <span>Markup</span>
+                        <strong id="marginMarkup">
+                            0,00%
+                        </strong>
+                    </div>
+
+                </div>
+
+                <button class="clear-btn"
+                        data-clear-commercial="margin">
+                    LIMPAR TUDO
+                </button>
+
+            </div>
 
 
-<!-- =====================================================
-     CALCULADORA
-===================================================== -->
+            <!-- MARKUP -->
 
-<section
-    id="calculatorPage"
-    class="internal-page">
+            <div class="commercial-card commercial-panel"
+                 id="panel-markup"
+                 style="display:none">
+
+                <h2>Cálculo de Markup</h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Custo (R$)</label>
+                        <input id="markupCost"
+                               inputmode="decimal"
+                               placeholder="0,00">
+                    </div>
+
+                    <div class="field">
+                        <label>Markup (%)</label>
+                        <input id="markupPercent"
+                               inputmode="decimal"
+                               placeholder="0">
+                    </div>
+
+                </div>
 
 
-    <div class="internal-header">
+                <div class="result-grid">
 
-        <button
-            class="back-button"
-            id="backFromCalculator">
+                    <div class="result-card main-result">
+                        <span>Preço de venda</span>
+                        <strong id="markupSale">
+                            R$ 0,00
+                        </strong>
+                    </div>
 
-            ‹
+                    <div class="result-card">
+                        <span>Lucro</span>
+                        <strong id="markupProfit">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                    <div class="result-card">
+                        <span>Margem</span>
+                        <strong id="markupMargin">
+                            0,00%
+                        </strong>
+                    </div>
+
+                </div>
+
+                <button class="clear-btn"
+                        data-clear-commercial="markup">
+                    LIMPAR TUDO
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HISTÓRICO
+        ========================== -->
+
+        <section id="history" class="screen">
+
+            <div class="page-title">
+
+                <h1>Histórico</h1>
+
+                <p>
+                    Consulte os cálculos realizados.
+                </p>
+
+            </div>
+
+
+            <div class="history-toolbar">
+
+                <button class="tab"
+                        id="clearHistory">
+                    🗑 LIMPAR HISTÓRICO
+                </button>
+
+            </div>
+
+
+            <div id="historyList"
+                 class="history-list">
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONFIGURAÇÕES
+        ========================== -->
+
+        <section id="settings" class="screen">
+
+            <div class="page-title">
+
+                <h1>Configurações</h1>
+
+                <p>
+                    Personalize sua experiência no CALPRO.
+                </p>
+
+            </div>
+
+
+            <div class="settings">
+
+                <div class="setting-group">
+
+                    <div class="setting-title">
+                        APARÊNCIA
+                    </div>
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>Tema</strong>
+                            <span>Aparência do aplicativo</span>
+                        </div>
+
+                        <select id="themeSelect">
+                            <option value="dark">
+                                Escuro
+                            </option>
+
+                            <option value="light">
+                                Claro
+                            </option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="setting-group">
+
+                    <div class="setting-title">
+                        CALCULADORA
+                    </div>
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>Som ao clicar</strong>
+                            <span>Feedback sonoro</span>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox"
+                                   id="soundToggle"
+                                   checked>
+
+                            <span class="slider"></span>
+                        </label>
+
+                    </div>
+
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>Vibração</strong>
+                            <span>Resposta ao toque</span>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox"
+                                   id="vibrationToggle"
+                                   checked>
+
+                            <span class="slider"></span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="setting-group">
+
+                    <div class="setting-title">
+                        SOBRE O APP
+                    </div>
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>CALPRO EXPERT 2.0</strong>
+                            <span>Calculadora comercial</span>
+                        </div>
+
+                        <strong>v2.0.0</strong>
+
+                    </div>
+
+                    <div class="setting-row">
+
+                        <div>
+                            <strong>Funcionamento</strong>
+                            <span>Aplicação local</span>
+                        </div>
+
+                        <strong style="color:#7cff00">
+                            OFFLINE
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <nav class="bottom-nav">
+
+        <button class="nav-btn active"
+                data-nav="home">
+
+            <span class="nav-icon">⌂</span>
+            <span>Início</span>
 
         </button>
 
-
-        <div>
-
-            <div class="internal-title">
-                Calculadora
-            </div>
-
-            <div class="internal-subtitle">
-                Cálculos rápidos e precisos.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="card">
-
-
-        <div class="calculator-display">
-
-            <div
-                class="calc-expression"
-                id="expression">
-            </div>
-
-            <div
-                class="calc-number"
-                id="display">
-
-                0
-
-            </div>
-
-        </div>
-
-
-        <div class="memory">
-
-            <button data-memory="clear">
-                MC
-            </button>
-
-            <button data-memory="recall">
-                MR
-            </button>
-
-            <button data-memory="add">
-                M+
-            </button>
-
-            <button data-memory="subtract">
-                M−
-            </button>
-
-            <button data-memory="store">
-                MS
-            </button>
-
-        </div>
-
-
-        <div class="keypad">
-
-
-            <button
-                class="key special"
-                data-action="clear">
-                AC
-            </button>
-
-
-            <button
-                class="key special"
-                data-action="backspace">
-                ⌫
-            </button>
-
-
-            <button
-                class="key operator"
-                data-action="percent">
-                %
-            </button>
-
-
-            <button
-                class="key operator"
-                data-operator="/">
-                ÷
-            </button>
-
-
-            <button
-                class="key"
-                data-number="7">
-                7
-            </button>
-
-
-            <button
-                class="key"
-                data-number="8">
-                8
-            </button>
-
-
-            <button
-                class="key"
-                data-number="9">
-                9
-            </button>
-
-
-            <button
-                class="key operator"
-                data-operator="*">
-                ×
-            </button>
-
-
-            <button
-                class="key"
-                data-number="4">
-                4
-            </button>
-
-
-            <button
-                class="key"
-                data-number="5">
-                5
-            </button>
-
-
-            <button
-                class="key"
-                data-number="6">
-                6
-            </button>
-
-
-            <button
-                class="key operator"
-                data-operator="-">
-                −
-            </button>
-
-
-            <button
-                class="key"
-                data-number="1">
-                1
-            </button>
-
-
-            <button
-                class="key"
-                data-number="2">
-                2
-            </button>
-
-
-            <button
-                class="key"
-                data-number="3">
-                3
-            </button>
-
-
-            <button
-                class="key operator"
-                data-operator="+">
-                +
-            </button>
-
-
-            <button
-                class="key special"
-                data-action="sign">
-                ±
-            </button>
-
-
-            <button
-                class="key"
-                data-number="0">
-                0
-            </button>
-
-
-            <button
-                class="key"
-                data-action="decimal">
-                ,
-            </button>
-
-
-            <button
-                class="key equal"
-                data-action="equals">
-                =
-            </button>
-
-
-        </div>
-
-    </div>
-
-
-    <div class="calculator-ad">
-
-        ESPAÇO RESERVADO PARA PUBLICIDADE
-
-        <span>
-            SUA PROPAGANDA PODE APARECER AQUI
-        </span>
-
-    </div>
-
-
-    <button
-        class="return-menu"
-        id="returnMenuCalculator">
-
-        <span class="return-menu-icon">
-            ⌂
-        </span>
-
-        VOLTAR AO MENU PRINCIPAL
-
-    </button>
-
-
-</section>
-
-
-<!-- =====================================================
-     HISTÓRICO
-===================================================== -->
-
-<section
-    id="historyPage"
-    class="internal-page">
-
-
-    <div class="internal-header">
-
-        <button
-            class="back-button"
-            id="backFromHistory">
-
-            ‹
+        <button class="nav-btn"
+                data-nav="calculator">
+
+            <span class="nav-icon">▦</span>
+            <span>Calc</span>
 
         </button>
 
+        <button class="nav-btn"
+                data-nav="commercial">
 
-        <div>
-
-            <div class="internal-title">
-                Histórico
-            </div>
-
-            <div class="internal-subtitle">
-                Seus últimos cálculos.
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="card">
-
-        <button
-            class="clear-history"
-            id="clearHistory">
-
-            🗑 LIMPAR HISTÓRICO
+            <span class="nav-icon">▥</span>
+            <span>Comercial</span>
 
         </button>
 
+        <button class="nav-btn"
+                data-nav="history">
 
-        <div id="historyList"></div>
+            <span class="nav-icon">↶</span>
+            <span>Histórico</span>
 
+        </button>
+
+    </nav>
+
+
+    <div id="toast"
+         class="toast">
     </div>
-
-</section>
-
-
-<div
-    id="toast"
-    class="toast">
-</div>
-
 
 </div>
 
 
 <script>
+"use strict";
 
 /* =========================================================
-   NÚMEROS
+   UTILIDADES
 ========================================================= */
 
-function parseNumber(value){
+const $ = id => document.getElementById(id);
 
-    if(
-        value === null ||
-        value === undefined
-    ){
+function parseNumber(value) {
+
+    if (value === null || value === undefined) {
         return 0;
     }
 
-    let text =
-        String(value)
+    let text = String(value)
         .trim()
-        .replace(/\s/g,'');
+        .replace(/\s/g, "");
 
-    if(!text){
+    if (!text) {
         return 0;
     }
 
+    /*
+       Aceita:
+       10,50
+       10.50
+       1.250,50
+       1,250.50
+    */
 
-    if(
-        text.includes(',') &&
-        text.includes('.')
-    ){
+    const comma = text.lastIndexOf(",");
+    const dot = text.lastIndexOf(".");
 
-        if(
-            text.lastIndexOf(',') >
-            text.lastIndexOf('.')
-        ){
+    if (comma !== -1 && dot !== -1) {
 
-            text =
-                text
-                .replace(/\./g,'')
-                .replace(',','.');
-
-        }else{
-
-            text =
-                text.replace(/,/g,'');
-
+        if (comma > dot) {
+            text = text.replace(/\./g, "");
+            text = text.replace(",", ".");
+        } else {
+            text = text.replace(/,/g, "");
         }
 
-    }else{
+    } else if (comma !== -1) {
 
-        text =
-            text.replace(',','.');
+        text = text.replace(",", ".");
 
     }
 
+    const number = Number(text);
 
-    text =
-        text.replace(
-            /[^0-9.-]/g,
-            ''
-        );
-
-
-    const result =
-        Number(text);
-
-
-    return Number.isFinite(result)
-        ? result
-        : 0;
+    return Number.isFinite(number) ? number : 0;
 }
 
 
-function formatNumber(value){
+function formatNumber(value, decimals = 2) {
 
-    const number =
-        Number(value);
-
-
-    if(
-        !Number.isFinite(number)
-    ){
-
-        return '0,00';
+    if (!Number.isFinite(value)) {
+        value = 0;
     }
 
-
-    return number.toLocaleString(
-        'pt-BR',
-        {
-            minimumFractionDigits:2,
-            maximumFractionDigits:4
-        }
-    );
+    return new Intl.NumberFormat("pt-BR", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+    }).format(value);
 }
 
 
-function money(value){
+function money(value) {
+    return "R$ " + formatNumber(value, 2);
+}
 
-    const number =
-        Number(value);
+
+function percent(value) {
+    return formatNumber(value, 2) + "%";
+}
 
 
-    if(
-        !Number.isFinite(number)
-    ){
+function cleanZero(value) {
 
-        return 'R$ 0,00';
+    if (Math.abs(value) < 0.0000000001) {
+        return 0;
     }
 
+    return value;
+}
 
-    return 'R$ ' +
-        number.toLocaleString(
-            'pt-BR',
-            {
-                minimumFractionDigits:2,
-                maximumFractionDigits:2
-            }
-        );
+
+function round(value, decimals = 2) {
+
+    const factor = Math.pow(10, decimals);
+
+    return Math.round((value + Number.EPSILON) * factor) / factor;
 }
 
 
@@ -3421,2519 +1746,1189 @@ function money(value){
 
 let toastTimer;
 
-function toast(message){
+function toast(message) {
 
-    const element =
-        document.getElementById(
-            'toast'
-        );
+    const element = $("toast");
 
+    element.textContent = message;
+    element.classList.add("show");
 
-    element.textContent =
-        message;
+    clearTimeout(toastTimer);
 
-
-    element.classList.add(
-        'show'
-    );
-
-
-    clearTimeout(
-        toastTimer
-    );
-
-
-    toastTimer =
-        setTimeout(
-            function(){
-
-                element.classList.remove(
-                    'show'
-                );
-
-            },
-            1500
-        );
+    toastTimer = setTimeout(() => {
+        element.classList.remove("show");
+    }, 1800);
 }
-
-
-/* =========================================================
-   ELEMENTOS
-========================================================= */
-
-const homePage =
-    document.getElementById(
-        'homePage'
-    );
-
-const toolPage =
-    document.getElementById(
-        'toolPage'
-    );
-
-const calculatorPage =
-    document.getElementById(
-        'calculatorPage'
-    );
-
-const historyPage =
-    document.getElementById(
-        'historyPage'
-    );
-
-
-const bottomButtons =
-    document.querySelectorAll(
-        '.bottom-nav button'
-    );
 
 
 /* =========================================================
    NAVEGAÇÃO
 ========================================================= */
 
-function setActiveNav(page){
+const screens = [
+    "home",
+    "calculator",
+    "commercial",
+    "history",
+    "settings"
+];
 
-    bottomButtons.forEach(
-        function(button){
 
-            button.classList.toggle(
-                'active',
-                button.dataset.page === page
+function openScreen(name) {
+
+    if (!screens.includes(name)) {
+        name = "home";
+    }
+
+    screens.forEach(screen => {
+
+        const element = $(screen);
+
+        if (element) {
+            element.classList.toggle(
+                "active",
+                screen === name
             );
-
         }
-    );
-
-}
-
-
-function openHome(){
-
-    toolPage.classList.remove(
-        'show'
-    );
-
-    calculatorPage.classList.remove(
-        'show'
-    );
-
-    historyPage.classList.remove(
-        'show'
-    );
-
-
-    homePage.style.display =
-        'flex';
-
-
-    setActiveNav(
-        'home'
-    );
-}
-
-
-function openCalculator(){
-
-    homePage.style.display =
-        'none';
-
-
-    toolPage.classList.remove(
-        'show'
-    );
-
-    historyPage.classList.remove(
-        'show'
-    );
-
-
-    calculatorPage.classList.add(
-        'show'
-    );
-
-
-    setActiveNav(
-        'calculator'
-    );
-
-
-    updateCalculator();
-}
-
-
-function openHistory(){
-
-    homePage.style.display =
-        'none';
-
-
-    toolPage.classList.remove(
-        'show'
-    );
-
-    calculatorPage.classList.remove(
-        'show'
-    );
-
-
-    historyPage.classList.add(
-        'show'
-    );
-
-
-    setActiveNav(
-        'history'
-    );
-
-
-    renderHistory();
-}
-
-
-/* =========================================================
-   MENU INFERIOR
-========================================================= */
-
-bottomButtons.forEach(
-    function(button){
-
-        button.addEventListener(
-            'click',
-            function(){
-
-                const page =
-                    button.dataset.page;
-
-
-                if(page === 'home'){
-                    openHome();
-                }
-
-
-                if(page === 'calculator'){
-                    openCalculator();
-                }
-
-
-                if(page === 'history'){
-                    openHistory();
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   NOMES DAS FERRAMENTAS
-========================================================= */
-
-const toolNames = {
-
-    price:{
-        title:'Preço de Venda',
-        subtitle:'Descubra o preço ideal para vender.'
-    },
-
-    margin:{
-        title:'Margem de Lucro',
-        subtitle:'Veja quanto você ganha no produto.'
-    },
-
-    discount:{
-        title:'Desconto',
-        subtitle:'Calcule o preço final da venda.'
-    },
-
-    markup:{
-        title:'Markup',
-        subtitle:'Descubra o multiplicador do preço.'
-    },
-
-    commission:{
-        title:'Comissão',
-        subtitle:'Saiba quanto você vai receber.'
-    }
-
-};
-
-
-/* =========================================================
-   ABRIR FERRAMENTA
-========================================================= */
-
-function openTool(tool){
-
-    if(
-        tool === 'calculator'
-    ){
-
-        openCalculator();
-
-        return;
-    }
-
-
-    homePage.style.display =
-        'none';
-
-
-    calculatorPage
-        .classList
-        .remove('show');
-
-
-    historyPage
-        .classList
-        .remove('show');
-
-
-    toolPage
-        .classList
-        .add('show');
-
-
-    document
-    .querySelectorAll(
-        '.tool-panel'
-    )
-    .forEach(
-        function(panel){
-
-            panel.style.display =
-                'none';
-
-        }
-    );
-
-
-    const panel =
-        document.getElementById(
-            'tool-' + tool
-        );
-
-
-    if(panel){
-
-        panel.style.display =
-            'block';
-
-    }
-
-
-    if(
-        toolNames[tool]
-    ){
-
-        document
-        .getElementById(
-            'toolTitle'
-        )
-        .textContent =
-            toolNames[tool].title;
-
-
-        document
-        .getElementById(
-            'toolSubtitle'
-        )
-        .textContent =
-            toolNames[tool].subtitle;
-
-    }
-
-}
-
-
-/* =========================================================
-   CLIQUE DOS CARDS DAS FERRAMENTAS
-   MAIS CONTROLADO E FLUIDO
-========================================================= */
-
-document
-.querySelectorAll(
-    '.tool-card'
-)
-.forEach(
-    function(button){
-
-        let startX = 0;
-
-        let startY = 0;
-
-        let startTime = 0;
-
-        let moved = false;
-
-        let cancelled = false;
-
-
-        button.addEventListener(
-            'pointerdown',
-            function(event){
-
-                if(
-                    event.pointerType === 'mouse' &&
-                    event.button !== 0
-                ){
-
-                    return;
-                }
-
-
-                startX =
-                    event.clientX;
-
-                startY =
-                    event.clientY;
-
-                startTime =
-                    performance.now();
-
-                moved =
-                    false;
-
-                cancelled =
-                    false;
-
-
-                button.classList.add(
-                    'pressed'
-                );
-
-            },
-            {
-                passive:true
-            }
-        );
-
-
-        button.addEventListener(
-            'pointermove',
-            function(event){
-
-                const deltaX =
-                    Math.abs(
-                        event.clientX -
-                        startX
-                    );
-
-
-                const deltaY =
-                    Math.abs(
-                        event.clientY -
-                        startY
-                    );
-
-
-                /*
-                 * Se a pessoa movimentou o dedo,
-                 * entendemos como gesto e não clique.
-                 */
-
-                if(
-                    deltaX > 12 ||
-                    deltaY > 12
-                ){
-
-                    moved =
-                        true;
-
-                    button.classList.remove(
-                        'pressed'
-                    );
-
-                }
-
-            },
-            {
-                passive:true
-            }
-        );
-
-
-        button.addEventListener(
-            'pointerup',
-            function(){
-
-                button.classList.remove(
-                    'pressed'
-                );
-
-
-                if(
-                    moved ||
-                    cancelled
-                ){
-
-                    return;
-                }
-
-
-                const elapsed =
-                    performance.now() -
-                    startTime;
-
-
-                /*
-                 * Pequena tolerância.
-                 *
-                 * Toque normal:
-                 * abre praticamente instantâneo.
-                 *
-                 * Toque extremamente rápido/acidental:
-                 * recebe uma pequena proteção.
-                 */
-
-                const delay =
-                    elapsed < 55
-                        ? 35
-                        : 0;
-
-
-                if(delay > 0){
-
-                    setTimeout(
-                        function(){
-
-                            openTool(
-                                button.dataset.tool
-                            );
-
-                        },
-                        delay
-                    );
-
-                }else{
-
-                    openTool(
-                        button.dataset.tool
-                    );
-
-                }
-
-            },
-            {
-                passive:true
-            }
-        );
-
-
-        button.addEventListener(
-            'pointercancel',
-            function(){
-
-                cancelled =
-                    true;
-
-                moved =
-                    true;
-
-                button.classList.remove(
-                    'pressed'
-                );
-
-            },
-            {
-                passive:true
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   VOLTAR
-========================================================= */
-
-function setupBackButton(id){
-
-    const button =
-        document.getElementById(id);
-
-
-    if(!button){
-        return;
-    }
-
-
-    button.addEventListener(
-        'click',
-        function(){
-
-            openHome();
-
-        }
-    );
-
-}
-
-
-setupBackButton(
-    'backHome'
-);
-
-setupBackButton(
-    'backFromCalculator'
-);
-
-setupBackButton(
-    'backFromHistory'
-);
-
-
-document
-.getElementById(
-    'returnMenuCalculator'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        openHome();
-
-    }
-);
-
-
-/* =========================================================
-   PREÇO DE VENDA
-========================================================= */
-
-document
-.getElementById(
-    'btnPrice'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        const cost =
-            parseNumber(
-                document.getElementById(
-                    'priceCost'
-                ).value
-            );
-
-
-        const margin =
-            parseNumber(
-                document.getElementById(
-                    'priceMargin'
-                ).value
-            );
-
-
-        if(cost <= 0){
-
-            toast(
-                'Digite um custo válido.'
-            );
-
-            return;
-        }
-
-
-        if(
-            margin < 0 ||
-            margin >= 100
-        ){
-
-            toast(
-                'Margem deve ficar entre 0% e 99,99%.'
-            );
-
-            return;
-        }
-
-
-        const price =
-            cost /
-            (
-                1 -
-                margin / 100
-            );
-
-
-        document.getElementById(
-            'priceValue'
-        ).textContent =
-            money(price);
-
-
-        document.getElementById(
-            'resultPrice'
-        ).style.display =
-            'block';
-
-
-        addHistory(
-            'Preço de Venda',
-
-            'Custo: ' +
-            money(cost) +
-            ' | Margem: ' +
-            formatNumber(margin) +
-            '%',
-
-            money(price)
-        );
-
-    }
-);
-
-
-/* =========================================================
-   MARGEM
-========================================================= */
-
-document
-.getElementById(
-    'btnMargin'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        const cost =
-            parseNumber(
-                document.getElementById(
-                    'marginCost'
-                ).value
-            );
-
-
-        const sale =
-            parseNumber(
-                document.getElementById(
-                    'marginSale'
-                ).value
-            );
-
-
-        if(
-            cost <= 0 ||
-            sale <= 0
-        ){
-
-            toast(
-                'Digite custo e venda.'
-            );
-
-            return;
-        }
-
-
-        const profit =
-            sale - cost;
-
-
-        const margin =
-            profit /
-            sale *
-            100;
-
-
-        const markup =
-            sale /
-            cost;
-
-
-        document.getElementById(
-            'marginValue'
-        ).textContent =
-            formatNumber(margin) +
-            '%';
-
-
-        document.getElementById(
-            'marginProfit'
-        ).textContent =
-            money(profit);
-
-
-        document.getElementById(
-            'marginMarkup'
-        ).textContent =
-            formatNumber(markup) +
-            'x';
-
-
-        document.getElementById(
-            'resultMargin'
-        ).style.display =
-            'block';
-
-
-        addHistory(
-            'Margem',
-
-            money(cost) +
-            ' → ' +
-            money(sale),
-
-            formatNumber(margin) +
-            '%'
-        );
-
-    }
-);
-
-
-/* =========================================================
-   DESCONTO
-========================================================= */
-
-document
-.getElementById(
-    'btnDiscount'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        const price =
-            parseNumber(
-                document.getElementById(
-                    'discountPrice'
-                ).value
-            );
-
-
-        const percent =
-            parseNumber(
-                document.getElementById(
-                    'discountPercent'
-                ).value
-            );
-
-
-        if(price <= 0){
-
-            toast(
-                'Digite o preço original.'
-            );
-
-            return;
-        }
-
-
-        if(
-            percent < 0 ||
-            percent > 100
-        ){
-
-            toast(
-                'Desconto inválido.'
-            );
-
-            return;
-        }
-
-
-        const amount =
-            price *
-            percent /
-            100;
-
-
-        const finalPrice =
-            price -
-            amount;
-
-
-        document.getElementById(
-            'discountValue'
-        ).textContent =
-            money(finalPrice);
-
-
-        document.getElementById(
-            'discountAmount'
-        ).textContent =
-            money(amount);
-
-
-        document.getElementById(
-            'discountPercentValue'
-        ).textContent =
-            formatNumber(percent) +
-            '%';
-
-
-        document.getElementById(
-            'resultDiscount'
-        ).style.display =
-            'block';
-
-
-        addHistory(
-            'Desconto',
-
-            money(price) +
-            ' | ' +
-            formatNumber(percent) +
-            '%',
-
-            money(finalPrice)
-        );
-
-    }
-);
-
-
-/* =========================================================
-   MARKUP
-========================================================= */
-
-document
-.getElementById(
-    'btnMarkup'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        const cost =
-            parseNumber(
-                document.getElementById(
-                    'markupCost'
-                ).value
-            );
-
-
-        const sale =
-            parseNumber(
-                document.getElementById(
-                    'markupSale'
-                ).value
-            );
-
-
-        if(
-            cost <= 0 ||
-            sale <= 0
-        ){
-
-            toast(
-                'Digite custo e venda.'
-            );
-
-            return;
-        }
-
-
-        const markup =
-            sale /
-            cost;
-
-
-        const increase =
-            (
-                sale -
-                cost
-            ) /
-            cost *
-            100;
-
-
-        const margin =
-            (
-                sale -
-                cost
-            ) /
-            sale *
-            100;
-
-
-        document.getElementById(
-            'markupValue'
-        ).textContent =
-            formatNumber(markup) +
-            'x';
-
-
-        document.getElementById(
-            'markupIncrease'
-        ).textContent =
-            formatNumber(increase) +
-            '%';
-
-
-        document.getElementById(
-            'markupMargin'
-        ).textContent =
-            formatNumber(margin) +
-            '%';
-
-
-        document.getElementById(
-            'resultMarkup'
-        ).style.display =
-            'block';
-
-
-        addHistory(
-            'Markup',
-
-            money(cost) +
-            ' → ' +
-            money(sale),
-
-            formatNumber(markup) +
-            'x'
-        );
-
-    }
-);
-
-
-/* =========================================================
-   COMISSÃO
-========================================================= */
-
-document
-.getElementById(
-    'btnCommission'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        const sale =
-            parseNumber(
-                document.getElementById(
-                    'commissionSale'
-                ).value
-            );
-
-
-        const percent =
-            parseNumber(
-                document.getElementById(
-                    'commissionPercent'
-                ).value
-            );
-
-
-        if(sale <= 0){
-
-            toast(
-                'Digite o valor da venda.'
-            );
-
-            return;
-        }
-
-
-        if(percent < 0){
-
-            toast(
-                'Comissão inválida.'
-            );
-
-            return;
-        }
-
-
-        const commission =
-            sale *
-            percent /
-            100;
-
-
-        document.getElementById(
-            'commissionValue'
-        ).textContent =
-            money(commission);
-
-
-        document.getElementById(
-            'resultCommission'
-        ).style.display =
-            'block';
-
-
-        addHistory(
-            'Comissão',
-
-            money(sale) +
-            ' | ' +
-            formatNumber(percent) +
-            '%',
-
-            money(commission)
-        );
-
-    }
-);
-
-
-/* =========================================================
-   HISTÓRICO
-========================================================= */
-
-let historyData = [];
-
-
-try{
-
-    historyData =
-        JSON.parse(
-            localStorage.getItem(
-                'calpro_history'
-            ) || '[]'
-        );
-
-
-    if(
-        !Array.isArray(historyData)
-    ){
-
-        historyData = [];
-    }
-
-}catch(error){
-
-    historyData = [];
-}
-
-
-function escapeHTML(value){
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            '&amp;'
-        )
-
-        .replace(
-            /</g,
-            '&lt;'
-        )
-
-        .replace(
-            />/g,
-            '&gt;'
-        )
-
-        .replace(
-            /"/g,
-            '&quot;'
-        )
-
-        .replace(
-            /'/g,
-            '&#039;'
-        );
-}
-
-
-function addHistory(
-    type,
-    info,
-    result
-){
-
-    historyData.unshift({
-
-        type:type,
-
-        info:info,
-
-        result:result,
-
-        date:
-            new Date()
-            .toLocaleString('pt-BR')
 
     });
 
 
-    historyData =
-        historyData.slice(
-            0,
-            50
-        );
+    document.querySelectorAll("[data-nav]")
+        .forEach(button => {
 
-
-    try{
-
-        localStorage.setItem(
-            'calpro_history',
-            JSON.stringify(
-                historyData
-            )
-        );
-
-    }catch(error){}
-
-
-    renderHistory();
-}
-
-
-function renderHistory(){
-
-    const list =
-        document.getElementById(
-            'historyList'
-        );
-
-
-    if(
-        historyData.length === 0
-    ){
-
-        list.className =
-            'history-empty';
-
-        list.textContent =
-            'Nenhum cálculo realizado ainda.';
-
-        return;
-    }
-
-
-    list.className =
-        '';
-
-
-    list.innerHTML =
-        historyData
-        .map(
-            function(item){
-
-                return `
-
-                    <div class="history-item">
-
-                        <div>
-
-                            <div class="history-name">
-                                ${escapeHTML(item.type)}
-                            </div>
-
-                            <div class="history-info">
-                                ${escapeHTML(item.info)}
-                                <br>
-                                ${escapeHTML(item.date)}
-                            </div>
-
-                        </div>
-
-                        <div class="history-result">
-                            ${escapeHTML(item.result)}
-                        </div>
-
-                    </div>
-
-                `;
-
-            }
-        )
-        .join('');
-}
-
-
-document
-.getElementById(
-    'clearHistory'
-)
-.addEventListener(
-    'click',
-    function(){
-
-        if(
-            historyData.length === 0
-        ){
-
-            toast(
-                'Histórico já está vazio.'
+            button.classList.toggle(
+                "active",
+                button.dataset.nav === name
             );
 
-            return;
-        }
+        });
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
 
 
-        if(
-            !confirm(
-                'Deseja apagar todo o histórico?'
-            )
-        ){
+document.querySelectorAll("[data-nav]")
+    .forEach(button => {
 
-            return;
-        }
+        button.addEventListener("click", () => {
 
+            openScreen(button.dataset.nav);
 
-        historyData = [];
+        });
 
-
-        localStorage.removeItem(
-            'calpro_history'
-        );
+    });
 
 
-        renderHistory();
+document.querySelectorAll("[data-open]")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            openScreen(button.dataset.open);
+
+        });
+
+    });
 
 
-        toast(
-            'Histórico apagado.'
-        );
+$("historyHeader").addEventListener("click", () => {
+    openScreen("history");
+});
 
-    }
-);
+
+$("settingsHeader").addEventListener("click", () => {
+    openScreen("settings");
+});
 
 
 /* =========================================================
    CALCULADORA
 ========================================================= */
 
-let calcCurrent =
-    '0';
-
-let calcPrevious =
-    null;
-
-let calcOperator =
-    null;
-
-let calcWaiting =
-    false;
-
-let calcExpression =
-    '';
-
-let calcMemory =
-    '0';
-
-let lastOperator =
-    null;
-
-let lastOperand =
-    null;
-
-let justCalculated =
-    false;
+let calcCurrent = "0";
+let calcPrevious = null;
+let calcOperator = null;
+let calcWaiting = false;
+let calcExpression = "";
 
 
-const display =
-    document.getElementById(
-        'display'
-    );
+function updateCalcDisplay() {
 
+    $("calcDisplay").textContent =
+        formatCalcDisplay(calcCurrent);
 
-const expression =
-    document.getElementById(
-        'expression'
-    );
-
-
-function formatCalc(value){
-
-    const number =
-        Number(value);
-
-
-    if(
-        !Number.isFinite(number)
-    ){
-
-        return 'Erro';
-    }
-
-
-    if(
-        Object.is(
-            number,
-            -0
-        )
-    ){
-
-        return '0';
-    }
-
-
-    return number.toLocaleString(
-        'pt-BR',
-        {
-            maximumFractionDigits:10
-        }
-    );
-}
-
-
-function updateCalculator(){
-
-    display.textContent =
-        formatCalc(
-            calcCurrent
-        );
-
-
-    expression.textContent =
+    $("calcOperation").textContent =
         calcExpression;
 }
 
 
-/* =========================================================
-   LIMPAR CALCULADORA
-========================================================= */
+function formatCalcDisplay(value) {
 
-function clearCalculator(){
+    if (value === "Erro") {
+        return value;
+    }
+
+    if (value === "-") {
+        return value;
+    }
+
+    const numeric = Number(value);
+
+    if (!Number.isFinite(numeric)) {
+        return value;
+    }
+
+    let text = String(value);
+
+    if (
+        text.includes("e") ||
+        text.includes("E")
+    ) {
+        return text;
+    }
+
+    const parts = text.split(".");
+    let integer = parts[0];
+    const decimal = parts[1];
+
+    let sign = "";
+
+    if (integer.startsWith("-")) {
+        sign = "-";
+        integer = integer.slice(1);
+    }
+
+    integer =
+        Number(integer || "0")
+        .toLocaleString("pt-BR", {
+            maximumFractionDigits: 0
+        });
+
+    if (decimal !== undefined) {
+        return sign + integer + "," + decimal;
+    }
+
+    return sign + integer;
+}
+
+
+function inputNumber(number) {
+
+    if (calcWaiting) {
+
+        calcCurrent = number;
+        calcWaiting = false;
+
+    } else {
+
+        if (calcCurrent === "0") {
+            calcCurrent = number;
+        } else if (calcCurrent === "-0") {
+            calcCurrent = "-" + number;
+        } else {
+            calcCurrent += number;
+        }
+
+    }
+
+    updateCalcDisplay();
+}
+
+
+function inputDecimal() {
+
+    if (calcWaiting) {
+
+        calcCurrent = "0.";
+        calcWaiting = false;
+
+    } else if (!calcCurrent.includes(".")) {
+
+        calcCurrent += ".";
+
+    }
+
+    updateCalcDisplay();
+}
+
+
+function clearCalculator() {
+
+    calcCurrent = "0";
+    calcPrevious = null;
+    calcOperator = null;
+    calcWaiting = false;
+    calcExpression = "";
+
+    updateCalcDisplay();
+}
+
+
+function toggleSign() {
+
+    if (calcCurrent === "0") {
+        return;
+    }
 
     calcCurrent =
-        '0';
+        calcCurrent.startsWith("-")
+            ? calcCurrent.slice(1)
+            : "-" + calcCurrent;
 
-    calcPrevious =
-        null;
-
-    calcOperator =
-        null;
-
-    calcWaiting =
-        false;
-
-    calcExpression =
-        '';
-
-    lastOperator =
-        null;
-
-    lastOperand =
-        null;
-
-    justCalculated =
-        false;
-
-
-    updateCalculator();
+    updateCalcDisplay();
 }
 
 
-/* =========================================================
-   NÚMEROS
-========================================================= */
+function calculatePercent() {
 
-function inputNumber(number){
+    const current = Number(calcCurrent);
 
-    if(
-        calcCurrent === 'Erro'
-    ){
-
-        clearCalculator();
-    }
-
-
-    if(justCalculated){
-
-        calcCurrent =
-            '0';
-
-        calcExpression =
-            '';
-
-        justCalculated =
-            false;
-
-        lastOperator =
-            null;
-
-        lastOperand =
-            null;
-    }
-
-
-    if(calcWaiting){
-
-        calcCurrent =
-            number;
-
-        calcWaiting =
-            false;
-
-    }else{
-
-        if(
-            calcCurrent === '0'
-        ){
-
-            calcCurrent =
-                number;
-
-        }else{
-
-            const digits =
-                calcCurrent
-                .replace(
-                    '-',
-                    ''
-                )
-                .replace(
-                    '.',
-                    ''
-                );
-
-
-            if(
-                digits.length >= 15
-            ){
-
-                return;
-            }
-
-
-            calcCurrent +=
-                number;
-        }
-
-    }
-
-
-    updateCalculator();
-}
-
-
-/* =========================================================
-   DECIMAL
-========================================================= */
-
-function inputDecimal(){
-
-    if(
-        calcCurrent === 'Erro'
-    ){
-
-        clearCalculator();
-    }
-
-
-    if(justCalculated){
-
-        calcCurrent =
-            '0';
-
-        calcExpression =
-            '';
-
-        justCalculated =
-            false;
-
-        lastOperator =
-            null;
-
-        lastOperand =
-            null;
-    }
-
-
-    if(calcWaiting){
-
-        calcCurrent =
-            '0.';
-
-        calcWaiting =
-            false;
-
-        updateCalculator();
-
+    if (!Number.isFinite(current)) {
         return;
     }
 
-
-    if(
-        !calcCurrent.includes('.')
-    ){
-
-        calcCurrent +=
-            '.';
-    }
-
-
-    updateCalculator();
-}
-
-
-/* =========================================================
-   OPERADORES
-========================================================= */
-
-function operatorSymbol(operator){
-
-    if(operator === '+')
-        return '+';
-
-    if(operator === '-')
-        return '−';
-
-    if(operator === '*')
-        return '×';
-
-    if(operator === '/')
-        return '÷';
-
-    return operator;
-}
-
-
-function calculateOperation(
-    first,
-    second,
-    operator
-){
-
-    const a =
-        Number(first);
-
-    const b =
-        Number(second);
-
-
-    switch(operator){
-
-        case '+':
-
-            return a + b;
-
-
-        case '-':
-
-            return a - b;
-
-
-        case '*':
-
-            return a * b;
-
-
-        case '/':
-
-            if(b === 0){
-
-                return null;
-            }
-
-            return a / b;
-
-
-        default:
-
-            return b;
-    }
-}
-
-
-function selectOperator(operator){
-
-    if(
-        calcCurrent === 'Erro'
-    ){
-
-        return;
-    }
-
-
-    if(justCalculated){
-
-        calcPrevious =
-            calcCurrent;
-
-        calcOperator =
-            operator;
-
-        calcWaiting =
-            true;
-
-        justCalculated =
-            false;
-
-
-        calcExpression =
-            formatCalc(
-                calcPrevious
-            ) +
-            ' ' +
-            operatorSymbol(
-                operator
-            );
-
-
-        updateCalculator();
-
-        return;
-    }
-
-
-    if(
-        calcPrevious !== null &&
-        calcOperator !== null &&
-        !calcWaiting
-    ){
-
-        const result =
-            calculateOperation(
-                calcPrevious,
-                calcCurrent,
-                calcOperator
-            );
-
-
-        if(result === null){
-
-            calcCurrent =
-                'Erro';
-
-            calcPrevious =
-                null;
-
-            calcOperator =
-                null;
-
-            updateCalculator();
-
-
-            toast(
-                'Não é possível dividir por zero.'
-            );
-
-            return;
-        }
-
-
-        calcPrevious =
-            String(result);
-
-        calcCurrent =
-            String(result);
-
-    }else{
-
-        calcPrevious =
-            calcCurrent;
-    }
-
-
-    calcOperator =
-        operator;
-
-
-    calcWaiting =
-        true;
-
-
-    calcExpression =
-        formatCalc(
-            calcPrevious
-        ) +
-        ' ' +
-        operatorSymbol(
-            operator
-        );
-
-
-    updateCalculator();
-}
-
-
-/* =========================================================
-   IGUAL
-========================================================= */
-
-function calculateEquals(){
-
-    if(
-        calcCurrent === 'Erro'
-    ){
-
-        return;
-    }
-
-
-    if(
-        justCalculated &&
-        lastOperator !== null
-    ){
-
-        const result =
-            calculateOperation(
-                calcCurrent,
-                lastOperand,
-                lastOperator
-            );
-
-
-        if(result === null){
-
-            calcCurrent =
-                'Erro';
-
-            updateCalculator();
-
-            return;
-        }
-
-
-        calcExpression =
-            formatCalc(
-                calcCurrent
-            ) +
-            ' ' +
-            operatorSymbol(
-                lastOperator
-            ) +
-            ' ' +
-            formatCalc(
-                lastOperand
-            ) +
-            ' =';
-
-
-        calcCurrent =
-            String(result);
-
-
-        updateCalculator();
-
-
-        addHistory(
-            'Calculadora',
-            calcExpression,
-            formatCalc(result)
-        );
-
-
-        return;
-    }
-
-
-    if(
-        calcPrevious === null ||
-        calcOperator === null
-    ){
-
-        return;
-    }
-
-
-    const first =
-        calcPrevious;
-
-    const second =
-        calcCurrent;
-
-    const operator =
-        calcOperator;
-
-
-    const result =
-        calculateOperation(
-            first,
-            second,
-            operator
-        );
-
-
-    if(result === null){
-
-        calcCurrent =
-            'Erro';
-
-        calcPrevious =
-            null;
-
-        calcOperator =
-            null;
-
-        calcExpression =
-            '';
-
-        updateCalculator();
-
-
-        toast(
-            'Não é possível dividir por zero.'
-        );
-
-
-        return;
-    }
-
-
-    calcExpression =
-        formatCalc(first) +
-        ' ' +
-        operatorSymbol(operator) +
-        ' ' +
-        formatCalc(second) +
-        ' =';
-
-
-    calcCurrent =
-        String(result);
-
-
-    calcPrevious =
-        null;
-
-    calcOperator =
-        null;
-
-    calcWaiting =
-        false;
-
-    justCalculated =
-        true;
-
-    lastOperator =
-        operator;
-
-    lastOperand =
-        second;
-
-
-    updateCalculator();
-
-
-    addHistory(
-        'Calculadora',
-        calcExpression,
-        formatCalc(result)
-    );
-}
-
-
-/* =========================================================
-   PORCENTAGEM
-========================================================= */
-
-function percentage(){
-
-    const current =
-        Number(calcCurrent);
-
-
-    if(
-        !Number.isFinite(current)
-    ){
-
-        return;
-    }
-
-
-    if(
+    /*
+       Comportamento comercial:
+       100 + 10% = 110
+       100 - 10% = 90
+       100 × 10% = 10
+       100 ÷ 10% = 1000
+    */
+
+    if (
         calcPrevious !== null &&
         (
-            calcOperator === '+' ||
-            calcOperator === '-'
+            calcOperator === "+" ||
+            calcOperator === "-"
         )
-    ){
+    ) {
 
-        calcCurrent =
-            String(
-                Number(calcPrevious) *
-                current /
-                100
-            );
+        calcCurrent = String(
+            calcPrevious * current / 100
+        );
 
-    }else{
+    } else {
 
-        calcCurrent =
-            String(
-                current /
-                100
-            );
+        calcCurrent = String(
+            current / 100
+        );
+
     }
 
-
-    updateCalculator();
+    updateCalcDisplay();
 }
 
 
-/* =========================================================
-   SINAL
-========================================================= */
+function chooseOperator(operator) {
 
-function changeSign(){
+    const inputValue = Number(calcCurrent);
 
-    if(
-        calcCurrent === '0' ||
-        calcCurrent === 'Erro'
-    ){
-
+    if (!Number.isFinite(inputValue)) {
         return;
     }
 
+    if (
+        calcOperator &&
+        calcWaiting
+    ) {
 
-    if(
-        calcCurrent.startsWith('-')
-    ){
-
-        calcCurrent =
-            calcCurrent.substring(1);
-
-    }else{
-
-        calcCurrent =
-            '-' +
-            calcCurrent;
+        calcOperator = operator;
+        updateCalcDisplay();
+        return;
     }
 
+    if (calcPrevious !== null && calcOperator) {
 
-    updateCalculator();
+        const result = performCalculation(
+            calcPrevious,
+            inputValue,
+            calcOperator
+        );
+
+        calcCurrent = String(result);
+
+        saveCalculation(
+            calcExpression || "",
+            result
+        );
+
+    }
+
+    calcPrevious = Number(calcCurrent);
+    calcOperator = operator;
+    calcWaiting = true;
+
+    const symbol = operatorSymbol(operator);
+
+    calcExpression =
+        formatCalcDisplay(String(calcPrevious))
+        + " "
+        + symbol;
+
+    updateCalcDisplay();
 }
 
 
-/* =========================================================
-   APAGAR
-========================================================= */
+function operatorSymbol(operator) {
 
-function backspace(){
+    const map = {
+        add: "+",
+        subtract: "−",
+        multiply: "×",
+        divide: "÷"
+    };
 
-    if(
-        calcWaiting ||
-        justCalculated
-    ){
+    return map[operator] || "";
+}
+
+
+function performCalculation(a, b, operator) {
+
+    let result;
+
+    switch (operator) {
+
+        case "add":
+            result = a + b;
+            break;
+
+        case "subtract":
+            result = a - b;
+            break;
+
+        case "multiply":
+            result = a * b;
+            break;
+
+        case "divide":
+
+            if (b === 0) {
+                return NaN;
+            }
+
+            result = a / b;
+            break;
+
+        default:
+            result = b;
+    }
+
+    return cleanZero(result);
+}
+
+
+function calculateEquals() {
+
+    if (
+        calcPrevious === null ||
+        calcOperator === null
+    ) {
+        return;
+    }
+
+    const current = Number(calcCurrent);
+
+    const result = performCalculation(
+        calcPrevious,
+        current,
+        calcOperator
+    );
+
+    if (!Number.isFinite(result)) {
+
+        calcCurrent = "Erro";
+        calcPrevious = null;
+        calcOperator = null;
+        calcWaiting = true;
+        calcExpression = "Não é possível dividir por zero";
+
+        updateCalcDisplay();
+
+        toast("Operação inválida");
 
         return;
     }
 
+    const expression =
+        formatCalcDisplay(String(calcPrevious))
+        + " "
+        + operatorSymbol(calcOperator)
+        + " "
+        + formatCalcDisplay(String(current));
 
-    if(
-        calcCurrent === 'Erro'
-    ){
+    calcCurrent = String(result);
 
-        clearCalculator();
+    calcPrevious = null;
+    calcOperator = null;
+    calcWaiting = true;
 
+    calcExpression =
+        expression + " =";
+
+    saveCalculation(
+        expression,
+        result
+    );
+
+    updateCalcDisplay();
+}
+
+
+function backspace() {
+
+    if (calcWaiting) {
         return;
     }
 
-
-    if(
+    if (
         calcCurrent.length <= 1 ||
         (
             calcCurrent.length === 2 &&
-            calcCurrent.startsWith('-')
+            calcCurrent.startsWith("-")
         )
-    ){
+    ) {
 
-        calcCurrent =
-            '0';
+        calcCurrent = "0";
 
-    }else{
+    } else {
 
-        calcCurrent =
-            calcCurrent.slice(
-                0,
-                -1
-            );
+        calcCurrent = calcCurrent.slice(0, -1);
+
     }
 
-
-    updateCalculator();
+    updateCalcDisplay();
 }
 
 
+document.querySelectorAll("[data-number]")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            inputNumber(button.dataset.number);
+            feedback();
+
+        });
+
+    });
+
+
+document.querySelectorAll("[data-key]")
+    .forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const key = button.dataset.key;
+
+            switch (key) {
+
+                case "clear":
+                    clearCalculator();
+                    break;
+
+                case "sign":
+                    toggleSign();
+                    break;
+
+                case "percent":
+                    calculatePercent();
+                    break;
+
+                case "decimal":
+                    inputDecimal();
+                    break;
+
+                case "backspace":
+                    backspace();
+                    break;
+
+                case "equals":
+                    calculateEquals();
+                    break;
+
+                case "add":
+                case "subtract":
+                case "multiply":
+                case "divide":
+                    chooseOperator(key);
+                    break;
+            }
+
+            feedback();
+
+        });
+
+    });
+
+
 /* =========================================================
-   BOTÃO INSTANTÂNEO
+   TECLADO DO COMPUTADOR
 ========================================================= */
 
-function instantButton(
-    button,
-    action
-){
+document.addEventListener("keydown", event => {
 
-    if(!button){
+    const target = event.target;
+
+    if (
+        target &&
+        (
+            target.tagName === "INPUT" ||
+            target.tagName === "SELECT" ||
+            target.tagName === "TEXTAREA"
+        )
+    ) {
         return;
     }
 
+    const key = event.key;
 
-    button.addEventListener(
-        'pointerdown',
-        function(event){
+    if (/^[0-9]$/.test(key)) {
 
-            event.preventDefault();
+        inputNumber(key);
+        return;
+    }
+
+    if (key === "," || key === ".") {
+
+        inputDecimal();
+        return;
+    }
+
+    if (key === "+") {
+
+        chooseOperator("add");
+        return;
+    }
+
+    if (key === "-") {
+
+        chooseOperator("subtract");
+        return;
+    }
+
+    if (key === "*") {
+
+        chooseOperator("multiply");
+        return;
+    }
+
+    if (key === "/") {
+
+        event.preventDefault();
+        chooseOperator("divide");
+        return;
+    }
+
+    if (key === "%") {
+
+        calculatePercent();
+        return;
+    }
+
+    if (key === "Enter" || key === "=") {
+
+        calculateEquals();
+        return;
+    }
+
+    if (key === "Backspace") {
+
+        backspace();
+        return;
+    }
+
+    if (key === "Escape") {
+
+        clearCalculator();
+    }
+
+});
 
 
-            action();
+/* =========================================================
+   HISTÓRICO
+========================================================= */
+
+let history = [];
 
 
-            button.classList.add(
-                'pressed'
-            );
+function loadHistory() {
 
+    try {
 
-            setTimeout(
-                function(){
+        const saved =
+            localStorage.getItem("calpro_history");
 
-                    button.classList.remove(
-                        'pressed'
-                    );
-
-                },
-                35
-            );
-
-        },
-        {
-            passive:false
+        if (saved) {
+            history = JSON.parse(saved);
         }
+
+    } catch (error) {
+
+        history = [];
+
+    }
+
+    renderHistory();
+}
+
+
+function saveCalculation(expression, value) {
+
+    if (
+        !expression ||
+        !Number.isFinite(Number(value))
+    ) {
+        return;
+    }
+
+    const item = {
+        expression,
+        value: Number(value),
+        time: new Date().toLocaleTimeString(
+            "pt-BR",
+            {
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        )
+    };
+
+    history.unshift(item);
+
+    if (history.length > 100) {
+        history = history.slice(0, 100);
+    }
+
+    try {
+
+        localStorage.setItem(
+            "calpro_history",
+            JSON.stringify(history)
+        );
+
+    } catch (error) {}
+
+    renderHistory();
+    updateStats();
+}
+
+
+function renderHistory() {
+
+    const container = $("historyList");
+
+    container.innerHTML = "";
+
+    if (!history.length) {
+
+        container.innerHTML =
+            '<div class="empty">Nenhum cálculo realizado ainda.</div>';
+
+        return;
+    }
+
+    history.forEach((item, index) => {
+
+        const row =
+            document.createElement("div");
+
+        row.className = "history-item";
+
+        row.innerHTML = `
+            <div>
+                <div class="history-expression">
+                    ${escapeHTML(item.expression)}
+                </div>
+
+                <small style="color:#59655d">
+                    ${escapeHTML(item.time)}
+                </small>
+            </div>
+
+            <div class="history-value">
+                ${formatCalcDisplay(String(item.value))}
+            </div>
+        `;
+
+        row.addEventListener("click", () => {
+
+            calcCurrent = String(item.value);
+            calcWaiting = true;
+
+            updateCalcDisplay();
+            openScreen("calculator");
+
+            toast("Resultado carregado");
+
+        });
+
+        container.appendChild(row);
+
+    });
+
+}
+
+
+function escapeHTML(text) {
+
+    return String(text)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+
+$("clearHistory").addEventListener("click", () => {
+
+    history = [];
+
+    try {
+        localStorage.removeItem("calpro_history");
+    } catch (error) {}
+
+    renderHistory();
+    updateStats();
+
+    toast("Histórico apagado");
+
+});
+
+
+/* =========================================================
+   CÁLCULOS COMERCIAIS
+========================================================= */
+
+function updatePriceCalculation() {
+
+    const cost =
+        parseNumber($("priceCost").value);
+
+    const discount =
+        parseNumber($("priceDiscount").value);
+
+    const increase =
+        parseNumber($("priceIncrease").value);
+
+    const desiredMargin =
+        parseNumber($("priceMargin").value);
+
+    let sale = cost;
+
+    /*
+       Se margem desejada foi informada,
+       calcula preço pela margem:
+       
+       Venda = Custo / (1 - Margem/100)
+    */
+
+    if (desiredMargin > 0 && desiredMargin < 100) {
+
+        sale =
+            cost /
+            (1 - desiredMargin / 100);
+
+    } else {
+
+        if (increase !== 0) {
+            sale *= 1 + increase / 100;
+        }
+
+        if (discount !== 0) {
+            sale *= 1 - discount / 100;
+        }
+
+    }
+
+    const profit = sale - cost;
+
+    const margin =
+        sale !== 0
+            ? profit / sale * 100
+            : 0;
+
+    const markup =
+        cost !== 0
+            ? profit / cost * 100
+            : 0;
+
+    $("priceSale").textContent =
+        money(sale);
+
+    $("priceProfit").textContent =
+        money(profit);
+
+    $("priceMarginResult").textContent =
+        percent(margin);
+
+    $("priceMarkupResult").textContent =
+        percent(markup);
+
+}
+
+
+function updateDiscountCalculation() {
+
+    const original =
+        parseNumber($("discountOriginal").value);
+
+    const discount =
+        parseNumber($("discountPercent").value);
+
+    const value =
+        original * discount / 100;
+
+    const finalPrice =
+        original - value;
+
+    $("discountValue").textContent =
+        money(value);
+
+    $("discountEconomy").textContent =
+        money(value);
+
+    $("discountFinal").textContent =
+        money(finalPrice);
+
+}
+
+
+function updateMarginCalculation() {
+
+    const cost =
+        parseNumber($("marginCost").value);
+
+    const sale =
+        parseNumber($("marginSale").value);
+
+    const profit =
+        sale - cost;
+
+    const margin =
+        sale !== 0
+            ? profit / sale * 100
+            : 0;
+
+    const markup =
+        cost !== 0
+            ? profit / cost * 100
+            : 0;
+
+    $("marginProfit").textContent =
+        money(profit);
+
+    $("marginPercent").textContent =
+        percent(margin);
+
+    $("marginMarkup").textContent =
+        percent(markup);
+
+}
+
+
+function updateMarkupCalculation() {
+
+    const cost =
+        parseNumber($("markupCost").value);
+
+    const markup =
+        parseNumber($("markupPercent").value);
+
+    const profit =
+        cost * markup / 100;
+
+    const sale =
+        cost + profit;
+
+    const margin =
+        sale !== 0
+            ? profit / sale * 100
+            : 0;
+
+    $("markupSale").textContent =
+        money(sale);
+
+    $("markupProfit").textContent =
+        money(profit);
+
+    $("markupMargin").textContent =
+        percent(margin);
+
+}
+
+
+document.querySelectorAll(
+    "#panel-price input"
+).forEach(input => {
+
+    input.addEventListener(
+        "input",
+        updatePriceCalculation
     );
+
+});
+
+
+document.querySelectorAll(
+    "#panel-discount input"
+).forEach(input => {
+
+    input.addEventListener(
+        "input",
+        updateDiscountCalculation
+    );
+
+});
+
+
+document.querySelectorAll(
+    "#panel-margin input"
+).forEach(input => {
+
+    input.addEventListener(
+        "input",
+        updateMarginCalculation
+    );
+
+});
+
+
+document.querySelectorAll(
+    "#panel-markup input"
+).forEach(input => {
+
+    input.addEventListener(
+        "input",
+        updateMarkupCalculation
+    );
+
+});
+
+
+/* =========================================================
+   ABAS COMERCIAIS
+========================================================= */
+
+document.querySelectorAll("[data-commercial]")
+    .forEach(tab => {
+
+        tab.addEventListener("click", () => {
+
+            const selected =
+                tab.dataset.commercial;
+
+            document.querySelectorAll(
+                "[data-commercial]"
+            ).forEach(button => {
+
+                button.classList.toggle(
+                    "active",
+                    button === tab
+                );
+
+            });
+
+
+            document.querySelectorAll(
+                ".commercial-panel"
+            ).forEach(panel => {
+
+                panel.style.display =
+                    panel.id ===
+                    "panel-" + selected
+                        ? "block"
+                        : "none";
+
+            });
+
+        });
+
+    });
+
+
+/* =========================================================
+   LIMPAR COMERCIAL
+========================================================= */
+
+const clearMap = {
+
+    price: [
+        "priceCost",
+        "priceDiscount",
+        "priceIncrease",
+        "priceMargin"
+    ],
+
+    discount: [
+        "discountOriginal",
+        "discountPercent"
+    ],
+
+    margin: [
+        "marginCost",
+        "marginSale"
+    ],
+
+    markup: [
+        "markupCost",
+        "markupPercent"
+    ]
+
+};
+
+
+document.querySelectorAll(
+    "[data-clear-commercial]"
+).forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const type =
+            button.dataset.clearCommercial;
+
+        (clearMap[type] || [])
+            .forEach(id => {
+
+                $(id).value = "";
+
+            });
+
+
+        if (type === "price") {
+            updatePriceCalculation();
+        }
+
+        if (type === "discount") {
+            updateDiscountCalculation();
+        }
+
+        if (type === "margin") {
+            updateMarginCalculation();
+        }
+
+        if (type === "markup") {
+            updateMarkupCalculation();
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   ESTATÍSTICAS
+========================================================= */
+
+function updateStats() {
+
+    $("statCalculations").textContent =
+        history.length;
+
+    $("statHistory").textContent =
+        history.length;
+
+    if (history.length) {
+
+        $("statLast").textContent =
+            formatCalcDisplay(
+                String(history[0].value)
+            );
+
+    } else {
+
+        $("statLast").textContent = "—";
+
+    }
 
 }
 
 
 /* =========================================================
-   NÚMEROS CALCULADORA
+   FEEDBACK
 ========================================================= */
 
-document
-.querySelectorAll(
-    '[data-number]'
-)
-.forEach(
-    function(button){
+function feedback() {
 
-        instantButton(
-            button,
-            function(){
+    const vibration =
+        $("vibrationToggle").checked;
 
-                inputNumber(
-                    button.dataset.number
-                );
+    if (
+        vibration &&
+        navigator.vibrate
+    ) {
 
-            }
-        );
+        navigator.vibrate(8);
 
     }
-);
+
+}
 
 
 /* =========================================================
-   OPERADORES CALCULADORA
+   CONFIGURAÇÕES
 ========================================================= */
 
-document
-.querySelectorAll(
-    '[data-operator]'
-)
-.forEach(
-    function(button){
+$("themeSelect")
+    .addEventListener("change", event => {
 
-        instantButton(
-            button,
-            function(){
+        if (event.target.value === "light") {
 
-                selectOperator(
-                    button.dataset.operator
-                );
+            document.body.style.background =
+                "#f1f4f2";
 
-            }
-        );
+            document.querySelector(".app")
+                .style.background =
+                "#f1f4f2";
 
-    }
-);
+            toast("Tema claro selecionado");
 
+        } else {
 
-/* =========================================================
-   BOTÕES CALCULADORA
-========================================================= */
+            document.body.style.background =
+                "#050805";
 
-instantButton(
-    document.querySelector(
-        '[data-action="decimal"]'
-    ),
-    inputDecimal
-);
+            document.querySelector(".app")
+                .style.background = "";
 
+            toast("Tema escuro selecionado");
 
-instantButton(
-    document.querySelector(
-        '[data-action="clear"]'
-    ),
-    clearCalculator
-);
+        }
 
-
-instantButton(
-    document.querySelector(
-        '[data-action="backspace"]'
-    ),
-    backspace
-);
-
-
-instantButton(
-    document.querySelector(
-        '[data-action="sign"]'
-    ),
-    changeSign
-);
-
-
-instantButton(
-    document.querySelector(
-        '[data-action="percent"]'
-    ),
-    percentage
-);
-
-
-instantButton(
-    document.querySelector(
-        '[data-action="equals"]'
-    ),
-    calculateEquals
-);
+    });
 
 
 /* =========================================================
-   MEMÓRIA
-========================================================= */
-
-document
-.querySelectorAll(
-    '[data-memory]'
-)
-.forEach(
-    function(button){
-
-        instantButton(
-            button,
-            function(){
-
-                const action =
-                    button.dataset.memory;
-
-
-                if(
-                    action === 'clear'
-                ){
-
-                    calcMemory =
-                        '0';
-
-
-                    toast(
-                        'Memória apagada.'
-                    );
-                }
-
-
-                if(
-                    action === 'store'
-                ){
-
-                    calcMemory =
-                        calcCurrent;
-
-
-                    toast(
-                        'Valor salvo na memória.'
-                    );
-                }
-
-
-                if(
-                    action === 'recall'
-                ){
-
-                    calcCurrent =
-                        calcMemory;
-
-                    calcWaiting =
-                        false;
-
-                    justCalculated =
-                        false;
-
-                    updateCalculator();
-                }
-
-
-                if(
-                    action === 'add'
-                ){
-
-                    calcMemory =
-                        String(
-                            Number(calcMemory) +
-                            Number(calcCurrent)
-                        );
-
-
-                    toast(
-                        'Valor adicionado.'
-                    );
-                }
-
-
-                if(
-                    action === 'subtract'
-                ){
-
-                    calcMemory =
-                        String(
-                            Number(calcMemory) -
-                            Number(calcCurrent)
-                        );
-
-
-                    toast(
-                        'Valor retirado.'
-                    );
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================================
-   TECLADO FÍSICO
+   PROTEÇÃO CONTRA ZOOM ACIDENTAL
 ========================================================= */
 
 document.addEventListener(
-    'keydown',
-    function(event){
-
-        const key =
-            event.key;
-
-
-        if(
-            event.target &&
-            event.target.tagName === 'INPUT'
-        ){
-
-            return;
-        }
-
-
-        if(
-            /^[0-9]$/.test(key)
-        ){
-
-            inputNumber(key);
-
-            event.preventDefault();
-
-            return;
-        }
-
-
-        if(
-            key === ',' ||
-            key === '.'
-        ){
-
-            inputDecimal();
-
-            event.preventDefault();
-
-            return;
-        }
-
-
-        if(
-            ['+','-','*','/'].includes(key)
-        ){
-
-            selectOperator(key);
-
-            event.preventDefault();
-
-            return;
-        }
-
-
-        if(key === '%'){
-
-            percentage();
-
-            event.preventDefault();
-
-            return;
-        }
-
-
-        if(
-            key === 'Enter' ||
-            key === '='
-        ){
-
-            calculateEquals();
-
-            event.preventDefault();
-
-            return;
-        }
-
-
-        if(
-            key === 'Backspace'
-        ){
-
-            backspace();
-
-            event.preventDefault();
-
-            return;
-        }
-
-
-        if(
-            key === 'Escape'
-        ){
-
-            clearCalculator();
-
-            event.preventDefault();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   INPUTS
-========================================================= */
-
-document.addEventListener(
-    'input',
-    function(event){
-
-        const input =
-            event.target;
-
-
-        if(
-            !input.matches(
-                'input[inputmode="decimal"]'
-            )
-        ){
-
-            return;
-        }
-
-
-        input.value =
-            input.value.replace(
-                /[^0-9.,]/g,
-                ''
-            );
-
-    }
-);
-
-
-/* =========================================================
-   BLOQUEIO DE ZOOM IOS
-========================================================= */
-
-document.addEventListener(
-    'gesturestart',
-    function(event){
-
+    "gesturestart",
+    event => {
         event.preventDefault();
-
     },
-    {
-        passive:false
-    }
+    { passive: false }
 );
 
-
 document.addEventListener(
-    'gesturechange',
-    function(event){
-
+    "gesturechange",
+    event => {
         event.preventDefault();
-
     },
-    {
-        passive:false
-    }
+    { passive: false }
 );
 
-
 document.addEventListener(
-    'gestureend',
-    function(event){
-
+    "gestureend",
+    event => {
         event.preventDefault();
-
     },
-    {
-        passive:false
-    }
-);
-
-
-/* =========================================================
-   BLOQUEIO DE DUPLO TOQUE
-========================================================= */
-
-let lastTouchEnd =
-    0;
-
-
-document.addEventListener(
-    'touchend',
-    function(event){
-
-        const now =
-            Date.now();
-
-
-        if(
-            now -
-            lastTouchEnd <
-            300
-        ){
-
-            event.preventDefault();
-
-        }
-
-
-        lastTouchEnd =
-            now;
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-/* =========================================================
-   BLOQUEIO CTRL + ZOOM
-========================================================= */
-
-document.addEventListener(
-    'wheel',
-    function(event){
-
-        if(
-            event.ctrlKey
-        ){
-
-            event.preventDefault();
-
-        }
-
-    },
-    {
-        passive:false
-    }
+    { passive: false }
 );
 
 
@@ -5941,14 +2936,21 @@ document.addEventListener(
    INICIALIZAÇÃO
 ========================================================= */
 
-updateCalculator();
+loadHistory();
 
-renderHistory();
+updateStats();
 
-openHome();
+updateCalcDisplay();
+
+updatePriceCalculation();
+
+updateDiscountCalculation();
+
+updateMarginCalculation();
+
+updateMarkupCalculation();
 
 </script>
-
 
 </body>
 </html>
