@@ -1,1919 +1,898 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-      initial-scale=1,
-      maximum-scale=1,
-      minimum-scale=1,
-      user-scalable=no,
-      viewport-fit=cover">
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 
-<meta name="theme-color" content="#050705">
+<meta name="theme-color" content="#07100b">
 
 <title>CALPRO EXPERT</title>
 
 <style>
+:root{
+    --bg:#050806;
+    --panel:#0b120d;
+    --panel2:#101a13;
+    --line:#203024;
+    --text:#f3f7f4;
+    --muted:#91a097;
+    --green:#7cff00;
+    --green2:#4bc400;
+    --danger:#ff6262;
+    --shadow:0 18px 50px rgba(0,0,0,.35);
+}
 
 *{
     box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
 }
 
 html,
 body{
+    margin:0;
     width:100%;
     height:100%;
-    margin:0;
-    padding:0;
-
-    overflow:hidden;
-
-    background:#050705;
-    color:#fff;
-
+    background:var(--bg);
+    color:var(--text);
     font-family:
         Inter,
-        Arial,
-        Helvetica,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
         sans-serif;
-
-    touch-action:manipulation;
-
-    overscroll-behavior:none;
 }
 
 body{
-    position:fixed;
-    inset:0;
+    overflow:hidden;
+}
+
+.app{
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    touch-action:manipulation;
 }
 
 button,
 input{
-    font-family:inherit;
+    font:inherit;
 }
 
 button{
-    user-select:none;
-    -webkit-user-select:none;
+    border:0;
+    cursor:pointer;
+    touch-action:manipulation;
 }
 
 input{
-    user-select:text;
-    -webkit-user-select:text;
-}
-
-
-/* =========================================================
-   APP
-========================================================= */
-
-.app{
-
     width:100%;
-    height:100dvh;
-
-    display:flex;
-    flex-direction:column;
-
-    overflow:hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 50% -15%,
-            rgba(124,255,0,.09),
-            transparent 35%
-        ),
-
-        linear-gradient(
-            180deg,
-            #070a07 0%,
-            #040604 100%
-        );
+    color:var(--text);
+    background:#07100a;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:13px 14px;
+    outline:none;
+    font-size:16px;
+    user-select:text;
 }
 
+input:focus{
+    border-color:var(--green);
+    box-shadow:0 0 0 2px rgba(124,255,0,.12);
+}
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .header{
-
-    height:68px;
-
-    flex-shrink:0;
-
+    height:64px;
+    flex:0 0 64px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:
-        0
-        clamp(16px,3vw,35px);
-
-    border-bottom:
-        1px solid
-        rgba(124,255,0,.12);
-
-    background:
-        rgba(5,7,5,.96);
-
-    backdrop-filter:blur(15px);
+    padding:0 18px;
+    border-bottom:1px solid var(--line);
+    background:#07100b;
 }
 
 .brand{
-    display:flex;
-    flex-direction:column;
+    font-weight:900;
+    letter-spacing:.12em;
 }
 
-.brand-name{
-
-    color:#7cff00;
-
-    font-size:
-        clamp(20px,2vw,25px);
-
-    font-weight:950;
-
-    letter-spacing:2px;
-
-    line-height:1;
+.brand span{
+    color:var(--green);
 }
 
-.brand-sub{
-
-    color:#596059;
-
-    margin-top:6px;
-
-    font-size:8px;
-
-    letter-spacing:2.5px;
-
-    font-weight:800;
+.status{
+    font-size:12px;
+    color:var(--muted);
 }
 
-.header-actions{
-
-    display:flex;
-
-    gap:8px;
-}
-
-.header-btn{
-
-    width:40px;
-    height:40px;
-
-    border-radius:11px;
-
-    background:#0c110c;
-
-    border:1px solid #1b261b;
-
-    color:#818981;
-
-    font-size:16px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.header-btn:active{
-    transform:scale(.95);
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-.content{
-
-    flex:1;
-
-    min-height:0;
-
-    overflow:hidden;
-
-    display:flex;
-    justify-content:center;
-}
-
-.main{
-
-    width:
-        min(1400px,100%);
-
-    height:100%;
-
-    min-height:0;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:12px;
-
-    padding:
-        14px
-        clamp(12px,2.5vw,30px)
-        8px;
-}
-
-
-/* =========================================================
-   TABS
-========================================================= */
+/* TABS */
 
 .tabs{
-
-    flex-shrink:0;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(6,minmax(0,1fr));
-
+    display:flex;
     gap:7px;
+    padding:10px 12px;
+    border-bottom:1px solid var(--line);
+    background:#08100b;
+    overflow-x:auto;
+    flex:0 0 auto;
 }
 
 .tab{
-
-    height:42px;
-
+    white-space:nowrap;
+    background:#101a13;
+    color:#9aa79f;
+    border:1px solid #1b2a20;
+    padding:9px 13px;
     border-radius:10px;
-
-    border:
-        1px solid
-        #1a241a;
-
-    background:#0b100b;
-
-    color:#686f68;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    letter-spacing:.5px;
-
-    transition:.15s;
-}
-
-.tab:hover{
-    color:#aeb5ae;
+    font-weight:800;
+    font-size:12px;
 }
 
 .tab.active{
-
-    color:#7cff00;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(124,255,0,.10),
-            rgba(124,255,0,.035)
-        );
-
-    border-color:
-        rgba(124,255,0,.42);
-
-    box-shadow:
-        0 0 20px
-        rgba(124,255,0,.045);
+    background:rgba(124,255,0,.12);
+    border-color:rgba(124,255,0,.45);
+    color:var(--green);
 }
 
-.tab:active{
-    transform:scale(.98);
+/* CONTENT */
+
+.content{
+    flex:1;
+    min-height:0;
+    overflow:hidden;
 }
-
-
-/* =========================================================
-   PANELS
-========================================================= */
 
 .panel{
-
-    flex:1;
-
-    min-height:0;
-
-    overflow:hidden;
-
-    display:flex;
-    flex-direction:column;
-}
-
-.panel[hidden]{
-    display:none !important;
-}
-
-
-/* =========================================================
-   CALCULATOR
-========================================================= */
-
-.calculator-layout{
-
-    width:100%;
     height:100%;
-
-    min-height:0;
-
-    display:grid;
-
-    grid-template-columns:
-        minmax(0,1.45fr)
-        minmax(290px,.55fr);
-
-    gap:12px;
+    display:none;
 }
 
+.panel.active{
+    display:block;
+}
 
-/* =========================================================
-   CALCULATOR CARD
-========================================================= */
+/* CALCULATOR */
 
-.calculator-card{
-
+.calc-layout{
+    height:100%;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 280px;
+    gap:12px;
+    padding:12px;
     min-height:0;
+}
 
+.calculator,
+.history,
+.commercial-card{
+    background:linear-gradient(180deg,#0b120d,#08100a);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+}
+
+.calculator{
+    min-width:0;
+    min-height:0;
     display:flex;
     flex-direction:column;
-
-    overflow:hidden;
-
-    border-radius:18px;
-
-    border:
-        1px solid
-        #182218;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0c110c,
-            #080c08
-        );
-
-    box-shadow:
-        0 15px 50px
-        rgba(0,0,0,.25);
+    padding:12px;
 }
 
-
-/* =========================================================
-   DISPLAY
-========================================================= */
+/* DISPLAY */
 
 .display{
-
-    min-height:130px;
-
-    flex-shrink:0;
-
-    padding:
-        18px
-        24px
-        17px;
-
+    min-height:112px;
     display:flex;
     flex-direction:column;
-
-    justify-content:flex-end;
+    justify-content:center;
     align-items:flex-end;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #090d09,
-            #070a07
-        );
-
-    border-bottom:
-        1px solid
-        #172117;
+    padding:12px 14px;
+    border:1px solid #1b2a20;
+    border-radius:14px;
+    background:#050a06;
+    margin-bottom:10px;
+    overflow:hidden;
 }
 
-.display-expression{
-
+.expr{
     width:100%;
-
     min-height:25px;
-
-    color:#687068;
-
     text-align:right;
-
+    color:var(--muted);
     font-size:14px;
-
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
 }
 
-.display-result{
-
+.result{
     width:100%;
-
-    margin-top:7px;
-
-    color:#fff;
-
     text-align:right;
-
-    font-size:
-        clamp(36px,5vw,58px);
-
-    font-weight:300;
-
-    letter-spacing:-1.5px;
-
-    line-height:1.05;
-
+    font-size:clamp(30px,5vw,48px);
+    font-weight:850;
+    letter-spacing:-.04em;
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
 }
 
-.display-result.error{
-    color:#ff6464;
-    font-size:28px;
+.result.error{
+    color:var(--danger);
 }
 
+/* MEMORY */
 
-/* =========================================================
-   MEMORY
-========================================================= */
-
-.memory-bar{
-
-    flex-shrink:0;
-
+.memory{
     display:grid;
-
-    grid-template-columns:
-        repeat(5,1fr);
-
-    gap:7px;
-
-    padding:
-        9px 11px;
-
-    border-bottom:
-        1px solid
-        #131b13;
+    grid-template-columns:repeat(6,1fr);
+    gap:6px;
+    margin-bottom:8px;
 }
 
-.memory-button{
-
-    height:32px;
-
-    border-radius:8px;
-
-    border:
-        1px solid
-        #1a241a;
-
-    background:#0c120c;
-
-    color:#777f77;
-
-    font-size:10px;
-
-    font-weight:900;
+.mem{
+    background:#101a13;
+    color:#aeb9b1;
+    border:1px solid #1b2a20;
+    border-radius:9px;
+    padding:7px 4px;
+    font-size:11px;
+    font-weight:800;
 }
 
-.memory-button:hover{
-    color:#7cff00;
+.mem:hover{
+    border-color:#36533e;
+    color:var(--text);
 }
 
-.memory-button:active{
-    transform:scale(.96);
-}
+/* KEYPAD */
 
-
-/* =========================================================
-   KEYPAD
-========================================================= */
-
-.keypad{
-
+.keys{
     flex:1;
-
     min-height:0;
-
-    padding:10px;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(5,minmax(0,1fr));
-
-    grid-template-rows:
-        repeat(5,minmax(48px,1fr));
-
-    gap:8px;
+    grid-template-columns:repeat(5,1fr);
+    grid-template-rows:repeat(6,minmax(42px,1fr));
+    gap:7px;
 }
 
 .key{
-
+    background:#121d15;
+    color:#eef4ef;
+    border:1px solid #203024;
+    border-radius:12px;
+    font-size:17px;
+    font-weight:800;
     min-height:0;
-
-    border-radius:11px;
-
-    border:
-        1px solid
-        #1a251a;
-
-    background:
-        linear-gradient(
-            180deg,
-            #121812,
-            #0d120d
-        );
-
-    color:#e0e5e0;
-
-    font-size:18px;
-
-    font-weight:750;
-
-    transition:
-        transform .08s,
-        background .08s;
 }
 
 .key:hover{
-    background:#172017;
+    background:#17251a;
 }
 
 .key:active{
-    transform:scale(.96);
-    background:#1c271c;
+    transform:scale(.98);
 }
 
-.key.operator{
-
-    color:#7cff00;
-
-    background:
-        linear-gradient(
-            180deg,
-            #101810,
-            #0c120c
-        );
+.key.op{
+    color:var(--green);
+    background:#101b12;
 }
 
-.key.function{
+.key.action{
+    color:#b8c5bc;
+}
 
-    color:#9ba39b;
-
-    font-size:13px;
+.key.equal{
+    background:var(--green);
+    color:#061006;
+    border-color:var(--green);
+    font-size:22px;
 }
 
 .key.danger{
-    color:#ff6868;
+    color:#ff9696;
 }
 
-.key.equals{
-
-    color:#050705;
-
-    background:#7cff00;
-
-    border-color:#7cff00;
-
-    font-weight:950;
+.key.wide{
+    grid-column:span 2;
 }
 
-.key.equals:hover{
-    background:#8aff20;
-}
+/* HISTORY */
 
-
-/* =========================================================
-   HISTORY
-========================================================= */
-
-.history-card{
-
+.history{
     min-height:0;
-
     display:flex;
     flex-direction:column;
-
-    border-radius:18px;
-
-    border:
-        1px solid
-        #182218;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0c110c,
-            #080c08
-        );
-
-    overflow:hidden;
+    padding:12px;
 }
 
-.history-header{
-
-    flex-shrink:0;
-
-    padding:
-        17px
-        18px;
-
-    border-bottom:
-        1px solid
-        #172117;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:space-between;
-}
-
-.history-title{
-
-    color:#7cff00;
-
-    font-size:11px;
-
-    font-weight:950;
-
-    letter-spacing:1.5px;
-}
-
-.history-clear{
-
-    color:#555d55;
-
-    background:none;
-
-    font-size:10px;
-
-    font-weight:800;
-}
-
-.history-clear:hover{
-    color:#7cff00;
+.history h3{
+    margin:0 0 10px;
+    font-size:13px;
+    letter-spacing:.08em;
 }
 
 .history-list{
-
     flex:1;
-
     min-height:0;
-
     overflow:auto;
-
-    padding:4px 15px;
-
-    scrollbar-width:none;
-}
-
-.history-list::-webkit-scrollbar{
-    display:none;
-}
-
-.history-empty{
-
-    padding:50px 15px;
-
-    color:#4e554e;
-
-    font-size:11px;
-
-    text-align:center;
-
-    line-height:1.5;
+    display:flex;
+    flex-direction:column;
+    gap:7px;
 }
 
 .history-item{
-
-    padding:
-        13px
-        3px;
-
-    border-bottom:
-        1px solid
-        #131a13;
-
-    cursor:pointer;
+    padding:9px;
+    border:1px solid #18271d;
+    background:#0e1711;
+    border-radius:10px;
+    text-align:left;
 }
 
-.history-expression{
-
-    color:#626a62;
-
-    font-size:10px;
-
+.history-item .e{
+    font-size:11px;
+    color:var(--muted);
     white-space:nowrap;
-
     overflow:hidden;
-
     text-overflow:ellipsis;
 }
 
-.history-result{
+.history-item .r{
+    font-size:15px;
+    font-weight:850;
+    color:var(--green);
+    margin-top:2px;
+}
 
-    margin-top:5px;
+.history-empty{
+    color:#66746b;
+    font-size:12px;
+    text-align:center;
+    padding:20px 5px;
+}
 
-    color:#e2e7e2;
+.history-footer{
+    display:flex;
+    gap:6px;
+    margin-top:8px;
+}
 
-    font-size:17px;
-
+.small-btn{
+    flex:1;
+    padding:8px;
+    border-radius:9px;
+    background:#101a13;
+    color:#aeb9b1;
+    border:1px solid #1b2a20;
+    font-size:11px;
     font-weight:800;
 }
 
+/* COMMERCIAL */
 
-/* =========================================================
-   COMMERCIAL GENERAL
-========================================================= */
-
-.commercial-layout{
-
-    width:100%;
+.commercial{
     height:100%;
+    padding:14px;
+    overflow:auto;
+}
 
-    min-height:0;
+.commercial-inner{
+    max-width:900px;
+    margin:0 auto;
+}
 
+.commercial-head{
+    margin-bottom:14px;
+}
+
+.commercial-head h2{
+    margin:0;
+    font-size:22px;
+}
+
+.commercial-head p{
+    margin:5px 0 0;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.form-grid{
     display:grid;
-
-    grid-template-columns:
-        minmax(0,1.35fr)
-        minmax(280px,.65fr);
-
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:12px;
 }
 
-.commercial-card{
-
-    min-height:0;
-
-    overflow:auto;
-
-    scrollbar-width:none;
-
-    padding:
-        clamp(18px,2.5vw,28px);
-
-    border-radius:18px;
-
-    border:
-        1px solid
-        #182218;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0c110c,
-            #080c08
-        );
+.field label{
+    display:block;
+    color:#a9b5ad;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:6px;
 }
 
-.commercial-card::-webkit-scrollbar{
-    display:none;
-}
-
-.commercial-heading{
-
-    display:flex;
-
-    align-items:flex-start;
-
-    justify-content:space-between;
-
-    gap:20px;
-
-    margin-bottom:22px;
-}
-
-.commercial-heading h2{
-
-    margin:0;
-
-    color:#7cff00;
-
-    font-size:
-        clamp(19px,2vw,24px);
-
-    font-weight:950;
-
-    letter-spacing:.4px;
-}
-
-.commercial-heading p{
-
-    margin:6px 0 0;
-
-    color:#596159;
-
-    font-size:10px;
-
-    line-height:1.4;
-}
-
-.heading-tag{
-
-    flex-shrink:0;
-
-    padding:
-        7px 10px;
-
-    border-radius:8px;
-
-    border:
-        1px solid
-        #1b281b;
-
-    color:#626a62;
-
-    font-size:8px;
-
-    font-weight:900;
-
-    letter-spacing:1px;
-}
-
-
-/* =========================================================
-   FORM
-========================================================= */
-
-.form-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-    gap:15px;
-}
-
-.form-group{
-
-    display:flex;
-    flex-direction:column;
-
-    gap:8px;
-}
-
-.form-group.full{
+.field.full{
     grid-column:1/-1;
 }
 
-.form-group label{
-
-    color:#777f77;
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:.7px;
+.mode-row{
+    display:flex;
+    gap:8px;
+    margin-bottom:12px;
 }
 
-.form-group input{
-
-    width:100%;
-
-    height:51px;
-
-    padding:
-        0 15px;
-
-    outline:none;
-
+.mode{
+    flex:1;
+    padding:10px;
     border-radius:10px;
-
-    border:
-        1px solid
-        #202c20;
-
-    background:#080d08;
-
-    color:#fff;
-
-    font-size:16px;
-
-    transition:.15s;
+    background:#101a13;
+    color:#9eaba2;
+    border:1px solid #1b2a20;
+    font-size:12px;
+    font-weight:850;
 }
 
-.form-group input:focus{
-
-    border-color:
-        rgba(124,255,0,.55);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(124,255,0,.055);
+.mode.active{
+    background:rgba(124,255,0,.1);
+    border-color:rgba(124,255,0,.45);
+    color:var(--green);
 }
 
-.form-group input::placeholder{
-    color:#3f463f;
-}
-
-
-/* =========================================================
-   ACTION
-========================================================= */
-
-.calculate-button{
-
+.calc-btn{
     width:100%;
-
-    height:50px;
-
-    margin-top:17px;
-
-    border-radius:10px;
-
-    background:#7cff00;
-
-    color:#050705;
-
-    font-size:11px;
-
+    padding:14px;
+    border-radius:11px;
+    background:var(--green);
+    color:#071006;
     font-weight:950;
-
-    letter-spacing:.8px;
+    margin-top:14px;
 }
 
-.calculate-button:hover{
-    background:#89ff18;
-}
-
-.calculate-button:active{
+.calc-btn:active{
     transform:scale(.99);
 }
 
+.result-card{
+    margin-top:14px;
+    padding:14px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:#07100a;
+}
 
-/* =========================================================
-   RESULT CARDS
-========================================================= */
-
-.results{
-
-    margin-top:17px;
-
+.result-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
+    grid-template-columns:repeat(3,1fr);
     gap:10px;
 }
 
-.result-card{
-
-    min-height:86px;
-
-    padding:
-        13px 14px;
-
-    border-radius:11px;
-
-    border:
-        1px solid
-        #1a251a;
-
-    background:#080d08;
+.metric{
+    padding:10px;
+    border-radius:10px;
+    background:#0d1710;
+    border:1px solid #17251b;
 }
 
-.result-card.highlight{
-
-    border-color:
-        rgba(124,255,0,.38);
-
-    background:
-        rgba(124,255,0,.045);
-}
-
-.result-label{
-
-    color:#626a62;
-
-    font-size:9px;
-
-    font-weight:900;
-
-    letter-spacing:.6px;
-}
-
-.result-value{
-
-    margin-top:9px;
-
-    color:#e2e7e2;
-
-    font-size:19px;
-
-    font-weight:850;
-
-    word-break:break-word;
-}
-
-.result-card.highlight
-.result-value{
-    color:#7cff00;
-}
-
-
-/* =========================================================
-   INFO SIDE
-========================================================= */
-
-.info-title{
-
-    color:#7cff00;
-
-    font-size:11px;
-
-    font-weight:950;
-
-    letter-spacing:1.5px;
-
-    margin-bottom:18px;
-}
-
-.info-block{
-
-    padding:
-        15px;
-
-    margin-bottom:10px;
-
-    border-radius:11px;
-
-    border:
-        1px solid
-        #172117;
-
-    background:#080d08;
-}
-
-.info-block strong{
-
+.metric small{
     display:block;
-
-    color:#a2aaa2;
-
-    font-size:11px;
-
-    margin-bottom:7px;
-}
-
-.info-block span{
-
-    color:#5d655d;
-
+    color:var(--muted);
     font-size:10px;
-
-    line-height:1.55;
 }
 
-
-/* =========================================================
-   MODE BUTTONS
-========================================================= */
-
-.mode-selector{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:8px;
-
-    margin-bottom:17px;
+.metric strong{
+    display:block;
+    margin-top:4px;
+    font-size:18px;
+    color:var(--green);
 }
 
-.mode-button{
-
-    height:40px;
-
-    border-radius:9px;
-
-    border:
-        1px solid
-        #1a251a;
-
-    background:#090e09;
-
-    color:#656d65;
-
-    font-size:9px;
-
-    font-weight:950;
-
-    letter-spacing:.5px;
+.hint{
+    margin-top:12px;
+    color:#78867d;
+    font-size:11px;
+    line-height:1.5;
 }
 
-.mode-button.active{
-
-    color:#7cff00;
-
-    border-color:
-        rgba(124,255,0,.38);
-
-    background:
-        rgba(124,255,0,.055);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer{
-
-    flex-shrink:0;
-
-    height:25px;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    color:#303730;
-
-    font-size:8px;
-
-    letter-spacing:1.1px;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media(max-width:900px){
 
-    .calculator-layout{
-
+    .calc-layout{
         grid-template-columns:1fr;
     }
 
-    .history-card{
+    .history{
         display:none;
     }
 
-    .commercial-layout{
-
-        grid-template-columns:1fr;
+    .keys{
+        grid-template-rows:
+            repeat(6,minmax(44px,1fr));
     }
 }
 
-
-@media(max-width:650px){
+@media(max-width:600px){
 
     .header{
-        height:57px;
+        height:56px;
+        flex-basis:56px;
         padding:0 12px;
     }
 
-    .brand-name{
-        font-size:18px;
-    }
-
-    .brand-sub{
-        font-size:7px;
-    }
-
-    .header-btn{
-        width:35px;
-        height:35px;
-    }
-
-    .main{
-
-        padding:
-            8px
-            8px
-            4px;
-
-        gap:7px;
+    .status{
+        display:none;
     }
 
     .tabs{
-        gap:4px;
+        padding:8px;
     }
 
     .tab{
+        padding:8px 11px;
+    }
 
-        height:36px;
+    .calc-layout{
+        padding:8px;
+    }
 
-        padding:0 2px;
-
-        font-size:8.5px;
-
-        letter-spacing:0;
+    .calculator{
+        padding:8px;
+        border-radius:13px;
     }
 
     .display{
-
-        min-height:94px;
-
-        padding:
-            12px
-            15px;
+        min-height:92px;
     }
 
-    .display-result{
-        font-size:34px;
-    }
-
-    .keypad{
-
-        padding:7px;
-
-        gap:5px;
-
-        grid-template-rows:
-            repeat(5,minmax(43px,1fr));
-    }
-
-    .key{
-        font-size:16px;
-        border-radius:9px;
-    }
-
-    .key.function{
-        font-size:11px;
-    }
-
-    .memory-bar{
-
-        padding:
-            6px 7px;
-
+    .memory{
         gap:4px;
     }
 
-    .memory-button{
-        height:28px;
-        font-size:9px;
+    .mem{
+        font-size:10px;
+        padding:6px 2px;
     }
 
-    .commercial-card{
-        padding:16px;
+    .keys{
+        gap:5px;
     }
 
-    .commercial-heading{
-        margin-bottom:16px;
+    .key{
+        border-radius:10px;
+        font-size:16px;
     }
 
-    .commercial-heading h2{
-        font-size:19px;
-    }
-
-    .heading-tag{
-        display:none;
+    .commercial{
+        padding:10px;
     }
 
     .form-grid{
-        gap:9px;
+        grid-template-columns:1fr;
     }
 
-    .form-group{
-        gap:6px;
+    .field.full{
+        grid-column:auto;
     }
 
-    .form-group input{
-        height:46px;
-        font-size:15px;
+    .result-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    .calculate-button{
-        height:47px;
-    }
-
-    .results{
-        gap:7px;
-    }
-
-    .result-card{
-        min-height:75px;
-    }
-
-    .result-value{
-        font-size:16px;
+    .result-grid .metric:last-child{
+        grid-column:1/-1;
     }
 }
-
-
-@media(max-width:390px){
-
-    .tab{
-        font-size:7.5px;
-    }
-
-    .display{
-        min-height:82px;
-    }
-
-    .display-result{
-        font-size:29px;
-    }
-
-    .keypad{
-        gap:4px;
-        padding:5px;
-    }
-
-    .key{
-        font-size:14px;
-    }
-
-    .key.function{
-        font-size:10px;
-    }
-
-    .memory-button{
-        font-size:8px;
-    }
-}
-
-
-/* =========================================================
-   LANDSCAPE MOBILE
-========================================================= */
-
-@media(
-    max-height:560px
-) and (
-    orientation:landscape
-){
-
-    .header{
-        height:44px;
-    }
-
-    .brand-name{
-        font-size:15px;
-    }
-
-    .brand-sub{
-        display:none;
-    }
-
-    .main{
-        padding:4px;
-        gap:4px;
-    }
-
-    .tabs,
-    .tab{
-        height:28px;
-    }
-
-    .tab{
-        font-size:7px;
-    }
-
-    .display{
-        min-height:60px;
-        padding:5px 10px;
-    }
-
-    .display-result{
-        font-size:24px;
-    }
-
-    .display-expression{
-        font-size:10px;
-    }
-
-    .memory-bar{
-        padding:3px 5px;
-    }
-
-    .memory-button{
-        height:20px;
-        font-size:7px;
-    }
-
-    .keypad{
-        padding:4px;
-        gap:3px;
-        grid-template-rows:
-            repeat(5,minmax(27px,1fr));
-    }
-
-    .key{
-        font-size:11px;
-    }
-
-    .key.function{
-        font-size:8px;
-    }
-
-    .footer{
-        display:none;
-    }
-}
-
 </style>
-
 </head>
-
 
 <body>
 
 <div class="app">
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="header">
-
     <div class="brand">
-
-        <div class="brand-name">
-            CALPRO EXPERT
-        </div>
-
-        <div class="brand-sub">
-            COMMERCIAL CALCULATOR
-        </div>
-
+        CALPRO <span>EXPERT</span>
     </div>
 
-
-    <div class="header-actions">
-
-        <button
-            class="header-btn"
-            id="themeButton"
-            title="Tema">
-
-            ☾
-
-        </button>
-
+    <div class="status">
+        Calculadora comercial
     </div>
-
 </header>
 
 
-<!-- =====================================================
-     CONTENT
-===================================================== -->
-
-<main class="content">
-
-<div class="main">
-
-
-<!-- =====================================================
-     TABS
-===================================================== -->
-
 <nav class="tabs">
 
-    <button
-        class="tab active"
-        data-panel="calculator">
-
+    <button class="tab active" data-tab="calc">
         CALCULADORA
-
     </button>
 
-
-    <button
-        class="tab"
-        data-panel="margin">
-
+    <button class="tab" data-tab="margem">
         MARGEM
-
     </button>
 
-
-    <button
-        class="tab"
-        data-panel="price">
-
+    <button class="tab" data-tab="preco">
         PREÇO
-
     </button>
 
-
-    <button
-        class="tab"
-        data-panel="discount">
-
+    <button class="tab" data-tab="desconto">
         DESCONTO
-
     </button>
 
-
-    <button
-        class="tab"
-        data-panel="markup">
-
+    <button class="tab" data-tab="markup">
         MARKUP
-
     </button>
 
-
-    <button
-        class="tab"
-        data-panel="commission">
-
+    <button class="tab" data-tab="comissao">
         COMISSÃO
-
     </button>
 
 </nav>
 
 
-<!-- =====================================================
-     CALCULADORA
-===================================================== -->
+<main class="content">
 
-<section
-    class="panel"
-    id="panel-calculator">
 
+<!-- ========================================================= -->
+<!-- CALCULADORA -->
+<!-- ========================================================= -->
 
-<div class="calculator-layout">
+<section id="panel-calc" class="panel active">
 
+<div class="calc-layout">
 
-<!-- CALCULATOR -->
+<div class="calculator">
 
-<div class="calculator-card">
+    <div class="display">
 
+        <div id="expr" class="expr"></div>
 
-<!-- DISPLAY -->
-
-<div class="display">
-
-    <div
-        class="display-expression"
-        id="displayExpression">
-    </div>
-
-    <div
-        class="display-result"
-        id="displayResult">
-
-        0
-
-    </div>
-
-</div>
-
-
-<!-- MEMORY -->
-
-<div class="memory-bar">
-
-    <button
-        class="memory-button"
-        data-memory="MC">
-        MC
-    </button>
-
-    <button
-        class="memory-button"
-        data-memory="MR">
-        MR
-    </button>
-
-    <button
-        class="memory-button"
-        data-memory="M+">
-        M+
-    </button>
-
-    <button
-        class="memory-button"
-        data-memory="M-">
-        M−
-    </button>
-
-    <button
-        class="memory-button"
-        data-memory="MS">
-        MS
-    </button>
-
-</div>
-
-
-<!-- KEYPAD -->
-
-<div class="keypad">
-
-
-<button
-    class="key function"
-    data-action="clear">
-    AC
-</button>
-
-<button
-    class="key function"
-    data-action="clearEntry">
-    CE
-</button>
-
-<button
-    class="key function"
-    data-action="backspace">
-    ⌫
-</button>
-
-<button
-    class="key function"
-    data-action="percent">
-    %
-</button>
-
-<button
-    class="key operator"
-    data-value="/">
-    ÷
-</button>
-
-
-<button
-    class="key function"
-    data-action="sqrt">
-    √
-</button>
-
-<button
-    class="key function"
-    data-action="square">
-    x²
-</button>
-
-<button
-    class="key function"
-    data-value="^">
-    xʸ
-</button>
-
-<button
-    class="key function"
-    data-value="(">
-    (
-</button>
-
-<button
-    class="key operator"
-    data-value="*">
-    ×
-</button>
-
-
-<button
-    class="key"
-    data-value="7">
-    7
-</button>
-
-<button
-    class="key"
-    data-value="8">
-    8
-</button>
-
-<button
-    class="key"
-    data-value="9">
-    9
-</button>
-
-<button
-    class="key function"
-    data-value=")">
-    )
-</button>
-
-<button
-    class="key operator"
-    data-value="-">
-    −
-</button>
-
-
-<button
-    class="key"
-    data-value="4">
-    4
-</button>
-
-<button
-    class="key"
-    data-value="5">
-    5
-</button>
-
-<button
-    class="key"
-    data-value="6">
-    6
-</button>
-
-<button
-    class="key function"
-    data-action="sign">
-    +/−
-</button>
-
-<button
-    class="key operator"
-    data-value="+">
-    +
-</button>
-
-
-<button
-    class="key"
-    data-value="1">
-    1
-</button>
-
-<button
-    class="key"
-    data-value="2">
-    2
-</button>
-
-<button
-    class="key"
-    data-value="3">
-    3
-</button>
-
-<button
-    class="key function"
-    data-value="pi">
-    π
-</button>
-
-<button
-    class="key equals"
-    data-action="equals">
-    =
-</button>
-
-
-<button
-    class="key"
-    data-value="0">
-    0
-</button>
-
-<button
-    class="key"
-    data-value=".">
-    ,
-</button>
-
-<button
-    class="key function"
-    data-action="repeat">
-    ↻
-</button>
-
-<button
-    class="key function"
-    data-action="copy">
-    COPY
-</button>
-
-<button
-    class="key danger"
-    data-action="clear">
-    C
-</button>
-
-
-</div>
-
-</div>
-
-
-<!-- HISTORY -->
-
-<aside class="history-card">
-
-    <div class="history-header">
-
-        <div class="history-title">
-            HISTÓRICO
+        <div id="result" class="result">
+            0
         </div>
 
-        <button
-            class="history-clear"
-            id="clearHistory">
+    </div>
 
-            LIMPAR
 
+    <!-- MEMÓRIA -->
+
+    <div class="memory">
+
+        <button class="mem" data-action="mc">
+            MC
+        </button>
+
+        <button class="mem" data-action="mr">
+            MR
+        </button>
+
+        <button class="mem" data-action="mplus">
+            M+
+        </button>
+
+        <button class="mem" data-action="mminus">
+            M-
+        </button>
+
+        <button class="mem" data-action="ms">
+            MS
+        </button>
+
+        <button class="mem" data-action="copy">
+            COPIAR
         </button>
 
     </div>
 
 
-    <div
-        class="history-list"
-        id="historyList">
+    <!-- TECLADO -->
+
+    <div class="keys">
+
+        <button class="key danger" data-action="ac">
+            AC
+        </button>
+
+        <button class="key action" data-action="ce">
+            CE
+        </button>
+
+        <button class="key action" data-action="back">
+            ⌫
+        </button>
+
+        <button class="key action" data-action="percent">
+            %
+        </button>
+
+        <button class="key op" data-value="/">
+            ÷
+        </button>
+
+
+        <button class="key action" data-action="sqrt">
+            √
+        </button>
+
+        <button class="key action" data-action="square">
+            x²
+        </button>
+
+        <button class="key op" data-value="^">
+            xʸ
+        </button>
+
+        <button class="key action" data-value="(">
+            (
+        </button>
+
+        <button class="key action" data-value=")">
+            )
+        </button>
+
+
+        <button class="key" data-value="7">
+            7
+        </button>
+
+        <button class="key" data-value="8">
+            8
+        </button>
+
+        <button class="key" data-value="9">
+            9
+        </button>
+
+        <button class="key action" data-action="sign">
+            +/−
+        </button>
+
+        <button class="key op" data-value="*">
+            ×
+        </button>
+
+
+        <button class="key" data-value="4">
+            4
+        </button>
+
+        <button class="key" data-value="5">
+            5
+        </button>
+
+        <button class="key" data-value="6">
+            6
+        </button>
+
+        <button class="key action" data-value="π">
+            π
+        </button>
+
+        <button class="key op" data-value="-">
+            −
+        </button>
+
+
+        <button class="key" data-value="1">
+            1
+        </button>
+
+        <button class="key" data-value="2">
+            2
+        </button>
+
+        <button class="key" data-value="3">
+            3
+        </button>
+
+        <button class="key action" data-action="repeat">
+            = REP
+        </button>
+
+        <button class="key op" data-value="+">
+            +
+        </button>
+
+
+        <button class="key wide" data-value="0">
+            0
+        </button>
+
+        <button class="key" data-action="decimal">
+            ,
+        </button>
+
+        <button class="key equal" data-action="equals">
+            =
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- HISTÓRICO -->
+
+<aside class="history">
+
+    <h3>
+        HISTÓRICO
+    </h3>
+
+    <div id="historyList" class="history-list"></div>
+
+    <div class="history-footer">
+
+        <button id="clearHistory" class="small-btn">
+            LIMPAR
+        </button>
 
     </div>
 
 </aside>
 
-
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     MARGEM
-===================================================== -->
 
-<section
-    class="panel"
-    id="panel-margin"
-    hidden>
+<!-- ========================================================= -->
+<!-- MARGEM -->
+<!-- ========================================================= -->
 
+<section id="panel-margem" class="panel">
 
-<div class="commercial-layout">
+<div class="commercial">
 
+<div class="commercial-inner">
 
-<div class="commercial-card">
+    <div class="commercial-head">
 
-    <div class="commercial-heading">
+        <h2>
+            Margem
+        </h2>
 
-        <div>
-
-            <h2>
-                MARGEM
-            </h2>
-
-            <p>
-                Descubra o lucro real sobre o preço de venda.
-            </p>
-
-        </div>
-
-        <div class="heading-tag">
-            RENTABILIDADE
-        </div>
+        <p>
+            Informe custo e preço de venda.
+        </p>
 
     </div>
 
 
     <div class="form-grid">
 
-        <div class="form-group">
+        <div class="field">
 
             <label>
-                CUSTO DO PRODUTO
+                Custo
             </label>
 
             <input
-                id="marginCost"
+                id="margem-custo"
                 inputmode="decimal"
-                placeholder="R$ 0,00">
+                placeholder="0,00"
+            >
 
         </div>
 
 
-        <div class="form-group">
+        <div class="field">
 
             <label>
-                PREÇO DE VENDA
+                Preço de venda
             </label>
 
             <input
-                id="marginSale"
+                id="margem-venda"
                 inputmode="decimal"
-                placeholder="R$ 0,00">
+                placeholder="0,00"
+            >
 
         </div>
 
@@ -1921,127 +900,106 @@ input{
 
 
     <button
-        class="calculate-button"
-        id="calculateMargin">
-
-        CALCULAR MARGEM
-
+        class="calc-btn"
+        data-commercial="margem"
+    >
+        CALCULAR
     </button>
 
 
-    <div
-        class="results"
-        id="marginResults">
-    </div>
+    <div class="result-card">
 
-</div>
+        <div class="result-grid">
 
+            <div class="metric">
 
-<div class="commercial-card">
+                <small>
+                    LUCRO
+                </small>
 
-    <div class="info-title">
-        ENTENDA OS INDICADORES
-    </div>
+                <strong id="margem-lucro">
+                    R$ 0,00
+                </strong>
 
-
-    <div class="info-block">
-
-        <strong>
-            MARGEM
-        </strong>
-
-        <span>
-            Mostra quanto do preço de venda representa lucro.
-        </span>
-
-    </div>
+            </div>
 
 
-    <div class="info-block">
+            <div class="metric">
 
-        <strong>
-            MARKUP
-        </strong>
+                <small>
+                    MARGEM
+                </small>
 
-        <span>
-            Mostra quanto foi acrescentado sobre o custo.
-        </span>
+                <strong id="margem-percent">
+                    0,00%
+                </strong>
 
-    </div>
+            </div>
 
 
-    <div class="info-block">
+            <div class="metric">
 
-        <strong>
-            LUCRO
-        </strong>
+                <small>
+                    MARKUP
+                </small>
 
-        <span>
-            Diferença entre o preço de venda e o custo.
-        </span>
+                <strong id="margem-markup">
+                    0,00%
+                </strong>
+
+            </div>
+
+        </div>
 
     </div>
 
 </div>
-
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     PREÇO
-===================================================== -->
 
-<section
-    class="panel"
-    id="panel-price"
-    hidden>
+<!-- ========================================================= -->
+<!-- PREÇO -->
+<!-- ========================================================= -->
 
+<section id="panel-preco" class="panel">
 
-<div class="commercial-layout">
+<div class="commercial">
 
+<div class="commercial-inner">
 
-<div class="commercial-card">
+    <div class="commercial-head">
 
-    <div class="commercial-heading">
+        <h2>
+            Preço de Venda
+        </h2>
 
-        <div>
-
-            <h2>
-                FORMAÇÃO DE PREÇO
-            </h2>
-
-            <p>
-                Encontre o preço necessário para atingir sua margem ou markup.
-            </p>
-
-        </div>
-
-        <div class="heading-tag">
-            PRECIFICAÇÃO
-        </div>
+        <p>
+            Descubra o preço necessário através da margem ou markup.
+        </p>
 
     </div>
 
 
-    <div class="mode-selector">
+    <div class="mode-row">
 
         <button
-            class="mode-button active"
-            data-price-mode="margin">
-
+            class="mode active"
+            data-mode="preco"
+            data-value="margin"
+        >
             POR MARGEM
-
         </button>
 
         <button
-            class="mode-button"
-            data-price-mode="markup">
-
+            class="mode"
+            data-mode="preco"
+            data-value="markup"
+        >
             POR MARKUP
-
         </button>
 
     </div>
@@ -2049,30 +1007,32 @@ input{
 
     <div class="form-grid">
 
-        <div class="form-group">
+        <div class="field">
 
             <label>
-                CUSTO DO PRODUTO
+                Custo
             </label>
 
             <input
-                id="priceCost"
+                id="preco-custo"
                 inputmode="decimal"
-                placeholder="R$ 0,00">
+                placeholder="0,00"
+            >
 
         </div>
 
 
-        <div class="form-group">
+        <div class="field">
 
-            <label id="pricePercentLabel">
-                MARGEM DESEJADA
+            <label id="preco-label">
+                Margem desejada (%)
             </label>
 
             <input
-                id="pricePercent"
+                id="preco-percent"
                 inputmode="decimal"
-                placeholder="0,00%">
+                placeholder="0,00"
+            >
 
         </div>
 
@@ -2080,124 +1040,118 @@ input{
 
 
     <button
-        class="calculate-button"
-        id="calculatePrice">
-
-        CALCULAR PREÇO
-
+        class="calc-btn"
+        data-commercial="preco"
+    >
+        CALCULAR
     </button>
 
 
-    <div
-        class="results"
-        id="priceResults">
+    <div class="result-card">
+
+        <div class="result-grid">
+
+            <div class="metric">
+
+                <small>
+                    PREÇO DE VENDA
+                </small>
+
+                <strong id="preco-venda">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    LUCRO
+                </small>
+
+                <strong id="preco-lucro">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    RESULTADO
+                </small>
+
+                <strong id="preco-real">
+                    0,00%
+                </strong>
+
+            </div>
+
+        </div>
+
     </div>
 
 </div>
-
-
-<div class="commercial-card">
-
-    <div class="info-title">
-        COMO FUNCIONA
-    </div>
-
-
-    <div class="info-block">
-
-        <strong>
-            POR MARGEM
-        </strong>
-
-        <span>
-            O sistema calcula o preço de venda necessário para alcançar a margem informada.
-        </span>
-
-    </div>
-
-
-    <div class="info-block">
-
-        <strong>
-            POR MARKUP
-        </strong>
-
-        <span>
-            O sistema adiciona o percentual informado diretamente sobre o custo.
-        </span>
-
-    </div>
-
-</div>
-
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     DESCONTO
-===================================================== -->
 
-<section
-    class="panel"
-    id="panel-discount"
-    hidden>
+<!-- ========================================================= -->
+<!-- DESCONTO -->
+<!-- ========================================================= -->
 
+<section id="panel-desconto" class="panel">
 
-<div class="commercial-layout">
+<div class="commercial">
 
+<div class="commercial-inner">
 
-<div class="commercial-card">
+    <div class="commercial-head">
 
-    <div class="commercial-heading">
+        <h2>
+            Desconto
+        </h2>
 
-        <div>
-
-            <h2>
-                DESCONTO
-            </h2>
-
-            <p>
-                Calcule rapidamente o preço final de uma negociação.
-            </p>
-
-        </div>
-
-        <div class="heading-tag">
-            NEGOCIAÇÃO
-        </div>
+        <p>
+            Calcule o valor do desconto e o preço final.
+        </p>
 
     </div>
 
 
     <div class="form-grid">
 
-        <div class="form-group">
+        <div class="field">
 
             <label>
-                PREÇO ORIGINAL
+                Valor original
             </label>
 
             <input
-                id="discountOriginal"
+                id="desconto-original"
                 inputmode="decimal"
-                placeholder="R$ 0,00">
+                placeholder="0,00"
+            >
 
         </div>
 
 
-        <div class="form-group">
+        <div class="field">
 
             <label>
-                DESCONTO
+                Desconto (%)
             </label>
 
             <input
-                id="discountPercent"
+                id="desconto-percent"
                 inputmode="decimal"
-                placeholder="0,00%">
+                placeholder="0,00"
+            >
 
         </div>
 
@@ -2205,124 +1159,118 @@ input{
 
 
     <button
-        class="calculate-button"
-        id="calculateDiscount">
-
-        CALCULAR DESCONTO
-
+        class="calc-btn"
+        data-commercial="desconto"
+    >
+        CALCULAR
     </button>
 
 
-    <div
-        class="results"
-        id="discountResults">
+    <div class="result-card">
+
+        <div class="result-grid">
+
+            <div class="metric">
+
+                <small>
+                    VALOR DO DESCONTO
+                </small>
+
+                <strong id="desconto-valor">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    PREÇO FINAL
+                </small>
+
+                <strong id="desconto-final">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    DESCONTO
+                </small>
+
+                <strong id="desconto-real">
+                    0,00%
+                </strong>
+
+            </div>
+
+        </div>
+
     </div>
 
 </div>
-
-
-<div class="commercial-card">
-
-    <div class="info-title">
-        RESULTADO DA NEGOCIAÇÃO
-    </div>
-
-
-    <div class="info-block">
-
-        <strong>
-            VALOR FINAL
-        </strong>
-
-        <span>
-            Valor que deverá ser cobrado após aplicar o desconto.
-        </span>
-
-    </div>
-
-
-    <div class="info-block">
-
-        <strong>
-            ECONOMIA
-        </strong>
-
-        <span>
-            Quanto o cliente economizou em relação ao preço original.
-        </span>
-
-    </div>
-
-</div>
-
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     MARKUP
-===================================================== -->
 
-<section
-    class="panel"
-    id="panel-markup"
-    hidden>
+<!-- ========================================================= -->
+<!-- MARKUP -->
+<!-- ========================================================= -->
 
+<section id="panel-markup" class="panel">
 
-<div class="commercial-layout">
+<div class="commercial">
 
+<div class="commercial-inner">
 
-<div class="commercial-card">
+    <div class="commercial-head">
 
-    <div class="commercial-heading">
+        <h2>
+            Markup
+        </h2>
 
-        <div>
-
-            <h2>
-                MARKUP
-            </h2>
-
-            <p>
-                Calcule o preço de venda através do acréscimo sobre o custo.
-            </p>
-
-        </div>
-
-        <div class="heading-tag">
-            PRECIFICAÇÃO
-        </div>
+        <p>
+            Calcule o preço de venda através do markup.
+        </p>
 
     </div>
 
 
     <div class="form-grid">
 
-        <div class="form-group">
+        <div class="field">
 
             <label>
-                CUSTO DO PRODUTO
+                Custo
             </label>
 
             <input
-                id="markupCost"
+                id="markup-custo"
                 inputmode="decimal"
-                placeholder="R$ 0,00">
+                placeholder="0,00"
+            >
 
         </div>
 
 
-        <div class="form-group">
+        <div class="field">
 
             <label>
-                MARKUP
+                Markup (%)
             </label>
 
             <input
-                id="markupPercent"
+                id="markup-percent"
                 inputmode="decimal"
-                placeholder="0,00%">
+                placeholder="0,00"
+            >
 
         </div>
 
@@ -2330,351 +1278,272 @@ input{
 
 
     <button
-        class="calculate-button"
-        id="calculateMarkup">
-
-        CALCULAR MARKUP
-
+        class="calc-btn"
+        data-commercial="markup"
+    >
+        CALCULAR
     </button>
 
 
-    <div
-        class="results"
-        id="markupResults">
+    <div class="result-card">
+
+        <div class="result-grid">
+
+            <div class="metric">
+
+                <small>
+                    PREÇO DE VENDA
+                </small>
+
+                <strong id="markup-venda">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    LUCRO
+                </small>
+
+                <strong id="markup-lucro">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    MARGEM
+                </small>
+
+                <strong id="markup-margem">
+                    0,00%
+                </strong>
+
+            </div>
+
+        </div>
+
     </div>
 
 </div>
-
-
-<div class="commercial-card">
-
-    <div class="info-title">
-        MARKUP NA PRÁTICA
-    </div>
-
-
-    <div class="info-block">
-
-        <strong>
-            EXEMPLO
-        </strong>
-
-        <span>
-            Custo de R$ 100,00 com markup de 30% gera preço de venda de R$ 130,00.
-        </span>
-
-    </div>
-
-
-    <div class="info-block">
-
-        <strong>
-            MARGEM REAL
-        </strong>
-
-        <span>
-            Depois do cálculo, o sistema também mostra qual é a margem correspondente ao markup informado.
-        </span>
-
-    </div>
-
-</div>
-
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
-     COMISSÃO
-===================================================== -->
 
-<section
-    class="panel"
-    id="panel-commission"
-    hidden>
+<!-- ========================================================= -->
+<!-- COMISSÃO -->
+<!-- ========================================================= -->
 
+<section id="panel-comissao" class="panel">
 
-<div class="commercial-layout">
+<div class="commercial">
 
+<div class="commercial-inner">
 
-<div class="commercial-card">
+    <div class="commercial-head">
 
-    <div class="commercial-heading">
+        <h2>
+            Comissão
+        </h2>
 
-        <div>
-
-            <h2>
-                COMISSÃO
-            </h2>
-
-            <p>
-                Controle sua comissão e descubra o faturamento necessário para atingir sua meta.
-            </p>
-
-        </div>
-
-        <div class="heading-tag">
-            PERFORMANCE
-        </div>
+        <p>
+            Calcule a comissão sobre a venda ou o faturamento necessário.
+        </p>
 
     </div>
 
 
-    <div class="mode-selector">
+    <div class="mode-row">
 
         <button
-            class="mode-button active"
-            data-commission-mode="sale">
-
-            COMISSÃO SOBRE VENDA
-
-        </button>
-
-        <button
-            class="mode-button"
-            data-commission-mode="target">
-
-            META DE COMISSÃO
-
-        </button>
-
-    </div>
-
-
-    <!-- VENDA -->
-
-    <div id="commissionSaleForm">
-
-        <div class="form-grid">
-
-            <div class="form-group">
-
-                <label>
-                    VALOR DA VENDA
-                </label>
-
-                <input
-                    id="commissionSale"
-                    inputmode="decimal"
-                    placeholder="R$ 0,00">
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    PERCENTUAL DE COMISSÃO
-                </label>
-
-                <input
-                    id="commissionPercent"
-                    inputmode="decimal"
-                    placeholder="0,00%">
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="calculate-button"
-            id="calculateCommission">
-
-            CALCULAR COMISSÃO
-
-        </button>
-
-
-        <div
-            class="results"
-            id="commissionSaleResults">
-        </div>
-
-    </div>
-
-
-    <!-- META -->
-
-    <div
-        id="commissionTargetForm"
-        hidden>
-
-        <div class="form-grid">
-
-            <div class="form-group">
-
-                <label>
-                    COMISSÃO QUE QUERO GANHAR
-                </label>
-
-                <input
-                    id="commissionTarget"
-                    inputmode="decimal"
-                    placeholder="R$ 0,00">
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    PERCENTUAL DE COMISSÃO
-                </label>
-
-                <input
-                    id="commissionTargetPercent"
-                    inputmode="decimal"
-                    placeholder="0,00%">
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="calculate-button"
-            id="calculateCommissionTarget">
-
-            CALCULAR FATURAMENTO NECESSÁRIO
-
-        </button>
-
-
-        <div
-            class="results"
-            id="commissionTargetResults">
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="commercial-card">
-
-    <div class="info-title">
-        COMISSÃO
-    </div>
-
-
-    <div class="info-block">
-
-        <strong>
+            class="mode active"
+            data-mode="comissao"
+            data-value="sale"
+        >
             SOBRE VENDA
-        </strong>
+        </button>
 
-        <span>
-            Informe o valor vendido e seu percentual de comissão para saber exatamente quanto será gerado.
-        </span>
-
-    </div>
-
-
-    <div class="info-block">
-
-        <strong>
-            META DE COMISSÃO
-        </strong>
-
-        <span>
-            Informe quanto deseja receber de comissão e o percentual que recebe para descobrir o faturamento necessário.
-        </span>
+        <button
+            class="mode"
+            data-mode="comissao"
+            data-value="target"
+        >
+            POR COMISSÃO
+        </button>
 
     </div>
 
 
-    <div class="info-block">
+    <div class="form-grid">
 
-        <strong>
-            FÓRMULA
-        </strong>
+        <div class="field">
 
-        <span>
-            Comissão = Faturamento × percentual ÷ 100.
-        </span>
+            <label id="comissao-label">
+                Valor da venda
+            </label>
+
+            <input
+                id="comissao-valor"
+                inputmode="decimal"
+                placeholder="0,00"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Comissão (%)
+            </label>
+
+            <input
+                id="comissao-percent"
+                inputmode="decimal"
+                placeholder="0,00"
+            >
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="calc-btn"
+        data-commercial="comissao"
+    >
+        CALCULAR
+    </button>
+
+
+    <div class="result-card">
+
+        <div class="result-grid">
+
+            <div class="metric">
+
+                <small id="comissao-title1">
+                    COMISSÃO
+                </small>
+
+                <strong id="comissao-resultado">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small id="comissao-title2">
+                    LÍQUIDO
+                </small>
+
+                <strong id="comissao-secundario">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div class="metric">
+
+                <small>
+                    PERCENTUAL
+                </small>
+
+                <strong id="comissao-real">
+                    0,00%
+                </strong>
+
+            </div>
+
+        </div>
 
     </div>
 
 </div>
-
 
 </div>
 
 </section>
-
-
-</div>
 
 </main>
 
-
-<footer class="footer">
-
-    CALPRO EXPERT
-    •
-    CRIADO E DESENVOLVIDO POR JOÃO SIENA
-
-</footer>
-
 </div>
+
 
 
 <script>
 
-/* =========================================================
-   UTILIDADES
-========================================================= */
+(() => {
 
-const $ = id => document.getElementById(id);
-
-let memory = 0;
-
-let expressionTokens = [];
-
-let currentInput = "";
-
-let justCalculated = false;
-
-let lastOperator = null;
-
-let lastOperand = null;
-
-let lastResult = null;
+"use strict";
 
 
 /* =========================================================
-   FORMATAÇÃO
+   HELPERS
 ========================================================= */
 
-function formatNumber(value){
+const $ = selector => document.querySelector(selector);
 
-    if(
-        value === null ||
-        value === undefined ||
-        !Number.isFinite(Number(value))
-    ){
+const $$ = selector =>
+    Array.from(document.querySelectorAll(selector));
+
+
+const exprEl = $("#expr");
+const resultEl = $("#result");
+const historyList = $("#historyList");
+
+
+function cleanNumber(value){
+
+    if(!Number.isFinite(value)){
+        throw new Error("Resultado inválido");
+    }
+
+    if(Math.abs(value) < 1e-12){
+        value = 0;
+    }
+
+    return Number.parseFloat(
+        Number(value).toPrecision(14)
+    );
+}
+
+
+function fmt(value){
+
+    if(!Number.isFinite(Number(value))){
         return "Erro";
     }
 
-    const number = Number(value);
+    value = cleanNumber(Number(value));
+
+    const abs = Math.abs(value);
 
     if(
-        Math.abs(number) >= 1e12 ||
-        (
-            Math.abs(number) > 0 &&
-            Math.abs(number) < 0.000001
-        )
+        abs !== 0 &&
+        (abs >= 1e12 || abs < 1e-9)
     ){
 
-        return number
+        return value
             .toExponential(8)
-            .replace(".",",");
+            .replace(".",",")
+            .replace("e+","e+")
+            .replace("e-","e-");
     }
 
-    return number.toLocaleString(
+    return value.toLocaleString(
         "pt-BR",
         {
             maximumFractionDigits:10
@@ -2683,127 +1552,62 @@ function formatNumber(value){
 }
 
 
-function parseNumber(value){
+function fmtMoney(value){
 
-    if(
-        value === null ||
-        value === undefined
-    ){
-        return 0;
-    }
+    return Number(value).toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL",
+            maximumFractionDigits:2
+        }
+    );
+}
 
-    let text =
-        String(value)
-        .trim()
-        .replace(/\s/g,"")
-        .replace(/R\$/gi,"")
-        .replace(/%/g,"");
 
-    if(!text){
-        return 0;
-    }
+function fmtPct(value){
 
-    if(
-        text.includes(",") &&
-        text.includes(".")
-    ){
-
-        text =
-            text
-            .replace(/\./g,"")
-            .replace(",",".");
-    }
-    else if(text.includes(",")){
-
-        text =
-            text.replace(",",".");
-    }
-
-    const number =
-        Number(text);
-
-    return Number.isFinite(number)
-        ? number
-        : 0;
+    return Number(value).toLocaleString(
+        "pt-BR",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    ) + "%";
 }
 
 
 /* =========================================================
-   DISPLAY
+   CALCULATOR STATE
 ========================================================= */
 
-function updateDisplay(){
+let tokens = [];
 
-    let expressionText =
-        expressionTokens.join(" ");
+let current = "";
 
-    if(currentInput !== ""){
+let memory = 0;
 
-        if(expressionText){
-            expressionText += " ";
-        }
+let justCalculated = false;
 
-        expressionText +=
-            currentInput;
-    }
+let errorState = false;
 
-    $("displayExpression")
-        .textContent =
-        expressionText;
+let lastOperator = null;
 
-
-    if(currentInput !== ""){
-
-        $("displayResult")
-            .textContent =
-            currentInput === "-"
-                ? "-"
-                : formatNumber(
-                    parseNumber(currentInput)
-                );
-
-    }
-    else if(expressionTokens.length){
-
-        const last =
-            expressionTokens[
-                expressionTokens.length - 1
-            ];
-
-        if(
-            !isOperator(last) &&
-            last !== "("
-        ){
-
-            $("displayResult")
-                .textContent =
-                last === "π"
-                    ? "3,1415926536"
-                    : formatNumber(
-                        Number(last)
-                    );
-        }
-        else{
-
-            $("displayResult")
-                .textContent = "0";
-        }
-
-    }
-    else{
-
-        $("displayResult")
-            .textContent = "0";
-    }
-
-    $("displayResult")
-        .classList.remove("error");
-}
+let lastOperand = null;
 
 
 /* =========================================================
-   OPERADORES
+   TOKEN HELPERS
 ========================================================= */
+
+const operatorLabels = {
+    "+":"+",
+    "-":"−",
+    "*":"×",
+    "/":"÷",
+    "^":"xʸ"
+};
+
 
 function isOperator(token){
 
@@ -2817,403 +1621,752 @@ function isOperator(token){
 }
 
 
+function isNumberToken(token){
+
+    if(
+        token === undefined ||
+        token === null ||
+        token === "" ||
+        token === "π"
+    ){
+        return false;
+    }
+
+    return /^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(token);
+}
+
+
+function expressionText(list){
+
+    return list.map(token => {
+
+        if(operatorLabels[token]){
+            return operatorLabels[token];
+        }
+
+        if(token === "π"){
+            return "π";
+        }
+
+        if(token === "%"){
+            return "%";
+        }
+
+        if(token === "(" || token === ")"){
+            return token;
+        }
+
+        if(isNumberToken(token)){
+            return fmt(Number(token));
+        }
+
+        return token;
+
+    }).join(" ");
+}
+
+
 /* =========================================================
-   NÚMEROS
+   DISPLAY
 ========================================================= */
 
-function addNumber(number){
+function render(){
+
+    if(errorState){
+        return;
+    }
+
+    let text = "";
+
+    if(tokens.length){
+        text = expressionText(tokens);
+    }
+
+    if(current !== ""){
+
+        if(text){
+            text += " ";
+        }
+
+        if(
+            current.endsWith(".") ||
+            current === "-"
+        ){
+
+            text += current.replace(".",",");
+
+        }else{
+
+            const n = Number(current);
+
+            if(Number.isFinite(n)){
+                text += fmt(n);
+            }else{
+                text += current.replace(".",",");
+            }
+        }
+    }
+
+    exprEl.textContent = text;
+
+    if(current !== ""){
+
+        if(
+            current.endsWith(".") ||
+            current === "-"
+        ){
+
+            resultEl.textContent =
+                current.replace(".",",");
+
+        }else{
+
+            const n = Number(current);
+
+            resultEl.textContent =
+                Number.isFinite(n)
+                    ? fmt(n)
+                    : current;
+        }
+
+    }else if(tokens.length){
+
+        try{
+
+            const value = evaluate([...tokens]);
+
+            resultEl.textContent = fmt(value);
+
+        }catch{
+
+            const last = tokens[tokens.length - 1];
+
+            if(isNumberToken(last)){
+                resultEl.textContent = fmt(Number(last));
+            }
+        }
+
+    }else{
+
+        resultEl.textContent = "0";
+    }
+
+    resultEl.classList.remove("error");
+}
+
+
+function startFresh(){
+
+    tokens = [];
+
+    current = "";
+
+    justCalculated = false;
+
+    errorState = false;
+
+    lastOperator = null;
+
+    lastOperand = null;
+
+    resultEl.classList.remove("error");
+
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+function inputDigit(digit){
+
+    if(errorState){
+        startFresh();
+    }
 
     if(justCalculated){
 
-        expressionTokens = [];
+        startFresh();
 
-        currentInput = "";
-
-        justCalculated = false;
     }
 
+    if(current === "0"){
+        current = digit;
+    }else if(current === "-0"){
+        current = "-" + digit;
+    }else{
+        current += digit;
+    }
 
-    if(number === "."){
+    render();
+}
 
-        if(currentInput.includes(".")){
+
+function decimal(){
+
+    if(errorState){
+        startFresh();
+    }
+
+    if(justCalculated){
+        startFresh();
+    }
+
+    if(current === ""){
+        current = "0.";
+    }else if(!current.includes(".")){
+        current += ".";
+    }
+
+    render();
+}
+
+
+/* =========================================================
+   OPERATORS
+========================================================= */
+
+function commitCurrent(){
+
+    if(current !== ""){
+
+        if(current === "-"){
+            current = "";
             return;
         }
 
-        if(currentInput === ""){
-            currentInput = "0";
-        }
+        tokens.push(current);
+
+        current = "";
     }
-
-
-    if(
-        currentInput === "0" &&
-        number !== "."
-    ){
-
-        currentInput = "";
-    }
-
-
-    currentInput += number;
-
-    updateDisplay();
 }
 
-
-/* =========================================================
-   CONFIRMAR NÚMERO
-========================================================= */
-
-function commitInput(){
-
-    if(currentInput === ""){
-        return;
-    }
-
-    if(
-        currentInput === "-" ||
-        currentInput === "." ||
-        currentInput === "-."
-    ){
-
-        currentInput = "0";
-    }
-
-    expressionTokens.push(
-        currentInput
-    );
-
-    currentInput = "";
-}
-
-
-/* =========================================================
-   OPERADOR
-========================================================= */
 
 function addOperator(operator){
 
+    if(errorState){
+        startFresh();
+    }
+
     if(justCalculated){
 
         justCalculated = false;
     }
 
-    commitInput();
-
+    commitCurrent();
 
     if(
-        expressionTokens.length === 0
+        tokens.length === 0 &&
+        operator === "-"
     ){
 
-        if(operator === "-"){
+        current = "-";
 
-            currentInput = "-";
+        render();
 
-            updateDisplay();
+        return;
+    }
+
+    if(
+        tokens.length &&
+        isOperator(tokens[tokens.length - 1])
+    ){
+
+        tokens[tokens.length - 1] = operator;
+
+    }else{
+
+        tokens.push(operator);
+    }
+
+    render();
+}
+
+
+/* =========================================================
+   PARENTHESES
+========================================================= */
+
+function addParen(value){
+
+    if(errorState){
+        startFresh();
+    }
+
+    if(justCalculated){
+        startFresh();
+    }
+
+    if(value === "("){
+
+        if(current !== ""){
+
+            commitCurrent();
+
+            tokens.push("*");
+
+        }else{
+
+            const last =
+                tokens[tokens.length - 1];
+
+            if(
+                isNumberToken(last) ||
+                last === ")" ||
+                last === "%" ||
+                last === "π"
+            ){
+                tokens.push("*");
+            }
+        }
+
+        tokens.push("(");
+
+    }else{
+
+        commitCurrent();
+
+        const opens =
+            tokens.filter(x => x === "(").length;
+
+        const closes =
+            tokens.filter(x => x === ")").length;
+
+        const last =
+            tokens[tokens.length - 1];
+
+        if(
+            opens > closes &&
+            last !== "(" &&
+            !isOperator(last)
+        ){
+
+            tokens.push(")");
+        }
+    }
+
+    render();
+}
+
+
+/* =========================================================
+   PI
+========================================================= */
+
+function addPi(){
+
+    if(errorState){
+        startFresh();
+    }
+
+    if(justCalculated){
+        startFresh();
+    }
+
+    if(current !== ""){
+
+        commitCurrent();
+
+        tokens.push("*");
+
+    }else{
+
+        const last =
+            tokens[tokens.length - 1];
+
+        if(
+            isNumberToken(last) ||
+            last === ")" ||
+            last === "%" ||
+            last === "π"
+        ){
+            tokens.push("*");
+        }
+    }
+
+    tokens.push("π");
+
+    render();
+}
+
+
+/* =========================================================
+   PERCENTAGE
+========================================================= */
+
+function percent(){
+
+    if(errorState){
+        return;
+    }
+
+    if(justCalculated){
+
+        const value =
+            Number(tokens[0]);
+
+        if(Number.isFinite(value)){
+
+            tokens = [
+                String(cleanNumber(value / 100))
+            ];
+
+            render();
         }
 
         return;
     }
 
+    if(current !== ""){
 
-    const last =
-        expressionTokens[
-            expressionTokens.length - 1
-        ];
-
-
-    if(isOperator(last)){
-
-        expressionTokens[
-            expressionTokens.length - 1
-        ] = operator;
-
-    }
-    else{
-
-        expressionTokens.push(operator);
-    }
-
-
-    updateDisplay();
-}
-
-
-/* =========================================================
-   PARENTESES
-========================================================= */
-
-function addParenthesis(value){
-
-    if(justCalculated){
-
-        expressionTokens = [];
-
-        currentInput = "";
-
-        justCalculated = false;
-    }
-
-
-    if(value === "("){
-
-        if(currentInput !== ""){
-
-            commitInput();
-
-            expressionTokens.push("*");
-        }
+        commitCurrent();
 
         const last =
-            expressionTokens[
-                expressionTokens.length - 1
-            ];
+            tokens[tokens.length - 1];
 
         if(
-            last &&
-            (
-                !isOperator(last) &&
-                last !== "("
-            )
+            isNumberToken(last) ||
+            last === ")" ||
+            last === "π"
         ){
 
-            expressionTokens.push("*");
+            tokens.push("%");
         }
 
-        expressionTokens.push("(");
+    }else{
 
-    }
-    else{
+        const last =
+            tokens[tokens.length - 1];
 
-        commitInput();
+        if(
+            isNumberToken(last) ||
+            last === ")" ||
+            last === "π"
+        ){
 
-        const open =
-            expressionTokens
-            .filter(x => x === "(")
-            .length;
-
-        const close =
-            expressionTokens
-            .filter(x => x === ")")
-            .length;
-
-        if(open > close){
-
-            expressionTokens.push(")");
+            if(last !== "%"){
+                tokens.push("%");
+            }
         }
     }
 
-    updateDisplay();
+    render();
 }
 
 
 /* =========================================================
-   TOKENIZAÇÃO / AVALIAÇÃO
+   CLEAR / BACKSPACE
 ========================================================= */
 
-function evaluateTokens(tokens){
+function resetCalc(){
+
+    startFresh();
+
+    render();
+}
+
+
+function clearEntry(){
+
+    if(errorState){
+
+        resetCalc();
+
+        return;
+    }
+
+    if(current !== ""){
+
+        current = "";
+
+    }else if(
+        tokens.length &&
+        isNumberToken(tokens[tokens.length - 1])
+    ){
+
+        tokens.pop();
+    }
+
+    render();
+}
+
+
+function backspace(){
+
+    if(errorState){
+
+        resetCalc();
+
+        return;
+    }
+
+    if(current !== ""){
+
+        current = current.slice(0,-1);
+
+        if(
+            current === "-" ||
+            current === ""
+        ){
+            current = "";
+        }
+
+    }else if(tokens.length){
+
+        const last =
+            tokens[tokens.length - 1];
+
+        if(isNumberToken(last)){
+
+            const newValue =
+                last.slice(0,-1);
+
+            if(newValue === "" || newValue === "-"){
+                tokens.pop();
+            }else{
+                tokens[tokens.length - 1] =
+                    newValue;
+            }
+
+        }else{
+
+            tokens.pop();
+        }
+    }
+
+    render();
+}
+
+
+/* =========================================================
+   SIGN
+========================================================= */
+
+function toggleSign(){
+
+    if(errorState){
+        return;
+    }
+
+    if(current !== ""){
+
+        if(current.startsWith("-")){
+            current = current.slice(1);
+        }else{
+            current = "-" + current;
+        }
+
+        render();
+
+        return;
+    }
+
+    if(tokens.length){
+
+        const lastIndex =
+            tokens.length - 1;
+
+        const last =
+            tokens[lastIndex];
+
+        if(isNumberToken(last)){
+
+            tokens[lastIndex] =
+                last.startsWith("-")
+                    ? last.slice(1)
+                    : "-" + last;
+
+            render();
+
+            return;
+        }
+    }
+
+    try{
+
+        const value =
+            evaluate([...tokens]);
+
+        tokens = [
+            String(cleanNumber(-value))
+        ];
+
+        render();
+
+    }catch{}
+}
+
+
+/* =========================================================
+   SQUARE / ROOT
+========================================================= */
+
+function transformCurrent(callback){
+
+    if(errorState){
+        return;
+    }
+
+    try{
+
+        let value;
+
+        if(current !== ""){
+
+            value = Number(current);
+
+        }else{
+
+            value = evaluate([
+                ...tokens
+            ]);
+        }
+
+        const result =
+            cleanNumber(callback(value));
+
+        tokens = [
+            String(result)
+        ];
+
+        current = "";
+
+        justCalculated = true;
+
+        render();
+
+    }catch(error){
+
+        showError(error.message);
+    }
+}
+
+
+function square(){
+
+    transformCurrent(value =>
+        value * value
+    );
+}
+
+
+function sqrt(){
+
+    transformCurrent(value => {
+
+        if(value < 0){
+            throw new Error(
+                "Não existe raiz real de número negativo"
+            );
+        }
+
+        return Math.sqrt(value);
+    });
+}
+
+
+/* =========================================================
+   EXPRESSION PARSER
+========================================================= */
+
+function evaluate(list){
+
+    const copy = [...list];
+
+    let opens =
+        copy.filter(x => x === "(").length;
+
+    let closes =
+        copy.filter(x => x === ")").length;
+
+    while(opens > closes){
+
+        copy.push(")");
+
+        closes++;
+    }
+
+    while(
+        copy.length &&
+        (
+            isOperator(copy[copy.length - 1]) ||
+            copy[copy.length - 1] === "("
+        )
+    ){
+
+        copy.pop();
+    }
+
+    if(!copy.length){
+        throw new Error(
+            "Nada para calcular"
+        );
+    }
+
+    return cleanNumber(
+        parser(copy)
+    );
+}
+
+
+function parser(list){
 
     let index = 0;
 
 
     function peek(){
-        return tokens[index];
+
+        return list[index];
     }
 
 
-    function consume(){
-        return tokens[index++];
+    function take(){
+
+        return list[index++];
     }
 
 
     function primary(){
 
-        const token =
-            peek();
-
+        const token = take();
 
         if(token === "("){
-
-            consume();
 
             const value =
                 addSub();
 
-
             if(peek() === ")"){
-                consume();
+                take();
+            }else{
+                throw new Error(
+                    "Parênteses inválidos"
+                );
             }
 
-            return value;
+            return {
+                v:value.v,
+                p:value.p
+            };
         }
 
 
         if(token === "π"){
 
-            consume();
-
-            return Math.PI;
+            return {
+                v:Math.PI,
+                p:false
+            };
         }
 
 
-        if(
-            token === undefined
-        ){
+        if(isNumberToken(token)){
 
-            throw new Error(
-                "Expressão incompleta"
-            );
+            return {
+                v:Number(token),
+                p:false
+            };
         }
 
-
-        const number =
-            Number(
-                consume()
-            );
-
-
-        if(!Number.isFinite(number)){
-
-            throw new Error(
-                "Número inválido"
-            );
-        }
-
-
-        return number;
-    }
-
-
-    function unary(){
-
-        if(peek() === "+"){
-
-            consume();
-
-            return unary();
-        }
-
-
-        if(peek() === "-"){
-
-            consume();
-
-            return -unary();
-        }
-
-
-        return primary();
-    }
-
-
-    function power(){
-
-        const left =
-            unary();
-
-
-        if(peek() === "^"){
-
-            consume();
-
-            const right =
-                power();
-
-            return Math.pow(
-                left,
-                right
-            );
-        }
-
-
-        return left;
-    }
-
-
-    function multiplyDivide(){
-
-        let value =
-            power();
-
-
-        while(
-            peek() === "*" ||
-            peek() === "/"
-        ){
-
-            const operator =
-                consume();
-
-            const right =
-                power();
-
-
-            if(
-                operator === "/" &&
-                right === 0
-            ){
-
-                throw new Error(
-                    "Divisão por zero"
-                );
-            }
-
-
-            if(operator === "*"){
-
-                value *= right;
-
-            }
-            else{
-
-                value /= right;
-            }
-        }
-
-
-        return value;
-    }
-
-
-    function addSub(){
-
-        let value =
-            multiplyDivide();
-
-
-        while(
-            peek() === "+" ||
-            peek() === "-"
-        ){
-
-            const operator =
-                consume();
-
-            const right =
-                multiplyDivide();
-
-
-            if(operator === "+"){
-
-                value += right;
-
-            }
-            else{
-
-                value -= right;
-            }
-        }
-
-
-        return value;
-    }
-
-
-    const result =
-        addSub();
-
-
-    if(index < tokens.length){
 
         throw new Error(
             "Expressão inválida"
@@ -3221,627 +2374,500 @@ function evaluateTokens(tokens){
     }
 
 
-    if(!Number.isFinite(result)){
+    function unary(){
 
-        throw new Error(
-            "Resultado inválido"
-        );
-    }
+        if(peek() === "+"){
 
+            take();
 
-    return result;
-}
-
-
-/* =========================================================
-   CALCULAR
-========================================================= */
-
-function calculate(){
-
-    commitInput();
-
-
-    if(
-        expressionTokens.length === 0
-    ){
-        return;
-    }
-
-
-    /*
-       Completa parênteses abertos
-    */
-
-    let open =
-        expressionTokens
-        .filter(x => x === "(")
-        .length;
-
-    let close =
-        expressionTokens
-        .filter(x => x === ")")
-        .length;
-
-
-    while(open > close){
-
-        expressionTokens.push(")");
-
-        close++;
-    }
-
-
-    /*
-       Verifica último token
-    */
-
-    const last =
-        expressionTokens[
-            expressionTokens.length - 1
-        ];
-
-
-    if(isOperator(last)){
-
-        /*
-           Evita erro em:
-           10 +
-        */
-
-        expressionTokens.pop();
-    }
-
-
-    try{
-
-        const original =
-            expressionTokens.join(" ");
-
-
-        const result =
-            evaluateTokens(
-                expressionTokens
-            );
-
-
-        /*
-           Descobre última operação
-        */
-
-        findLastOperation(
-            expressionTokens
-        );
-
-
-        lastResult =
-            result;
-
-
-        addHistory(
-            original,
-            result
-        );
-
-
-        $("displayExpression")
-            .textContent =
-            original + " =";
-
-
-        $("displayResult")
-            .textContent =
-            formatNumber(result);
-
-
-        expressionTokens = [
-            String(result)
-        ];
-
-
-        currentInput = "";
-
-        justCalculated = true;
-
-
-    }
-    catch(error){
-
-        $("displayResult")
-            .textContent =
-            "Erro";
-
-
-        $("displayResult")
-            .classList.add(
-                "error"
-            );
-    }
-}
-
-
-/* =========================================================
-   ÚLTIMA OPERAÇÃO
-========================================================= */
-
-function findLastOperation(tokens){
-
-    lastOperator = null;
-    lastOperand = null;
-
-
-    for(
-        let i = tokens.length - 1;
-        i >= 0;
-        i--
-    ){
-
-        if(isOperator(tokens[i])){
-
-            lastOperator =
-                tokens[i];
-
-
-            if(
-                tokens[i + 1] !== undefined &&
-                !isOperator(
-                    tokens[i + 1]
-                )
-            ){
-
-                if(
-                    tokens[i + 1] === "π"
-                ){
-
-                    lastOperand =
-                        Math.PI;
-
-                }
-                else{
-
-                    lastOperand =
-                        Number(
-                            tokens[i + 1]
-                        );
-                }
-            }
-
-            return;
-        }
-    }
-}
-
-
-/* =========================================================
-   REPETIR
-========================================================= */
-
-function repeatOperation(){
-
-    if(
-        lastOperator === null ||
-        lastOperand === null ||
-        lastResult === null
-    ){
-        return;
-    }
-
-
-    let expression;
-
-
-    if(
-        lastOperator === "/" &&
-        lastOperand === 0
-    ){
-        return;
-    }
-
-
-    expression = [
-        String(lastResult),
-        lastOperator,
-        String(lastOperand)
-    ];
-
-
-    try{
-
-        const result =
-            evaluateTokens(
-                expression
-            );
-
-
-        addHistory(
-            expression.join(" "),
-            result
-        );
-
-
-        $("displayExpression")
-            .textContent =
-            expression.join(" ") + " =";
-
-
-        $("displayResult")
-            .textContent =
-            formatNumber(result);
-
-
-        lastResult =
-            result;
-
-
-        expressionTokens = [
-            String(result)
-        ];
-
-        currentInput = "";
-
-        justCalculated = true;
-
-    }
-    catch(e){
-
-        $("displayResult")
-            .textContent =
-            "Erro";
-
-        $("displayResult")
-            .classList.add(
-                "error"
-            );
-    }
-}
-
-
-/* =========================================================
-   CLEAR
-========================================================= */
-
-function clearAll(){
-
-    expressionTokens = [];
-
-    currentInput = "";
-
-    justCalculated = false;
-
-    lastOperator = null;
-
-    lastOperand = null;
-
-    lastResult = null;
-
-    $("displayExpression")
-        .textContent = "";
-
-    $("displayResult")
-        .textContent = "0";
-
-    $("displayResult")
-        .classList.remove(
-            "error"
-        );
-}
-
-
-function clearEntry(){
-
-    if(currentInput !== ""){
-
-        currentInput = "";
-
-        updateDisplay();
-
-        return;
-    }
-
-
-    if(expressionTokens.length){
-
-        const last =
-            expressionTokens[
-                expressionTokens.length - 1
-            ];
-
-
-        if(
-            !isOperator(last)
-        ){
-
-            expressionTokens.pop();
-        }
-    }
-
-
-    updateDisplay();
-}
-
-
-/* =========================================================
-   BACKSPACE
-========================================================= */
-
-function backspace(){
-
-    if(justCalculated){
-
-        clearAll();
-
-        return;
-    }
-
-
-    if(currentInput !== ""){
-
-        currentInput =
-            currentInput.slice(0,-1);
-
-        updateDisplay();
-
-        return;
-    }
-
-
-    if(expressionTokens.length){
-
-        expressionTokens.pop();
-
-        updateDisplay();
-    }
-}
-
-
-/* =========================================================
-   SINAL
-========================================================= */
-
-function toggleSign(){
-
-    if(currentInput !== ""){
-
-        if(
-            currentInput.startsWith("-")
-        ){
-
-            currentInput =
-                currentInput.slice(1);
-
-        }
-        else{
-
-            currentInput =
-                "-" + currentInput;
+            return unary();
         }
 
-        updateDisplay();
 
-        return;
-    }
+        if(peek() === "-"){
 
-
-    if(expressionTokens.length){
-
-        const last =
-            expressionTokens[
-                expressionTokens.length - 1
-            ];
-
-
-        if(
-            !isOperator(last) &&
-            last !== "("
-        ){
+            take();
 
             const value =
-                last === "π"
-                    ? -Math.PI
-                    : -Number(last);
+                unary();
 
-
-            expressionTokens[
-                expressionTokens.length - 1
-            ] =
-                String(value);
-
-
-            updateDisplay();
+            return {
+                v:-value.v,
+                p:value.p
+            };
         }
-    }
-}
 
 
-/* =========================================================
-   PORCENTAGEM
-========================================================= */
+        let value =
+            primary();
 
-function percentage(){
 
-    if(currentInput !== ""){
+        while(peek() === "%"){
 
-        const value =
-            parseNumber(
-                currentInput
-            );
+            take();
 
-        currentInput =
-            String(
-                value / 100
-            );
+            value = {
+                v:value.v,
+                p:true
+            };
+        }
 
-        updateDisplay();
 
-        return;
+        return value;
     }
 
 
-    if(expressionTokens.length){
+    function power(){
 
-        const last =
-            expressionTokens[
-                expressionTokens.length - 1
-            ];
+        let left =
+            unary();
+
+        if(peek() === "^"){
+
+            take();
+
+            const right =
+                power();
+
+            const leftValue =
+                left.p
+                    ? left.v / 100
+                    : left.v;
+
+            const rightValue =
+                right.p
+                    ? right.v / 100
+                    : right.v;
+
+            return {
+                v:Math.pow(
+                    leftValue,
+                    rightValue
+                ),
+                p:false
+            };
+        }
+
+        return left;
+    }
 
 
-        if(
-            !isOperator(last) &&
-            last !== "("
+    function mulDiv(){
+
+        let left =
+            power();
+
+        while(
+            peek() === "*" ||
+            peek() === "/"
         ){
 
-            expressionTokens[
-                expressionTokens.length - 1
-            ] =
-                String(
-                    Number(last) / 100
+            const operator =
+                take();
+
+            const right =
+                power();
+
+            const leftValue =
+                left.p
+                    ? left.v / 100
+                    : left.v;
+
+            const rightValue =
+                right.p
+                    ? right.v / 100
+                    : right.v;
+
+            if(
+                operator === "/" &&
+                rightValue === 0
+            ){
+
+                throw new Error(
+                    "Divisão por zero"
                 );
+            }
 
-            updateDisplay();
+            left = {
+
+                v:
+                    operator === "*"
+                        ? leftValue * rightValue
+                        : leftValue / rightValue,
+
+                p:false
+            };
         }
+
+        return left;
     }
-}
 
 
-/* =========================================================
-   RAIZ
-========================================================= */
+    function addSub(){
 
-function squareRoot(){
+        let left =
+            mulDiv();
 
-    let value;
-
-
-    if(currentInput !== ""){
-
-        value =
-            parseNumber(
-                currentInput
-            );
-
-    }
-    else if(
-        expressionTokens.length
-    ){
-
-        const last =
-            expressionTokens[
-                expressionTokens.length - 1
-            ];
-
-
-        if(
-            isOperator(last) ||
-            last === "("
+        while(
+            peek() === "+" ||
+            peek() === "-"
         ){
-            return;
+
+            const operator =
+                take();
+
+            const right =
+                mulDiv();
+
+            const leftValue =
+                left.p
+                    ? left.v / 100
+                    : left.v;
+
+            const rightValue =
+                right.p
+                    ? leftValue * right.v / 100
+                    : right.v;
+
+            left = {
+
+                v:
+                    operator === "+"
+                        ? leftValue + rightValue
+                        : leftValue - rightValue,
+
+                p:false
+            };
         }
 
-
-        value =
-            last === "π"
-                ? Math.PI
-                : Number(last);
-
-    }
-    else{
-
-        return;
-    }
-
-
-    if(value < 0){
-
-        showError();
-
-        return;
+        return left;
     }
 
 
     const result =
-        Math.sqrt(value);
+        addSub();
 
 
-    if(currentInput !== ""){
+    if(index < list.length){
 
-        currentInput =
-            String(result);
-
-    }
-    else{
-
-        expressionTokens[
-            expressionTokens.length - 1
-        ] =
-            String(result);
+        throw new Error(
+            "Expressão inválida"
+        );
     }
 
 
-    updateDisplay();
+    return result.p
+        ? result.v / 100
+        : result.v;
 }
 
 
 /* =========================================================
-   QUADRADO
+   SAFE EVALUATION
 ========================================================= */
 
-function square(){
+function evaluateSafe(){
 
-    let value;
+    try{
 
+        const list = [
+            ...tokens
+        ];
 
-    if(currentInput !== ""){
+        if(current !== ""){
+            list.push(current);
+        }
 
-        value =
-            parseNumber(
-                currentInput
-            );
+        return evaluate(list);
 
-        currentInput =
-            String(
-                value * value
-            );
+    }catch{
 
+        return null;
     }
-    else if(
-        expressionTokens.length
+}
+
+
+/* =========================================================
+   LAST OPERATION
+========================================================= */
+
+function findLastOperation(list){
+
+    let depth = 0;
+
+    for(
+        let i = list.length - 1;
+        i >= 0;
+        i--
     ){
 
-        const last =
-            expressionTokens[
-                expressionTokens.length - 1
-            ];
+        const token =
+            list[i];
 
+        if(token === ")"){
+            depth++;
+        }
 
-        if(
-            isOperator(last) ||
-            last === "("
+        else if(token === "("){
+            depth--;
+        }
+
+        else if(
+            depth === 0 &&
+            isOperator(token)
         ){
-            return;
+
+            return {
+                op:token,
+                index:i
+            };
+        }
+    }
+
+    return null;
+}
+
+
+/* =========================================================
+   CALCULATE
+========================================================= */
+
+function calculate(){
+
+    if(errorState){
+        return;
+    }
+
+    commitCurrent();
+
+    if(!tokens.length){
+        return;
+    }
+
+    const original =
+        [...tokens];
+
+    const operation =
+        findLastOperation(original);
+
+    try{
+
+        const value =
+            evaluate(original);
+
+
+        if(operation){
+
+            const right =
+                original
+                    .slice(operation.index + 1)
+                    .filter(isNumberToken);
+
+
+            if(right.length){
+
+                lastOperand =
+                    Number(
+                        right[right.length - 1]
+                    );
+
+            }else{
+
+                lastOperand = null;
+            }
+
+            lastOperator =
+                operation.op;
+
+        }else{
+
+            lastOperator = null;
+
+            lastOperand = null;
         }
 
 
-        value =
-            last === "π"
-                ? Math.PI
-                : Number(last);
+        addHistory(
+            expressionText(original),
+            value
+        );
 
 
-        expressionTokens[
-            expressionTokens.length - 1
-        ] =
-            String(
-                value * value
-            );
+        tokens = [
+            String(value)
+        ];
 
+        current = "";
+
+        justCalculated = true;
+
+        errorState = false;
+
+
+        exprEl.textContent =
+            expressionText(original) +
+            " =";
+
+
+        resultEl.textContent =
+            fmt(value);
+
+
+        resultEl.classList.remove(
+            "error"
+        );
+
+    }catch(error){
+
+        showError(
+            error.message
+        );
     }
-    else{
+}
+
+
+/* =========================================================
+   REPEAT =
+========================================================= */
+
+function repeatEquals(){
+
+    if(
+        !justCalculated ||
+        lastOperator === null ||
+        lastOperand === null
+    ){
+
+        calculate();
 
         return;
     }
 
 
-    updateDisplay();
+    try{
+
+        const currentValue =
+            Number(tokens[0]);
+
+        let value;
+
+
+        if(lastOperator === "+"){
+
+            value =
+                currentValue +
+                lastOperand;
+
+        }
+
+        else if(lastOperator === "-"){
+
+            value =
+                currentValue -
+                lastOperand;
+
+        }
+
+        else if(lastOperator === "*"){
+
+            value =
+                currentValue *
+                lastOperand;
+
+        }
+
+        else if(lastOperator === "/"){
+
+            if(lastOperand === 0){
+
+                throw new Error(
+                    "Divisão por zero"
+                );
+            }
+
+            value =
+                currentValue /
+                lastOperand;
+
+        }
+
+        else if(lastOperator === "^"){
+
+            value =
+                Math.pow(
+                    currentValue,
+                    lastOperand
+                );
+        }
+
+
+        value =
+            cleanNumber(value);
+
+
+        addHistory(
+            fmt(currentValue) +
+            " " +
+            operatorLabels[lastOperator] +
+            " " +
+            fmt(lastOperand),
+            value
+        );
+
+
+        tokens = [
+            String(value)
+        ];
+
+
+        exprEl.textContent =
+            fmt(currentValue) +
+            " " +
+            operatorLabels[lastOperator] +
+            " " +
+            fmt(lastOperand) +
+            " =";
+
+
+        resultEl.textContent =
+            fmt(value);
+
+    }catch(error){
+
+        showError(
+            error.message
+        );
+    }
+}
+
+
+/* =========================================================
+   ERRORS
+========================================================= */
+
+function showError(message){
+
+    tokens = [];
+
+    current = "";
+
+    justCalculated = false;
+
+    errorState = true;
+
+    lastOperator = null;
+
+    lastOperand = null;
+
+    exprEl.textContent =
+        "ERRO";
+
+    resultEl.textContent =
+        message || "Erro";
+
+    resultEl.classList.add(
+        "error"
+    );
 }
 
 
@@ -3849,108 +2875,119 @@ function square(){
    MEMORY
 ========================================================= */
 
-function currentValue(){
+function currentNumeric(){
 
-    try{
+    const value =
+        evaluateSafe();
 
-        if(currentInput !== ""){
-
-            return parseNumber(
-                currentInput
-            );
-        }
-
-
-        if(
-            expressionTokens.length
-        ){
-
-            return evaluateTokens(
-                expressionTokens
-            );
-        }
-
-    }
-    catch(e){}
-
-
-    return 0;
+    return value === null
+        ? 0
+        : value;
 }
 
 
-function memoryAction(action){
+function memoryStore(){
 
-    const value =
-        currentValue();
-
-
-    switch(action){
-
-        case "MC":
-
-            memory = 0;
-
-            break;
+    memory =
+        currentNumeric();
+}
 
 
-        case "MR":
+function memoryRecall(){
 
-            expressionTokens = [
-                String(memory)
-            ];
+    startFresh();
 
-            currentInput = "";
+    current =
+        String(memory);
 
-            justCalculated = false;
-
-            updateDisplay();
-
-            break;
+    render();
+}
 
 
-        case "M+":
+function memoryAdd(sign){
 
-            memory += value;
-
-            break;
-
-
-        case "M-":
-
-            memory -= value;
-
-            break;
+    memory =
+        cleanNumber(
+            memory +
+            sign * currentNumeric()
+        );
+}
 
 
-        case "MS":
+function copyResult(){
 
-            memory = value;
+    const text =
+        resultEl.textContent
+            .replace(/−/g,"-")
+            .replace(/\./g,"")
+            .replace(",",".")
+            .trim();
 
-            break;
+
+    if(
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ){
+
+        navigator.clipboard
+            .writeText(text)
+            .catch(() => {});
+
+    }else{
+
+        const textarea =
+            document.createElement("textarea");
+
+        textarea.value =
+            text;
+
+        document.body.appendChild(
+            textarea
+        );
+
+        textarea.select();
+
+        try{
+            document.execCommand("copy");
+        }catch{}
+
+        textarea.remove();
     }
 }
 
 
 /* =========================================================
-   HISTÓRICO
+   HISTORY
 ========================================================= */
-
-let history =
-    JSON.parse(
-        localStorage.getItem(
-            "calpro_history_v2"
-        ) || "[]"
-    );
-
 
 function addHistory(
     expression,
-    result
+    value
 ){
 
+    let history = [];
+
+    try{
+
+        history =
+            JSON.parse(
+                localStorage.getItem(
+                    "calpro-history"
+                ) || "[]"
+            );
+
+    }catch{
+
+        history = [];
+    }
+
+
     history.unshift({
+
         expression,
-        result
+
+        result:value
+
     });
 
 
@@ -3958,10 +2995,14 @@ function addHistory(
         history.slice(0,40);
 
 
-    localStorage.setItem(
-        "calpro_history_v2",
-        JSON.stringify(history)
-    );
+    try{
+
+        localStorage.setItem(
+            "calpro-history",
+            JSON.stringify(history)
+        );
+
+    }catch{}
 
 
     renderHistory();
@@ -3970,278 +3011,956 @@ function addHistory(
 
 function renderHistory(){
 
-    const container =
-        $("historyList");
+    let history = [];
+
+    try{
+
+        history =
+            JSON.parse(
+                localStorage.getItem(
+                    "calpro-history"
+                ) || "[]"
+            );
+
+    }catch{
+
+        history = [];
+    }
 
 
     if(!history.length){
 
-        container.innerHTML = `
-            <div class="history-empty">
-                Seus cálculos aparecerão aqui.
-            </div>
-        `;
+        historyList.innerHTML =
+            '<div class="history-empty">Nenhum cálculo ainda.</div>';
 
         return;
     }
 
 
-    container.innerHTML =
+    historyList.innerHTML =
         history.map(
             (item,index) => `
 
-            <div
+            <button
                 class="history-item"
-                data-history="${index}">
+                data-history="${index}"
+            >
 
-                <div
-                    class="history-expression">
-
-                    ${escapeHTML(
-                        item.expression
-                    )}
-
+                <div class="e">
+                    ${escapeHtml(item.expression)}
                 </div>
 
-                <div
-                    class="history-result">
-
-                    ${formatNumber(
-                        item.result
-                    )}
-
+                <div class="r">
+                    ${fmt(item.result)}
                 </div>
 
-            </div>
+            </button>
+
         `
         ).join("");
-
-
-    container
-        .querySelectorAll(
-            ".history-item"
-        )
-        .forEach(item => {
-
-            item.addEventListener(
-                "click",
-                () => {
-
-                    const data =
-                        history[
-                            Number(
-                                item.dataset.history
-                            )
-                        ];
-
-
-                    if(!data){
-                        return;
-                    }
-
-
-                    expressionTokens = [
-                        String(
-                            data.result
-                        )
-                    ];
-
-                    currentInput = "";
-
-                    justCalculated = true;
-
-                    updateDisplay();
-
-                }
-            );
-
-        });
 }
 
 
-function escapeHTML(text){
+function escapeHtml(value){
 
-    return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return String(value)
+        .replace(
+            /[&<>"']/g,
+            char => ({
+
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                '"':"&quot;",
+                "'":"&#039;"
+
+            }[char])
+        );
+}
+
+
+function loadHistory(index){
+
+    let history = [];
+
+    try{
+
+        history =
+            JSON.parse(
+                localStorage.getItem(
+                    "calpro-history"
+                ) || "[]"
+            );
+
+    }catch{
+
+        history = [];
+    }
+
+
+    const item =
+        history[index];
+
+    if(!item){
+        return;
+    }
+
+
+    tokens = [
+        String(item.result)
+    ];
+
+    current = "";
+
+    justCalculated = true;
+
+    errorState = false;
+
+    exprEl.textContent =
+        item.expression +
+        " =";
+
+    resultEl.textContent =
+        fmt(item.result);
+
+    resultEl.classList.remove(
+        "error"
+    );
 }
 
 
 /* =========================================================
-   BOTÕES DA CALCULADORA
+   HISTORY EVENTS
 ========================================================= */
 
-document
-    .querySelectorAll(".key")
-    .forEach(button => {
+$("#clearHistory")
+    .addEventListener(
+        "click",
+        () => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            localStorage.removeItem(
+                "calpro-history"
+            );
 
-                const value =
-                    button.dataset.value;
-
-                const action =
-                    button.dataset.action;
-
-
-                if(value !== undefined){
-
-                    if(
-                        value === "(" ||
-                        value === ")"
-                    ){
-
-                        addParenthesis(
-                            value
-                        );
-
-                    }
-                    else if(
-                        value === "pi"
-                    ){
-
-                        if(justCalculated){
-
-                            expressionTokens = [];
-
-                            justCalculated = false;
-                        }
+            renderHistory();
+        }
+    );
 
 
-                        commitInput();
+historyList.addEventListener(
+    "click",
+    event => {
 
-                        expressionTokens.push(
-                            "π"
-                        );
+        const button =
+            event.target.closest(
+                "[data-history]"
+            );
 
-                        updateDisplay();
+        if(!button){
+            return;
+        }
 
-                    }
-                    else if(
-                        isOperator(value)
-                    ){
-
-                        addOperator(
-                            value
-                        );
-
-                    }
-                    else{
-
-                        addNumber(
-                            value
-                        );
-                    }
-
-                    return;
-                }
+        loadHistory(
+            Number(
+                button.dataset.history
+            )
+        );
+    }
+);
 
 
-                switch(action){
+/* =========================================================
+   CALCULATOR BUTTONS
+========================================================= */
 
-                    case "clear":
+$$(".key").forEach(button => {
 
-                        clearAll();
+    button.addEventListener(
+        "click",
+        () => {
 
-                        break;
+            const action =
+                button.dataset.action;
 
-
-                    case "clearEntry":
-
-                        clearEntry();
-
-                        break;
-
-
-                    case "backspace":
-
-                        backspace();
-
-                        break;
+            const value =
+                button.dataset.value;
 
 
-                    case "percent":
+            if(action === "ac"){
 
-                        percentage();
-
-                        break;
-
-
-                    case "sqrt":
-
-                        squareRoot();
-
-                        break;
-
-
-                    case "square":
-
-                        square();
-
-                        break;
-
-
-                    case "sign":
-
-                        toggleSign();
-
-                        break;
-
-
-                    case "equals":
-
-                        calculate();
-
-                        break;
-
-
-                    case "repeat":
-
-                        repeatOperation();
-
-                        break;
-
-
-                    case "copy":
-
-                        copyDisplay();
-
-                        break;
-                }
+                resetCalc();
 
             }
-        );
 
-    });
+            else if(action === "ce"){
+
+                clearEntry();
+
+            }
+
+            else if(action === "back"){
+
+                backspace();
+
+            }
+
+            else if(action === "percent"){
+
+                percent();
+
+            }
+
+            else if(action === "sqrt"){
+
+                sqrt();
+
+            }
+
+            else if(action === "square"){
+
+                square();
+
+            }
+
+            else if(action === "sign"){
+
+                toggleSign();
+
+            }
+
+            else if(action === "decimal"){
+
+                decimal();
+
+            }
+
+            else if(action === "equals"){
+
+                calculate();
+
+            }
+
+            else if(action === "repeat"){
+
+                repeatEquals();
+
+            }
+
+            else if(value === "π"){
+
+                addPi();
+
+            }
+
+            else if(
+                value === "(" ||
+                value === ")"
+            ){
+
+                addParen(value);
+
+            }
+
+            else if(isOperator(value)){
+
+                addOperator(value);
+
+            }
+
+            else if(/^\d$/.test(value)){
+
+                inputDigit(value);
+
+            }
+
+        }
+    );
+
+});
 
 
 /* =========================================================
    MEMORY BUTTONS
 ========================================================= */
 
-document
-    .querySelectorAll(
-        "[data-memory]"
-    )
-    .forEach(button => {
+$$(".mem").forEach(button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-                memoryAction(
-                    button.dataset.memory
-                );
+            const action =
+                button.dataset.action;
+
+
+            if(action === "mc"){
+
+                memory = 0;
 
             }
+
+            else if(action === "mr"){
+
+                memoryRecall();
+
+            }
+
+            else if(action === "mplus"){
+
+                memoryAdd(1);
+
+            }
+
+            else if(action === "mminus"){
+
+                memoryAdd(-1);
+
+            }
+
+            else if(action === "ms"){
+
+                memoryStore();
+
+            }
+
+            else if(action === "copy"){
+
+                copyResult();
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+$$(".tab").forEach(tab => {
+
+    tab.addEventListener(
+        "click",
+        () => {
+
+            $$(".tab").forEach(
+                item =>
+                    item.classList.toggle(
+                        "active",
+                        item === tab
+                    )
+            );
+
+
+            $$(".panel").forEach(
+                panel => {
+
+                    panel.classList.toggle(
+                        "active",
+                        panel.id ===
+                        "panel-" +
+                        tab.dataset.tab
+                    );
+
+                }
+            );
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   COMMERCIAL MODES
+========================================================= */
+
+const commercialMode = {
+
+    preco:"margin",
+
+    comissao:"sale"
+
+};
+
+
+$$(".mode").forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            const type =
+                button.dataset.mode;
+
+            const value =
+                button.dataset.value;
+
+
+            commercialMode[type] =
+                value;
+
+
+            $$(
+                `.mode[data-mode="${type}"]`
+            ).forEach(item => {
+
+                item.classList.toggle(
+                    "active",
+                    item === button
+                );
+
+            });
+
+
+            if(type === "preco"){
+
+                $("#preco-label")
+                    .textContent =
+                    value === "margin"
+                        ? "Margem desejada (%)"
+                        : "Markup desejado (%)";
+            }
+
+
+            if(type === "comissao"){
+
+                $("#comissao-label")
+                    .textContent =
+                    value === "sale"
+                        ? "Valor da venda"
+                        : "Comissão desejada";
+
+
+                $("#comissao-title1")
+                    .textContent =
+                    value === "sale"
+                        ? "COMISSÃO"
+                        : "FATURAMENTO NECESSÁRIO";
+
+
+                $("#comissao-title2")
+                    .textContent =
+                    value === "sale"
+                        ? "LÍQUIDO"
+                        : "COMISSÃO ALVO";
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   COMMERCIAL INPUT NUMBER
+========================================================= */
+
+function num(selector){
+
+    const input =
+        $(selector);
+
+    if(!input){
+        return 0;
+    }
+
+
+    let raw =
+        input.value
+            .trim()
+            .replace(/\s/g,"");
+
+
+    /*
+       Aceita:
+
+       1.234,56
+       1234,56
+       1234.56
+       1234
+    */
+
+    if(
+        raw.includes(".") &&
+        raw.includes(",")
+    ){
+
+        raw =
+            raw
+                .replace(/\./g,"")
+                .replace(",",".");
+    }
+
+    else if(raw.includes(",")){
+
+        raw =
+            raw.replace(",",".");
+    }
+
+
+    const value =
+        Number(raw);
+
+
+    return Number.isFinite(value)
+        ? value
+        : 0;
+}
+
+
+function setText(
+    selector,
+    text
+){
+
+    const element =
+        $(selector);
+
+    if(element){
+        element.textContent = text;
+    }
+}
+
+
+/* =========================================================
+   COMMERCIAL CALCULATIONS
+========================================================= */
+
+$$(".calc-btn").forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            const type =
+                button.dataset.commercial;
+
+
+            try{
+
+
+                /* =========================
+                   MARGEM
+                ========================= */
+
+                if(type === "margem"){
+
+                    const cost =
+                        num("#margem-custo");
+
+                    const sale =
+                        num("#margem-venda");
+
+
+                    if(sale === 0){
+
+                        throw new Error(
+                            "Informe um preço de venda maior que zero."
+                        );
+                    }
+
+
+                    const profit =
+                        sale - cost;
+
+
+                    const margin =
+                        profit /
+                        sale *
+                        100;
+
+
+                    const markup =
+                        cost === 0
+                            ? 0
+                            : profit /
+                              cost *
+                              100;
+
+
+                    setText(
+                        "#margem-lucro",
+                        fmtMoney(profit)
+                    );
+
+
+                    setText(
+                        "#margem-percent",
+                        fmtPct(margin)
+                    );
+
+
+                    setText(
+                        "#margem-markup",
+                        fmtPct(markup)
+                    );
+                }
+
+
+                /* =========================
+                   PREÇO
+                ========================= */
+
+                if(type === "preco"){
+
+                    const cost =
+                        num("#preco-custo");
+
+                    const percent =
+                        num("#preco-percent");
+
+
+                    if(
+                        cost < 0 ||
+                        percent < 0
+                    ){
+
+                        throw new Error(
+                            "Use valores positivos."
+                        );
+                    }
+
+
+                    let sale;
+
+
+                    if(
+                        commercialMode.preco ===
+                        "margin"
+                    ){
+
+                        if(percent >= 100){
+
+                            throw new Error(
+                                "A margem precisa ser menor que 100%."
+                            );
+                        }
+
+
+                        sale =
+                            cost /
+                            (
+                                1 -
+                                percent / 100
+                            );
+
+                    }else{
+
+                        sale =
+                            cost *
+                            (
+                                1 +
+                                percent / 100
+                            );
+                    }
+
+
+                    const profit =
+                        sale - cost;
+
+
+                    const realMargin =
+                        sale === 0
+                            ? 0
+                            : profit /
+                              sale *
+                              100;
+
+
+                    const realMarkup =
+                        cost === 0
+                            ? 0
+                            : profit /
+                              cost *
+                              100;
+
+
+                    setText(
+                        "#preco-venda",
+                        fmtMoney(sale)
+                    );
+
+
+                    setText(
+                        "#preco-lucro",
+                        fmtMoney(profit)
+                    );
+
+
+                    setText(
+                        "#preco-real",
+                        fmtPct(
+                            commercialMode.preco ===
+                            "margin"
+                                ? realMargin
+                                : realMarkup
+                        )
+                    );
+                }
+
+
+                /* =========================
+                   DESCONTO
+                ========================= */
+
+                if(type === "desconto"){
+
+                    const original =
+                        num("#desconto-original");
+
+                    const percent =
+                        num("#desconto-percent");
+
+
+                    if(
+                        percent < 0 ||
+                        percent > 100
+                    ){
+
+                        throw new Error(
+                            "Desconto deve ficar entre 0% e 100%."
+                        );
+                    }
+
+
+                    const discount =
+                        original *
+                        percent /
+                        100;
+
+
+                    const finalValue =
+                        original -
+                        discount;
+
+
+                    setText(
+                        "#desconto-valor",
+                        fmtMoney(discount)
+                    );
+
+
+                    setText(
+                        "#desconto-final",
+                        fmtMoney(finalValue)
+                    );
+
+
+                    setText(
+                        "#desconto-real",
+                        fmtPct(percent)
+                    );
+                }
+
+
+                /* =========================
+                   MARKUP
+                ========================= */
+
+                if(type === "markup"){
+
+                    const cost =
+                        num("#markup-custo");
+
+                    const percent =
+                        num("#markup-percent");
+
+
+                    if(
+                        cost < 0 ||
+                        percent < 0
+                    ){
+
+                        throw new Error(
+                            "Use valores positivos."
+                        );
+                    }
+
+
+                    const profit =
+                        cost *
+                        percent /
+                        100;
+
+
+                    const sale =
+                        cost +
+                        profit;
+
+
+                    const margin =
+                        sale === 0
+                            ? 0
+                            : profit /
+                              sale *
+                              100;
+
+
+                    setText(
+                        "#markup-venda",
+                        fmtMoney(sale)
+                    );
+
+
+                    setText(
+                        "#markup-lucro",
+                        fmtMoney(profit)
+                    );
+
+
+                    setText(
+                        "#markup-margem",
+                        fmtPct(margin)
+                    );
+                }
+
+
+                /* =========================
+                   COMISSÃO
+                ========================= */
+
+                if(type === "comissao"){
+
+                    const value =
+                        num("#comissao-valor");
+
+                    const percent =
+                        num("#comissao-percent");
+
+
+                    if(percent < 0){
+
+                        throw new Error(
+                            "A comissão não pode ser negativa."
+                        );
+                    }
+
+
+                    if(
+                        commercialMode.comissao ===
+                        "sale"
+                    ){
+
+                        const commission =
+                            value *
+                            percent /
+                            100;
+
+
+                        const net =
+                            value -
+                            commission;
+
+
+                        setText(
+                            "#comissao-resultado",
+                            fmtMoney(commission)
+                        );
+
+
+                        setText(
+                            "#comissao-secundario",
+                            fmtMoney(net)
+                        );
+
+
+                        setText(
+                            "#comissao-real",
+                            fmtPct(percent)
+                        );
+
+                    }else{
+
+                        if(percent <= 0){
+
+                            throw new Error(
+                                "Informe uma comissão maior que zero."
+                            );
+                        }
+
+
+                        const sales =
+                            value /
+                            (
+                                percent / 100
+                            );
+
+
+                        setText(
+                            "#comissao-resultado",
+                            fmtMoney(sales)
+                        );
+
+
+                        setText(
+                            "#comissao-secundario",
+                            fmtMoney(value)
+                        );
+
+
+                        setText(
+                            "#comissao-real",
+                            fmtPct(percent)
+                        );
+                    }
+                }
+
+            }catch(error){
+
+                alert(
+                    error.message
+                );
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   ENTER NOS CAMPOS COMERCIAIS
+========================================================= */
+
+function commercialEnter(event){
+
+    if(event.key !== "Enter"){
+        return;
+    }
+
+
+    const panel =
+        event.target.closest(
+            ".panel"
         );
 
-    });
+
+    const button =
+        panel?.querySelector(
+            ".calc-btn"
+        );
+
+
+    if(button){
+
+        event.preventDefault();
+
+        button.click();
+    }
+}
+
+
+$$("input").forEach(input => {
+
+    input.addEventListener(
+        "keydown",
+        commercialEnter
+    );
+
+});
 
 
 /* =========================================================
@@ -4252,10 +3971,20 @@ document.addEventListener(
     "keydown",
     event => {
 
+        const tag =
+            event.target.tagName;
+
+
+        /*
+           Não interferir nos inputs
+           das calculadoras comerciais.
+        */
+
         if(
-            event.ctrlKey ||
-            event.altKey
+            tag === "INPUT" ||
+            tag === "TEXTAREA"
         ){
+
             return;
         }
 
@@ -4264,53 +3993,24 @@ document.addEventListener(
             event.key;
 
 
-        if(
-            key >= "0" &&
-            key <= "9"
-        ){
-
-            addNumber(key);
+        if(/^\d$/.test(key)){
 
             event.preventDefault();
+
+            inputDigit(key);
 
             return;
         }
 
 
         if(
-            key === "." ||
-            key === ","
+            key === "," ||
+            key === "."
         ){
-
-            addNumber(".");
 
             event.preventDefault();
 
-            return;
-        }
-
-
-        if(
-            ["+","-","*","/","^"]
-                .includes(key)
-        ){
-
-            addOperator(key);
-
-            event.preventDefault();
-
-            return;
-        }
-
-
-        if(
-            key === "(" ||
-            key === ")"
-        ){
-
-            addParenthesis(key);
-
-            event.preventDefault();
+            decimal();
 
             return;
         }
@@ -4321,19 +4021,9 @@ document.addEventListener(
             key === "="
         ){
 
+            event.preventDefault();
+
             calculate();
-
-            event.preventDefault();
-
-            return;
-        }
-
-
-        if(key === "Backspace"){
-
-            backspace();
-
-            event.preventDefault();
 
             return;
         }
@@ -4341,9 +4031,29 @@ document.addEventListener(
 
         if(key === "Escape"){
 
-            clearAll();
+            event.preventDefault();
+
+            resetCalc();
+
+            return;
+        }
+
+
+        if(key === "Backspace"){
 
             event.preventDefault();
+
+            backspace();
+
+            return;
+        }
+
+
+        if(key === "Delete"){
+
+            event.preventDefault();
+
+            clearEntry();
 
             return;
         }
@@ -4351,964 +4061,57 @@ document.addEventListener(
 
         if(key === "%"){
 
-            percentage();
-
             event.preventDefault();
 
+            percent();
+
+            return;
         }
 
-    }
-);
-
-
-/* =========================================================
-   TABS
-========================================================= */
-
-document
-    .querySelectorAll(".tab")
-    .forEach(tab => {
-
-        tab.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(".tab")
-                    .forEach(
-                        item =>
-                            item.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                document
-                    .querySelectorAll(".panel")
-                    .forEach(
-                        panel =>
-                            panel.hidden = true
-                    );
-
-
-                tab.classList.add(
-                    "active"
-                );
-
-
-                const panel =
-                    $(
-                        "panel-" +
-                        tab.dataset.panel
-                    );
-
-
-                if(panel){
-                    panel.hidden = false;
-                }
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   LIMPAR HISTÓRICO
-========================================================= */
-
-$("clearHistory")
-    .addEventListener(
-        "click",
-        () => {
-
-            history = [];
-
-            localStorage.removeItem(
-                "calpro_history_v2"
-            );
-
-            renderHistory();
-
-        }
-    );
-
-
-/* =========================================================
-   COPY
-========================================================= */
-
-async function copyDisplay(){
-
-    try{
-
-        await navigator.clipboard.writeText(
-            $("displayResult").textContent
-        );
-
-    }
-    catch(e){
-
-        /*
-           Fallback para navegadores
-           mais antigos
-        */
-
-        const textarea =
-            document.createElement(
-                "textarea"
-            );
-
-        textarea.value =
-            $("displayResult")
-                .textContent;
-
-        textarea.style.position =
-            "fixed";
-
-        textarea.style.opacity =
-            "0";
-
-        document.body.appendChild(
-            textarea
-        );
-
-        textarea.select();
-
-        document.execCommand(
-            "copy"
-        );
-
-        textarea.remove();
-    }
-}
-
-
-/* =========================================================
-   ERRO
-========================================================= */
-
-function showError(){
-
-    $("displayResult")
-        .textContent =
-        "Erro";
-
-    $("displayResult")
-        .classList.add(
-            "error"
-        );
-}
-
-
-/* =========================================================
-   PREÇO
-========================================================= */
-
-let priceMode = "margin";
-
-
-document
-    .querySelectorAll(
-        "[data-price-mode]"
-    )
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                priceMode =
-                    button.dataset.priceMode;
-
-
-                document
-                    .querySelectorAll(
-                        "[data-price-mode]"
-                    )
-                    .forEach(
-                        item =>
-                            item.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                $("pricePercentLabel")
-                    .textContent =
-                    priceMode === "margin"
-                        ? "MARGEM DESEJADA"
-                        : "MARKUP DESEJADO";
-
-            }
-        );
-
-    });
-
-
-$("calculatePrice")
-    .addEventListener(
-        "click",
-        () => {
-
-            const cost =
-                parseNumber(
-                    $("priceCost").value
-                );
-
-
-            const percent =
-                parseNumber(
-                    $("pricePercent").value
-                );
-
-
-            const result =
-                $("priceResults");
-
-
-            if(
-                cost <= 0 ||
-                percent < 0
-            ){
-
-                result.innerHTML =
-                    resultCard(
-                        "VALOR INVÁLIDO",
-                        "Verifique os dados",
-                        false
-                    );
-
-                return;
-            }
-
-
-            let sale;
-
-
-            if(priceMode === "margin"){
-
-                if(percent >= 100){
-
-                    result.innerHTML =
-                        resultCard(
-                            "MARGEM INVÁLIDA",
-                            "Abaixo de 100%",
-                            false
-                        );
-
-                    return;
-                }
-
-
-                sale =
-                    cost /
-                    (1 - percent / 100);
-
-            }
-            else{
-
-                sale =
-                    cost *
-                    (1 + percent / 100);
-            }
-
-
-            const profit =
-                sale - cost;
-
-
-            const margin =
-                (profit / sale) * 100;
-
-
-            const markup =
-                (profit / cost) * 100;
-
-
-            result.innerHTML =
-
-                resultCard(
-                    "PREÇO DE VENDA",
-                    "R$ " +
-                    formatNumber(sale),
-                    true
-                )
-
-                +
-
-                resultCard(
-                    "LUCRO",
-                    "R$ " +
-                    formatNumber(profit),
-                    false
-                )
-
-                +
-
-                resultCard(
-                    "MARGEM REAL",
-                    formatNumber(margin) +
-                    "%",
-                    false
-                )
-
-                +
-
-                resultCard(
-                    "MARKUP REAL",
-                    formatNumber(markup) +
-                    "%",
-                    false
-                );
-
-        }
-    );
-
-
-/* =========================================================
-   MARGEM
-========================================================= */
-
-$("calculateMargin")
-    .addEventListener(
-        "click",
-        () => {
-
-            const cost =
-                parseNumber(
-                    $("marginCost").value
-                );
-
-
-            const sale =
-                parseNumber(
-                    $("marginSale").value
-                );
-
-
-            const result =
-                $("marginResults");
-
-
-            if(
-                cost <= 0 ||
-                sale <= 0
-            ){
-
-                result.innerHTML =
-                    resultCard(
-                        "VALOR INVÁLIDO",
-                        "Verifique os dados",
-                        false
-                    );
-
-                return;
-            }
-
-
-            const profit =
-                sale - cost;
-
-
-            const margin =
-                profit /
-                sale *
-                100;
-
-
-            const markup =
-                profit /
-                cost *
-                100;
-
-
-            result.innerHTML =
-
-                resultCard(
-                    "LUCRO",
-                    "R$ " +
-                    formatNumber(profit),
-                    true
-                )
-
-                +
-
-                resultCard(
-                    "MARGEM",
-                    formatNumber(margin) +
-                    "%",
-                    true
-                )
-
-                +
-
-                resultCard(
-                    "MARKUP",
-                    formatNumber(markup) +
-                    "%",
-                    false
-                );
-
-        }
-    );
-
-
-/* =========================================================
-   DESCONTO
-========================================================= */
-
-$("calculateDiscount")
-    .addEventListener(
-        "click",
-        () => {
-
-            const original =
-                parseNumber(
-                    $("discountOriginal").value
-                );
-
-
-            const percent =
-                parseNumber(
-                    $("discountPercent").value
-                );
-
-
-            const result =
-                $("discountResults");
-
-
-            if(
-                original <= 0 ||
-                percent < 0
-            ){
-
-                result.innerHTML =
-                    resultCard(
-                        "VALOR INVÁLIDO",
-                        "Verifique os dados",
-                        false
-                    );
-
-                return;
-            }
-
-
-            const discount =
-                original *
-                percent /
-                100;
-
-
-            const finalValue =
-                original -
-                discount;
-
-
-            result.innerHTML =
-
-                resultCard(
-                    "VALOR FINAL",
-                    "R$ " +
-                    formatNumber(finalValue),
-                    true
-                )
-
-                +
-
-                resultCard(
-                    "ECONOMIA",
-                    "R$ " +
-                    formatNumber(discount),
-                    false
-                );
-
-        }
-    );
-
-
-/* =========================================================
-   MARKUP
-========================================================= */
-
-$("calculateMarkup")
-    .addEventListener(
-        "click",
-        () => {
-
-            const cost =
-                parseNumber(
-                    $("markupCost").value
-                );
-
-
-            const percent =
-                parseNumber(
-                    $("markupPercent").value
-                );
-
-
-            const result =
-                $("markupResults");
-
-
-            if(
-                cost <= 0 ||
-                percent < 0
-            ){
-
-                result.innerHTML =
-                    resultCard(
-                        "VALOR INVÁLIDO",
-                        "Verifique os dados",
-                        false
-                    );
-
-                return;
-            }
-
-
-            const profit =
-                cost *
-                percent /
-                100;
-
-
-            const sale =
-                cost +
-                profit;
-
-
-            const margin =
-                profit /
-                sale *
-                100;
-
-
-            result.innerHTML =
-
-                resultCard(
-                    "PREÇO DE VENDA",
-                    "R$ " +
-                    formatNumber(sale),
-                    true
-                )
-
-                +
-
-                resultCard(
-                    "LUCRO",
-                    "R$ " +
-                    formatNumber(profit),
-                    false
-                )
-
-                +
-
-                resultCard(
-                    "MARGEM REAL",
-                    formatNumber(margin) +
-                    "%",
-                    false
-                );
-
-        }
-    );
-
-
-/* =========================================================
-   COMISSÃO
-========================================================= */
-
-let commissionMode =
-    "sale";
-
-
-document
-    .querySelectorAll(
-        "[data-commission-mode]"
-    )
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                commissionMode =
-                    button.dataset.commissionMode;
-
-
-                document
-                    .querySelectorAll(
-                        "[data-commission-mode]"
-                    )
-                    .forEach(
-                        item =>
-                            item.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                $("commissionSaleForm")
-                    .hidden =
-                    commissionMode !== "sale";
-
-
-                $("commissionTargetForm")
-                    .hidden =
-                    commissionMode !== "target";
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
-   COMISSÃO SOBRE VENDA
-========================================================= */
-
-$("calculateCommission")
-    .addEventListener(
-        "click",
-        () => {
-
-            const sale =
-                parseNumber(
-                    $("commissionSale").value
-                );
-
-
-            const percent =
-                parseNumber(
-                    $("commissionPercent").value
-                );
-
-
-            const result =
-                $("commissionSaleResults");
-
-
-            if(
-                sale <= 0 ||
-                percent < 0
-            ){
-
-                result.innerHTML =
-                    resultCard(
-                        "VALOR INVÁLIDO",
-                        "Verifique os dados",
-                        false
-                    );
-
-                return;
-            }
-
-
-            const commission =
-                sale *
-                percent /
-                100;
-
-
-            const net =
-                sale -
-                commission;
-
-
-            result.innerHTML =
-
-                resultCard(
-                    "COMISSÃO GERADA",
-                    "R$ " +
-                    formatNumber(
-                        commission
-                    ),
-                    true
-                )
-
-                +
-
-                resultCard(
-                    "VENDA",
-                    "R$ " +
-                    formatNumber(sale),
-                    false
-                )
-
-                +
-
-                resultCard(
-                    "LÍQUIDO",
-                    "R$ " +
-                    formatNumber(net),
-                    false
-                );
-
-        }
-    );
-
-
-/* =========================================================
-   META DE COMISSÃO
-========================================================= */
-
-$("calculateCommissionTarget")
-    .addEventListener(
-        "click",
-        () => {
-
-            const target =
-                parseNumber(
-                    $("commissionTarget").value
-                );
-
-
-            const percent =
-                parseNumber(
-                    $("commissionTargetPercent").value
-                );
-
-
-            const result =
-                $("commissionTargetResults");
-
-
-            if(
-                target <= 0 ||
-                percent <= 0
-            ){
-
-                result.innerHTML =
-                    resultCard(
-                        "VALOR INVÁLIDO",
-                        "Verifique os dados",
-                        false
-                    );
-
-                return;
-            }
-
-
-            const required =
-                target /
-                (percent / 100);
-
-
-            result.innerHTML =
-
-                resultCard(
-                    "FATURAMENTO NECESSÁRIO",
-                    "R$ " +
-                    formatNumber(required),
-                    true
-                )
-
-                +
-
-                resultCard(
-                    "COMISSÃO",
-                    "R$ " +
-                    formatNumber(target),
-                    false
-                )
-
-                +
-
-                resultCard(
-                    "PERCENTUAL",
-                    formatNumber(percent) +
-                    "%",
-                    false
-                );
-
-        }
-    );
-
-
-/* =========================================================
-   RESULT CARD
-========================================================= */
-
-function resultCard(
-    label,
-    value,
-    highlight
-){
-
-    return `
-
-        <div class="
-            result-card
-            ${highlight ? "highlight" : ""}
-        ">
-
-            <div class="result-label">
-
-                ${escapeHTML(label)}
-
-            </div>
-
-            <div class="result-value">
-
-                ${escapeHTML(value)}
-
-            </div>
-
-        </div>
-
-    `;
-}
-
-
-/* =========================================================
-   TEMA
-========================================================= */
-
-let lightTheme = false;
-
-
-$("themeButton")
-    .addEventListener(
-        "click",
-        () => {
-
-            lightTheme =
-                !lightTheme;
-
-
-            /*
-               Mantém o tema principal
-               escuro. O botão serve como
-               controle visual reservado
-               para futuras versões.
-            */
-
-            $("themeButton")
-                .textContent =
-                lightTheme
-                    ? "☀"
-                    : "☾";
-
-        }
-    );
-
-
-/* =========================================================
-   BLOQUEIO DE ZOOM
-========================================================= */
-
-document.addEventListener(
-    "dblclick",
-    event => {
-
-        event.preventDefault();
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-document.addEventListener(
-    "gesturestart",
-    event => {
-
-        event.preventDefault();
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-document.addEventListener(
-    "gesturechange",
-    event => {
-
-        event.preventDefault();
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-document.addEventListener(
-    "gestureend",
-    event => {
-
-        event.preventDefault();
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-document.addEventListener(
-    "wheel",
-    event => {
-
-        if(event.ctrlKey){
-
-            event.preventDefault();
-
-        }
-
-    },
-    {
-        passive:false
-    }
-);
-
-
-document.addEventListener(
-    "touchmove",
-    event => {
 
         if(
-            event.touches &&
-            event.touches.length > 1
+            key === "(" ||
+            key === ")"
         ){
 
             event.preventDefault();
 
+            addParen(key);
+
+            return;
         }
 
-    },
-    {
-        passive:false
+
+        if(
+            key === "+" ||
+            key === "-" ||
+            key === "/" ||
+            key === "*" ||
+            key === "^"
+        ){
+
+            event.preventDefault();
+
+            addOperator(key);
+
+            return;
+        }
+
     }
 );
 
 
 /* =========================================================
-   INICIALIZAÇÃO
+   START
 ========================================================= */
 
 renderHistory();
 
-updateDisplay();
+render();
+
+})();
 
 </script>
 
 </body>
-
 </html>
