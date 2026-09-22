@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 
 <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 >
 
 <meta name="theme-color" content="#07100a">
@@ -18,10 +18,10 @@
     --panel:#0b120d;
     --panel2:#101a13;
     --line:#203024;
-    --text:#f2f6f3;
-    --muted:#8d9b92;
+    --text:#f3f7f4;
+    --muted:#91a097;
     --green:#7cff00;
-    --green-dark:#4fb900;
+    --green2:#4bc400;
     --danger:#ff6262;
 }
 
@@ -35,18 +35,21 @@ body{
     height:100%;
     margin:0;
     padding:0;
-    overflow:hidden;
     background:var(--bg);
     color:var(--text);
     font-family:
         Inter,
-        Arial,
-        Helvetica,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
         sans-serif;
+
+    overflow:hidden;
 }
 
 body{
-    max-width:100%;
+    max-width:100vw;
 }
 
 button,
@@ -55,34 +58,45 @@ input{
 }
 
 button{
-    -webkit-tap-highlight-color:transparent;
+    border:0;
+    cursor:pointer;
     touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
 }
 
 input{
-    max-width:100%;
+    user-select:text;
 }
+
+/* =========================================================
+   APP
+========================================================= */
 
 .app{
     width:100%;
     max-width:100vw;
     height:100dvh;
+
     display:flex;
     flex-direction:column;
+
     overflow:hidden;
 }
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .header{
-    height:60px;
-    flex:0 0 60px;
+    height:62px;
+    flex:0 0 62px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 18px;
+
     background:#07100b;
     border-bottom:1px solid var(--line);
 }
@@ -97,22 +111,26 @@ input{
     color:var(--green);
 }
 
-.header-status{
+.status{
     color:var(--muted);
     font-size:11px;
 }
 
-/* =========================
+/* =========================================================
    TABS
-========================= */
+========================================================= */
 
 .tabs{
     width:100%;
-    max-width:100%;
+    min-width:0;
+
     display:flex;
     gap:7px;
+
     padding:8px 10px;
+
     flex:0 0 auto;
+
     background:#08100b;
     border-bottom:1px solid var(--line);
 
@@ -128,40 +146,51 @@ input{
 
 .tab{
     flex:0 0 auto;
+
     white-space:nowrap;
+
     padding:9px 13px;
+
     border-radius:9px;
+
     border:1px solid #1b2a20;
+
     background:#101a13;
     color:#9ca9a1;
+
     font-size:11px;
     font-weight:900;
 }
 
 .tab.active{
     color:var(--green);
-    border-color:rgba(124,255,0,.45);
-    background:rgba(124,255,0,.09);
+
+    border-color:
+        rgba(124,255,0,.45);
+
+    background:
+        rgba(124,255,0,.09);
 }
 
-/* =========================
-   MAIN
-========================= */
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .content{
     width:100%;
-    max-width:100%;
     min-width:0;
     min-height:0;
+
     flex:1;
+
     overflow:hidden;
 }
 
 .panel{
     width:100%;
-    max-width:100%;
     height:100%;
     min-width:0;
+
     display:none;
 }
 
@@ -169,26 +198,36 @@ input{
     display:block;
 }
 
-/* =========================
-   CALCULATOR
-========================= */
+/* =========================================================
+   CALCULATOR LAYOUT
+========================================================= */
 
 .calc-layout{
     width:100%;
     height:100%;
+
     min-width:0;
     min-height:0;
 
     display:grid;
-    grid-template-columns:minmax(0,1fr) 270px;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        275px;
 
     gap:10px;
+
     padding:10px;
 
     overflow:hidden;
 }
 
+/* =========================================================
+   CALCULATOR
+========================================================= */
+
 .calculator{
+    width:100%;
     min-width:0;
     min-height:0;
     height:100%;
@@ -197,9 +236,6 @@ input{
     flex-direction:column;
 
     padding:10px;
-
-    border-radius:15px;
-    border:1px solid var(--line);
 
     background:
         linear-gradient(
@@ -207,19 +243,26 @@ input{
             #0c140e,
             #070d08
         );
+
+    border:
+        1px solid var(--line);
+
+    border-radius:15px;
 }
 
-/* =========================
+/* =========================================================
    DISPLAY
-========================= */
+========================================================= */
 
 .display{
     width:100%;
     min-width:0;
-    min-height:105px;
+
+    min-height:108px;
 
     display:flex;
     flex-direction:column;
+
     justify-content:center;
     align-items:flex-end;
 
@@ -227,7 +270,10 @@ input{
     margin-bottom:8px;
 
     background:#040805;
-    border:1px solid #1a281d;
+
+    border:
+        1px solid #1a281d;
+
     border-radius:13px;
 
     overflow:hidden;
@@ -237,16 +283,19 @@ input{
     width:100%;
     min-width:0;
 
+    min-height:22px;
+
     color:var(--muted);
+
     font-size:13px;
 
     text-align:right;
 
     white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
 
-    min-height:22px;
+    overflow:hidden;
+
+    text-overflow:ellipsis;
 }
 
 .display-value{
@@ -254,56 +303,72 @@ input{
     min-width:0;
 
     color:var(--text);
-    font-size:clamp(30px,5vw,48px);
+
+    font-size:
+        clamp(30px,5vw,48px);
+
     line-height:1.1;
+
     font-weight:900;
 
     text-align:right;
 
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 }
 
 .display-value.error{
     color:var(--danger);
-    font-size:20px;
+    font-size:19px;
 }
 
-/* =========================
+/* =========================================================
    MEMORY
-========================= */
+========================================================= */
 
 .memory{
     width:100%;
+
     display:grid;
-    grid-template-columns:repeat(6,minmax(0,1fr));
+
+    grid-template-columns:
+        repeat(6,minmax(0,1fr));
+
     gap:5px;
+
     margin-bottom:7px;
 }
 
 .memory button{
     min-width:0;
+
     padding:7px 2px;
 
     color:#aeb9b1;
+
     background:#101a13;
 
-    border:1px solid #1b2a20;
+    border:
+        1px solid #1b2a20;
+
     border-radius:8px;
 
     font-size:10px;
     font-weight:900;
 }
 
-/* =========================
+/* =========================================================
    KEYS
-========================= */
+========================================================= */
 
 .keys{
     width:100%;
     min-width:0;
     min-height:0;
+
     flex:1;
 
     display:grid;
@@ -321,14 +386,17 @@ input{
     min-width:0;
     min-height:0;
 
-    border-radius:11px;
-
-    border:1px solid #203024;
     background:#121d15;
+
+    border:
+        1px solid #203024;
+
+    border-radius:11px;
 
     color:#f1f5f2;
 
     font-size:17px;
+
     font-weight:850;
 }
 
@@ -351,8 +419,11 @@ input{
 
 .key.equal{
     color:#061006;
+
     background:var(--green);
+
     border-color:var(--green);
+
     font-size:22px;
 }
 
@@ -360,11 +431,12 @@ input{
     grid-column:span 2;
 }
 
-/* =========================
+/* =========================================================
    HISTORY
-========================= */
+========================================================= */
 
 .history{
+    width:100%;
     min-width:0;
     min-height:0;
     height:100%;
@@ -375,96 +447,126 @@ input{
     padding:11px;
 
     background:#0b120d;
-    border:1px solid var(--line);
+
+    border:
+        1px solid var(--line);
+
     border-radius:15px;
 }
 
 .history-title{
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:.08em;
     margin-bottom:9px;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:.08em;
 }
 
 .history-list{
-    min-height:0;
     flex:1;
-    overflow-y:auto;
-    overflow-x:hidden;
+
+    min-height:0;
 
     display:flex;
     flex-direction:column;
+
     gap:6px;
+
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 
 .history-empty{
-    color:#65736a;
-    font-size:11px;
-    text-align:center;
     padding:20px 5px;
+
+    color:#65736a;
+
+    font-size:11px;
+
+    text-align:center;
 }
 
 .history-item{
     width:100%;
     min-width:0;
 
-    text-align:left;
-
     padding:9px;
 
+    text-align:left;
+
     background:#0e1711;
-    border:1px solid #18271d;
+
+    border:
+        1px solid #18271d;
+
     border-radius:9px;
 }
 
 .history-expression{
     color:#7f8c84;
+
     font-size:10px;
 
     overflow:hidden;
+
     white-space:nowrap;
+
     text-overflow:ellipsis;
 }
 
 .history-result{
-    color:var(--green);
-    font-size:15px;
-    font-weight:900;
     margin-top:2px;
+
+    color:var(--green);
+
+    font-size:15px;
+
+    font-weight:900;
 }
 
 .history-clear{
     width:100%;
+
     margin-top:7px;
+
     padding:8px;
 
-    border-radius:8px;
-    background:#101a13;
-    border:1px solid #1b2a20;
-
     color:#aeb9b1;
+
+    background:#101a13;
+
+    border:
+        1px solid #1b2a20;
+
+    border-radius:8px;
+
     font-size:10px;
+
     font-weight:900;
 }
 
-/* =========================
+/* =========================================================
    COMMERCIAL
-========================= */
+========================================================= */
 
 .commercial{
     width:100%;
     height:100%;
+
     min-width:0;
+
+    padding:15px;
 
     overflow-y:auto;
     overflow-x:hidden;
-
-    padding:15px;
 }
 
 .commercial-inner{
     width:100%;
     max-width:850px;
+
     margin:0 auto;
 }
 
@@ -474,18 +576,23 @@ input{
 
 .commercial-title h2{
     margin:0;
+
     font-size:22px;
 }
 
 .commercial-title p{
     margin:5px 0 0;
+
     color:var(--muted);
+
     font-size:12px;
 }
 
 .form-grid{
     width:100%;
+
     display:grid;
+
     grid-template-columns:
         repeat(2,minmax(0,1fr));
 
@@ -498,10 +605,13 @@ input{
 
 .field label{
     display:block;
+
     margin-bottom:6px;
 
     color:#aab6ae;
+
     font-size:11px;
+
     font-weight:850;
 }
 
@@ -511,19 +621,23 @@ input{
 
     padding:13px;
 
-    border-radius:10px;
-    border:1px solid var(--line);
-
-    outline:none;
+    color:var(--text);
 
     background:#07100a;
-    color:var(--text);
+
+    border:
+        1px solid var(--line);
+
+    border-radius:10px;
+
+    outline:none;
 
     font-size:16px;
 }
 
 .field input:focus{
     border-color:var(--green);
+
     box-shadow:
         0 0 0 2px
         rgba(124,255,0,.10);
@@ -531,60 +645,77 @@ input{
 
 .calculate{
     width:100%;
+
     margin-top:13px;
 
     padding:13px;
 
-    border-radius:10px;
-
     color:#071006;
+
     background:var(--green);
+
+    border-radius:10px;
 
     font-weight:950;
 }
 
 .mode-row{
     display:flex;
+
     gap:7px;
+
     margin-bottom:11px;
 }
 
 .mode{
     flex:1;
+
     min-width:0;
 
     padding:10px;
 
-    border-radius:9px;
-    border:1px solid #1b2a20;
-
-    background:#101a13;
     color:#9daaa2;
 
+    background:#101a13;
+
+    border:
+        1px solid #1b2a20;
+
+    border-radius:9px;
+
     font-size:11px;
+
     font-weight:900;
 }
 
 .mode.active{
     color:var(--green);
-    border-color:rgba(124,255,0,.45);
-    background:rgba(124,255,0,.08);
+
+    background:
+        rgba(124,255,0,.08);
+
+    border-color:
+        rgba(124,255,0,.45);
 }
 
 .result-card{
     width:100%;
+
     margin-top:12px;
 
     padding:12px;
 
-    border-radius:12px;
-    border:1px solid var(--line);
-
     background:#07100a;
+
+    border:
+        1px solid var(--line);
+
+    border-radius:12px;
 }
 
 .result-grid{
     display:grid;
+
     grid-template-columns:
         repeat(3,minmax(0,1fr));
 
@@ -596,20 +727,25 @@ input{
 
     padding:10px;
 
-    border-radius:9px;
-
     background:#0d1710;
-    border:1px solid #17251b;
+
+    border:
+        1px solid #17251b;
+
+    border-radius:9px;
 }
 
 .metric small{
     display:block;
+
     color:#78867d;
+
     font-size:9px;
 }
 
 .metric strong{
     display:block;
+
     margin-top:4px;
 
     color:var(--green);
@@ -617,13 +753,15 @@ input{
     font-size:17px;
 
     overflow:hidden;
+
     white-space:nowrap;
+
     text-overflow:ellipsis;
 }
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:900px){
 
@@ -641,10 +779,11 @@ input{
     .header{
         height:54px;
         flex-basis:54px;
+
         padding:0 12px;
     }
 
-    .header-status{
+    .status{
         display:none;
     }
 
@@ -710,7 +849,7 @@ input{
         CALPRO <span>EXPERT</span>
     </div>
 
-    <div class="header-status">
+    <div class="status">
         CALCULADORA COMERCIAL
     </div>
 
@@ -749,9 +888,9 @@ input{
 <main class="content">
 
 
-<!-- ======================================================
+<!-- =====================================================
      CALCULADORA
-====================================================== -->
+===================================================== -->
 
 <section
     id="panel-calc"
@@ -762,172 +901,264 @@ input{
 
 <div class="calculator">
 
-    <div class="display">
+<div class="display">
 
-        <div
-            id="expression"
-            class="expression"
-        ></div>
+    <div
+        id="expression"
+        class="expression"
+    ></div>
 
-        <div
-            id="displayValue"
-            class="display-value"
-        >
-            0
-        </div>
-
+    <div
+        id="displayValue"
+        class="display-value"
+    >
+        0
     </div>
 
-
-    <div class="memory">
-
-        <button data-memory="clear">
-            MC
-        </button>
-
-        <button data-memory="recall">
-            MR
-        </button>
-
-        <button data-memory="add">
-            M+
-        </button>
-
-        <button data-memory="subtract">
-            M-
-        </button>
-
-        <button data-memory="store">
-            MS
-        </button>
-
-        <button data-memory="copy">
-            COPIAR
-        </button>
-
-    </div>
+</div>
 
 
-    <div class="keys">
+<div class="memory">
 
-        <button class="key danger" data-action="all-clear">
-            AC
-        </button>
+    <button data-memory="clear">
+        MC
+    </button>
 
-        <button class="key function" data-action="clear-entry">
-            CE
-        </button>
+    <button data-memory="recall">
+        MR
+    </button>
 
-        <button class="key function" data-action="backspace">
-            ⌫
-        </button>
+    <button data-memory="add">
+        M+
+    </button>
 
-        <button class="key function" data-action="percent">
-            %
-        </button>
+    <button data-memory="subtract">
+        M-
+    </button>
 
-        <button class="key operator" data-operator="/">
-            ÷
-        </button>
+    <button data-memory="store">
+        MS
+    </button>
 
+    <button data-memory="copy">
+        COPIAR
+    </button>
 
-        <button class="key function" data-action="sqrt">
-            √
-        </button>
-
-        <button class="key function" data-action="square">
-            x²
-        </button>
-
-        <button class="key operator" data-operator="^">
-            xʸ
-        </button>
-
-        <button class="key function" data-action="open-paren">
-            (
-        </button>
-
-        <button class="key function" data-action="close-paren">
-            )
-        </button>
+</div>
 
 
-        <button class="key" data-digit="7">
-            7
-        </button>
+<div class="keys">
 
-        <button class="key" data-digit="8">
-            8
-        </button>
+    <button
+        class="key danger"
+        data-action="all-clear"
+    >
+        AC
+    </button>
 
-        <button class="key" data-digit="9">
-            9
-        </button>
+    <button
+        class="key function"
+        data-action="clear-entry"
+    >
+        CE
+    </button>
 
-        <button class="key function" data-action="sign">
-            +/−
-        </button>
+    <button
+        class="key function"
+        data-action="backspace"
+    >
+        ⌫
+    </button>
 
-        <button class="key operator" data-operator="*">
-            ×
-        </button>
+    <button
+        class="key function"
+        data-action="percent"
+    >
+        %
+    </button>
 
-
-        <button class="key" data-digit="4">
-            4
-        </button>
-
-        <button class="key" data-digit="5">
-            5
-        </button>
-
-        <button class="key" data-digit="6">
-            6
-        </button>
-
-        <button class="key function" data-action="pi">
-            π
-        </button>
-
-        <button class="key operator" data-operator="-">
-            −
-        </button>
+    <button
+        class="key operator"
+        data-operator="/"
+    >
+        ÷
+    </button>
 
 
-        <button class="key" data-digit="1">
-            1
-        </button>
+    <button
+        class="key function"
+        data-action="sqrt"
+    >
+        √
+    </button>
 
-        <button class="key" data-digit="2">
-            2
-        </button>
+    <button
+        class="key function"
+        data-action="square"
+    >
+        x²
+    </button>
 
-        <button class="key" data-digit="3">
-            3
-        </button>
+    <button
+        class="key operator"
+        data-operator="^"
+    >
+        xʸ
+    </button>
 
-        <button class="key function" data-action="repeat">
-            = REP
-        </button>
+    <button
+        class="key function"
+        data-action="open-paren"
+    >
+        (
+    </button>
 
-        <button class="key operator" data-operator="+">
-            +
-        </button>
+    <button
+        class="key function"
+        data-action="close-paren"
+    >
+        )
+    </button>
 
 
-        <button class="key zero" data-digit="0">
-            0
-        </button>
+    <button
+        class="key"
+        data-digit="7"
+    >
+        7
+    </button>
 
-        <button class="key" data-action="decimal">
-            ,
-        </button>
+    <button
+        class="key"
+        data-digit="8"
+    >
+        8
+    </button>
 
-        <button class="key equal" data-action="equals">
-            =
-        </button>
+    <button
+        class="key"
+        data-digit="9"
+    >
+        9
+    </button>
 
-    </div>
+    <button
+        class="key function"
+        data-action="sign"
+    >
+        +/−
+    </button>
+
+    <button
+        class="key operator"
+        data-operator="*"
+    >
+        ×
+    </button>
+
+
+    <button
+        class="key"
+        data-digit="4"
+    >
+        4
+    </button>
+
+    <button
+        class="key"
+        data-digit="5"
+    >
+        5
+    </button>
+
+    <button
+        class="key"
+        data-digit="6"
+    >
+        6
+    </button>
+
+    <button
+        class="key function"
+        data-action="pi"
+    >
+        π
+    </button>
+
+    <button
+        class="key operator"
+        data-operator="-"
+    >
+        −
+    </button>
+
+
+    <button
+        class="key"
+        data-digit="1"
+    >
+        1
+    </button>
+
+    <button
+        class="key"
+        data-digit="2"
+    >
+        2
+    </button>
+
+    <button
+        class="key"
+        data-digit="3"
+    >
+        3
+    </button>
+
+    <button
+        class="key function"
+        data-action="repeat"
+    >
+        = REP
+    </button>
+
+    <button
+        class="key operator"
+        data-operator="+"
+    >
+        +
+    </button>
+
+
+    <button
+        class="key zero"
+        data-digit="0"
+    >
+        0
+    </button>
+
+    <!-- PONTO E VÍRGULA -->
+    <button
+        class="key function"
+        data-action="decimal-comma"
+    >
+        ,
+    </button>
+
+    <button
+        class="key function"
+        data-action="decimal-dot"
+    >
+        .
+    </button>
+
+    <button
+        class="key equal"
+        data-action="equals"
+    >
+        =
+    </button>
+
+</div>
 
 </div>
 
@@ -957,9 +1188,9 @@ input{
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      MARGEM
-====================================================== -->
+===================================================== -->
 
 <section
     id="panel-margem"
@@ -972,11 +1203,11 @@ input{
 
 <div class="commercial-title">
 
-    <h2>MARGEM</h2>
+<h2>MARGEM</h2>
 
-    <p>
-        Calcule lucro, margem e markup.
-    </p>
+<p>
+Calcule lucro, margem e markup.
+</p>
 
 </div>
 
@@ -986,7 +1217,7 @@ input{
 <div class="field">
 
 <label>
-    Custo
+Custo
 </label>
 
 <input
@@ -1001,7 +1232,7 @@ input{
 <div class="field">
 
 <label>
-    Preço de venda
+Preço de venda
 </label>
 
 <input
@@ -1028,33 +1259,57 @@ CALCULAR
 <div class="result-grid">
 
 <div class="metric">
-<small>LUCRO</small>
-<strong id="margemLucro">R$ 0,00</strong>
+
+<small>
+LUCRO
+</small>
+
+<strong id="margemLucro">
+R$ 0,00
+</strong>
+
 </div>
+
 
 <div class="metric">
-<small>MARGEM</small>
-<strong id="margemResultado">0,00%</strong>
+
+<small>
+MARGEM
+</small>
+
+<strong id="margemResultado">
+0,00%
+</strong>
+
 </div>
+
 
 <div class="metric">
-<small>MARKUP</small>
-<strong id="margemMarkup">0,00%</strong>
-</div>
+
+<small>
+MARKUP
+</small>
+
+<strong id="margemMarkup">
+0,00%
+</strong>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
 </div>
 
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      PREÇO
-====================================================== -->
+===================================================== -->
 
 <section
     id="panel-preco"
@@ -1142,33 +1397,57 @@ CALCULAR
 <div class="result-grid">
 
 <div class="metric">
-<small>PREÇO DE VENDA</small>
-<strong id="precoVenda">R$ 0,00</strong>
+
+<small>
+PREÇO DE VENDA
+</small>
+
+<strong id="precoVenda">
+R$ 0,00
+</strong>
+
 </div>
+
 
 <div class="metric">
-<small>LUCRO</small>
-<strong id="precoLucro">R$ 0,00</strong>
+
+<small>
+LUCRO
+</small>
+
+<strong id="precoLucro">
+R$ 0,00
+</strong>
+
 </div>
+
 
 <div class="metric">
-<small>RESULTADO</small>
-<strong id="precoResultado">0,00%</strong>
-</div>
+
+<small>
+RESULTADO
+</small>
+
+<strong id="precoResultado">
+0,00%
+</strong>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
 </div>
 
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      DESCONTO
-====================================================== -->
+===================================================== -->
 
 <section
     id="panel-desconto"
@@ -1184,7 +1463,7 @@ CALCULAR
 <h2>DESCONTO</h2>
 
 <p>
-Calcule o desconto e o preço final.
+Calcule o valor do desconto e o preço final.
 </p>
 
 </div>
@@ -1237,33 +1516,57 @@ CALCULAR
 <div class="result-grid">
 
 <div class="metric">
-<small>DESCONTO</small>
-<strong id="descontoValor">R$ 0,00</strong>
+
+<small>
+VALOR DESCONTO
+</small>
+
+<strong id="descontoValor">
+R$ 0,00
+</strong>
+
 </div>
+
 
 <div class="metric">
-<small>PREÇO FINAL</small>
-<strong id="descontoFinal">R$ 0,00</strong>
+
+<small>
+PREÇO FINAL
+</small>
+
+<strong id="descontoFinal">
+R$ 0,00
+</strong>
+
 </div>
+
 
 <div class="metric">
-<small>PERCENTUAL</small>
-<strong id="descontoResultado">0,00%</strong>
-</div>
+
+<small>
+PERCENTUAL
+</small>
+
+<strong id="descontoResultado">
+0,00%
+</strong>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
 </div>
 
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      MARKUP
-====================================================== -->
+===================================================== -->
 
 <section
     id="panel-markup"
@@ -1332,33 +1635,57 @@ CALCULAR
 <div class="result-grid">
 
 <div class="metric">
-<small>PREÇO DE VENDA</small>
-<strong id="markupVenda">R$ 0,00</strong>
+
+<small>
+PREÇO DE VENDA
+</small>
+
+<strong id="markupVenda">
+R$ 0,00
+</strong>
+
 </div>
+
 
 <div class="metric">
-<small>LUCRO</small>
-<strong id="markupLucro">R$ 0,00</strong>
+
+<small>
+LUCRO
+</small>
+
+<strong id="markupLucro">
+R$ 0,00
+</strong>
+
 </div>
+
 
 <div class="metric">
-<small>MARGEM</small>
-<strong id="markupMargem">0,00%</strong>
-</div>
+
+<small>
+MARGEM
+</small>
+
+<strong id="markupMargem">
+0,00%
+</strong>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
 </div>
 
 </section>
 
 
-<!-- ======================================================
+<!-- =====================================================
      COMISSÃO
-====================================================== -->
+===================================================== -->
 
 <section
     id="panel-comissao"
@@ -1488,6 +1815,7 @@ PERCENTUAL
 </div>
 
 </div>
+
 </div>
 
 </section>
@@ -1504,23 +1832,27 @@ PERCENTUAL
    UTILIDADES
 ========================================================= */
 
-const $ = (selector) =>
+const $ = selector =>
     document.querySelector(selector);
 
-const $$ = (selector) =>
+const $$ = selector =>
     [...document.querySelectorAll(selector)];
 
 
-function numberBR(value){
-
-    if(value === null || value === undefined){
-        return 0;
-    }
+function parseNumber(value){
 
     let text =
-        String(value)
+        String(value ?? "")
         .trim()
         .replace(/\s/g,"");
+
+
+    /*
+       1.234,56
+       1234,56
+       1234.56
+       1234
+    */
 
     if(
         text.includes(".") &&
@@ -1532,22 +1864,51 @@ function numberBR(value){
             .replace(/\./g,"")
             .replace(",",".");
     }
-    else if(text.includes(",")){
+    else if(
+        text.includes(",")
+    ){
 
         text =
             text.replace(",",".");
     }
 
-    const number =
+
+    const valueNumber =
         Number(text);
 
-    return Number.isFinite(number)
-        ? number
+
+    return Number.isFinite(valueNumber)
+        ? valueNumber
         : 0;
 }
 
 
-function money(value){
+function formatNumber(value){
+
+    if(!Number.isFinite(Number(value))){
+        return "Erro";
+    }
+
+
+    let number =
+        Number(value);
+
+
+    if(Math.abs(number) < 1e-12){
+        number = 0;
+    }
+
+
+    return number.toLocaleString(
+        "pt-BR",
+        {
+            maximumFractionDigits:10
+        }
+    );
+}
+
+
+function formatMoney(value){
 
     return Number(value || 0)
         .toLocaleString(
@@ -1561,7 +1922,7 @@ function money(value){
 }
 
 
-function percent(value){
+function formatPercent(value){
 
     return Number(value || 0)
         .toLocaleString(
@@ -1574,28 +1935,8 @@ function percent(value){
 }
 
 
-function numberFormat(value){
-
-    if(!Number.isFinite(value)){
-        return "Erro";
-    }
-
-    if(Math.abs(value) < 0.000000000001){
-        value = 0;
-    }
-
-    return Number(value)
-        .toLocaleString(
-            "pt-BR",
-            {
-                maximumFractionDigits:10
-            }
-        );
-}
-
-
 /* =========================================================
-   CALCULADORA
+   CALCULADORA PRINCIPAL
 ========================================================= */
 
 let current = "0";
@@ -1614,7 +1955,7 @@ let lastOperand = null;
 
 let memory = 0;
 
-let error = false;
+let errorState = false;
 
 
 const display =
@@ -1631,16 +1972,36 @@ function setDisplay(value){
 
     display.classList.toggle(
         "error",
-        error
+        errorState
     );
 }
 
 
-function currentNumber(){
+function currentValue(){
 
-    return numberBR(current);
+    return parseNumber(current);
 }
 
+
+function operatorSymbol(operator){
+
+    const symbols = {
+
+        "+":"+",
+        "-":"−",
+        "*":"×",
+        "/":"÷",
+        "^":"xʸ"
+
+    };
+
+    return symbols[operator] || operator;
+}
+
+
+/* =========================================================
+   LIMPAR
+========================================================= */
 
 function clearAll(){
 
@@ -1658,7 +2019,7 @@ function clearAll(){
 
     lastOperand = null;
 
-    error = false;
+    errorState = false;
 
     expression.textContent = "";
 
@@ -1668,10 +2029,13 @@ function clearAll(){
 
 function clearEntry(){
 
-    if(error){
+    if(errorState){
+
         clearAll();
+
         return;
     }
+
 
     current = "0";
 
@@ -1681,11 +2045,16 @@ function clearEntry(){
 }
 
 
+/* =========================================================
+   DIGITOS
+========================================================= */
+
 function inputDigit(digit){
 
-    if(error){
+    if(errorState){
         clearAll();
     }
+
 
     if(
         waitingForOperand ||
@@ -1701,9 +2070,7 @@ function inputDigit(digit){
         expression.textContent = "";
 
         setDisplay(
-            numberFormat(
-                currentNumber()
-            )
+            current.replace(".",",")
         );
 
         return;
@@ -1713,6 +2080,13 @@ function inputDigit(digit){
     if(current === "0"){
 
         current = digit;
+
+    }else if(
+        current === "-0"
+    ){
+
+        current =
+            "-" + digit;
 
     }else{
 
@@ -1726,11 +2100,16 @@ function inputDigit(digit){
 }
 
 
+/* =========================================================
+   DECIMAL — VÍRGULA E PONTO
+========================================================= */
+
 function inputDecimal(){
 
-    if(error){
+    if(errorState){
         clearAll();
     }
+
 
     if(
         waitingForOperand ||
@@ -1751,9 +2130,12 @@ function inputDecimal(){
     }
 
 
-    if(!current.includes(".")){
+    if(
+        !current.includes(".")
+    ){
 
         current += ".";
+
     }
 
 
@@ -1763,15 +2145,21 @@ function inputDecimal(){
 }
 
 
+/* =========================================================
+   SINAL
+========================================================= */
+
 function toggleSign(){
 
-    if(error){
+    if(errorState){
         return;
     }
+
 
     if(current === "0"){
         return;
     }
+
 
     if(current.startsWith("-")){
 
@@ -1784,6 +2172,7 @@ function toggleSign(){
             "-" + current;
     }
 
+
     setDisplay(
         current.replace(".",",")
     );
@@ -1791,10 +2180,10 @@ function toggleSign(){
 
 
 /* =========================================================
-   OPERAÇÕES BÁSICAS
+   OPERAÇÃO
 ========================================================= */
 
-function calculateOperation(
+function operate(
     first,
     second,
     operator
@@ -1814,6 +2203,7 @@ function calculateOperation(
         case "/":
 
             if(second === 0){
+
                 throw new Error(
                     "Não é possível dividir por zero."
                 );
@@ -1822,81 +2212,50 @@ function calculateOperation(
             return first / second;
 
         case "^":
-            return Math.pow(first,second);
+
+            return Math.pow(
+                first,
+                second
+            );
 
         default:
+
             return second;
     }
 }
 
 
-function performPending(){
-
-    if(
-        pendingOperator === null ||
-        accumulator === null
-    ){
-        return currentNumber();
-    }
-
-
-    const second =
-        currentNumber();
-
-
-    const result =
-        calculateOperation(
-            accumulator,
-            second,
-            pendingOperator
-        );
-
-
-    accumulator = result;
-
-    current =
-        String(result);
-
-    return result;
-}
-
-
 /* =========================================================
-   OPERADOR
+   OPERADORES
 ========================================================= */
 
 function inputOperator(operator){
 
-    if(error){
+    if(errorState){
         clearAll();
     }
 
 
     /*
-       Se acabou de calcular e o usuário
-       apertar um operador, continua
-       usando o resultado.
+       Depois do "=":
+       100 = + 20
+       continua usando 100.
     */
 
     if(justEvaluated){
 
         accumulator =
-            currentNumber();
+            currentValue();
 
         pendingOperator =
             operator;
 
-        waitingForOperand =
-            true;
+        waitingForOperand = true;
 
         justEvaluated = false;
 
-        lastOperator = null;
-
-        lastOperand = null;
-
         expression.textContent =
-            numberFormat(accumulator) +
+            formatNumber(accumulator) +
             " " +
             operatorSymbol(operator);
 
@@ -1908,19 +2267,20 @@ function inputOperator(operator){
        Primeiro operador.
     */
 
-    if(pendingOperator === null){
+    if(
+        pendingOperator === null
+    ){
 
         accumulator =
-            currentNumber();
+            currentValue();
 
         pendingOperator =
             operator;
 
-        waitingForOperand =
-            true;
+        waitingForOperand = true;
 
         expression.textContent =
-            numberFormat(accumulator) +
+            formatNumber(accumulator) +
             " " +
             operatorSymbol(operator);
 
@@ -1929,8 +2289,9 @@ function inputOperator(operator){
 
 
     /*
-       Troca de operador antes
-       de digitar o segundo número.
+       Se apertar outro operador
+       sem digitar o segundo número,
+       somente troca o operador.
     */
 
     if(waitingForOperand){
@@ -1939,7 +2300,7 @@ function inputOperator(operator){
             operator;
 
         expression.textContent =
-            numberFormat(accumulator) +
+            formatNumber(accumulator) +
             " " +
             operatorSymbol(operator);
 
@@ -1948,8 +2309,8 @@ function inputOperator(operator){
 
 
     /*
-       Já existe operação pendente.
-       Executa antes de continuar.
+       Já existe uma operação:
+       executa e continua.
     */
 
     try{
@@ -1958,14 +2319,14 @@ function inputOperator(operator){
             accumulator;
 
         const second =
-            currentNumber();
+            currentValue();
 
         const oldOperator =
             pendingOperator;
 
 
         const result =
-            calculateOperation(
+            operate(
                 first,
                 second,
                 oldOperator
@@ -1978,51 +2339,34 @@ function inputOperator(operator){
         current =
             String(result);
 
+        pendingOperator =
+            operator;
+
+        waitingForOperand = true;
+
 
         expression.textContent =
-            numberFormat(first) +
+            formatNumber(first) +
             " " +
             operatorSymbol(oldOperator) +
             " " +
-            numberFormat(second) +
+            formatNumber(second) +
             " = " +
-            numberFormat(result) +
+            formatNumber(result) +
             " " +
             operatorSymbol(operator);
 
 
-        pendingOperator =
-            operator;
-
-        waitingForOperand =
-            true;
-
         setDisplay(
-            numberFormat(result)
+            formatNumber(result)
         );
 
-    }catch(err){
+    }catch(error){
 
         showError(
-            err.message
+            error.message
         );
     }
-}
-
-
-function operatorSymbol(operator){
-
-    const map = {
-
-        "+":"+",
-        "-":"−",
-        "*":"×",
-        "/":"÷",
-        "^":"xʸ"
-
-    };
-
-    return map[operator] || operator;
 }
 
 
@@ -2032,13 +2376,16 @@ function operatorSymbol(operator){
 
 function equals(){
 
-    if(error){
+    if(errorState){
         return;
     }
 
 
     /*
-       Repetição do último cálculo.
+       Repetição:
+       10 + 5 = 15
+       = 20
+       = 25
     */
 
     if(
@@ -2050,10 +2397,11 @@ function equals(){
         try{
 
             const first =
-                currentNumber();
+                currentValue();
+
 
             const result =
-                calculateOperation(
+                operate(
                     first,
                     lastOperand,
                     lastOperator
@@ -2061,19 +2409,20 @@ function equals(){
 
 
             expression.textContent =
-                numberFormat(first) +
+                formatNumber(first) +
                 " " +
                 operatorSymbol(lastOperator) +
                 " " +
-                numberFormat(lastOperand) +
+                formatNumber(lastOperand) +
                 " =";
 
 
             current =
                 String(result);
 
+
             setDisplay(
-                numberFormat(result)
+                formatNumber(result)
             );
 
 
@@ -2082,10 +2431,10 @@ function equals(){
                 result
             );
 
-        }catch(err){
+        }catch(error){
 
             showError(
-                err.message
+                error.message
             );
         }
 
@@ -2093,7 +2442,9 @@ function equals(){
     }
 
 
-    if(pendingOperator === null){
+    if(
+        pendingOperator === null
+    ){
 
         justEvaluated = true;
 
@@ -2107,14 +2458,14 @@ function equals(){
             accumulator;
 
         const second =
-            currentNumber();
+            currentValue();
 
         const operator =
             pendingOperator;
 
 
         const result =
-            calculateOperation(
+            operate(
                 first,
                 second,
                 operator
@@ -2129,32 +2480,28 @@ function equals(){
 
 
         expression.textContent =
-            numberFormat(first) +
+            formatNumber(first) +
             " " +
             operatorSymbol(operator) +
             " " +
-            numberFormat(second) +
+            formatNumber(second) +
             " =";
 
 
         current =
             String(result);
 
-        accumulator =
-            null;
+        accumulator = null;
 
-        pendingOperator =
-            null;
+        pendingOperator = null;
 
-        waitingForOperand =
-            false;
+        waitingForOperand = false;
 
-        justEvaluated =
-            true;
+        justEvaluated = true;
 
 
         setDisplay(
-            numberFormat(result)
+            formatNumber(result)
         );
 
 
@@ -2163,10 +2510,10 @@ function equals(){
             result
         );
 
-    }catch(err){
+    }catch(error){
 
         showError(
-            err.message
+            error.message
         );
     }
 }
@@ -2178,27 +2525,24 @@ function equals(){
 
 function percentage(){
 
-    if(error){
+    if(errorState){
         return;
     }
 
 
-    /*
-       Calculadora convencional:
+    const value =
+        currentValue();
 
+
+    /*
        100 + 10% = 110
        100 - 10% = 90
+
        100 × 10% = 10
        100 ÷ 10% = 1000
 
-       Sem operador:
        10% = 0,1
     */
-
-
-    const value =
-        currentNumber();
-
 
     if(
         accumulator !== null &&
@@ -2221,7 +2565,8 @@ function percentage(){
 
             current =
                 String(
-                    value / 100
+                    value /
+                    100
                 );
         }
 
@@ -2229,7 +2574,8 @@ function percentage(){
 
         current =
             String(
-                value / 100
+                value /
+                100
             );
     }
 
@@ -2240,8 +2586,8 @@ function percentage(){
 
 
     setDisplay(
-        numberFormat(
-            currentNumber()
+        formatNumber(
+            currentValue()
         )
     );
 }
@@ -2253,15 +2599,19 @@ function percentage(){
 
 function backspace(){
 
-    if(error){
+    if(errorState){
+
         clearAll();
+
         return;
     }
+
 
     if(
         waitingForOperand ||
         justEvaluated
     ){
+
         return;
     }
 
@@ -2290,15 +2640,15 @@ function backspace(){
 
 
 /* =========================================================
-   FUNÇÕES
+   FUNÇÕES MATEMÁTICAS
 ========================================================= */
 
-function applyUnary(
+function unaryOperation(
     callback,
     label
 ){
 
-    if(error){
+    if(errorState){
         return;
     }
 
@@ -2306,7 +2656,7 @@ function applyUnary(
     try{
 
         const value =
-            currentNumber();
+            currentValue();
 
 
         const result =
@@ -2314,6 +2664,7 @@ function applyUnary(
 
 
         if(!Number.isFinite(result)){
+
             throw new Error(
                 "Resultado inválido."
             );
@@ -2323,7 +2674,7 @@ function applyUnary(
         expression.textContent =
             label +
             "(" +
-            numberFormat(value) +
+            formatNumber(value) +
             ") =";
 
 
@@ -2344,7 +2695,7 @@ function applyUnary(
 
 
         setDisplay(
-            numberFormat(result)
+            formatNumber(result)
         );
 
 
@@ -2353,10 +2704,10 @@ function applyUnary(
             result
         );
 
-    }catch(err){
+    }catch(error){
 
         showError(
-            err.message
+            error.message
         );
     }
 }
@@ -2364,7 +2715,7 @@ function applyUnary(
 
 function square(){
 
-    applyUnary(
+    unaryOperation(
         value => value * value,
         "x²"
     );
@@ -2373,7 +2724,7 @@ function square(){
 
 function sqrt(){
 
-    applyUnary(
+    unaryOperation(
         value => {
 
             if(value < 0){
@@ -2397,7 +2748,7 @@ function sqrt(){
 
 function inputPi(){
 
-    if(error){
+    if(errorState){
         clearAll();
     }
 
@@ -2416,26 +2767,16 @@ function inputPi(){
 
     }else{
 
-        /*
-           Se já existe número,
-           multiplica implicitamente.
-        */
-
         if(
             current !== "0" &&
             current !== ""
         ){
 
-            try{
-
-                const result =
-                    currentNumber() *
-                    Math.PI;
-
-                current =
-                    String(result);
-
-            }catch{}
+            current =
+                String(
+                    currentValue() *
+                    Math.PI
+                );
 
         }else{
 
@@ -2446,10 +2787,20 @@ function inputPi(){
 
 
     setDisplay(
-        numberFormat(
-            currentNumber()
+        formatNumber(
+            currentValue()
         )
     );
+}
+
+
+/* =========================================================
+   PONTO E VÍRGULA
+========================================================= */
+
+function decimalFromKeyboard(){
+
+    inputDecimal();
 }
 
 
@@ -2457,60 +2808,75 @@ function inputPi(){
    PARÊNTESES
 ========================================================= */
 
-let expressionMode = false;
+let parenthesisMode = false;
 
 let expressionTokens = [];
 
+let expressionCurrent = "";
 
-function openParen(){
 
-    /*
-       Para não comprometer a operação
-       principal da calculadora, os
-       parênteses entram em modo expressão.
-    */
+function openParenthesis(){
 
-    if(!expressionMode){
+    if(!parenthesisMode){
 
-        expressionMode = true;
+        parenthesisMode = true;
 
         expressionTokens = [];
 
-        expression.textContent = "(";
+        expressionCurrent = "";
 
-        current = "";
+        expression.textContent = "";
 
         setDisplay("0");
     }
 
+
+    if(
+        expressionCurrent !== ""
+    ){
+
+        expressionTokens.push(
+            expressionCurrent
+        );
+
+        expressionCurrent = "";
+
+        expressionTokens.push("*");
+    }
+
+
     expressionTokens.push("(");
 
-    updateExpressionMode();
+    renderParenthesisExpression();
 }
 
 
-function closeParen(){
+function closeParenthesis(){
 
-    if(!expressionMode){
+    if(!parenthesisMode){
         return;
     }
 
-    if(current !== ""){
+
+    if(
+        expressionCurrent !== ""
+    ){
 
         expressionTokens.push(
-            current
+            expressionCurrent
         );
 
-        current = "";
+        expressionCurrent = "";
     }
+
 
     expressionTokens.push(")");
 
-    updateExpressionMode();
+    renderParenthesisExpression();
 }
 
 
-function updateExpressionMode(){
+function renderParenthesisExpression(){
 
     expression.textContent =
         expressionTokens
@@ -2523,10 +2889,14 @@ function updateExpressionMode(){
                 token === "/" ||
                 token === "^"
             ){
-                return operatorSymbol(token);
+
+                return operatorSymbol(
+                    token
+                );
             }
 
-            return token
+
+            return String(token)
                 .replace(".",",");
         })
         .join(" ");
@@ -2534,39 +2904,35 @@ function updateExpressionMode(){
 
     try{
 
-        const value =
-            evaluateExpression(
+        const result =
+            evaluateParentheses(
                 expressionTokens
             );
 
+
         setDisplay(
-            numberFormat(value)
+            formatNumber(result)
         );
 
     }catch{}
 }
 
 
-/*
-   Parser simples para parênteses,
-   usado somente quando necessário.
-*/
-
-function evaluateExpression(tokens){
+function evaluateParentheses(tokens){
 
     const list =
         [...tokens];
 
-    let position = 0;
+    let index = 0;
 
 
     function peek(){
-        return list[position];
+        return list[index];
     }
 
 
     function consume(){
-        return list[position++];
+        return list[index++];
     }
 
 
@@ -2583,6 +2949,7 @@ function evaluateExpression(tokens){
 
 
             if(peek() !== ")"){
+
                 throw new Error(
                     "Parênteses inválidos."
                 );
@@ -2600,18 +2967,21 @@ function evaluateExpression(tokens){
         }
 
 
-        const value =
+        const number =
             Number(token);
 
 
-        if(!Number.isFinite(value)){
+        if(
+            !Number.isFinite(number)
+        ){
+
             throw new Error(
                 "Expressão inválida."
             );
         }
 
 
-        return value;
+        return number;
     }
 
 
@@ -2659,7 +3029,7 @@ function evaluateExpression(tokens){
     }
 
 
-    function mulDiv(){
+    function multiplyDivide(){
 
         let value =
             power();
@@ -2702,7 +3072,7 @@ function evaluateExpression(tokens){
     function addSub(){
 
         let value =
-            mulDiv();
+            multiplyDivide();
 
 
         while(
@@ -2714,7 +3084,7 @@ function evaluateExpression(tokens){
                 consume();
 
             const right =
-                mulDiv();
+                multiplyDivide();
 
 
             value =
@@ -2732,7 +3102,10 @@ function evaluateExpression(tokens){
         addSub();
 
 
-    if(position < list.length){
+    if(
+        index < list.length
+    ){
+
         throw new Error(
             "Expressão inválida."
         );
@@ -2749,14 +3122,14 @@ function evaluateExpression(tokens){
 
 function showError(message){
 
-    error = true;
+    errorState = true;
+
+    expression.textContent =
+        "ERRO";
 
     setDisplay(
         message || "Erro"
     );
-
-    expression.textContent =
-        "ERRO";
 }
 
 
@@ -2767,15 +3140,16 @@ function showError(message){
 function memoryStore(){
 
     memory =
-        currentNumber();
+        currentValue();
 }
 
 
 function memoryRecall(){
 
-    if(error){
+    if(errorState){
         clearAll();
     }
+
 
     current =
         String(memory);
@@ -2784,8 +3158,9 @@ function memoryRecall(){
 
     justEvaluated = false;
 
+
     setDisplay(
-        numberFormat(memory)
+        formatNumber(memory)
     );
 }
 
@@ -2798,7 +3173,7 @@ function memoryClear(){
 
 function memoryAdd(){
 
-    memory += currentNumber();
+    memory += currentValue();
 
     memory =
         Number(
@@ -2809,7 +3184,7 @@ function memoryAdd(){
 
 function memorySubtract(){
 
-    memory -= currentNumber();
+    memory -= currentValue();
 
     memory =
         Number(
@@ -2820,9 +3195,9 @@ function memorySubtract(){
 
 function copyDisplay(){
 
-    const value =
+    const text =
         String(
-            currentNumber()
+            currentValue()
         );
 
 
@@ -2832,29 +3207,31 @@ function copyDisplay(){
     ){
 
         navigator.clipboard
-            .writeText(value)
+            .writeText(text)
             .catch(() => {});
 
     }else{
 
-        const textarea =
+        const area =
             document.createElement(
                 "textarea"
             );
 
-        textarea.value = value;
+        area.value = text;
 
         document.body.appendChild(
-            textarea
+            area
         );
 
-        textarea.select();
+        area.select();
 
         try{
-            document.execCommand("copy");
+            document.execCommand(
+                "copy"
+            );
         }catch{}
 
-        textarea.remove();
+        area.remove();
     }
 }
 
@@ -2899,9 +3276,7 @@ function saveHistory(
     });
 
 
-    history.splice(
-        40
-    );
+    history.splice(40);
 
 
     try{
@@ -2923,6 +3298,7 @@ function renderHistory(){
     const history =
         getHistory();
 
+
     const list =
         $("#historyList");
 
@@ -2942,23 +3318,27 @@ function renderHistory(){
 
     list.innerHTML =
         history
-        .map(
-            item => `
+        .map(item => {
 
-            <button class="history-item">
+            return `
+                <button class="history-item">
 
-                <div class="history-expression">
-                    ${escapeHtml(item.expression)}
-                </div>
+                    <div class="history-expression">
+                        ${escapeHtml(
+                            item.expression
+                        )}
+                    </div>
 
-                <div class="history-result">
-                    ${numberFormat(item.result)}
-                </div>
+                    <div class="history-result">
+                        ${formatNumber(
+                            item.result
+                        )}
+                    </div>
 
-            </button>
+                </button>
+            `;
 
-            `
-        )
+        })
         .join("");
 }
 
@@ -3001,7 +3381,7 @@ $("#clearHistory")
 
 
 /* =========================================================
-   BOTÕES DA CALCULADORA
+   BOTÕES DOS NÚMEROS
 ========================================================= */
 
 $$("[data-digit]")
@@ -3019,6 +3399,10 @@ $$("[data-digit]")
 });
 
 
+/* =========================================================
+   OPERADORES
+========================================================= */
+
 $$("[data-operator]")
 .forEach(button => {
 
@@ -3034,6 +3418,10 @@ $$("[data-operator]")
 });
 
 
+/* =========================================================
+   FUNÇÕES DOS BOTÕES
+========================================================= */
+
 $$("[data-action]")
 .forEach(button => {
 
@@ -3048,55 +3436,100 @@ $$("[data-action]")
             switch(action){
 
                 case "all-clear":
+
                     clearAll();
+
                     break;
+
 
                 case "clear-entry":
+
                     clearEntry();
+
                     break;
+
 
                 case "backspace":
+
                     backspace();
+
                     break;
+
 
                 case "percent":
+
                     percentage();
+
                     break;
+
 
                 case "sqrt":
+
                     sqrt();
+
                     break;
+
 
                 case "square":
+
                     square();
+
                     break;
+
 
                 case "sign":
+
                     toggleSign();
+
                     break;
 
-                case "decimal":
+
+                case "decimal-comma":
+
                     inputDecimal();
+
                     break;
+
+
+                case "decimal-dot":
+
+                    inputDecimal();
+
+                    break;
+
 
                 case "equals":
+
                     equals();
+
                     break;
+
 
                 case "repeat":
+
                     equals();
+
                     break;
+
 
                 case "pi":
+
                     inputPi();
+
                     break;
+
 
                 case "open-paren":
-                    openParen();
+
+                    openParenthesis();
+
                     break;
 
+
                 case "close-paren":
-                    closeParen();
+
+                    closeParenthesis();
+
                     break;
             }
         }
@@ -3115,32 +3548,51 @@ $$("[data-memory]")
         "click",
         () => {
 
-            switch(
-                button.dataset.memory
-            ){
+            const action =
+                button.dataset.memory;
+
+
+            switch(action){
 
                 case "clear":
+
                     memoryClear();
+
                     break;
+
 
                 case "recall":
+
                     memoryRecall();
+
                     break;
+
 
                 case "add":
+
                     memoryAdd();
+
                     break;
+
 
                 case "subtract":
+
                     memorySubtract();
+
                     break;
+
 
                 case "store":
+
                     memoryStore();
+
                     break;
 
+
                 case "copy":
+
                     copyDisplay();
+
                     break;
             }
         }
@@ -3179,10 +3631,10 @@ $$(".tab")
                 panel.classList.toggle(
                     "active",
                     panel.id ===
-                    "panel-" + target
+                    "panel-" +
+                    target
                 );
             });
-
         }
     );
 });
@@ -3197,13 +3649,15 @@ document.addEventListener(
     event => {
 
         /*
-           Se estiver digitando em algum
-           campo comercial, não interferir.
+           Nunca interferir nos campos
+           das calculadoras comerciais.
         */
 
         if(
-            event.target.tagName === "INPUT" ||
-            event.target.tagName === "TEXTAREA"
+            event.target.tagName ===
+                "INPUT" ||
+            event.target.tagName ===
+                "TEXTAREA"
         ){
 
             return;
@@ -3214,7 +3668,9 @@ document.addEventListener(
             event.key;
 
 
-        if(/^[0-9]$/.test(key)){
+        if(
+            /^[0-9]$/.test(key)
+        ){
 
             event.preventDefault();
 
@@ -3223,6 +3679,10 @@ document.addEventListener(
             return;
         }
 
+
+        /*
+           PONTO E VÍRGULA
+        */
 
         if(
             key === "." ||
@@ -3310,7 +3770,7 @@ document.addEventListener(
 
             event.preventDefault();
 
-            openParen();
+            openParenthesis();
 
             return;
         }
@@ -3320,11 +3780,10 @@ document.addEventListener(
 
             event.preventDefault();
 
-            closeParen();
+            closeParenthesis();
 
             return;
         }
-
     }
 );
 
@@ -3361,9 +3820,9 @@ $$("[data-preco-mode]")
 
             $("#precoPercentLabel")
                 .textContent =
-                    precoMode === "margem"
-                        ? "Margem desejada (%)"
-                        : "Markup desejado (%)";
+                precoMode === "margem"
+                    ? "Margem desejada (%)"
+                    : "Markup desejado (%)";
         }
     );
 });
@@ -3391,7 +3850,8 @@ $$("[data-comissao-mode]")
 
 
             if(
-                comissaoMode === "venda"
+                comissaoMode ===
+                "venda"
             ){
 
                 $("#comissaoValorLabel")
@@ -3426,7 +3886,7 @@ $$("[data-comissao-mode]")
 
 
 /* =========================================================
-   CALCULADORAS COMERCIAIS
+   CÁLCULOS COMERCIAIS
 ========================================================= */
 
 $$("[data-calc]")
@@ -3449,12 +3909,12 @@ $$("[data-calc]")
                 if(type === "margem"){
 
                     const custo =
-                        numberBR(
+                        parseNumber(
                             $("#margemCusto").value
                         );
 
                     const venda =
-                        numberBR(
+                        parseNumber(
                             $("#margemVenda").value
                         );
 
@@ -3487,17 +3947,17 @@ $$("[data-calc]")
 
                     $("#margemLucro")
                         .textContent =
-                        money(lucro);
+                        formatMoney(lucro);
 
 
                     $("#margemResultado")
                         .textContent =
-                        percent(margem);
+                        formatPercent(margem);
 
 
                     $("#margemMarkup")
                         .textContent =
-                        percent(markup);
+                        formatPercent(markup);
                 }
 
 
@@ -3508,12 +3968,12 @@ $$("[data-calc]")
                 if(type === "preco"){
 
                     const custo =
-                        numberBR(
+                        parseNumber(
                             $("#precoCusto").value
                         );
 
                     const percentual =
-                        numberBR(
+                        parseNumber(
                             $("#precoPercent").value
                         );
 
@@ -3521,7 +3981,10 @@ $$("[data-calc]")
                     let venda;
 
 
-                    if(precoMode === "margem"){
+                    if(
+                        precoMode ===
+                        "margem"
+                    ){
 
                         if(
                             percentual >= 100
@@ -3537,7 +4000,8 @@ $$("[data-calc]")
                             custo /
                             (
                                 1 -
-                                percentual / 100
+                                percentual /
+                                100
                             );
 
                     }else{
@@ -3546,7 +4010,8 @@ $$("[data-calc]")
                             custo *
                             (
                                 1 +
-                                percentual / 100
+                                percentual /
+                                100
                             );
                     }
 
@@ -3556,10 +4021,13 @@ $$("[data-calc]")
 
 
                     const resultado =
-                        precoMode === "margem"
+                        precoMode ===
+                        "margem"
+
                             ? lucro /
                               venda *
                               100
+
                             : lucro /
                               custo *
                               100;
@@ -3567,17 +4035,17 @@ $$("[data-calc]")
 
                     $("#precoVenda")
                         .textContent =
-                        money(venda);
+                        formatMoney(venda);
 
 
                     $("#precoLucro")
                         .textContent =
-                        money(lucro);
+                        formatMoney(lucro);
 
 
                     $("#precoResultado")
                         .textContent =
-                        percent(resultado);
+                        formatPercent(resultado);
                 }
 
 
@@ -3588,12 +4056,12 @@ $$("[data-calc]")
                 if(type === "desconto"){
 
                     const original =
-                        numberBR(
+                        parseNumber(
                             $("#descontoOriginal").value
                         );
 
                     const percentual =
-                        numberBR(
+                        parseNumber(
                             $("#descontoPercent").value
                         );
 
@@ -3604,12 +4072,12 @@ $$("[data-calc]")
                     ){
 
                         throw new Error(
-                            "O desconto deve estar entre 0% e 100%."
+                            "O desconto deve ficar entre 0% e 100%."
                         );
                     }
 
 
-                    const valorDesconto =
+                    const desconto =
                         original *
                         percentual /
                         100;
@@ -3617,22 +4085,28 @@ $$("[data-calc]")
 
                     const final =
                         original -
-                        valorDesconto;
+                        desconto;
 
 
                     $("#descontoValor")
                         .textContent =
-                        money(valorDesconto);
+                        formatMoney(
+                            desconto
+                        );
 
 
                     $("#descontoFinal")
                         .textContent =
-                        money(final);
+                        formatMoney(
+                            final
+                        );
 
 
                     $("#descontoResultado")
                         .textContent =
-                        percent(percentual);
+                        formatPercent(
+                            percentual
+                        );
                 }
 
 
@@ -3643,12 +4117,12 @@ $$("[data-calc]")
                 if(type === "markup"){
 
                     const custo =
-                        numberBR(
+                        parseNumber(
                             $("#markupCusto").value
                         );
 
                     const markup =
-                        numberBR(
+                        parseNumber(
                             $("#markupPercent").value
                         );
 
@@ -3674,17 +4148,17 @@ $$("[data-calc]")
 
                     $("#markupVenda")
                         .textContent =
-                        money(venda);
+                        formatMoney(venda);
 
 
                     $("#markupLucro")
                         .textContent =
-                        money(lucro);
+                        formatMoney(lucro);
 
 
                     $("#markupMargem")
                         .textContent =
-                        percent(margem);
+                        formatPercent(margem);
                 }
 
 
@@ -3695,12 +4169,12 @@ $$("[data-calc]")
                 if(type === "comissao"){
 
                     const valor =
-                        numberBR(
+                        parseNumber(
                             $("#comissaoValor").value
                         );
 
                     const percentual =
-                        numberBR(
+                        parseNumber(
                             $("#comissaoPercent").value
                         );
 
@@ -3710,13 +4184,14 @@ $$("[data-calc]")
                     ){
 
                         throw new Error(
-                            "Informe um percentual de comissão maior que zero."
+                            "Informe um percentual maior que zero."
                         );
                     }
 
 
                     if(
-                        comissaoMode === "venda"
+                        comissaoMode ===
+                        "venda"
                     ){
 
                         const comissao =
@@ -3732,40 +4207,53 @@ $$("[data-calc]")
 
                         $("#comissaoResultado")
                             .textContent =
-                            money(comissao);
+                            formatMoney(
+                                comissao
+                            );
 
 
                         $("#comissaoSecundario")
                             .textContent =
-                            money(liquido);
+                            formatMoney(
+                                liquido
+                            );
 
 
                         $("#comissaoPercentual")
                             .textContent =
-                            percent(percentual);
+                            formatPercent(
+                                percentual
+                            );
 
                     }else{
 
                         const faturamento =
                             valor /
                             (
-                                percentual / 100
+                                percentual /
+                                100
                             );
 
 
                         $("#comissaoResultado")
                             .textContent =
-                            money(faturamento);
+                            formatMoney(
+                                faturamento
+                            );
 
 
                         $("#comissaoSecundario")
                             .textContent =
-                            money(valor);
+                            formatMoney(
+                                valor
+                            );
 
 
                         $("#comissaoPercentual")
                             .textContent =
-                            percent(percentual);
+                            formatPercent(
+                                percentual
+                            );
                     }
                 }
 
@@ -3791,7 +4279,11 @@ $$("input")
         "keydown",
         event => {
 
-            if(event.key !== "Enter"){
+            if(
+                event.key !==
+                "Enter"
+            ){
+
                 return;
             }
 
@@ -3800,7 +4292,9 @@ $$("input")
 
 
             const panel =
-                input.closest(".panel");
+                input.closest(
+                    ".panel"
+                );
 
 
             const button =
@@ -3810,6 +4304,7 @@ $$("input")
 
 
             if(button){
+
                 button.click();
             }
         }
