@@ -2,8 +2,16 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"
+>
+
 <meta name="theme-color" content="#07110d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
 <title>CALPRO EXPERT</title>
 
 <style>
@@ -21,26 +29,45 @@
 *{
   box-sizing:border-box;
   -webkit-tap-highlight-color:transparent;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  user-select:none;
 }
 
-html,body{
+html,
+body{
   width:100%;
   height:100%;
   margin:0;
+  padding:0;
   overflow:hidden;
+  overscroll-behavior:none;
   background:var(--bg);
   color:var(--text);
   font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  touch-action:manipulation;
 }
 
-button,input,select{
-  font:inherit;
+body{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
 }
 
 button{
+  font:inherit;
   border:0;
   color:inherit;
   cursor:pointer;
+  touch-action:manipulation;
+}
+
+input,
+select{
+  font:inherit;
+  -webkit-user-select:text;
+  user-select:text;
 }
 
 #app{
@@ -107,9 +134,7 @@ main{
   display:none;
 }
 
-/* =========================
-   HOME
-========================= */
+/* HOME */
 
 .home-container{
   width:min(1100px,100%);
@@ -145,11 +170,6 @@ main{
   transition:.15s;
 }
 
-.card:hover{
-  border-color:#385a47;
-  transform:translateY(-2px);
-}
-
 .tool{
   min-height:145px;
   text-align:left;
@@ -182,6 +202,8 @@ main{
   font-size:10px;
 }
 
+/* TITULOS */
+
 .section-title{
   width:min(1100px,100%);
   margin:0 auto 10px;
@@ -189,9 +211,7 @@ main{
   font-weight:800;
 }
 
-/* =========================
-   CALCULATOR
-========================= */
+/* CALCULADORA */
 
 .calculator-layout{
   width:min(1100px,100%);
@@ -258,7 +278,7 @@ main{
 }
 
 .operation{
-  height:22px;
+  min-height:22px;
   color:var(--muted);
   font-size:13px;
   white-space:nowrap;
@@ -317,10 +337,6 @@ main{
   transition:.1s;
 }
 
-.key:hover{
-  filter:brightness(1.12);
-}
-
 .key:active{
   transform:scale(.96);
 }
@@ -365,9 +381,7 @@ main{
   font-size:14px;
 }
 
-/* =========================
-   COMMERCIAL
-========================= */
+/* COMERCIAL */
 
 .commercial-container{
   width:min(850px,100%);
@@ -410,10 +424,6 @@ main{
 
 .field{
   margin-bottom:10px;
-}
-
-.field.full{
-  grid-column:1/-1;
 }
 
 .field label{
@@ -473,9 +483,7 @@ main{
   color:var(--muted);
 }
 
-/* =========================
-   HISTORY
-========================= */
+/* HISTÓRICO */
 
 .history-container{
   width:min(850px,100%);
@@ -500,9 +508,7 @@ main{
   color:var(--muted);
 }
 
-/* =========================
-   SETTINGS
-========================= */
+/* CONFIG */
 
 .settings-container{
   width:min(700px,100%);
@@ -522,9 +528,7 @@ main{
   border-bottom:0;
 }
 
-/* =========================
-   NAV
-========================= */
+/* NAV */
 
 .bottom-nav{
   height:70px;
@@ -556,9 +560,7 @@ main{
   background:#0e1e16;
 }
 
-/* =========================
-   TOAST
-========================= */
+/* TOAST */
 
 .toast{
   position:fixed;
@@ -582,9 +584,7 @@ main{
   transform:translate(-50%,0);
 }
 
-/* =========================
-   LIGHT
-========================= */
+/* LIGHT */
 
 .light{
   --bg:#f2f5f3;
@@ -599,9 +599,7 @@ main{
   background:rgba(242,245,243,.97);
 }
 
-/* =========================
-   TABLET
-========================= */
+/* TABLET */
 
 @media(max-width:900px){
 
@@ -619,9 +617,7 @@ main{
 
 }
 
-/* =========================
-   CELULAR
-========================= */
+/* CELULAR */
 
 @media(max-width:600px){
 
@@ -642,18 +638,6 @@ main{
   .tool{
     min-height:105px;
     padding:15px;
-  }
-
-  .tool .icon{
-    font-size:24px;
-  }
-
-  .tool strong{
-    font-size:16px;
-  }
-
-  .tool small{
-    font-size:11px;
   }
 
   .calculator-layout{
@@ -680,10 +664,6 @@ main{
     grid-template-columns:1fr;
   }
 
-  .field.full{
-    grid-column:auto;
-  }
-
   .bottom-nav{
     height:68px;
     flex-basis:68px;
@@ -696,9 +676,7 @@ main{
 
 }
 
-/* =========================
-   TELAS PEQUENAS
-========================= */
+/* ALTURA PEQUENA */
 
 @media(max-height:650px){
 
@@ -761,10 +739,6 @@ main{
 
 <main>
 
-<!-- =========================
-     INÍCIO
-========================= -->
-
 <section
   id="home"
   class="screen active scroll"
@@ -773,17 +747,9 @@ main{
   <div class="home-container">
 
     <div class="hero">
-
-      <h1>
-        Calculadora comercial
-      </h1>
-
-      <p>
-        Rápida, precisa e feita para sua rotina.
-      </p>
-
+      <h1>Calculadora comercial</h1>
+      <p>Rápida, precisa e feita para sua rotina.</p>
     </div>
-
 
     <div class="grid">
 
@@ -792,87 +758,52 @@ main{
         data-open="margin"
         type="button"
       >
-
         <div class="icon">%</div>
-
         <strong>MARGEM</strong>
-
-        <small>
-          Lucro, margem e markup
-        </small>
-
+        <small>Lucro, margem e markup</small>
       </button>
-
 
       <button
         class="card tool"
         data-open="price"
         type="button"
       >
-
         <div class="icon">R$</div>
-
         <strong>PREÇO</strong>
-
-        <small>
-          Preço de venda
-        </small>
-
+        <small>Preço de venda</small>
       </button>
-
 
       <button
         class="card tool"
         data-open="discount"
         type="button"
       >
-
         <div class="icon">−%</div>
-
         <strong>DESCONTO</strong>
-
-        <small>
-          Preço final
-        </small>
-
+        <small>Preço final</small>
       </button>
-
 
       <button
         class="card tool"
         data-open="markup"
         type="button"
       >
-
         <div class="icon">×</div>
-
         <strong>MARKUP</strong>
-
-        <small>
-          Markup e margem
-        </small>
-
+        <small>Markup e margem</small>
       </button>
-
 
       <button
         class="card tool"
         data-nav="calculator"
         type="button"
       >
-
         <div class="icon">⌗</div>
-
         <strong>CALCULADORA</strong>
-
-        <small>
-          Cálculos completos
-        </small>
-
+        <small>Cálculos completos</small>
       </button>
 
     </div>
-
 
     <div class="ad">
       ESPAÇO PARA DIVULGAÇÃO
@@ -883,10 +814,6 @@ main{
 </section>
 
 
-<!-- =========================
-     CALCULADORA
-========================= -->
-
 <section
   id="calculator"
   class="screen"
@@ -895,7 +822,6 @@ main{
   <div class="section-title">
     Calculadora
   </div>
-
 
   <div class="calculator-layout">
 
@@ -994,49 +920,32 @@ main{
 
     <div class="calculator-info">
 
-      <h2>
-        CALPRO EXPERT
-      </h2>
+      <h2>CALPRO EXPERT</h2>
 
       <p>
         Calculadora comercial com suporte a teclado,
-        memória, operações encadeadas e formatação
-        brasileira.
+        memória, operações encadeadas e formatação brasileira.
       </p>
 
       <div class="info-box">
-
         <strong>Teclado físico</strong>
-
         <p>
-          Use os números, +, −, ×, ÷, Enter,
-          Backspace e Escape diretamente no computador.
+          Use números, +, −, ×, ÷, Enter, Backspace e Escape.
         </p>
-
       </div>
 
-
       <div class="info-box">
-
         <strong>Formato brasileiro</strong>
-
         <p>
-          Valores aparecem automaticamente como
-          1.234,56.
+          Valores aparecem como 1.234,56.
         </p>
-
       </div>
 
-
       <div class="info-box">
-
-        <strong>Precisão</strong>
-
+        <strong>Prioridade matemática</strong>
         <p>
-          As operações básicas utilizam aritmética
-          decimal para reduzir erros de ponto flutuante.
+          Multiplicação e divisão são executadas antes de soma e subtração.
         </p>
-
       </div>
 
     </div>
@@ -1045,10 +954,6 @@ main{
 
 </section>
 
-
-<!-- =========================
-     COMERCIAL
-========================= -->
 
 <section
   id="commercial"
@@ -1060,7 +965,6 @@ main{
     <div class="section-title">
       Ferramentas comerciais
     </div>
-
 
     <div class="form-card">
 
@@ -1085,45 +989,31 @@ main{
       </div>
 
 
-      <!-- MARGEM -->
-
       <div id="panel-margin">
 
         <div class="form-grid">
 
           <div class="field">
-
-            <label>
-              Custo (R$)
-            </label>
-
+            <label>Custo (R$)</label>
             <input
               id="marginCost"
               type="text"
               inputmode="decimal"
               placeholder="0,00"
             >
-
           </div>
 
-
           <div class="field">
-
-            <label>
-              Preço de venda (R$)
-            </label>
-
+            <label>Preço de venda (R$)</label>
             <input
               id="marginSale"
               type="text"
               inputmode="decimal"
               placeholder="0,00"
             >
-
           </div>
 
         </div>
-
 
         <button
           class="primary"
@@ -1133,7 +1023,6 @@ main{
           CALCULAR
         </button>
 
-
         <div
           id="result-margin"
           class="result"
@@ -1141,8 +1030,6 @@ main{
 
       </div>
 
-
-      <!-- PREÇO -->
 
       <div
         id="panel-price"
@@ -1152,54 +1039,36 @@ main{
         <div class="form-grid">
 
           <div class="field">
-
-            <label>
-              Custo (R$)
-            </label>
-
+            <label>Custo (R$)</label>
             <input
               id="priceCost"
               type="text"
               inputmode="decimal"
               placeholder="0,00"
             >
-
           </div>
 
-
           <div class="field">
-
-            <label>
-              Margem desejada (%)
-            </label>
-
+            <label>Margem desejada (%)</label>
             <input
               id="priceMargin"
               type="text"
               inputmode="decimal"
               placeholder="30,00"
             >
-
           </div>
 
-
           <div class="field">
-
-            <label>
-              Ou markup desejado (%)
-            </label>
-
+            <label>Ou markup desejado (%)</label>
             <input
               id="priceMarkup"
               type="text"
               inputmode="decimal"
               placeholder="50,00"
             >
-
           </div>
 
         </div>
-
 
         <button
           class="primary"
@@ -1209,7 +1078,6 @@ main{
           CALCULAR
         </button>
 
-
         <div
           id="result-price"
           class="result"
@@ -1217,8 +1085,6 @@ main{
 
       </div>
 
-
-      <!-- DESCONTO -->
 
       <div
         id="panel-discount"
@@ -1228,38 +1094,26 @@ main{
         <div class="form-grid">
 
           <div class="field">
-
-            <label>
-              Preço original (R$)
-            </label>
-
+            <label>Preço original (R$)</label>
             <input
               id="discountOriginal"
               type="text"
               inputmode="decimal"
               placeholder="0,00"
             >
-
           </div>
 
-
           <div class="field">
-
-            <label>
-              Desconto (%)
-            </label>
-
+            <label>Desconto (%)</label>
             <input
               id="discountPercent"
               type="text"
               inputmode="decimal"
               placeholder="10,00"
             >
-
           </div>
 
         </div>
-
 
         <button
           class="primary"
@@ -1269,7 +1123,6 @@ main{
           CALCULAR
         </button>
 
-
         <div
           id="result-discount"
           class="result"
@@ -1277,8 +1130,6 @@ main{
 
       </div>
 
-
-      <!-- MARKUP -->
 
       <div
         id="panel-markup"
@@ -1288,38 +1139,26 @@ main{
         <div class="form-grid">
 
           <div class="field">
-
-            <label>
-              Custo (R$)
-            </label>
-
+            <label>Custo (R$)</label>
             <input
               id="markupCost"
               type="text"
               inputmode="decimal"
               placeholder="0,00"
             >
-
           </div>
 
-
           <div class="field">
-
-            <label>
-              Markup (%)
-            </label>
-
+            <label>Markup (%)</label>
             <input
               id="markupPercent"
               type="text"
               inputmode="decimal"
               placeholder="50,00"
             >
-
           </div>
 
         </div>
-
 
         <button
           class="primary"
@@ -1328,7 +1167,6 @@ main{
         >
           CALCULAR
         </button>
-
 
         <div
           id="result-markup"
@@ -1344,10 +1182,6 @@ main{
 </section>
 
 
-<!-- =========================
-     HISTÓRICO
-========================= -->
-
 <section
   id="history"
   class="screen scroll"
@@ -1359,7 +1193,6 @@ main{
       Histórico
     </div>
 
-
     <div class="history-card">
 
       <button
@@ -1370,7 +1203,6 @@ main{
         LIMPAR HISTÓRICO
       </button>
 
-
       <div id="historyList"></div>
 
     </div>
@@ -1379,10 +1211,6 @@ main{
 
 </section>
 
-
-<!-- =========================
-     CONFIGURAÇÕES
-========================= -->
 
 <section
   id="settings"
@@ -1395,35 +1223,24 @@ main{
       Configurações
     </div>
 
-
     <div class="settings-card">
 
       <div class="settings-row">
 
-        <span>
-          Tema
-        </span>
+        <span>Tema</span>
 
         <select id="themeSelect">
 
-          <option value="dark">
-            Escuro
-          </option>
-
-          <option value="light">
-            Claro
-          </option>
+          <option value="dark">Escuro</option>
+          <option value="light">Claro</option>
 
         </select>
 
       </div>
 
-
       <div class="settings-row">
 
-        <span>
-          Vibração
-        </span>
+        <span>Vibração</span>
 
         <input
           id="vibrationToggle"
@@ -1453,7 +1270,6 @@ main{
     Início
   </button>
 
-
   <button
     class="nav-btn"
     data-nav="calculator"
@@ -1463,7 +1279,6 @@ main{
     Calculadora
   </button>
 
-
   <button
     class="nav-btn"
     data-nav="commercial"
@@ -1472,7 +1287,6 @@ main{
     <b>%</b>
     Comercial
   </button>
-
 
   <button
     class="nav-btn"
@@ -1495,8 +1309,52 @@ main{
 
 
 <script>
-
 "use strict";
+
+/* =====================================================
+   PROTEÇÃO CONTRA ZOOM / GESTOS
+===================================================== */
+
+document.addEventListener(
+  "dblclick",
+  function(event){
+    event.preventDefault();
+  },
+  {
+    passive:false
+  }
+);
+
+document.addEventListener(
+  "gesturestart",
+  function(event){
+    event.preventDefault();
+  },
+  {
+    passive:false
+  }
+);
+
+document.addEventListener(
+  "gesturechange",
+  function(event){
+    event.preventDefault();
+  },
+  {
+    passive:false
+  }
+);
+
+document.addEventListener(
+  "gestureend",
+  function(event){
+    event.preventDefault();
+  },
+  {
+    passive:false
+  }
+);
+
 
 /* =====================================================
    UTILITÁRIOS
@@ -1519,9 +1377,7 @@ function toast(message){
   element.textContent =
     message;
 
-  element.classList.add(
-    "show"
-  );
+  element.classList.add("show");
 
   clearTimeout(
     window.__toastTimer
@@ -1530,9 +1386,7 @@ function toast(message){
   window.__toastTimer =
     setTimeout(
       () => {
-        element.classList.remove(
-          "show"
-        );
+        element.classList.remove("show");
       },
       1600
     );
@@ -1555,7 +1409,7 @@ function vibrate(){
 
 
 /* =====================================================
-   DECIMAL
+   DECIMAL EXATO
 ===================================================== */
 
 const DECIMAL_PLACES = 12;
@@ -1602,12 +1456,6 @@ function normalizeDecimal(value){
       ""
     ) || "0";
 
-  decimal =
-    decimal.replace(
-      /0+$/,
-      ""
-    );
-
   return (
     sign +
     integer +
@@ -1630,7 +1478,8 @@ function decimalParts(value){
     text.startsWith("-");
 
   if(negative)
-    text = text.slice(1);
+    text =
+      text.slice(1);
 
   const parts =
     text.split(".");
@@ -1675,11 +1524,8 @@ function decimalFromBigInt(
 
   if(
     integer === 0n
-  ){
-
+  )
     return "0";
-
-  }
 
   const negative =
     integer < 0n;
@@ -1826,11 +1672,8 @@ function decimalDivide(a,b){
 
   if(
     B.integer === 0n
-  ){
-
+  )
     return null;
-
-  }
 
   const negative =
     (
@@ -1890,41 +1733,6 @@ function decimalDivide(a,b){
 }
 
 
-function exactOperation(
-  a,
-  b,
-  operator
-){
-
-  switch(operator){
-
-    case "add":
-      return decimalAdd(a,b);
-
-    case "subtract":
-      return decimalSubtract(a,b);
-
-    case "multiply":
-      return decimalMultiply(a,b);
-
-    case "divide":
-      return decimalDivide(a,b);
-
-    case "power":
-
-      return exactPower(
-        a,
-        b
-      );
-
-    default:
-      return b;
-
-  }
-
-}
-
-
 /* =====================================================
    POTÊNCIA
 ===================================================== */
@@ -1934,43 +1742,36 @@ function exactPower(
   exponent
 ){
 
-  const baseText =
-    normalizeDecimal(base);
-
-  const exponentText =
-    normalizeDecimal(exponent);
-
-  const exponentNumber =
-    Number(exponentText);
+  const e =
+    Number(
+      normalizeDecimal(
+        exponent
+      )
+    );
 
   if(
-    Number.isInteger(
-      exponentNumber
-    ) &&
-    Math.abs(
-      exponentNumber
-    ) <= 1000
+    !Number.isFinite(e)
+  )
+    return null;
+
+  if(
+    Number.isInteger(e) &&
+    Math.abs(e) <= 1000
   ){
 
-    if(
-      exponentNumber === 0
-    )
+    if(e === 0)
       return "1";
 
     let count =
-      Math.abs(
-        exponentNumber
-      );
+      Math.abs(e);
 
     let result =
       "1";
 
     let value =
-      baseText;
+      normalizeDecimal(base);
 
-    while(
-      count > 0
-    ){
+    while(count > 0){
 
       if(
         count % 2 === 1
@@ -2001,9 +1802,7 @@ function exactPower(
 
     }
 
-    if(
-      exponentNumber < 0
-    ){
+    if(e < 0){
 
       return decimalDivide(
         "1",
@@ -2018,8 +1817,8 @@ function exactPower(
 
   const result =
     Math.pow(
-      Number(baseText),
-      exponentNumber
+      Number(base),
+      e
     );
 
   if(
@@ -2035,7 +1834,7 @@ function exactPower(
 
 
 /* =====================================================
-   FORMATAÇÃO
+   FORMATAÇÃO BRASILEIRA
 ===================================================== */
 
 function formatDisplay(value){
@@ -2212,50 +2011,363 @@ $$("[data-open]")
 
 
 /* =====================================================
-   CALCULADORA
+   NOVA LÓGICA DA CALCULADORA
+   Prioridade matemática correta:
+   1º potência
+   2º multiplicação/divisão
+   3º soma/subtração
 ===================================================== */
 
 const calculator = {
 
+  tokens:[],
   current:"0",
-  previous:null,
-  operator:null,
-  waiting:false,
   expression:"",
-  lastOperator:null,
-  lastOperand:null,
   memory:"0",
-  error:false
+  error:false,
+  lastExpression:"",
+  lastResult:"0"
 
 };
 
 
-const operatorSymbols = {
+/*
+  Converte os tokens para uma expressão matemática
+  sem usar eval().
+*/
 
-  add:"+",
-  subtract:"−",
-  multiply:"×",
-  divide:"÷",
-  power:"^"
+function calculateTokens(tokens){
 
-};
+  if(
+    !tokens ||
+    !tokens.length
+  )
+    return "0";
+
+
+  let list =
+    tokens.map(
+      token => {
+
+        if(
+          token.type === "number"
+        ){
+
+          return {
+            type:"number",
+            value:normalizeDecimal(
+              token.value
+            )
+          };
+
+        }
+
+        return {
+          type:token.type,
+          value:token.value
+        };
+
+      }
+    );
+
+
+  function parseExpression(){
+
+    let value =
+      parseTerm();
+
+    while(
+      position < list.length &&
+      (
+        list[position].value === "+" ||
+        list[position].value === "-"
+      )
+    ){
+
+      const operator =
+        list[position].value;
+
+      position++;
+
+      const right =
+        parseTerm();
+
+      if(
+        operator === "+"
+      ){
+
+        value =
+          decimalAdd(
+            value,
+            right
+          );
+
+      }else{
+
+        value =
+          decimalSubtract(
+            value,
+            right
+          );
+
+      }
+
+    }
+
+    return value;
+
+  }
+
+
+  function parseTerm(){
+
+    let value =
+      parsePower();
+
+    while(
+      position < list.length &&
+      (
+        list[position].value === "*" ||
+        list[position].value === "/"
+      )
+    ){
+
+      const operator =
+        list[position].value;
+
+      position++;
+
+      const right =
+        parsePower();
+
+      if(
+        operator === "*"
+      ){
+
+        value =
+          decimalMultiply(
+            value,
+            right
+          );
+
+      }else{
+
+        value =
+          decimalDivide(
+            value,
+            right
+          );
+
+        if(value === null)
+          throw new Error();
+
+      }
+
+    }
+
+    return value;
+
+  }
+
+
+  function parsePower(){
+
+    let value =
+      parseUnary();
+
+    if(
+      position < list.length &&
+      list[position].value === "^"
+    ){
+
+      position++;
+
+      const exponent =
+        parsePower();
+
+      value =
+        exactPower(
+          value,
+          exponent
+        );
+
+      if(value === null)
+        throw new Error();
+
+    }
+
+    return value;
+
+  }
+
+
+  function parseUnary(){
+
+    if(
+      position < list.length &&
+      list[position].value === "+"
+    ){
+
+      position++;
+
+      return parseUnary();
+
+    }
+
+
+    if(
+      position < list.length &&
+      list[position].value === "-"
+    ){
+
+      position++;
+
+      return decimalSubtract(
+        "0",
+        parseUnary()
+      );
+
+    }
+
+
+    return parsePrimary();
+
+  }
+
+
+  function parsePrimary(){
+
+    if(
+      position >= list.length
+    )
+      throw new Error();
+
+
+    const token =
+      list[position];
+
+
+    if(
+      token.value === "("
+    ){
+
+      position++;
+
+      const value =
+        parseExpression();
+
+
+      if(
+        position >= list.length ||
+        list[position].value !== ")"
+      ){
+
+        throw new Error();
+
+      }
+
+
+      position++;
+
+      return value;
+
+    }
+
+
+    if(
+      token.type === "number"
+    ){
+
+      position++;
+
+      return normalizeDecimal(
+        token.value
+      );
+
+    }
+
+
+    throw new Error();
+
+  }
+
+
+  let position = 0;
+
+
+  const result =
+    parseExpression();
+
+
+  if(
+    position !== list.length
+  )
+    throw new Error();
+
+
+  return normalizeDecimal(
+    result
+  );
+
+}
+
+
+/* =====================================================
+   TOKENIZAÇÃO / VISOR
+===================================================== */
+
+function tokensToText(){
+
+  return calculator.tokens
+    .map(
+      token => {
+
+        if(
+          token.type === "number"
+        )
+          return formatDisplay(
+            token.value
+          );
+
+        if(
+          token.value === "*"
+        )
+          return "×";
+
+        if(
+          token.value === "/"
+        )
+          return "÷";
+
+        return token.value;
+
+      }
+    )
+    .join(" ");
+
+}
 
 
 function updateCalculator(){
 
-  $("#calcDisplay")
-    .textContent =
+  const display =
+    $("#calcDisplay");
+
+  const operation =
+    $("#calcOperation");
+
+
+  display.textContent =
     formatDisplay(
       calculator.current
     );
 
-  $("#calcOperation")
-    .textContent =
+
+  operation.textContent =
+    tokensToText() ||
     calculator.expression ||
     "";
 
-  const display =
-    $("#calcDisplay");
 
   display.scrollLeft =
     display.scrollWidth;
@@ -2263,253 +2375,718 @@ function updateCalculator(){
 }
 
 
-function resetCalculator(){
+/* =====================================================
+   NOVO NÚMERO
+===================================================== */
 
-  calculator.current =
-    "0";
+function startNumber(){
 
-  calculator.previous =
-    null;
-
-  calculator.operator =
-    null;
-
-  calculator.waiting =
-    false;
-
-  calculator.expression =
-    "";
-
-  calculator.lastOperator =
-    null;
-
-  calculator.lastOperand =
-    null;
-
-  calculator.error =
-    false;
-
-  updateCalculator();
+  return (
+    calculator.tokens.length === 0 ||
+    calculator.tokens[
+      calculator.tokens.length - 1
+    ].type === "operator" ||
+    calculator.tokens[
+      calculator.tokens.length - 1
+    ].value === "("
+  );
 
 }
 
 
-function inputNumber(number){
+function lastToken(){
+
+  return calculator.tokens[
+    calculator.tokens.length - 1
+  ];
+
+}
+
+
+function addNumberDigit(
+  digit
+){
 
   vibrate();
+
 
   if(
     calculator.error
   ){
 
-    resetCalculator();
+    clearCalculator();
 
   }
 
+
+  const last =
+    lastToken();
+
+
   if(
-    calculator.waiting
+    !startNumber() &&
+    last?.type !== "number"
   ){
 
-    calculator.current =
-      number;
+    return;
 
-    calculator.waiting =
-      false;
+  }
+
+
+  if(
+    startNumber()
+  ){
+
+    calculator.tokens.push({
+
+      type:"number",
+      value:digit
+
+    });
 
   }else{
 
-    const current =
-      normalizeDecimal(
-        calculator.current
-      );
+    const number =
+      last.value;
+
 
     if(
-      current === "0"
+      number === "0"
     ){
 
-      calculator.current =
-        number;
+      last.value =
+        digit;
+
+    }else if(
+      number === "-0"
+    ){
+
+      last.value =
+        "-" + digit;
 
     }else{
 
-      const negative =
-        current.startsWith("-");
-
-      const unsigned =
-        negative
-          ? current.slice(1)
-          : current;
-
       if(
-        unsigned
-          .replace(".","")
-          .length >= 15
+        normalizeDecimal(
+          number
+        )
+        .replace(".","")
+        .replace("-","")
+        .length >= 15
       ){
 
         return;
 
       }
 
-      calculator.current +=
-        number;
+      last.value +=
+        digit;
 
     }
 
   }
 
+
+  calculator.current =
+    lastToken().value;
+
+
+  calculator.expression =
+    "";
+
+
   updateCalculator();
 
 }
 
 
-function inputDecimal(){
+/* =====================================================
+   VÍRGULA DECIMAL
+===================================================== */
+
+function addDecimal(){
 
   vibrate();
+
 
   if(
     calculator.error
   ){
 
-    resetCalculator();
+    clearCalculator();
 
   }
+
+
+  const last =
+    lastToken();
+
 
   if(
-    calculator.waiting
+    startNumber()
   ){
 
-    calculator.current =
-      "0.";
+    calculator.tokens.push({
 
-    calculator.waiting =
-      false;
+      type:"number",
+      value:"0."
+
+    });
 
   }else if(
-    !normalizeDecimal(
-      calculator.current
-    ).includes(".")
+    last &&
+    last.type === "number"
   ){
 
-    calculator.current =
-      normalizeDecimal(
-        calculator.current
-      ) + ".";
+    if(
+      !last.value.includes(".")
+    ){
+
+      last.value += ".";
+
+    }
 
   }
+
+
+  calculator.current =
+    lastToken().value;
+
 
   updateCalculator();
 
 }
 
+
+/* =====================================================
+   OPERADORES
+===================================================== */
+
+function addOperator(
+  operator
+){
+
+  vibrate();
+
+
+  if(
+    calculator.error
+  )
+    return;
+
+
+  let last =
+    lastToken();
+
+
+  /*
+    Se acabou de colocar operador,
+    substitui o operador anterior.
+  */
+
+  if(
+    last?.type === "operator"
+  ){
+
+    last.value =
+      operator;
+
+    updateCalculator();
+
+    return;
+
+  }
+
+
+  /*
+    Impede operador inválido no começo,
+    exceto + e - como sinal.
+  */
+
+  if(
+    calculator.tokens.length === 0
+  ){
+
+    if(
+      operator === "-"
+    ){
+
+      calculator.tokens.push({
+
+        type:"operator",
+        value:"-"
+
+      });
+
+    }
+
+    updateCalculator();
+
+    return;
+
+  }
+
+
+  calculator.tokens.push({
+
+    type:"operator",
+    value:operator
+
+  });
+
+
+  calculator.current =
+    "0";
+
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   PARÊNTESES
+===================================================== */
+
+function addLeftParenthesis(){
+
+  vibrate();
+
+
+  if(
+    calculator.error
+  )
+    clearCalculator();
+
+
+  const last =
+    lastToken();
+
+
+  /*
+    Se houver número antes do "(",
+    cria multiplicação implícita.
+    Ex.: 2(3+4) = 14
+  */
+
+  if(
+    last &&
+    (
+      last.type === "number" ||
+      last.value === ")"
+    )
+  ){
+
+    calculator.tokens.push({
+
+      type:"operator",
+      value:"*"
+
+    });
+
+  }
+
+
+  calculator.tokens.push({
+
+    type:"parenthesis",
+    value:"("
+
+  });
+
+
+  calculator.current =
+    "0";
+
+
+  updateCalculator();
+
+}
+
+
+function addRightParenthesis(){
+
+  vibrate();
+
+
+  const last =
+    lastToken();
+
+
+  if(
+    !last ||
+    last.type === "operator" ||
+    last.value === "("
+  )
+    return;
+
+
+  let open = 0;
+  let close = 0;
+
+
+  calculator.tokens.forEach(
+    token => {
+
+      if(
+        token.value === "("
+      )
+        open++;
+
+      if(
+        token.value === ")"
+      )
+        close++;
+
+    }
+  );
+
+
+  if(
+    open <= close
+  )
+    return;
+
+
+  calculator.tokens.push({
+
+    type:"parenthesis",
+    value:")"
+
+  });
+
+
+  calculator.current =
+    "0";
+
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   IGUAL
+===================================================== */
+
+function calculateCurrent(){
+
+  vibrate();
+
+
+  if(
+    calculator.error
+  )
+    return;
+
+
+  if(
+    !calculator.tokens.length
+  )
+    return;
+
+
+  try{
+
+    const result =
+      calculateTokens(
+        calculator.tokens
+      );
+
+
+    if(
+      result === null ||
+      result === undefined
+    ){
+
+      throw new Error();
+
+    }
+
+
+    const expression =
+      tokensToText();
+
+
+    calculator.lastExpression =
+      expression;
+
+    calculator.lastResult =
+      result;
+
+    calculator.current =
+      result;
+
+    calculator.expression =
+      expression +
+      " =";
+
+
+    addHistory(
+      "Calculadora",
+      expression +
+      " =",
+      formatDisplay(
+        result
+      )
+    );
+
+
+    /*
+      Depois do "=",
+      começa uma nova operação ao digitar.
+    */
+
+    calculator.tokens = [
+
+      {
+        type:"number",
+        value:result
+      }
+
+    ];
+
+
+    calculator.justCalculated =
+      true;
+
+
+    updateCalculator();
+
+  }catch{
+
+    showCalculatorError();
+
+  }
+
+}
+
+
+/* =====================================================
+   AC
+===================================================== */
+
+function clearCalculator(){
+
+  calculator.tokens = [];
+
+  calculator.current =
+    "0";
+
+  calculator.expression =
+    "";
+
+  calculator.error =
+    false;
+
+  calculator.justCalculated =
+    false;
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   CE
+===================================================== */
+
+function clearEntry(){
+
+  vibrate();
+
+
+  const last =
+    lastToken();
+
+
+  if(
+    last?.type === "number"
+  ){
+
+    last.value =
+      "0";
+
+    calculator.current =
+      "0";
+
+  }
+
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   BACKSPACE
+===================================================== */
 
 function backspace(){
 
   vibrate();
 
+
   if(
     calculator.error
   ){
 
-    resetCalculator();
+    clearCalculator();
 
     return;
 
   }
 
+
+  const last =
+    lastToken();
+
+
   if(
-    calculator.waiting
+    !last
   )
     return;
 
+
   if(
-    calculator.current.length <= 1 ||
-    (
-      calculator.current.length === 2 &&
-      calculator.current.startsWith("-")
-    )
+    last.type === "number"
   ){
 
+    if(
+      last.value.length <= 1 ||
+      (
+        last.value.length === 2 &&
+        last.value.startsWith("-")
+      )
+    ){
+
+      last.value =
+        "0";
+
+    }else{
+
+      last.value =
+        last.value.slice(
+          0,
+          -1
+        );
+
+    }
+
     calculator.current =
-      "0";
+      last.value;
 
   }else{
 
+    calculator.tokens.pop();
+
+    const previous =
+      lastToken();
+
     calculator.current =
-      calculator.current.slice(
-        0,
-        -1
-      );
+      previous?.type === "number"
+        ? previous.value
+        : "0";
 
   }
+
 
   updateCalculator();
 
 }
 
+
+/* =====================================================
+   SINAL
+===================================================== */
 
 function toggleSign(){
 
   vibrate();
 
+
+  const last =
+    lastToken();
+
+
   if(
-    calculator.error ||
-    calculator.current === "0"
-  )
+    last?.type !== "number"
+  ){
+
+    if(
+      !last ||
+      last.type === "operator"
+    ){
+
+      calculator.tokens.push({
+
+        type:"number",
+        value:"-0"
+
+      });
+
+      calculator.current =
+        "-0";
+
+    }
+
+    updateCalculator();
+
     return;
 
+  }
+
+
+  if(
+    last.value.startsWith("-")
+  ){
+
+    last.value =
+      last.value.slice(1);
+
+  }else{
+
+    last.value =
+      "-" +
+      last.value;
+
+  }
+
+
   calculator.current =
-    calculator.current.startsWith("-")
-      ? calculator.current.slice(1)
-      : "-" +
-        calculator.current;
+    last.value;
+
 
   updateCalculator();
 
 }
 
 
-function calculatePercent(){
+/* =====================================================
+   PORCENTAGEM
+===================================================== */
+
+function percentageKey(){
 
   vibrate();
 
+
+  const last =
+    lastToken();
+
+
   if(
-    calculator.error
+    last?.type !== "number"
   )
     return;
 
-  const current =
-    normalizeDecimal(
-      calculator.current
+
+  const result =
+    decimalDivide(
+      last.value,
+      "100"
     );
 
-  let result;
-
-  if(
-    calculator.previous !== null &&
-    (
-      calculator.operator === "add" ||
-      calculator.operator === "subtract"
-    )
-  ){
-
-    result =
-      decimalDivide(
-        decimalMultiply(
-          calculator.previous,
-          current
-        ),
-        "100"
-      );
-
-  }else{
-
-    result =
-      decimalDivide(
-        current,
-        "100"
-      );
-
-  }
 
   if(result === null){
 
@@ -2519,6 +3096,10 @@ function calculatePercent(){
 
   }
 
+
+  last.value =
+    result;
+
   calculator.current =
     result;
 
@@ -2527,215 +3108,9 @@ function calculatePercent(){
 }
 
 
-function chooseOperator(
-  operator
-){
-
-  vibrate();
-
-  if(
-    calculator.error
-  )
-    return;
-
-  const current =
-    normalizeDecimal(
-      calculator.current
-    );
-
-  if(
-    calculator.operator &&
-    calculator.previous !== null &&
-    !calculator.waiting
-  ){
-
-    const result =
-      exactOperation(
-        calculator.previous,
-        current,
-        calculator.operator
-      );
-
-    if(result === null){
-
-      showCalculatorError();
-
-      return;
-
-    }
-
-    calculator.previous =
-      result;
-
-    calculator.current =
-      result;
-
-  }else{
-
-    calculator.previous =
-      current;
-
-  }
-
-  calculator.operator =
-    operator;
-
-  calculator.waiting =
-    true;
-
-  calculator.lastOperator =
-    null;
-
-  calculator.lastOperand =
-    null;
-
-  calculator.expression =
-    formatDisplay(
-      calculator.previous
-    ) +
-    " " +
-    operatorSymbols[
-      operator
-    ];
-
-  updateCalculator();
-
-}
-
-
-function equals(){
-
-  vibrate();
-
-  if(
-    calculator.error
-  )
-    return;
-
-  if(
-    calculator.operator !== null &&
-    calculator.previous !== null
-  ){
-
-    const operand =
-      calculator.waiting
-        ? calculator.previous
-        : normalizeDecimal(
-            calculator.current
-          );
-
-    const result =
-      exactOperation(
-        calculator.previous,
-        operand,
-        calculator.operator
-      );
-
-    if(result === null){
-
-      showCalculatorError();
-
-      return;
-
-    }
-
-    calculator.lastOperator =
-      calculator.operator;
-
-    calculator.lastOperand =
-      operand;
-
-    calculator.expression =
-      formatDisplay(
-        calculator.previous
-      ) +
-      " " +
-      operatorSymbols[
-        calculator.operator
-      ] +
-      " " +
-      formatDisplay(
-        operand
-      ) +
-      " =";
-
-    calculator.current =
-      result;
-
-    calculator.previous =
-      null;
-
-    calculator.operator =
-      null;
-
-    calculator.waiting =
-      true;
-
-    addHistory(
-      "Calculadora",
-      calculator.expression,
-      formatDisplay(
-        calculator.current
-      )
-    );
-
-  }else if(
-    calculator.lastOperator !== null &&
-    calculator.lastOperand !== null
-  ){
-
-    const left =
-      normalizeDecimal(
-        calculator.current
-      );
-
-    const result =
-      exactOperation(
-        left,
-        calculator.lastOperand,
-        calculator.lastOperator
-      );
-
-    if(result === null){
-
-      showCalculatorError();
-
-      return;
-
-    }
-
-    calculator.expression =
-      formatDisplay(left) +
-      " " +
-      operatorSymbols[
-        calculator.lastOperator
-      ] +
-      " " +
-      formatDisplay(
-        calculator.lastOperand
-      ) +
-      " =";
-
-    calculator.current =
-      result;
-
-    calculator.waiting =
-      true;
-
-    addHistory(
-      "Calculadora",
-      calculator.expression,
-      formatDisplay(
-        calculator.current
-      )
-    );
-
-  }
-
-  updateCalculator();
-
-}
-
+/* =====================================================
+   RAIZ / QUADRADO
+===================================================== */
 
 function unaryOperation(
   type
@@ -2743,28 +3118,25 @@ function unaryOperation(
 
   vibrate();
 
+
+  const last =
+    lastToken();
+
+
   if(
-    calculator.error
+    last?.type !== "number"
   )
     return;
 
+
   const value =
     nativeNumber(
-      calculator.current
+      last.value
     );
 
-  if(
-    !Number.isFinite(value)
-  ){
-
-    showCalculatorError();
-
-    return;
-
-  }
 
   let result;
-  let label;
+
 
   if(
     type === "sqrt"
@@ -2781,24 +3153,13 @@ function unaryOperation(
     result =
       Math.sqrt(value);
 
-    label =
-      "√" +
-      formatDisplay(
-        calculator.current
-      );
-
   }else{
 
     result =
       value * value;
 
-    label =
-      formatDisplay(
-        calculator.current
-      ) +
-      "²";
-
   }
+
 
   if(
     !Number.isFinite(result)
@@ -2810,47 +3171,81 @@ function unaryOperation(
 
   }
 
-  calculator.current =
+
+  last.value =
     normalizeDecimal(
       result.toFixed(12)
     );
 
-  calculator.expression =
-    label +
-    " =";
 
-  calculator.waiting =
-    true;
+  calculator.current =
+    last.value;
 
-  addHistory(
-    "Calculadora",
-    calculator.expression,
-    formatDisplay(
-      calculator.current
-    )
-  );
 
   updateCalculator();
 
 }
 
 
-function clearEntry(){
+/* =====================================================
+   PI
+===================================================== */
+
+function insertPi(){
 
   vibrate();
 
-  calculator.current =
-    "0";
 
-  calculator.waiting =
-    false;
+  const last =
+    lastToken();
+
+
+  if(
+    last &&
+    (
+      last.type === "number" ||
+      last.value === ")"
+    )
+  ){
+
+    calculator.tokens.push({
+
+      type:"operator",
+      value:"*"
+
+    });
+
+  }
+
+
+  calculator.tokens.push({
+
+    type:"number",
+    value:normalizeDecimal(
+      Math.PI.toFixed(12)
+    )
+
+  });
+
+
+  calculator.current =
+    normalizeDecimal(
+      Math.PI.toFixed(12)
+    );
+
 
   updateCalculator();
 
 }
 
 
+/* =====================================================
+   ERRO
+===================================================== */
+
 function showCalculatorError(){
+
+  calculator.tokens = [];
 
   calculator.current =
     "0";
@@ -2866,6 +3261,42 @@ function showCalculatorError(){
   toast(
     "Operação inválida"
   );
+
+}
+
+
+/* =====================================================
+   REPETIR
+===================================================== */
+
+function repeatLast(){
+
+  if(
+    !calculator.lastExpression ||
+    calculator.lastResult === null
+  )
+    return;
+
+
+  calculator.tokens = [
+
+    {
+      type:"number",
+      value:calculator.lastResult
+    }
+
+  ];
+
+
+  calculator.current =
+    calculator.lastResult;
+
+  calculator.expression =
+    calculator.lastExpression +
+    " =";
+
+
+  updateCalculator();
 
 }
 
@@ -2888,11 +3319,32 @@ $$(".key")
           const key =
             button.dataset.key;
 
+
           if(
             number !== undefined
           ){
 
-            inputNumber(
+            /*
+              Se acabou de calcular,
+              um novo número começa
+              uma nova conta.
+            */
+
+            if(
+              calculator.justCalculated
+            ){
+
+              calculator.tokens = [];
+
+              calculator.expression = "";
+
+              calculator.justCalculated =
+                false;
+
+            }
+
+
+            addNumberDigit(
               number
             );
 
@@ -2900,10 +3352,15 @@ $$(".key")
 
           }
 
+
+          calculator.justCalculated =
+            false;
+
+
           switch(key){
 
             case "clear":
-              resetCalculator();
+              clearCalculator();
               break;
 
             case "backspace":
@@ -2911,7 +3368,7 @@ $$(".key")
               break;
 
             case "decimal":
-              inputDecimal();
+              addDecimal();
               break;
 
             case "sign":
@@ -2919,27 +3376,27 @@ $$(".key")
               break;
 
             case "percent":
-              calculatePercent();
+              percentageKey();
               break;
 
             case "divide":
-              chooseOperator("divide");
+              addOperator("/");
               break;
 
             case "multiply":
-              chooseOperator("multiply");
+              addOperator("*");
               break;
 
             case "subtract":
-              chooseOperator("subtract");
+              addOperator("-");
               break;
 
             case "add":
-              chooseOperator("add");
+              addOperator("+");
               break;
 
             case "equals":
-              equals();
+              calculateCurrent();
               break;
 
             case "sqrt":
@@ -2955,33 +3412,23 @@ $$(".key")
               break;
 
             case "power":
-              chooseOperator("power");
+              addOperator("^");
               break;
 
             case "pi":
-              calculator.current =
-                normalizeDecimal(
-                  Math.PI.toFixed(12)
-                );
-
-              calculator.waiting =
-                true;
-
-              calculator.expression =
-                "π";
-
-              updateCalculator();
+              insertPi();
               break;
 
             case "repeat":
-              equals();
+              repeatLast();
               break;
 
             case "leftParen":
+              addLeftParenthesis();
+              break;
+
             case "rightParen":
-              toast(
-                "Use a calculadora básica para operações diretas"
-              );
+              addRightParenthesis();
               break;
 
           }
@@ -2994,7 +3441,7 @@ $$(".key")
 
 
 /* =====================================================
-   TECLADO DO COMPUTADOR
+   TECLADO FÍSICO
 ===================================================== */
 
 document.addEventListener(
@@ -3004,6 +3451,7 @@ document.addEventListener(
     const tag =
       document.activeElement?.tagName;
 
+
     if(
       tag === "INPUT" ||
       tag === "TEXTAREA" ||
@@ -3011,15 +3459,31 @@ document.addEventListener(
     )
       return;
 
+
     const key =
       event.key;
+
 
     if(
       /^[0-9]$/.test(key)
     ){
 
       event.preventDefault();
-      inputNumber(key);
+
+      if(
+        calculator.justCalculated
+      ){
+
+        calculator.tokens = [];
+
+        calculator.expression = "";
+
+        calculator.justCalculated =
+          false;
+
+      }
+
+      addNumberDigit(key);
 
     }else if(
       key === "." ||
@@ -3027,42 +3491,72 @@ document.addEventListener(
     ){
 
       event.preventDefault();
-      inputDecimal();
+
+      addDecimal();
 
     }else if(
       key === "+"
     ){
 
       event.preventDefault();
-      chooseOperator("add");
+
+      addOperator("+");
 
     }else if(
       key === "-"
     ){
 
       event.preventDefault();
-      chooseOperator("subtract");
+
+      addOperator("-");
 
     }else if(
       key === "*"
     ){
 
       event.preventDefault();
-      chooseOperator("multiply");
+
+      addOperator("*");
 
     }else if(
       key === "/"
     ){
 
       event.preventDefault();
-      chooseOperator("divide");
+
+      addOperator("/");
+
+    }else if(
+      key === "^"
+    ){
+
+      event.preventDefault();
+
+      addOperator("^");
 
     }else if(
       key === "%"
     ){
 
       event.preventDefault();
-      calculatePercent();
+
+      percentageKey();
+
+    }else if(
+      key === "("
+    ){
+
+      event.preventDefault();
+
+      addLeftParenthesis();
+
+    }else if(
+      key === ")"
+    ){
+
+      event.preventDefault();
+
+      addRightParenthesis();
 
     }else if(
       key === "Enter" ||
@@ -3070,13 +3564,15 @@ document.addEventListener(
     ){
 
       event.preventDefault();
-      equals();
+
+      calculateCurrent();
 
     }else if(
       key === "Backspace"
     ){
 
       event.preventDefault();
+
       backspace();
 
     }else if(
@@ -3084,12 +3580,12 @@ document.addEventListener(
     ){
 
       event.preventDefault();
-      resetCalculator();
+
+      clearCalculator();
 
     }
 
-  }
-);
+  });
 
 
 /* =====================================================
@@ -3105,6 +3601,7 @@ $("#advancedToggle")
         .classList.toggle(
           "open"
         );
+
 
       $("#advancedToggle")
         .textContent =
@@ -3141,13 +3638,16 @@ $$("[data-memory]")
 
           vibrate();
 
+
           const action =
             button.dataset.memory;
 
-          const current =
+
+          let current =
             normalizeDecimal(
               calculator.current
             );
+
 
           if(
             action === "MC"
@@ -3160,21 +3660,51 @@ $$("[data-memory]")
               "Memória limpa"
             );
 
-          }else if(
+          }
+
+
+          else if(
             action === "MR"
           ){
+
+            calculator.tokens = [
+
+              {
+                type:"number",
+                value:calculator.memory
+              }
+
+            ];
+
 
             calculator.current =
               calculator.memory;
 
-            calculator.waiting =
-              true;
+            calculator.justCalculated =
+              false;
 
             toast(
               "Memória recuperada"
             );
 
-          }else if(
+          }
+
+
+          else if(
+            action === "MS"
+          ){
+
+            calculator.memory =
+              current;
+
+            toast(
+              "Valor salvo na memória"
+            );
+
+          }
+
+
+          else if(
             action === "M+"
           ){
 
@@ -3188,7 +3718,10 @@ $$("[data-memory]")
               "Valor somado à memória"
             );
 
-          }else if(
+          }
+
+
+          else if(
             action === "M-"
           ){
 
@@ -3202,23 +3735,14 @@ $$("[data-memory]")
               "Valor subtraído da memória"
             );
 
-          }else if(
-            action === "MS"
-          ){
-
-            calculator.memory =
-              current;
-
-            toast(
-              "Valor salvo na memória"
-            );
-
           }
+
 
           localStorage.setItem(
             "calpro_memory",
             calculator.memory
           );
+
 
           updateCalculator();
 
@@ -3252,9 +3776,7 @@ function getHistory(){
 }
 
 
-function escapeHtml(
-  value
-){
+function escapeHtml(value){
 
   return String(value)
     .replace(
@@ -3280,6 +3802,7 @@ function addHistory(
   const history =
     getHistory();
 
+
   history.unshift({
 
     type,
@@ -3298,6 +3821,7 @@ function addHistory(
 
   });
 
+
   localStorage.setItem(
     "calpro_history",
     JSON.stringify(
@@ -3307,6 +3831,7 @@ function addHistory(
       )
     )
   );
+
 
   renderHistory();
 
@@ -3318,8 +3843,10 @@ function renderHistory(){
   const list =
     $("#historyList");
 
+
   const history =
     getHistory();
+
 
   if(
     !history.length
@@ -3339,6 +3866,7 @@ function renderHistory(){
     return;
 
   }
+
 
   list.innerHTML =
     history
@@ -3404,7 +3932,7 @@ $("#clearHistory")
 
 
 /* =====================================================
-   COMERCIAL
+   CALCULADORAS COMERCIAIS
 ===================================================== */
 
 function parseBrazilianInput(id){
@@ -3424,6 +3952,7 @@ function parseBrazilianInput(id){
   let normalized =
     text;
 
+
   if(
     text.includes(",")
   ){
@@ -3435,8 +3964,10 @@ function parseBrazilianInput(id){
 
   }
 
+
   const value =
     Number(normalized);
+
 
   return Number.isFinite(value)
     ? value
@@ -3455,8 +3986,10 @@ function formatInputBrazilian(
       ""
     );
 
+
   const negative =
     value.startsWith("-");
+
 
   value =
     value.replace(
@@ -3464,16 +3997,20 @@ function formatInputBrazilian(
       ""
     );
 
+
   const parts =
     value.split(",");
 
+
   let integer =
     parts[0] || "0";
+
 
   let decimal =
     parts.length > 1
       ? parts.slice(1).join("")
       : "";
+
 
   integer =
     integer.replace(
@@ -3481,11 +4018,13 @@ function formatInputBrazilian(
       ""
     ) || "0";
 
+
   integer =
     integer.replace(
       /\B(?=(\d{3})+(?!\d))/g,
       "."
     );
+
 
   input.value =
     (
@@ -3495,44 +4034,34 @@ function formatInputBrazilian(
     (
       parts.length > 1
         ? "," +
-          decimal.slice(
-            0,
-            10
-          )
+          decimal.slice(0,10)
         : ""
     );
 
 }
 
 
-const commercialInputs = [
-
+[
   "marginCost",
   "marginSale",
-
   "priceCost",
   "priceMargin",
   "priceMarkup",
-
   "discountOriginal",
   "discountPercent",
-
   "markupCost",
   "markupPercent"
 
-];
-
-
-commercialInputs.forEach(
+].forEach(
   id => {
 
     const input =
-      document.getElementById(
-        id
-      );
+      document.getElementById(id);
+
 
     if(!input)
       return;
+
 
     input.addEventListener(
       "input",
@@ -3545,6 +4074,7 @@ commercialInputs.forEach(
       }
     );
 
+
     input.addEventListener(
       "blur",
       () => {
@@ -3553,6 +4083,7 @@ commercialInputs.forEach(
           parseBrazilianInput(
             id
           );
+
 
         if(
           input.value.trim() !== ""
@@ -3677,6 +4208,7 @@ $$("[data-calc-commercial]")
 
           vibrate();
 
+
           const type =
             button.dataset
               .calcCommercial;
@@ -3693,10 +4225,12 @@ $$("[data-calc-commercial]")
                 "marginCost"
               );
 
+
             const sale =
               parseBrazilianInput(
                 "marginSale"
               );
+
 
             if(
               cost <= 0 ||
@@ -3711,18 +4245,22 @@ $$("[data-calc-commercial]")
 
             }
 
+
             const profit =
               sale - cost;
+
 
             const margin =
               profit /
               sale *
               100;
 
+
             const markup =
               profit /
               cost *
               100;
+
 
             renderResult(
               "result-margin",
@@ -3746,6 +4284,7 @@ $$("[data-calc-commercial]")
               ]
             );
 
+
             addHistory(
               "Margem",
               money(cost) +
@@ -3768,15 +4307,18 @@ $$("[data-calc-commercial]")
                 "priceCost"
               );
 
+
             const margin =
               parseBrazilianInput(
                 "priceMargin"
               );
 
+
             const markup =
               parseBrazilianInput(
                 "priceMarkup"
               );
+
 
             if(
               cost <= 0
@@ -3790,12 +4332,9 @@ $$("[data-calc-commercial]")
 
             }
 
+
             let sale;
 
-            /*
-              Se margem estiver preenchida,
-              ela tem prioridade.
-            */
 
             if(
               margin > 0
@@ -3812,6 +4351,7 @@ $$("[data-calc-commercial]")
                 return;
 
               }
+
 
               sale =
                 cost /
@@ -3841,18 +4381,22 @@ $$("[data-calc-commercial]")
 
             }
 
+
             const profit =
               sale - cost;
+
 
             const realMargin =
               profit /
               sale *
               100;
 
+
             const realMarkup =
               profit /
               cost *
               100;
+
 
             renderResult(
               "result-price",
@@ -3881,6 +4425,7 @@ $$("[data-calc-commercial]")
               ]
             );
 
+
             addHistory(
               "Preço",
               money(cost) +
@@ -3903,10 +4448,12 @@ $$("[data-calc-commercial]")
                 "discountOriginal"
               );
 
+
             const percent =
               parseBrazilianInput(
                 "discountPercent"
               );
+
 
             if(
               original <= 0 ||
@@ -3922,14 +4469,17 @@ $$("[data-calc-commercial]")
 
             }
 
+
             const discount =
               original *
               percent /
               100;
 
+
             const finalPrice =
               original -
               discount;
+
 
             renderResult(
               "result-discount",
@@ -3953,6 +4503,7 @@ $$("[data-calc-commercial]")
               ]
             );
 
+
             addHistory(
               "Desconto",
               money(original) +
@@ -3975,10 +4526,12 @@ $$("[data-calc-commercial]")
                 "markupCost"
               );
 
+
             const percent =
               parseBrazilianInput(
                 "markupPercent"
               );
+
 
             if(
               cost <= 0 ||
@@ -3993,19 +4546,23 @@ $$("[data-calc-commercial]")
 
             }
 
+
             const profit =
               cost *
               percent /
               100;
 
+
             const sale =
               cost +
               profit;
+
 
             const margin =
               profit /
               sale *
               100;
+
 
             renderResult(
               "result-markup",
@@ -4034,6 +4591,7 @@ $$("[data-calc-commercial]")
               ]
             );
 
+
             addHistory(
               "Markup",
               money(cost) +
@@ -4055,9 +4613,7 @@ $$("[data-calc-commercial]")
    TEMA
 ===================================================== */
 
-function setTheme(
-  theme
-){
+function setTheme(theme){
 
   document.body.classList.toggle(
     "light",
@@ -4078,8 +4634,7 @@ function setTheme(
 const savedTheme =
   localStorage.getItem(
     "calpro_theme"
-  ) ||
-  "dark";
+  ) || "dark";
 
 
 setTheme(
