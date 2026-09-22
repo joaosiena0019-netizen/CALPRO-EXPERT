@@ -2,8 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#07110d">
+
 <title>CALPRO EXPERT</title>
 
 <style>
@@ -16,6 +17,7 @@
   --muted:#8ea097;
   --accent:#7cff00;
   --accent-dark:#102319;
+  --danger:#ff5c5c;
 }
 
 *{
@@ -23,7 +25,8 @@
   -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
   width:100%;
   height:100%;
   margin:0;
@@ -33,7 +36,13 @@ html,body{
   font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
-button,input,select{
+body{
+  overscroll-behavior:none;
+}
+
+button,
+input,
+select{
   font:inherit;
 }
 
@@ -41,6 +50,12 @@ button{
   border:0;
   color:inherit;
   cursor:pointer;
+  touch-action:manipulation;
+}
+
+input,
+select{
+  touch-action:auto;
 }
 
 #app{
@@ -100,6 +115,7 @@ main{
 
 .scroll{
   overflow-y:auto;
+  overflow-x:hidden;
   scrollbar-width:none;
 }
 
@@ -107,9 +123,7 @@ main{
   display:none;
 }
 
-/* =========================
-   HOME
-========================= */
+/* HOME */
 
 .home-container{
   width:min(1100px,100%);
@@ -182,6 +196,8 @@ main{
   font-size:10px;
 }
 
+/* TITULOS */
+
 .section-title{
   width:min(1100px,100%);
   margin:0 auto 10px;
@@ -189,9 +205,7 @@ main{
   font-weight:800;
 }
 
-/* =========================
-   CALCULATOR
-========================= */
+/* CALCULADORA */
 
 .calculator-layout{
   width:min(1100px,100%);
@@ -365,9 +379,7 @@ main{
   font-size:14px;
 }
 
-/* =========================
-   COMMERCIAL
-========================= */
+/* COMERCIAL */
 
 .commercial-container{
   width:min(850px,100%);
@@ -435,7 +447,8 @@ main{
   outline:0;
 }
 
-.field input:focus{
+.field input:focus,
+.field select:focus{
   border-color:var(--accent);
 }
 
@@ -460,7 +473,7 @@ main{
   display:flex;
   justify-content:space-between;
   gap:15px;
-  padding:6px 0;
+  padding:7px 0;
   border-bottom:1px solid #17271f;
   font-size:13px;
 }
@@ -473,9 +486,11 @@ main{
   color:var(--muted);
 }
 
-/* =========================
-   HISTORY
-========================= */
+.result-row strong{
+  text-align:right;
+}
+
+/* HISTÓRICO */
 
 .history-container{
   width:min(850px,100%);
@@ -500,9 +515,17 @@ main{
   color:var(--muted);
 }
 
-/* =========================
-   SETTINGS
-========================= */
+.clear-history{
+  width:100%;
+  height:42px;
+  margin-bottom:10px;
+  border-radius:10px;
+  background:#291313;
+  color:#ff9b9b;
+  border:1px solid #542020;
+}
+
+/* CONFIGURAÇÕES */
 
 .settings-container{
   width:min(700px,100%);
@@ -522,9 +545,15 @@ main{
   border-bottom:0;
 }
 
-/* =========================
-   NAV
-========================= */
+.settings-row select{
+  background:#09150f;
+  color:var(--text);
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:7px 10px;
+}
+
+/* NAV */
 
 .bottom-nav{
   height:70px;
@@ -556,9 +585,7 @@ main{
   background:#0e1e16;
 }
 
-/* =========================
-   TOAST
-========================= */
+/* TOAST */
 
 .toast{
   position:fixed;
@@ -575,6 +602,7 @@ main{
   font-size:12px;
   font-weight:800;
   transition:.2s;
+  white-space:nowrap;
 }
 
 .toast.show{
@@ -582,9 +610,7 @@ main{
   transform:translate(-50%,0);
 }
 
-/* =========================
-   LIGHT
-========================= */
+/* LIGHT */
 
 .light{
   --bg:#f2f5f3;
@@ -593,15 +619,26 @@ main{
   --line:#d7e0da;
   --text:#152019;
   --muted:#65746c;
+  --accent:#48a900;
+  --accent-dark:#e8f5df;
 }
 
 .light .bottom-nav{
   background:rgba(242,245,243,.97);
 }
 
-/* =========================
-   TABLET
-========================= */
+.light .field input,
+.light .field select,
+.light .settings-row select{
+  background:#f7f9f7;
+}
+
+.light .info-box,
+.light .result{
+  background:#f7f9f7;
+}
+
+/* TABLET */
 
 @media(max-width:900px){
 
@@ -619,9 +656,7 @@ main{
 
 }
 
-/* =========================
-   CELULAR
-========================= */
+/* CELULAR */
 
 @media(max-width:600px){
 
@@ -661,7 +696,7 @@ main{
   }
 
   .calc-card{
-    height:calc(100% - 38px);
+    height:100%;
   }
 
   .display{
@@ -696,9 +731,7 @@ main{
 
 }
 
-/* =========================
-   TELAS PEQUENAS
-========================= */
+/* TELAS PEQUENAS */
 
 @media(max-height:650px){
 
@@ -752,6 +785,7 @@ main{
     class="theme-btn"
     id="themeBtn"
     type="button"
+    aria-label="Alternar tema"
   >
     ◐
   </button>
@@ -774,9 +808,7 @@ main{
 
     <div class="hero">
 
-      <h1>
-        Calculadora comercial
-      </h1>
+      <h1>Calculadora comercial</h1>
 
       <p>
         Rápida, precisa e feita para sua rotina.
@@ -792,7 +824,6 @@ main{
         data-open="margin"
         type="button"
       >
-
         <div class="icon">%</div>
 
         <strong>MARGEM</strong>
@@ -800,7 +831,6 @@ main{
         <small>
           Lucro, margem e markup
         </small>
-
       </button>
 
 
@@ -809,7 +839,6 @@ main{
         data-open="price"
         type="button"
       >
-
         <div class="icon">R$</div>
 
         <strong>PREÇO</strong>
@@ -817,7 +846,6 @@ main{
         <small>
           Preço de venda
         </small>
-
       </button>
 
 
@@ -826,7 +854,6 @@ main{
         data-open="discount"
         type="button"
       >
-
         <div class="icon">−%</div>
 
         <strong>DESCONTO</strong>
@@ -834,7 +861,6 @@ main{
         <small>
           Preço final
         </small>
-
       </button>
 
 
@@ -843,7 +869,6 @@ main{
         data-open="markup"
         type="button"
       >
-
         <div class="icon">×</div>
 
         <strong>MARKUP</strong>
@@ -851,7 +876,6 @@ main{
         <small>
           Markup e margem
         </small>
-
       </button>
 
 
@@ -860,7 +884,6 @@ main{
         data-nav="calculator"
         type="button"
       >
-
         <div class="icon">⌗</div>
 
         <strong>CALCULADORA</strong>
@@ -868,7 +891,6 @@ main{
         <small>
           Cálculos completos
         </small>
-
       </button>
 
     </div>
@@ -956,9 +978,23 @@ main{
         <button class="key operator" data-key="add" type="button">+</button>
 
         <button class="key action" data-key="sign" type="button">+/−</button>
-        <button class="key" data-number="0" type="button">0</button>
-        <button class="key" data-key="decimal" type="button">,</button>
-        <button class="key equal" data-key="equals" type="button">=</button>
+
+        <button class="key" data-number="0" type="button">
+          0
+        </button>
+
+        <!-- OS DOIS SEPARADORES FORAM MANTIDOS -->
+        <button class="key" data-key="decimal-comma" type="button">
+          ,
+        </button>
+
+        <button class="key" data-key="decimal-dot" type="button">
+          .
+        </button>
+
+        <button class="key equal" data-key="equals" type="button">
+          =
+        </button>
 
       </div>
 
@@ -978,14 +1014,34 @@ main{
       >
 
         <button class="key" data-key="sqrt" type="button">√</button>
-        <button class="key" data-key="square" type="button">x²</button>
-        <button class="key" data-key="power" type="button">xʸ</button>
-        <button class="key" data-key="clearEntry" type="button">CE</button>
 
-        <button class="key" data-key="pi" type="button">π</button>
-        <button class="key" data-key="repeat" type="button">↻</button>
-        <button class="key" data-key="leftParen" type="button">(</button>
-        <button class="key" data-key="rightParen" type="button">)</button>
+        <button class="key" data-key="square" type="button">
+          x²
+        </button>
+
+        <button class="key" data-key="power" type="button">
+          xʸ
+        </button>
+
+        <button class="key" data-key="clearEntry" type="button">
+          CE
+        </button>
+
+        <button class="key" data-key="pi" type="button">
+          π
+        </button>
+
+        <button class="key" data-key="repeat" type="button">
+          ↻
+        </button>
+
+        <button class="key" data-key="leftParen" type="button">
+          (
+        </button>
+
+        <button class="key" data-key="rightParen" type="button">
+          )
+        </button>
 
       </div>
 
@@ -1000,17 +1056,18 @@ main{
 
       <p>
         Calculadora comercial com suporte a teclado,
-        memória, operações encadeadas e formatação
-        brasileira.
+        memória, operações encadeadas, porcentagem,
+        parênteses e formatação brasileira.
       </p>
+
 
       <div class="info-box">
 
         <strong>Teclado físico</strong>
 
         <p>
-          Use os números, +, −, ×, ÷, Enter,
-          Backspace e Escape diretamente no computador.
+          Use números, +, −, *, /, Enter,
+          Backspace, Escape, vírgula e ponto.
         </p>
 
       </div>
@@ -1033,8 +1090,8 @@ main{
         <strong>Precisão</strong>
 
         <p>
-          As operações básicas utilizam aritmética
-          decimal para reduzir erros de ponto flutuante.
+          As operações são normalizadas para
+          reduzir erros comuns de ponto flutuante.
         </p>
 
       </div>
@@ -1066,19 +1123,35 @@ main{
 
       <div class="tabs">
 
-        <button class="tab active" data-tab="margin" type="button">
+        <button
+          class="tab active"
+          data-tab="margin"
+          type="button"
+        >
           MARGEM
         </button>
 
-        <button class="tab" data-tab="price" type="button">
+        <button
+          class="tab"
+          data-tab="price"
+          type="button"
+        >
           PREÇO
         </button>
 
-        <button class="tab" data-tab="discount" type="button">
+        <button
+          class="tab"
+          data-tab="discount"
+          type="button"
+        >
           DESCONTO
         </button>
 
-        <button class="tab" data-tab="markup" type="button">
+        <button
+          class="tab"
+          data-tab="markup"
+          type="button"
+        >
           MARKUP
         </button>
 
@@ -1177,23 +1250,23 @@ main{
               id="priceMargin"
               type="text"
               inputmode="decimal"
-              placeholder="30,00"
+              placeholder="0,00"
             >
 
           </div>
 
 
-          <div class="field">
+          <div class="field full">
 
             <label>
-              Ou markup desejado (%)
+              OU Markup desejado (%)
             </label>
 
             <input
               id="priceMarkup"
               type="text"
               inputmode="decimal"
-              placeholder="50,00"
+              placeholder="0,00"
             >
 
           </div>
@@ -1253,7 +1326,7 @@ main{
               id="discountPercent"
               type="text"
               inputmode="decimal"
-              placeholder="10,00"
+              placeholder="0,00"
             >
 
           </div>
@@ -1313,7 +1386,7 @@ main{
               id="markupPercent"
               type="text"
               inputmode="decimal"
-              placeholder="50,00"
+              placeholder="0,00"
             >
 
           </div>
@@ -1359,17 +1432,15 @@ main{
       Histórico
     </div>
 
-
     <div class="history-card">
 
       <button
-        class="primary"
         id="clearHistory"
+        class="clear-history"
         type="button"
       >
-        LIMPAR HISTÓRICO
+        APAGAR HISTÓRICO
       </button>
-
 
       <div id="historyList"></div>
 
@@ -1422,14 +1493,25 @@ main{
       <div class="settings-row">
 
         <span>
-          Vibração
+          Versão
         </span>
 
-        <input
-          id="vibrationToggle"
-          type="checkbox"
-          checked
-        >
+        <strong>
+          CALPRO EXPERT
+        </strong>
+
+      </div>
+
+
+      <div class="settings-row">
+
+        <span>
+          Formato
+        </span>
+
+        <strong>
+          Português — Brasil
+        </strong>
 
       </div>
 
@@ -1442,6 +1524,10 @@ main{
 </main>
 
 
+<!-- =========================
+     NAVEGAÇÃO
+========================= -->
+
 <nav class="bottom-nav">
 
   <button
@@ -1450,7 +1536,7 @@ main{
     type="button"
   >
     <b>⌂</b>
-    Início
+    INÍCIO
   </button>
 
 
@@ -1460,7 +1546,7 @@ main{
     type="button"
   >
     <b>⌗</b>
-    Calculadora
+    CALCULADORA
   </button>
 
 
@@ -1470,7 +1556,7 @@ main{
     type="button"
   >
     <b>%</b>
-    Comercial
+    COMERCIAL
   </button>
 
 
@@ -1479,13 +1565,21 @@ main{
     data-nav="history"
     type="button"
   >
-    <b>☷</b>
-    Histórico
+    <b>↺</b>
+    HISTÓRICO
+  </button>
+
+
+  <button
+    class="nav-btn"
+    data-nav="settings"
+    type="button"
+  >
+    <b>⚙</b>
+    AJUSTES
   </button>
 
 </nav>
-
-</div>
 
 
 <div
@@ -1496,8 +1590,6 @@ main{
 
 <script>
 
-"use strict";
-
 /* =====================================================
    UTILITÁRIOS
 ===================================================== */
@@ -1506,9 +1598,23 @@ const $ = selector =>
   document.querySelector(selector);
 
 const $$ = selector =>
-  Array.from(
-    document.querySelectorAll(selector)
-  );
+  [...document.querySelectorAll(selector)];
+
+
+function vibrate(){
+
+  if(
+    navigator.vibrate
+  ){
+
+    navigator.vibrate(8);
+
+  }
+
+}
+
+
+let toastTimer = null;
 
 
 function toast(message){
@@ -1524,15 +1630,17 @@ function toast(message){
   );
 
   clearTimeout(
-    window.__toastTimer
+    toastTimer
   );
 
-  window.__toastTimer =
+  toastTimer =
     setTimeout(
       () => {
+
         element.classList.remove(
           "show"
         );
+
       },
       1600
     );
@@ -1540,547 +1648,105 @@ function toast(message){
 }
 
 
-function vibrate(){
+/* =====================================================
+   NÚMEROS / DECIMAIS
+===================================================== */
+
+function cleanNumber(value){
 
   if(
-    $("#vibrationToggle")?.checked &&
-    navigator.vibrate
+    !Number.isFinite(value)
   ){
 
-    navigator.vibrate(7);
+    return 0;
 
   }
+
+  return Number(
+    value.toFixed(12)
+  );
 
 }
 
 
-/* =====================================================
-   DECIMAL
-===================================================== */
-
-const DECIMAL_PLACES = 12;
-
-
 function normalizeDecimal(value){
+
+  if(
+    value === null ||
+    value === undefined
+  ){
+
+    return "0";
+
+  }
 
   let text =
     String(value)
       .trim()
       .replace(",", ".");
 
-  if(!text)
-    return "0";
-
-  let sign = "";
-
   if(
-    text.startsWith("-")
+    text === "" ||
+    text === "-"
   ){
 
-    sign = "-";
-    text = text.slice(1);
+    return text;
 
   }
 
-  if(
-    !/^\d*\.?\d*$/.test(text)
-  ){
-
-    return "0";
-
-  }
-
-  let [
-    integer = "0",
-    decimal = ""
-  ] =
-    text.split(".");
-
-  integer =
-    integer.replace(
-      /^0+(?=\d)/,
-      ""
-    ) || "0";
-
-  decimal =
-    decimal.replace(
-      /0+$/,
-      ""
-    );
-
-  return (
-    sign +
-    integer +
-    (
-      decimal
-        ? "." + decimal
-        : ""
-    )
-  );
-
-}
-
-
-function decimalParts(value){
-
-  let text =
-    normalizeDecimal(value);
-
-  const negative =
-    text.startsWith("-");
-
-  if(negative)
-    text = text.slice(1);
-
-  const parts =
-    text.split(".");
-
-  const integer =
-    parts[0] || "0";
-
-  const decimal =
-    parts[1] || "";
-
-  let digits =
-    integer + decimal;
-
-  if(!digits)
-    digits = "0";
-
-  let number =
-    BigInt(digits);
-
-  if(negative)
-    number = -number;
-
-  return {
-    integer:number,
-    scale:decimal.length
-  };
-
-}
-
-
-function power10(n){
-
-  return 10n ** BigInt(n);
-
-}
-
-
-function decimalFromBigInt(
-  integer,
-  scale
-){
+  const number =
+    Number(text);
 
   if(
-    integer === 0n
+    !Number.isFinite(number)
   ){
 
     return "0";
 
   }
 
-  const negative =
-    integer < 0n;
-
-  if(negative)
-    integer = -integer;
-
-  let digits =
-    integer.toString();
-
-  if(scale === 0){
-
-    return (
-      negative ? "-" : ""
-    ) + digits;
-
-  }
-
-  if(
-    digits.length <= scale
-  ){
-
-    digits =
-      "0".repeat(
-        scale + 1 -
-        digits.length
-      ) +
-      digits;
-
-  }
-
-  const position =
-    digits.length - scale;
-
-  let result =
-    digits.slice(
-      0,
-      position
-    ) +
-    "." +
-    digits.slice(position);
-
-  result =
-    result
-      .replace(
-        /(\.\d*?)0+$/,
-        "$1"
-      )
-      .replace(
-        /\.$/,
-        ""
-      );
-
-  return (
-    negative ? "-" : ""
-  ) + result;
-
-}
-
-
-function decimalAdd(a,b){
-
-  const A =
-    decimalParts(a);
-
-  const B =
-    decimalParts(b);
-
-  const scale =
-    Math.max(
-      A.scale,
-      B.scale
-    );
-
-  return decimalFromBigInt(
-    A.integer *
-      power10(
-        scale - A.scale
-      ) +
-    B.integer *
-      power10(
-        scale - B.scale
-      ),
-    scale
+  return String(
+    cleanNumber(number)
   );
 
 }
 
 
-function decimalSubtract(a,b){
+function numberValue(value){
 
-  const A =
-    decimalParts(a);
-
-  const B =
-    decimalParts(b);
-
-  const scale =
-    Math.max(
-      A.scale,
-      B.scale
+  const number =
+    Number(
+      normalizeDecimal(value)
     );
 
-  return decimalFromBigInt(
-    A.integer *
-      power10(
-        scale - A.scale
-      ) -
-    B.integer *
-      power10(
-        scale - B.scale
-      ),
-    scale
-  );
+  return Number.isFinite(number)
+    ? number
+    : 0;
 
 }
 
 
-function decimalMultiply(a,b){
+function formatNumber(value){
 
-  const A =
-    decimalParts(a);
-
-  const B =
-    decimalParts(b);
-
-  return decimalFromBigInt(
-    A.integer *
-      B.integer,
-    A.scale +
-      B.scale
-  );
-
-}
-
-
-function decimalDivide(a,b){
-
-  const A =
-    decimalParts(a);
-
-  const B =
-    decimalParts(b);
+  const number =
+    numberValue(value);
 
   if(
-    B.integer === 0n
+    !Number.isFinite(number)
   ){
 
-    return null;
+    return "Erro";
 
   }
 
-  const negative =
-    (
-      A.integer < 0n
-    ) !== (
-      B.integer < 0n
-    );
-
-  const numerator =
-    A.integer < 0n
-      ? -A.integer
-      : A.integer;
-
-  const denominator =
-    B.integer < 0n
-      ? -B.integer
-      : B.integer;
-
-  const scaledNumerator =
-    numerator *
-    power10(
-      DECIMAL_PLACES +
-      B.scale
-    );
-
-  const scaledDenominator =
-    denominator *
-    power10(
-      A.scale
-    );
-
-  let quotient =
-    scaledNumerator /
-    scaledDenominator;
-
-  const remainder =
-    scaledNumerator %
-    scaledDenominator;
-
-  if(
-    remainder * 2n >=
-    scaledDenominator
-  ){
-
-    quotient++;
-
-  }
-
-  if(negative)
-    quotient = -quotient;
-
-  return decimalFromBigInt(
-    quotient,
-    DECIMAL_PLACES
-  );
-
-}
-
-
-function exactOperation(
-  a,
-  b,
-  operator
-){
-
-  switch(operator){
-
-    case "add":
-      return decimalAdd(a,b);
-
-    case "subtract":
-      return decimalSubtract(a,b);
-
-    case "multiply":
-      return decimalMultiply(a,b);
-
-    case "divide":
-      return decimalDivide(a,b);
-
-    case "power":
-
-      return exactPower(
-        a,
-        b
-      );
-
-    default:
-      return b;
-
-  }
-
-}
-
-
-/* =====================================================
-   POTÊNCIA
-===================================================== */
-
-function exactPower(
-  base,
-  exponent
-){
-
-  const baseText =
-    normalizeDecimal(base);
-
-  const exponentText =
-    normalizeDecimal(exponent);
-
-  const exponentNumber =
-    Number(exponentText);
-
-  if(
-    Number.isInteger(
-      exponentNumber
-    ) &&
-    Math.abs(
-      exponentNumber
-    ) <= 1000
-  ){
-
-    if(
-      exponentNumber === 0
-    )
-      return "1";
-
-    let count =
-      Math.abs(
-        exponentNumber
-      );
-
-    let result =
-      "1";
-
-    let value =
-      baseText;
-
-    while(
-      count > 0
-    ){
-
-      if(
-        count % 2 === 1
-      ){
-
-        result =
-          decimalMultiply(
-            result,
-            value
-          );
-
-      }
-
-      count =
-        Math.floor(
-          count / 2
-        );
-
-      if(count > 0){
-
-        value =
-          decimalMultiply(
-            value,
-            value
-          );
-
-      }
-
+  return number.toLocaleString(
+    "pt-BR",
+    {
+      minimumFractionDigits:
+        0,
+      maximumFractionDigits:
+        10
     }
-
-    if(
-      exponentNumber < 0
-    ){
-
-      return decimalDivide(
-        "1",
-        result
-      );
-
-    }
-
-    return result;
-
-  }
-
-  const result =
-    Math.pow(
-      Number(baseText),
-      exponentNumber
-    );
-
-  if(
-    !Number.isFinite(result)
-  )
-    return null;
-
-  return normalizeDecimal(
-    result.toFixed(12)
-  );
-
-}
-
-
-/* =====================================================
-   FORMATAÇÃO
-===================================================== */
-
-function formatDisplay(value){
-
-  let text =
-    normalizeDecimal(value);
-
-  if(text === "0")
-    return "0";
-
-  const negative =
-    text.startsWith("-");
-
-  if(negative)
-    text = text.slice(1);
-
-  let [
-    integer,
-    decimal = ""
-  ] =
-    text.split(".");
-
-  integer =
-    integer.replace(
-      /\B(?=(\d{3})+(?!\d))/g,
-      "."
-    );
-
-  return (
-    negative ? "-" : ""
-  ) +
-  integer +
-  (
-    decimal
-      ? "," + decimal
-      : ""
-  );
-
-}
-
-
-function nativeNumber(value){
-
-  return Number(
-    normalizeDecimal(value)
   );
 
 }
@@ -2088,17 +1754,9 @@ function nativeNumber(value){
 
 function money(value){
 
-  const number =
-    typeof value === "number"
-      ? value
-      : nativeNumber(value);
-
-  if(
-    !Number.isFinite(number)
-  )
-    return "—";
-
-  return number.toLocaleString(
+  return numberValue(
+    value
+  ).toLocaleString(
     "pt-BR",
     {
       style:"currency",
@@ -2113,21 +1771,13 @@ function money(value){
 
 function percentage(value){
 
-  const number =
-    typeof value === "number"
-      ? value
-      : nativeNumber(value);
-
-  if(
-    !Number.isFinite(number)
-  )
-    return "—";
-
-  return number.toLocaleString(
+  return numberValue(
+    value
+  ).toLocaleString(
     "pt-BR",
     {
       minimumFractionDigits:2,
-      maximumFractionDigits:2
+      maximumFractionDigits:4
     }
   ) + "%";
 
@@ -2135,80 +1785,69 @@ function percentage(value){
 
 
 /* =====================================================
-   NAVEGAÇÃO
+   OPERAÇÕES DECIMAIS
 ===================================================== */
 
-function showScreen(id){
+function decimalAdd(a,b){
 
-  $$(".screen")
-    .forEach(
-      screen => {
-
-        screen.classList.toggle(
-          "active",
-          screen.id === id
-        );
-
-      }
-    );
-
-  $$(".nav-btn")
-    .forEach(
-      button => {
-
-        button.classList.toggle(
-          "active",
-          button.dataset.nav === id
-        );
-
-      }
-    );
+  return normalizeDecimal(
+    numberValue(a) +
+    numberValue(b)
+  );
 
 }
 
 
-$$("[data-nav]")
-  .forEach(
-    button => {
+function decimalSubtract(a,b){
 
-      button.addEventListener(
-        "click",
-        () => {
-
-          vibrate();
-
-          showScreen(
-            button.dataset.nav
-          );
-
-        }
-      );
-
-    }
+  return normalizeDecimal(
+    numberValue(a) -
+    numberValue(b)
   );
 
+}
 
-$$("[data-open]")
-  .forEach(
-    button => {
 
-      button.addEventListener(
-        "click",
-        () => {
+function decimalMultiply(a,b){
 
-          showScreen(
-            "commercial"
-          );
-
-          setCommercialTab(
-            button.dataset.open
-          );
-
-        }
-      );
-
-    }
+  return normalizeDecimal(
+    numberValue(a) *
+    numberValue(b)
   );
+
+}
+
+
+function decimalDivide(a,b){
+
+  if(
+    numberValue(b) === 0
+  ){
+
+    throw new Error(
+      "Divisão por zero"
+    );
+
+  }
+
+  return normalizeDecimal(
+    numberValue(a) /
+    numberValue(b)
+  );
+
+}
+
+
+function decimalPower(a,b){
+
+  return normalizeDecimal(
+    Math.pow(
+      numberValue(a),
+      numberValue(b)
+    )
+  );
+
+}
 
 
 /* =====================================================
@@ -2218,44 +1857,70 @@ $$("[data-open]")
 const calculator = {
 
   current:"0",
-  previous:null,
+
+  previous:"",
+
   operator:null,
+
   waiting:false,
+
+  justEvaluated:false,
+
+  error:false,
+
   expression:"",
-  lastOperator:null,
-  lastOperand:null,
-  memory:"0",
-  error:false
 
-};
+  repeatOperator:null,
 
+  repeatOperand:null,
 
-const operatorSymbols = {
+  memory:
+    normalizeDecimal(
+      localStorage.getItem(
+        "calpro_memory"
+      ) || "0"
+    ),
 
-  add:"+",
-  subtract:"−",
-  multiply:"×",
-  divide:"÷",
-  power:"^"
+  tokens:[],
+
+  openParens:0
 
 };
 
 
 function updateCalculator(){
 
-  $("#calcDisplay")
-    .textContent =
-    formatDisplay(
-      calculator.current
-    );
-
-  $("#calcOperation")
-    .textContent =
-    calculator.expression ||
-    "";
-
   const display =
     $("#calcDisplay");
+
+  const operation =
+    $("#calcOperation");
+
+
+  let shown =
+    calculator.current;
+
+
+  if(
+    shown === "-"
+  ){
+
+    display.textContent =
+      "−";
+
+  }else{
+
+    display.textContent =
+      formatCalculatorValue(
+        shown
+      );
+
+  }
+
+
+  operation.textContent =
+    calculator.expression || "";
+
 
   display.scrollLeft =
     display.scrollWidth;
@@ -2263,40 +1928,97 @@ function updateCalculator(){
 }
 
 
-function resetCalculator(){
+function formatCalculatorValue(value){
 
-  calculator.current =
-    "0";
+  if(
+    value === "" ||
+    value === "-"
+  ){
 
-  calculator.previous =
-    null;
+    return value;
 
-  calculator.operator =
-    null;
+  }
 
-  calculator.waiting =
-    false;
 
-  calculator.expression =
-    "";
+  let text =
+    String(value);
 
-  calculator.lastOperator =
-    null;
 
-  calculator.lastOperand =
-    null;
+  if(
+    text.includes("e")
+  ){
 
-  calculator.error =
-    false;
+    return text.replace(
+      ".",
+      ","
+    );
 
-  updateCalculator();
+  }
+
+
+  const negative =
+    text.startsWith("-");
+
+
+  if(negative){
+
+    text =
+      text.slice(1);
+
+  }
+
+
+  const parts =
+    text.split(".");
+
+
+  let integer =
+    parts[0] || "0";
+
+
+  let decimal =
+    parts[1] || "";
+
+
+  integer =
+    integer.replace(
+      /\B(?=(\d{3})+(?!\d))/g,
+      "."
+    );
+
+
+  let result =
+    integer;
+
+
+  if(
+    parts.length > 1
+  ){
+
+    result +=
+      "," +
+      decimal;
+
+  }
+
+
+  return (
+    negative
+      ? "−"
+      : ""
+  ) + result;
 
 }
 
 
+/* =====================================================
+   ENTRADA DE NÚMEROS
+===================================================== */
+
 function inputNumber(number){
 
   vibrate();
+
 
   if(
     calculator.error
@@ -2306,8 +2028,10 @@ function inputNumber(number){
 
   }
 
+
   if(
-    calculator.waiting
+    calculator.waiting ||
+    calculator.justEvaluated
   ){
 
     calculator.current =
@@ -2316,39 +2040,29 @@ function inputNumber(number){
     calculator.waiting =
       false;
 
+    calculator.justEvaluated =
+      false;
+
+    calculator.expression =
+      "";
+
   }else{
 
-    const current =
-      normalizeDecimal(
-        calculator.current
-      );
-
     if(
-      current === "0"
+      calculator.current === "0"
     ){
 
       calculator.current =
         number;
 
+    }else if(
+      calculator.current === "-0"
+    ){
+
+      calculator.current =
+        "-" + number;
+
     }else{
-
-      const negative =
-        current.startsWith("-");
-
-      const unsigned =
-        negative
-          ? current.slice(1)
-          : current;
-
-      if(
-        unsigned
-          .replace(".","")
-          .length >= 15
-      ){
-
-        return;
-
-      }
 
       calculator.current +=
         number;
@@ -2356,6 +2070,7 @@ function inputNumber(number){
     }
 
   }
+
 
   updateCalculator();
 
@@ -2366,6 +2081,7 @@ function inputDecimal(){
 
   vibrate();
 
+
   if(
     calculator.error
   ){
@@ -2374,8 +2090,10 @@ function inputDecimal(){
 
   }
 
+
   if(
-    calculator.waiting
+    calculator.waiting ||
+    calculator.justEvaluated
   ){
 
     calculator.current =
@@ -2384,30 +2102,105 @@ function inputDecimal(){
     calculator.waiting =
       false;
 
-  }else if(
-    !normalizeDecimal(
-      calculator.current
-    ).includes(".")
+    calculator.justEvaluated =
+      false;
+
+    calculator.expression =
+      "";
+
+    updateCalculator();
+
+    return;
+
+  }
+
+
+  if(
+    calculator.current.includes(".")
+  ){
+
+    return;
+
+  }
+
+
+  if(
+    calculator.current === "-"
   ){
 
     calculator.current =
-      normalizeDecimal(
-        calculator.current
-      ) + ".";
+      "-0.";
+
+  }else{
+
+    calculator.current +=
+      ".";
 
   }
+
 
   updateCalculator();
 
 }
 
 
+/* =====================================================
+   SINAL
+===================================================== */
+
+function toggleSign(){
+
+  if(
+    calculator.error
+  ){
+
+    return;
+
+  }
+
+
+  if(
+    calculator.current === "0"
+  ){
+
+    return;
+
+  }
+
+
+  if(
+    calculator.current.startsWith("-")
+  ){
+
+    calculator.current =
+      calculator.current.slice(1);
+
+  }else{
+
+    calculator.current =
+      "-" +
+      calculator.current;
+
+  }
+
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   BACKSPACE / CE / AC
+===================================================== */
+
 function backspace(){
 
   vibrate();
 
+
   if(
-    calculator.error
+    calculator.error ||
+    calculator.justEvaluated
   ){
 
     resetCalculator();
@@ -2416,10 +2209,6 @@ function backspace(){
 
   }
 
-  if(
-    calculator.waiting
-  )
-    return;
 
   if(
     calculator.current.length <= 1 ||
@@ -2442,393 +2231,6 @@ function backspace(){
 
   }
 
-  updateCalculator();
-
-}
-
-
-function toggleSign(){
-
-  vibrate();
-
-  if(
-    calculator.error ||
-    calculator.current === "0"
-  )
-    return;
-
-  calculator.current =
-    calculator.current.startsWith("-")
-      ? calculator.current.slice(1)
-      : "-" +
-        calculator.current;
-
-  updateCalculator();
-
-}
-
-
-function calculatePercent(){
-
-  vibrate();
-
-  if(
-    calculator.error
-  )
-    return;
-
-  const current =
-    normalizeDecimal(
-      calculator.current
-    );
-
-  let result;
-
-  if(
-    calculator.previous !== null &&
-    (
-      calculator.operator === "add" ||
-      calculator.operator === "subtract"
-    )
-  ){
-
-    result =
-      decimalDivide(
-        decimalMultiply(
-          calculator.previous,
-          current
-        ),
-        "100"
-      );
-
-  }else{
-
-    result =
-      decimalDivide(
-        current,
-        "100"
-      );
-
-  }
-
-  if(result === null){
-
-    showCalculatorError();
-
-    return;
-
-  }
-
-  calculator.current =
-    result;
-
-  updateCalculator();
-
-}
-
-
-function chooseOperator(
-  operator
-){
-
-  vibrate();
-
-  if(
-    calculator.error
-  )
-    return;
-
-  const current =
-    normalizeDecimal(
-      calculator.current
-    );
-
-  if(
-    calculator.operator &&
-    calculator.previous !== null &&
-    !calculator.waiting
-  ){
-
-    const result =
-      exactOperation(
-        calculator.previous,
-        current,
-        calculator.operator
-      );
-
-    if(result === null){
-
-      showCalculatorError();
-
-      return;
-
-    }
-
-    calculator.previous =
-      result;
-
-    calculator.current =
-      result;
-
-  }else{
-
-    calculator.previous =
-      current;
-
-  }
-
-  calculator.operator =
-    operator;
-
-  calculator.waiting =
-    true;
-
-  calculator.lastOperator =
-    null;
-
-  calculator.lastOperand =
-    null;
-
-  calculator.expression =
-    formatDisplay(
-      calculator.previous
-    ) +
-    " " +
-    operatorSymbols[
-      operator
-    ];
-
-  updateCalculator();
-
-}
-
-
-function equals(){
-
-  vibrate();
-
-  if(
-    calculator.error
-  )
-    return;
-
-  if(
-    calculator.operator !== null &&
-    calculator.previous !== null
-  ){
-
-    const operand =
-      calculator.waiting
-        ? calculator.previous
-        : normalizeDecimal(
-            calculator.current
-          );
-
-    const result =
-      exactOperation(
-        calculator.previous,
-        operand,
-        calculator.operator
-      );
-
-    if(result === null){
-
-      showCalculatorError();
-
-      return;
-
-    }
-
-    calculator.lastOperator =
-      calculator.operator;
-
-    calculator.lastOperand =
-      operand;
-
-    calculator.expression =
-      formatDisplay(
-        calculator.previous
-      ) +
-      " " +
-      operatorSymbols[
-        calculator.operator
-      ] +
-      " " +
-      formatDisplay(
-        operand
-      ) +
-      " =";
-
-    calculator.current =
-      result;
-
-    calculator.previous =
-      null;
-
-    calculator.operator =
-      null;
-
-    calculator.waiting =
-      true;
-
-    addHistory(
-      "Calculadora",
-      calculator.expression,
-      formatDisplay(
-        calculator.current
-      )
-    );
-
-  }else if(
-    calculator.lastOperator !== null &&
-    calculator.lastOperand !== null
-  ){
-
-    const left =
-      normalizeDecimal(
-        calculator.current
-      );
-
-    const result =
-      exactOperation(
-        left,
-        calculator.lastOperand,
-        calculator.lastOperator
-      );
-
-    if(result === null){
-
-      showCalculatorError();
-
-      return;
-
-    }
-
-    calculator.expression =
-      formatDisplay(left) +
-      " " +
-      operatorSymbols[
-        calculator.lastOperator
-      ] +
-      " " +
-      formatDisplay(
-        calculator.lastOperand
-      ) +
-      " =";
-
-    calculator.current =
-      result;
-
-    calculator.waiting =
-      true;
-
-    addHistory(
-      "Calculadora",
-      calculator.expression,
-      formatDisplay(
-        calculator.current
-      )
-    );
-
-  }
-
-  updateCalculator();
-
-}
-
-
-function unaryOperation(
-  type
-){
-
-  vibrate();
-
-  if(
-    calculator.error
-  )
-    return;
-
-  const value =
-    nativeNumber(
-      calculator.current
-    );
-
-  if(
-    !Number.isFinite(value)
-  ){
-
-    showCalculatorError();
-
-    return;
-
-  }
-
-  let result;
-  let label;
-
-  if(
-    type === "sqrt"
-  ){
-
-    if(value < 0){
-
-      showCalculatorError();
-
-      return;
-
-    }
-
-    result =
-      Math.sqrt(value);
-
-    label =
-      "√" +
-      formatDisplay(
-        calculator.current
-      );
-
-  }else{
-
-    result =
-      value * value;
-
-    label =
-      formatDisplay(
-        calculator.current
-      ) +
-      "²";
-
-  }
-
-  if(
-    !Number.isFinite(result)
-  ){
-
-    showCalculatorError();
-
-    return;
-
-  }
-
-  calculator.current =
-    normalizeDecimal(
-      result.toFixed(12)
-    );
-
-  calculator.expression =
-    label +
-    " =";
-
-  calculator.waiting =
-    true;
-
-  addHistory(
-    "Calculadora",
-    calculator.expression,
-    formatDisplay(
-      calculator.current
-    )
-  );
 
   updateCalculator();
 
@@ -2837,12 +2239,13 @@ function unaryOperation(
 
 function clearEntry(){
 
-  vibrate();
-
   calculator.current =
     "0";
 
   calculator.waiting =
+    false;
+
+  calculator.justEvaluated =
     false;
 
   updateCalculator();
@@ -2850,31 +2253,1155 @@ function clearEntry(){
 }
 
 
-function showCalculatorError(){
+function resetCalculator(){
 
   calculator.current =
     "0";
 
-  calculator.expression =
-    "Operação inválida";
+  calculator.previous =
+    "";
+
+  calculator.operator =
+    null;
+
+  calculator.waiting =
+    false;
+
+  calculator.justEvaluated =
+    false;
 
   calculator.error =
-    true;
+    false;
+
+  calculator.expression =
+    "";
+
+  calculator.repeatOperator =
+    null;
+
+  calculator.repeatOperand =
+    null;
+
+  calculator.tokens =
+    [];
+
+  calculator.openParens =
+    0;
 
   updateCalculator();
-
-  toast(
-    "Operação inválida"
-  );
 
 }
 
 
 /* =====================================================
-   BOTÕES
+   OPERADOR
 ===================================================== */
 
-$$(".key")
+function chooseOperator(operator){
+
+  vibrate();
+
+
+  if(
+    calculator.error
+  ){
+
+    return;
+
+  }
+
+
+  if(
+    calculator.tokens.length > 0 &&
+    !calculator.waiting
+  ){
+
+    addCurrentToExpression();
+
+  }
+
+
+  if(
+    calculator.operator &&
+    calculator.waiting
+  ){
+
+    calculator.operator =
+      operator;
+
+    return;
+
+  }
+
+
+  calculator.previous =
+    calculator.current;
+
+  calculator.operator =
+    operator;
+
+  calculator.waiting =
+    true;
+
+  calculator.justEvaluated =
+    false;
+
+  calculator.repeatOperator =
+    null;
+
+  calculator.repeatOperand =
+    null;
+
+
+  const symbol =
+    operatorSymbol(
+      operator
+    );
+
+
+  calculator.expression =
+    formatCalculatorValue(
+      calculator.previous
+    ) +
+    " " +
+    symbol +
+    " ";
+
+  updateCalculator();
+
+}
+
+
+function operatorSymbol(operator){
+
+  const map = {
+
+    add:"+",
+
+    subtract:"−",
+
+    multiply:"×",
+
+    divide:"÷",
+
+    power:"^"
+
+  };
+
+
+  return map[operator] ||
+    operator;
+
+}
+
+
+/* =====================================================
+   PORCENTAGEM
+===================================================== */
+
+function calculatePercent(){
+
+  vibrate();
+
+
+  if(
+    calculator.error
+  ){
+
+    return;
+
+  }
+
+
+  const current =
+    numberValue(
+      calculator.current
+    );
+
+
+  if(
+    calculator.operator &&
+    calculator.previous !== ""
+  ){
+
+    const base =
+      numberValue(
+        calculator.previous
+      );
+
+
+    let percentValue;
+
+
+    if(
+      calculator.operator === "add" ||
+      calculator.operator === "subtract"
+    ){
+
+      percentValue =
+        base *
+        current /
+        100;
+
+    }else{
+
+      percentValue =
+        current /
+        100;
+
+    }
+
+
+    calculator.current =
+      normalizeDecimal(
+        percentValue
+      );
+
+  }else{
+
+    calculator.current =
+      normalizeDecimal(
+        current / 100
+      );
+
+  }
+
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   CALCULAÇÃO BÁSICA
+===================================================== */
+
+function calculateBinary(
+  a,
+  operator,
+  b
+){
+
+  switch(operator){
+
+    case "add":
+      return decimalAdd(a,b);
+
+    case "subtract":
+      return decimalSubtract(a,b);
+
+    case "multiply":
+      return decimalMultiply(a,b);
+
+    case "divide":
+      return decimalDivide(a,b);
+
+    case "power":
+      return decimalPower(a,b);
+
+    default:
+      return normalizeDecimal(b);
+
+  }
+
+}
+
+
+function equals(){
+
+  vibrate();
+
+
+  if(
+    calculator.error
+  ){
+
+    return;
+
+  }
+
+
+  /* REPETIR ÚLTIMA OPERAÇÃO */
+
+  if(
+    calculator.justEvaluated &&
+    calculator.repeatOperator &&
+    calculator.repeatOperand !== null
+  ){
+
+    try{
+
+      const before =
+        calculator.current;
+
+      calculator.current =
+        calculateBinary(
+          calculator.current,
+          calculator.repeatOperator,
+          calculator.repeatOperand
+        );
+
+
+      calculator.expression =
+        formatCalculatorValue(
+          before
+        ) +
+        " " +
+        operatorSymbol(
+          calculator.repeatOperator
+        ) +
+        " " +
+        formatCalculatorValue(
+          calculator.repeatOperand
+        );
+
+
+      calculator.justEvaluated =
+        true;
+
+      addHistory(
+        "Calculadora",
+        calculator.expression,
+        formatCalculatorValue(
+          calculator.current
+        )
+      );
+
+      updateCalculator();
+
+      return;
+
+    }catch(error){
+
+      showCalculatorError(
+        error.message
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  /* EXPRESSÃO COM PARÊNTESES */
+
+  if(
+    calculator.tokens.length > 0 ||
+    calculator.openParens > 0
+  ){
+
+    if(
+      !calculator.waiting
+    ){
+
+      addCurrentToExpression();
+
+    }
+
+
+    try{
+
+      const result =
+        evaluateTokens(
+          calculator.tokens
+        );
+
+
+      const expressionText =
+        tokensToDisplay(
+          calculator.tokens
+        );
+
+
+      calculator.current =
+        normalizeDecimal(
+          result
+        );
+
+      calculator.expression =
+        expressionText +
+        " =";
+
+      calculator.tokens =
+        [];
+
+      calculator.openParens =
+        0;
+
+      calculator.operator =
+        null;
+
+      calculator.waiting =
+        false;
+
+      calculator.justEvaluated =
+        true;
+
+      addHistory(
+        "Calculadora",
+        expressionText,
+        formatCalculatorValue(
+          calculator.current
+        )
+      );
+
+      updateCalculator();
+
+      return;
+
+    }catch(error){
+
+      showCalculatorError(
+        error.message
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  /* OPERAÇÃO NORMAL */
+
+  if(
+    calculator.operator &&
+    calculator.previous !== ""
+  ){
+
+    try{
+
+      let operand =
+        calculator.current;
+
+
+      /* PORCENTAGEM */
+
+      if(
+        calculator.operator === "add" ||
+        calculator.operator === "subtract"
+      ){
+
+        if(
+          calculator.current !== "" &&
+          calculator.expression.includes("%")
+        ){
+
+          operand =
+            normalizeDecimal(
+              numberValue(
+                calculator.previous
+              ) *
+              numberValue(
+                calculator.current
+              ) /
+              100
+            );
+
+        }
+
+      }
+
+
+      const result =
+        calculateBinary(
+          calculator.previous,
+          calculator.operator,
+          operand
+        );
+
+
+      const expressionText =
+        formatCalculatorValue(
+          calculator.previous
+        ) +
+        " " +
+        operatorSymbol(
+          calculator.operator
+        ) +
+        " " +
+        formatCalculatorValue(
+          operand
+        );
+
+
+      calculator.current =
+        result;
+
+      calculator.expression =
+        expressionText +
+        " =";
+
+
+      calculator.repeatOperator =
+        calculator.operator;
+
+      calculator.repeatOperand =
+        operand;
+
+
+      calculator.previous =
+        "";
+
+      calculator.operator =
+        null;
+
+      calculator.waiting =
+        false;
+
+      calculator.justEvaluated =
+        true;
+
+
+      addHistory(
+        "Calculadora",
+        expressionText,
+        formatCalculatorValue(
+          result
+        )
+      );
+
+
+      updateCalculator();
+
+    }catch(error){
+
+      showCalculatorError(
+        error.message
+      );
+
+    }
+
+  }
+
+}
+
+
+function showCalculatorError(
+  message
+){
+
+  calculator.error =
+    true;
+
+  calculator.current =
+    "Erro";
+
+  calculator.expression =
+    message || "Operação inválida";
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   EXPRESSÕES / PARÊNTESES
+===================================================== */
+
+function addCurrentToExpression(){
+
+  if(
+    calculator.current === "" ||
+    calculator.current === "Erro"
+  ){
+
+    return;
+
+  }
+
+
+  calculator.tokens.push(
+    {
+      type:"number",
+      value:numberValue(
+        calculator.current
+      )
+    }
+  );
+
+
+  calculator.current =
+    "0";
+
+  calculator.waiting =
+    true;
+
+}
+
+
+function addOperatorToken(
+  operator
+){
+
+  calculator.tokens.push(
+    {
+      type:"operator",
+      value:operator
+    }
+  );
+
+}
+
+
+function inputLeftParen(){
+
+  vibrate();
+
+
+  if(
+    calculator.error
+  ){
+
+    resetCalculator();
+
+  }
+
+
+  if(
+    !calculator.waiting &&
+    (
+      calculator.current !== "0" ||
+      calculator.current === "-"
+    )
+  ){
+
+    addCurrentToExpression();
+
+    addOperatorToken(
+      "multiply"
+    );
+
+  }
+
+
+  calculator.tokens.push(
+    {
+      type:"leftParen"
+    }
+  );
+
+
+  calculator.openParens++;
+
+
+  calculator.current =
+    "0";
+
+  calculator.waiting =
+    true;
+
+  calculator.expression =
+    tokensToDisplay(
+      calculator.tokens
+    );
+
+
+  updateCalculator();
+
+}
+
+
+function inputRightParen(){
+
+  vibrate();
+
+
+  if(
+    calculator.openParens <= 0
+  ){
+
+    toast(
+      "Não há parêntese aberto"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !calculator.waiting
+  ){
+
+    addCurrentToExpression();
+
+  }
+
+
+  /* Remove operador sobrando */
+
+  const last =
+    calculator.tokens[
+      calculator.tokens.length - 1
+    ];
+
+
+  if(
+    last &&
+    last.type === "operator"
+  ){
+
+    calculator.tokens.pop();
+
+  }
+
+
+  calculator.tokens.push(
+    {
+      type:"rightParen"
+    }
+  );
+
+
+  calculator.openParens--;
+
+  calculator.waiting =
+    true;
+
+  calculator.expression =
+    tokensToDisplay(
+      calculator.tokens
+    );
+
+
+  updateCalculator();
+
+}
+
+
+function tokensToDisplay(tokens){
+
+  return tokens
+    .map(token => {
+
+      if(
+        token.type === "number"
+      ){
+
+        return formatCalculatorValue(
+          normalizeDecimal(
+            token.value
+          )
+        );
+
+      }
+
+
+      if(
+        token.type === "operator"
+      ){
+
+        return operatorSymbol(
+          token.value
+        );
+
+      }
+
+
+      if(
+        token.type === "leftParen"
+      ){
+
+        return "(";
+
+      }
+
+
+      if(
+        token.type === "rightParen"
+      ){
+
+        return ")";
+
+      }
+
+
+      return "";
+
+    })
+    .join(" ");
+
+}
+
+
+function evaluateTokens(tokens){
+
+  if(
+    !tokens.length
+  ){
+
+    return 0;
+
+  }
+
+
+  const output = [];
+
+  const operators = [];
+
+
+  const precedence = {
+
+    add:1,
+
+    subtract:1,
+
+    multiply:2,
+
+    divide:2,
+
+    power:3
+
+  };
+
+
+  for(
+    const token of tokens
+  ){
+
+    if(
+      token.type === "number"
+    ){
+
+      output.push(
+        token
+      );
+
+      continue;
+
+    }
+
+
+    if(
+      token.type === "leftParen"
+    ){
+
+      operators.push(
+        token
+      );
+
+      continue;
+
+    }
+
+
+    if(
+      token.type === "rightParen"
+    ){
+
+      while(
+        operators.length &&
+        operators[
+          operators.length - 1
+        ].type !== "leftParen"
+      ){
+
+        output.push(
+          operators.pop()
+        );
+
+      }
+
+
+      if(
+        !operators.length
+      ){
+
+        throw new Error(
+          "Parênteses inválidos"
+        );
+
+      }
+
+
+      operators.pop();
+
+      continue;
+
+    }
+
+
+    if(
+      token.type === "operator"
+    ){
+
+      while(
+        operators.length &&
+        operators[
+          operators.length - 1
+        ].type === "operator" &&
+        (
+          precedence[
+            operators[
+              operators.length - 1
+            ].value
+          ] >
+          precedence[
+            token.value
+          ] ||
+          (
+            precedence[
+              operators[
+                operators.length - 1
+              ].value
+            ] ===
+            precedence[
+              token.value
+            ] &&
+            token.value !== "power"
+          )
+        )
+      ){
+
+        output.push(
+          operators.pop()
+        );
+
+      }
+
+
+      operators.push(
+        token
+      );
+
+    }
+
+  }
+
+
+  while(
+    operators.length
+  ){
+
+    const operator =
+      operators.pop();
+
+
+    if(
+      operator.type === "leftParen" ||
+      operator.type === "rightParen"
+    ){
+
+      throw new Error(
+        "Parênteses inválidos"
+      );
+
+    }
+
+
+    output.push(
+      operator
+    );
+
+  }
+
+
+  const stack = [];
+
+
+  for(
+    const token of output
+  ){
+
+    if(
+      token.type === "number"
+    ){
+
+      stack.push(
+        token.value
+      );
+
+      continue;
+
+    }
+
+
+    const b =
+      stack.pop();
+
+    const a =
+      stack.pop();
+
+
+    if(
+      a === undefined ||
+      b === undefined
+    ){
+
+      throw new Error(
+        "Expressão inválida"
+      );
+
+    }
+
+
+    stack.push(
+      numberValue(
+        calculateBinary(
+          a,
+          token.value,
+          b
+        )
+      )
+    );
+
+  }
+
+
+  if(
+    stack.length !== 1
+  ){
+
+    throw new Error(
+      "Expressão inválida"
+    );
+
+  }
+
+
+  return stack[0];
+
+}
+
+
+/* =====================================================
+   FUNÇÕES AVANÇADAS
+===================================================== */
+
+function unaryOperation(
+  operation
+){
+
+  vibrate();
+
+
+  if(
+    calculator.error
+  ){
+
+    return;
+
+  }
+
+
+  const value =
+    numberValue(
+      calculator.current
+    );
+
+
+  try{
+
+    let result;
+
+
+    if(
+      operation === "sqrt"
+    ){
+
+      if(
+        value < 0
+      ){
+
+        throw new Error(
+          "Raiz inválida"
+        );
+
+      }
+
+      result =
+        Math.sqrt(value);
+
+    }
+
+
+    if(
+      operation === "square"
+    ){
+
+      result =
+        value * value;
+
+    }
+
+
+    calculator.current =
+      normalizeDecimal(
+        result
+      );
+
+    calculator.justEvaluated =
+      true;
+
+    calculator.waiting =
+      false;
+
+    calculator.expression =
+      operation === "sqrt"
+        ? "√" +
+          formatCalculatorValue(
+            value
+          )
+        : formatCalculatorValue(
+            value
+          ) +
+          "²";
+
+
+    addHistory(
+      "Calculadora",
+      calculator.expression,
+      formatCalculatorValue(
+        calculator.current
+      )
+    );
+
+
+    updateCalculator();
+
+  }catch(error){
+
+    showCalculatorError(
+      error.message
+    );
+
+  }
+
+}
+
+
+function insertPi(){
+
+  vibrate();
+
+
+  calculator.current =
+    normalizeDecimal(
+      Math.PI
+    );
+
+  calculator.waiting =
+    false;
+
+  calculator.justEvaluated =
+    false;
+
+  calculator.expression =
+    "π";
+
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   BOTÕES DA CALCULADORA
+===================================================== */
+
+$$("[data-number]")
   .forEach(
     button => {
 
@@ -2882,23 +3409,28 @@ $$(".key")
         "click",
         () => {
 
-          const number =
-            button.dataset.number;
+          inputNumber(
+            button.dataset.number
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+$$("[data-key]")
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
 
           const key =
             button.dataset.key;
 
-          if(
-            number !== undefined
-          ){
-
-            inputNumber(
-              number
-            );
-
-            return;
-
-          }
 
           switch(key){
 
@@ -2906,82 +3438,108 @@ $$(".key")
               resetCalculator();
               break;
 
+
             case "backspace":
               backspace();
               break;
 
-            case "decimal":
-              inputDecimal();
-              break;
-
-            case "sign":
-              toggleSign();
-              break;
-
-            case "percent":
-              calculatePercent();
-              break;
-
-            case "divide":
-              chooseOperator("divide");
-              break;
-
-            case "multiply":
-              chooseOperator("multiply");
-              break;
-
-            case "subtract":
-              chooseOperator("subtract");
-              break;
-
-            case "add":
-              chooseOperator("add");
-              break;
-
-            case "equals":
-              equals();
-              break;
-
-            case "sqrt":
-              unaryOperation("sqrt");
-              break;
-
-            case "square":
-              unaryOperation("square");
-              break;
 
             case "clearEntry":
               clearEntry();
               break;
 
-            case "power":
-              chooseOperator("power");
+
+            case "sign":
+              toggleSign();
               break;
+
+
+            case "decimal-comma":
+              inputDecimal();
+              break;
+
+
+            case "decimal-dot":
+              inputDecimal();
+              break;
+
+
+            case "percent":
+              calculatePercent();
+              break;
+
+
+            case "divide":
+              chooseOperator(
+                "divide"
+              );
+              break;
+
+
+            case "multiply":
+              chooseOperator(
+                "multiply"
+              );
+              break;
+
+
+            case "subtract":
+              chooseOperator(
+                "subtract"
+              );
+              break;
+
+
+            case "add":
+              chooseOperator(
+                "add"
+              );
+              break;
+
+
+            case "equals":
+              equals();
+              break;
+
+
+            case "sqrt":
+              unaryOperation(
+                "sqrt"
+              );
+              break;
+
+
+            case "square":
+              unaryOperation(
+                "square"
+              );
+              break;
+
+
+            case "power":
+              chooseOperator(
+                "power"
+              );
+              break;
+
 
             case "pi":
-              calculator.current =
-                normalizeDecimal(
-                  Math.PI.toFixed(12)
-                );
-
-              calculator.waiting =
-                true;
-
-              calculator.expression =
-                "π";
-
-              updateCalculator();
+              insertPi();
               break;
+
 
             case "repeat":
               equals();
               break;
 
+
             case "leftParen":
+              inputLeftParen();
+              break;
+
+
             case "rightParen":
-              toast(
-                "Use a calculadora básica para operações diretas"
-              );
+              inputRightParen();
               break;
 
           }
@@ -2991,105 +3549,6 @@ $$(".key")
 
     }
   );
-
-
-/* =====================================================
-   TECLADO DO COMPUTADOR
-===================================================== */
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    const tag =
-      document.activeElement?.tagName;
-
-    if(
-      tag === "INPUT" ||
-      tag === "TEXTAREA" ||
-      tag === "SELECT"
-    )
-      return;
-
-    const key =
-      event.key;
-
-    if(
-      /^[0-9]$/.test(key)
-    ){
-
-      event.preventDefault();
-      inputNumber(key);
-
-    }else if(
-      key === "." ||
-      key === ","
-    ){
-
-      event.preventDefault();
-      inputDecimal();
-
-    }else if(
-      key === "+"
-    ){
-
-      event.preventDefault();
-      chooseOperator("add");
-
-    }else if(
-      key === "-"
-    ){
-
-      event.preventDefault();
-      chooseOperator("subtract");
-
-    }else if(
-      key === "*"
-    ){
-
-      event.preventDefault();
-      chooseOperator("multiply");
-
-    }else if(
-      key === "/"
-    ){
-
-      event.preventDefault();
-      chooseOperator("divide");
-
-    }else if(
-      key === "%"
-    ){
-
-      event.preventDefault();
-      calculatePercent();
-
-    }else if(
-      key === "Enter" ||
-      key === "="
-    ){
-
-      event.preventDefault();
-      equals();
-
-    }else if(
-      key === "Backspace"
-    ){
-
-      event.preventDefault();
-      backspace();
-
-    }else if(
-      key === "Escape"
-    ){
-
-      event.preventDefault();
-      resetCalculator();
-
-    }
-
-  }
-);
 
 
 /* =====================================================
@@ -3105,6 +3564,7 @@ $("#advancedToggle")
         .classList.toggle(
           "open"
         );
+
 
       $("#advancedToggle")
         .textContent =
@@ -3123,14 +3583,6 @@ $("#advancedToggle")
    MEMÓRIA
 ===================================================== */
 
-calculator.memory =
-  normalizeDecimal(
-    localStorage.getItem(
-      "calpro_memory"
-    ) || "0"
-  );
-
-
 $$("[data-memory]")
   .forEach(
     button => {
@@ -3141,13 +3593,16 @@ $$("[data-memory]")
 
           vibrate();
 
+
           const action =
             button.dataset.memory;
 
+
           const current =
-            normalizeDecimal(
+            numberValue(
               calculator.current
             );
+
 
           if(
             action === "MC"
@@ -3160,7 +3615,10 @@ $$("[data-memory]")
               "Memória limpa"
             );
 
-          }else if(
+          }
+
+
+          else if(
             action === "MR"
           ){
 
@@ -3168,13 +3626,19 @@ $$("[data-memory]")
               calculator.memory;
 
             calculator.waiting =
-              true;
+              false;
+
+            calculator.justEvaluated =
+              false;
 
             toast(
               "Memória recuperada"
             );
 
-          }else if(
+          }
+
+
+          else if(
             action === "M+"
           ){
 
@@ -3188,7 +3652,10 @@ $$("[data-memory]")
               "Valor somado à memória"
             );
 
-          }else if(
+          }
+
+
+          else if(
             action === "M-"
           ){
 
@@ -3202,12 +3669,17 @@ $$("[data-memory]")
               "Valor subtraído da memória"
             );
 
-          }else if(
+          }
+
+
+          else if(
             action === "MS"
           ){
 
             calculator.memory =
-              current;
+              normalizeDecimal(
+                current
+              );
 
             toast(
               "Valor salvo na memória"
@@ -3215,10 +3687,12 @@ $$("[data-memory]")
 
           }
 
+
           localStorage.setItem(
             "calpro_memory",
             calculator.memory
           );
+
 
           updateCalculator();
 
@@ -3227,6 +3701,206 @@ $$("[data-memory]")
 
     }
   );
+
+
+/* =====================================================
+   TECLADO FÍSICO
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    const tag =
+      document.activeElement?.tagName;
+
+
+    if(
+      tag === "INPUT" ||
+      tag === "TEXTAREA" ||
+      tag === "SELECT"
+    ){
+
+      return;
+
+    }
+
+
+    const key =
+      event.key;
+
+
+    if(
+      /^[0-9]$/.test(key)
+    ){
+
+      event.preventDefault();
+
+      inputNumber(
+        key
+      );
+
+      return;
+
+    }
+
+
+    if(
+      key === "." ||
+      key === ","
+    ){
+
+      event.preventDefault();
+
+      inputDecimal();
+
+      return;
+
+    }
+
+
+    if(
+      key === "+"
+    ){
+
+      event.preventDefault();
+
+      chooseOperator(
+        "add"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      key === "-"
+    ){
+
+      event.preventDefault();
+
+      chooseOperator(
+        "subtract"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      key === "*" ||
+      key === "x" ||
+      key === "X"
+    ){
+
+      event.preventDefault();
+
+      chooseOperator(
+        "multiply"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      key === "/"
+    ){
+
+      event.preventDefault();
+
+      chooseOperator(
+        "divide"
+      );
+
+      return;
+
+    }
+
+
+    if(
+      key === "%"
+    ){
+
+      event.preventDefault();
+
+      calculatePercent();
+
+      return;
+
+    }
+
+
+    if(
+      key === "Enter" ||
+      key === "="
+    ){
+
+      event.preventDefault();
+
+      equals();
+
+      return;
+
+    }
+
+
+    if(
+      key === "Backspace"
+    ){
+
+      event.preventDefault();
+
+      backspace();
+
+      return;
+
+    }
+
+
+    if(
+      key === "Escape"
+    ){
+
+      event.preventDefault();
+
+      resetCalculator();
+
+      return;
+
+    }
+
+
+    if(
+      key === "("
+    ){
+
+      event.preventDefault();
+
+      inputLeftParen();
+
+      return;
+
+    }
+
+
+    if(
+      key === ")"
+    ){
+
+      event.preventDefault();
+
+      inputRightParen();
+
+      return;
+
+    }
+
+  }
+);
 
 
 /* =====================================================
@@ -3252,9 +3926,7 @@ function getHistory(){
 }
 
 
-function escapeHtml(
-  value
-){
+function escapeHtml(value){
 
   return String(value)
     .replace(
@@ -3280,15 +3952,15 @@ function addHistory(
   const history =
     getHistory();
 
+
   history.unshift({
 
     type,
 
     expression,
 
-    result:String(
-      result
-    ),
+    result:
+      String(result),
 
     date:
       new Date()
@@ -3297,6 +3969,7 @@ function addHistory(
         )
 
   });
+
 
   localStorage.setItem(
     "calpro_history",
@@ -3308,6 +3981,7 @@ function addHistory(
     )
   );
 
+
   renderHistory();
 
 }
@@ -3318,8 +3992,19 @@ function renderHistory(){
   const list =
     $("#historyList");
 
+
+  if(
+    !list
+  ){
+
+    return;
+
+  }
+
+
   const history =
     getHistory();
+
 
   if(
     !history.length
@@ -3339,6 +4024,7 @@ function renderHistory(){
     return;
 
   }
+
 
   list.innerHTML =
     history
@@ -3404,7 +4090,7 @@ $("#clearHistory")
 
 
 /* =====================================================
-   COMERCIAL
+   FORMATAÇÃO COMERCIAL
 ===================================================== */
 
 function parseBrazilianInput(id){
@@ -3412,17 +4098,29 @@ function parseBrazilianInput(id){
   const element =
     document.getElementById(id);
 
-  if(!element)
+
+  if(!element){
+
     return 0;
+
+  }
+
 
   const text =
-    element.value.trim();
+    element.value
+      .trim();
 
-  if(!text)
+
+  if(!text){
+
     return 0;
+
+  }
+
 
   let normalized =
     text;
+
 
   if(
     text.includes(",")
@@ -3435,8 +4133,10 @@ function parseBrazilianInput(id){
 
   }
 
+
   const value =
     Number(normalized);
+
 
   return Number.isFinite(value)
     ? value
@@ -3445,18 +4145,19 @@ function parseBrazilianInput(id){
 }
 
 
-function formatInputBrazilian(
-  input
-){
+function formatInputBrazilian(input){
 
   let value =
-    input.value.replace(
-      /[^\d,.-]/g,
-      ""
-    );
+    input.value
+      .replace(
+        /[^0-9,.-]/g,
+        ""
+      );
+
 
   const negative =
     value.startsWith("-");
+
 
   value =
     value.replace(
@@ -3464,16 +4165,22 @@ function formatInputBrazilian(
       ""
     );
 
+
   const parts =
     value.split(",");
+
 
   let integer =
     parts[0] || "0";
 
+
   let decimal =
     parts.length > 1
-      ? parts.slice(1).join("")
+      ? parts
+          .slice(1)
+          .join("")
       : "";
+
 
   integer =
     integer.replace(
@@ -3481,15 +4188,19 @@ function formatInputBrazilian(
       ""
     ) || "0";
 
+
   integer =
     integer.replace(
       /\B(?=(\d{3})+(?!\d))/g,
       "."
     );
 
+
   input.value =
     (
-      negative ? "-" : ""
+      negative
+        ? "-"
+        : ""
     ) +
     integer +
     (
@@ -3531,8 +4242,13 @@ commercialInputs.forEach(
         id
       );
 
-    if(!input)
+
+    if(!input){
+
       return;
+
+    }
+
 
     input.addEventListener(
       "input",
@@ -3545,6 +4261,7 @@ commercialInputs.forEach(
       }
     );
 
+
     input.addEventListener(
       "blur",
       () => {
@@ -3553,6 +4270,7 @@ commercialInputs.forEach(
           parseBrazilianInput(
             id
           );
+
 
         if(
           input.value.trim() !== ""
@@ -3576,9 +4294,11 @@ commercialInputs.forEach(
 );
 
 
-function setCommercialTab(
-  name
-){
+/* =====================================================
+   ABAS COMERCIAIS
+===================================================== */
+
+function setCommercialTab(name){
 
   $$(".tab")
     .forEach(
@@ -3602,10 +4322,18 @@ function setCommercialTab(
   ].forEach(
     panel => {
 
-      document.getElementById(
-        "panel-" + panel
-      ).hidden =
-        panel !== name;
+      const element =
+        document.getElementById(
+          "panel-" + panel
+        );
+
+
+      if(element){
+
+        element.hidden =
+          panel !== name;
+
+      }
 
     }
   );
@@ -3632,14 +4360,20 @@ $$("[data-tab]")
   );
 
 
+/* =====================================================
+   RESULTADO COMERCIAL
+===================================================== */
+
 function renderResult(
   id,
   rows
 ){
 
-  document.getElementById(
-    id
-  ).innerHTML =
+  const element =
+    document.getElementById(id);
+
+
+  element.innerHTML =
     rows
       .map(
         row => `
@@ -3667,6 +4401,10 @@ function renderResult(
 }
 
 
+/* =====================================================
+   CÁLCULOS COMERCIAIS
+===================================================== */
+
 $$("[data-calc-commercial]")
   .forEach(
     button => {
@@ -3676,6 +4414,7 @@ $$("[data-calc-commercial]")
         () => {
 
           vibrate();
+
 
           const type =
             button.dataset
@@ -3693,10 +4432,12 @@ $$("[data-calc-commercial]")
                 "marginCost"
               );
 
+
             const sale =
               parseBrazilianInput(
                 "marginSale"
               );
+
 
             if(
               cost <= 0 ||
@@ -3711,18 +4452,22 @@ $$("[data-calc-commercial]")
 
             }
 
+
             const profit =
               sale - cost;
+
 
             const margin =
               profit /
               sale *
               100;
 
+
             const markup =
               profit /
               cost *
               100;
+
 
             renderResult(
               "result-margin",
@@ -3746,6 +4491,7 @@ $$("[data-calc-commercial]")
               ]
             );
 
+
             addHistory(
               "Margem",
               money(cost) +
@@ -3768,15 +4514,18 @@ $$("[data-calc-commercial]")
                 "priceCost"
               );
 
+
             const margin =
               parseBrazilianInput(
                 "priceMargin"
               );
 
+
             const markup =
               parseBrazilianInput(
                 "priceMarkup"
               );
+
 
             if(
               cost <= 0
@@ -3790,12 +4539,9 @@ $$("[data-calc-commercial]")
 
             }
 
+
             let sale;
 
-            /*
-              Se margem estiver preenchida,
-              ela tem prioridade.
-            */
 
             if(
               margin > 0
@@ -3813,6 +4559,7 @@ $$("[data-calc-commercial]")
 
               }
 
+
               sale =
                 cost /
                 (
@@ -3820,7 +4567,10 @@ $$("[data-calc-commercial]")
                   margin / 100
                 );
 
-            }else if(
+            }
+
+
+            else if(
               markup > 0
             ){
 
@@ -3831,7 +4581,10 @@ $$("[data-calc-commercial]")
                   markup / 100
                 );
 
-            }else{
+            }
+
+
+            else{
 
               toast(
                 "Informe margem ou markup"
@@ -3841,18 +4594,22 @@ $$("[data-calc-commercial]")
 
             }
 
+
             const profit =
               sale - cost;
+
 
             const realMargin =
               profit /
               sale *
               100;
 
+
             const realMarkup =
               profit /
               cost *
               100;
+
 
             renderResult(
               "result-price",
@@ -3881,6 +4638,7 @@ $$("[data-calc-commercial]")
               ]
             );
 
+
             addHistory(
               "Preço",
               money(cost) +
@@ -3903,10 +4661,12 @@ $$("[data-calc-commercial]")
                 "discountOriginal"
               );
 
+
             const percent =
               parseBrazilianInput(
                 "discountPercent"
               );
+
 
             if(
               original <= 0 ||
@@ -3922,14 +4682,17 @@ $$("[data-calc-commercial]")
 
             }
 
+
             const discount =
               original *
               percent /
               100;
 
+
             const finalPrice =
               original -
               discount;
+
 
             renderResult(
               "result-discount",
@@ -3953,6 +4716,7 @@ $$("[data-calc-commercial]")
               ]
             );
 
+
             addHistory(
               "Desconto",
               money(original) +
@@ -3975,10 +4739,12 @@ $$("[data-calc-commercial]")
                 "markupCost"
               );
 
+
             const percent =
               parseBrazilianInput(
                 "markupPercent"
               );
+
 
             if(
               cost <= 0 ||
@@ -3993,19 +4759,23 @@ $$("[data-calc-commercial]")
 
             }
 
+
             const profit =
               cost *
               percent /
               100;
 
+
             const sale =
               cost +
               profit;
+
 
             const margin =
               profit /
               sale *
               100;
+
 
             renderResult(
               "result-markup",
@@ -4034,6 +4804,7 @@ $$("[data-calc-commercial]")
               ]
             );
 
+
             addHistory(
               "Markup",
               money(cost) +
@@ -4043,6 +4814,84 @@ $$("[data-calc-commercial]")
             );
 
           }
+
+        }
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   NAVEGAÇÃO
+===================================================== */
+
+function navigate(
+  screenName
+){
+
+  $$(".screen")
+    .forEach(
+      screen => {
+
+        screen.classList.toggle(
+          "active",
+          screen.id === screenName
+        );
+
+      }
+    );
+
+
+  $$(".nav-btn")
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.nav === screenName
+        );
+
+      }
+    );
+
+}
+
+
+$$("[data-nav]")
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          navigate(
+            button.dataset.nav
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+$$("[data-open]")
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          navigate(
+            "commercial"
+          );
+
+          setCommercialTab(
+            button.dataset.open
+          );
 
         }
       );
@@ -4064,13 +4913,23 @@ function setTheme(
     theme === "light"
   );
 
+
   localStorage.setItem(
     "calpro_theme",
     theme
   );
 
-  $("#themeSelect").value =
-    theme;
+
+  const select =
+    $("#themeSelect");
+
+
+  if(select){
+
+    select.value =
+      theme;
+
+  }
 
 }
 
@@ -4106,11 +4965,17 @@ $("#themeBtn")
     () => {
 
       setTheme(
-        document.body.classList.contains(
-          "light"
-        )
+
+        document.body
+          .classList
+          .contains(
+            "light"
+          )
+
           ? "dark"
+
           : "light"
+
       );
 
     }
