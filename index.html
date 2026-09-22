@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#07110d">
-<meta name="description" content="CALPRO EXPERT - Calculadora comercial">
 <title>CALPRO EXPERT</title>
 
 <style>
@@ -17,7 +16,6 @@
   --muted:#8ea097;
   --accent:#7cff00;
   --accent-dark:#102319;
-  --danger:#ff5d68;
 }
 
 *{
@@ -25,8 +23,7 @@
   -webkit-tap-highlight-color:transparent;
 }
 
-html,
-body{
+html,body{
   width:100%;
   height:100%;
   margin:0;
@@ -36,13 +33,7 @@ body{
   font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 
-body{
-  min-height:100%;
-}
-
-button,
-input,
-select{
+button,input,select{
   font:inherit;
 }
 
@@ -53,27 +44,27 @@ button{
 }
 
 #app{
-  width:min(520px,100%);
+  width:100%;
   height:100%;
-  margin:auto;
   display:flex;
   flex-direction:column;
   overflow:hidden;
 }
 
 header{
-  height:58px;
-  flex:0 0 58px;
-  padding:10px 16px;
+  height:64px;
+  flex:0 0 64px;
+  padding:10px 22px;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  border-bottom:1px solid var(--line);
 }
 
 .logo{
-  font-size:20px;
+  font-size:21px;
   font-weight:900;
-  letter-spacing:.4px;
+  letter-spacing:.5px;
 }
 
 .logo span{
@@ -81,8 +72,8 @@ header{
 }
 
 .theme-btn{
-  width:38px;
-  height:38px;
+  width:40px;
+  height:40px;
   border-radius:12px;
   background:var(--card);
   border:1px solid var(--line);
@@ -92,11 +83,12 @@ main{
   flex:1;
   min-height:0;
   overflow:hidden;
-  padding:0 13px;
+  padding:16px;
 }
 
 .screen{
   display:none;
+  width:100%;
   height:100%;
   min-height:0;
 }
@@ -115,61 +107,74 @@ main{
   display:none;
 }
 
-/* HOME */
+/* =========================
+   HOME
+========================= */
+
+.home-container{
+  width:min(1100px,100%);
+  margin:auto;
+}
 
 .hero{
-  padding:13px 3px 12px;
+  padding:8px 3px 18px;
 }
 
 .hero h1{
-  font-size:26px;
-  margin:0 0 5px;
+  font-size:clamp(25px,3vw,34px);
+  margin:0 0 6px;
 }
 
 .hero p{
   margin:0;
   color:var(--muted);
-  font-size:13px;
+  font-size:14px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
 }
 
 .card{
   background:var(--card);
   border:1px solid var(--line);
-  border-radius:18px;
-  padding:15px;
+  border-radius:20px;
+  padding:20px;
+  transition:.15s;
+}
+
+.card:hover{
+  border-color:#385a47;
+  transform:translateY(-2px);
 }
 
 .tool{
-  min-height:105px;
+  min-height:145px;
   text-align:left;
 }
 
 .tool .icon{
-  font-size:24px;
-  margin-bottom:6px;
+  font-size:27px;
+  margin-bottom:12px;
 }
 
 .tool strong{
   display:block;
-  font-size:16px;
+  font-size:17px;
 }
 
 .tool small{
   display:block;
-  margin-top:5px;
+  margin-top:7px;
   color:var(--muted);
-  font-size:11px;
+  font-size:12px;
 }
 
 .ad{
-  margin:12px 0;
-  padding:7px;
+  margin-top:15px;
+  padding:9px;
   border:1px dashed var(--line);
   border-radius:10px;
   color:#687a70;
@@ -177,49 +182,92 @@ main{
   font-size:10px;
 }
 
-/* TITLES */
-
 .section-title{
-  font-size:18px;
+  width:min(1100px,100%);
+  margin:0 auto 10px;
+  font-size:20px;
   font-weight:800;
-  margin:8px 2px;
 }
 
-/* CALCULATOR */
+/* =========================
+   CALCULATOR
+========================= */
+
+.calculator-layout{
+  width:min(1100px,100%);
+  height:100%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:minmax(420px,620px) minmax(260px,1fr);
+  gap:18px;
+  min-height:0;
+}
+
+.calculator-info{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+  overflow:auto;
+}
+
+.calculator-info h2{
+  margin:0 0 10px;
+  font-size:22px;
+}
+
+.calculator-info p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+}
+
+.info-box{
+  margin-top:18px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:15px;
+  background:#09150f;
+}
+
+.info-box strong{
+  color:var(--accent);
+}
 
 .calc-card{
-  height:calc(100% - 38px);
+  width:100%;
+  height:100%;
   min-height:0;
   background:var(--card);
   border:1px solid var(--line);
-  border-radius:21px;
-  padding:9px;
+  border-radius:22px;
+  padding:11px;
   display:flex;
   flex-direction:column;
 }
 
 .display{
   flex:1 1 auto;
-  min-height:0;
+  min-height:100px;
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
   text-align:right;
-  padding:5px 9px 7px;
+  padding:7px 12px 8px;
   overflow:hidden;
 }
 
 .operation{
-  height:20px;
+  height:22px;
   color:var(--muted);
-  font-size:12px;
+  font-size:13px;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
 
 .calc-display{
-  font-size:clamp(32px,8vw,45px);
+  font-size:clamp(34px,4vw,52px);
   line-height:1.08;
   font-weight:500;
   white-space:nowrap;
@@ -234,19 +282,18 @@ main{
 .calc-format{
   color:var(--muted);
   font-size:9px;
-  margin-top:3px;
+  margin-top:4px;
 }
 
 .memory{
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  gap:5px;
-  flex:0 0 auto;
-  margin-bottom:6px;
+  gap:6px;
+  margin-bottom:7px;
 }
 
 .memory button{
-  height:28px;
+  height:30px;
   border-radius:9px;
   background:#0a1610;
   border:1px solid var(--line);
@@ -257,18 +304,21 @@ main{
 .keypad{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:6px;
-  flex:0 0 auto;
+  gap:7px;
 }
 
 .key{
-  height:clamp(45px,8.5vh,61px);
+  height:clamp(48px,7vh,65px);
   border-radius:15px;
   background:var(--key);
   border:1px solid #20372b;
-  font-size:20px;
+  font-size:21px;
   font-weight:700;
   transition:.1s;
+}
+
+.key:hover{
+  filter:brightness(1.12);
 }
 
 .key:active{
@@ -292,7 +342,7 @@ main{
 .more-functions{
   height:30px;
   flex:0 0 30px;
-  margin:6px 0;
+  margin:7px 0;
   border-radius:10px;
   background:transparent;
   border:1px solid var(--line);
@@ -302,13 +352,12 @@ main{
 
 .advanced{
   display:none;
-  flex:0 0 auto;
 }
 
 .advanced.open{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:5px;
+  gap:6px;
 }
 
 .advanced .key{
@@ -316,21 +365,28 @@ main{
   font-size:14px;
 }
 
-/* COMMERCIAL */
+/* =========================
+   COMMERCIAL
+========================= */
+
+.commercial-container{
+  width:min(850px,100%);
+  margin:auto;
+}
 
 .tabs{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:6px;
-  margin:5px 0 9px;
+  gap:7px;
+  margin-bottom:12px;
 }
 
 .tab{
-  height:38px;
+  height:42px;
   border-radius:10px;
   background:var(--card);
   color:var(--muted);
-  font-size:11px;
+  font-size:12px;
   font-weight:800;
 }
 
@@ -342,25 +398,35 @@ main{
 .form-card{
   background:var(--card);
   border:1px solid var(--line);
-  border-radius:18px;
-  padding:14px;
+  border-radius:20px;
+  padding:20px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
 .field{
-  margin-bottom:9px;
+  margin-bottom:10px;
+}
+
+.field.full{
+  grid-column:1/-1;
 }
 
 .field label{
   display:block;
   color:var(--muted);
-  font-size:11px;
-  margin-bottom:5px;
+  font-size:12px;
+  margin-bottom:6px;
 }
 
 .field input,
 .field select{
   width:100%;
-  height:43px;
+  height:46px;
   border-radius:11px;
   border:1px solid var(--line);
   background:#09150f;
@@ -375,7 +441,7 @@ main{
 
 .primary{
   width:100%;
-  height:43px;
+  height:46px;
   border-radius:11px;
   background:var(--accent);
   color:#07110d;
@@ -383,20 +449,20 @@ main{
 }
 
 .result{
-  margin-top:9px;
-  padding:9px;
+  margin-top:11px;
+  padding:10px;
   border:1px solid var(--line);
-  border-radius:11px;
+  border-radius:12px;
   background:#09150f;
 }
 
 .result-row{
   display:flex;
   justify-content:space-between;
-  gap:12px;
-  padding:5px 0;
+  gap:15px;
+  padding:6px 0;
   border-bottom:1px solid #17271f;
-  font-size:12px;
+  font-size:13px;
 }
 
 .result-row:last-child{
@@ -407,60 +473,72 @@ main{
   color:var(--muted);
 }
 
-/* HISTORY */
+/* =========================
+   HISTORY
+========================= */
 
-.history-card{
+.history-container{
+  width:min(850px,100%);
+  margin:auto;
+}
+
+.history-card,
+.settings-card{
   background:var(--card);
   border:1px solid var(--line);
-  border-radius:18px;
-  padding:12px;
+  border-radius:20px;
+  padding:16px;
 }
 
 .history-item{
-  padding:9px 0;
+  padding:11px 0;
   border-bottom:1px solid var(--line);
-  font-size:12px;
+  font-size:13px;
 }
 
 .history-item small{
   color:var(--muted);
 }
 
-/* SETTINGS */
+/* =========================
+   SETTINGS
+========================= */
 
-.settings-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:14px;
+.settings-container{
+  width:min(700px,100%);
+  margin:auto;
 }
 
 .settings-row{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:13px 0;
+  padding:15px 0;
   border-bottom:1px solid var(--line);
-  font-size:13px;
+  font-size:14px;
 }
 
 .settings-row:last-child{
   border-bottom:0;
 }
 
-/* BOTTOM NAV */
+/* =========================
+   NAV
+========================= */
 
 .bottom-nav{
-  height:68px;
-  flex:0 0 68px;
+  height:70px;
+  flex:0 0 70px;
   border-top:1px solid var(--line);
   background:rgba(7,17,13,.97);
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  padding:5px 7px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding:6px 12px;
 }
 
 .nav-btn{
+  width:110px;
   background:transparent;
   color:var(--muted);
   border-radius:12px;
@@ -470,6 +548,7 @@ main{
 .nav-btn b{
   display:block;
   font-size:19px;
+  margin-bottom:2px;
 }
 
 .nav-btn.active{
@@ -477,19 +556,21 @@ main{
   background:#0e1e16;
 }
 
-/* TOAST */
+/* =========================
+   TOAST
+========================= */
 
 .toast{
   position:fixed;
   z-index:100;
   left:50%;
-  bottom:76px;
+  bottom:82px;
   transform:translate(-50%,12px);
   opacity:0;
   pointer-events:none;
   background:#edf7f0;
   color:#07110d;
-  padding:9px 13px;
+  padding:9px 14px;
   border-radius:10px;
   font-size:12px;
   font-weight:800;
@@ -501,7 +582,9 @@ main{
   transform:translate(-50%,0);
 }
 
-/* LIGHT */
+/* =========================
+   LIGHT
+========================= */
 
 .light{
   --bg:#f2f5f3;
@@ -516,9 +599,112 @@ main{
   background:rgba(242,245,243,.97);
 }
 
-/* SMALL HEIGHT */
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+  .calculator-layout{
+    grid-template-columns:1fr;
+  }
+
+  .calculator-info{
+    display:none;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:600px){
+
+  header{
+    height:58px;
+    flex-basis:58px;
+    padding:9px 16px;
+  }
+
+  main{
+    padding:0 13px;
+  }
+
+  .grid{
+    gap:10px;
+  }
+
+  .tool{
+    min-height:105px;
+    padding:15px;
+  }
+
+  .tool .icon{
+    font-size:24px;
+  }
+
+  .tool strong{
+    font-size:16px;
+  }
+
+  .tool small{
+    font-size:11px;
+  }
+
+  .calculator-layout{
+    display:block;
+  }
+
+  .calc-card{
+    height:calc(100% - 38px);
+  }
+
+  .display{
+    min-height:80px;
+  }
+
+  .key{
+    height:clamp(45px,8.5vh,61px);
+  }
+
+  .form-card{
+    padding:14px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .bottom-nav{
+    height:68px;
+    flex-basis:68px;
+  }
+
+  .nav-btn{
+    width:auto;
+    flex:1;
+  }
+
+}
+
+/* =========================
+   TELAS PEQUENAS
+========================= */
 
 @media(max-height:650px){
+
+  .hero{
+    padding-top:7px;
+  }
 
   .tool{
     min-height:88px;
@@ -547,6 +733,7 @@ main{
   .advanced .key{
     height:33px;
   }
+
 }
 </style>
 </head>
@@ -575,7 +762,7 @@ main{
 <main>
 
 <!-- =========================
-     HOME
+     INÍCIO
 ========================= -->
 
 <section
@@ -583,130 +770,114 @@ main{
   class="screen active scroll"
 >
 
-  <div class="hero">
+  <div class="home-container">
 
-    <h1>
-      Calculadora comercial
-    </h1>
+    <div class="hero">
 
-    <p>
-      Rápida, precisa e feita para sua rotina.
-    </p>
+      <h1>
+        Calculadora comercial
+      </h1>
 
-  </div>
+      <p>
+        Rápida, precisa e feita para sua rotina.
+      </p>
 
-
-  <div class="grid">
-
-    <button
-      class="card tool"
-      data-open="margin"
-      type="button"
-    >
-
-      <div class="icon">
-        %
-      </div>
-
-      <strong>
-        MARGEM
-      </strong>
-
-      <small>
-        Lucro, margem e markup
-      </small>
-
-    </button>
+    </div>
 
 
-    <button
-      class="card tool"
-      data-open="price"
-      type="button"
-    >
+    <div class="grid">
 
-      <div class="icon">
-        R$
-      </div>
+      <button
+        class="card tool"
+        data-open="margin"
+        type="button"
+      >
 
-      <strong>
-        PREÇO
-      </strong>
+        <div class="icon">%</div>
 
-      <small>
-        Preço de venda
-      </small>
+        <strong>MARGEM</strong>
 
-    </button>
+        <small>
+          Lucro, margem e markup
+        </small>
+
+      </button>
 
 
-    <button
-      class="card tool"
-      data-open="discount"
-      type="button"
-    >
+      <button
+        class="card tool"
+        data-open="price"
+        type="button"
+      >
 
-      <div class="icon">
-        −%
-      </div>
+        <div class="icon">R$</div>
 
-      <strong>
-        DESCONTO
-      </strong>
+        <strong>PREÇO</strong>
 
-      <small>
-        Preço final
-      </small>
+        <small>
+          Preço de venda
+        </small>
 
-    </button>
+      </button>
 
 
-    <button
-      class="card tool"
-      data-open="markup"
-      type="button"
-    >
+      <button
+        class="card tool"
+        data-open="discount"
+        type="button"
+      >
 
-      <div class="icon">
-        ×
-      </div>
+        <div class="icon">−%</div>
 
-      <strong>
-        MARKUP
-      </strong>
+        <strong>DESCONTO</strong>
 
-      <small>
-        Markup e margem
-      </small>
+        <small>
+          Preço final
+        </small>
 
-    </button>
+      </button>
 
 
-    <button
-      class="card tool"
-      data-nav="calculator"
-      type="button"
-    >
+      <button
+        class="card tool"
+        data-open="markup"
+        type="button"
+      >
 
-      <div class="icon">
-        ⌗
-      </div>
+        <div class="icon">×</div>
 
-      <strong>
-        CALCULADORA
-      </strong>
+        <strong>MARKUP</strong>
 
-      <small>
-        Cálculos completos
-      </small>
+        <small>
+          Markup e margem
+        </small>
 
-    </button>
-
-  </div>
+      </button>
 
 
-  <div class="ad">
-    ESPAÇO PARA DIVULGAÇÃO
+      <button
+        class="card tool"
+        data-nav="calculator"
+        type="button"
+      >
+
+        <div class="icon">⌗</div>
+
+        <strong>CALCULADORA</strong>
+
+        <small>
+          Cálculos completos
+        </small>
+
+      </button>
+
+    </div>
+
+
+    <div class="ad">
+      ESPAÇO PARA DIVULGAÇÃO
+    </div>
+
   </div>
 
 </section>
@@ -726,321 +897,147 @@ main{
   </div>
 
 
-  <div class="calc-card">
+  <div class="calculator-layout">
 
-    <div class="display">
+    <div class="calc-card">
 
-      <div
-        id="calcOperation"
-        class="operation"
-      ></div>
+      <div class="display">
 
+        <div
+          id="calcOperation"
+          class="operation"
+        ></div>
 
-      <div
-        id="calcDisplay"
-        class="calc-display"
-      >
-        0
+        <div
+          id="calcDisplay"
+          class="calc-display"
+        >
+          0
+        </div>
+
+        <div class="calc-format">
+          Formato brasileiro: 1.234,56
+        </div>
+
       </div>
 
 
-      <div class="calc-format">
-        Formato brasileiro: 1.234,56
+      <div class="memory">
+
+        <button data-memory="MC" type="button">MC</button>
+        <button data-memory="MR" type="button">MR</button>
+        <button data-memory="M+" type="button">M+</button>
+        <button data-memory="M-" type="button">M−</button>
+        <button data-memory="MS" type="button">MS</button>
+
+      </div>
+
+
+      <div class="keypad">
+
+        <button class="key action" data-key="clear" type="button">AC</button>
+        <button class="key action" data-key="backspace" type="button">⌫</button>
+        <button class="key operator" data-key="percent" type="button">%</button>
+        <button class="key operator" data-key="divide" type="button">÷</button>
+
+        <button class="key" data-number="7" type="button">7</button>
+        <button class="key" data-number="8" type="button">8</button>
+        <button class="key" data-number="9" type="button">9</button>
+        <button class="key operator" data-key="multiply" type="button">×</button>
+
+        <button class="key" data-number="4" type="button">4</button>
+        <button class="key" data-number="5" type="button">5</button>
+        <button class="key" data-number="6" type="button">6</button>
+        <button class="key operator" data-key="subtract" type="button">−</button>
+
+        <button class="key" data-number="1" type="button">1</button>
+        <button class="key" data-number="2" type="button">2</button>
+        <button class="key" data-number="3" type="button">3</button>
+        <button class="key operator" data-key="add" type="button">+</button>
+
+        <button class="key action" data-key="sign" type="button">+/−</button>
+        <button class="key" data-number="0" type="button">0</button>
+        <button class="key" data-key="decimal" type="button">,</button>
+        <button class="key equal" data-key="equals" type="button">=</button>
+
+      </div>
+
+
+      <button
+        class="more-functions"
+        id="advancedToggle"
+        type="button"
+      >
+        Mais funções
+      </button>
+
+
+      <div
+        class="advanced"
+        id="advanced"
+      >
+
+        <button class="key" data-key="sqrt" type="button">√</button>
+        <button class="key" data-key="square" type="button">x²</button>
+        <button class="key" data-key="power" type="button">xʸ</button>
+        <button class="key" data-key="clearEntry" type="button">CE</button>
+
+        <button class="key" data-key="pi" type="button">π</button>
+        <button class="key" data-key="repeat" type="button">↻</button>
+        <button class="key" data-key="leftParen" type="button">(</button>
+        <button class="key" data-key="rightParen" type="button">)</button>
+
       </div>
 
     </div>
 
 
-    <!-- MEMÓRIA -->
+    <div class="calculator-info">
 
-    <div class="memory">
+      <h2>
+        CALPRO EXPERT
+      </h2>
 
-      <button
-        type="button"
-        data-memory="MC"
-      >
-        MC
-      </button>
+      <p>
+        Calculadora comercial com suporte a teclado,
+        memória, operações encadeadas e formatação
+        brasileira.
+      </p>
 
-      <button
-        type="button"
-        data-memory="MR"
-      >
-        MR
-      </button>
+      <div class="info-box">
 
-      <button
-        type="button"
-        data-memory="M+"
-      >
-        M+
-      </button>
+        <strong>Teclado físico</strong>
 
-      <button
-        type="button"
-        data-memory="M-"
-      >
-        M−
-      </button>
+        <p>
+          Use os números, +, −, ×, ÷, Enter,
+          Backspace e Escape diretamente no computador.
+        </p>
 
-      <button
-        type="button"
-        data-memory="MS"
-      >
-        MS
-      </button>
-
-    </div>
+      </div>
 
 
-    <!-- TECLADO -->
+      <div class="info-box">
 
-    <div class="keypad">
+        <strong>Formato brasileiro</strong>
 
-      <button
-        class="key action"
-        data-key="clear"
-        type="button"
-      >
-        AC
-      </button>
+        <p>
+          Valores aparecem automaticamente como
+          1.234,56.
+        </p>
 
-      <button
-        class="key action"
-        data-key="backspace"
-        type="button"
-      >
-        ⌫
-      </button>
-
-      <button
-        class="key operator"
-        data-key="percent"
-        type="button"
-      >
-        %
-      </button>
-
-      <button
-        class="key operator"
-        data-key="divide"
-        type="button"
-      >
-        ÷
-      </button>
+      </div>
 
 
-      <button
-        class="key"
-        data-number="7"
-        type="button"
-      >
-        7
-      </button>
+      <div class="info-box">
 
-      <button
-        class="key"
-        data-number="8"
-        type="button"
-      >
-        8
-      </button>
+        <strong>Precisão</strong>
 
-      <button
-        class="key"
-        data-number="9"
-        type="button"
-      >
-        9
-      </button>
+        <p>
+          As operações básicas utilizam aritmética
+          decimal para reduzir erros de ponto flutuante.
+        </p>
 
-      <button
-        class="key operator"
-        data-key="multiply"
-        type="button"
-      >
-        ×
-      </button>
-
-
-      <button
-        class="key"
-        data-number="4"
-        type="button"
-      >
-        4
-      </button>
-
-      <button
-        class="key"
-        data-number="5"
-        type="button"
-      >
-        5
-      </button>
-
-      <button
-        class="key"
-        data-number="6"
-        type="button"
-      >
-        6
-      </button>
-
-      <button
-        class="key operator"
-        data-key="subtract"
-        type="button"
-      >
-        −
-      </button>
-
-
-      <button
-        class="key"
-        data-number="1"
-        type="button"
-      >
-        1
-      </button>
-
-      <button
-        class="key"
-        data-number="2"
-        type="button"
-      >
-        2
-      </button>
-
-      <button
-        class="key"
-        data-number="3"
-        type="button"
-      >
-        3
-      </button>
-
-      <button
-        class="key operator"
-        data-key="add"
-        type="button"
-      >
-        +
-      </button>
-
-
-      <button
-        class="key action"
-        data-key="sign"
-        type="button"
-      >
-        +/−
-      </button>
-
-      <button
-        class="key"
-        data-number="0"
-        type="button"
-      >
-        0
-      </button>
-
-      <button
-        class="key"
-        data-key="decimal"
-        type="button"
-      >
-        ,
-      </button>
-
-      <button
-        class="key equal"
-        data-key="equals"
-        type="button"
-      >
-        =
-      </button>
-
-    </div>
-
-
-    <button
-      class="more-functions"
-      id="advancedToggle"
-      type="button"
-    >
-      Mais funções
-    </button>
-
-
-    <div
-      class="advanced"
-      id="advanced"
-    >
-
-      <button
-        class="key"
-        data-key="sqrt"
-        type="button"
-      >
-        √
-      </button>
-
-      <button
-        class="key"
-        data-key="square"
-        type="button"
-      >
-        x²
-      </button>
-
-      <button
-        class="key"
-        data-key="power"
-        type="button"
-      >
-        xʸ
-      </button>
-
-      <button
-        class="key"
-        data-key="clearEntry"
-        type="button"
-      >
-        CE
-      </button>
-
-      <button
-        class="key"
-        data-key="pi"
-        type="button"
-      >
-        π
-      </button>
-
-      <button
-        class="key"
-        data-key="repeat"
-        type="button"
-      >
-        ↻
-      </button>
-
-      <button
-        class="key"
-        data-key="leftParen"
-        type="button"
-      >
-        (
-      </button>
-
-      <button
-        class="key"
-        data-key="rightParen"
-        type="button"
-      >
-        )
-      </button>
+      </div>
 
     </div>
 
@@ -1058,289 +1055,287 @@ main{
   class="screen scroll"
 >
 
-  <div class="section-title">
-    Ferramentas comerciais
-  </div>
+  <div class="commercial-container">
 
-
-  <div class="form-card">
-
-    <div class="tabs">
-
-      <button
-        class="tab active"
-        data-tab="margin"
-        type="button"
-      >
-        MARGEM
-      </button>
-
-      <button
-        class="tab"
-        data-tab="price"
-        type="button"
-      >
-        PREÇO
-      </button>
-
-      <button
-        class="tab"
-        data-tab="discount"
-        type="button"
-      >
-        DESCONTO
-      </button>
-
-      <button
-        class="tab"
-        data-tab="markup"
-        type="button"
-      >
-        MARKUP
-      </button>
-
+    <div class="section-title">
+      Ferramentas comerciais
     </div>
 
 
-    <!-- MARGEM -->
+    <div class="form-card">
 
-    <div
-      id="panel-margin"
-      class="panel"
-    >
+      <div class="tabs">
 
-      <div class="field">
+        <button class="tab active" data-tab="margin" type="button">
+          MARGEM
+        </button>
 
-        <label>
-          Custo (R$)
-        </label>
+        <button class="tab" data-tab="price" type="button">
+          PREÇO
+        </button>
 
-        <input
-          id="marginCost"
-          type="text"
-          inputmode="decimal"
-          placeholder="0,00"
-        >
+        <button class="tab" data-tab="discount" type="button">
+          DESCONTO
+        </button>
 
-      </div>
-
-
-      <div class="field">
-
-        <label>
-          Preço de venda (R$)
-        </label>
-
-        <input
-          id="marginSale"
-          type="text"
-          inputmode="decimal"
-          placeholder="0,00"
-        >
+        <button class="tab" data-tab="markup" type="button">
+          MARKUP
+        </button>
 
       </div>
 
 
-      <button
-        class="primary"
-        data-calc-commercial="margin"
-        type="button"
-      >
-        CALCULAR
-      </button>
+      <!-- MARGEM -->
 
+      <div id="panel-margin">
+
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label>
+              Custo (R$)
+            </label>
+
+            <input
+              id="marginCost"
+              type="text"
+              inputmode="decimal"
+              placeholder="0,00"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Preço de venda (R$)
+            </label>
+
+            <input
+              id="marginSale"
+              type="text"
+              inputmode="decimal"
+              placeholder="0,00"
+            >
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-calc-commercial="margin"
+          type="button"
+        >
+          CALCULAR
+        </button>
+
+
+        <div
+          id="result-margin"
+          class="result"
+        ></div>
+
+      </div>
+
+
+      <!-- PREÇO -->
 
       <div
-        id="result-margin"
-        class="result"
-      ></div>
-
-    </div>
-
-
-    <!-- PREÇO -->
-
-    <div
-      id="panel-price"
-      class="panel"
-      hidden
-    >
-
-      <div class="field">
-
-        <label>
-          Custo (R$)
-        </label>
-
-        <input
-          id="priceCost"
-          type="text"
-          inputmode="decimal"
-          placeholder="0,00"
-        >
-
-      </div>
-
-
-      <div class="field">
-
-        <label>
-          Margem desejada (%)
-        </label>
-
-        <input
-          id="priceMargin"
-          type="text"
-          inputmode="decimal"
-          placeholder="30,00"
-        >
-
-      </div>
-
-
-      <div class="field">
-
-        <label>
-          Ou markup desejado (%)
-        </label>
-
-        <input
-          id="priceMarkup"
-          type="text"
-          inputmode="decimal"
-          placeholder="50,00"
-        >
-
-      </div>
-
-
-      <button
-        class="primary"
-        data-calc-commercial="price"
-        type="button"
+        id="panel-price"
+        hidden
       >
-        CALCULAR
-      </button>
 
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label>
+              Custo (R$)
+            </label>
+
+            <input
+              id="priceCost"
+              type="text"
+              inputmode="decimal"
+              placeholder="0,00"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Margem desejada (%)
+            </label>
+
+            <input
+              id="priceMargin"
+              type="text"
+              inputmode="decimal"
+              placeholder="30,00"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Ou markup desejado (%)
+            </label>
+
+            <input
+              id="priceMarkup"
+              type="text"
+              inputmode="decimal"
+              placeholder="50,00"
+            >
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-calc-commercial="price"
+          type="button"
+        >
+          CALCULAR
+        </button>
+
+
+        <div
+          id="result-price"
+          class="result"
+        ></div>
+
+      </div>
+
+
+      <!-- DESCONTO -->
 
       <div
-        id="result-price"
-        class="result"
-      ></div>
-
-    </div>
-
-
-    <!-- DESCONTO -->
-
-    <div
-      id="panel-discount"
-      class="panel"
-      hidden
-    >
-
-      <div class="field">
-
-        <label>
-          Preço original (R$)
-        </label>
-
-        <input
-          id="discountOriginal"
-          type="text"
-          inputmode="decimal"
-          placeholder="0,00"
-        >
-
-      </div>
-
-
-      <div class="field">
-
-        <label>
-          Desconto (%)
-        </label>
-
-        <input
-          id="discountPercent"
-          type="text"
-          inputmode="decimal"
-          placeholder="10,00"
-        >
-
-      </div>
-
-
-      <button
-        class="primary"
-        data-calc-commercial="discount"
-        type="button"
+        id="panel-discount"
+        hidden
       >
-        CALCULAR
-      </button>
 
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label>
+              Preço original (R$)
+            </label>
+
+            <input
+              id="discountOriginal"
+              type="text"
+              inputmode="decimal"
+              placeholder="0,00"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Desconto (%)
+            </label>
+
+            <input
+              id="discountPercent"
+              type="text"
+              inputmode="decimal"
+              placeholder="10,00"
+            >
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-calc-commercial="discount"
+          type="button"
+        >
+          CALCULAR
+        </button>
+
+
+        <div
+          id="result-discount"
+          class="result"
+        ></div>
+
+      </div>
+
+
+      <!-- MARKUP -->
 
       <div
-        id="result-discount"
-        class="result"
-      ></div>
-
-    </div>
-
-
-    <!-- MARKUP -->
-
-    <div
-      id="panel-markup"
-      class="panel"
-      hidden
-    >
-
-      <div class="field">
-
-        <label>
-          Custo (R$)
-        </label>
-
-        <input
-          id="markupCost"
-          type="text"
-          inputmode="decimal"
-          placeholder="0,00"
-        >
-
-      </div>
-
-
-      <div class="field">
-
-        <label>
-          Markup (%)
-        </label>
-
-        <input
-          id="markupPercent"
-          type="text"
-          inputmode="decimal"
-          placeholder="50,00"
-        >
-
-      </div>
-
-
-      <button
-        class="primary"
-        data-calc-commercial="markup"
-        type="button"
+        id="panel-markup"
+        hidden
       >
-        CALCULAR
-      </button>
+
+        <div class="form-grid">
+
+          <div class="field">
+
+            <label>
+              Custo (R$)
+            </label>
+
+            <input
+              id="markupCost"
+              type="text"
+              inputmode="decimal"
+              placeholder="0,00"
+            >
+
+          </div>
 
 
-      <div
-        id="result-markup"
-        class="result"
-      ></div>
+          <div class="field">
+
+            <label>
+              Markup (%)
+            </label>
+
+            <input
+              id="markupPercent"
+              type="text"
+              inputmode="decimal"
+              placeholder="50,00"
+            >
+
+          </div>
+
+        </div>
+
+
+        <button
+          class="primary"
+          data-calc-commercial="markup"
+          type="button"
+        >
+          CALCULAR
+        </button>
+
+
+        <div
+          id="result-markup"
+          class="result"
+        ></div>
+
+      </div>
 
     </div>
 
@@ -1358,23 +1353,27 @@ main{
   class="screen scroll"
 >
 
-  <div class="section-title">
-    Histórico
-  </div>
+  <div class="history-container">
+
+    <div class="section-title">
+      Histórico
+    </div>
 
 
-  <div class="history-card">
+    <div class="history-card">
 
-    <button
-      class="primary"
-      id="clearHistory"
-      type="button"
-    >
-      LIMPAR HISTÓRICO
-    </button>
+      <button
+        class="primary"
+        id="clearHistory"
+        type="button"
+      >
+        LIMPAR HISTÓRICO
+      </button>
 
 
-    <div id="historyList"></div>
+      <div id="historyList"></div>
+
+    </div>
 
   </div>
 
@@ -1390,45 +1389,49 @@ main{
   class="screen scroll"
 >
 
-  <div class="section-title">
-    Configurações
-  </div>
+  <div class="settings-container">
 
-
-  <div class="settings-card">
-
-    <div class="settings-row">
-
-      <span>
-        Tema
-      </span>
-
-      <select id="themeSelect">
-
-        <option value="dark">
-          Escuro
-        </option>
-
-        <option value="light">
-          Claro
-        </option>
-
-      </select>
-
+    <div class="section-title">
+      Configurações
     </div>
 
 
-    <div class="settings-row">
+    <div class="settings-card">
 
-      <span>
-        Vibração
-      </span>
+      <div class="settings-row">
 
-      <input
-        id="vibrationToggle"
-        type="checkbox"
-        checked
-      >
+        <span>
+          Tema
+        </span>
+
+        <select id="themeSelect">
+
+          <option value="dark">
+            Escuro
+          </option>
+
+          <option value="light">
+            Claro
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="settings-row">
+
+        <span>
+          Vibração
+        </span>
+
+        <input
+          id="vibrationToggle"
+          type="checkbox"
+          checked
+        >
+
+      </div>
 
     </div>
 
@@ -1438,10 +1441,6 @@ main{
 
 </main>
 
-
-<!-- =========================
-     MENU
-========================= -->
 
 <nav class="bottom-nav">
 
@@ -1499,14 +1498,12 @@ main{
 
 "use strict";
 
-
 /* =====================================================
    UTILITÁRIOS
 ===================================================== */
 
 const $ = selector =>
   document.querySelector(selector);
-
 
 const $$ = selector =>
   Array.from(
@@ -1522,7 +1519,9 @@ function toast(message){
   element.textContent =
     message;
 
-  element.classList.add("show");
+  element.classList.add(
+    "show"
+  );
 
   clearTimeout(
     window.__toastTimer
@@ -1531,10 +1530,13 @@ function toast(message){
   window.__toastTimer =
     setTimeout(
       () => {
-        element.classList.remove("show");
+        element.classList.remove(
+          "show"
+        );
       },
       1600
     );
+
 }
 
 
@@ -1553,9 +1555,7 @@ function vibrate(){
 
 
 /* =====================================================
-   DECIMAL EXATO
-   Evita problemas como:
-   0,1 + 0,2 = 0,30000000000000004
+   DECIMAL
 ===================================================== */
 
 const DECIMAL_PLACES = 12;
@@ -1565,28 +1565,22 @@ function normalizeDecimal(value){
 
   let text =
     String(value)
-    .trim()
-    .replace(",", ".");
-
+      .trim()
+      .replace(",", ".");
 
   if(!text)
     return "0";
 
-
   let sign = "";
-
 
   if(
     text.startsWith("-")
   ){
 
     sign = "-";
-
-    text =
-      text.slice(1);
+    text = text.slice(1);
 
   }
-
 
   if(
     !/^\d*\.?\d*$/.test(text)
@@ -1596,28 +1590,23 @@ function normalizeDecimal(value){
 
   }
 
-
   let [
     integer = "0",
     decimal = ""
   ] =
     text.split(".");
 
-
   integer =
-    integer
-    .replace(
+    integer.replace(
       /^0+(?=\d)/,
       ""
     ) || "0";
-
 
   decimal =
     decimal.replace(
       /0+$/,
       ""
     );
-
 
   return (
     sign +
@@ -1637,44 +1626,32 @@ function decimalParts(value){
   let text =
     normalizeDecimal(value);
 
-
   const negative =
     text.startsWith("-");
 
-
   if(negative)
-    text =
-      text.slice(1);
-
+    text = text.slice(1);
 
   const parts =
     text.split(".");
 
-
   const integer =
     parts[0] || "0";
-
 
   const decimal =
     parts[1] || "";
 
-
   let digits =
     integer + decimal;
-
 
   if(!digits)
     digits = "0";
 
-
   let number =
     BigInt(digits);
 
-
   if(negative)
-    number =
-      -number;
-
+    number = -number;
 
   return {
     integer:number,
@@ -1704,30 +1681,22 @@ function decimalFromBigInt(
 
   }
 
-
   const negative =
     integer < 0n;
 
-
   if(negative)
-    integer =
-      -integer;
-
+    integer = -integer;
 
   let digits =
     integer.toString();
 
-
   if(scale === 0){
 
     return (
-      negative
-        ? "-"
-        : ""
+      negative ? "-" : ""
     ) + digits;
 
   }
-
 
   if(
     digits.length <= scale
@@ -1735,19 +1704,15 @@ function decimalFromBigInt(
 
     digits =
       "0".repeat(
-        scale +
-        1 -
+        scale + 1 -
         digits.length
       ) +
       digits;
 
   }
 
-
   const position =
-    digits.length -
-    scale;
-
+    digits.length - scale;
 
   let result =
     digits.slice(
@@ -1757,23 +1722,19 @@ function decimalFromBigInt(
     "." +
     digits.slice(position);
 
-
   result =
     result
-    .replace(
-      /(\.\d*?)0+$/,
-      "$1"
-    )
-    .replace(
-      /\.$/,
-      ""
-    );
-
+      .replace(
+        /(\.\d*?)0+$/,
+        "$1"
+      )
+      .replace(
+        /\.$/,
+        ""
+      );
 
   return (
-    negative
-      ? "-"
-      : ""
+    negative ? "-" : ""
   ) + result;
 
 }
@@ -1787,24 +1748,20 @@ function decimalAdd(a,b){
   const B =
     decimalParts(b);
 
-
   const scale =
     Math.max(
       A.scale,
       B.scale
     );
 
-
   return decimalFromBigInt(
     A.integer *
       power10(
-        scale -
-        A.scale
+        scale - A.scale
       ) +
     B.integer *
       power10(
-        scale -
-        B.scale
+        scale - B.scale
       ),
     scale
   );
@@ -1820,24 +1777,20 @@ function decimalSubtract(a,b){
   const B =
     decimalParts(b);
 
-
   const scale =
     Math.max(
       A.scale,
       B.scale
     );
 
-
   return decimalFromBigInt(
     A.integer *
       power10(
-        scale -
-        A.scale
+        scale - A.scale
       ) -
     B.integer *
       power10(
-        scale -
-        B.scale
+        scale - B.scale
       ),
     scale
   );
@@ -1852,7 +1805,6 @@ function decimalMultiply(a,b){
 
   const B =
     decimalParts(b);
-
 
   return decimalFromBigInt(
     A.integer *
@@ -1872,7 +1824,6 @@ function decimalDivide(a,b){
   const B =
     decimalParts(b);
 
-
   if(
     B.integer === 0n
   ){
@@ -1881,7 +1832,6 @@ function decimalDivide(a,b){
 
   }
 
-
   const negative =
     (
       A.integer < 0n
@@ -1889,30 +1839,22 @@ function decimalDivide(a,b){
       B.integer < 0n
     );
 
-
   const numerator =
     A.integer < 0n
       ? -A.integer
       : A.integer;
-
 
   const denominator =
     B.integer < 0n
       ? -B.integer
       : B.integer;
 
-
-  const scale =
-    DECIMAL_PLACES;
-
-
   const scaledNumerator =
     numerator *
     power10(
-      scale +
+      DECIMAL_PLACES +
       B.scale
     );
-
 
   const scaledDenominator =
     denominator *
@@ -1920,40 +1862,29 @@ function decimalDivide(a,b){
       A.scale
     );
 
-
   let quotient =
     scaledNumerator /
     scaledDenominator;
 
-
   const remainder =
     scaledNumerator %
     scaledDenominator;
-
-
-  /*
-    Arredondamento half-up.
-  */
 
   if(
     remainder * 2n >=
     scaledDenominator
   ){
 
-    quotient +=
-      1n;
+    quotient++;
 
   }
 
-
   if(negative)
-    quotient =
-      -quotient;
-
+    quotient = -quotient;
 
   return decimalFromBigInt(
     quotient,
-    scale
+    DECIMAL_PLACES
   );
 
 }
@@ -1979,6 +1910,13 @@ function exactOperation(
     case "divide":
       return decimalDivide(a,b);
 
+    case "power":
+
+      return exactPower(
+        a,
+        b
+      );
+
     default:
       return b;
 
@@ -1988,7 +1926,116 @@ function exactOperation(
 
 
 /* =====================================================
-   FORMATAÇÃO BRASILEIRA
+   POTÊNCIA
+===================================================== */
+
+function exactPower(
+  base,
+  exponent
+){
+
+  const baseText =
+    normalizeDecimal(base);
+
+  const exponentText =
+    normalizeDecimal(exponent);
+
+  const exponentNumber =
+    Number(exponentText);
+
+  if(
+    Number.isInteger(
+      exponentNumber
+    ) &&
+    Math.abs(
+      exponentNumber
+    ) <= 1000
+  ){
+
+    if(
+      exponentNumber === 0
+    )
+      return "1";
+
+    let count =
+      Math.abs(
+        exponentNumber
+      );
+
+    let result =
+      "1";
+
+    let value =
+      baseText;
+
+    while(
+      count > 0
+    ){
+
+      if(
+        count % 2 === 1
+      ){
+
+        result =
+          decimalMultiply(
+            result,
+            value
+          );
+
+      }
+
+      count =
+        Math.floor(
+          count / 2
+        );
+
+      if(count > 0){
+
+        value =
+          decimalMultiply(
+            value,
+            value
+          );
+
+      }
+
+    }
+
+    if(
+      exponentNumber < 0
+    ){
+
+      return decimalDivide(
+        "1",
+        result
+      );
+
+    }
+
+    return result;
+
+  }
+
+  const result =
+    Math.pow(
+      Number(baseText),
+      exponentNumber
+    );
+
+  if(
+    !Number.isFinite(result)
+  )
+    return null;
+
+  return normalizeDecimal(
+    result.toFixed(12)
+  );
+
+}
+
+
+/* =====================================================
+   FORMATAÇÃO
 ===================================================== */
 
 function formatDisplay(value){
@@ -1996,19 +2043,14 @@ function formatDisplay(value){
   let text =
     normalizeDecimal(value);
 
-
   if(text === "0")
     return "0";
-
 
   const negative =
     text.startsWith("-");
 
-
   if(negative)
-    text =
-      text.slice(1);
-
+    text = text.slice(1);
 
   let [
     integer,
@@ -2016,18 +2058,14 @@ function formatDisplay(value){
   ] =
     text.split(".");
 
-
   integer =
     integer.replace(
       /\B(?=(\d{3})+(?!\d))/g,
       "."
     );
 
-
   return (
-    negative
-      ? "-"
-      : ""
+    negative ? "-" : ""
   ) +
   integer +
   (
@@ -2055,10 +2093,10 @@ function money(value){
       ? value
       : nativeNumber(value);
 
-
-  if(!Number.isFinite(number))
+  if(
+    !Number.isFinite(number)
+  )
     return "—";
-
 
   return number.toLocaleString(
     "pt-BR",
@@ -2080,10 +2118,10 @@ function percentage(value){
       ? value
       : nativeNumber(value);
 
-
-  if(!Number.isFinite(number))
+  if(
+    !Number.isFinite(number)
+  )
     return "—";
-
 
   return number.toLocaleString(
     "pt-BR",
@@ -2113,7 +2151,6 @@ function showScreen(id){
 
       }
     );
-
 
   $$(".nav-btn")
     .forEach(
@@ -2181,21 +2218,13 @@ $$("[data-open]")
 const calculator = {
 
   current:"0",
-
   previous:null,
-
   operator:null,
-
   waiting:false,
-
   expression:"",
-
   lastOperator:null,
-
   lastOperand:null,
-
   memory:"0",
-
   error:false
 
 };
@@ -2204,13 +2233,9 @@ const calculator = {
 const operatorSymbols = {
 
   add:"+",
-
   subtract:"−",
-
   multiply:"×",
-
   divide:"÷",
-
   power:"^"
 
 };
@@ -2224,16 +2249,13 @@ function updateCalculator(){
       calculator.current
     );
 
-
   $("#calcOperation")
     .textContent =
     calculator.expression ||
     "";
 
-
   const display =
     $("#calcDisplay");
-
 
   display.scrollLeft =
     display.scrollWidth;
@@ -2276,7 +2298,6 @@ function inputNumber(number){
 
   vibrate();
 
-
   if(
     calculator.error
   ){
@@ -2284,7 +2305,6 @@ function inputNumber(number){
     resetCalculator();
 
   }
-
 
   if(
     calculator.waiting
@@ -2303,7 +2323,6 @@ function inputNumber(number){
         calculator.current
       );
 
-
     if(
       current === "0"
     ){
@@ -2316,23 +2335,20 @@ function inputNumber(number){
       const negative =
         current.startsWith("-");
 
-
       const unsigned =
         negative
           ? current.slice(1)
           : current;
 
-
       if(
         unsigned
-        .replace(".","")
-        .length >= 15
+          .replace(".","")
+          .length >= 15
       ){
 
         return;
 
       }
-
 
       calculator.current +=
         number;
@@ -2340,7 +2356,6 @@ function inputNumber(number){
     }
 
   }
-
 
   updateCalculator();
 
@@ -2351,7 +2366,6 @@ function inputDecimal(){
 
   vibrate();
 
-
   if(
     calculator.error
   ){
@@ -2359,7 +2373,6 @@ function inputDecimal(){
     resetCalculator();
 
   }
-
 
   if(
     calculator.waiting
@@ -2380,11 +2393,9 @@ function inputDecimal(){
     calculator.current =
       normalizeDecimal(
         calculator.current
-      ) +
-      ".";
+      ) + ".";
 
   }
-
 
   updateCalculator();
 
@@ -2394,7 +2405,6 @@ function inputDecimal(){
 function backspace(){
 
   vibrate();
-
 
   if(
     calculator.error
@@ -2406,22 +2416,16 @@ function backspace(){
 
   }
 
-
   if(
     calculator.waiting
   )
     return;
 
-
-  const current =
-    calculator.current;
-
-
   if(
-    current.length <= 1 ||
+    calculator.current.length <= 1 ||
     (
-      current.length === 2 &&
-      current.startsWith("-")
+      calculator.current.length === 2 &&
+      calculator.current.startsWith("-")
     )
   ){
 
@@ -2431,13 +2435,12 @@ function backspace(){
   }else{
 
     calculator.current =
-      current.slice(
+      calculator.current.slice(
         0,
         -1
       );
 
   }
-
 
   updateCalculator();
 
@@ -2448,20 +2451,17 @@ function toggleSign(){
 
   vibrate();
 
-
   if(
     calculator.error ||
     calculator.current === "0"
   )
     return;
 
-
   calculator.current =
     calculator.current.startsWith("-")
       ? calculator.current.slice(1)
       : "-" +
         calculator.current;
-
 
   updateCalculator();
 
@@ -2472,21 +2472,17 @@ function calculatePercent(){
 
   vibrate();
 
-
   if(
     calculator.error
   )
     return;
-
 
   const current =
     normalizeDecimal(
       calculator.current
     );
 
-
   let result;
-
 
   if(
     calculator.previous !== null &&
@@ -2515,7 +2511,6 @@ function calculatePercent(){
 
   }
 
-
   if(result === null){
 
     showCalculatorError();
@@ -2524,32 +2519,29 @@ function calculatePercent(){
 
   }
 
-
   calculator.current =
     result;
-
 
   updateCalculator();
 
 }
 
 
-function chooseOperator(operator){
+function chooseOperator(
+  operator
+){
 
   vibrate();
-
 
   if(
     calculator.error
   )
     return;
 
-
   const current =
     normalizeDecimal(
       calculator.current
     );
-
 
   if(
     calculator.operator &&
@@ -2564,7 +2556,6 @@ function chooseOperator(operator){
         calculator.operator
       );
 
-
     if(result === null){
 
       showCalculatorError();
@@ -2572,7 +2563,6 @@ function chooseOperator(operator){
       return;
 
     }
-
 
     calculator.previous =
       result;
@@ -2587,7 +2577,6 @@ function chooseOperator(operator){
 
   }
 
-
   calculator.operator =
     operator;
 
@@ -2600,7 +2589,6 @@ function chooseOperator(operator){
   calculator.lastOperand =
     null;
 
-
   calculator.expression =
     formatDisplay(
       calculator.previous
@@ -2609,7 +2597,6 @@ function chooseOperator(operator){
     operatorSymbols[
       operator
     ];
-
 
   updateCalculator();
 
@@ -2620,12 +2607,10 @@ function equals(){
 
   vibrate();
 
-
   if(
     calculator.error
   )
     return;
-
 
   if(
     calculator.operator !== null &&
@@ -2639,14 +2624,12 @@ function equals(){
             calculator.current
           );
 
-
     const result =
       exactOperation(
         calculator.previous,
         operand,
         calculator.operator
       );
-
 
     if(result === null){
 
@@ -2656,13 +2639,11 @@ function equals(){
 
     }
 
-
     calculator.lastOperator =
       calculator.operator;
 
     calculator.lastOperand =
       operand;
-
 
     calculator.expression =
       formatDisplay(
@@ -2678,7 +2659,6 @@ function equals(){
       ) +
       " =";
 
-
     calculator.current =
       result;
 
@@ -2690,7 +2670,6 @@ function equals(){
 
     calculator.waiting =
       true;
-
 
     addHistory(
       "Calculadora",
@@ -2710,14 +2689,12 @@ function equals(){
         calculator.current
       );
 
-
     const result =
       exactOperation(
         left,
         calculator.lastOperand,
         calculator.lastOperator
       );
-
 
     if(result === null){
 
@@ -2726,7 +2703,6 @@ function equals(){
       return;
 
     }
-
 
     calculator.expression =
       formatDisplay(left) +
@@ -2740,13 +2716,11 @@ function equals(){
       ) +
       " =";
 
-
     calculator.current =
       result;
 
     calculator.waiting =
       true;
-
 
     addHistory(
       "Calculadora",
@@ -2758,28 +2732,26 @@ function equals(){
 
   }
 
-
   updateCalculator();
 
 }
 
 
-function unaryOperation(type){
+function unaryOperation(
+  type
+){
 
   vibrate();
-
 
   if(
     calculator.error
   )
     return;
 
-
   const value =
     nativeNumber(
       calculator.current
     );
-
 
   if(
     !Number.isFinite(value)
@@ -2791,11 +2763,8 @@ function unaryOperation(type){
 
   }
 
-
   let result;
-
   let label;
-
 
   if(
     type === "sqrt"
@@ -2809,7 +2778,6 @@ function unaryOperation(type){
 
     }
 
-
     result =
       Math.sqrt(value);
 
@@ -2822,8 +2790,7 @@ function unaryOperation(type){
   }else{
 
     result =
-      value *
-      value;
+      value * value;
 
     label =
       formatDisplay(
@@ -2832,7 +2799,6 @@ function unaryOperation(type){
       "²";
 
   }
-
 
   if(
     !Number.isFinite(result)
@@ -2844,21 +2810,17 @@ function unaryOperation(type){
 
   }
 
-
   calculator.current =
     normalizeDecimal(
       result.toFixed(12)
     );
 
-
   calculator.expression =
     label +
     " =";
 
-
   calculator.waiting =
     true;
-
 
   addHistory(
     "Calculadora",
@@ -2867,7 +2829,6 @@ function unaryOperation(type){
       calculator.current
     )
   );
-
 
   updateCalculator();
 
@@ -2909,49 +2870,8 @@ function showCalculatorError(){
 }
 
 
-function insertPi(){
-
-  if(
-    calculator.error
-  )
-    resetCalculator();
-
-
-  calculator.current =
-    normalizeDecimal(
-      Math.PI.toFixed(12)
-    );
-
-
-  calculator.waiting =
-    true;
-
-  calculator.expression =
-    "π";
-
-  updateCalculator();
-
-}
-
-
-/*
-  Parênteses ficam disponíveis no modo avançado.
-  O modo principal não usa eval(), garantindo que
-  operações financeiras não sejam executadas por
-  código arbitrário.
-*/
-
-function parenthesisMessage(){
-
-  toast(
-    "Use as operações do teclado para manter a precisão"
-  );
-
-}
-
-
 /* =====================================================
-   BOTÕES DA CALCULADORA
+   BOTÕES
 ===================================================== */
 
 $$(".key")
@@ -2968,7 +2888,6 @@ $$(".key")
           const key =
             button.dataset.key;
 
-
           if(
             number !== undefined
           ){
@@ -2981,140 +2900,88 @@ $$(".key")
 
           }
 
-
           switch(key){
 
             case "clear":
-
               resetCalculator();
-
               break;
-
 
             case "backspace":
-
               backspace();
-
               break;
-
 
             case "decimal":
-
               inputDecimal();
-
               break;
-
 
             case "sign":
-
               toggleSign();
-
               break;
-
 
             case "percent":
-
               calculatePercent();
-
               break;
-
 
             case "divide":
-
-              chooseOperator(
-                "divide"
-              );
-
+              chooseOperator("divide");
               break;
-
 
             case "multiply":
-
-              chooseOperator(
-                "multiply"
-              );
-
+              chooseOperator("multiply");
               break;
-
 
             case "subtract":
-
-              chooseOperator(
-                "subtract"
-              );
-
+              chooseOperator("subtract");
               break;
-
 
             case "add":
-
-              chooseOperator(
-                "add"
-              );
-
+              chooseOperator("add");
               break;
-
 
             case "equals":
-
               equals();
-
               break;
-
 
             case "sqrt":
-
-              unaryOperation(
-                "sqrt"
-              );
-
+              unaryOperation("sqrt");
               break;
-
 
             case "square":
-
-              unaryOperation(
-                "square"
-              );
-
+              unaryOperation("square");
               break;
-
 
             case "clearEntry":
-
               clearEntry();
-
               break;
-
 
             case "power":
-
-              chooseOperator(
-                "power"
-              );
-
+              chooseOperator("power");
               break;
-
 
             case "pi":
+              calculator.current =
+                normalizeDecimal(
+                  Math.PI.toFixed(12)
+                );
 
-              insertPi();
+              calculator.waiting =
+                true;
 
+              calculator.expression =
+                "π";
+
+              updateCalculator();
               break;
-
 
             case "repeat":
-
               equals();
-
               break;
-
 
             case "leftParen":
             case "rightParen":
-
-              parenthesisMessage();
-
+              toast(
+                "Use a calculadora básica para operações diretas"
+              );
               break;
 
           }
@@ -3127,7 +2994,7 @@ $$(".key")
 
 
 /* =====================================================
-   TECLADO FÍSICO
+   TECLADO DO COMPUTADOR
 ===================================================== */
 
 document.addEventListener(
@@ -3137,7 +3004,6 @@ document.addEventListener(
     const tag =
       document.activeElement?.tagName;
 
-
     if(
       tag === "INPUT" ||
       tag === "TEXTAREA" ||
@@ -3145,20 +3011,15 @@ document.addEventListener(
     )
       return;
 
-
     const key =
       event.key;
-
 
     if(
       /^[0-9]$/.test(key)
     ){
 
       event.preventDefault();
-
-      inputNumber(
-        key
-      );
+      inputNumber(key);
 
     }else if(
       key === "." ||
@@ -3166,7 +3027,6 @@ document.addEventListener(
     ){
 
       event.preventDefault();
-
       inputDecimal();
 
     }else if(
@@ -3174,47 +3034,34 @@ document.addEventListener(
     ){
 
       event.preventDefault();
-
-      chooseOperator(
-        "add"
-      );
+      chooseOperator("add");
 
     }else if(
       key === "-"
     ){
 
       event.preventDefault();
-
-      chooseOperator(
-        "subtract"
-      );
+      chooseOperator("subtract");
 
     }else if(
       key === "*"
     ){
 
       event.preventDefault();
-
-      chooseOperator(
-        "multiply"
-      );
+      chooseOperator("multiply");
 
     }else if(
       key === "/"
     ){
 
       event.preventDefault();
-
-      chooseOperator(
-        "divide"
-      );
+      chooseOperator("divide");
 
     }else if(
       key === "%"
     ){
 
       event.preventDefault();
-
       calculatePercent();
 
     }else if(
@@ -3223,7 +3070,6 @@ document.addEventListener(
     ){
 
       event.preventDefault();
-
       equals();
 
     }else if(
@@ -3231,7 +3077,6 @@ document.addEventListener(
     ){
 
       event.preventDefault();
-
       backspace();
 
     }else if(
@@ -3239,7 +3084,6 @@ document.addEventListener(
     ){
 
       event.preventDefault();
-
       resetCalculator();
 
     }
@@ -3261,7 +3105,6 @@ $("#advancedToggle")
         .classList.toggle(
           "open"
         );
-
 
       $("#advancedToggle")
         .textContent =
@@ -3298,16 +3141,13 @@ $$("[data-memory]")
 
           vibrate();
 
-
           const action =
             button.dataset.memory;
-
 
           const current =
             normalizeDecimal(
               calculator.current
             );
-
 
           if(
             action === "MC"
@@ -3320,10 +3160,7 @@ $$("[data-memory]")
               "Memória limpa"
             );
 
-          }
-
-
-          else if(
+          }else if(
             action === "MR"
           ){
 
@@ -3337,10 +3174,7 @@ $$("[data-memory]")
               "Memória recuperada"
             );
 
-          }
-
-
-          else if(
+          }else if(
             action === "M+"
           ){
 
@@ -3354,10 +3188,7 @@ $$("[data-memory]")
               "Valor somado à memória"
             );
 
-          }
-
-
-          else if(
+          }else if(
             action === "M-"
           ){
 
@@ -3371,10 +3202,7 @@ $$("[data-memory]")
               "Valor subtraído da memória"
             );
 
-          }
-
-
-          else if(
+          }else if(
             action === "MS"
           ){
 
@@ -3387,12 +3215,10 @@ $$("[data-memory]")
 
           }
 
-
           localStorage.setItem(
             "calpro_memory",
             calculator.memory
           );
-
 
           updateCalculator();
 
@@ -3454,7 +3280,6 @@ function addHistory(
   const history =
     getHistory();
 
-
   history.unshift({
 
     type,
@@ -3467,12 +3292,11 @@ function addHistory(
 
     date:
       new Date()
-      .toLocaleString(
-        "pt-BR"
-      )
+        .toLocaleString(
+          "pt-BR"
+        )
 
   });
-
 
   localStorage.setItem(
     "calpro_history",
@@ -3484,7 +3308,6 @@ function addHistory(
     )
   );
 
-
   renderHistory();
 
 }
@@ -3495,59 +3318,64 @@ function renderHistory(){
   const list =
     $("#historyList");
 
-
   const history =
     getHistory();
-
 
   if(
     !history.length
   ){
 
     list.innerHTML =
-      '<div style="padding:20px;text-align:center;color:var(--muted)">Nenhum cálculo realizado.</div>';
+      `
+      <div style="
+        padding:20px;
+        text-align:center;
+        color:var(--muted)
+      ">
+        Nenhum cálculo realizado.
+      </div>
+      `;
 
     return;
 
   }
-
 
   list.innerHTML =
     history
       .map(
         item => `
 
-          <div class="history-item">
+        <div class="history-item">
 
-            <strong>
-              ${escapeHtml(
-                item.type
-              )}
-            </strong>
-
-            —
-
-            <strong>
-              ${escapeHtml(
-                item.result
-              )}
-            </strong>
-
-            <br>
-
+          <strong>
             ${escapeHtml(
-              item.expression
+              item.type
             )}
+          </strong>
 
-            <br>
+          —
 
-            <small>
-              ${escapeHtml(
-                item.date
-              )}
-            </small>
+          <strong>
+            ${escapeHtml(
+              item.result
+            )}
+          </strong>
 
-          </div>
+          <br>
+
+          ${escapeHtml(
+            item.expression
+          )}
+
+          <br>
+
+          <small>
+            ${escapeHtml(
+              item.date
+            )}
+          </small>
+
+        </div>
 
         `
       )
@@ -3576,41 +3404,25 @@ $("#clearHistory")
 
 
 /* =====================================================
-   CALCULADORAS COMERCIAIS
+   COMERCIAL
 ===================================================== */
 
-function parseBrazilianInput(
-  id
-){
+function parseBrazilianInput(id){
 
   const element =
-    document.getElementById(
-      id
-    );
-
+    document.getElementById(id);
 
   if(!element)
     return 0;
 
-
   const text =
-    element.value
-      .trim();
-
+    element.value.trim();
 
   if(!text)
     return 0;
 
-
-  /*
-    1.234,56
-      ↓
-    1234.56
-  */
-
   let normalized =
     text;
-
 
   if(
     text.includes(",")
@@ -3618,27 +3430,15 @@ function parseBrazilianInput(
 
     normalized =
       text
-        .replace(
-          /\./g,
-          ""
-        )
-        .replace(
-          ",",
-          "."
-        );
+        .replace(/\./g,"")
+        .replace(",", ".");
 
   }
 
-
   const value =
-    Number(
-      normalized
-    );
+    Number(normalized);
 
-
-  return Number.isFinite(
-    value
-  )
+  return Number.isFinite(value)
     ? value
     : 0;
 
@@ -3650,16 +3450,13 @@ function formatInputBrazilian(
 ){
 
   let value =
-    input.value
-      .replace(
-        /[^\d,.-]/g,
-        ""
-      );
-
+    input.value.replace(
+      /[^\d,.-]/g,
+      ""
+    );
 
   const negative =
     value.startsWith("-");
-
 
   value =
     value.replace(
@@ -3667,32 +3464,22 @@ function formatInputBrazilian(
       ""
     );
 
-
   const parts =
     value.split(",");
 
-
   let integer =
-    parts[0] ||
-    "0";
-
+    parts[0] || "0";
 
   let decimal =
     parts.length > 1
-      ? parts
-          .slice(1)
-          .join("")
+      ? parts.slice(1).join("")
       : "";
 
-
   integer =
-    integer
-      .replace(
-        /^0+(?=\d)/,
-        ""
-      ) ||
-    "0";
-
+    integer.replace(
+      /^0+(?=\d)/,
+      ""
+    ) || "0";
 
   integer =
     integer.replace(
@@ -3700,12 +3487,9 @@ function formatInputBrazilian(
       "."
     );
 
-
   input.value =
     (
-      negative
-        ? "-"
-        : ""
+      negative ? "-" : ""
     ) +
     integer +
     (
@@ -3739,65 +3523,57 @@ const commercialInputs = [
 ];
 
 
-commercialInputs
-  .forEach(
-    id => {
+commercialInputs.forEach(
+  id => {
 
-      const input =
-        document.getElementById(
-          id
+    const input =
+      document.getElementById(
+        id
+      );
+
+    if(!input)
+      return;
+
+    input.addEventListener(
+      "input",
+      () => {
+
+        formatInputBrazilian(
+          input
         );
 
+      }
+    );
 
-      if(!input)
-        return;
+    input.addEventListener(
+      "blur",
+      () => {
 
-
-      input.addEventListener(
-        "input",
-        () => {
-
-          formatInputBrazilian(
-            input
+        const value =
+          parseBrazilianInput(
+            id
           );
 
-        }
-      );
+        if(
+          input.value.trim() !== ""
+        ){
 
-
-      input.addEventListener(
-        "blur",
-        () => {
-
-          const value =
-            parseBrazilianInput(
-              id
+          input.value =
+            value.toLocaleString(
+              "pt-BR",
+              {
+                minimumFractionDigits:2,
+                maximumFractionDigits:2
+              }
             );
 
-
-          if(
-            input.value.trim() !== "" &&
-            Number.isFinite(
-              value
-            )
-          ){
-
-            input.value =
-              value.toLocaleString(
-                "pt-BR",
-                {
-                  minimumFractionDigits:2,
-                  maximumFractionDigits:2
-                }
-              );
-
-          }
-
         }
-      );
 
-    }
-  );
+      }
+    );
+
+  }
+);
 
 
 function setCommercialTab(
@@ -3826,14 +3602,9 @@ function setCommercialTab(
   ].forEach(
     panel => {
 
-      const element =
-        document.getElementById(
-          "panel-" +
-          panel
-        );
-
-
-      element.hidden =
+      document.getElementById(
+        "panel-" + panel
+      ).hidden =
         panel !== name;
 
     }
@@ -3866,13 +3637,9 @@ function renderResult(
   rows
 ){
 
-  const element =
-    document.getElementById(
-      id
-    );
-
-
-  element.innerHTML =
+  document.getElementById(
+    id
+  ).innerHTML =
     rows
       .map(
         row => `
@@ -3910,15 +3677,12 @@ $$("[data-calc-commercial]")
 
           vibrate();
 
-
           const type =
             button.dataset
               .calcCommercial;
 
 
-          /* =====================
-             MARGEM
-          ===================== */
+          /* MARGEM */
 
           if(
             type === "margin"
@@ -3929,12 +3693,10 @@ $$("[data-calc-commercial]")
                 "marginCost"
               );
 
-
             const sale =
               parseBrazilianInput(
                 "marginSale"
               );
-
 
             if(
               cost <= 0 ||
@@ -3949,23 +3711,18 @@ $$("[data-calc-commercial]")
 
             }
 
-
             const profit =
-              sale -
-              cost;
-
+              sale - cost;
 
             const margin =
               profit /
               sale *
               100;
 
-
             const markup =
               profit /
               cost *
               100;
-
 
             renderResult(
               "result-margin",
@@ -3989,7 +3746,6 @@ $$("[data-calc-commercial]")
               ]
             );
 
-
             addHistory(
               "Margem",
               money(cost) +
@@ -4001,9 +3757,7 @@ $$("[data-calc-commercial]")
           }
 
 
-          /* =====================
-             PREÇO
-          ===================== */
+          /* PREÇO */
 
           if(
             type === "price"
@@ -4014,18 +3768,15 @@ $$("[data-calc-commercial]")
                 "priceCost"
               );
 
-
             const margin =
               parseBrazilianInput(
                 "priceMargin"
               );
 
-
             const markup =
               parseBrazilianInput(
                 "priceMarkup"
               );
-
 
             if(
               cost <= 0
@@ -4039,9 +3790,12 @@ $$("[data-calc-commercial]")
 
             }
 
-
             let sale;
 
+            /*
+              Se margem estiver preenchida,
+              ela tem prioridade.
+            */
 
             if(
               margin > 0
@@ -4059,18 +3813,14 @@ $$("[data-calc-commercial]")
 
               }
 
-
               sale =
                 cost /
                 (
                   1 -
-                  margin /
-                  100
+                  margin / 100
                 );
 
-            }
-
-            else if(
+            }else if(
               markup > 0
             ){
 
@@ -4078,13 +3828,10 @@ $$("[data-calc-commercial]")
                 cost *
                 (
                   1 +
-                  markup /
-                  100
+                  markup / 100
                 );
 
-            }
-
-            else{
+            }else{
 
               toast(
                 "Informe margem ou markup"
@@ -4094,23 +3841,18 @@ $$("[data-calc-commercial]")
 
             }
 
-
             const profit =
-              sale -
-              cost;
-
+              sale - cost;
 
             const realMargin =
               profit /
               sale *
               100;
 
-
             const realMarkup =
               profit /
               cost *
               100;
-
 
             renderResult(
               "result-price",
@@ -4139,7 +3881,6 @@ $$("[data-calc-commercial]")
               ]
             );
 
-
             addHistory(
               "Preço",
               money(cost) +
@@ -4151,9 +3892,7 @@ $$("[data-calc-commercial]")
           }
 
 
-          /* =====================
-             DESCONTO
-          ===================== */
+          /* DESCONTO */
 
           if(
             type === "discount"
@@ -4164,37 +3903,33 @@ $$("[data-calc-commercial]")
                 "discountOriginal"
               );
 
-
             const percent =
               parseBrazilianInput(
                 "discountPercent"
               );
 
-
             if(
               original <= 0 ||
-              percent < 0
+              percent < 0 ||
+              percent > 100
             ){
 
               toast(
-                "Informe os valores corretamente"
+                "Informe valores válidos"
               );
 
               return;
 
             }
 
-
             const discount =
               original *
               percent /
               100;
 
-
             const finalPrice =
               original -
               discount;
-
 
             renderResult(
               "result-discount",
@@ -4218,7 +3953,6 @@ $$("[data-calc-commercial]")
               ]
             );
 
-
             addHistory(
               "Desconto",
               money(original) +
@@ -4230,9 +3964,7 @@ $$("[data-calc-commercial]")
           }
 
 
-          /* =====================
-             MARKUP
-          ===================== */
+          /* MARKUP */
 
           if(
             type === "markup"
@@ -4243,12 +3975,10 @@ $$("[data-calc-commercial]")
                 "markupCost"
               );
 
-
             const percent =
               parseBrazilianInput(
                 "markupPercent"
               );
-
 
             if(
               cost <= 0 ||
@@ -4256,30 +3986,26 @@ $$("[data-calc-commercial]")
             ){
 
               toast(
-                "Informe os valores corretamente"
+                "Informe valores válidos"
               );
 
               return;
 
             }
 
-
             const profit =
               cost *
               percent /
               100;
 
-
             const sale =
               cost +
               profit;
-
 
             const margin =
               profit /
               sale *
               100;
-
 
             renderResult(
               "result-markup",
@@ -4308,7 +4034,6 @@ $$("[data-calc-commercial]")
               ]
             );
 
-
             addHistory(
               "Markup",
               money(cost) +
@@ -4334,22 +4059,17 @@ function setTheme(
   theme
 ){
 
-  document.body
-    .classList
-    .toggle(
-      "light",
-      theme === "light"
-    );
-
+  document.body.classList.toggle(
+    "light",
+    theme === "light"
+  );
 
   localStorage.setItem(
     "calpro_theme",
     theme
   );
 
-
-  $("#themeSelect")
-    .value =
+  $("#themeSelect").value =
     theme;
 
 }
@@ -4386,9 +4106,9 @@ $("#themeBtn")
     () => {
 
       setTheme(
-        document.body
-          .classList
-          .contains("light")
+        document.body.classList.contains(
+          "light"
+        )
           ? "dark"
           : "light"
       );
