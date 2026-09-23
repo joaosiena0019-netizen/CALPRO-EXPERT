@@ -5,13 +5,10 @@
 
 <meta
   name="viewport"
-  content="width=device-width, initial-scale=1.0"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
-<meta
-  name="theme-color"
-  content="#07110d"
->
+<meta name="theme-color" content="#07110d">
 
 <title>CALPRO EXPERT</title>
 
@@ -37,16 +34,20 @@
   -webkit-tap-highlight-color:transparent;
 }
 
-html{
+html,
+body{
   width:100%;
   min-height:100%;
+  margin:0;
+}
+
+html{
   background:var(--bg);
 }
 
 body{
-  width:100%;
   min-height:100dvh;
-  margin:0;
+
   background:
     radial-gradient(
       circle at 50% -20%,
@@ -54,7 +55,9 @@ body{
       transparent 35%
     ),
     var(--bg);
+
   color:var(--text);
+
   font-family:
     Inter,
     system-ui,
@@ -93,16 +96,16 @@ button{
   touch-action:manipulation;
 }
 
-input,
-select{
-  touch-action:auto;
-}
-
 button:focus-visible,
 input:focus-visible,
 select:focus-visible{
   outline:2px solid var(--accent);
   outline-offset:2px;
+}
+
+input,
+select{
+  touch-action:auto;
 }
 
 /* =====================================================
@@ -111,6 +114,7 @@ select:focus-visible{
 
 #app{
   min-height:100dvh;
+
   display:flex;
   flex-direction:column;
 }
@@ -125,23 +129,25 @@ select:focus-visible{
 
   padding:
     0
-    max(16px, env(safe-area-inset-right))
+    max(16px,env(safe-area-inset-right))
     0
-    max(16px, env(safe-area-inset-left));
+    max(16px,env(safe-area-inset-left));
 
   border-bottom:1px solid var(--line);
-  background:rgba(5,11,8,.88);
+
+  background:rgba(5,11,8,.92);
 
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
 
   position:sticky;
   top:0;
+
   z-index:50;
 }
 
 .light .app-header{
-  background:rgba(243,246,244,.9);
+  background:rgba(243,246,244,.94);
 }
 
 .logo{
@@ -202,19 +208,22 @@ main{
 
 .scroll-screen{
   height:calc(100dvh - 134px);
+
   overflow-y:auto;
   overflow-x:hidden;
+
   scrollbar-width:thin;
 }
 
 .container{
   width:min(1180px,100%);
   margin:0 auto;
+
   padding:
     18px
-    max(18px, env(safe-area-inset-right))
+    max(18px,env(safe-area-inset-right))
     24px
-    max(18px, env(safe-area-inset-left));
+    max(18px,env(safe-area-inset-left));
 }
 
 /* =====================================================
@@ -226,6 +235,7 @@ main{
   margin:auto;
 
   display:grid;
+
   grid-template-columns:
     minmax(0,1.5fr)
     minmax(300px,.8fr);
@@ -239,18 +249,23 @@ main{
 }
 
 .welcome{
-  margin-bottom:16px;
+  margin-bottom:18px;
 }
 
 .welcome h1{
   margin:0;
-  font-size:clamp(24px,4vw,34px);
+
+  font-size:
+    clamp(25px,4vw,35px);
+
   line-height:1.1;
 }
 
 .welcome p{
   margin:8px 0 0;
+
   color:var(--muted);
+
   font-size:14px;
 }
 
@@ -273,7 +288,10 @@ main{
 
 .quick-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
   gap:10px;
 }
 
@@ -293,6 +311,7 @@ main{
     var(--card);
 
   border:1px solid var(--line);
+
   border-radius:18px;
 
   transition:
@@ -307,7 +326,9 @@ main{
 
 .quick-icon{
   color:var(--accent);
+
   font-size:24px;
+
   margin-bottom:12px;
 }
 
@@ -318,8 +339,11 @@ main{
 
 .quick-card small{
   display:block;
+
   margin-top:5px;
+
   color:var(--muted);
+
   font-size:11px;
 }
 
@@ -330,13 +354,11 @@ main{
 }
 
 /* =====================================================
-   ADVERTISEMENT
-   ESPAÇO MÍNIMO RESERVADO
+   AD
 ===================================================== */
 
 .ad-slot{
   width:100%;
-
   min-height:90px;
 
   display:flex;
@@ -345,9 +367,7 @@ main{
 
   padding:10px;
 
-  border:
-    1px dashed
-    var(--line);
+  border:1px dashed var(--line);
 
   border-radius:14px;
 
@@ -371,10 +391,6 @@ main{
   min-height:100px;
 }
 
-.ad-slot.horizontal{
-  min-height:90px;
-}
-
 .ad-label{
   opacity:.7;
 }
@@ -391,9 +407,9 @@ main{
 
   padding:
     14px
-    max(14px, env(safe-area-inset-right))
+    max(14px,env(safe-area-inset-right))
     18px
-    max(14px, env(safe-area-inset-left));
+    max(14px,env(safe-area-inset-left));
 
   display:grid;
 
@@ -421,9 +437,7 @@ main{
 
   padding:11px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:24px;
 
@@ -432,10 +446,13 @@ main{
   box-shadow:var(--shadow);
 }
 
-/* DISPLAY */
+/* =====================================================
+   DISPLAY
+===================================================== */
 
 .display{
   min-height:110px;
+
   flex:1 1 auto;
 
   display:flex;
@@ -451,7 +468,7 @@ main{
 }
 
 .operation{
-  height:22px;
+  min-height:22px;
 
   color:var(--muted);
 
@@ -488,7 +505,7 @@ main{
 }
 
 .calc-format{
-  height:12px;
+  min-height:12px;
 
   color:var(--muted);
 
@@ -497,7 +514,9 @@ main{
   text-align:right;
 }
 
-/* MEMORY */
+/* =====================================================
+   MEMORY
+===================================================== */
 
 .memory-row{
   display:grid;
@@ -516,6 +535,7 @@ main{
   border-radius:9px;
 
   background:#08120d;
+
   border:1px solid var(--line);
 
   color:var(--muted);
@@ -532,7 +552,9 @@ main{
   color:var(--accent);
 }
 
-/* KEYPAD */
+/* =====================================================
+   KEYPAD
+===================================================== */
 
 .keypad{
   display:grid;
@@ -585,7 +607,9 @@ main{
 
 .key.equal{
   background:var(--accent);
+
   color:#07110d;
+
   border-color:var(--accent);
 }
 
@@ -595,9 +619,7 @@ main{
 
   margin-top:7px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:10px;
 
@@ -629,7 +651,9 @@ main{
   font-size:14px;
 }
 
-/* CALCULATOR SIDE */
+/* =====================================================
+   CALC SIDE
+===================================================== */
 
 .calc-side{
   min-height:0;
@@ -652,9 +676,7 @@ main{
 .side-panel{
   background:var(--card);
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:20px;
 
@@ -663,6 +685,7 @@ main{
 
 .side-panel h3{
   margin:0 0 12px;
+
   font-size:15px;
 }
 
@@ -684,9 +707,7 @@ main{
 
   background:var(--surface);
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:13px;
 }
@@ -698,8 +719,11 @@ main{
 
 .side-tool small{
   display:block;
+
   margin-top:4px;
+
   color:var(--muted);
+
   font-size:9px;
 }
 
@@ -714,6 +738,7 @@ main{
   border-radius:11px;
 
   background:var(--accent);
+
   color:#07110d;
 
   font-size:12px;
@@ -726,6 +751,7 @@ main{
 
 .commercial-page{
   width:min(900px,100%);
+
   margin:auto;
 
   padding:
@@ -746,8 +772,41 @@ main{
 
 .page-heading p{
   margin:5px 0 0;
+
   color:var(--muted);
+
   font-size:12px;
+}
+
+.back-row{
+  display:flex;
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:12px;
+}
+
+.back-button{
+  width:38px;
+  height:38px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:11px;
+
+  background:var(--card);
+
+  border:1px solid var(--line);
+
+  color:var(--accent);
+
+  font-size:20px;
+}
+
+.back-button:hover{
+  border-color:var(--accent);
 }
 
 .commercial-tabs{
@@ -772,9 +831,7 @@ main{
 
   background:var(--card);
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   color:var(--muted);
 
@@ -784,16 +841,16 @@ main{
 
 .commercial-tab.active{
   background:var(--accent);
+
   border-color:var(--accent);
+
   color:#07110d;
 }
 
 .form-card{
   padding:18px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:20px;
 
@@ -830,15 +887,11 @@ main{
   width:100%;
   height:46px;
 
-  padding:
-    0
-    12px;
+  padding:0 12px;
 
   border-radius:11px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   background:var(--surface);
 
@@ -856,6 +909,7 @@ main{
   border-radius:11px;
 
   background:var(--accent);
+
   color:#07110d;
 
   font-weight:900;
@@ -867,9 +921,7 @@ main{
 
   padding:10px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:12px;
 
@@ -878,6 +930,7 @@ main{
 
 .result-row{
   display:flex;
+
   align-items:center;
   justify-content:space-between;
 
@@ -885,9 +938,7 @@ main{
 
   padding:8px 2px;
 
-  border-bottom:
-    1px solid
-    var(--line);
+  border-bottom:1px solid var(--line);
 
   font-size:12px;
 }
@@ -914,6 +965,7 @@ main{
 
 .history-page{
   width:min(900px,100%);
+
   margin:auto;
 
   padding:
@@ -926,9 +978,7 @@ main{
 .history-card{
   padding:16px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:20px;
 
@@ -943,12 +993,9 @@ main{
 
   border-radius:10px;
 
-  background:
-    rgba(255,87,87,.08);
+  background:rgba(255,87,87,.08);
 
-  border:
-    1px solid
-    rgba(255,87,87,.28);
+  border:1px solid rgba(255,87,87,.28);
 
   color:#ff8a8a;
 
@@ -959,9 +1006,7 @@ main{
 .history-item{
   padding:12px 3px;
 
-  border-bottom:
-    1px solid
-    var(--line);
+  border-bottom:1px solid var(--line);
 
   font-size:12px;
 }
@@ -972,11 +1017,13 @@ main{
 
 .history-item .history-result{
   color:var(--accent);
+
   font-weight:850;
 }
 
 .history-item small{
   color:var(--muted);
+
   font-size:9px;
 }
 
@@ -986,6 +1033,7 @@ main{
 
 .settings-page{
   width:min(700px,100%);
+
   margin:auto;
 
   padding:
@@ -998,9 +1046,7 @@ main{
 .settings-card{
   padding:16px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:20px;
 
@@ -1011,14 +1057,13 @@ main{
   min-height:56px;
 
   display:flex;
+
   align-items:center;
   justify-content:space-between;
 
   gap:20px;
 
-  border-bottom:
-    1px solid
-    var(--line);
+  border-bottom:1px solid var(--line);
 }
 
 .settings-row:last-child{
@@ -1031,17 +1076,18 @@ main{
 
 .settings-row small{
   display:block;
+
   margin-top:3px;
+
   color:var(--muted);
+
   font-size:9px;
 }
 
 .settings-row select{
   height:36px;
 
-  padding:
-    0
-    9px;
+  padding:0 9px;
 
   border-radius:9px;
 
@@ -1049,9 +1095,7 @@ main{
 
   color:var(--text);
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 }
 
 /* =====================================================
@@ -1063,6 +1107,7 @@ main{
   flex:0 0 70px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -1076,12 +1121,11 @@ main{
 
   background:rgba(5,11,8,.97);
 
-  border-top:
-    1px solid
-    var(--line);
+  border-top:1px solid var(--line);
 
   position:sticky;
   bottom:0;
+
   z-index:50;
 }
 
@@ -1115,8 +1159,8 @@ main{
 
 .nav-btn.active{
   color:var(--accent);
-  background:
-    rgba(124,255,0,.07);
+
+  background:rgba(124,255,0,.07);
 }
 
 /* =====================================================
@@ -1165,7 +1209,7 @@ main{
 }
 
 /* =====================================================
-   TABLET
+   RESPONSIVE
 ===================================================== */
 
 @media(max-width:1000px){
@@ -1194,12 +1238,7 @@ main{
   .home-side .ad-slot{
     grid-column:1/-1;
   }
-
 }
-
-/* =====================================================
-   TABLET / CELULAR
-===================================================== */
 
 @media(max-width:760px){
 
@@ -1218,6 +1257,7 @@ main{
 
   .calculator-page{
     width:100%;
+
     height:calc(100dvh - 126px);
 
     display:block;
@@ -1261,12 +1301,7 @@ main{
   .home-side .ad-slot{
     grid-column:auto;
   }
-
 }
-
-/* =====================================================
-   CELULAR
-===================================================== */
 
 @media(max-width:600px){
 
@@ -1306,10 +1341,6 @@ main{
 
   .quick-card small{
     font-size:10px;
-  }
-
-  .ad-slot{
-    min-height:90px;
   }
 
   .display{
@@ -1376,12 +1407,7 @@ main{
   .nav-btn{
     height:56px;
   }
-
 }
-
-/* =====================================================
-   CELULARES PEQUENOS
-===================================================== */
 
 @media(max-width:390px){
 
@@ -1414,7 +1440,9 @@ main{
 
   .key{
     height:43px;
+
     border-radius:11px;
+
     font-size:17px;
   }
 
@@ -1434,71 +1462,6 @@ main{
   .nav-btn .nav-icon{
     font-size:17px;
   }
-
-}
-
-/* =====================================================
-   ALTURA PEQUENA / LANDSCAPE
-===================================================== */
-
-@media(max-height:680px){
-
-  .display{
-    min-height:62px;
-  }
-
-  .key{
-    height:42px;
-  }
-
-  .memory-btn{
-    height:26px;
-  }
-
-  .advanced .key{
-    height:32px;
-  }
-
-  .advanced-toggle{
-    height:27px;
-  }
-
-}
-
-/* =====================================================
-   DESKTOP GRANDE
-===================================================== */
-
-@media(min-width:1400px){
-
-  .calculator-page{
-    grid-template-columns:
-      minmax(500px,680px)
-      minmax(350px,1fr);
-
-    gap:24px;
-  }
-
-  .calc-side{
-    display:flex;
-  }
-
-}
-
-/* =====================================================
-   REDUCED MOTION
-===================================================== */
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *::before,
-  *::after{
-    scroll-behavior:auto!important;
-    transition:none!important;
-    animation:none!important;
-  }
-
 }
 
 </style>
@@ -1517,9 +1480,9 @@ main{
   <div class="header-actions">
 
     <button
-      id="themeBtn"
       class="icon-btn"
-      type="button"
+      id="themeBtn"
+      title="Alternar tema"
       aria-label="Alternar tema"
     >
       ◐
@@ -1533,12 +1496,12 @@ main{
 <main>
 
 <!-- ===================================================
-     HOME
+     INÍCIO
 =================================================== -->
 
 <section
+  class="screen active"
   id="home"
-  class="screen active scroll-screen"
 >
 
   <div class="container">
@@ -1550,11 +1513,11 @@ main{
         <div class="welcome">
 
           <h1>
-            CALPRO EXPERT
+            Calculadora profissional.
           </h1>
 
           <p>
-            Sua calculadora comercial em um só lugar.
+            Cálculos rápidos, precisos e ferramentas comerciais.
           </p>
 
         </div>
@@ -1563,12 +1526,8 @@ main{
         <div class="quick-title">
 
           <strong>
-            Ferramentas rápidas
+            Acesso rápido
           </strong>
-
-          <span>
-            acesso direto
-          </span>
 
         </div>
 
@@ -1578,7 +1537,6 @@ main{
           <button
             class="quick-card"
             data-open="margin"
-            type="button"
           >
 
             <div class="quick-icon">
@@ -1599,11 +1557,10 @@ main{
           <button
             class="quick-card"
             data-open="price"
-            type="button"
           >
 
             <div class="quick-icon">
-              R$
+              $
             </div>
 
             <strong>
@@ -1611,7 +1568,7 @@ main{
             </strong>
 
             <small>
-              Formação do preço de venda
+              Calcule o preço de venda
             </small>
 
           </button>
@@ -1620,11 +1577,10 @@ main{
           <button
             class="quick-card"
             data-open="discount"
-            type="button"
           >
 
             <div class="quick-icon">
-              −%
+              %
             </div>
 
             <strong>
@@ -1632,7 +1588,7 @@ main{
             </strong>
 
             <small>
-              Valor final e desconto
+              Preço final e desconto
             </small>
 
           </button>
@@ -1641,11 +1597,10 @@ main{
           <button
             class="quick-card"
             data-open="markup"
-            type="button"
           >
 
             <div class="quick-icon">
-              ×
+              ↑
             </div>
 
             <strong>
@@ -1653,49 +1608,7 @@ main{
             </strong>
 
             <small>
-              Markup e margem real
-            </small>
-
-          </button>
-
-
-          <button
-            class="quick-card"
-            data-open="commission"
-            type="button"
-          >
-
-            <div class="quick-icon">
-              %
-            </div>
-
-            <strong>
-              COMISSÃO
-            </strong>
-
-            <small>
-              Comissão e faturamento
-            </small>
-
-          </button>
-
-
-          <button
-            class="quick-card"
-            data-nav="calculator"
-            type="button"
-          >
-
-            <div class="quick-icon">
-              =
-            </div>
-
-            <strong>
-              CALCULADORA
-            </strong>
-
-            <small>
-              Cálculo completo
+              Venda e margem
             </small>
 
           </button>
@@ -1707,10 +1620,16 @@ main{
 
       <aside class="home-side">
 
+        <div class="ad-slot large">
+          <span class="ad-label">
+            Espaço publicitário
+          </span>
+        </div>
+
         <div class="side-panel">
 
           <h3>
-            Acesso rápido
+            CALPRO EXPERT
           </h3>
 
           <div class="side-tools">
@@ -1718,7 +1637,6 @@ main{
             <button
               class="side-tool"
               data-nav="calculator"
-              type="button"
             >
 
               <strong>
@@ -1726,24 +1644,7 @@ main{
               </strong>
 
               <small>
-                Operações
-              </small>
-
-            </button>
-
-
-            <button
-              class="side-tool"
-              data-nav="history"
-              type="button"
-            >
-
-              <strong>
-                Histórico
-              </strong>
-
-              <small>
-                Cálculos salvos
+                Cálculos completos
               </small>
 
             </button>
@@ -1752,7 +1653,6 @@ main{
             <button
               class="side-tool"
               data-nav="commercial"
-              type="button"
             >
 
               <strong>
@@ -1760,7 +1660,23 @@ main{
               </strong>
 
               <small>
-                Ferramentas
+                Ferramentas de venda
+              </small>
+
+            </button>
+
+
+            <button
+              class="side-tool"
+              data-nav="history"
+            >
+
+              <strong>
+                Histórico
+              </strong>
+
+              <small>
+                Seus cálculos
               </small>
 
             </button>
@@ -1769,31 +1685,19 @@ main{
             <button
               class="side-tool"
               data-nav="settings"
-              type="button"
             >
 
               <strong>
-                Config.
+                Configurações
               </strong>
 
               <small>
-                Preferências
+                Personalização
               </small>
 
             </button>
 
           </div>
-
-        </div>
-
-
-        <!-- ESPAÇO MÍNIMO DE PUBLICIDADE -->
-
-        <div class="ad-slot large">
-
-          <span class="ad-label">
-            Espaço reservado para publicidade
-          </span>
 
         </div>
 
@@ -1811,8 +1715,8 @@ main{
 =================================================== -->
 
 <section
-  id="calculator"
   class="screen"
+  id="calculator"
 >
 
   <div class="calculator-page">
@@ -1821,23 +1725,25 @@ main{
 
       <div class="calc-card">
 
+
         <div class="display">
 
           <div
-            id="calcOperation"
             class="operation"
+            id="operationDisplay"
           ></div>
 
           <div
-            id="calcDisplay"
             class="calc-display"
+            id="calcDisplay"
           >
             0
           </div>
 
-          <div class="calc-format">
-            CALPRO EXPERT
-          </div>
+          <div
+            class="calc-format"
+            id="calcFormat"
+          ></div>
 
         </div>
 
@@ -1847,7 +1753,6 @@ main{
           <button
             class="memory-btn"
             data-memory="MC"
-            type="button"
           >
             MC
           </button>
@@ -1855,7 +1760,6 @@ main{
           <button
             class="memory-btn"
             data-memory="MR"
-            type="button"
           >
             MR
           </button>
@@ -1863,7 +1767,6 @@ main{
           <button
             class="memory-btn"
             data-memory="M+"
-            type="button"
           >
             M+
           </button>
@@ -1871,15 +1774,13 @@ main{
           <button
             class="memory-btn"
             data-memory="M-"
-            type="button"
           >
-            M−
+            M-
           </button>
 
           <button
             class="memory-btn"
             data-memory="MS"
-            type="button"
           >
             MS
           </button>
@@ -1889,34 +1790,34 @@ main{
 
         <div class="keypad">
 
+
           <button
             class="key action"
             data-key="clear"
-            type="button"
           >
             AC
           </button>
 
+
           <button
             class="key action"
             data-key="clearEntry"
-            type="button"
           >
             CE
           </button>
 
+
           <button
             class="key action"
             data-key="backspace"
-            type="button"
           >
-            ⌫
+            ←
           </button>
+
 
           <button
             class="key operator"
             data-key="percent"
-            type="button"
           >
             %
           </button>
@@ -1924,32 +1825,31 @@ main{
 
           <button
             class="key"
-            data-number="7"
-            type="button"
+            data-key="leftParen"
           >
-            7
+            (
           </button>
+
 
           <button
             class="key"
-            data-number="8"
-            type="button"
+            data-key="rightParen"
           >
-            8
+            )
           </button>
+
 
           <button
             class="key"
-            data-number="9"
-            type="button"
+            data-key="sign"
           >
-            9
+            +/−
           </button>
+
 
           <button
             class="key operator"
             data-key="divide"
-            type="button"
           >
             ÷
           </button>
@@ -1957,32 +1857,31 @@ main{
 
           <button
             class="key"
-            data-number="4"
-            type="button"
+            data-number="7"
           >
-            4
+            7
           </button>
+
 
           <button
             class="key"
-            data-number="5"
-            type="button"
+            data-number="8"
           >
-            5
+            8
           </button>
+
 
           <button
             class="key"
-            data-number="6"
-            type="button"
+            data-number="9"
           >
-            6
+            9
           </button>
+
 
           <button
             class="key operator"
             data-key="multiply"
-            type="button"
           >
             ×
           </button>
@@ -1990,109 +1889,95 @@ main{
 
           <button
             class="key"
-            data-number="1"
-            type="button"
+            data-number="4"
           >
-            1
+            4
           </button>
+
 
           <button
             class="key"
-            data-number="2"
-            type="button"
+            data-number="5"
           >
-            2
+            5
           </button>
+
 
           <button
             class="key"
-            data-number="3"
-            type="button"
+            data-number="6"
           >
-            3
+            6
           </button>
+
 
           <button
             class="key operator"
             data-key="subtract"
-            type="button"
           >
             −
           </button>
 
 
           <button
-            class="key action"
-            data-key="sign"
-            type="button"
+            class="key"
+            data-number="1"
           >
-            +/−
+            1
           </button>
+
 
           <button
             class="key"
-            data-number="0"
-            type="button"
+            data-number="2"
           >
-            0
+            2
           </button>
 
-          <!-- NÃO REMOVER -->
-          <button
-            class="key"
-            data-key="decimal-comma"
-            type="button"
-          >
-            ,
-          </button>
 
           <button
             class="key"
-            data-key="decimal-dot"
-            type="button"
+            data-number="3"
           >
-            .
+            3
           </button>
 
-
-          <button
-            class="key action"
-            data-key="leftParen"
-            type="button"
-          >
-            (
-          </button>
-
-          <button
-            class="key action"
-            data-key="rightParen"
-            type="button"
-          >
-            )
-          </button>
-
-          <button
-            class="key action"
-            data-key="ans"
-            type="button"
-          >
-            ANS
-          </button>
 
           <button
             class="key operator"
             data-key="add"
-            type="button"
           >
             +
           </button>
 
 
           <button
+            class="key"
+            data-key="decimal-comma"
+          >
+            ,
+          </button>
+
+
+          <button
+            class="key"
+            data-number="0"
+          >
+            0
+          </button>
+
+
+          <button
+            class="key"
+            data-key="decimal-dot"
+          >
+            .
+          </button>
+
+
+          <button
             class="key equal"
             data-key="equals"
-            type="button"
-            style="grid-column:1 / -1"
           >
             =
           </button>
@@ -2101,23 +1986,21 @@ main{
 
 
         <button
-          id="advancedToggle"
           class="advanced-toggle"
-          type="button"
+          id="advancedToggle"
         >
           MAIS FUNÇÕES
         </button>
 
 
         <div
-          id="advanced"
           class="advanced"
+          id="advanced"
         >
 
           <button
             class="key"
             data-key="sqrt"
-            type="button"
           >
             √
           </button>
@@ -2125,7 +2008,6 @@ main{
           <button
             class="key"
             data-key="square"
-            type="button"
           >
             x²
           </button>
@@ -2133,7 +2015,6 @@ main{
           <button
             class="key"
             data-key="power"
-            type="button"
           >
             xʸ
           </button>
@@ -2141,27 +2022,41 @@ main{
           <button
             class="key"
             data-key="pi"
-            type="button"
           >
             π
           </button>
 
           <button
             class="key"
-            data-key="copy"
-            type="button"
+            data-key="ans"
           >
-            COPIAR
+            ANS
+          </button>
+
+          <button
+            class="key"
+            data-key="copy"
+          >
+            COPY
           </button>
 
           <button
             class="key"
             data-key="repeat"
-            type="button"
           >
             =
           </button>
 
+        </div>
+
+
+        <div
+          class="ad-slot"
+          style="margin-top:7px;"
+        >
+          <span class="ad-label">
+            Espaço publicitário
+          </span>
         </div>
 
       </div>
@@ -2174,7 +2069,7 @@ main{
       <div class="side-panel">
 
         <h3>
-          Ferramentas rápidas
+          Ferramentas
         </h3>
 
         <div class="side-tools">
@@ -2182,55 +2077,70 @@ main{
           <button
             class="side-tool"
             data-open="margin"
-            type="button"
           >
-            <strong>MARGEM</strong>
-            <small>Lucro e margem</small>
+            <strong>
+              Margem
+            </strong>
+
+            <small>
+              Lucro e margem
+            </small>
           </button>
+
 
           <button
             class="side-tool"
             data-open="price"
-            type="button"
           >
-            <strong>PREÇO</strong>
-            <small>Preço de venda</small>
+            <strong>
+              Preço
+            </strong>
+
+            <small>
+              Preço de venda
+            </small>
           </button>
+
 
           <button
             class="side-tool"
             data-open="discount"
-            type="button"
           >
-            <strong>DESCONTO</strong>
-            <small>Preço final</small>
+            <strong>
+              Desconto
+            </strong>
+
+            <small>
+              Desconto final
+            </small>
           </button>
+
 
           <button
             class="side-tool"
             data-open="markup"
-            type="button"
           >
-            <strong>MARKUP</strong>
-            <small>Markup</small>
+            <strong>
+              Markup
+            </strong>
+
+            <small>
+              Markup comercial
+            </small>
           </button>
+
 
           <button
             class="side-tool"
             data-open="commission"
-            type="button"
           >
-            <strong>COMISSÃO</strong>
-            <small>Comissão</small>
-          </button>
+            <strong>
+              Comissão
+            </strong>
 
-          <button
-            class="side-tool"
-            data-nav="history"
-            type="button"
-          >
-            <strong>HISTÓRICO</strong>
-            <small>Resultados</small>
+            <small>
+              Comissão e faturamento
+            </small>
           </button>
 
         </div>
@@ -2238,21 +2148,26 @@ main{
       </div>
 
 
-      <button
-        id="copySide"
-        class="copy-btn"
-        type="button"
-      >
-        COPIAR RESULTADO
-      </button>
+      <div class="side-panel">
+
+        <h3>
+          Resultado
+        </h3>
+
+        <button
+          class="copy-btn"
+          id="copySide"
+        >
+          COPIAR RESULTADO
+        </button>
+
+      </div>
 
 
-      <!-- ESPAÇO MÍNIMO PARA PUBLICIDADE -->
-
-      <div class="ad-slot horizontal">
+      <div class="ad-slot large">
 
         <span class="ad-label">
-          Espaço reservado para publicidade
+          Espaço publicitário
         </span>
 
       </div>
@@ -2269,11 +2184,25 @@ main{
 =================================================== -->
 
 <section
-  id="commercial"
   class="screen scroll-screen"
+  id="commercial"
 >
 
   <div class="commercial-page">
+
+    <div class="back-row">
+
+      <button
+        class="back-button"
+        data-nav="home"
+        aria-label="Voltar"
+        title="Voltar"
+      >
+        ←
+      </button>
+
+    </div>
+
 
     <div class="page-heading">
 
@@ -2282,7 +2211,7 @@ main{
       </h2>
 
       <p>
-        Cálculos para sua rotina comercial.
+        Cálculos rápidos para sua rotina comercial.
       </p>
 
     </div>
@@ -2292,40 +2221,35 @@ main{
 
       <button
         class="commercial-tab active"
-        data-tab="margin"
-        type="button"
+        data-commercial-tab="margin"
       >
         MARGEM
       </button>
 
       <button
         class="commercial-tab"
-        data-tab="price"
-        type="button"
+        data-commercial-tab="price"
       >
         PREÇO
       </button>
 
       <button
         class="commercial-tab"
-        data-tab="discount"
-        type="button"
+        data-commercial-tab="discount"
       >
         DESCONTO
       </button>
 
       <button
         class="commercial-tab"
-        data-tab="markup"
-        type="button"
+        data-commercial-tab="markup"
       >
         MARKUP
       </button>
 
       <button
         class="commercial-tab"
-        data-tab="commission"
-        type="button"
+        data-commercial-tab="commission"
       >
         COMISSÃO
       </button>
@@ -2333,360 +2257,356 @@ main{
     </div>
 
 
-    <div class="form-card">
+    <!-- MARGEM -->
 
-      <!-- MARGEM -->
+    <div
+      class="form-card commercial-panel"
+      id="panel-margin"
+    >
 
-      <div
-        id="panel-margin"
-        class="commercial-panel"
-      >
+      <div class="form-grid">
 
-        <div class="form-grid">
+        <div class="field">
 
-          <div class="field">
+          <label>
+            Custo
+          </label>
 
-            <label>
-              Custo (R$)
-            </label>
-
-            <input
-              id="marginCost"
-              type="text"
-              inputmode="decimal"
-              placeholder="0,00"
-            >
-
-          </div>
-
-
-          <div class="field">
-
-            <label>
-              Preço de venda (R$)
-            </label>
-
-            <input
-              id="marginSale"
-              type="text"
-              inputmode="decimal"
-              placeholder="0,00"
-            >
-
-          </div>
+          <input
+            id="marginCost"
+            inputmode="decimal"
+            placeholder="0,00"
+          >
 
         </div>
 
 
-        <button
-          class="primary-btn"
-          data-calc-commercial="margin"
-          type="button"
-        >
-          CALCULAR
-        </button>
+        <div class="field">
 
+          <label>
+            Preço de venda
+          </label>
 
-        <div
-          id="result-margin"
-          class="result-box"
-        ></div>
-
-      </div>
-
-
-      <!-- PREÇO -->
-
-      <div
-        id="panel-price"
-        class="commercial-panel"
-        hidden
-      >
-
-        <div class="form-grid">
-
-          <div class="field">
-
-            <label>
-              Custo (R$)
-            </label>
-
-            <input
-              id="priceCost"
-              type="text"
-              inputmode="decimal"
-              placeholder="0,00"
-            >
-
-          </div>
-
-
-          <div class="field">
-
-            <label>
-              Margem (%)
-            </label>
-
-            <input
-              id="priceMargin"
-              type="text"
-              inputmode="decimal"
-              placeholder="Ex.: 30"
-            >
-
-          </div>
-
-
-          <div class="field full">
-
-            <label>
-              OU Markup (%)
-            </label>
-
-            <input
-              id="priceMarkup"
-              type="text"
-              inputmode="decimal"
-              placeholder="Ex.: 50"
-            >
-
-          </div>
+          <input
+            id="marginSale"
+            inputmode="decimal"
+            placeholder="0,00"
+          >
 
         </div>
 
 
-        <button
-          class="primary-btn"
-          data-calc-commercial="price"
-          type="button"
-        >
-          CALCULAR
-        </button>
+        <div class="field full">
 
-
-        <div
-          id="result-price"
-          class="result-box"
-        ></div>
-
-      </div>
-
-
-      <!-- DESCONTO -->
-
-      <div
-        id="panel-discount"
-        class="commercial-panel"
-        hidden
-      >
-
-        <div class="form-grid">
-
-          <div class="field">
-
-            <label>
-              Preço original (R$)
-            </label>
-
-            <input
-              id="discountOriginal"
-              type="text"
-              inputmode="decimal"
-              placeholder="0,00"
-            >
-
-          </div>
-
-
-          <div class="field">
-
-            <label>
-              Desconto (%)
-            </label>
-
-            <input
-              id="discountPercent"
-              type="text"
-              inputmode="decimal"
-              placeholder="Ex.: 10"
-            >
-
-          </div>
+          <button
+            class="primary-btn"
+            data-calc-commercial="margin"
+          >
+            CALCULAR MARGEM
+          </button>
 
         </div>
 
-
-        <button
-          class="primary-btn"
-          data-calc-commercial="discount"
-          type="button"
-        >
-          CALCULAR
-        </button>
-
-
-        <div
-          id="result-discount"
-          class="result-box"
-        ></div>
-
       </div>
 
-
-      <!-- MARKUP -->
 
       <div
-        id="panel-markup"
-        class="commercial-panel"
-        hidden
-      >
-
-        <div class="form-grid">
-
-          <div class="field">
-
-            <label>
-              Custo (R$)
-            </label>
-
-            <input
-              id="markupCost"
-              type="text"
-              inputmode="decimal"
-              placeholder="0,00"
-            >
-
-          </div>
-
-
-          <div class="field">
-
-            <label>
-              Markup (%)
-            </label>
-
-            <input
-              id="markupPercent"
-              type="text"
-              inputmode="decimal"
-              placeholder="Ex.: 50"
-            >
-
-          </div>
-
-        </div>
-
-
-        <button
-          class="primary-btn"
-          data-calc-commercial="markup"
-          type="button"
-        >
-          CALCULAR
-        </button>
-
-
-        <div
-          id="result-markup"
-          class="result-box"
-        ></div>
-
-      </div>
-
-
-      <!-- COMISSÃO -->
-
-      <div
-        id="panel-commission"
-        class="commercial-panel"
-        hidden
-      >
-
-        <div class="form-grid">
-
-          <div class="field">
-
-            <label>
-              Tipo de cálculo
-            </label>
-
-            <select id="commissionMode">
-
-              <option value="sale">
-                Comissão sobre venda
-              </option>
-
-              <option value="target">
-                Faturamento necessário
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <div class="field">
-
-            <label>
-              Comissão (%)
-            </label>
-
-            <input
-              id="commissionPercent"
-              type="text"
-              inputmode="decimal"
-              placeholder="Ex.: 5"
-            >
-
-          </div>
-
-
-          <div class="field full">
-
-            <label id="commissionValueLabel">
-              Valor da venda (R$)
-            </label>
-
-            <input
-              id="commissionValue"
-              type="text"
-              inputmode="decimal"
-              placeholder="0,00"
-            >
-
-          </div>
-
-        </div>
-
-
-        <button
-          class="primary-btn"
-          data-calc-commercial="commission"
-          type="button"
-        >
-          CALCULAR
-        </button>
-
-
-        <div
-          id="result-commission"
-          class="result-box"
-        ></div>
-
-      </div>
+        class="result-box"
+        id="result-margin"
+      ></div>
 
     </div>
 
 
-    <div class="commercial-ad">
+    <!-- PREÇO -->
 
-      <div class="ad-slot">
+    <div
+      class="form-card commercial-panel"
+      id="panel-price"
+      style="display:none;"
+    >
 
-        <span class="ad-label">
-          Espaço reservado para publicidade
-        </span>
+      <div class="form-grid">
+
+        <div class="field">
+
+          <label>
+            Custo
+          </label>
+
+          <input
+            id="priceCost"
+            inputmode="decimal"
+            placeholder="0,00"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Margem desejada %
+          </label>
+
+          <input
+            id="priceMargin"
+            inputmode="decimal"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Markup desejado %
+          </label>
+
+          <input
+            id="priceMarkup"
+            inputmode="decimal"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <button
+            class="primary-btn"
+            data-calc-commercial="price"
+          >
+            CALCULAR PREÇO
+          </button>
+
+        </div>
 
       </div>
+
+
+      <div
+        class="result-box"
+        id="result-price"
+      ></div>
+
+    </div>
+
+
+    <!-- DESCONTO -->
+
+    <div
+      class="form-card commercial-panel"
+      id="panel-discount"
+      style="display:none;"
+    >
+
+      <div class="form-grid">
+
+        <div class="field">
+
+          <label>
+            Preço original
+          </label>
+
+          <input
+            id="discountOriginal"
+            inputmode="decimal"
+            placeholder="0,00"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Desconto %
+          </label>
+
+          <input
+            id="discountPercent"
+            inputmode="decimal"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <button
+            class="primary-btn"
+            data-calc-commercial="discount"
+          >
+            CALCULAR DESCONTO
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="result-box"
+        id="result-discount"
+      ></div>
+
+    </div>
+
+
+    <!-- MARKUP -->
+
+    <div
+      class="form-card commercial-panel"
+      id="panel-markup"
+      style="display:none;"
+    >
+
+      <div class="form-grid">
+
+        <div class="field">
+
+          <label>
+            Custo
+          </label>
+
+          <input
+            id="markupCost"
+            inputmode="decimal"
+            placeholder="0,00"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Markup %
+          </label>
+
+          <input
+            id="markupPercent"
+            inputmode="decimal"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <button
+            class="primary-btn"
+            data-calc-commercial="markup"
+          >
+            CALCULAR MARKUP
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="result-box"
+        id="result-markup"
+      ></div>
+
+    </div>
+
+
+    <!-- COMISSÃO -->
+
+    <div
+      class="form-card commercial-panel"
+      id="panel-commission"
+      style="display:none;"
+    >
+
+      <div class="form-grid">
+
+        <div class="field">
+
+          <label>
+            Modo
+          </label>
+
+          <select id="commissionMode">
+
+            <option value="sale">
+              Comissão sobre venda
+            </option>
+
+            <option value="target">
+              Faturamento necessário
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Comissão %
+          </label>
+
+          <input
+            id="commissionPercent"
+            inputmode="decimal"
+            placeholder="0"
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <label id="commissionValueLabel">
+            Valor da venda (R$)
+          </label>
+
+          <input
+            id="commissionValue"
+            inputmode="decimal"
+            placeholder="0,00"
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <button
+            class="primary-btn"
+            data-calc-commercial="commission"
+          >
+            CALCULAR COMISSÃO
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="result-box"
+        id="result-commission"
+      ></div>
+
+    </div>
+
+
+    <div class="ad-slot commercial-ad">
+
+      <span class="ad-label">
+        Espaço publicitário
+      </span>
 
     </div>
 
@@ -2700,11 +2620,24 @@ main{
 =================================================== -->
 
 <section
-  id="history"
   class="screen scroll-screen"
+  id="history"
 >
 
   <div class="history-page">
+
+    <div class="back-row">
+
+      <button
+        class="back-button"
+        data-nav="home"
+        aria-label="Voltar"
+      >
+        ←
+      </button>
+
+    </div>
+
 
     <div class="page-heading">
 
@@ -2713,7 +2646,7 @@ main{
       </h2>
 
       <p>
-        Seus cálculos recentes.
+        Seus últimos cálculos.
       </p>
 
     </div>
@@ -2722,9 +2655,8 @@ main{
     <div class="history-card">
 
       <button
-        id="clearHistory"
         class="clear-history"
-        type="button"
+        id="clearHistory"
       >
         LIMPAR HISTÓRICO
       </button>
@@ -2734,40 +2666,44 @@ main{
 
     </div>
 
-
-    <div style="margin-top:14px">
-
-      <div class="ad-slot">
-
-        <span class="ad-label">
-          Espaço reservado para publicidade
-        </span>
-
-      </div>
-
-    </div>
-
   </div>
 
 </section>
 
 
 <!-- ===================================================
-     CONFIGURAÇÕES
+     CONFIG
 =================================================== -->
 
 <section
-  id="settings"
   class="screen scroll-screen"
+  id="settings"
 >
 
   <div class="settings-page">
+
+    <div class="back-row">
+
+      <button
+        class="back-button"
+        data-nav="home"
+        aria-label="Voltar"
+      >
+        ←
+      </button>
+
+    </div>
+
 
     <div class="page-heading">
 
       <h2>
         Configurações
       </h2>
+
+      <p>
+        Personalize o CALPRO EXPERT.
+      </p>
 
     </div>
 
@@ -2783,7 +2719,7 @@ main{
           </strong>
 
           <small>
-            Aparência do aplicativo
+            Escolha a aparência.
           </small>
 
         </div>
@@ -2803,61 +2739,6 @@ main{
 
       </div>
 
-
-      <div class="settings-row">
-
-        <div>
-
-          <strong>
-            Separador decimal
-          </strong>
-
-          <small>
-            Padrão visual brasileiro
-          </small>
-
-        </div>
-
-        <strong>
-          ,
-        </strong>
-
-      </div>
-
-
-      <div class="settings-row">
-
-        <div>
-
-          <strong>
-            Histórico
-          </strong>
-
-          <small>
-            Salvo localmente no navegador
-          </small>
-
-        </div>
-
-        <strong>
-          ATIVO
-        </strong>
-
-      </div>
-
-    </div>
-
-
-    <div style="margin-top:14px">
-
-      <div class="ad-slot">
-
-        <span class="ad-label">
-          Espaço reservado para publicidade
-        </span>
-
-      </div>
-
     </div>
 
   </div>
@@ -2868,7 +2749,7 @@ main{
 
 
 <!-- ===================================================
-     NAVEGAÇÃO
+     NAV
 =================================================== -->
 
 <nav class="bottom-nav">
@@ -2876,7 +2757,6 @@ main{
   <button
     class="nav-btn active"
     data-nav="home"
-    type="button"
   >
 
     <span class="nav-icon">
@@ -2891,11 +2771,10 @@ main{
   <button
     class="nav-btn"
     data-nav="calculator"
-    type="button"
   >
 
     <span class="nav-icon">
-      ▦
+      ＋
     </span>
 
     CALCULADORA
@@ -2906,7 +2785,6 @@ main{
   <button
     class="nav-btn"
     data-nav="commercial"
-    type="button"
   >
 
     <span class="nav-icon">
@@ -2921,11 +2799,10 @@ main{
   <button
     class="nav-btn"
     data-nav="history"
-    type="button"
   >
 
     <span class="nav-icon">
-      ↶
+      ◷
     </span>
 
     HISTÓRICO
@@ -2936,7 +2813,6 @@ main{
   <button
     class="nav-btn"
     data-nav="settings"
-    type="button"
   >
 
     <span class="nav-icon">
@@ -2951,8 +2827,8 @@ main{
 
 
 <div
-  id="toast"
   class="toast"
+  id="toast"
 ></div>
 
 </div>
@@ -2961,30 +2837,32 @@ main{
 <script>
 
 /* =====================================================
-   UTILITÁRIOS
+   HELPERS
 ===================================================== */
 
 const $ = selector =>
   document.querySelector(selector);
 
 const $$ = selector =>
-  Array.from(
-    document.querySelectorAll(selector)
-  );
+  [...document.querySelectorAll(selector)];
 
 
 function vibrate(){
 
   if(
-    "vibrate" in navigator
+    navigator.vibrate
   ){
-
     navigator.vibrate(8);
-
   }
 
 }
 
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer = null;
 
 function toast(message){
 
@@ -2994,81 +2872,972 @@ function toast(message){
   element.textContent =
     message;
 
-  element.classList.add(
-    "show"
-  );
+  element.classList.add("show");
 
   clearTimeout(
-    toast.timer
+    toastTimer
   );
 
-  toast.timer =
+  toastTimer =
     setTimeout(
       () => {
-
-        element.classList.remove(
-          "show"
-        );
-
+        element.classList.remove("show");
       },
-      1700
+      1800
     );
 
 }
 
 
 /* =====================================================
-   FORMATAÇÃO
+   NÚMEROS
 ===================================================== */
 
-function formatNumber(
-  value
+function cleanNumber(value){
+
+  if(
+    value === null ||
+    value === undefined
+  ){
+    return 0;
+  }
+
+  let text =
+    String(value)
+      .trim()
+      .replace(/\s/g,"");
+
+  if(
+    !text
+  ){
+    return 0;
+  }
+
+  /*
+   Aceita:
+
+   1.234,56
+   1234,56
+   1,234.56
+   1234.56
+   1234
+  */
+
+  const lastComma =
+    text.lastIndexOf(",");
+
+  const lastDot =
+    text.lastIndexOf(".");
+
+  if(
+    lastComma > lastDot
+  ){
+
+    text =
+      text
+        .replace(/\./g,"")
+        .replace(",",".");
+  }
+
+  else if(
+    lastDot > lastComma
+  ){
+
+    /*
+     Se houver várias pontuações
+     antes do último ponto,
+     elas são milhares.
+    */
+
+    const parts =
+      text.split(".");
+
+    if(
+      parts.length > 2
+    ){
+
+      const decimal =
+        parts.pop();
+
+      text =
+        parts.join("") +
+        "." +
+        decimal;
+
+    }
+
+  }
+
+  else{
+
+    text =
+      text.replace(/,/g,"");
+  }
+
+  const number =
+    Number(text);
+
+  return Number.isFinite(number)
+    ? number
+    : 0;
+
+}
+
+
+function roundNumber(
+  value,
+  decimals = 12
 ){
 
   if(
     !Number.isFinite(value)
   ){
+    return NaN;
+  }
 
+  const factor =
+    10 ** decimals;
+
+  return (
+    Math.round(
+      (value + Number.EPSILON) *
+      factor
+    ) /
+    factor
+  );
+
+}
+
+
+function formatBrazilian(
+  value,
+  maxDecimals = 12
+){
+
+  if(
+    !Number.isFinite(value)
+  ){
     return "Erro";
+  }
+
+  const rounded =
+    roundNumber(
+      value,
+      maxDecimals
+    );
+
+  let text =
+    rounded.toFixed(
+      maxDecimals
+    );
+
+  text =
+    text.replace(
+      /(\.\d*?[1-9])0+$/,"$1"
+    );
+
+  text =
+    text.replace(
+      /\.0+$/,""
+    );
+
+  let [
+    integer,
+    decimal
+  ] =
+    text.split(".");
+
+  integer =
+    integer.replace(
+      /\B(?=(\d{3})+(?!\d))/g,
+      "."
+    );
+
+  return decimal
+    ? integer + "," + decimal
+    : integer;
+
+}
+
+
+function money(value){
+
+  return "R$ " +
+    formatBrazilian(
+      value,
+      2
+    );
+
+}
+
+
+function percentage(value){
+
+  return formatBrazilian(
+    value,
+    4
+  ) + "%";
+
+}
+
+
+/* =====================================================
+   PARSER MATEMÁTICO
+=====================================================
+
+   Não utiliza eval().
+
+   Suporta:
+
+   + - * / ^
+   %
+   ()
+   decimais
+   negativos
+   precedência
+   potência
+===================================================== */
+
+function tokenizeExpression(
+  expression
+){
+
+  const source =
+    String(expression)
+      .replace(/×/g,"*")
+      .replace(/÷/g,"/")
+      .replace(/−/g,"-")
+      .replace(/,/g,".")
+      .replace(/\s+/g,"");
+
+  const tokens = [];
+
+  let i = 0;
+
+  while(
+    i < source.length
+  ){
+
+    const char =
+      source[i];
+
+    /*
+     Número
+    */
+
+    if(
+      /[0-9.]/.test(char)
+    ){
+
+      let number = "";
+
+      let dots = 0;
+
+      while(
+        i < source.length &&
+        /[0-9.]/.test(source[i])
+      ){
+
+        if(
+          source[i] === "."
+        ){
+          dots++;
+        }
+
+        number +=
+          source[i];
+
+        i++;
+      }
+
+      if(
+        dots > 1 ||
+        number === "."
+      ){
+
+        throw new Error(
+          "Número inválido"
+        );
+
+      }
+
+      const value =
+        Number(number);
+
+      if(
+        !Number.isFinite(value)
+      ){
+
+        throw new Error(
+          "Número inválido"
+        );
+
+      }
+
+      tokens.push({
+        type:"number",
+        value
+      });
+
+      continue;
+    }
+
+
+    /*
+     Operadores
+    */
+
+    if(
+      "+-*/^%".includes(char)
+    ){
+
+      /*
+       Menos unário.
+      */
+
+      if(
+        char === "-" &&
+        (
+          tokens.length === 0 ||
+          (
+            tokens.length > 0 &&
+            (
+              tokens[tokens.length-1].type === "operator" ||
+              tokens[tokens.length-1].type === "leftParen"
+            )
+          )
+        )
+      ){
+
+        tokens.push({
+          type:"unaryMinus"
+        });
+
+        i++;
+
+        continue;
+      }
+
+      tokens.push({
+        type:"operator",
+        value:char
+      });
+
+      i++;
+
+      continue;
+    }
+
+
+    if(
+      char === "("
+    ){
+
+      tokens.push({
+        type:"leftParen"
+      });
+
+      i++;
+
+      continue;
+    }
+
+
+    if(
+      char === ")"
+    ){
+
+      tokens.push({
+        type:"rightParen"
+      });
+
+      i++;
+
+      continue;
+    }
+
+
+    throw new Error(
+      "Caractere inválido"
+    );
 
   }
 
-  return value.toLocaleString(
-    "pt-BR",
-    {
-      maximumFractionDigits:10
+  return tokens;
+
+}
+
+
+/*
+Parser recursivo.
+
+Gramática:
+
+expression
+  = addition
+
+addition
+  = multiplication
+  ((+|-) multiplication)*
+
+multiplication
+  = power
+  ((*|/) power)*
+
+power
+  = unary
+  (^ power)?
+
+unary
+  = - unary
+  | primary
+
+primary
+  = number
+  | ( expression )
+*/
+
+function evaluateExpression(
+  expression
+){
+
+  const tokens =
+    tokenizeExpression(
+      expression
+    );
+
+  if(
+    !tokens.length
+  ){
+    return 0;
+  }
+
+  let position = 0;
+
+
+  function current(){
+
+    return tokens[position];
+
+  }
+
+
+  function matchType(
+    type
+  ){
+
+    if(
+      current()?.type === type
+    ){
+
+      position++;
+
+      return true;
+
     }
+
+    return false;
+
+  }
+
+
+  function matchOperator(
+    operator
+  ){
+
+    if(
+      current()?.type === "operator" &&
+      current()?.value === operator
+    ){
+
+      position++;
+
+      return true;
+
+    }
+
+    return false;
+
+  }
+
+
+  function parseExpression(){
+
+    return parseAddition();
+
+  }
+
+
+  function parseAddition(){
+
+    let value =
+      parseMultiplication();
+
+    while(true){
+
+      if(
+        matchOperator("+")
+      ){
+
+        value +=
+          parseMultiplication();
+
+        continue;
+
+      }
+
+      if(
+        matchOperator("-")
+      ){
+
+        value -=
+          parseMultiplication();
+
+        continue;
+
+      }
+
+      break;
+
+    }
+
+    return value;
+
+  }
+
+
+  function parseMultiplication(){
+
+    let value =
+      parsePower();
+
+    while(true){
+
+      if(
+        matchOperator("*")
+      ){
+
+        value *=
+          parsePower();
+
+        continue;
+
+      }
+
+      if(
+        matchOperator("/")
+      ){
+
+        const divisor =
+          parsePower();
+
+        if(
+          Math.abs(divisor) <
+          Number.EPSILON
+        ){
+
+          throw new Error(
+            "Divisão por zero"
+          );
+
+        }
+
+        value /=
+          divisor;
+
+        continue;
+
+      }
+
+      break;
+
+    }
+
+    return value;
+
+  }
+
+
+  function parsePower(){
+
+    const base =
+      parseUnary();
+
+    if(
+      matchOperator("^")
+    ){
+
+      const exponent =
+        parsePower();
+
+      return Math.pow(
+        base,
+        exponent
+      );
+
+    }
+
+    return base;
+
+  }
+
+
+  function parseUnary(){
+
+    if(
+      matchType(
+        "unaryMinus"
+      )
+    ){
+
+      return -
+        parseUnary();
+
+    }
+
+    return parsePrimary();
+
+  }
+
+
+  function parsePrimary(){
+
+    const token =
+      current();
+
+    if(
+      !token
+    ){
+
+      throw new Error(
+        "Expressão incompleta"
+      );
+
+    }
+
+
+    if(
+      token.type === "number"
+    ){
+
+      position++;
+
+      return token.value;
+
+    }
+
+
+    if(
+      matchType(
+        "leftParen"
+      )
+    ){
+
+      const value =
+        parseExpression();
+
+      if(
+        !matchType(
+          "rightParen"
+        )
+      ){
+
+        throw new Error(
+          "Parêntese não fechado"
+        );
+
+      }
+
+      return value;
+
+    }
+
+
+    throw new Error(
+      "Expressão inválida"
+    );
+
+  }
+
+
+  const result =
+    parseExpression();
+
+
+  if(
+    position !== tokens.length
+  ){
+
+    throw new Error(
+      "Expressão inválida"
+    );
+
+  }
+
+
+  if(
+    !Number.isFinite(result)
+  ){
+
+    throw new Error(
+      "Resultado inválido"
+    );
+
+  }
+
+
+  return roundNumber(
+    result,
+    12
   );
 
 }
 
 
-function money(
-  value
+/* =====================================================
+   PORCENTAGEM CONTEXTUAL
+=====================================================
+
+   Exemplos:
+
+   100 + 10% = 110
+   100 - 10% = 90
+   100 * 10% = 10
+   100 / 10% = 1000
+
+   Para + e -:
+   percentual representa uma porcentagem
+   do valor à esquerda.
+
+   Para * e /:
+   percentual vira seu valor decimal.
+===================================================== */
+
+function calculatePercentExpression(
+  expression
 ){
 
-  return Number(value).toLocaleString(
-    "pt-BR",
-    {
-      minimumFractionDigits:2,
-      maximumFractionDigits:2
+  const source =
+    String(expression)
+      .replace(/×/g,"*")
+      .replace(/÷/g,"/")
+      .replace(/−/g,"-")
+      .replace(/,/g,".")
+      .replace(/\s+/g,"");
+
+
+  /*
+   Procura porcentagens simples.
+
+   Exemplo:
+
+   100+10%
+   100-10%
+   100*10%
+   100/10%
+  */
+
+  const match =
+    source.match(
+      /^(.+?)([+\-*/])([+\-]?\d+(?:\.\d+)?)%$/
+    );
+
+
+  if(
+    match
+  ){
+
+    const left =
+      match[1];
+
+    const operator =
+      match[2];
+
+    const percent =
+      Number(match[3]);
+
+
+    const base =
+      evaluateExpression(
+        left
+      );
+
+
+    if(
+      operator === "+"
+    ){
+
+      return roundNumber(
+        base +
+        base *
+        percent /
+        100,
+        12
+      );
+
     }
+
+
+    if(
+      operator === "-"
+    ){
+
+      return roundNumber(
+        base -
+        base *
+        percent /
+        100,
+        12
+      );
+
+    }
+
+
+    if(
+      operator === "*"
+    ){
+
+      return roundNumber(
+        base *
+        percent /
+        100,
+        12
+      );
+
+    }
+
+
+    if(
+      operator === "/"
+    ){
+
+      const divisor =
+        percent /
+        100;
+
+      if(
+        divisor === 0
+      ){
+
+        throw new Error(
+          "Divisão por zero"
+        );
+
+      }
+
+      return roundNumber(
+        base /
+        divisor,
+        12
+      );
+
+    }
+
+  }
+
+
+  /*
+   Porcentagem isolada.
+
+   10% = 0,1
+  */
+
+  if(
+    /^[-+]?\d+(?:\.\d+)?%$/.test(
+      source
+    )
+  ){
+
+    return roundNumber(
+      Number(
+        source.replace("%","")
+      ) / 100,
+      12
+    );
+
+  }
+
+
+  /*
+   Expressões com mais de uma porcentagem.
+
+   Exemplo:
+
+   100+10%+20%
+
+   Primeiro resolve 100+10%=110,
+   depois 110+20%=132.
+  */
+
+  if(
+    /%[+\-*/]/.test(source)
+  ){
+
+    let expressionWork =
+      source;
+
+    const regex =
+      /(.+?)([+\-])(\d+(?:\.\d+)?)%([+\-*/])/;
+
+    let safety = 0;
+
+    while(
+      /%[+\-*/]/.test(
+        expressionWork
+      ) &&
+      safety < 20
+    ){
+
+      const m =
+        expressionWork.match(
+          regex
+        );
+
+      if(
+        !m
+      ){
+        break;
+      }
+
+      const partial =
+        m[1] +
+        m[2] +
+        m[3] +
+        "%";
+
+      const value =
+        calculatePercentExpression(
+          partial
+        );
+
+      expressionWork =
+        value +
+        m[4] +
+        expressionWork.slice(
+          m.index +
+          m[0].length
+        );
+
+      safety++;
+
+    }
+
+    if(
+      safety > 0
+    ){
+
+      return evaluateExpression(
+        expressionWork
+      );
+
+    }
+
+  }
+
+
+  return evaluateExpression(
+    source
   );
-
-}
-
-
-function percentage(
-  value
-){
-
-  return Number(value).toLocaleString(
-    "pt-BR",
-    {
-      minimumFractionDigits:2,
-      maximumFractionDigits:2
-    }
-  ) + "%";
 
 }
 
@@ -3079,13 +3848,11 @@ function percentage(
 
 const calculator = {
 
-  tokens: [],
+  expression:"",
 
-  current: "0",
+  current:"0",
 
   justCalculated:false,
-
-  lastExpression:"",
 
   lastResult:0,
 
@@ -3093,130 +3860,49 @@ const calculator = {
 
   lastOperand:null,
 
-  memory:
-    Number(
-      localStorage.getItem(
-        "calpro_memory"
-      ) || 0
-    )
+  memory:Number(
+    localStorage.getItem(
+      "calpro_memory"
+    ) || 0
+  )
 
 };
 
 
-const operatorSymbols = {
-
-  add:"+",
-
-  subtract:"−",
-
-  multiply:"×",
-
-  divide:"÷",
-
-  power:"^"
-
-};
-
-
-function isOperator(
-  token
-){
-
-  return [
-    "+",
-    "−",
-    "×",
-    "÷",
-    "^"
-  ].includes(token);
-
-}
-
-
-function currentNumber(){
+function displayCurrent(){
 
   const value =
-    Number(
-      calculator.current
-    );
-
-  return Number.isFinite(value)
-    ? value
-    : 0;
-
-}
-
-
-/* =====================================================
-   FORMATAÇÃO DO VISOR
-===================================================== */
-
-function formatCalculatorDisplay(
-  value
-){
+    calculator.current;
 
   if(
-    value === "" ||
-    value === "-"
+    value === "-" ||
+    value === ""
   ){
 
-    return value;
+    return value || "0";
 
   }
 
-  let text =
-    String(value)
-      .replace(/,/g,".");
-
-  if(
-    text.includes("e") ||
-    text.includes("E")
-  ){
-
-    const number =
-      Number(text);
-
-    if(
-      Number.isFinite(number)
-    ){
-
-      return number.toLocaleString(
-        "pt-BR",
-        {
-          maximumFractionDigits:10
-        }
-      );
-
-    }
-
-  }
 
   const negative =
-    text.startsWith("-");
+    value.startsWith("-");
 
-  if(negative){
+  const unsigned =
+    negative
+      ? value.slice(1)
+      : value;
 
-    text =
-      text.slice(1);
-
-  }
 
   const parts =
-    text.split(".");
+    unsigned.split(".");
+
 
   let integer =
     parts[0] || "0";
 
   const decimal =
-    parts.length > 1
-      ? parts.slice(1).join("")
-      : null;
+    parts[1];
 
-  integer =
-    integer.replace(
-      /^0+(?=\d)/,
-      ""
-    ) || "0";
 
   integer =
     integer.replace(
@@ -3224,11 +3910,13 @@ function formatCalculatorDisplay(
       "."
     );
 
+
   let result =
     integer;
 
+
   if(
-    decimal !== null
+    decimal !== undefined
   ){
 
     result +=
@@ -3237,11 +3925,10 @@ function formatCalculatorDisplay(
 
   }
 
-  return (
-    negative
-      ? "−"
-      : ""
-  ) + result;
+
+  return negative
+    ? "-" + result
+    : result;
 
 }
 
@@ -3250,24 +3937,45 @@ function updateCalculator(){
 
   $("#calcDisplay")
     .textContent =
-      formatCalculatorDisplay(
-        calculator.current
-      );
+      displayCurrent();
 
-  const expression =
-    calculator.tokens
-      .join(" ");
 
-  $("#calcOperation")
+  $("#operationDisplay")
     .textContent =
-      expression;
+      calculator.expression;
+
+
+  const parsed =
+    Number(
+      calculator.current
+    );
+
+
+  $("#calcFormat")
+    .textContent =
+      Number.isFinite(parsed)
+        ? ""
+        : "";
 
 }
 
 
-/* =====================================================
-   NÚMEROS
-===================================================== */
+function normalizeCurrent(){
+
+  if(
+    calculator.current ===
+    "-" ||
+    calculator.current ===
+    ""
+  ){
+
+    calculator.current =
+      "0";
+
+  }
+
+}
+
 
 function inputNumber(
   number
@@ -3275,11 +3983,13 @@ function inputNumber(
 
   vibrate();
 
+
   if(
     calculator.justCalculated
   ){
 
-    calculator.tokens = [];
+    calculator.expression =
+      "";
 
     calculator.current =
       "0";
@@ -3288,6 +3998,7 @@ function inputNumber(
       false;
 
   }
+
 
   if(
     calculator.current === "0"
@@ -3314,6 +4025,7 @@ function inputNumber(
 
   }
 
+
   updateCalculator();
 
 }
@@ -3323,11 +4035,13 @@ function inputDecimal(){
 
   vibrate();
 
+
   if(
     calculator.justCalculated
   ){
 
-    calculator.tokens = [];
+    calculator.expression =
+      "";
 
     calculator.current =
       "0";
@@ -3336,6 +4050,7 @@ function inputDecimal(){
       false;
 
   }
+
 
   if(
     !calculator.current.includes(".")
@@ -3346,20 +4061,18 @@ function inputDecimal(){
 
   }
 
+
   updateCalculator();
 
 }
 
 
-/* =====================================================
-   OPERADORES
-===================================================== */
+function appendCurrentToExpression(){
 
-function commitCurrent(){
+  normalizeCurrent();
 
-  calculator.tokens.push(
-    calculator.current
-  );
+  calculator.expression +=
+    calculator.current;
 
 }
 
@@ -3370,55 +4083,80 @@ function chooseOperator(
 
   vibrate();
 
+
+  const symbols = {
+
+    add:"+",
+
+    subtract:"-",
+
+    multiply:"*",
+
+    divide:"/",
+
+    power:"^"
+
+  };
+
+
+  const symbol =
+    symbols[operator];
+
+
+  if(
+    !symbol
+  ){
+    return;
+  }
+
+
+  /*
+   Se acabou de calcular,
+   o resultado vira a nova base.
+  */
+
   if(
     calculator.justCalculated
   ){
 
-    calculator.tokens = [
-      String(
-        calculator.lastResult
-      )
-    ];
-
-    calculator.current =
-      String(
-        calculator.lastResult
-      );
+    calculator.expression =
+      calculator.current;
 
     calculator.justCalculated =
       false;
 
   }
 
+
+  /*
+   Se o último caractere for operador,
+   troca o operador.
+  */
+
   if(
-    calculator.tokens.length &&
-    isOperator(
-      calculator.tokens[
-        calculator.tokens.length - 1
-      ]
+    /[+\-*/^]$/.test(
+      calculator.expression
     )
   ){
 
-    calculator.tokens[
-      calculator.tokens.length - 1
-    ] =
-      operatorSymbols[
-        operator
-      ];
-
-    updateCalculator();
-
-    return;
+    calculator.expression =
+      calculator.expression.slice(
+        0,
+        -1
+      ) +
+      symbol;
 
   }
 
-  commitCurrent();
+  else{
 
-  calculator.tokens.push(
-    operatorSymbols[
-      operator
-    ]
-  );
+    appendCurrentToExpression();
+
+    calculator.expression +=
+      symbol;
+
+  }
+
 
   calculator.current =
     "0";
@@ -3428,470 +4166,17 @@ function chooseOperator(
 }
 
 
-/* =====================================================
-   PERCENTUAL
-===================================================== */
-
-function percentCurrent(){
-
-  const value =
-    currentNumber();
-
-  const tokens =
-    calculator.tokens;
-
-  if(
-    !tokens.length
-  ){
-
-    calculator.current =
-      String(
-        value / 100
-      );
-
-    updateCalculator();
-
-    return;
-
-  }
-
-  const last =
-    tokens[
-      tokens.length - 1
-    ];
-
-  if(
-    !isOperator(last)
-  ){
-
-    calculator.current =
-      String(
-        value / 100
-      );
-
-    updateCalculator();
-
-    return;
-
-  }
-
-  let base;
-
-  try{
-
-    base =
-      evaluateTokens(
-        tokens
-      );
-
-  }catch{
-
-    base = 0;
-
-  }
-
-  const percent =
-    value / 100;
-
-  if(
-    last === "×" ||
-    last === "÷"
-  ){
-
-    calculator.current =
-      String(
-        percent
-      );
-
-  }
-
-  else{
-
-    calculator.current =
-      String(
-        base * percent
-      );
-
-  }
-
-  updateCalculator();
-
-}
-
-
-/* =====================================================
-   PERCENTUAL CONTEXTUAL DURANTE EXPRESSÃO
-===================================================== */
-
-function resolvePercentages(
-  tokens
-){
-
-  const copy =
-    [...tokens];
-
-  for(
-    let i = 1;
-    i < copy.length;
-    i++
-  ){
-
-    if(
-      copy[i] === "%"
-    ){
-
-      const operand =
-        Number(
-          copy[i - 1]
-        );
-
-      if(
-        !Number.isFinite(
-          operand
-        )
-      ){
-
-        throw new Error(
-          "Percentual inválido"
-        );
-
-      }
-
-      const operator =
-        copy[i - 2];
-
-      let value;
-
-      if(
-        operator === "×" ||
-        operator === "÷"
-      ){
-
-        value =
-          operand / 100;
-
-      }
-
-      else{
-
-        const base =
-          evaluateTokens(
-            copy.slice(
-              0,
-              i - 1
-            )
-          );
-
-        value =
-          base *
-          operand /
-          100;
-
-      }
-
-      copy.splice(
-        i - 1,
-        2,
-        String(value)
-      );
-
-      i--;
-
-    }
-
-  }
-
-  return copy;
-
-}
-
-
-/* =====================================================
-   TOKENIZAÇÃO / PRECEDÊNCIA
-===================================================== */
-
-function precedence(
-  operator
-){
-
-  if(
-    operator === "^"
-  ){
-
-    return 4;
-
-  }
-
-  if(
-    operator === "×" ||
-    operator === "÷"
-  ){
-
-    return 3;
-
-  }
-
-  if(
-    operator === "+" ||
-    operator === "−"
-  ){
-
-    return 2;
-
-  }
-
-  return 0;
-
-}
-
-
-function applyOperation(
-  a,
-  b,
-  operator
-){
-
-  switch(operator){
-
-    case "+":
-      return a + b;
-
-    case "−":
-      return a - b;
-
-    case "×":
-      return a * b;
-
-    case "÷":
-
-      if(
-        b === 0
-      ){
-
-        throw new Error(
-          "Divisão por zero"
-        );
-
-      }
-
-      return a / b;
-
-    case "^":
-      return Math.pow(a,b);
-
-    default:
-      throw new Error(
-        "Operador inválido"
-      );
-
-  }
-
-}
-
-
-function evaluateTokens(
-  rawTokens
-){
-
-  if(
-    !rawTokens.length
-  ){
-
-    return 0;
-
-  }
-
-  let tokens =
-    resolvePercentages(
-      rawTokens
-    );
-
-  const values = [];
-  const operators = [];
-
-  function applyTop(){
-
-    const operator =
-      operators.pop();
-
-    const b =
-      values.pop();
-
-    const a =
-      values.pop();
-
-    values.push(
-      applyOperation(
-        a,
-        b,
-        operator
-      )
-    );
-
-  }
-
-  for(
-    let i = 0;
-    i < tokens.length;
-    i++
-  ){
-
-    const token =
-      tokens[i];
-
-    if(
-      token === "("
-    ){
-
-      operators.push(
-        token
-      );
-
-      continue;
-
-    }
-
-    if(
-      token === ")"
-    ){
-
-      while(
-        operators.length &&
-        operators[
-          operators.length - 1
-        ] !== "("
-      ){
-
-        applyTop();
-
-      }
-
-      if(
-        operators.pop() !== "("
-      ){
-
-        throw new Error(
-          "Parênteses inválidos"
-        );
-
-      }
-
-      continue;
-
-    }
-
-    if(
-      isOperator(token)
-    ){
-
-      while(
-        operators.length &&
-        operators[
-          operators.length - 1
-        ] !== "(" &&
-        (
-          precedence(
-            operators[
-              operators.length - 1
-            ]
-          ) >
-          precedence(token)
-
-          ||
-
-          (
-            precedence(
-              operators[
-                operators.length - 1
-              ]
-            ) ===
-            precedence(token)
-
-            &&
-            token !== "^"
-          )
-        )
-      ){
-
-        applyTop();
-
-      }
-
-      operators.push(
-        token
-      );
-
-      continue;
-
-    }
-
-    const value =
-      Number(token);
-
-    if(
-      !Number.isFinite(value)
-    ){
-
-      throw new Error(
-        "Expressão inválida"
-      );
-
-    }
-
-    values.push(
-      value
-    );
-
-  }
-
-  while(
-    operators.length
-  ){
-
-    if(
-      operators[
-        operators.length - 1
-      ] === "("
-    ){
-
-      throw new Error(
-        "Parênteses inválidos"
-      );
-
-    }
-
-    applyTop();
-
-  }
-
-  if(
-    values.length !== 1
-  ){
-
-    throw new Error(
-      "Expressão inválida"
-    );
-
-  }
-
-  return values[0];
-
-}
-
-
-/* =====================================================
-   PARENTESES
-===================================================== */
-
 function inputLeftParen(){
 
   vibrate();
+
 
   if(
     calculator.justCalculated
   ){
 
-    calculator.tokens = [];
+    calculator.expression =
+      "";
 
     calculator.current =
       "0";
@@ -3901,21 +4186,29 @@ function inputLeftParen(){
 
   }
 
+
+  /*
+   Se já existe um número atual,
+   coloca multiplicação implícita.
+
+   2(3+4) = 14
+  */
+
   if(
-    calculator.current !== "0"
+    calculator.current !== "0" &&
+    calculator.current !== "-"
   ){
 
-    commitCurrent();
+    appendCurrentToExpression();
 
-    calculator.tokens.push(
-      "×"
-    );
+    calculator.expression +=
+      "*";
 
   }
 
-  calculator.tokens.push(
-    "("
-  );
+
+  calculator.expression +=
+    "(";
 
   calculator.current =
     "0";
@@ -3929,24 +4222,52 @@ function inputRightParen(){
 
   vibrate();
 
+
+  normalizeCurrent();
+
+
+  /*
+   Só adiciona o número se ele estiver
+   realmente sendo digitado.
+  */
+
   if(
     calculator.current !== "0"
   ){
 
-    commitCurrent();
+    appendCurrentToExpression();
+
+    calculator.current =
+      "0";
 
   }
 
-  const last =
-    calculator.tokens[
-      calculator.tokens.length - 1
-    ];
+
+  calculator.expression +=
+    ")";
+
+  updateCalculator();
+
+}
+
+
+function backspace(){
+
+  vibrate();
+
 
   if(
-    last === "("
+    calculator.justCalculated
   ){
 
-    calculator.tokens.pop();
+    calculator.current =
+      "0";
+
+    calculator.expression =
+      "";
+
+    calculator.justCalculated =
+      false;
 
     updateCalculator();
 
@@ -3954,12 +4275,250 @@ function inputRightParen(){
 
   }
 
-  calculator.tokens.push(
-    ")"
-  );
+
+  if(
+    calculator.current.length > 1
+  ){
+
+    calculator.current =
+      calculator.current.slice(
+        0,
+        -1
+      );
+
+  }
+
+  else{
+
+    calculator.current =
+      "0";
+
+  }
+
+
+  updateCalculator();
+
+}
+
+
+function clearEntry(){
+
+  vibrate();
 
   calculator.current =
     "0";
+
+  calculator.justCalculated =
+    false;
+
+  updateCalculator();
+
+}
+
+
+function resetCalculator(){
+
+  vibrate();
+
+  calculator.expression =
+    "";
+
+  calculator.current =
+    "0";
+
+  calculator.justCalculated =
+    false;
+
+  calculator.lastOperator =
+    null;
+
+  calculator.lastOperand =
+    null;
+
+  updateCalculator();
+
+}
+
+
+function toggleSign(){
+
+  vibrate();
+
+
+  if(
+    calculator.current ===
+    "0"
+  ){
+
+    calculator.current =
+      "-0";
+
+  }
+
+  else if(
+    calculator.current.startsWith("-")
+  ){
+
+    calculator.current =
+      calculator.current.slice(1);
+
+  }
+
+  else{
+
+    calculator.current =
+      "-" +
+      calculator.current;
+
+  }
+
+
+  updateCalculator();
+
+}
+
+
+/* =====================================================
+   PORCENTAGEM NO BOTÃO
+===================================================== */
+
+function percentCurrent(){
+
+  vibrate();
+
+
+  const current =
+    Number(
+      calculator.current
+    );
+
+
+  if(
+    !Number.isFinite(current)
+  ){
+    return;
+  }
+
+
+  /*
+   Se existe uma operação pendente,
+   aplica percentual sobre a base.
+
+   100 + 10% -> 10
+   100 - 10% -> 10
+
+   Depois o "=" usa a expressão completa.
+  */
+
+  const expression =
+    calculator.expression;
+
+
+  const operatorMatch =
+    expression.match(
+      /([+\-*/^])$/
+    );
+
+
+  if(
+    operatorMatch
+  ){
+
+    const operator =
+      operatorMatch[1];
+
+
+    let baseExpression =
+      expression.slice(
+        0,
+        -1
+      );
+
+
+    if(
+      baseExpression
+    ){
+
+      try{
+
+        const base =
+          evaluateExpression(
+            baseExpression
+          );
+
+
+        if(
+          operator === "+" ||
+          operator === "-"
+        ){
+
+          calculator.current =
+            String(
+              roundNumber(
+                base *
+                current /
+                100,
+                12
+              )
+            );
+
+        }
+
+        else{
+
+          calculator.current =
+            String(
+              roundNumber(
+                current /
+                100,
+                12
+              )
+            );
+
+        }
+
+      }
+
+      catch{
+
+        calculator.current =
+          String(
+            roundNumber(
+              current / 100,
+              12
+            )
+          );
+
+      }
+
+    }
+
+    else{
+
+      calculator.current =
+        String(
+          roundNumber(
+            current / 100,
+            12
+          )
+        );
+
+    }
+
+  }
+
+  else{
+
+    calculator.current =
+      String(
+        roundNumber(
+          current / 100,
+          12
+        )
+      );
+
+  }
+
 
   updateCalculator();
 
@@ -3974,143 +4533,278 @@ function equals(){
 
   vibrate();
 
-  try{
 
-    if(
-      calculator.lastOperator &&
-      calculator.justCalculated
-    ){
+  /*
+   Repetição do =
+  */
+
+  if(
+    calculator.justCalculated &&
+    calculator.lastOperator !== null
+  ){
+
+    try{
 
       const current =
-        calculator.lastResult;
-
-      const result =
-        applyOperation(
-          current,
-          calculator.lastOperand,
-          calculator.lastOperator
+        Number(
+          calculator.current
         );
 
-      calculator.lastResult =
-        result;
+
+      let result;
+
+
+      switch(
+        calculator.lastOperator
+      ){
+
+        case "+":
+          result =
+            current +
+            calculator.lastOperand;
+          break;
+
+        case "-":
+          result =
+            current -
+            calculator.lastOperand;
+          break;
+
+        case "*":
+          result =
+            current *
+            calculator.lastOperand;
+          break;
+
+        case "/":
+
+          if(
+            calculator.lastOperand === 0
+          ){
+
+            throw new Error(
+              "Divisão por zero"
+            );
+
+          }
+
+          result =
+            current /
+            calculator.lastOperand;
+
+          break;
+
+        case "^":
+          result =
+            Math.pow(
+              current,
+              calculator.lastOperand
+            );
+          break;
+
+      }
+
+
+      result =
+        roundNumber(
+          result,
+          12
+        );
+
 
       calculator.current =
         String(result);
 
+      calculator.expression =
+        "";
+
+      calculator.lastResult =
+        result;
+
       updateCalculator();
+
+      saveHistory(
+        "Repetição",
+        result
+      );
 
       return;
 
     }
 
-    const tokens =
-      [...calculator.tokens];
+    catch(error){
+
+      toast(
+        error.message ||
+        "Erro"
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  let expression =
+    calculator.expression;
+
+
+  /*
+   Se houver um número sendo digitado,
+   coloca ele na expressão.
+  */
+
+  if(
+    calculator.current !== "0" ||
+    expression === ""
+  ){
 
     if(
-      calculator.current !== "0" ||
-      !tokens.length
+      expression === ""
     ){
 
-      if(
-        !(
-          tokens.length &&
-          tokens[
-            tokens.length - 1
-          ] === ")"
+      expression =
+        calculator.current;
+
+    }
+
+    else if(
+      /[+\-*/^]$/.test(
+        expression
+      )
+    ){
+
+      expression +=
+        calculator.current;
+
+    }
+
+  }
+
+
+  /*
+   Corrige expressões como:
+
+   100+10%
+
+   para o motor percentual.
+  */
+
+  try{
+
+    let result;
+
+
+    if(
+      expression.includes("%")
+    ){
+
+      result =
+        calculatePercentExpression(
+          expression
+        );
+
+    }
+
+    else{
+
+      result =
+        evaluateExpression(
+          expression
+        );
+
+    }
+
+
+    /*
+     Descobre o último operador
+     para repetição do igual.
+    */
+
+    const operatorMatches =
+      expression.match(
+        /[+\-*/^](?!.*[+\-*/^])/
+      );
+
+
+    if(
+      operatorMatches
+    ){
+
+      calculator.lastOperator =
+        operatorMatches[0];
+
+
+      const index =
+        expression.lastIndexOf(
+          operatorMatches[0]
+        );
+
+
+      const operandText =
+        expression.slice(
+          index + 1
         )
+        .replace(
+          /%$/,""
+        );
+
+
+      const operand =
+        Number(
+          operandText
+        );
+
+
+      if(
+        Number.isFinite(operand)
       ){
 
-        tokens.push(
-          calculator.current
-        );
+        calculator.lastOperand =
+          operatorMatches[0] === "*" ||
+          operatorMatches[0] === "/"
+            ? operand
+            : operand;
 
       }
 
     }
 
-    if(
-      !tokens.length
-    ){
-
-      return;
-
-    }
-
-    const expression =
-      tokens.join(" ");
-
-    const result =
-      evaluateTokens(
-        tokens
-      );
-
-    if(
-      !Number.isFinite(result)
-    ){
-
-      throw new Error(
-        "Resultado inválido"
-      );
-
-    }
-
-    const previousOperator =
-      tokens[
-        tokens.length - 2
-      ];
-
-    const previousOperand =
-      Number(
-        tokens[
-          tokens.length - 1
-        ]
-      );
-
-    calculator.lastOperator =
-      isOperator(
-        previousOperator
-      )
-        ? previousOperator
-        : null;
-
-    calculator.lastOperand =
-      Number.isFinite(
-        previousOperand
-      )
-        ? previousOperand
-        : null;
-
-    calculator.lastResult =
-      result;
 
     calculator.current =
       String(result);
 
-    calculator.tokens = [];
+    calculator.expression =
+      expression;
+
+    calculator.lastResult =
+      result;
 
     calculator.justCalculated =
       true;
 
-    calculator.lastExpression =
-      expression;
-
-    addHistory(
-      "Calculadora",
-      expression,
-      formatNumber(result)
-    );
 
     updateCalculator();
 
-  }catch(error){
+
+    saveHistory(
+      expression,
+      result
+    );
+
+  }
+
+  catch(error){
 
     calculator.current =
-      "0";
+      "Erro";
 
-    calculator.tokens = [];
+    calculator.expression =
+      "";
 
     calculator.justCalculated =
-      false;
+      true;
 
     updateCalculator();
 
@@ -4125,122 +4819,6 @@ function equals(){
 
 
 /* =====================================================
-   CLEAR / BACKSPACE
-===================================================== */
-
-function resetCalculator(){
-
-  calculator.tokens = [];
-
-  calculator.current =
-    "0";
-
-  calculator.justCalculated =
-    false;
-
-  calculator.lastOperator =
-    null;
-
-  calculator.lastOperand =
-    null;
-
-  calculator.lastExpression =
-    "";
-
-  updateCalculator();
-
-}
-
-
-function clearEntry(){
-
-  calculator.current =
-    "0";
-
-  updateCalculator();
-
-}
-
-
-function backspace(){
-
-  if(
-    calculator.justCalculated
-  ){
-
-    resetCalculator();
-
-    return;
-
-  }
-
-  if(
-    calculator.current.length <= 1 ||
-    (
-      calculator.current.length === 2 &&
-      calculator.current.startsWith("-")
-    )
-  ){
-
-    calculator.current =
-      "0";
-
-  }
-
-  else{
-
-    calculator.current =
-      calculator.current.slice(
-        0,
-        -1
-      );
-
-  }
-
-  updateCalculator();
-
-}
-
-
-/* =====================================================
-   SINAL
-===================================================== */
-
-function toggleSign(){
-
-  if(
-    calculator.current === "0"
-  ){
-
-    return;
-
-  }
-
-  if(
-    calculator.current.startsWith("-")
-  ){
-
-    calculator.current =
-      calculator.current.slice(
-        1
-      );
-
-  }
-
-  else{
-
-    calculator.current =
-      "-" +
-      calculator.current;
-
-  }
-
-  updateCalculator();
-
-}
-
-
-/* =====================================================
    FUNÇÕES AVANÇADAS
 ===================================================== */
 
@@ -4248,91 +4826,152 @@ function unaryFunction(
   type
 ){
 
+  vibrate();
+
+
   const value =
-    currentNumber();
+    Number(
+      calculator.current
+    );
 
-  let result;
-
-  if(
-    type === "sqrt"
-  ){
-
-    if(
-      value < 0
-    ){
-
-      toast(
-        "Não é possível calcular √ de número negativo"
-      );
-
-      return;
-
-    }
-
-    result =
-      Math.sqrt(value);
-
-  }
 
   if(
-    type === "square"
+    !Number.isFinite(value)
   ){
 
-    result =
-      value * value;
-
-  }
-
-  if(
-    type === "pi"
-  ){
-
-    result =
-      Math.PI;
-
-  }
-
-  if(
-    !Number.isFinite(result)
-  ){
+    toast(
+      "Número inválido"
+    );
 
     return;
 
   }
 
-  calculator.current =
-    String(result);
 
-  calculator.justCalculated =
-    false;
+  let result;
 
-  updateCalculator();
+
+  try{
+
+    if(
+      type === "sqrt"
+    ){
+
+      if(
+        value < 0
+      ){
+
+        throw new Error(
+          "Não existe raiz real de número negativo"
+        );
+
+      }
+
+      result =
+        Math.sqrt(value);
+
+    }
+
+
+    if(
+      type === "square"
+    ){
+
+      result =
+        value *
+        value;
+
+    }
+
+
+    result =
+      roundNumber(
+        result,
+        12
+      );
+
+
+    calculator.current =
+      String(result);
+
+    calculator.justCalculated =
+      true;
+
+    calculator.expression =
+      type === "sqrt"
+        ? `√(${value})`
+        : `${value}²`;
+
+    calculator.lastResult =
+      result;
+
+    updateCalculator();
+
+    saveHistory(
+      calculator.expression,
+      result
+    );
+
+  }
+
+  catch(error){
+
+    toast(
+      error.message ||
+      "Erro"
+    );
+
+  }
 
 }
 
 
 function insertPi(){
 
+  vibrate();
+
+
+  if(
+    calculator.justCalculated
+  ){
+
+    calculator.expression =
+      "";
+
+    calculator.justCalculated =
+      false;
+
+  }
+
+
+  if(
+    calculator.current !== "0"
+  ){
+
+    appendCurrentToExpression();
+
+    calculator.expression +=
+      "*";
+
+  }
+
+
   calculator.current =
     String(Math.PI);
 
-  calculator.justCalculated =
-    false;
-
   updateCalculator();
 
 }
 
-
-/* =====================================================
-   ANS
-===================================================== */
 
 function insertAns(){
 
+  vibrate();
+
+
   calculator.current =
     String(
-      calculator.lastResult || 0
+      calculator.lastResult
     );
 
   calculator.justCalculated =
@@ -4343,31 +4982,51 @@ function insertAns(){
 }
 
 
-/* =====================================================
-   COPY
-===================================================== */
-
 async function copyResult(){
 
-  const value =
-    formatCalculatorDisplay(
-      calculator.current
-    );
+  vibrate();
+
+
+  const text =
+    calculator.current;
+
 
   try{
 
     await navigator.clipboard.writeText(
-      value
+      text
     );
 
     toast(
       "Resultado copiado"
     );
 
-  }catch{
+  }
+
+  catch{
+
+    const area =
+      document.createElement(
+        "textarea"
+      );
+
+    area.value =
+      text;
+
+    document.body.appendChild(
+      area
+    );
+
+    area.select();
+
+    document.execCommand(
+      "copy"
+    );
+
+    area.remove();
 
     toast(
-      "Não foi possível copiar"
+      "Resultado copiado"
     );
 
   }
@@ -4379,26 +5038,18 @@ async function copyResult(){
    MEMÓRIA
 ===================================================== */
 
-function saveMemory(){
-
-  localStorage.setItem(
-    "calpro_memory",
-    String(
-      calculator.memory
-    )
-  );
-
-}
-
-
 function memoryAction(
   action
 ){
 
   vibrate();
 
+
   const value =
-    currentNumber();
+    Number(
+      calculator.current
+    );
+
 
   switch(action){
 
@@ -4409,6 +5060,7 @@ function memoryAction(
 
       break;
 
+
     case "MR":
 
       calculator.current =
@@ -4416,44 +5068,72 @@ function memoryAction(
           calculator.memory
         );
 
+      calculator.justCalculated =
+        false;
+
       break;
+
 
     case "M+":
 
-      calculator.memory +=
-        value;
+      if(
+        Number.isFinite(value)
+      ){
+
+        calculator.memory +=
+          value;
+
+      }
 
       break;
+
 
     case "M-":
 
-      calculator.memory -=
-        value;
+      if(
+        Number.isFinite(value)
+      ){
+
+        calculator.memory -=
+          value;
+
+      }
 
       break;
+
 
     case "MS":
 
-      calculator.memory =
-        value;
+      if(
+        Number.isFinite(value)
+      ){
+
+        calculator.memory =
+          value;
+
+      }
 
       break;
 
   }
 
-  saveMemory();
 
-  updateCalculator();
-
-  if(
-    action !== "MR"
-  ){
-
-    toast(
-      "Memória atualizada"
+  calculator.memory =
+    roundNumber(
+      calculator.memory,
+      12
     );
 
-  }
+
+  localStorage.setItem(
+    "calpro_memory",
+    String(
+      calculator.memory
+    )
+  );
+
+
+  updateCalculator();
 
 }
 
@@ -4472,7 +5152,9 @@ function getHistory(){
       ) || "[]"
     );
 
-  }catch{
+  }
+
+  catch{
 
     return [];
 
@@ -4481,37 +5163,7 @@ function getHistory(){
 }
 
 
-function escapeHtml(
-  value
-){
-
-  return String(value)
-    .replace(
-      /[&<>"']/g,
-      character => {
-
-        const map = {
-
-          "&":"&amp;",
-          "<":"&lt;",
-          ">":"&gt;",
-          '"':"&quot;",
-          "'":"&#039;"
-
-        };
-
-        return map[
-          character
-        ];
-
-      }
-    );
-
-}
-
-
-function addHistory(
-  type,
+function saveHistory(
   expression,
   result
 ){
@@ -4519,29 +5171,28 @@ function addHistory(
   const history =
     getHistory();
 
+
   history.unshift({
 
-    type,
     expression,
+
     result,
 
     date:
-      new Date()
-        .toLocaleString(
-          "pt-BR"
-        )
+      new Date().toLocaleString(
+        "pt-BR"
+      )
 
   });
+
 
   localStorage.setItem(
     "calpro_history",
     JSON.stringify(
-      history.slice(
-        0,
-        100
-      )
+      history.slice(0,100)
     )
   );
+
 
   renderHistory();
 
@@ -4550,32 +5201,29 @@ function addHistory(
 
 function renderHistory(){
 
-  const list =
+  const container =
     $("#historyList");
 
+
   if(
-    !list
+    !container
   ){
-
     return;
-
   }
+
 
   const history =
     getHistory();
+
 
   if(
     !history.length
   ){
 
-    list.innerHTML = `
+    container.innerHTML = `
       <div
-        style="
-          padding:24px;
-          text-align:center;
-          color:var(--muted);
-          font-size:12px;
-        "
+        class="history-item"
+        style="color:var(--muted);"
       >
         Nenhum cálculo realizado.
       </div>
@@ -4585,7 +5233,8 @@ function renderHistory(){
 
   }
 
-  list.innerHTML =
+
+  container.innerHTML =
     history
       .map(
         item => `
@@ -4593,29 +5242,19 @@ function renderHistory(){
           <div class="history-item">
 
             <div>
-
-              <strong>
-                ${escapeHtml(
-                  item.type
-                )}
-              </strong>
-
-              <span>
-                —
-              </span>
-
-              <span class="history-result">
-                ${escapeHtml(
-                  item.result
-                )}
-              </span>
-
-            </div>
-
-            <div>
               ${escapeHtml(
                 item.expression
               )}
+              =
+              <span class="history-result">
+                ${escapeHtml(
+                  formatBrazilian(
+                    Number(
+                      item.result
+                    )
+                  )
+                )}
+              </span>
             </div>
 
             <small>
@@ -4633,20 +5272,39 @@ function renderHistory(){
 }
 
 
+function escapeHtml(
+  value
+){
+
+  return String(value)
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
 $("#clearHistory")
   .addEventListener(
     "click",
     () => {
-
-      if(
-        !confirm(
-          "Deseja realmente limpar o histórico?"
-        )
-      ){
-
-        return;
-
-      }
 
       localStorage.removeItem(
         "calpro_history"
@@ -4655,789 +5313,8 @@ $("#clearHistory")
       renderHistory();
 
       toast(
-        "Histórico apagado"
+        "Histórico limpo"
       );
-
-    }
-  );
-
-
-/* =====================================================
-   INPUTS COMERCIAIS
-===================================================== */
-
-function parseBrazilian(
-  value
-){
-
-  if(
-    typeof value !== "string"
-  ){
-
-    return Number(value) || 0;
-
-  }
-
-  let text =
-    value.trim();
-
-  if(
-    !text
-  ){
-
-    return 0;
-
-  }
-
-  if(
-    text.includes(",")
-  ){
-
-    text =
-      text
-        .replace(
-          /\./g,
-          ""
-        )
-        .replace(
-          ",",
-          "."
-        );
-
-  }
-
-  const result =
-    Number(text);
-
-  return Number.isFinite(result)
-    ? result
-    : 0;
-
-}
-
-
-function formatCommercialInput(
-  input
-){
-
-  let value =
-    input.value
-      .replace(
-        /[^0-9,.-]/g,
-        ""
-      );
-
-  const negative =
-    value.startsWith("-");
-
-  value =
-    value.replace(
-      /-/g,
-      ""
-    );
-
-  const parts =
-    value.split(",");
-
-  let integer =
-    parts[0] || "0";
-
-  let decimal =
-    parts.length > 1
-      ? parts
-          .slice(1)
-          .join("")
-      : "";
-
-  integer =
-    integer.replace(
-      /^0+(?=\d)/,
-      ""
-    ) || "0";
-
-  integer =
-    integer.replace(
-      /\B(?=(\d{3})+(?!\d))/g,
-      "."
-    );
-
-  input.value =
-    (
-      negative
-        ? "-"
-        : ""
-    ) +
-    integer +
-    (
-      parts.length > 1
-        ? "," +
-          decimal.slice(
-            0,
-            10
-          )
-        : ""
-    );
-
-}
-
-
-const commercialInputIds = [
-
-  "marginCost",
-  "marginSale",
-
-  "priceCost",
-  "priceMargin",
-  "priceMarkup",
-
-  "discountOriginal",
-  "discountPercent",
-
-  "markupCost",
-  "markupPercent",
-
-  "commissionPercent",
-  "commissionValue"
-
-];
-
-
-commercialInputIds.forEach(
-  id => {
-
-    const input =
-      document.getElementById(
-        id
-      );
-
-    if(
-      !input
-    ){
-
-      return;
-
-    }
-
-    input.addEventListener(
-      "input",
-      () => {
-
-        formatCommercialInput(
-          input
-        );
-
-      }
-    );
-
-  }
-);
-
-
-/* =====================================================
-   RESULTADO COMERCIAL
-===================================================== */
-
-function renderResult(
-  id,
-  rows
-){
-
-  const element =
-    document.getElementById(
-      id
-    );
-
-  if(
-    !element
-  ){
-
-    return;
-
-  }
-
-  element.innerHTML =
-    rows
-      .map(
-        row => `
-
-          <div class="result-row">
-
-            <span>
-              ${escapeHtml(
-                row[0]
-              )}
-            </span>
-
-            <strong>
-              ${escapeHtml(
-                row[1]
-              )}
-            </strong>
-
-          </div>
-
-        `
-      )
-      .join("");
-
-}
-
-
-/* =====================================================
-   ABAS COMERCIAIS
-===================================================== */
-
-function setCommercialTab(
-  name
-){
-
-  $$(".commercial-tab")
-    .forEach(
-      button => {
-
-        button.classList.toggle(
-          "active",
-          button.dataset.tab === name
-        );
-
-      }
-    );
-
-  $$(".commercial-panel")
-    .forEach(
-      panel => {
-
-        panel.hidden =
-          panel.id !==
-          "panel-" + name;
-
-      }
-    );
-
-}
-
-
-/* =====================================================
-   CÁLCULOS COMERCIAIS
-===================================================== */
-
-$$("[data-calc-commercial]")
-  .forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          vibrate();
-
-          const type =
-            button.dataset
-              .calcCommercial;
-
-
-          /* MARGEM */
-
-          if(
-            type === "margin"
-          ){
-
-            const cost =
-              parseBrazilian(
-                $("#marginCost").value
-              );
-
-            const sale =
-              parseBrazilian(
-                $("#marginSale").value
-              );
-
-            if(
-              cost <= 0 ||
-              sale <= 0
-            ){
-
-              toast(
-                "Informe custo e preço de venda"
-              );
-
-              return;
-
-            }
-
-            const profit =
-              sale - cost;
-
-            const margin =
-              profit /
-              sale *
-              100;
-
-            const markup =
-              profit /
-              cost *
-              100;
-
-            renderResult(
-              "result-margin",
-              [
-
-                [
-                  "Lucro",
-                  money(profit)
-                ],
-
-                [
-                  "Margem",
-                  percentage(margin)
-                ],
-
-                [
-                  "Markup",
-                  percentage(markup)
-                ]
-
-              ]
-            );
-
-            addHistory(
-              "Margem",
-              money(cost) +
-              " → " +
-              money(sale),
-              percentage(margin)
-            );
-
-          }
-
-
-          /* PREÇO */
-
-          if(
-            type === "price"
-          ){
-
-            const cost =
-              parseBrazilian(
-                $("#priceCost").value
-              );
-
-            const margin =
-              parseBrazilian(
-                $("#priceMargin").value
-              );
-
-            const markup =
-              parseBrazilian(
-                $("#priceMarkup").value
-              );
-
-            if(
-              cost <= 0
-            ){
-
-              toast(
-                "Informe o custo"
-              );
-
-              return;
-
-            }
-
-            let sale;
-
-            if(
-              margin > 0
-            ){
-
-              if(
-                margin >= 100
-              ){
-
-                toast(
-                  "A margem deve ser menor que 100%"
-                );
-
-                return;
-
-              }
-
-              sale =
-                cost /
-                (
-                  1 -
-                  margin /
-                  100
-                );
-
-            }
-
-            else if(
-              markup > 0
-            ){
-
-              sale =
-                cost *
-                (
-                  1 +
-                  markup /
-                  100
-                );
-
-            }
-
-            else{
-
-              toast(
-                "Informe margem ou markup"
-              );
-
-              return;
-
-            }
-
-            const profit =
-              sale - cost;
-
-            const realMargin =
-              profit /
-              sale *
-              100;
-
-            const realMarkup =
-              profit /
-              cost *
-              100;
-
-            renderResult(
-              "result-price",
-              [
-
-                [
-                  "Preço de venda",
-                  money(sale)
-                ],
-
-                [
-                  "Lucro",
-                  money(profit)
-                ],
-
-                [
-                  "Margem real",
-                  percentage(realMargin)
-                ],
-
-                [
-                  "Markup real",
-                  percentage(realMarkup)
-                ]
-
-              ]
-            );
-
-            addHistory(
-              "Preço",
-              money(cost),
-              money(sale)
-            );
-
-          }
-
-
-          /* DESCONTO */
-
-          if(
-            type === "discount"
-          ){
-
-            const original =
-              parseBrazilian(
-                $("#discountOriginal").value
-              );
-
-            const percent =
-              parseBrazilian(
-                $("#discountPercent").value
-              );
-
-            if(
-              original <= 0 ||
-              percent < 0 ||
-              percent > 100
-            ){
-
-              toast(
-                "Informe valores válidos"
-              );
-
-              return;
-
-            }
-
-            const discount =
-              original *
-              percent /
-              100;
-
-            const finalPrice =
-              original -
-              discount;
-
-            renderResult(
-              "result-discount",
-              [
-
-                [
-                  "Desconto",
-                  money(discount)
-                ],
-
-                [
-                  "Preço final",
-                  money(finalPrice)
-                ],
-
-                [
-                  "Percentual",
-                  percentage(percent)
-                ]
-
-              ]
-            );
-
-            addHistory(
-              "Desconto",
-              money(original) +
-              " − " +
-              percentage(percent),
-              money(finalPrice)
-            );
-
-          }
-
-
-          /* MARKUP */
-
-          if(
-            type === "markup"
-          ){
-
-            const cost =
-              parseBrazilian(
-                $("#markupCost").value
-              );
-
-            const percent =
-              parseBrazilian(
-                $("#markupPercent").value
-              );
-
-            if(
-              cost <= 0 ||
-              percent < 0
-            ){
-
-              toast(
-                "Informe valores válidos"
-              );
-
-              return;
-
-            }
-
-            const profit =
-              cost *
-              percent /
-              100;
-
-            const sale =
-              cost +
-              profit;
-
-            const margin =
-              profit /
-              sale *
-              100;
-
-            renderResult(
-              "result-markup",
-              [
-
-                [
-                  "Preço de venda",
-                  money(sale)
-                ],
-
-                [
-                  "Lucro",
-                  money(profit)
-                ],
-
-                [
-                  "Margem",
-                  percentage(margin)
-                ],
-
-                [
-                  "Markup",
-                  percentage(percent)
-                ]
-
-              ]
-            );
-
-            addHistory(
-              "Markup",
-              money(cost) +
-              " + " +
-              percentage(percent),
-              money(sale)
-            );
-
-          }
-
-
-          /* COMISSÃO */
-
-          if(
-            type === "commission"
-          ){
-
-            const mode =
-              $("#commissionMode").value;
-
-            const percent =
-              parseBrazilian(
-                $("#commissionPercent").value
-              );
-
-            const value =
-              parseBrazilian(
-                $("#commissionValue").value
-              );
-
-            if(
-              percent <= 0 ||
-              value <= 0
-            ){
-
-              toast(
-                "Informe comissão e valor"
-              );
-
-              return;
-
-            }
-
-            const rate =
-              percent / 100;
-
-
-            if(
-              mode === "sale"
-            ){
-
-              const commission =
-                value * rate;
-
-              const net =
-                value -
-                commission;
-
-              renderResult(
-                "result-commission",
-                [
-
-                  [
-                    "Venda",
-                    money(value)
-                  ],
-
-                  [
-                    "Comissão",
-                    money(commission)
-                  ],
-
-                  [
-                    "Líquido",
-                    money(net)
-                  ]
-
-                ]
-              );
-
-              addHistory(
-                "Comissão",
-                money(value) +
-                " × " +
-                percentage(percent),
-                money(commission)
-              );
-
-            }
-
-
-            else{
-
-              const requiredSales =
-                value / rate;
-
-              renderResult(
-                "result-commission",
-                [
-
-                  [
-                    "Comissão desejada",
-                    money(value)
-                  ],
-
-                  [
-                    "Percentual",
-                    percentage(percent)
-                  ],
-
-                  [
-                    "Faturamento necessário",
-                    money(requiredSales)
-                  ]
-
-                ]
-              );
-
-              addHistory(
-                "Comissão",
-                money(value) +
-                " ÷ " +
-                percentage(percent),
-                money(requiredSales)
-              );
-
-            }
-
-          }
-
-        }
-      );
-
-    }
-  );
-
-
-/* =====================================================
-   MODO COMISSÃO
-===================================================== */
-
-$("#commissionMode")
-  .addEventListener(
-    "change",
-    event => {
-
-      $("#commissionValueLabel")
-        .textContent =
-          event.target.value === "sale"
-            ? "Valor da venda (R$)"
-            : "Comissão desejada (R$)";
 
     }
   );
@@ -5462,6 +5339,7 @@ function navigate(
 
       }
     );
+
 
   $$(".nav-btn")
     .forEach(
@@ -5521,7 +5399,690 @@ $$("[data-open]")
 
 
 /* =====================================================
-   CALCULADORA — BOTÕES
+   ABAS COMERCIAIS
+===================================================== */
+
+function setCommercialTab(
+  name
+){
+
+  $$(".commercial-tab")
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.commercialTab === name
+        );
+
+      }
+    );
+
+
+  $$(".commercial-panel")
+    .forEach(
+      panel => {
+
+        panel.style.display =
+          panel.id ===
+          "panel-" + name
+            ? "block"
+            : "none";
+
+      }
+    );
+
+}
+
+
+$$("[data-commercial-tab]")
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          vibrate();
+
+          setCommercialTab(
+            button.dataset.commercialTab
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   INPUTS COMERCIAIS
+===================================================== */
+
+$$(".field input")
+  .forEach(
+    input => {
+
+      input.addEventListener(
+        "blur",
+        () => {
+
+          if(
+            input.value.trim()
+          ){
+
+            const value =
+              cleanNumber(
+                input.value
+              );
+
+            input.value =
+              formatBrazilian(
+                value,
+                4
+              );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   RESULTADO COMERCIAL
+===================================================== */
+
+function renderResult(
+  id,
+  rows
+){
+
+  const container =
+    $("#" + id);
+
+
+  container.innerHTML =
+    rows
+      .map(
+        row => `
+
+          <div class="result-row">
+
+            <span>
+              ${escapeHtml(row[0])}
+            </span>
+
+            <strong>
+              ${escapeHtml(row[1])}
+            </strong>
+
+          </div>
+
+        `
+      )
+      .join("");
+
+}
+
+
+/* =====================================================
+   CÁLCULOS COMERCIAIS
+===================================================== */
+
+$$("[data-calc-commercial]")
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          vibrate();
+
+          const type =
+            button.dataset.calcCommercial;
+
+
+          /* MARGEM */
+
+          if(
+            type === "margin"
+          ){
+
+            const cost =
+              cleanNumber(
+                $("#marginCost").value
+              );
+
+            const sale =
+              cleanNumber(
+                $("#marginSale").value
+              );
+
+
+            if(
+              cost <= 0 ||
+              sale <= 0
+            ){
+
+              toast(
+                "Informe custo e preço de venda"
+              );
+
+              return;
+
+            }
+
+
+            const profit =
+              sale - cost;
+
+            const margin =
+              profit /
+              sale *
+              100;
+
+            const markup =
+              profit /
+              cost *
+              100;
+
+
+            renderResult(
+              "result-margin",
+              [
+
+                [
+                  "Lucro",
+                  money(profit)
+                ],
+
+                [
+                  "Margem",
+                  percentage(margin)
+                ],
+
+                [
+                  "Markup",
+                  percentage(markup)
+                ]
+
+              ]
+            );
+
+
+            saveHistory(
+              "Margem " +
+              money(cost) +
+              " → " +
+              money(sale),
+              margin
+            );
+
+          }
+
+
+          /* PREÇO */
+
+          if(
+            type === "price"
+          ){
+
+            const cost =
+              cleanNumber(
+                $("#priceCost").value
+              );
+
+            const margin =
+              cleanNumber(
+                $("#priceMargin").value
+              );
+
+            const markup =
+              cleanNumber(
+                $("#priceMarkup").value
+              );
+
+
+            if(
+              cost <= 0
+            ){
+
+              toast(
+                "Informe o custo"
+              );
+
+              return;
+
+            }
+
+
+            let sale;
+
+
+            if(
+              margin > 0
+            ){
+
+              if(
+                margin >= 100
+              ){
+
+                toast(
+                  "A margem deve ser menor que 100%"
+                );
+
+                return;
+
+              }
+
+
+              sale =
+                cost /
+                (
+                  1 -
+                  margin /
+                  100
+                );
+
+            }
+
+            else if(
+              markup > 0
+            ){
+
+              sale =
+                cost *
+                (
+                  1 +
+                  markup /
+                  100
+                );
+
+            }
+
+            else{
+
+              toast(
+                "Informe margem ou markup"
+              );
+
+              return;
+
+            }
+
+
+            const profit =
+              sale - cost;
+
+            const realMargin =
+              profit /
+              sale *
+              100;
+
+            const realMarkup =
+              profit /
+              cost *
+              100;
+
+
+            renderResult(
+              "result-price",
+              [
+
+                [
+                  "Preço de venda",
+                  money(sale)
+                ],
+
+                [
+                  "Lucro",
+                  money(profit)
+                ],
+
+                [
+                  "Margem real",
+                  percentage(realMargin)
+                ],
+
+                [
+                  "Markup real",
+                  percentage(realMarkup)
+                ]
+
+              ]
+            );
+
+
+            saveHistory(
+              "Preço " +
+              money(cost),
+              sale
+            );
+
+          }
+
+
+          /* DESCONTO */
+
+          if(
+            type === "discount"
+          ){
+
+            const original =
+              cleanNumber(
+                $("#discountOriginal").value
+              );
+
+            const percent =
+              cleanNumber(
+                $("#discountPercent").value
+              );
+
+
+            if(
+              original <= 0 ||
+              percent < 0 ||
+              percent > 100
+            ){
+
+              toast(
+                "Informe valores válidos"
+              );
+
+              return;
+
+            }
+
+
+            const discount =
+              original *
+              percent /
+              100;
+
+            const finalPrice =
+              original -
+              discount;
+
+
+            renderResult(
+              "result-discount",
+              [
+
+                [
+                  "Desconto",
+                  money(discount)
+                ],
+
+                [
+                  "Preço final",
+                  money(finalPrice)
+                ],
+
+                [
+                  "Percentual",
+                  percentage(percent)
+                ]
+
+              ]
+            );
+
+
+            saveHistory(
+              "Desconto " +
+              money(original) +
+              " − " +
+              percentage(percent),
+              finalPrice
+            );
+
+          }
+
+
+          /* MARKUP */
+
+          if(
+            type === "markup"
+          ){
+
+            const cost =
+              cleanNumber(
+                $("#markupCost").value
+              );
+
+            const percent =
+              cleanNumber(
+                $("#markupPercent").value
+              );
+
+
+            if(
+              cost <= 0 ||
+              percent < 0
+            ){
+
+              toast(
+                "Informe valores válidos"
+              );
+
+              return;
+
+            }
+
+
+            const profit =
+              cost *
+              percent /
+              100;
+
+            const sale =
+              cost +
+              profit;
+
+            const margin =
+              profit /
+              sale *
+              100;
+
+
+            renderResult(
+              "result-markup",
+              [
+
+                [
+                  "Preço de venda",
+                  money(sale)
+                ],
+
+                [
+                  "Lucro",
+                  money(profit)
+                ],
+
+                [
+                  "Margem",
+                  percentage(margin)
+                ],
+
+                [
+                  "Markup",
+                  percentage(percent)
+                ]
+
+              ]
+            );
+
+
+            saveHistory(
+              "Markup " +
+              money(cost) +
+              " + " +
+              percentage(percent),
+              sale
+            );
+
+          }
+
+
+          /* COMISSÃO */
+
+          if(
+            type === "commission"
+          ){
+
+            const mode =
+              $("#commissionMode").value;
+
+            const percent =
+              cleanNumber(
+                $("#commissionPercent").value
+              );
+
+            const value =
+              cleanNumber(
+                $("#commissionValue").value
+              );
+
+
+            if(
+              percent <= 0 ||
+              value <= 0
+            ){
+
+              toast(
+                "Informe comissão e valor"
+              );
+
+              return;
+
+            }
+
+
+            const rate =
+              percent /
+              100;
+
+
+            if(
+              mode === "sale"
+            ){
+
+              const commission =
+                value *
+                rate;
+
+              const net =
+                value -
+                commission;
+
+
+              renderResult(
+                "result-commission",
+                [
+
+                  [
+                    "Venda",
+                    money(value)
+                  ],
+
+                  [
+                    "Comissão",
+                    money(commission)
+                  ],
+
+                  [
+                    "Líquido",
+                    money(net)
+                  ]
+
+                ]
+              );
+
+
+              saveHistory(
+                "Comissão " +
+                money(value) +
+                " × " +
+                percentage(percent),
+                commission
+              );
+
+            }
+
+            else{
+
+              const requiredSales =
+                value /
+                rate;
+
+
+              renderResult(
+                "result-commission",
+                [
+
+                  [
+                    "Comissão desejada",
+                    money(value)
+                  ],
+
+                  [
+                    "Percentual",
+                    percentage(percent)
+                  ],
+
+                  [
+                    "Faturamento necessário",
+                    money(requiredSales)
+                  ]
+
+                ]
+              );
+
+
+              saveHistory(
+                "Comissão desejada " +
+                money(value) +
+                " ÷ " +
+                percentage(percent),
+                requiredSales
+              );
+
+            }
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   MODO COMISSÃO
+===================================================== */
+
+$("#commissionMode")
+  .addEventListener(
+    "change",
+    event => {
+
+      $("#commissionValueLabel")
+        .textContent =
+          event.target.value === "sale"
+            ? "Valor da venda (R$)"
+            : "Comissão desejada (R$)";
+
+    }
+  );
+
+
+/* =====================================================
+   BOTÕES DA CALCULADORA
 ===================================================== */
 
 $$("[data-number]")
@@ -5555,239 +6116,161 @@ $$("[data-key]")
             button.dataset.key;
 
 
-          if(
-            action ===
-            "decimal-comma" ||
-            action ===
-            "decimal-dot"
-          ){
+          switch(action){
 
-            inputDecimal();
+            case "decimal-comma":
+            case "decimal-dot":
 
-            return;
+              inputDecimal();
 
-          }
+              break;
 
 
-          if(
-            action === "clear"
-          ){
+            case "clear":
 
-            resetCalculator();
+              resetCalculator();
 
-            return;
+              break;
 
-          }
 
+            case "clearEntry":
 
-          if(
-            action === "clearEntry"
-          ){
+              clearEntry();
 
-            clearEntry();
+              break;
 
-            return;
 
-          }
+            case "backspace":
 
+              backspace();
 
-          if(
-            action === "backspace"
-          ){
+              break;
 
-            backspace();
 
-            return;
+            case "sign":
 
-          }
+              toggleSign();
 
+              break;
 
-          if(
-            action === "sign"
-          ){
 
-            toggleSign();
+            case "percent":
 
-            return;
+              percentCurrent();
 
-          }
+              break;
 
 
-          if(
-            action === "percent"
-          ){
+            case "add":
 
-            percentCurrent();
+              chooseOperator(
+                "add"
+              );
 
-            return;
+              break;
 
-          }
 
+            case "subtract":
 
-          if(
-            action === "add"
-          ){
+              chooseOperator(
+                "subtract"
+              );
 
-            chooseOperator(
-              "add"
-            );
+              break;
 
-            return;
 
-          }
+            case "multiply":
 
+              chooseOperator(
+                "multiply"
+              );
 
-          if(
-            action === "subtract"
-          ){
+              break;
 
-            chooseOperator(
-              "subtract"
-            );
 
-            return;
+            case "divide":
 
-          }
+              chooseOperator(
+                "divide"
+              );
 
+              break;
 
-          if(
-            action === "multiply"
-          ){
 
-            chooseOperator(
-              "multiply"
-            );
+            case "equals":
 
-            return;
+              equals();
 
-          }
+              break;
 
 
-          if(
-            action === "divide"
-          ){
+            case "leftParen":
 
-            chooseOperator(
-              "divide"
-            );
+              inputLeftParen();
 
-            return;
+              break;
 
-          }
 
+            case "rightParen":
 
-          if(
-            action === "equals"
-          ){
+              inputRightParen();
 
-            equals();
+              break;
 
-            return;
 
-          }
+            case "sqrt":
 
+              unaryFunction(
+                "sqrt"
+              );
 
-          if(
-            action === "leftParen"
-          ){
+              break;
 
-            inputLeftParen();
 
-            return;
+            case "square":
 
-          }
+              unaryFunction(
+                "square"
+              );
 
+              break;
 
-          if(
-            action === "rightParen"
-          ){
 
-            inputRightParen();
+            case "power":
 
-            return;
+              chooseOperator(
+                "power"
+              );
 
-          }
+              break;
 
 
-          if(
-            action === "sqrt"
-          ){
+            case "pi":
 
-            unaryFunction(
-              "sqrt"
-            );
+              insertPi();
 
-            return;
+              break;
 
-          }
 
+            case "ans":
 
-          if(
-            action === "square"
-          ){
+              insertAns();
 
-            unaryFunction(
-              "square"
-            );
+              break;
 
-            return;
 
-          }
+            case "copy":
 
+              copyResult();
 
-          if(
-            action === "power"
-          ){
+              break;
 
-            chooseOperator(
-              "power"
-            );
 
-            return;
+            case "repeat":
 
-          }
+              equals();
 
-
-          if(
-            action === "pi"
-          ){
-
-            insertPi();
-
-            return;
-
-          }
-
-
-          if(
-            action === "ans"
-          ){
-
-            insertAns();
-
-            return;
-
-          }
-
-
-          if(
-            action === "copy"
-          ){
-
-            copyResult();
-
-            return;
-
-          }
-
-
-          if(
-            action === "repeat"
-          ){
-
-            equals();
-
-            return;
+              break;
 
           }
 
@@ -5833,9 +6316,11 @@ $("#advancedToggle")
       const advanced =
         $("#advanced");
 
+
       advanced.classList.toggle(
         "open"
       );
+
 
       $("#advancedToggle")
         .textContent =
@@ -5871,6 +6356,7 @@ document.addEventListener(
     const tag =
       document.activeElement?.tagName;
 
+
     if(
       tag === "INPUT" ||
       tag === "TEXTAREA" ||
@@ -5880,6 +6366,7 @@ document.addEventListener(
       return;
 
     }
+
 
     const key =
       event.key;
@@ -6086,10 +6573,12 @@ function setTheme(
     theme === "light"
   );
 
+
   localStorage.setItem(
     "calpro_theme",
     theme
   );
+
 
   $("#themeSelect").value =
     theme;
@@ -6101,6 +6590,7 @@ const savedTheme =
   localStorage.getItem(
     "calpro_theme"
   ) || "dark";
+
 
 setTheme(
   savedTheme
@@ -6116,6 +6606,7 @@ $("#themeBtn")
         document.body.classList.contains(
           "light"
         );
+
 
       setTheme(
         isLight
